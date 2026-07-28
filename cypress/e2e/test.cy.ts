@@ -1,6 +1,7 @@
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
+describe('Onboarding', () => {
+  it('muestra la portada al visitar la raíz', () => {
     cy.visit('/')
-    cy.contains('#container', 'Ready to create an app?')
+    cy.contains('LA COMPRA').should('be.visible')
+    cy.contains('button', 'Empezar').should('be.visible')
   })
 })

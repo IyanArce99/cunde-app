@@ -1,0 +1,43 @@
+.no-cocino__titulo {
+  margin: 0;
+  font: 600 34px/1.12 var(--font-display);
+  color: var(--tinta);
+  letter-spacing: -.015em;
+}
+
+.no-cocino__cuerpo {
+  margin: 14px 0 0;
+  font: 400 17px/1.5 var(--font-body);
+  color: var(--tinta);
+}
+
+.no-cocino__cuentas {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: var(--divider-dashed);
+  display: flex;
+  flex-direction: column;
+}
+
+.no-cocino__total {
+  border-top: var(--divider-total);
+  margin-top: 4px;
+  padding-top: 4px;
+  font-weight: 500;
+}
+
+.no-cocino__cuentas+.primary-button {
+  margin-top: 18px;
+}
+
+.no-cocino__salida {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.no-cocino__salida a {
+  font: 400 17px/1 var(--font-body);
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pauta);
+}

@@ -1,0 +1,29 @@
+.top-tabs {
+  padding: 0 30px 4px;
+  border-bottom: var(--divider-dashed);
+  display: flex;
+  gap: 18px;
+  flex: none;
+  overflow-x: auto;
+}
+
+.top-tabs__tab {
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+  min-height: var(--tap-min);
+  padding: 0 0 8px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .18em;
+  color: var(--gris);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.top-tabs__tab--activo {
+  border-bottom-color: var(--tinta);
+  color: var(--tinta);
+}

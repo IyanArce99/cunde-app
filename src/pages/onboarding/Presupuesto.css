@@ -1,0 +1,121 @@
+.presupuesto__cabecera {
+  padding: 10px 0 12px;
+  border-bottom: var(--divider-dashed);
+  flex: none;
+}
+
+.presupuesto__cabecera-fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.presupuesto__marca {
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: .22em;
+  color: var(--tinta);
+}
+
+.presupuesto__paso {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+.presupuesto__cuerpo {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 26px;
+  overflow-y: auto;
+}
+
+.presupuesto__pregunta {
+  margin: 0;
+  font: 600 22px/1.25 var(--font-display);
+  color: var(--tinta);
+}
+
+.presupuesto__centro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+
+.presupuesto__cifra {
+  font: 700 56px/1 var(--font-display);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+.presupuesto__por-dia {
+  margin-top: 12px;
+  font: 400 15px/1 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.presupuesto__slider {
+  margin-top: 42px;
+}
+
+.presupuesto__resumen {
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: var(--divider-dashed);
+}
+
+.presupuesto__aviso {
+  margin-top: 26px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--roja);
+  background: var(--papel-2);
+}
+
+.presupuesto__aviso-texto {
+  margin: 0;
+  font: 400 15px/1.5 var(--font-mono);
+  color: var(--tinta);
+}
+
+.presupuesto__aviso-acciones {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.presupuesto__aviso-subir {
+  min-height: var(--tap-min);
+  padding: 0 16px;
+  background: var(--azulete);
+  color: var(--papel);
+  border: none;
+  border-radius: var(--radius-sm);
+  font: 600 15px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.presupuesto__aviso-volver {
+  min-height: 48px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--gris);
+  font: 400 13px/1 var(--font-mono);
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+}
+
+.presupuesto__nota {
+  margin-top: 14px;
+  text-align: center;
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}

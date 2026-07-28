@@ -1,0 +1,177 @@
+.semana__resumen,
+.semana__gate-cabecera {
+  padding: 20px 30px 0;
+  flex: none;
+}
+
+.semana__etiqueta {
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .2em;
+  color: var(--gris);
+}
+
+.semana__cifra {
+  margin-top: 8px;
+  font: 700 56px/1 var(--font-display);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+.semana__barra {
+  margin-top: 18px;
+  height: 10px;
+  background: var(--barra-fondo);
+}
+
+.semana__barra-relleno {
+  height: 100%;
+}
+
+.semana__barra-pie {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: space-between;
+  font: 400 13px/1 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.semana__barra-pie-secundario {
+  color: var(--gris);
+}
+
+.semana__sobrante {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0 14px;
+  background: var(--oferta-fondo);
+  border: 1.5px solid var(--oferta-borde);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+}
+
+.semana__sobrante--negativo {
+  /* Sin fondo ni borde de alarma: el rojo va solo en la cifra (arriba, en el
+     título) — misma caja neutra que cualquier otra fila de la app. */
+  background: transparent;
+  border-color: rgba(169, 164, 152, .7);
+}
+
+.semana__sobrante-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.semana__sobrante-titulo {
+  font: 500 17px/1.1 var(--font-body);
+  color: var(--tinta);
+}
+
+.semana__sobrante-subtitulo {
+  font: 400 13px/1.2 var(--font-mono);
+  color: var(--gris);
+}
+
+.semana__sobrante-flecha {
+  font: 400 17px/1 var(--font-mono);
+  color: var(--azulete);
+}
+
+.semana__ajuste {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0;
+  background: none;
+  border: none;
+  border-bottom: var(--divider-dashed);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* En cualquier otro sitio de la app, una fila de puntos es un dato ("Súper
+   ···· Mercadona"). Aquí es la única que además es un botón: le damos a
+   "ajustar" más peso que a un valor cualquiera para que no se confunda
+   con una fila informativa más. */
+.semana__ajuste .ticket-row__value {
+  font-weight: 500;
+}
+
+.semana__dias-envoltorio {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 14px 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.semana__dias {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.semana__dia {
+  flex: none;
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--papel);
+  border: 1px solid rgba(169, 164, 152, .7);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.semana__dia-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.semana__dia-nombre {
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .2em;
+  color: var(--gris);
+}
+
+.semana__dia-flecha {
+  margin-left: 8px;
+  color: var(--azulete);
+  font-family: var(--font-mono);
+}
+
+.semana__dia-meta {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+.semana__dia-plato {
+  margin-top: 6px;
+  font: 600 17px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
+.semana__pie {
+  flex: none;
+  padding: 12px 30px 34px;
+  background: var(--papel);
+  border-top: var(--divider-dashed);
+}

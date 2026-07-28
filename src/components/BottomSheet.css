@@ -1,0 +1,29 @@
+.bottom-sheet__velo {
+  position: fixed;
+  inset: 0;
+  background: var(--velo);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottom-sheet__hoja {
+  width: 100%;
+  max-height: 92%;
+  overflow-y: auto;
+  background: var(--papel);
+  border-top: 1.5px dashed var(--pauta);
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+  padding: 26px 30px 34px;
+  animation: bottom-sheet-entrada .24s ease-out;
+}
+
+@keyframes bottom-sheet-entrada {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

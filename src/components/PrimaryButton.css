@@ -1,0 +1,30 @@
+.primary-button {
+  width: 100%;
+  min-height: var(--tap-min);
+  border-radius: var(--radius-sm);
+  font: 600 17px/1 var(--font-body);
+  cursor: pointer;
+  border: none;
+}
+
+.primary-button:disabled {
+  /* Nunca opacity: en un botón, difumina fondo Y texto hacia el mismo color
+     de detrás, lo que reduce el contraste entre ambos en vez de solo
+     "apagar" el botón (medido: caía a 1,59:1). Reutilizamos el mismo
+     lenguaje visual de "no seleccionado" que ya existe en OptionButton. */
+  cursor: not-allowed;
+  background: transparent;
+  border: 1.5px solid var(--pauta);
+  color: var(--gris);
+}
+
+.primary-button--azulete {
+  background: var(--azulete);
+  color: var(--papel);
+}
+
+.primary-button--contorno {
+  background: transparent;
+  border: 1.5px solid var(--pauta);
+  color: var(--tinta);
+}

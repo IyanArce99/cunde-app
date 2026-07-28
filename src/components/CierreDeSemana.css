@@ -1,0 +1,80 @@
+.cierre__etiqueta {
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .2em;
+  color: var(--gris);
+}
+
+.cierre__titulo {
+  margin: 10px 0 0;
+  font: 600 34px/1.12 var(--font-display);
+  color: var(--tinta);
+  letter-spacing: -.015em;
+}
+
+.cierre__caja {
+  margin-top: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border: 1.5px solid var(--azulete);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  background: var(--azulete-fondo-fuerte);
+}
+
+.cierre__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font: 500 34px/1 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.cierre__input::placeholder {
+  color: rgba(26, 25, 23, .3);
+}
+
+.cierre__moneda {
+  font: 500 22px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+.cierre__cuentas {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: var(--divider-dashed);
+  display: flex;
+  flex-direction: column;
+}
+
+.cierre__diferencia {
+  border-top: var(--divider-total);
+  margin-top: 4px;
+  padding-top: 4px;
+  font-weight: 500;
+}
+
+.cierre__nota {
+  margin: 16px 0 0;
+  font: 400 13px/1.5 var(--font-mono);
+  color: var(--gris);
+}
+
+.cierre__nota+.primary-button {
+  margin-top: 18px;
+}
+
+.cierre__salida {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.cierre__salida a {
+  font: 400 17px/1 var(--font-body);
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pauta);
+}

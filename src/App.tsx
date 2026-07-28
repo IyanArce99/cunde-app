@@ -1,7 +1,14 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { AppStateProvider, useAppState } from './state/AppStateContext';
+import Portada from './pages/onboarding/Portada';
+import Datos from './pages/onboarding/Datos';
+import Presupuesto from './pages/onboarding/Presupuesto';
+import Generando from './pages/onboarding/Generando';
+import Semana from './pages/Semana';
+import SemanaVariante from './pages/SemanaVariante';
+import Compra from './pages/Compra';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,21 +39,50 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/tokens.css';
 
 setupIonicReact();
 
+const Enrutador: React.FC = () => {
+  const { estado } = useAppState();
+
+  return (
+    <IonRouterOutlet>
+      <Route exact path="/onboarding/portada">
+        <Portada />
+      </Route>
+      <Route exact path="/onboarding/datos">
+        <Datos />
+      </Route>
+      <Route exact path="/onboarding/presupuesto">
+        <Presupuesto />
+      </Route>
+      <Route exact path="/onboarding/generando">
+        <Generando />
+      </Route>
+      <Route exact path="/semana">
+        <Semana />
+      </Route>
+      <Route exact path="/semana/variante">
+        <SemanaVariante />
+      </Route>
+      <Route exact path="/compra">
+        <Compra />
+      </Route>
+      <Route exact path="/">
+        <Redirect to={estado.onboardingCompletado ? '/semana' : '/onboarding/portada'} />
+      </Route>
+    </IonRouterOutlet>
+  );
+};
+
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
+    <AppStateProvider>
+      <IonReactRouter>
+        <Enrutador />
+      </IonReactRouter>
+    </AppStateProvider>
   </IonApp>
 );
 

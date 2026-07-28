@@ -1,0 +1,85 @@
+.fila-producto {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 76px;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(169, 164, 152, .4);
+  cursor: pointer;
+  text-align: left;
+}
+
+.fila-producto__caja {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--pauta);
+  border-radius: var(--radius-box);
+  background: transparent;
+  color: var(--papel);
+  font: 400 17px/26px var(--font-mono);
+  text-align: center;
+}
+
+.fila-producto__caja--marcada {
+  border-color: var(--azulete);
+  background: var(--azulete);
+}
+
+.fila-producto__contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fila-producto__linea1 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.fila-producto__nombre {
+  font: 500 17px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
+.fila-producto__nombre--marcado {
+  color: var(--gris);
+  text-decoration: line-through;
+}
+
+.fila-producto__etiqueta {
+  flex: none;
+  padding: 2px 6px;
+  border: 1px solid var(--pauta);
+  border-radius: 2px;
+  font: 400 13px/1.15 var(--font-mono);
+  color: var(--gris);
+  white-space: nowrap;
+}
+
+.fila-producto__linea2 {
+  color: var(--tinta);
+}
+
+.fila-producto__linea2 .ticket-row {
+  font: 400 15px/1.4 var(--font-mono);
+}
+
+.fila-producto__linea2--marcado {
+  color: var(--gris);
+}
+
+.fila-producto__linea2--marcado .ticket-row {
+  color: var(--gris);
+}
+
+.fila-producto__linea3 {
+  font: 400 13px/1.2 var(--font-mono);
+  color: var(--gris);
+}

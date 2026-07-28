@@ -1,0 +1,40 @@
+.budget-slider {
+  position: relative;
+  height: 56px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.budget-slider__carril {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 27px;
+  height: 2px;
+  background: var(--pauta);
+}
+
+.budget-slider__recorrido {
+  position: absolute;
+  left: 0;
+  top: 27px;
+  height: 2px;
+  background: var(--azulete);
+}
+
+.budget-slider__pulgar {
+  position: absolute;
+  top: 14px;
+  width: 28px;
+  height: 28px;
+  background: var(--azulete);
+  border-radius: var(--radius-box);
+}
+
+.budget-slider__extremos {
+  display: flex;
+  justify-content: space-between;
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}

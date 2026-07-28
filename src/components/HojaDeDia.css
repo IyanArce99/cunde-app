@@ -1,0 +1,101 @@
+.hoja-dia__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hoja-dia__titulo {
+  font: 600 13px/1.3 var(--font-body);
+  letter-spacing: .12em;
+  color: var(--tinta);
+}
+
+.hoja-dia__cerrar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin: -12px -12px -12px 0;
+  background: none;
+  border: none;
+  color: var(--gris);
+  font: 400 17px/1 var(--font-mono);
+  cursor: pointer;
+}
+
+.hoja-dia__cabecera+.ticket-row {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: var(--divider-dashed);
+}
+
+.hoja-dia__acciones {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hoja-dia__accion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 10px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hoja-dia__accion:disabled {
+  /* Nunca opacity sobre el bloque entero: medido, el título caía a 2,81:1,
+     el icono a 2,15:1. Se apagan a un gris sólido con contraste real
+     (4,61:1) en vez de difuminarse hacia el fondo. */
+  cursor: not-allowed;
+}
+
+.hoja-dia__accion:disabled .hoja-dia__icono,
+.hoja-dia__accion:disabled .hoja-dia__accion-titulo {
+  color: var(--gris);
+}
+
+.hoja-dia__icono {
+  flex: none;
+  width: 16px;
+  text-align: center;
+  font: 400 17px/1 var(--font-mono);
+  color: var(--azulete);
+}
+
+.hoja-dia__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hoja-dia__accion-titulo {
+  font: 600 17px/1.1 var(--font-body);
+  color: var(--tinta);
+}
+
+.hoja-dia__accion-subtitulo {
+  font: 400 13px/1.2 var(--font-mono);
+  color: var(--gris);
+}
+
+.hoja-dia__ver-receta {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.hoja-dia__ver-receta a {
+  font: 400 15px/1 var(--font-mono);
+  color: var(--gris);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pauta);
+}

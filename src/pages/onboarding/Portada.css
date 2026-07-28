@@ -1,0 +1,40 @@
+.portada__cabecera {
+  flex: none;
+  padding: 10px 0 12px;
+  border-bottom: var(--divider-dashed);
+}
+
+.portada__marca {
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: .22em;
+  color: var(--tinta);
+}
+
+.portada__titular-envoltorio {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.portada__titular {
+  margin: 0;
+  font: 600 34px/1.16 var(--font-display);
+  color: var(--tinta);
+  letter-spacing: -.015em;
+}
+
+.portada__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.portada__nota {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+  text-align: center;
+}

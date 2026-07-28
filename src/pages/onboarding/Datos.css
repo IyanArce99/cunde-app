@@ -1,0 +1,54 @@
+.datos__cabecera {
+  padding: 10px 0 12px;
+  border-bottom: var(--divider-dashed);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex: none;
+}
+
+.datos__marca {
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: .22em;
+  color: var(--tinta);
+}
+
+.datos__paso {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+.datos__cuerpo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-top: 34px;
+}
+
+.datos__pregunta {
+  margin: 0 0 20px;
+  font: 600 22px/1.25 var(--font-display);
+  color: var(--tinta);
+}
+
+.datos__pregunta--super {
+  margin-top: 38px;
+}
+
+.datos__grid-comensales {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.datos__fila-super {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.datos__nota {
+  margin: 30px 0 0;
+  font: 400 13px/1.6 var(--font-mono);
+  color: var(--gris);
+}

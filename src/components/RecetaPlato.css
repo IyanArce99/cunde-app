@@ -1,0 +1,71 @@
+.receta__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.receta__titulo {
+  font: 600 13px/1.3 var(--font-body);
+  letter-spacing: .12em;
+  color: var(--tinta);
+}
+
+.receta__cerrar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin: -12px -12px -12px 0;
+  background: none;
+  border: none;
+  color: var(--gris);
+  font: 400 17px/1 var(--font-mono);
+  cursor: pointer;
+}
+
+.receta__meta {
+  display: block;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: var(--divider-dashed);
+  font: 400 15px/1 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+.receta__pasos {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.receta__paso {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.receta__paso-numero {
+  flex: none;
+  width: 20px;
+  font: 500 15px/1.5 var(--font-mono);
+  color: var(--azulete);
+  font-variant-numeric: tabular-nums;
+}
+
+.receta__paso-texto {
+  font: 400 17px/1.5 var(--font-body);
+  color: var(--tinta);
+}
+
+.receta__sin-datos {
+  margin: 20px 0 0;
+  font: 400 15px/1.5 var(--font-mono);
+  color: var(--gris);
+}

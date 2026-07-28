@@ -1,0 +1,129 @@
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import '@fontsource/bricolage-grotesque/500.css';
+@import '@fontsource/bricolage-grotesque/600.css';
+@import '@fontsource/bricolage-grotesque/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+:root {
+  --papel: #EFEDE6;
+  --papel-2: #E5E2D8;
+  --crema: #F6F4EE;
+  --tinta: #1A1917;
+  --azulete: #2B4C7E;
+  --azulete-fondo: rgba(43, 76, 126, .07);
+  --azulete-fondo-fuerte: rgba(43, 76, 126, .06);
+  --oferta: #FFD400;
+  --oferta-resalte: rgba(255, 212, 0, .45);
+  --oferta-fondo: rgba(255, 212, 0, .22);
+  --oferta-borde: #C9A800;
+  --roja: #B32C19;
+  --pauta: #A9A498;
+  --gris: #6E6A5F;
+  --velo: rgba(20, 19, 15, .55);
+  --barra-fondo: rgba(26, 25, 23, .15);
+
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: Inter, sans-serif;
+
+  --text-xs: 13px;
+  --text-sm: 15px;
+  --text-md: 17px;
+  --text-lg: 22px;
+  --text-xl: 34px;
+  --text-xxl: 56px;
+
+  --radius-sm: 4px;
+  --radius-box: 3px;
+  --radius-sheet: 16px;
+  --radius-chip: 999px;
+
+  --border-rest: 1.5px solid rgba(169, 164, 152, .7);
+  --border-selected: 1.5px solid var(--azulete);
+  --divider-dashed: 1px dashed var(--pauta);
+  --divider-dotted: 1px dotted var(--pauta);
+  --divider-total: 1.5px solid var(--tinta);
+
+  --tap-min: 56px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background: var(--papel);
+}
+
+body {
+  margin: 0;
+  color: var(--tinta);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+button {
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .1s ease-out, opacity .1s ease-out;
+}
+
+/* Todo botón da una señal táctil inmediata al tocarlo — sin ella, en un
+   dispositivo algo lento, tocar no se distingue de que no ha pasado nada. */
+button:active {
+  transform: scale(.97);
+  opacity: .85;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--azulete);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+.pantalla {
+  /* altura FIJA (no min-height): si dejamos que crezca con el contenido, en
+     pantallas bajas el pie con el botón principal queda empujado fuera de
+     la vista y, al tener scroll desactivado en IonContent, es irrecuperable. */
+  height: 100%;
+  background: var(--papel);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* max(): en Android o fuera de una PWA instalada, env() suele resolver a 0
+     — sin el mínimo, el contenido queda pegado al borde físico del móvil. */
+  padding-top: max(env(safe-area-inset-top), 12px);
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow: hidden;
+}
+
+/* Pantallas de onboarding: marco sin pestañas, 30px de margen lateral uniforme. */
+.pantalla--onboarding {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 34px);
+}
+
+.pantalla-content {
+  --background: var(--papel);
+}
+
