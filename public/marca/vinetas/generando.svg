@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none"
+     stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
+  <!-- La ranura de la impresora con el papel saliendo. La última línea va a
+       medio imprimir: es lo que está pasando mientras el usuario espera. -->
+  <path d="M14 14 H106 V38 H14 Z"/>
+  <path d="M30 38 H90"/>
+  <path d="M30 46 H90 V96 L82 104 L74 96 L66 104 L58 96 L50 104 L42 96 L34 104 L30 100 Z"/>
+  <path d="M42 62 H78"/>
+  <path d="M42 78 H78"/>
+  <path d="M42 90 H78" stroke-dasharray="7 9"/>
+</svg>

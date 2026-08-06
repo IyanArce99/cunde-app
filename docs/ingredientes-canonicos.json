@@ -1,0 +1,1558 @@
+{
+  "nota": "Vocabulario canónico cerrado. Ninguna receta puede usar un id que no esté aquí. Campos: dias_conservacion es la vida de la presentación FRESCA típica (el motor la corrige si el producto elegido es congelado o conserva, ver src/motor/carrito.ts). `origen` y `alergenos` son lo que gobierna los filtros dietéticos: antes estaban en una lista a mano dentro del motor y con 90 ingredientes eso se rompe solo. origen: vegetal | huevo | lacteo | carne | pescado | marisco. alergenos: gluten | lactosa | frutos_secos | cerdo. proteina_g_por_100 sale de tablas nutricionales estándar para el alimento tal y como se compra. `base` agrupa almidones y legumbres para los topes por categoría del selector de menú. Los alérgenos se contrastan contra la etiqueta real por EAN (catalogo/alergenos-por-ean.json); ver catalogo/auditar-alergenos.ts. El agua es vocabulario pero NO se compra: no tiene SKU, cuesta 0 euros y queda fuera del carrito y de la lista. Existe para que los arroces y los guisos declaren su ratio sin tener que cuadrarlo con caldo de pago. rendimiento_comestible es la fracción del peso de COMPRA que se come: un corte con hueso o un pescado sin limpiar rinden bastante menos. Se aplica al calcular proteína, no al coste (el hueso se paga igual).",
+  "ingredientes": [
+    {
+      "id": "aceite_oliva",
+      "nombre": "Aceite de oliva",
+      "unidad_base": "ml",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "sal",
+      "nombre": "Sal",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pimienta_negra",
+      "nombre": "Pimienta negra",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 10,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pimenton_dulce",
+      "nombre": "Pimentón dulce",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 14,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "laurel",
+      "nombre": "Laurel",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": 0.2,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7.6,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "vinagre",
+      "nombre": "Vinagre de vino",
+      "unidad_base": "ml",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "vinagre_manzana",
+      "nombre": "Vinagre de manzana",
+      "unidad_base": "ml",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "comino",
+      "nombre": "Comino molido",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "mostaza",
+        "sesamo"
+      ]
+    },
+    {
+      "id": "oregano",
+      "nombre": "Orégano",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 9,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "soja"
+      ]
+    },
+    {
+      "id": "curcuma",
+      "nombre": "Cúrcuma molida",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "curry",
+      "nombre": "Curry en polvo",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 12,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "cacahuete",
+        "gluten",
+        "mostaza",
+        "sesamo"
+      ]
+    },
+    {
+      "id": "perejil",
+      "nombre": "Perejil seco",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 22,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "tomillo",
+      "nombre": "Tomillo",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "romero",
+      "nombre": "Romero",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "colorante_alimentario",
+      "nombre": "Colorante alimentario",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "soja"
+      ]
+    },
+    {
+      "id": "cebolla",
+      "nombre": "Cebolla",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 50,
+      "gramos_por_unidad": 150,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.1,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "ajo",
+      "nombre": "Ajo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 50,
+      "gramos_por_unidad": 5,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 6.4,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "patata",
+      "nombre": "Patata",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 50,
+      "gramos_por_unidad": 180,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 2,
+      "base": "patata",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "zanahoria",
+      "nombre": "Zanahoria",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 25,
+      "gramos_por_unidad": 80,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0.9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "puerro",
+      "nombre": "Puerro",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 150,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "tomate",
+      "nombre": "Tomate",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 120,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0.9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pimiento_rojo",
+      "nombre": "Pimiento rojo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 180,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pimiento_verde",
+      "nombre": "Pimiento verde",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 100,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0.9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "calabacin",
+      "nombre": "Calabacín",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 250,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.2,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "calabaza",
+      "nombre": "Calabaza",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1,
+      "base": null,
+      "rendimiento_comestible": 0.75
+    },
+    {
+      "id": "berenjena",
+      "nombre": "Berenjena",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": 250,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "lechuga",
+      "nombre": "Lechuga",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.4,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "espinaca",
+      "nombre": "Espinaca",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 2.9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "acelga",
+      "nombre": "Acelga",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "judia_verde",
+      "nombre": "Judía verde",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "brocoli",
+      "nombre": "Brócoli",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 2.8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "coliflor",
+      "nombre": "Coliflor",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 7,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.9,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "repollo",
+      "nombre": "Repollo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 15,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.3,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pepino",
+      "nombre": "Pepino",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 10,
+      "gramos_por_unidad": 250,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0.7,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "apio",
+      "nombre": "Apio",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 12,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "apio"
+      ],
+      "proteina_g_por_100": 0.7,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "esparrago_verde",
+      "nombre": "Espárrago verde",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 2.2,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alcachofa",
+      "nombre": "Alcachofa",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 3.3,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "champinon",
+      "nombre": "Champiñón",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 3.1,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "seta",
+      "nombre": "Setas",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 2.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "guisante",
+      "nombre": "Guisante",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 5.4,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "maiz_dulce",
+      "nombre": "Maíz dulce",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 3.3,
+      "base": "maiz",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "limon",
+      "nombre": "Limón",
+      "unidad_base": "ud",
+      "es_despensa": false,
+      "dias_conservacion": 25,
+      "gramos_por_unidad": 100,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.1,
+      "base": null,
+      "rendimiento_comestible": 0.45
+    },
+    {
+      "id": "aceituna_verde",
+      "nombre": "Aceituna verde",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1,
+      "base": null,
+      "rendimiento_comestible": 0.8
+    },
+    {
+      "id": "tomate_triturado",
+      "nombre": "Tomate triturado",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.3,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "tomate_frito",
+      "nombre": "Tomate frito",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 1.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "caldo_verduras",
+      "nombre": "Caldo de verduras",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "apio"
+      ],
+      "proteina_g_por_100": 0.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "caldo_pollo",
+      "nombre": "Caldo de pollo",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 1.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "lenteja_pardina",
+      "nombre": "Lenteja pardina seca",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 24,
+      "base": "lenteja",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "lenteja_cocida",
+      "nombre": "Lenteja cocida",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 9,
+      "base": "lenteja",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "gluten"
+      ]
+    },
+    {
+      "id": "garbanzo_cocido",
+      "nombre": "Garbanzo cocido",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 8,
+      "base": "garbanzo",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "garbanzo_seco",
+      "nombre": "Garbanzo seco",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 19,
+      "base": "garbanzo",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alubia_blanca_cocida",
+      "nombre": "Alubia blanca cocida",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 7,
+      "base": "alubia",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alubia_pinta_cocida",
+      "nombre": "Alubia pinta cocida",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7.5,
+      "base": "alubia",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alubia_roja_cocida",
+      "nombre": "Alubia roja cocida",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 8,
+      "base": "alubia",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alubia_blanca_seca",
+      "nombre": "Alubia blanca seca",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 21,
+      "base": "alubia",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "soja_texturizada",
+      "nombre": "Soja texturizada",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "soja"
+      ],
+      "proteina_g_por_100": 50,
+      "base": "soja",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "tofu",
+      "nombre": "Tofu firme",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 7,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "soja"
+      ],
+      "proteina_g_por_100": 12,
+      "base": "soja",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "hummus",
+      "nombre": "Hummus",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 5,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "sesamo"
+      ],
+      "proteina_g_por_100": 7.5,
+      "base": "garbanzo",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "arroz_redondo",
+      "nombre": "Arroz redondo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7,
+      "base": "arroz",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "arroz_largo",
+      "nombre": "Arroz largo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7,
+      "base": "arroz",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "arroz_integral",
+      "nombre": "Arroz integral",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7.5,
+      "base": "arroz",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "quinoa",
+      "nombre": "Quinoa",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 14,
+      "base": "quinoa",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "harina_maiz",
+      "nombre": "Harina de maíz",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 7,
+      "base": "maiz",
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "espagueti",
+      "nombre": "Espagueti",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 12,
+      "base": "pasta",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ]
+    },
+    {
+      "id": "macarron",
+      "nombre": "Macarrones",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 12,
+      "base": "pasta",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ]
+    },
+    {
+      "id": "fideo",
+      "nombre": "Fideos de sopa",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 12,
+      "base": "pasta",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ]
+    },
+    {
+      "id": "pan",
+      "nombre": "Pan",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 8,
+      "base": "pan",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "mostaza",
+        "soja"
+      ]
+    },
+    {
+      "id": "bebida_soja",
+      "nombre": "Bebida de soja",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "soja"
+      ],
+      "proteina_g_por_100": 3.3,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "bebida_arroz",
+      "nombre": "Bebida de arroz",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0.3,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "huevo",
+      "nombre": "Huevo",
+      "unidad_base": "ud",
+      "es_despensa": false,
+      "dias_conservacion": 25,
+      "gramos_por_unidad": 60,
+      "origen": "huevo",
+      "alergenos": [],
+      "proteina_g_por_100": 12.6,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "leche_semi",
+      "nombre": "Leche semidesnatada",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 30,
+      "gramos_por_unidad": null,
+      "origen": "lacteo",
+      "alergenos": [
+        "lactosa"
+      ],
+      "proteina_g_por_100": 3.2,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "nata_cocinar",
+      "nombre": "Nata para cocinar",
+      "unidad_base": "ml",
+      "es_despensa": false,
+      "dias_conservacion": 8,
+      "gramos_por_unidad": null,
+      "origen": "lacteo",
+      "alergenos": [
+        "lactosa"
+      ],
+      "proteina_g_por_100": 2.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "yogur_natural",
+      "nombre": "Yogur natural",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 20,
+      "gramos_por_unidad": 125,
+      "origen": "lacteo",
+      "alergenos": [
+        "lactosa"
+      ],
+      "proteina_g_por_100": 3.8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "queso_rallado",
+      "nombre": "Queso rallado",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 25,
+      "gramos_por_unidad": null,
+      "origen": "lacteo",
+      "alergenos": [
+        "lactosa"
+      ],
+      "proteina_g_por_100": 25,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "queso_fresco",
+      "nombre": "Queso fresco",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 10,
+      "gramos_por_unidad": null,
+      "origen": "lacteo",
+      "alergenos": [
+        "lactosa"
+      ],
+      "proteina_g_por_100": 11,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "pechuga_pollo",
+      "nombre": "Pechuga de pollo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 23,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "contramuslo_pollo",
+      "nombre": "Contramuslo de pollo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 19,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "muslo_pollo",
+      "nombre": "Muslo de pollo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "jamoncito_pollo",
+      "nombre": "Jamoncitos de pollo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 0.65
+    },
+    {
+      "id": "pollo_troceado",
+      "nombre": "Pollo troceado",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 19,
+      "base": null,
+      "rendimiento_comestible": 0.65
+    },
+    {
+      "id": "carne_picada_cerdo",
+      "nombre": "Carne picada de cerdo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo",
+        "soja",
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "carne_picada_mixta",
+      "nombre": "Carne picada mixta",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo",
+        "soja",
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "carne_picada_vacuno",
+      "nombre": "Carne picada de vacuno",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "gluten",
+        "soja"
+      ],
+      "proteina_g_por_100": 20,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "lomo_cerdo",
+      "nombre": "Lomo de cerdo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo"
+      ],
+      "proteina_g_por_100": 21,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "costilla_cerdo",
+      "nombre": "Costilla de cerdo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo"
+      ],
+      "proteina_g_por_100": 17,
+      "base": null,
+      "rendimiento_comestible": 0.6
+    },
+    {
+      "id": "panceta",
+      "nombre": "Panceta",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 12,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo"
+      ],
+      "proteina_g_por_100": 15,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "bacon",
+      "nombre": "Bacón",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 12,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo"
+      ],
+      "proteina_g_por_100": 17,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "chorizo",
+      "nombre": "Chorizo para guisar",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 20,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo",
+        "lactosa"
+      ],
+      "proteina_g_por_100": 22,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "salchicha_fresca",
+      "nombre": "Longaniza fresca",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo",
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 15,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "lomo_merluza",
+      "nombre": "Lomo de merluza",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [],
+      "proteina_g_por_100": 17,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "sardina_fresca",
+      "nombre": "Sardina",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 2,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [],
+      "proteina_g_por_100": 19,
+      "base": null,
+      "rendimiento_comestible": 0.6
+    },
+    {
+      "id": "bacalao_congelado",
+      "nombre": "Bacalao",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "atun_lata",
+      "nombre": "Atún en lata",
+      "unidad_base": "ud",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": 52,
+      "origen": "pescado",
+      "alergenos": [],
+      "proteina_g_por_100": 25,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "caballa_lata",
+      "nombre": "Caballa en lata",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [],
+      "proteina_g_por_100": 20,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "mejillon_lata",
+      "nombre": "Mejillones en escabeche",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "marisco",
+      "alergenos": [
+        "marisco"
+      ],
+      "proteina_g_por_100": 12,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "pescado"
+      ]
+    },
+    {
+      "id": "mejillon_congelado",
+      "nombre": "Mejillón cocido",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "marisco",
+      "alergenos": [
+        "marisco"
+      ],
+      "proteina_g_por_100": 12,
+      "base": null,
+      "rendimiento_comestible": 0.85
+    },
+    {
+      "id": "calamar_congelado",
+      "nombre": "Calamar",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "marisco",
+      "alergenos": [
+        "marisco"
+      ],
+      "proteina_g_por_100": 16,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "pescado"
+      ]
+    },
+    {
+      "id": "gamba_congelada",
+      "nombre": "Gamba",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "marisco",
+      "alergenos": [
+        "marisco"
+      ],
+      "proteina_g_por_100": 20,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "almendra",
+      "nombre": "Almendra",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 180,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "frutos_secos"
+      ],
+      "proteina_g_por_100": 21,
+      "base": null,
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "cacahuete"
+      ]
+    },
+    {
+      "id": "cacahuete",
+      "nombre": "Cacahuete",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 180,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "cacahuete",
+        "frutos_secos"
+      ],
+      "proteina_g_por_100": 25,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "agua",
+      "nombre": "Agua",
+      "unidad_base": "ml",
+      "es_despensa": true,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 0,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "solomillo_cerdo",
+      "nombre": "Solomillo de cerdo",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [
+        "cerdo"
+      ],
+      "proteina_g_por_100": 21,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "entrecot_vacuno",
+      "nombre": "Entrecot de vacuno",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 21,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "filete_vacuno",
+      "nombre": "Filetes de vacuno",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 21.5,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "taco_vacuno",
+      "nombre": "Vacuno para guisar",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 20,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "chuleta_cordero",
+      "nombre": "Chuletas de cordero",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 3,
+      "gramos_por_unidad": null,
+      "origen": "carne",
+      "alergenos": [],
+      "proteina_g_por_100": 18,
+      "base": null,
+      "rendimiento_comestible": 0.72
+    },
+    {
+      "id": "dorada",
+      "nombre": "Dorada",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 2,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [
+        "pescado"
+      ],
+      "proteina_g_por_100": 19.8,
+      "base": null,
+      "rendimiento_comestible": 0.55
+    },
+    {
+      "id": "lubina",
+      "nombre": "Lubina",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 2,
+      "gramos_por_unidad": null,
+      "origen": "pescado",
+      "alergenos": [
+        "pescado"
+      ],
+      "proteina_g_por_100": 18.5,
+      "base": null,
+      "rendimiento_comestible": 0.55
+    },
+    {
+      "id": "mostaza",
+      "nombre": "Mostaza",
+      "unidad_base": "g",
+      "es_despensa": true,
+      "dias_conservacion": 180,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "mostaza",
+        "sulfitos"
+      ],
+      "proteina_g_por_100": 5,
+      "base": null,
+      "rendimiento_comestible": 1
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+.selcoste {
+  display: flex;
+  gap: 8px;
+}
+
+.selcoste__opcion {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: var(--tap-min);
+  padding: 9px 8px;
+  background: none;
+  border: var(--border-rest);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.selcoste__opcion--seleccionado {
+  border: var(--border-selected);
+  background: var(--azulete-fondo);
+}
+
+/* No disponible: no se tacha ni se esconde. Se apaga y se dice por qué. */
+.selcoste__opcion--fuera {
+  cursor: default;
+  border-style: dashed;
+}
+
+/* El PRECIO de una opción que no cabe se queda en tinta a propósito. Es el
+   dato que hace falta para decidir si subir el presupuesto, y estaba apagado a
+   2.12:1 — se borraba justo el número que esta app existe para enseñar. Lo que
+   se apaga es la etiqueta, y lo de "no disponible" ya lo dicen el borde de
+   rayas y el motivo escrito debajo. */
+.selcoste__opcion--fuera .selcoste__label {
+  color: var(--gris);
+}
+
+.selcoste__label {
+  font: 600 15px/1.1 var(--font-body);
+  color: var(--tinta);
+}
+
+.selcoste__nota {
+  font: 400 13px/1.1 var(--font-mono);
+  color: var(--gris);
+}
+
+.selcoste__principal {
+  margin-top: 4px;
+  font: 500 17px/1.1 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* La consecuencia de la opción elegida, en una línea y en palabras de comida.
+   "Perecedero" no significa nada para nadie, y esto no es una métrica: es lo
+   que le va a pasar a la nevera. */
+.selcoste__consecuencia {
+  margin: 8px 0 0;
+  font: 400 13px/1.5 var(--font-mono);
+  color: var(--gris);
+}
+
+.selcoste__extra {
+  font: 400 13px/1.1 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+  /* `pre-line` para que el salto de línea que mete quien compone el texto
+     se respete: en columnas de 100 px, dejar que el navegador decida dónde
+     partir dos importes seguidos daba cortes sin sentido. */
+  white-space: pre-line;
+}

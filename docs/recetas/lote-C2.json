@@ -1,0 +1,345 @@
+{
+  "raciones_base": 2,
+  "nota": "Lote C2 — carne. Cerdo y ternera a precio que el motor sí elige. Tres de cerdo (lentejas con chorizo, albóndigas, arroz al horno con costilla) y una de vacuno picado. Las cantidades son POR RACIÓN. La despensa (aceite, sal, pimentón, perejil) no entra en el €/ración: va en 'Por si te falta'.",
+  "recetas": [
+    {
+      "id": "lentejas_chorizo",
+      "nombre": "Lentejas con chorizo",
+      "minutos": 40,
+      "tags": [
+        "carne",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "chorizo",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "ml",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla y la zanahoria. Sofríelas en el aceite 8 minutos.",
+        "Aparta la olla del fuego, echa el pimentón y remueve.",
+        "Añade la lenteja, la patata en trozos y el chorizo en rodajas.",
+        "Cubre con agua: tres partes por cada una de lenteja.",
+        "Cuece 30 minutos a fuego suave.",
+        "Sala al final y deja reposar 10 minutos."
+      ],
+      "nota_ratio": "lenteja seca : agua = 1 : 3"
+    },
+    {
+      "id": "albondigas_cerdo",
+      "nombre": "Albóndigas de cerdo",
+      "minutos": 40,
+      "tags": [
+        "carne",
+        "sarten"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "carne_picada_cerdo",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 0.25,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 0.4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Mezcla la carne con el ajo picado, el perejil, el huevo y la mitad de la sal.",
+        "Forma bolas del tamaño de una nuez.",
+        "Dóralas en el aceite y sácalas a un plato.",
+        "Sofríe la cebolla picada en esa misma sartén 8 minutos.",
+        "Echa el tomate y el resto de la sal. Cuece 10 minutos.",
+        "Devuelve las albóndigas y guisa 12 minutos más."
+      ]
+    },
+    {
+      "id": "arroz_horno_costilla",
+      "nombre": "Arroz al horno con costilla",
+      "minutos": 50,
+      "tags": [
+        "carne",
+        "horno"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "costilla_cerdo",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_pollo",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 220 grados.",
+        "Salpimenta la costilla y dórala en una cazuela con el aceite.",
+        "Añade el ajo picado y el tomate. Cuece 5 minutos.",
+        "Echa el arroz y la patata en rodajas finas. Remueve un minuto.",
+        "Vierte el caldo hirviendo: dos partes por cada una de arroz.",
+        "Hornea 20 minutos sin tapar y deja reposar 5."
+      ],
+      "nota_ratio": "arroz : líquido = 1 : 2"
+    },
+    {
+      "id": "picada_vacuno_patatas",
+      "nombre": "Carne picada con patatas",
+      "minutos": 35,
+      "tags": [
+        "carne",
+        "olla"
+      ],
+      "proteina": "vacuno",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "carne_picada_vacuno",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla, la zanahoria y el ajo. Sofríelos en el aceite 8 minutos.",
+        "Sube el fuego, echa la carne y deshazla con la cuchara hasta que pierda el color rojo.",
+        "Añade el tomate y la sal. Cuece 5 minutos.",
+        "Chasca la patata en trozos y échala a la olla.",
+        "Cubre con agua y cuece 20 minutos a fuego medio.",
+        "Deja reposar 5 minutos antes de servir."
+      ]
+    }
+  ]
+}

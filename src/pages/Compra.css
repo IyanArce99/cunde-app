@@ -4,36 +4,92 @@
   border-bottom: var(--divider-dashed);
 }
 
+/* Mismo tratamiento que el aviso de sin conexión: una franja de papel, fuera
+   del scroll, sin caja ni color de fondo. Es información, no una medalla. */
+.compra__armario {
+  flex: none;
+  padding: 8px 30px 10px;
+  border-bottom: var(--divider-dashed);
+}
+
 .compra__lista-envoltorio {
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 0 30px;
 }
 
 .compra__lista {
   height: 100%;
   overflow-y: auto;
+  /* El margen vive aquí y no en el envoltorio: ver --margen-lateral. */
+  padding-inline: var(--margen-lateral);
 }
 
 .compra__pasillo-cabecera {
   position: sticky;
   top: 0;
   z-index: 1;
+  /* Se estira hasta el canto del scrollport. Con el relleno lateral ahora en
+     `.compra__lista`, una banda de ancho 100% dejaría 30 px a cada lado por
+     los que se vería pasar la lista bajo la cabecera de pasillo. */
+  width: auto;
+  margin-inline: calc(-1 * var(--margen-lateral));
   background: var(--papel);
-  padding: 16px 0 8px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  /* La casilla de la fila mide 28 y su hueco 14: mismo gap aquí para que las
+     dos columnas de casillas caigan a plomo.
+
+     El margen lateral va DENTRO de este atajo y no en una declaración
+     `padding-inline` aparte: puesto aparte y antes, el atajo lo pisaba y la
+     banda se iba al canto de la pantalla, desalineando su casilla de las de
+     las filas. */
+  padding: 14px var(--margen-lateral) 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  gap: 14px;
   row-gap: 2px;
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
   color: var(--tinta);
 }
 
+/* Sin nowrap: los departamentos reales de Mercadona son largos ("HUEVOS,
+   LECHE Y MANTEQUILLA") y a 390px empujaban el subtotal a una segunda línea,
+   dejando la fila sin su línea de puntos. Antes rompe el nombre que el dato. */
 .compra__pasillo-nombre {
-  white-space: nowrap;
+  flex: 1 1 auto;
+  min-width: 0;
+  letter-spacing: 0;
+}
+
+/* Pasillo hecho: se apaga el rótulo y el subtotal, pero NUNCA se tacha ni se
+   esconde. Delante del lineal hace falta poder releer lo que ya has cogido
+   —para comprobar— sin deshacer nada. */
+.compra__pasillo-cabecera--hecha .compra__pasillo-nombre,
+.compra__pasillo-cabecera--hecha .compra__pasillo-subtotal {
+  color: var(--gris);
+}
+
+/* A medias: la casilla lleva una barra, no un check. Un check a medio pintar
+   se lee como "hecho" de un vistazo y este es el estado en que te falta algo
+   del pasillo por el que ya has pasado. */
+.fila-producto__caja--media {
+  position: relative;
+  border-color: var(--azulete);
+}
+
+.fila-producto__caja--media::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  background: var(--azulete);
 }
 
 .compra__pasillo-linea {
@@ -53,6 +109,16 @@
   font-variant-numeric: tabular-nums;
 }
 
+.compra__despensa {
+  margin-top: 8px;
+}
+
+.compra__despensa-nota {
+  margin: 0 0 6px;
+  font: 400 13px/1.4 var(--font-body);
+  color: var(--gris);
+}
+
 .compra__pie {
   flex: none;
   padding: 12px 30px 34px;
@@ -68,8 +134,8 @@
 }
 
 .compra__pie-etiqueta {
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
   color: var(--gris);
 }
 
@@ -102,4 +168,65 @@
 
 .compra__pie-barra+.primary-button {
   margin-top: 12px;
+}
+
+/* Cabecera plegable de "ya lo tienes". Se apoya en las clases de pasillo para
+   que se lea como un pasillo más y no como un control nuevo: en el súper, un
+   widget distinto es una cosa más que aprender. */
+.compra__ya-tienes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  /* 44 px, como toda fila pulsable. Medido, esta cabecera salía a 330×13 y era
+     el peor objetivo táctil de la app — en la pantalla que se usa de pie, con
+     una mano y empujando un carro. Ver también button.ticket-row. */
+  min-height: 44px;
+  padding: 12px 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.compra__ya-tienes .compra__pasillo-linea { flex: 1; }
+
+/* Solo transform: en WebView de Android animar cualquier otra cosa cuesta
+   repintado. Y con prefers-reduced-motion no se anima nada. */
+.compra__ya-tienes-flecha {
+  display: inline-block;
+  transition: transform 140ms ease;
+}
+
+.compra__ya-tienes[aria-expanded='true'] .compra__ya-tienes-flecha {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compra__ya-tienes-flecha { transition: none; }
+}
+
+/* La lista dentro de la hoja tiene su propio scroll y un tope de alto: la hoja
+   no puede crecer hasta tapar la pantalla, y con veinte productos crecería. */
+.compra__hoja-lista {
+  max-height: 46vh;
+  overflow-y: auto;
+  /* Dentro de la hoja pasaba lo mismo: la barra caía sobre los precios. */
+  margin: 4px calc(-1 * var(--margen-lateral)) 14px;
+  padding-inline: var(--margen-lateral);
+  border-top: var(--divider-dashed);
+}
+
+/* La procedencia de los precios: una línea para la lista entera. Antes iba
+   repetida en las 27 filas. */
+.compra__fuente {
+  padding: 4px 0 2px;
+  font: 400 13px/1.4 var(--font-mono);
+  color: var(--gris);
+}
+
+/* La casilla de la fila sube 4 px para caer en la línea del nombre. La del
+   pasillo va en una fila centrada de una sola línea, así que ahí no. */
+.compra__pasillo-cabecera .fila-producto__caja {
+  margin-top: 0;
 }

@@ -1,0 +1,63 @@
+/* ---------------------------------------------------------------------------
+   TRES SEMANAS, ORDENADAS POR PRECIO
+
+   Ver la cabecera de SelectorVariedad.tsx para por qué se fueron los adjetivos.
+   Aquí lo que importa: el PRECIO es lo primero que se lee de cada opción, y por
+   eso va arriba y en el tamaño de una cifra, no debajo como una nota al pie.
+   --------------------------------------------------------------------------- */
+
+.semanas {
+  display: flex;
+  gap: 8px;
+}
+
+.semanas__op {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: var(--tap-min);
+  padding: 10px 8px;
+  background: none;
+  border: var(--border-rest);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.semanas__op--elegida {
+  border: var(--border-selected);
+  background: var(--azulete-fondo);
+}
+
+/* No se puede elegir: no se tacha ni se esconde, se apaga y se dice por qué.
+   El PRECIO se queda en tinta — es el dato con el que se decide si subir el
+   presupuesto, y apagarlo borraba justo el número que hace falta. */
+.semanas__op--fuera {
+  cursor: default;
+  border-style: dashed;
+}
+
+.semanas__op--fuera .semanas__dato {
+  color: var(--pauta);
+}
+
+.semanas__precio {
+  font: 500 17px/1.15 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.semanas__dato {
+  font: 400 13px/1.25 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+.semanas__fuera {
+  margin-top: 2px;
+  font: 400 13px/1.25 var(--font-mono);
+  color: var(--gris);
+}

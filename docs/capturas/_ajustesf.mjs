@@ -1,0 +1,240 @@
+import fs from 'node:fs';
+
+const eur = (n) => n.toFixed(2).replace('.', ',') + ' €';
+const TOPE = 65;
+const ACTUAL = 63.89;
+
+const VARIEDAD = [
+  { v: 'poca', l: 'Poca', n: 'repites bastante', p: 64.80 },
+  { v: 'normal', l: 'Normal', n: 'repites algo', p: 60.22 },
+  { v: 'mucha', l: 'Mucha', n: 'casi sin repetir', p: 60.50 },
+];
+const PROTEINA = [
+  { v: 'basica', l: 'Básica', n: 'legumbre y huevo', pr: '59 g', ti: '3,24 €', p: 62.93 },
+  { v: 'normal', l: 'Normal', n: 'carne 3 días', pr: '58 g', ti: '5,27 €', p: 63.89 },
+  { v: 'alta', l: 'Alta', n: 'carne casi a diario', pr: '62 g', ti: '6,29 €', p: 68.40 },
+];
+const POSTRE = [
+  { v: 'no', l: 'No', n: 'sin postre', p: 0 },
+  { v: 'semana', l: 'Entre semana', n: '5 días', p: 2.84 },
+  { v: 'todos', l: 'Todos los días', n: '7 días', p: 4.69 },
+];
+
+/**
+ * LA CABECERA QUE MANDA.
+ *
+ * Tres estados y tres tratamientos, y la regla que los ordena no es "más caro
+ * malo, más barato bueno":
+ *
+ *   · BAJA        -> amarillo de oferta. Es el color del ahorro en la paleta.
+ *   · SUBE Y CABE -> tinta. Gastarte tu propio presupuesto en mejor comida es
+ *                    la app funcionando, no un error. Pintarlo de rojo sería
+ *                    regañar al usuario por usar el dinero que él puso.
+ *   · TE PASAS    -> rojo. Es el único caso en que hay algo que arreglar.
+ *
+ * Sin tocar nada no hay diferencia que enseñar: decir "sube 0,00 €" es ruido.
+ */
+function cabecera(nuevo) {
+  const dif = nuevo - ACTUAL;
+  const sobra = TOPE - nuevo;
+  const sinCambio = Math.abs(dif) < 0.005;
+  let clase = 'tot--igual', frase = `de ${eur(TOPE)} · te sobran ${eur(TOPE - ACTUAL)}`;
+  if (!sinCambio && sobra < 0) {
+    clase = 'tot--pasa';
+    frase = `la cesta sube ${eur(dif)} · te pasas ${eur(-sobra)}`;
+  } else if (!sinCambio && dif > 0) {
+    clase = 'tot--sube';
+    frase = `la cesta sube ${eur(dif)} · te quedan ${eur(sobra)}`;
+  } else if (!sinCambio) {
+    clase = 'tot--baja';
+    frase = `la cesta baja ${eur(-dif)} · te quedan ${eur(sobra)}`;
+  }
+  const pct = Math.min(100, (nuevo / TOPE) * 100);
+  return `<div class="tot ${clase}">
+    <span class="tot__et">${sinCambio ? 'TU SEMANA' : 'QUEDARÍA EN'}</span>
+    <span class="tot__c">${eur(nuevo)}</span>
+    <span class="tot__barra"><span class="tot__relleno" style="width:${pct}%"></span></span>
+    <span class="tot__f">${frase}</span>
+  </div>`;
+}
+
+const sc = (ops, sel, ejes) => `<div class="sc">${ops.map((o) => `
+  <button class="sc__op${o.v === sel ? ' on' : ''}"><span class="sc__l">${o.l}</span><span class="sc__n">${o.n}</span>
+  <span class="sc__p">${ejes ? ejes(o).a : (o.p === 0 ? '0,00 €' : eur(o.p))}</span>
+  <span class="sc__e">${ejes ? ejes(o).b : ''}</span></button>`).join('')}</div>`;
+const ejesProt = (o) => ({ a: o.pr, b: `tiras ${o.ti.replace(' ', ' ')}` });
+const preg = (t) => `<h2 class="aj__preg">${t}</h2>`;
+const plegado = (t, v) => `<button class="aj__plegado"><span class="aj__plegado-t">${t}</span>
+  <span class="aj__g"></span><span class="aj__plegado-v">${v}</span><span class="aj__f">›</span></button>`;
+
+const hoja = ({ nuevo, variedad, proteina, postre }) => `
+  <div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  ${cabecera(nuevo)}
+  ${preg('¿Cuánta variedad quieres?')}${sc(VARIEDAD, variedad)}
+  ${preg('¿Cuánta proteína?')}${sc(PROTEINA, proteina, ejesProt)}
+  ${preg('¿Pones postre?')}${sc(POSTRE, postre)}
+  <p class="aj__nota">Fruta y yogur, variados solos. Sale del presupuesto, no se suma encima.</p>
+  <div class="aj__sep"></div>
+  ${plegado('Qué resuelvo', 'comidas y cenas')}
+  ${plegado('Cuánto cocinas', 'lo normal')}
+  ${plegado('Lo que no comes', 'de todo')}
+  <button class="aj__guardar">Guardar ajustes</button>`;
+
+const CASOS = [
+  { id: '1', t: 'Sin tocar nada', d: 'No hay diferencia que enseñar, así que no se inventa ninguna.', nuevo: ACTUAL, variedad: 'normal', proteina: 'normal', postre: 'no' },
+  { id: '2', t: 'Baja · amarillo de oferta', d: 'Variedad normal en vez de poca. El color del ahorro es el que ya tiene la paleta.', nuevo: 60.22, variedad: 'normal', proteina: 'normal', postre: 'no' },
+  { id: '3', t: 'Sube y cabe · tinta', d: 'Postre todos los días. Gastarte tu presupuesto en comida no es un error.', nuevo: 63.89 + 0.80, variedad: 'normal', proteina: 'normal', postre: 'todos' },
+  { id: '4', t: 'Te pasas · rojo', d: 'Proteína alta más postre. Es el único caso con algo que arreglar.', nuevo: 68.40, variedad: 'normal', proteina: 'alta', postre: 'todos' },
+];
+
+const movil = (c) => `
+<div class="movil" id="p-${c.id}">
+  <div class="fondo"><div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div></div>
+  <div class="velo"></div>
+  <div class="hoja">${hoja(c)}</div>
+</div>`;
+
+const html = `<title>Cunde · Ajustes con el total delante</title>
+<style>
+  :root{--papel:#EFEDE6;--papel2:#E5E2D8;--crema:#F6F4EE;--tinta:#1A1917;--azulete:#2B4C7E;
+    --az-f:rgba(43,76,126,.07);--oferta-fondo:rgba(255,212,0,.22);--oferta-borde:#C9A800;
+    --roja:#B32C19;--roja-fondo:rgba(179,44,25,.09);--pauta:#A9A498;--gris:#6E6A5F;--linea:#D6D2C6;
+    --borde:1.5px solid rgba(169,164,152,.7);
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --cuerpo:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+  @media (prefers-color-scheme:dark){:root{--papel:#161513;--papel2:#242219;--crema:#1E1D1A;--tinta:#EDEBE4;
+    --azulete:#8FB3E0;--az-f:rgba(143,179,224,.12);--oferta-fondo:rgba(227,194,51,.18);--oferta-borde:#E3C233;
+    --roja:#F07C68;--roja-fondo:rgba(240,124,104,.13);--pauta:#5C584F;--gris:#A8A39A;--linea:#302E29;
+    --borde:1.5px solid rgba(92,88,79,.9);}}
+  :root[data-theme='dark']{--papel:#161513;--papel2:#242219;--crema:#1E1D1A;--tinta:#EDEBE4;--azulete:#8FB3E0;
+    --az-f:rgba(143,179,224,.12);--oferta-fondo:rgba(227,194,51,.18);--oferta-borde:#E3C233;--roja:#F07C68;
+    --roja-fondo:rgba(240,124,104,.13);--pauta:#5C584F;--gris:#A8A39A;--linea:#302E29;
+    --borde:1.5px solid rgba(92,88,79,.9);}
+  :root[data-theme='light']{--papel:#EFEDE6;--papel2:#E5E2D8;--crema:#F6F4EE;--tinta:#1A1917;--azulete:#2B4C7E;
+    --az-f:rgba(43,76,126,.07);--oferta-fondo:rgba(255,212,0,.22);--oferta-borde:#C9A800;--roja:#B32C19;
+    --roja-fondo:rgba(179,44,25,.09);--pauta:#A9A498;--gris:#6E6A5F;--linea:#D6D2C6;
+    --borde:1.5px solid rgba(169,164,152,.7);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .env{max-width:1360px;margin:0 auto;padding:42px 20px 100px}
+  header{border-bottom:2px solid var(--tinta);padding-bottom:24px}
+  .sello{font:500 12px/1 var(--mono);letter-spacing:.12em;color:var(--gris);text-transform:uppercase}
+  h1{font:700 clamp(28px,5.5vw,44px)/1.02 var(--cuerpo);letter-spacing:-.035em;margin:10px 0 0;text-wrap:balance}
+  .baja{font-size:17px;color:var(--gris);max-width:64ch;margin:14px 0 0}
+  .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(404px,1fr));gap:30px;margin-top:36px;align-items:start}
+  /* Con hijo directo. Sin el '>' esta regla alcanzaba a los h2 de DENTRO del
+     móvil —que son las preguntas de la hoja— y les ponía margin-top:0 y 19 px,
+     con más especificidad que .aj__preg. Los títulos salían pegados al control
+     de arriba y yo medía el diseño con el andamio encima. */
+  .caso > h2{font:700 19px/1.15 var(--cuerpo);letter-spacing:-.02em;margin:0 0 4px}
+  .caso>p{font-size:14.5px;color:var(--gris);margin:0 0 10px;max-width:46ch}
+  .medida{display:block;font:500 12px/1.5 var(--mono);color:var(--azulete);margin-bottom:12px}
+
+  .movil{position:relative;width:390px;height:844px;max-width:100%;border:1px solid var(--pauta);overflow:hidden;background:var(--papel)}
+  .fondo{padding:22px 30px}
+  .fondo__tabs{display:flex;gap:22px;font:600 13px/1 var(--cuerpo);letter-spacing:.18em;color:var(--gris);padding-bottom:12px;border-bottom:1px dashed var(--pauta)}
+  .fondo__tabs .on{color:var(--tinta)}
+  .fondo__cifra{margin-top:20px;font:700 56px/1 var(--cuerpo);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .velo{position:absolute;inset:0;background:rgba(26,25,23,.45)}
+  .hoja{position:absolute;left:0;right:0;bottom:0;max-height:776px;overflow-y:auto;background:var(--papel);
+    border-radius:14px 14px 0 0;padding:26px 30px 34px}
+
+  .aj__cab{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .aj__tit{font:500 13px/1.3 var(--mono);color:var(--gris)}
+  .aj__x{width:56px;height:56px;margin:-12px -12px -12px 0;background:none;border:0;color:var(--gris);font:400 17px/1 var(--mono);cursor:pointer}
+
+  /* EL TOTAL SE QUEDA PEGADO. Si se va con el scroll pierdes la respuesta justo
+     cuando estás tocando los controles, que es cuando hace falta. El fondo es
+     opaco a propósito: debajo pasan botones. */
+  /* SIN CAJA. La caja con borde no existe en este sistema —ayer se fueron las
+     de las tarjetas de día por lo mismo— y además este número YA está resuelto
+     en la app: la cabecera de Semana lo enseña con rótulo, cifra y barra. Es el
+     mismo número, así que es el mismo objeto. Lo único que cambia es que aquí
+     va pegado arriba, como cuando esa cabecera se colapsa.
+
+     El fondo es opaco y sangra a los lados porque debajo pasan botones al
+     hacer scroll: sin eso se verían por detrás. */
+  .tot{position:sticky;top:-26px;z-index:2;margin:10px -30px 0;padding:16px 30px 14px;
+    background:var(--papel);border-bottom:1px dashed var(--pauta)}
+  .tot__et{display:block;font:500 13px/1 var(--mono);color:var(--gris)}
+  .tot__c{display:block;margin-top:8px;font:700 34px/1 var(--cuerpo);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .tot__barra{display:block;margin-top:10px;height:8px;background:rgba(128,128,128,.22)}
+  .tot__relleno{display:block;height:100%;background:var(--azulete)}
+  .tot__f{display:block;margin-top:8px;font:400 13px/1.4 var(--mono);font-variant-numeric:tabular-nums;color:var(--gris)}
+  /* El estado se dice con la barra y con la frase, no pintando una tarjeta. */
+  .tot--baja .tot__relleno{background:var(--oferta-borde)}
+  .tot--baja .tot__f{color:var(--tinta)}
+  .tot--sube .tot__f{color:var(--tinta)}
+  .tot--pasa .tot__c,.tot--pasa .tot__f{color:var(--roja)}
+  .tot--pasa .tot__relleno{background:var(--roja)}
+
+  /* 34 y no 22: con tres columnas a 390 px las notas envuelven a dos líneas
+     ("legumbre y huevo", "carne casi a diario"), las cajas crecen y el hueco de
+     22 se lo comía el propio bloque. Los títulos se leían pegados al control
+     anterior. */
+  .aj__preg{margin:34px 0 14px;font:600 22px/1.25 var(--cuerpo);letter-spacing:-.02em}
+  .sc{display:flex;gap:8px}
+  .sc__op{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:2px;min-height:56px;padding:9px 8px;
+    border:var(--borde);border-radius:4px;background:none;font-family:inherit;text-align:left;cursor:pointer}
+  .sc__op.on{border-color:var(--azulete);background:var(--az-f)}
+  .sc__l{font:600 15px/1.1 var(--cuerpo)}
+  .sc__n{font:400 13px/1.1 var(--mono);color:var(--gris)}
+  .sc__p{margin-top:4px;font:500 17px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+  /* La cifra y su símbolo no se separan: "tiras 3,24" y el "€" en la línea de
+     abajo, él solo, era lo que hacía que las tres cajas se vieran rotas. */
+  .sc__e{font:400 13px/1.25 var(--mono);color:var(--gris);font-variant-numeric:tabular-nums;min-height:15px}
+  .sc__n,.sc__e{overflow-wrap:break-word}
+  .aj__nota{margin:12px 0 0;font:400 13px/1.6 var(--mono);color:var(--gris)}
+  .aj__sep{margin:34px 0 4px;border-top:1px dashed var(--pauta)}
+  .aj__plegado{display:flex;align-items:baseline;gap:8px;width:100%;min-height:56px;padding:10px 0;background:none;
+    border:0;border-bottom:1px solid var(--linea);text-align:left;font-family:inherit;cursor:pointer}
+  .aj__plegado-t{font:500 16px/1.3 var(--cuerpo)}
+  .aj__g{flex:1;min-width:12px;border-bottom:1px dotted var(--pauta);transform:translateY(-4px)}
+  .aj__plegado-v{font:400 15px/1.3 var(--mono);color:var(--gris)}
+  .aj__f{margin-left:10px;font-family:var(--mono);color:var(--azulete)}
+  .aj__guardar{width:100%;min-height:56px;margin-top:24px;border:0;border-radius:4px;background:var(--azulete);
+    color:#fff;font:600 17px/1 var(--cuerpo);font-family:inherit;cursor:pointer}
+
+  .ver{border-left:3px solid var(--azulete);padding:2px 0 2px 18px;margin:50px 0 0}
+  .ver p{font-size:16px;margin:0 0 12px;max-width:66ch}
+  .ver p:last-child{margin-bottom:0}
+  .ver strong{font-weight:600}
+</style>
+<div class="env">
+<header>
+  <span class="sello">390 × 844 · la hoja real · el total va pegado arriba</span>
+  <h1>Ajustes con el total delante</h1>
+  <p class="baja">La estructura de la B —arriba lo que mueve el dinero, plegado lo que se pone una vez— con la cabecera de la E, y dos cosas que ninguna de las cinco tenía: el total se queda pegado al hacer scroll, y dice qué le pasa a la cesta en vez de solo cuánto queda. Baja los controles dentro de cada móvil para ver que la cifra no se va.</p>
+</header>
+
+<div class="rejilla">
+  ${CASOS.map((c) => `
+  <div class="caso"><h2>${c.t}</h2><p>${c.d}</p>
+    <span class="medida" id="m-${c.id}">midiendo…</span>
+    ${movil(c)}</div>`).join('')}
+</div>
+
+<div class="ver">
+  <p><strong>Por qué subir no va en rojo.</strong> Si te sobran 1,11 € y te los gastas en postre, la app ha hecho su trabajo: tú pusiste el tope y lo estás usando. Pintarlo de alarma sería regañar al usuario por gastarse su propio dinero en comida, que es literalmente el producto. El rojo se reserva a pasarse del tope, que es el único caso donde hay algo que arreglar — y ahí ya existe en la paleta para eso.</p>
+  <p><strong>Y por qué bajar sí lleva color.</strong> El amarillo de oferta está en la paleta para el ahorro. Es el mismo que ya usa el saldo de la pantalla Semana cuando sobra lo suficiente como para hacer algo con ello.</p>
+  <p><strong>Sin tocar nada no hay mensaje.</strong> Decir "sube 0,00 €" es ruido, y un cartel que aparece siempre deja de leerse. La cabecera arranca diciendo lo que ya sabes —TU SEMANA, 63,89 €— y solo cambia de rótulo a "QUEDARÍA EN" cuando de verdad hay una propuesta encima de la mesa.</p>
+  <p><strong>Lo que cuesta.</strong> Recalcular esa cifra en cada toque es una generación del motor: 1,2 s medidos. Se resuelve como ya se resolvió la hoja entera — pintar el toque primero y calcular después, con la cifra en «···» mientras tanto. La caché arreglada ayer ayuda: cambiar la variedad ya no recalcula la proteína.</p>
+</div>
+
+<script>
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    for (const c of ['1','2','3','4']) {
+      const h = document.querySelector('#p-' + c + ' .hoja');
+      const alto = Math.round(h.scrollHeight);
+      const visto = Math.round(h.getBoundingClientRect().height);
+      document.getElementById('m-' + c).textContent =
+        alto + ' px · ' + (alto / visto).toFixed(1) + ' pantallas · total pegado arriba';
+    }
+  }));
+</script>
+</div>
+`;
+
+fs.writeFileSync('docs/capturas/ajustes-total.html', html);
+console.log(`${(fs.statSync('docs/capturas/ajustes-total.html').size / 1024).toFixed(0)} KB`);

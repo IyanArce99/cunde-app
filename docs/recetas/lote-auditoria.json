@@ -1,0 +1,744 @@
+{
+  "nota": "Lote salido de la auditoría del motor (jul 2026). El perfil no es gusto: es el hueco medido. (1) La banda 1,00-1,60 €/ración con ≥25 g de proteína fresca produjo el mayor salto de viabilidad de toda la curva de escalado y solo tenía 13 recetas; (2) las cenas rápidas con proteína fresca no existían y el motor cenaba guisos de mediodía; (3) el recetario vegano era lenteja o nada (8 de 14 comidas en la semana vegana leída). Ninguna receta lleva patata como base.",
+  "recetas": [
+    {
+      "id": "pechuga_plancha_pimientos",
+      "nombre": "Pechuga a la plancha",
+      "minutos": 15,
+      "tags": [
+        "carne",
+        "rapido",
+        "sarten",
+        "cena"
+      ],
+      "proteina": "pollo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "pechuga_pollo",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "acompanamiento",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el pimiento y la cebolla en tiras y saltéalos con la mitad del aceite y sal hasta que ablanden.",
+        "Aparta la verdura y sube el fuego.",
+        "Salpimienta los filetes de pechuga.",
+        "Hazlos 3 minutos por cara con el resto del aceite y el ajo laminado.",
+        "Sirve la pechuga sobre los pimientos."
+      ]
+    },
+    {
+      "id": "pollo_guisado_zanahoria",
+      "nombre": "Pollo guisado",
+      "minutos": 35,
+      "tags": [
+        "carne",
+        "olla",
+        "economico"
+      ],
+      "proteina": "pollo",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "muslo_pollo",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla y el ajo picados en el aceite 5 minutos.",
+        "Añade el muslo troceado y dóralo por todas las caras.",
+        "Incorpora el tomate y la zanahoria en rodajas; sala.",
+        "Cubre justo de agua y guisa 20 minutos a fuego medio.",
+        "Añade los guisantes y dales 5 minutos más."
+      ]
+    },
+    {
+      "id": "lomo_pimientos_horno",
+      "nombre": "Lomo al horno con pimientos",
+      "minutos": 30,
+      "tags": [
+        "carne",
+        "horno"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lomo_cerdo",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "acompanamiento",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta el pimiento y la cebolla en tiras y extiéndelos en la bandeja con la mitad del aceite y sal.",
+        "Hornea la verdura 15 minutos.",
+        "Pon encima los filetes de lomo salpimentados con el ajo laminado y el resto del aceite.",
+        "Hornea 10 minutos más y sirve."
+      ]
+    },
+    {
+      "id": "picadillo_cerdo_calabacin",
+      "nombre": "Picadillo de cerdo",
+      "minutos": 20,
+      "tags": [
+        "carne",
+        "rapido",
+        "sarten",
+        "cena"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "carne_picada_cerdo",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla picada en el aceite 4 minutos.",
+        "Añade la picada y deshazla con la cuchara hasta que pierda el color crudo.",
+        "Incorpora el calabacín en dados pequeños y sala.",
+        "Saltea 8 minutos a fuego vivo.",
+        "Remata con el pimentón y el tomate frito, mezcla y aparta."
+      ]
+    },
+    {
+      "id": "sardinas_plancha_ensalada",
+      "nombre": "Sardinas a la plancha",
+      "minutos": 20,
+      "tags": [
+        "pescado",
+        "rapido",
+        "sarten",
+        "cena"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sarten",
+      "dias_nevera": 1,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "sardina_fresca",
+          "parte": "principal",
+          "cantidad": 210,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "acompanamiento",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "acompanamiento",
+          "cantidad": 5,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el tomate en gajos y la cebolla en pluma; aliña con vinagre, sal y la mitad del aceite.",
+        "Seca las sardinas y sálalas.",
+        "Calienta la plancha con el resto del aceite hasta que humee.",
+        "Haz las sardinas 2 minutos por cara.",
+        "Sirve con la ensalada."
+      ]
+    },
+    {
+      "id": "jamoncitos_ajillo_champinones",
+      "nombre": "Jamoncitos al ajillo",
+      "minutos": 35,
+      "tags": [
+        "carne",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "pollo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "jamoncito_pollo",
+          "parte": "principal",
+          "cantidad": 210,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Dora los jamoncitos salados en el aceite a fuego medio, 10 minutos, dándoles la vuelta.",
+        "Añade el ajo laminado y el laurel y deja que tome color sin quemarse.",
+        "Incorpora los champiñones laminados.",
+        "Tapa y cocina 15 minutos a fuego suave, moviendo de vez en cuando.",
+        "Sirve con el jugo de la sartén."
+      ]
+    },
+    {
+      "id": "revuelto_gambas_calabacin",
+      "nombre": "Revuelto de gambas",
+      "minutos": 15,
+      "tags": [
+        "marisco",
+        "rapido",
+        "sarten",
+        "cena"
+      ],
+      "proteina": "marisco",
+      "tecnica": "sarten",
+      "dias_nevera": 1,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "gamba_congelada",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Saltea el calabacín en dados con el aceite y sal hasta que dore.",
+        "Añade el ajo picado y las gambas descongeladas y dales 2 minutos.",
+        "Bate los huevos con una pizca de sal.",
+        "Viértelos en la sartén a fuego suave y remueve hasta que cuajen cremosos.",
+        "Sirve en caliente."
+      ]
+    },
+    {
+      "id": "bolonesa_soja_macarrones",
+      "nombre": "Macarrones a la boloñesa",
+      "minutos": 30,
+      "tags": [
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "macarron",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Sofríe la cebolla y la zanahoria ralladas en el aceite 5 minutos.",
+        "Añade la soja y el tomate; sala, pon el orégano y guisa 10 minutos.",
+        "Cuece los macarrones en agua con sal y escúrrelos.",
+        "Mezcla la salsa con la pasta y sirve."
+      ]
+    },
+    {
+      "id": "tofu_tomate_arroz",
+      "nombre": "Tofu en salsa de tomate",
+      "minutos": 25,
+      "tags": [
+        "vegano",
+        "sarten"
+      ],
+      "proteina": "tofu",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "tofu",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "arroz_redondo",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "acompanamiento",
+          "cantidad": 140,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz en el doble de agua con sal 15 minutos y resérvalo.",
+        "Dora el tofu en dados en el aceite hasta que tome costra.",
+        "Aparta el tofu y sofríe la cebolla picada en la misma sartén.",
+        "Vuelca el tomate y el pimentón, devuelve el tofu y dale 5 minutos.",
+        "Sirve el tofu con su salsa sobre el arroz."
+      ]
+    },
+    {
+      "id": "garbanzos_soja_espinacas",
+      "nombre": "Garbanzos con soja",
+      "minutos": 20,
+      "tags": [
+        "vegano",
+        "rapido",
+        "sarten",
+        "legumbre"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Dora el ajo laminado en el aceite.",
+        "Añade la soja y saltéala 3 minutos hasta que tome color.",
+        "Incorpora los garbanzos escurridos y las espinacas; sala.",
+        "Saltea 5 minutos, remata con el pimentón y sirve."
+      ]
+    }
+  ]
+}

@@ -21,7 +21,14 @@
   --oferta-fondo: rgba(255, 212, 0, .22);
   --oferta-borde: #C9A800;
   --roja: #B32C19;
+  /* PAUTA ES COLOR DE RAYA, NO DE TEXTO. Sobre papel da 2.12:1 y el mínimo AA
+     son 4.5. Se usa en guías de puntos, bordes y separadores; en cuanto se usó
+     para escribir —el "próximamente" del súper y el precio de una opción que no
+     cabe— dejó ilegible justo lo que había que leer. Para apagar texto está
+     --gris, que es el suelo: por debajo de él la paleta no tiene sitio para un
+     tercer nivel de atenuación, y buscarlo es lo que produjo el fallo. */
   --pauta: #A9A498;
+  /* 4.61:1 sobre papel. Pasa AA de justo: no bajarlo más. */
   --gris: #6E6A5F;
   --velo: rgba(20, 19, 15, .55);
   --barra-fondo: rgba(26, 25, 23, .15);
@@ -49,6 +56,21 @@
   --divider-total: 1.5px solid var(--tinta);
 
   --tap-min: 56px;
+
+  /**
+   * EL MARGEN LATERAL, como número único.
+   *
+   * Existe por la barra de scroll. Un contenedor que hace scroll dibuja su
+   * barra en SU borde derecho, no en el de la pantalla: si el contenedor está
+   * metido dentro del margen, la barra cae encima de la última columna de
+   * contenido — en Cunde, justo sobre el € de cada precio, en Semana y en
+   * Compra. Visto en un iPhone real, no es cosa del emulador.
+   *
+   * La regla que se sigue: el que hace scroll llega al borde físico de la
+   * pantalla y el margen se lo pone él como relleno. Así la barra queda en el
+   * canto y el contenido no se mueve ni un píxel.
+   */
+  --margen-lateral: 30px;
 }
 
 * {
@@ -83,8 +105,15 @@ button:active {
   opacity: .85;
 }
 
+/* La regla cubría solo button y a. El único input de la app —el importe del
+   ticket— además se quitaba el suyo con outline:none, así que quien navega con
+   teclado escribía a ciegas en el campo del que depende todo el historial. */
 button:focus-visible,
-a:focus-visible {
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:not([tabindex='-1']):focus-visible {
   outline: 2px solid var(--azulete);
   outline-offset: 2px;
 }
@@ -127,3 +156,66 @@ a:focus-visible {
   --background: var(--papel);
 }
 
+
+/* ---------------------------------------------------------------------------
+   RÓTULOS · tres niveles, uno por lo que hace el rótulo
+   ---------------------------------------------------------------------------
+   Había veinte declaraciones de letter-spacing repartidas en quince ficheros,
+   con seis valores distintos (.12 a .2em), todas en Inter y todas en
+   versalitas: el mismo recurso para la cabecera de un total, para el título de
+   una hoja y para una pregunta al usuario. Es el tic tipográfico más
+   reconocible del diseño generado, y además era infiel al objeto que imita —
+   una impresora térmica es monoespaciada y no tiene tracking; un ticket de
+   verdad usa mayúsculas SIN espaciar.
+
+   La distinción que organiza esto no es de tamaño, es de quién habla:
+
+     LA MÁQUINA IMPRIME  ·  mono, mayúsculas, tracking 0.
+       Cabeceras de datos y clasificaciones de línea: TU SEMANA, LLEVAS, los
+       pasillos, TOTAL, COMIDA · RECALIENTAS. Es la impresora del súper.
+
+     LA APP HABLA  ·  Inter, caja de frase, sin tracking.
+       Preguntas y títulos: "Dónde compras", "Alergias e intolerancias". Si es
+       una frase dirigida al usuario, se escribe como se escriben las frases.
+
+     LA NAVEGACIÓN  ·  Inter, mayúsculas, un solo valor de tracking.
+       Las dos pestañas y nada más. Aquí el espaciado sí trabaja: son dos
+       palabras cortas que tienen que leerse como pestañas y no como texto.
+   ------------------------------------------------------------------------- */
+
+.rotulo-maquina {
+  font: 500 13px/1.3 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--gris);
+}
+
+.rotulo-app {
+  font: 600 15px/1.3 var(--font-body);
+  letter-spacing: 0;
+  color: var(--tinta);
+}
+
+/* ---------------------------------------------------------------------------
+   SALIDA DE TEXTO
+
+   El enlace suelto que deja irse sin ruido: "Ahora no", "Seguir con el plan
+   gratis", "Ver receta". Medían 21 y 22 px de alto — se leen bien y no se
+   aciertan con el pulgar, que es la peor combinación posible en la salida.
+
+   Se les da el área de 48 px sin tocar cómo se ven. Dos detalles:
+   · inline-flex y no block, para que el área no ocupe todo el ancho de la hoja
+     y siga leyéndose como un enlace y no como un botón.
+   · el subrayado pasa de border-bottom a text-decoration. Con la caja a 48 px
+     el borde se quedaba pegado al fondo de la caja, a 27 px del texto.
+   --------------------------------------------------------------------------- */
+
+.salida-texto {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 8px;
+  text-decoration: underline;
+  text-decoration-color: var(--pauta);
+  text-underline-offset: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,141 @@
+/* ---------------------------------------------------------------------------
+   EL DÍA · formato F6
+
+   Línea de ticket, no tarjeta. Ver la cabecera de TarjetaDia.tsx para qué se
+   midió antes de cambiarlo y por qué se fue la caja con borde.
+   --------------------------------------------------------------------------- */
+
+.dia__cabecera {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 14px 0 2px;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--gris);
+}
+
+.dia:first-child .dia__cabecera {
+  margin-top: 0;
+}
+
+.dia__guia {
+  flex: 1;
+  min-width: 12px;
+  border-bottom: var(--divider-dashed);
+  transform: translateY(-4px);
+}
+
+.dia__total {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rejilla de tres columnas: el nombre, la guía de puntos y el precio. Debajo,
+   a todo el ancho, la barra de coste y la línea de servicio.
+
+   En rejilla y no en flex con envoltura: con flex, un nombre largo empujaba el
+   importe a una tercera línea él solo. Aquí el nombre envuelve dentro de SU
+   columna y el importe se queda anclado a la derecha, que es donde lo pone un
+   ticket. */
+.dia__hueco {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 3px 8px;
+  align-items: baseline;
+  width: 100%;
+  /* El contenido natural de la fila —nombre, barra y servicio— ya pasa de los
+     56 px del proyecto, así que el mínimo no manda casi nunca: está para el
+     caso raro de un nombre muy corto. Con 76 px, que fue el primer intento,
+     se añadían 8 px muertos por hueco: 112 px en la semana, media pantalla. */
+  min-height: var(--tap-min);
+  padding: 7px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(169, 164, 152, .35);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.dia__cabecera + .dia__hueco {
+  border-top: none;
+}
+
+.dia__plato {
+  /* min-width:0 para que la columna pueda encogerse por debajo del ancho del
+     texto y envolver en vez de desbordar la rejilla. */
+  min-width: 0;
+  /* 17 y no 16: la escala del proyecto es 13/15/17/22/34/56 y el 16 no
+     pertenece a ella. Es el nombre del plato, o sea el texto más importante de
+     la tarjeta después del precio, así que sube al escalón de arriba y no
+     baja al de abajo. */
+  font: 600 17px/1.25 var(--font-body);
+  color: var(--tinta);
+}
+
+/* Una sobra no es un plato nuevo: pesa menos porque ahí no hay nada que
+   decidir. No se tacha ni se esconde — sigue siendo comida y sigue tocándose,
+   porque el plan se rompe el martes y hay que poder deshacer la tanda. */
+.dia__hueco--sobras .dia__plato {
+  font-weight: 400;
+  color: var(--gris);
+}
+
+.dia__linea-guia {
+  border-bottom: var(--divider-dotted);
+  transform: translateY(-5px);
+  min-width: 12px;
+}
+
+.dia__precio {
+  white-space: nowrap;
+  font: 400 15px/1.2 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* LA BARRA DE COSTE. Es lo que hace comparable 0,35 € con 2,01 € sin tener que
+   leer catorce números. Escala común a la semana entera y no por día: si cada
+   día se normalizara a su propio máximo, el día barato y el caro se pintarían
+   igual y la barra mentiría. */
+.dia__pista {
+  grid-column: 1 / -1;
+  height: 4px;
+  margin-top: 1px;
+  background: var(--papel-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dia__barra {
+  display: block;
+  height: 100%;
+  background: var(--azulete);
+}
+
+.dia__hueco--sobras .dia__barra {
+  background: var(--pauta);
+}
+
+.dia__hueco--ensamblaje .dia__barra {
+  background: var(--oferta-borde);
+}
+
+/* "comida · 25 min · cocinas · de la comida del lunes". Una frase en la voz de
+   la app, no cuatro rótulos: antes eran una etiqueta en versalitas, un meta a
+   la derecha con su flecha y una tercera línea de origen — tres registros
+   tipográficos para decir cuándo se come, cuánto cuesta de tiempo y qué hay
+   que hacer. */
+.dia__servicio {
+  grid-column: 1 / -1;
+  /* 13, el escalón más pequeño que existe. Estaba en 12, fuera de escala y por
+     debajo de lo que se lee cómodo en gris sobre papel — y esta línea sale
+     catorce veces en la pantalla. */
+  font: 400 13px/1.45 var(--font-mono);
+  color: var(--gris);
+}
+
+.dia__hueco:focus-visible {
+  outline: 2px solid var(--azulete);
+  outline-offset: 2px;
+}

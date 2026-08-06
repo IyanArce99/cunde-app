@@ -1,0 +1,678 @@
+{
+  "raciones_base": 2,
+  "nota": "Lote A2 — cremas, purés, arroces y horno. Todas veganas, sin gluten y sin frutos secos: ningún ingrediente tiene origen distinto de vegetal ni alérgeno de gluten o frutos secos. Las cremas se ligan con la propia patata y con bebida vegetal, nunca con nata ni leche. Técnica: olla y horno. `cantidad` es POR RACIÓN. Mismo esquema que docs/recetas-piloto.json más el campo `pasos`.",
+  "recetas": [
+    {
+      "id": "crema_puerro_patata",
+      "nombre": "Crema de puerro y patata",
+      "minutos": 30,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "puerro",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "bebida_soja",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el puerro en rodajas y lávalo.",
+        "Pocha el puerro y la cebolla en el aceite 8 min.",
+        "Añade la patata en dados, el caldo y la sal.",
+        "Cuece tapado 18 min.",
+        "Tritura con la bebida de soja.",
+        "Muele la pimienta por encima y sirve."
+      ]
+    },
+    {
+      "id": "crema_coliflor_asada",
+      "nombre": "Crema de coliflor asada",
+      "minutos": 45,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "horno",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "coliflor",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 0.6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 210 °C.",
+        "Extiende en la bandeja la coliflor, la patata en dados, la cebolla y el ajo.",
+        "Riega con el aceite, sala y asa 30 min. Remueve a mitad.",
+        "Pasa lo asado a la olla con el caldo y el comino.",
+        "Hierve 5 min y tritura."
+      ]
+    },
+    {
+      "id": "pure_patata_champinones",
+      "nombre": "Puré de patata",
+      "minutos": 30,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "bebida_soja",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "acompanamiento",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "acompanamiento",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "acompanamiento",
+          "cantidad": 0.4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la patata en dados 18 min con la sal.",
+        "Escurre y aplasta con la bebida de soja y la mitad del aceite.",
+        "Dora los champiñones a fuego fuerte 6 min con el resto del aceite.",
+        "Añade el ajo picado y el perejil. Cocina 1 min más.",
+        "Sirve los champiñones sobre el puré y muele la pimienta."
+      ]
+    },
+    {
+      "id": "arroz_meloso_verduras",
+      "nombre": "Arroz meloso de verduras",
+      "minutos": 35,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 205,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe el ajo, el pimiento y el calabacín 8 min en el aceite.",
+        "Añade el tomate triturado y cocina 5 min.",
+        "Incorpora el arroz y remueve 1 min.",
+        "Vierte el caldo caliente y sala.",
+        "Cuece 18 min a fuego medio removiendo cada poco.",
+        "Aparta del fuego y reposa 3 min."
+      ],
+      "nota_ratio": "arroz : líquido = 1 : 2,3 (meloso, dentro de la tolerancia del 1:2)"
+    },
+    {
+      "id": "arroz_horno_garbanzos",
+      "nombre": "Arroz al horno con garbanzos",
+      "minutos": 55,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "horno",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Sofríe el ajo y el tomate rallado 6 min en una cazuela que vaya al horno.",
+        "Añade el arroz y los garbanzos escurridos. Remueve 1 min.",
+        "Vierte el caldo caliente y sala.",
+        "Reparte la patata en rodajas finas por encima.",
+        "Hornea 40 min sin tapar."
+      ],
+      "nota_ratio": "arroz : líquido = 1 : 2"
+    },
+    {
+      "id": "patatas_panaderas_pimiento",
+      "nombre": "Patatas panaderas",
+      "minutos": 55,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "horno",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta la patata en rodajas de medio centímetro.",
+        "Mezcla en la bandeja la patata, la cebolla, los pimientos, el ajo, el aceite y la sal.",
+        "Hornea 40 min. Remueve a los 20 min.",
+        "Saca la bandeja, espolvorea el pimentón y remueve."
+      ]
+    },
+    {
+      "id": "escalivada_garbanzos",
+      "nombre": "Escalivada con garbanzos",
+      "minutos": 60,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "horno"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "ml",
+          "escalado": "fijo"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Unta la berenjena, el pimiento y la cebolla enteros con la mitad del aceite.",
+        "Asa 45 min. Dales la vuelta a la media hora.",
+        "Pela en caliente y desgarra las verduras en tiras.",
+        "Aliña con el ajo picado, el resto del aceite, el vinagre y la sal.",
+        "Mezcla con los garbanzos escurridos."
+      ]
+    },
+    {
+      "id": "tumbet_horno",
+      "nombre": "Tumbet al horno",
+      "minutos": 60,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "horno",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "horno",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 18,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta la patata y la berenjena en rodajas. Sala la berenjena y espera 10 min.",
+        "Asa la patata, la berenjena y el pimiento con el aceite 30 min.",
+        "Monta en una fuente capas de patata, berenjena y pimiento.",
+        "Cubre con el tomate frito, el ajo picado y el orégano.",
+        "Hornea 15 min más."
+      ]
+    }
+  ]
+}

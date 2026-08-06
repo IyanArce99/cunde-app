@@ -1,0 +1,35 @@
+{
+  "nota": "Generado por catalogo/generar.ts para la portada. No editar a mano.",
+  "capturadoEn": "2026-07-28",
+  "productos": [
+    {
+      "nombre": "Filetes pechuga de pollo corte fino",
+      "formato": "Bandeja 500 g",
+      "precio": 3.85
+    }
+  ],
+  "ticket": {
+    "personas": 2,
+    "total": 63.89,
+    "comidas": 14,
+    "lineas": [
+      {
+        "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+        "formato": "Caja 400 g",
+        "precio": 9.8
+      },
+      {
+        "nombre": "Quinoa Hacendado",
+        "formato": "Paquete 500 g",
+        "precio": 5.3
+      },
+      {
+        "nombre": "Sardina sin limpiar",
+        "formato": "Bandeja 400 g",
+        "precio": 4.8
+      }
+    ],
+    "restoProductos": 24,
+    "restoImporte": 43.99
+  }
+}

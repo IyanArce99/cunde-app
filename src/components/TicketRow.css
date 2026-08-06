@@ -35,3 +35,28 @@
   border-bottom: var(--divider-dotted);
   transform: translateY(-5px);
 }
+
+/* Una fila de ticket que se puede pulsar es un botón, y un botón que se toca
+   de pie empujando un carro necesita 44 px de alto. Medido en la app, todas
+   las filas pulsables salían a 13-25 px: la línea del súper en el onboarding,
+   la de "ya lo tienes" en la compra. El alto se consigue con relleno y no con
+   height fija para que siga creciendo si el texto se parte en dos líneas.
+
+   Va sobre `button.ticket-row` y no sobre una clase nueva porque el componente
+   ya decide ahí si es pulsable o no: una clase extra sería una segunda fuente
+   de verdad para la misma cosa. */
+button.ticket-row {
+  min-height: 44px;
+  padding-block: 6px;
+  cursor: pointer;
+}
+
+.ticket-row__flecha {
+  flex: 0 0 auto;
+  margin-left: 6px;
+  /* El valor manda: la flecha es la señal de que se puede tocar, no un dato.
+     Con el mismo peso que el importe compite con él en una columna que existe
+     precisamente para que los números se lean de un vistazo. */
+  color: var(--pauta);
+  line-height: 1;
+}

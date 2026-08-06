@@ -1,6 +1,6 @@
 .muro__etiqueta {
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
   color: var(--gris);
 }
 
@@ -81,8 +81,6 @@
 .muro__salida a {
   font: 600 17px/1 var(--font-body);
   color: var(--tinta);
-  text-decoration: none;
-  border-bottom: 1px solid var(--pauta);
 }
 
 .muro__legal {
@@ -90,4 +88,50 @@
   text-align: center;
   font: 400 13px/1.4 var(--font-mono);
   color: var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   EL LOGRO
+
+   Abre con lo que el usuario ha conseguido, no con lo que le salió mal. Misma
+   anatomía que la cabecera de Semana —rótulo, cifra, pie— porque es el mismo
+   tipo de dato: euros suyos. Sin caja y sin color de fondo: no es una medalla,
+   es un número.
+   --------------------------------------------------------------------------- */
+
+.muro__logro {
+  margin-bottom: 20px;
+}
+
+.muro__logro-etiqueta {
+  display: block;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--gris);
+}
+
+.muro__logro-cifra {
+  display: block;
+  margin-top: 8px;
+  font: 700 34px/1 var(--font-display);
+  color: var(--tinta);
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.muro__logro-pie {
+  display: block;
+  margin-top: 5px;
+  font: 400 13px/1.4 var(--font-mono);
+  color: var(--gris);
+}
+
+/* El precio por semana, que es la unidad con la que se compara con el ahorro.
+   Va debajo del importe y no al lado: al lado competía con la cifra. */
+.muro__plan-unidad {
+  display: block;
+  margin-top: 4px;
+  font: 400 13px/1.2 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
 }

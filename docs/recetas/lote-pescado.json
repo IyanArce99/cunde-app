@@ -1,0 +1,257 @@
+{
+  "raciones_base": 2,
+  "lote": "pescado",
+  "nota": "Pescado y marisco barato para subir la proteína del recetario sin subir el gasto. El techo del recetario son 72 g de proteína por persona y día y el suelo 60: estas tres aportan 26-29 g por ración entre 1,00 € y 1,60 €. Ninguna lleva la patata de base: ya hay siete platos que la usan y el optimizador las premia. Preparaciones nuevas: cazuela marinera, escabeche y relleno al horno. Las cantidades son POR RACIÓN. Ver docs/ingredientes-canonicos.json para el vocabulario.",
+  "recetas": [
+    {
+      "id": "mejillones_marinera",
+      "nombre": "Mejillones a la marinera",
+      "minutos": 25,
+      "tags": [
+        "marisco",
+        "olla",
+        "economico"
+      ],
+      "proteina": "marisco",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "mejillon_congelado",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pan",
+          "parte": "acompanamiento",
+          "cantidad": 55,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Saca el mejillón del congelador y déjalo descongelar en un colador.",
+        "Pica la cebolla muy fina y póchala en el aceite 10 minutos.",
+        "Añade el ajo laminado y el pimentón y remueve 30 segundos.",
+        "Echa el tomate triturado, sala y cuece 8 minutos hasta que espese.",
+        "Incorpora el mejillón escurrido, tapa y calienta 3 minutos.",
+        "Sirve con el pan cortado para mojar la salsa."
+      ],
+      "nota": "El pan no es guarnición: es la mitad del plato y la proteína más barata del carro."
+    },
+    {
+      "id": "sardinas_escabeche",
+      "nombre": "Sardinas en escabeche",
+      "minutos": 30,
+      "tags": [
+        "pescado",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sarten",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "sardina_fresca",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 16,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Quita cabeza y tripas a las sardinas, lávalas y sécalas.",
+        "Sálalas y márcalas en la sartén con la mitad del aceite, 1 minuto por lado.",
+        "Sácalas a una fuente honda.",
+        "En el mismo aceite pocha la cebolla en pluma y la zanahoria en rodajas 10 minutos.",
+        "Añade el ajo, el laurel, el vinagre y el resto del aceite y hierve 3 minutos.",
+        "Vuelca el escabeche sobre las sardinas y deja enfriar antes de guardar."
+      ],
+      "nota": "Está mejor al segundo día. El escabeche aguanta cuatro en la nevera aunque la sardina fresca dure dos."
+    },
+    {
+      "id": "calabacin_relleno_atun",
+      "nombre": "Calabacín relleno de atún",
+      "minutos": 45,
+      "tags": [
+        "pescado",
+        "horno"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "atun_lata",
+          "parte": "principal",
+          "cantidad": 1.25,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 35,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta los calabacines a lo largo, vacíalos con una cuchara y reserva la pulpa.",
+        "Hornea las barcas 15 minutos con un hilo de aceite.",
+        "Sofríe la cebolla, el ajo y la pulpa picados 10 minutos y sala.",
+        "Aparta del fuego y mezcla con el atún escurrido y el huevo batido.",
+        "Rellena las barcas, cubre con el queso y gratina 10 minutos."
+      ]
+    }
+  ]
+}

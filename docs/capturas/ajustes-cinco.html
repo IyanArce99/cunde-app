@@ -1,0 +1,388 @@
+<title>Cunde · Cinco Ajustes</title>
+<style>
+  :root{--papel:#EFEDE6;--papel2:#E5E2D8;--crema:#F6F4EE;--tinta:#1A1917;
+    --azulete:#2B4C7E;--az-f:rgba(43,76,126,.07);--oferta:#C9A800;--pauta:#A9A498;--gris:#6E6A5F;--linea:#D6D2C6;
+    --borde:1.5px solid rgba(169,164,152,.7);
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --cuerpo:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+  @media (prefers-color-scheme:dark){:root{--papel:#161513;--papel2:#242219;--crema:#1E1D1A;--tinta:#EDEBE4;
+    --azulete:#8FB3E0;--az-f:rgba(143,179,224,.12);--oferta:#E3C233;--pauta:#5C584F;--gris:#A8A39A;--linea:#302E29;
+    --borde:1.5px solid rgba(92,88,79,.9);}}
+  :root[data-theme='dark']{--papel:#161513;--papel2:#242219;--crema:#1E1D1A;--tinta:#EDEBE4;--azulete:#8FB3E0;
+    --az-f:rgba(143,179,224,.12);--oferta:#E3C233;--pauta:#5C584F;--gris:#A8A39A;--linea:#302E29;
+    --borde:1.5px solid rgba(92,88,79,.9);}
+  :root[data-theme='light']{--papel:#EFEDE6;--papel2:#E5E2D8;--crema:#F6F4EE;--tinta:#1A1917;--azulete:#2B4C7E;
+    --az-f:rgba(43,76,126,.07);--oferta:#C9A800;--pauta:#A9A498;--gris:#6E6A5F;--linea:#D6D2C6;
+    --borde:1.5px solid rgba(169,164,152,.7);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .env{max-width:1360px;margin:0 auto;padding:42px 20px 100px}
+  header{border-bottom:2px solid var(--tinta);padding-bottom:24px}
+  .sello{font:500 12px/1 var(--mono);letter-spacing:.12em;color:var(--gris);text-transform:uppercase}
+  h1{font:700 clamp(28px,5.5vw,44px)/1.02 var(--cuerpo);letter-spacing:-.035em;margin:10px 0 0;text-wrap:balance}
+  .baja{font-size:17px;color:var(--gris);max-width:64ch;margin:14px 0 0}
+  .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(404px,1fr));gap:30px;margin-top:36px;align-items:start}
+  .caso h2{font:700 20px/1.15 var(--cuerpo);letter-spacing:-.02em;margin:0 0 4px}
+  .caso>p{font-size:14.5px;color:var(--gris);margin:0 0 10px;max-width:46ch}
+  .medida{display:block;font:500 12px/1.5 var(--mono);color:var(--azulete);margin-bottom:12px}
+
+  .movil{position:relative;width:390px;height:844px;max-width:100%;border:1px solid var(--pauta);overflow:hidden;background:var(--papel)}
+  .fondo{padding:22px 30px}
+  .fondo__tabs{display:flex;gap:22px;font:600 13px/1 var(--cuerpo);letter-spacing:.18em;color:var(--gris);padding-bottom:12px;border-bottom:1px dashed var(--pauta)}
+  .fondo__tabs .on{color:var(--tinta)}
+  .fondo__cifra{margin-top:20px;font:700 56px/1 var(--cuerpo);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .velo{position:absolute;inset:0;background:rgba(26,25,23,.45)}
+  /* 92% de 844 y el padding real de BottomSheet */
+  .hoja{position:absolute;left:0;right:0;bottom:0;max-height:776px;overflow-y:auto;background:var(--papel);
+    border-radius:14px 14px 0 0;padding:26px 30px 34px}
+
+  .aj__cab{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .aj__tit{font:500 13px/1.3 var(--mono);color:var(--gris)}
+  .aj__x{width:56px;height:56px;margin:-12px -12px -12px 0;background:none;border:0;color:var(--gris);
+    font:400 17px/1 var(--mono);cursor:pointer}
+  .aj__intro{margin:14px 0 0;font:400 13px/1.5 var(--mono);color:var(--gris)}
+  .aj__preg{margin:24px 0 14px;font:600 22px/1.25 var(--cuerpo);letter-spacing:-.02em}
+  .aj__cab + .aj__preg{margin-top:10px}
+  .aj__fila{display:flex;flex-wrap:wrap;gap:8px}
+  .aj__pill{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:56px;padding:8px 16px;
+    background:transparent;border:var(--borde);border-radius:4px;text-align:left;font-family:inherit;cursor:pointer}
+  .aj__pill--ancho{width:100%;flex-direction:row;align-items:center;padding:0 16px}
+  .aj__pill.on{background:var(--az-f);border-color:var(--azulete)}
+  .aj__pill-l{font:500 17px/1 var(--cuerpo);color:var(--tinta)}
+  .aj__pill.on .aj__pill-l{color:var(--azulete)}
+  .aj__pill-m{font:400 13px/1 var(--mono);color:var(--gris)}
+  .aj__bloques{display:flex;flex-direction:column;gap:8px}
+  .aj__bloque{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:16px;border:var(--borde);
+    border-radius:4px;background:none;font-family:inherit;text-align:left;cursor:pointer}
+  .aj__bloque.on{border-color:var(--azulete);background:var(--az-f)}
+  .aj__bl{font:500 17px/1.1 var(--cuerpo)}
+  .aj__bloque.on .aj__bl{color:var(--azulete)}
+  .aj__bs{font:400 13px/1.2 var(--mono);color:var(--gris)}
+  .aj__grupo{display:block;margin:16px 0 8px;font:600 15px/1.3 var(--cuerpo)}
+  .aj__chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+  .aj__chip{min-height:56px;padding:0 16px;border:var(--borde);border-radius:999px;background:none;
+    font:500 15px/1 var(--cuerpo);color:var(--tinta);font-family:inherit;cursor:pointer}
+  .aj__nota{margin:12px 0 0;font:400 13px/1.6 var(--mono);color:var(--gris)}
+  .aj__guardar{width:100%;min-height:56px;margin-top:24px;border:0;border-radius:4px;background:var(--azulete);
+    color:#fff;font:600 17px/1 var(--cuerpo);font-family:inherit;cursor:pointer}
+  .sc{display:flex;gap:8px}
+  .sc__op{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:2px;min-height:56px;padding:9px 8px;
+    border:var(--borde);border-radius:4px;background:none;font-family:inherit;text-align:left;cursor:pointer}
+  .sc__op.on{border-color:var(--azulete);background:var(--az-f)}
+  .sc__l{font:600 15px/1.1 var(--cuerpo)}
+  .sc__n{font:400 13px/1.1 var(--mono);color:var(--gris)}
+  .sc__p{margin-top:4px;font:500 17px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+  .sc__e{font:400 13px/1.1 var(--mono);color:var(--gris);font-variant-numeric:tabular-nums}
+
+  /* piezas nuevas de las variantes */
+  .aj__separador{margin:26px 0 6px;border-top:1px dashed var(--pauta)}
+  .aj__plegado,.aj__linea{display:flex;align-items:baseline;gap:8px;width:100%;min-height:56px;padding:10px 0;
+    background:none;border:0;border-bottom:1px solid var(--linea);text-align:left;font-family:inherit;cursor:pointer}
+  .aj__plegado-t,.aj__linea-l{font:500 16px/1.3 var(--cuerpo);color:var(--tinta)}
+  .aj__linea-g{flex:1;min-width:12px;border-bottom:1px dotted var(--pauta);transform:translateY(-4px)}
+  .aj__plegado-v,.aj__linea-v{font:400 15px/1.3 var(--mono);color:var(--gris)}
+  .aj__linea-p{margin-left:10px;font:500 15px/1.3 var(--mono);color:var(--tinta);font-variant-numeric:tabular-nums}
+  .aj__linea-f{margin-left:10px;font-family:var(--mono);color:var(--azulete)}
+  .aj__indice{margin-top:14px}
+  .aj__cerradas{margin-top:24px}
+  .aj__total{margin-top:16px;padding:14px 16px;background:var(--papel2);border-left:3px solid var(--azulete);border-radius:3px}
+  .aj__total-et{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--gris)}
+  .aj__total-c{display:block;margin-top:6px;font:700 34px/1 var(--cuerpo);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .aj__total-s{display:block;margin-top:4px;font:400 13px/1.4 var(--mono);color:var(--gris)}
+
+  .ver{border-left:3px solid var(--azulete);padding:2px 0 2px 18px;margin:50px 0 0}
+  .ver p{font-size:16px;margin:0 0 12px;max-width:66ch}
+  .ver p:last-child{margin-bottom:0}
+  .ver strong{font-weight:600}
+  .tabla-env{overflow-x:auto;margin:26px 0;border:1px solid var(--linea)}
+  table{border-collapse:collapse;width:100%;min-width:640px;background:var(--crema)}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--linea);font-size:14.5px;vertical-align:top}
+  th{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gris);background:var(--papel2);white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+  td.v{font:500 13.5px/1.4 var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+</style>
+<div class="env">
+<header>
+  <span class="sello">390 × 844 · la hoja real: 776 px de alto máximo, padding 26/30/34</span>
+  <h1>Cinco Ajustes</h1>
+  <p class="baja">La hoja de hoy mide 1.188 px en 776 de hueco, y con el postre pasa de 1.380: casi dos pantallas de scroll para seis preguntas del mismo peso. Cada opción reparte eso de otra manera. Las hojas se desplazan por dentro.</p>
+</header>
+
+<div class="rejilla">
+  
+  <div class="caso"><h2>A · Como está hoy, más el postre</h2><p>La referencia. Seis preguntas del mismo peso, una detrás de otra.</p>
+    <span class="medida" id="m-a">midiendo…</span>
+    
+<div class="movil" id="p-a">
+  <div class="fondo">
+    <div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div>
+  </div>
+  <div class="velo"></div>
+  <div class="hoja"><div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  <h2 class="aj__preg">¿Qué resuelvo?</h2><div class="aj__fila">
+  <button class="aj__pill"><span class="aj__pill-l">Comidas</span><span class="aj__pill-m">7 platos</span></button>
+  <button class="aj__pill"><span class="aj__pill-l">Cenas</span><span class="aj__pill-m">7 platos</span></button>
+  <button class="aj__pill on"><span class="aj__pill-l">Las dos</span><span class="aj__pill-m">14 platos</span></button></div>
+  <h2 class="aj__preg">¿Cuánto quieres cocinar?</h2><div class="aj__bloques">
+  <button class="aj__bloque"><span class="aj__bl">Lo mínimo</span><span class="aj__bs">menos de 20 min</span></button>
+  <button class="aj__bloque on"><span class="aj__bl">Lo normal</span><span class="aj__bs">30 a 40 min</span></button>
+  <button class="aj__bloque"><span class="aj__bl">Me gusta cocinar</span><span class="aj__bs">sin límite</span></button></div>
+  <h2 class="aj__preg">¿Cuánta variedad quieres?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Poca</span><span class="sc__n">repites bastante</span>
+  <span class="sc__p">64,80 €</span>
+  <span class="sc__e">+4,58 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">repites algo</span>
+  <span class="sc__p">60,22 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Mucha</span><span class="sc__n">casi sin repetir</span>
+  <span class="sc__p">60,50 €</span>
+  <span class="sc__e">+0,28 €</span></button></div>
+  <h2 class="aj__preg">¿Cuánta proteína?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Básica</span><span class="sc__n">legumbre y huevo</span>
+  <span class="sc__p">59 g</span>
+  <span class="sc__e">tiras 3,24 € · 62,93 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">carne 3 días</span>
+  <span class="sc__p">58 g</span>
+  <span class="sc__e">tiras 5,27 € · 63,89 €</span></button>
+  <button class="sc__op"><span class="sc__l">Alta</span><span class="sc__n">carne casi a diario</span>
+  <span class="sc__p">62 g</span>
+  <span class="sc__e">tiras 6,29 € · 63,62 €</span></button></div>
+  <p class="aj__nota">Algo de lo fresco se queda por el camino.</p>
+  <h2 class="aj__preg">¿Pones postre?</h2><div class="sc">
+  <button class="sc__op on"><span class="sc__l">No</span><span class="sc__n">sin postre</span>
+  <span class="sc__p">0,00 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Entre semana</span><span class="sc__n">5 días</span>
+  <span class="sc__p">2,84 €</span>
+  <span class="sc__e">+2,84 €</span></button>
+  <button class="sc__op"><span class="sc__l">Todos los días</span><span class="sc__n">7 días</span>
+  <span class="sc__p">4,69 €</span>
+  <span class="sc__e">+4,69 €</span></button></div>
+  <p class="aj__nota">Fruta y yogur, variados solos. Sale del presupuesto, no se suma encima.</p>
+  <h2 class="aj__preg">¿Algo que no comes?</h2>
+  <button class="aj__pill aj__pill--ancho on"><span class="aj__pill-l">Nada, como de todo</span></button>
+  <span class="aj__grupo">Alergias e intolerancias</span><div class="aj__chips"><button class="aj__chip">Gluten</button><button class="aj__chip">Lactosa</button><button class="aj__chip">Huevo</button><button class="aj__chip">Frutos secos</button><button class="aj__chip">Marisco</button><button class="aj__chip">Pescado</button><button class="aj__chip">Cacahuete</button><button class="aj__chip">Soja</button><button class="aj__chip">Sésamo</button><button class="aj__chip">Apio</button><button class="aj__chip">Sulfitos</button><button class="aj__chip">Mostaza</button></div>
+  <span class="aj__grupo">Por dieta</span><div class="aj__chips"><button class="aj__chip">Vegetariano</button><button class="aj__chip">Vegano</button><button class="aj__chip">Cerdo</button></div>
+  <button class="aj__guardar">Guardar ajustes</button></div>
+</div></div>
+  <div class="caso"><h2>B · Por frecuencia</h2><p>Arriba lo que mueve el dinero y se toca cada semana. Plegado lo que se pone una vez.</p>
+    <span class="medida" id="m-b">midiendo…</span>
+    
+<div class="movil" id="p-b">
+  <div class="fondo">
+    <div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div>
+  </div>
+  <div class="velo"></div>
+  <div class="hoja"><div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  <p class="aj__intro">Lo que mueve el dinero.</p>
+  <h2 class="aj__preg">¿Cuánta variedad quieres?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Poca</span><span class="sc__n">repites bastante</span>
+  <span class="sc__p">64,80 €</span>
+  <span class="sc__e">+4,58 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">repites algo</span>
+  <span class="sc__p">60,22 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Mucha</span><span class="sc__n">casi sin repetir</span>
+  <span class="sc__p">60,50 €</span>
+  <span class="sc__e">+0,28 €</span></button></div>
+  <h2 class="aj__preg">¿Cuánta proteína?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Básica</span><span class="sc__n">legumbre y huevo</span>
+  <span class="sc__p">59 g</span>
+  <span class="sc__e">tiras 3,24 € · 62,93 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">carne 3 días</span>
+  <span class="sc__p">58 g</span>
+  <span class="sc__e">tiras 5,27 € · 63,89 €</span></button>
+  <button class="sc__op"><span class="sc__l">Alta</span><span class="sc__n">carne casi a diario</span>
+  <span class="sc__p">62 g</span>
+  <span class="sc__e">tiras 6,29 € · 63,62 €</span></button></div>
+  <p class="aj__nota">Algo de lo fresco se queda por el camino.</p>
+  <h2 class="aj__preg">¿Pones postre?</h2><div class="sc">
+  <button class="sc__op on"><span class="sc__l">No</span><span class="sc__n">sin postre</span>
+  <span class="sc__p">0,00 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Entre semana</span><span class="sc__n">5 días</span>
+  <span class="sc__p">2,84 €</span>
+  <span class="sc__e">+2,84 €</span></button>
+  <button class="sc__op"><span class="sc__l">Todos los días</span><span class="sc__n">7 días</span>
+  <span class="sc__p">4,69 €</span>
+  <span class="sc__e">+4,69 €</span></button></div>
+  <p class="aj__nota">Fruta y yogur, variados solos. Sale del presupuesto.</p>
+  <div class="aj__separador"></div>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Qué resuelvo</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">comidas y cenas</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Cuánto cocinas</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">lo normal</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Lo que no comes</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">de todo</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__guardar">Guardar ajustes</button></div>
+</div></div>
+  <div class="caso"><h2>C · Índice de ticket</h2><p>La hoja es una lista de líneas con su valor. Cada una abre la suya.</p>
+    <span class="medida" id="m-c">midiendo…</span>
+    
+<div class="movil" id="p-c">
+  <div class="fondo">
+    <div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div>
+  </div>
+  <div class="velo"></div>
+  <div class="hoja"><div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  <div class="aj__indice">
+    <button class="aj__linea">
+  <span class="aj__linea-l">Variedad</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">normal</span><span class="aj__linea-p">60,22 €</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__linea">
+  <span class="aj__linea-l">Proteína</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">normal</span><span class="aj__linea-p">63,89 €</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__linea">
+  <span class="aj__linea-l">Postre</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">no</span><span class="aj__linea-p">0,00 €</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__linea">
+  <span class="aj__linea-l">Qué resuelvo</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">comidas y cenas</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__linea">
+  <span class="aj__linea-l">Cuánto cocinas</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">lo normal</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__linea">
+  <span class="aj__linea-l">Lo que no comes</span><span class="aj__linea-g"></span>
+  <span class="aj__linea-v">de todo</span><span class="aj__linea-f">›</span></button>
+  </div>
+  <p class="aj__nota">Cada línea se abre sola. La semana se rehace al guardar.</p>
+  <button class="aj__guardar">Guardar ajustes</button></div>
+</div></div>
+  <div class="caso"><h2>D · Una abierta</h2><p>Solo una pregunta desplegada; al elegir se cierra y se abre la siguiente.</p>
+    <span class="medida" id="m-d">midiendo…</span>
+    
+<div class="movil" id="p-d">
+  <div class="fondo">
+    <div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div>
+  </div>
+  <div class="velo"></div>
+  <div class="hoja"><div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  <h2 class="aj__preg">¿Cuánta variedad quieres?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Poca</span><span class="sc__n">repites bastante</span>
+  <span class="sc__p">64,80 €</span>
+  <span class="sc__e">+4,58 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">repites algo</span>
+  <span class="sc__p">60,22 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Mucha</span><span class="sc__n">casi sin repetir</span>
+  <span class="sc__p">60,50 €</span>
+  <span class="sc__e">+0,28 €</span></button></div>
+  <div class="aj__cerradas">
+    <button class="aj__plegado">
+  <span class="aj__plegado-t">Proteína</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">normal · 58 g</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__plegado">
+  <span class="aj__plegado-t">Postre</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">no</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__plegado">
+  <span class="aj__plegado-t">Qué resuelvo</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">comidas y cenas</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__plegado">
+  <span class="aj__plegado-t">Cuánto cocinas</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">lo normal</span><span class="aj__linea-f">›</span></button>
+    <button class="aj__plegado">
+  <span class="aj__plegado-t">Lo que no comes</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">de todo</span><span class="aj__linea-f">›</span></button>
+  </div>
+  <button class="aj__guardar">Guardar ajustes</button></div>
+</div></div>
+  <div class="caso"><h2>E · Manda el total</h2><p>La cifra de la semana arriba, fija, y debajo lo que la mueve.</p>
+    <span class="medida" id="m-e">midiendo…</span>
+    
+<div class="movil" id="p-e">
+  <div class="fondo">
+    <div class="fondo__tabs"><span class="on">SEMANA</span><span>COMPRA</span></div>
+    <div class="fondo__cifra">63,89 €</div>
+  </div>
+  <div class="velo"></div>
+  <div class="hoja"><div class="aj__cab"><span class="aj__tit">AJUSTAR LA SEMANA</span><button class="aj__x">✕</button></div>
+  <div class="aj__total">
+    <span class="aj__total-et">LA SEMANA QUEDARÍA EN</span>
+    <span class="aj__total-c">60,22 €</span>
+    <span class="aj__total-s">de 65,00 € · te sobrarían 4,78 €</span>
+  </div>
+  <h2 class="aj__preg">¿Cuánta variedad quieres?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Poca</span><span class="sc__n">repites bastante</span>
+  <span class="sc__p">64,80 €</span>
+  <span class="sc__e">+4,58 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">repites algo</span>
+  <span class="sc__p">60,22 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Mucha</span><span class="sc__n">casi sin repetir</span>
+  <span class="sc__p">60,50 €</span>
+  <span class="sc__e">+0,28 €</span></button></div>
+  <h2 class="aj__preg">¿Cuánta proteína?</h2><div class="sc">
+  <button class="sc__op"><span class="sc__l">Básica</span><span class="sc__n">legumbre y huevo</span>
+  <span class="sc__p">59 g</span>
+  <span class="sc__e">tiras 3,24 € · 62,93 €</span></button>
+  <button class="sc__op on"><span class="sc__l">Normal</span><span class="sc__n">carne 3 días</span>
+  <span class="sc__p">58 g</span>
+  <span class="sc__e">tiras 5,27 € · 63,89 €</span></button>
+  <button class="sc__op"><span class="sc__l">Alta</span><span class="sc__n">carne casi a diario</span>
+  <span class="sc__p">62 g</span>
+  <span class="sc__e">tiras 6,29 € · 63,62 €</span></button></div>
+  <h2 class="aj__preg">¿Pones postre?</h2><div class="sc">
+  <button class="sc__op on"><span class="sc__l">No</span><span class="sc__n">sin postre</span>
+  <span class="sc__p">0,00 €</span>
+  <span class="sc__e">lo más barato</span></button>
+  <button class="sc__op"><span class="sc__l">Entre semana</span><span class="sc__n">5 días</span>
+  <span class="sc__p">2,84 €</span>
+  <span class="sc__e">+2,84 €</span></button>
+  <button class="sc__op"><span class="sc__l">Todos los días</span><span class="sc__n">7 días</span>
+  <span class="sc__p">4,69 €</span>
+  <span class="sc__e">+4,69 €</span></button></div>
+  <div class="aj__separador"></div>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Qué resuelvo</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">comidas y cenas</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Cuánto cocinas</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">lo normal</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__plegado">
+  <span class="aj__plegado-t">Lo que no comes</span><span class="aj__linea-g"></span>
+  <span class="aj__plegado-v">de todo</span><span class="aj__linea-f">›</span></button>
+  <button class="aj__guardar">Guardar ajustes</button></div>
+</div></div>
+</div>
+
+<div class="ver">
+  <p><strong>Lo que hay que mirar, y no es cuál es más bonita.</strong> Con la hoja abierta, ¿se ve el postre sin tocar nada? ¿Y la variedad, que es lo que más se cambia? Lo demás —comidas o cenas, cuánto cocinas, las alergias— se pone una vez en la vida, y hoy ocupa la mitad del alto.</p>
+  <p><strong>La C y la D cambian el trato.</strong> Las dos convierten un cambio en dos toques: abrir la línea y elegir. A cambio la hoja cabe entera. Si la mayoría de las visitas son para tocar una sola cosa, salen ganando; si se entra a tocar tres, salen perdiendo.</p>
+  <p><strong>La E es la única que enseña la consecuencia.</strong> Hoy eliges "mucha variedad" y no sabes qué le pasa a la semana hasta que guardas y se rehace. Con el total arriba, la decisión se toma con el resultado delante — que es lo que hace el deslizador del presupuesto, y es la mecánica de la app entera.</p>
+</div>
+
+<div class="tabla-env"><table>
+  <thead><tr><th>Opción</th><th>Alto</th><th>Toques para cambiar la variedad</th><th>Qué arriesga</th></tr></thead>
+  <tbody>
+    <tr><td class="v">A · hoy</td><td class="v" id="t-a">—</td><td class="v">1 + scroll</td><td>Seis preguntas iguales, sin jerarquía. Lo que se toca cada semana está enterrado en medio.</td></tr>
+    <tr><td class="v">B · frecuencia</td><td class="v" id="t-b">—</td><td class="v">1</td><td>Hay que acertar qué va arriba. Si alguien cambia mucho las restricciones, le hemos escondido lo suyo.</td></tr>
+    <tr><td class="v">C · índice</td><td class="v" id="t-c">—</td><td class="v">2</td><td>Un toque más siempre, y una hoja dentro de otra hoja.</td></tr>
+    <tr><td class="v">D · una abierta</td><td class="v" id="t-d">—</td><td class="v">1 la primera, 2 el resto</td><td>El acordeón mueve el contenido bajo el dedo; con reduced-motion hay que resolverlo sin animación.</td></tr>
+    <tr><td class="v">E · total</td><td class="v" id="t-e">—</td><td class="v">1</td><td>La cifra hay que recalcularla en cada toque, y eso es una generación del motor. Hoy son 1,2 s.</td></tr>
+  </tbody>
+</table></div>
+
+<script>
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    for (const id of ['a','b','c','d','e']) {
+      const h = document.querySelector('#p-' + id + ' .hoja');
+      const alto = Math.round(h.scrollHeight);
+      const visto = Math.round(h.getBoundingClientRect().height);
+      const postre = [...h.querySelectorAll('.aj__preg, .aj__linea-l, .aj__plegado-t')]
+        .find((e) => /ostre/.test(e.textContent));
+      const y = postre ? Math.round(postre.offsetTop) : null;
+      document.getElementById('m-' + id).textContent =
+        alto + ' px · ' + (alto / visto).toFixed(1) + ' pantallas'
+        + (y === null ? '' : ' · el postre a ' + y + ' px' + (y + 120 <= visto ? ', se ve' : ', hay que bajar'));
+      document.getElementById('t-' + id).textContent = alto + ' px';
+    }
+  }));
+</script>
+</div>

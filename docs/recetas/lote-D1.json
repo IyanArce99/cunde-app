@@ -1,0 +1,402 @@
+{
+  "raciones_base": 2,
+  "lote": "D1",
+  "nota": "Pescado y marisco de diario. El recetario piloto solo tenía merluza al horno a 2,39 € la ración, así que el motor nunca elegía pescado. Aquí tres platos por debajo de 1,20 €, todos de sardina, mejillón y conserva. Las cantidades son POR RACIÓN. Ver docs/ingredientes-canonicos.json para el vocabulario.",
+  "recetas": [
+    {
+      "id": "sardinas_horno",
+      "nombre": "Sardinas al horno",
+      "minutos": 25,
+      "tags": [
+        "pescado",
+        "horno",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "sardina_fresca",
+          "parte": "principal",
+          "cantidad": 190,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.9,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 220 °C.",
+        "Quita cabeza y tripas a las sardinas, lávalas y sécalas.",
+        "Colócalas en la bandeja en una sola capa y sálalas.",
+        "Maja el ajo con el perejil, el pimentón y el aceite.",
+        "Riega las sardinas con el majado.",
+        "Hornea 12 minutos."
+      ],
+      "nota": "190 g por ración vacían la bandeja de 400 g entre dos. La sardina aguanta 2 días: lo que sobre se tira."
+    },
+    {
+      "id": "arroz_mejillon",
+      "nombre": "Arroz con mejillones",
+      "minutos": 35,
+      "tags": [
+        "marisco",
+        "olla",
+        "economico"
+      ],
+      "proteina": "marisco",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "mejillon_congelado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla y sofríela en el aceite 8 minutos.",
+        "Añade el tomate triturado y el pimentón y cocina 3 minutos.",
+        "Incorpora el arroz y remueve un minuto.",
+        "Vierte el caldo caliente, sala y cuece 16 minutos a fuego medio.",
+        "Añade el mejillón, tapa, aparta del fuego y espera 3 minutos."
+      ],
+      "nota_ratio": "arroz : líquido = 1 : 2"
+    },
+    {
+      "id": "campera_caballa",
+      "nombre": "Ensalada campera con caballa",
+      "minutos": 20,
+      "tags": [
+        "pescado",
+        "rapido",
+        "olla",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caballa_lata",
+          "parte": "principal",
+          "cantidad": 55,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceituna_verde",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pela la patata y córtala en dados de dos centímetros.",
+        "Cuécela en agua con sal 12 minutos y cuece el huevo en la misma olla los últimos 10.",
+        "Escurre la patata y pasa el huevo por agua fría.",
+        "Corta la cebolla en pluma, pela y trocea el huevo y escurre la caballa.",
+        "Mezcla todo con la aceituna, el aceite y el vinagre.",
+        "Sirve templada, o fría al día siguiente."
+      ]
+    },
+    {
+      "id": "patatas_calamares",
+      "nombre": "Patatas con calamares",
+      "minutos": 50,
+      "tags": [
+        "marisco",
+        "olla"
+      ],
+      "proteina": "marisco",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "calamar_congelado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Descongela el calamar y córtalo en anillas.",
+        "Pica la cebolla y el pimiento y sofríelos en el aceite 10 minutos.",
+        "Añade el calamar y rehoga 5 minutos.",
+        "Incorpora el tomate y el pimentón y cocina 2 minutos.",
+        "Rompe la patata en trozos, échala, cubre de agua, sala y cuece 25 minutos.",
+        "Aparta y deja reposar 10 minutos."
+      ]
+    },
+    {
+      "id": "merluza_salsa_verde",
+      "nombre": "Merluza en salsa verde",
+      "minutos": 25,
+      "tags": [
+        "pescado",
+        "sarten"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lomo_merluza",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "acompanamiento",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Lamina el ajo y dóralo en el aceite a fuego suave.",
+        "Añade el perejil y el caldo y hierve 2 minutos.",
+        "Sala la merluza y colócala en la cazuela con la piel hacia abajo.",
+        "Cuece 5 minutos moviendo la cazuela en círculos.",
+        "Da la vuelta al pescado y cuece 3 minutos más hasta que la salsa ligue.",
+        "Saltea la espinaca aparte y sírvela al lado."
+      ],
+      "foto": "merluza_salsa_verde.png"
+    }
+  ]
+}

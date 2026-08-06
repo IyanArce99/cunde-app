@@ -1,0 +1,5648 @@
+{
+  "aceite_oliva": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 12,
+    "candidatos": [
+      {
+        "sku": "4241",
+        "nombre": "Aceite de oliva 0,4º Hacendado",
+        "contenido": 5,
+        "unidad": "l",
+        "precio": 17.75,
+        "precio_kg_l_ud": 3.55,
+        "packaging": "Garrafa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4641",
+        "nombre": "Aceite de oliva 1º Hacendado",
+        "contenido": 5,
+        "unidad": "l",
+        "precio": 17.75,
+        "precio_kg_l_ud": 3.55,
+        "packaging": "Garrafa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4240",
+        "nombre": "Aceite de oliva 0,4º Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 3.8,
+        "precio_kg_l_ud": 3.8,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4640",
+        "nombre": "Aceite de oliva 1º Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 4,
+        "precio_kg_l_ud": 4,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "14727",
+        "nombre": "Aceite de oliva virgen extra Hacendado",
+        "contenido": 5,
+        "unidad": "l",
+        "precio": 20,
+        "precio_kg_l_ud": 4,
+        "packaging": "Garrafa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4711",
+        "nombre": "Aceite de oliva virgen Hacendado",
+        "contenido": 3,
+        "unidad": "l",
+        "precio": 12.45,
+        "precio_kg_l_ud": 4.15,
+        "packaging": "Garrafa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4749",
+        "nombre": "Aceite de oliva virgen Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 4.3,
+        "precio_kg_l_ud": 4.3,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4717",
+        "nombre": "Aceite de oliva virgen extra Hacendado",
+        "contenido": 3,
+        "unidad": "l",
+        "precio": 13.85,
+        "precio_kg_l_ud": 4.617,
+        "packaging": "Garrafa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4740",
+        "nombre": "Aceite de oliva virgen extra Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 4.8,
+        "precio_kg_l_ud": 4.8,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      },
+      {
+        "sku": "4706",
+        "nombre": "Aceite de oliva virgen extra Hacendado Gran Selección",
+        "contenido": 0.75,
+        "unidad": "l",
+        "precio": 5.75,
+        "precio_kg_l_ud": 7.667,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Aceite de oliva"
+      }
+    ]
+  },
+  "aceituna_verde": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 8,
+    "candidatos": [
+      {
+        "sku": "13422",
+        "nombre": "Aceitunas verdes estilo casero Hacendado partidas aliñadas",
+        "contenido": 0.96,
+        "unidad": "kg",
+        "precio": 2.85,
+        "precio_kg_l_ud": 2.969,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "33205",
+        "nombre": "Aceitunas verdes con hueso Hacendado",
+        "contenido": 0.43,
+        "unidad": "kg",
+        "precio": 1.4,
+        "precio_kg_l_ud": 3.256,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "33168",
+        "nombre": "Aceitunas verdes Chupadedos Huerta de Barros partidas aliñadas",
+        "contenido": 0.98,
+        "unidad": "kg",
+        "precio": 3.3,
+        "precio_kg_l_ud": 3.367,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "33053",
+        "nombre": "Aceitunas verdes sin hueso Hacendado",
+        "contenido": 0.81,
+        "unidad": "kg",
+        "precio": 2.8,
+        "precio_kg_l_ud": 3.457,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "33114",
+        "nombre": "Aceitunas verdes sin hueso Hacendado",
+        "contenido": 0.525,
+        "unidad": "kg",
+        "precio": 1.85,
+        "precio_kg_l_ud": 3.524,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "19883",
+        "nombre": "Aceitunas verdes campo real Guerra",
+        "contenido": 1.1,
+        "unidad": "kg",
+        "precio": 4,
+        "precio_kg_l_ud": 3.636,
+        "packaging": "Cubo",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "33121",
+        "nombre": "Aceitunas verdes sin hueso aliñadas Hacendado",
+        "contenido": 0.42,
+        "unidad": "kg",
+        "precio": 1.9,
+        "precio_kg_l_ud": 4.524,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      },
+      {
+        "sku": "52622",
+        "nombre": "Aceitunas verdes Picadedos sin hueso Hacendado aliñadas",
+        "contenido": 0.71,
+        "unidad": "kg",
+        "precio": 3.7,
+        "precio_kg_l_ud": 5.211,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Aceitunas verdes"
+      }
+    ]
+  },
+  "acelga": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "16314",
+        "nombre": "Acelgas troceadas Hacendado",
+        "contenido": 0.66,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 2.727,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "69725",
+        "nombre": "Acelgas cortadas y lavadas",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 1.35,
+        "precio_kg_l_ud": 4.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "ajo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "69297",
+        "nombre": "Ajos morados",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 1.85,
+        "precio_kg_l_ud": 7.4,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      }
+    ]
+  },
+  "alcachofa": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "11958",
+        "nombre": "Corazones de alcachofa Hacendado",
+        "contenido": 0.43,
+        "unidad": "kg",
+        "precio": 2.15,
+        "precio_kg_l_ud": 5,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16040",
+        "nombre": "Corazones de alcachofa Hacendado",
+        "contenido": 0.29,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 6.207,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "13865",
+        "nombre": "Alcachofa troceada Hacendado ultracongelada",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 2.55,
+        "precio_kg_l_ud": 6.375,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "19959",
+        "nombre": "Corazones de alcachofa Hacendado",
+        "contenido": 0.26,
+        "unidad": "kg",
+        "precio": 3,
+        "precio_kg_l_ud": 11.538,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "13796",
+        "nombre": "Cápsulas Alcachofa Deliplus",
+        "contenido": 0.01635,
+        "unidad": "kg",
+        "precio": 3.95,
+        "precio_kg_l_ud": 241.59,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": 30,
+        "peso_variable": false,
+        "departamento": "Fitoterapia y parafarmacia",
+        "subfamilia": "Fitoterapia"
+      }
+    ]
+  },
+  "almendra": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "34865",
+        "nombre": "Almendra natural Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.3,
+        "precio_kg_l_ud": 11.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "11960",
+        "nombre": "Almendra tostada y salada Hacendado con piel",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.4,
+        "precio_kg_l_ud": 12,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "17668",
+        "nombre": "Almendra tostada Hacendado 0% sal añadida pelada",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.9,
+        "precio_kg_l_ud": 14.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34009",
+        "nombre": "Almendra frita y salada Hacendado pelada",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.95,
+        "precio_kg_l_ud": 14.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34014",
+        "nombre": "Almendra tostada Hacendado 0% sal añadida con piel",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.95,
+        "precio_kg_l_ud": 14.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      }
+    ]
+  },
+  "alubia_blanca_cocida": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "26019",
+        "nombre": "Alubia cocida blanca Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 0.75,
+        "precio_kg_l_ud": 1.316,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
+      },
+      {
+        "sku": "26028",
+        "nombre": "Alubia cocida blanca Hacendado",
+        "contenido": 0.295,
+        "unidad": "kg",
+        "precio": 0.7,
+        "precio_kg_l_ud": 2.373,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
+      }
+    ]
+  },
+  "alubia_blanca_seca": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5124",
+        "nombre": "Alubia blanca Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.45,
+        "precio_kg_l_ud": 2.45,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
+      }
+    ]
+  },
+  "alubia_pinta_cocida": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "26001",
+        "nombre": "Alubia cocida pinta Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 1.25,
+        "precio_kg_l_ud": 2.193,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
+      }
+    ]
+  },
+  "alubia_roja_cocida": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "26000",
+        "nombre": "Alubia cocida roja Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 2.105,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
+      }
+    ]
+  },
+  "apio": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "69275",
+        "nombre": "Apio verde",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 1.23,
+        "precio_kg_l_ud": 2.196,
+        "packaging": "Manojo",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      },
+      {
+        "sku": "69245",
+        "nombre": "Apio cortado lavado",
+        "contenido": 0.21,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 5.476,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "arroz_integral": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5184",
+        "nombre": "Arroz integral largo Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.65,
+        "precio_kg_l_ud": 1.65,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      }
+    ]
+  },
+  "arroz_largo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5063",
+        "nombre": "Arroz largo Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 1.2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      }
+    ]
+  },
+  "arroz_redondo": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "5044",
+        "nombre": "Arroz redondo Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 1.2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      },
+      {
+        "sku": "5042",
+        "nombre": "Arroz redondo J Sendra Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      },
+      {
+        "sku": "5024",
+        "nombre": "Arroz redondo SOS",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.88,
+        "precio_kg_l_ud": 1.88,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      },
+      {
+        "sku": "52637",
+        "nombre": "Arroz redondo Sabor",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.45,
+        "precio_kg_l_ud": 2.45,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      }
+    ]
+  },
+  "atun_lata": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 12,
+    "candidatos": [
+      {
+        "sku": "18086",
+        "nombre": "Atún en aceite de girasol Hacendado",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 6.5,
+        "precio_kg_l_ud": 7.222,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "12911",
+        "nombre": "Atún listado al natural Hacendado",
+        "contenido": 0.385,
+        "unidad": "kg",
+        "precio": 3,
+        "precio_kg_l_ud": 7.792,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18030",
+        "nombre": "Atún en aceite de oliva Hacendado",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 7.7,
+        "precio_kg_l_ud": 8.556,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18055",
+        "nombre": "Atún claro en aceite de girasol Hacendado",
+        "contenido": 0.48,
+        "unidad": "kg",
+        "precio": 4.2,
+        "precio_kg_l_ud": 8.75,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18018",
+        "nombre": "Atún claro al natural Hacendado",
+        "contenido": 0.48,
+        "unidad": "kg",
+        "precio": 4.2,
+        "precio_kg_l_ud": 8.75,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18037",
+        "nombre": "Atún en salsa de tomate Hacendado",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 2.1,
+        "precio_kg_l_ud": 8.75,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18031",
+        "nombre": "Atún claro en escabeche blanco Hacendado",
+        "contenido": 0.48,
+        "unidad": "kg",
+        "precio": 4.6,
+        "precio_kg_l_ud": 9.583,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18002",
+        "nombre": "Atún claro en aceite de oliva Hacendado",
+        "contenido": 0.48,
+        "unidad": "kg",
+        "precio": 4.9,
+        "precio_kg_l_ud": 10.208,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18092",
+        "nombre": "Atún claro en aceite de girasol Hacendado",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 2.7,
+        "precio_kg_l_ud": 11.25,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      },
+      {
+        "sku": "18071",
+        "nombre": "Atún claro en aceite de oliva Hacendado",
+        "contenido": 0.111,
+        "unidad": "kg",
+        "precio": 1.55,
+        "precio_kg_l_ud": 13.964,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Atún"
+      }
+    ]
+  },
+  "bacalao_congelado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "87211",
+        "nombre": "Bacalao al punto de sal descongelado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 9.5,
+        "precio_kg_l_ud": 21.111,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Bacalao"
+      },
+      {
+        "sku": "62050",
+        "nombre": "Lomo de bacalao MareDeus ultracongelado",
+        "contenido": 0.384,
+        "unidad": "kg",
+        "precio": 9.41,
+        "precio_kg_l_ud": 24.505,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Congelados",
+        "subfamilia": "Pescado"
+      },
+      {
+        "sku": "62050",
+        "nombre": "Lomo de bacalao MareDeus ultracongelado",
+        "contenido": 0.384,
+        "unidad": "kg",
+        "precio": 9.41,
+        "precio_kg_l_ud": 24.505,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Pescado congelado"
+      }
+    ]
+  },
+  "bacon": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "16252",
+        "nombre": "Bacón Hacendado cintas",
+        "contenido": 0.26,
+        "unidad": "kg",
+        "precio": 2.2,
+        "precio_kg_l_ud": 8.462,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      },
+      {
+        "sku": "21629",
+        "nombre": "Bacón ahumado Monells lonchas",
+        "contenido": 0.225,
+        "unidad": "kg",
+        "precio": 2.2,
+        "precio_kg_l_ud": 9.778,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      },
+      {
+        "sku": "53500",
+        "nombre": "Bacón Oscar Mayer lonchas",
+        "contenido": 0.15,
+        "unidad": "kg",
+        "precio": 2.35,
+        "precio_kg_l_ud": 15.667,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      },
+      {
+        "sku": "58112",
+        "nombre": "Bacón adobado curado La Alegría lonchas",
+        "contenido": 0.15,
+        "unidad": "kg",
+        "precio": 2.45,
+        "precio_kg_l_ud": 16.333,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      },
+      {
+        "sku": "59170",
+        "nombre": "Bacón ahumado sin corteza Monells",
+        "contenido": 0.31,
+        "unidad": "kg",
+        "precio": 2.99,
+        "precio_kg_l_ud": 9.645,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      },
+      {
+        "sku": "59103",
+        "nombre": "Bacon adobado curado La Alegría",
+        "contenido": 0.27,
+        "unidad": "kg",
+        "precio": 3.06,
+        "precio_kg_l_ud": 11.333,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Bacón"
+      }
+    ]
+  },
+  "bebida_arroz": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "23048",
+        "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 6.3,
+        "precio_kg_l_ud": 1.05,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "23047",
+        "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.05,
+        "precio_kg_l_ud": 1.05,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "13849",
+        "nombre": "Bebida de avellana y arroz sin azúcares añadidos Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 7.5,
+        "precio_kg_l_ud": 1.25,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "13848",
+        "nombre": "Bebida de avellana y arroz sin azúcares añadidos Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.25,
+        "precio_kg_l_ud": 1.25,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "13847",
+        "nombre": "Bebida de coco y arroz sin azúcares añadidos Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 9.6,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "13846",
+        "nombre": "Bebida de coco y arroz sin azúcares añadidos Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.6,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      }
+    ]
+  },
+  "bebida_soja": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "14706",
+        "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 3.9,
+        "precio_kg_l_ud": 0.65,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "14707",
+        "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.65,
+        "precio_kg_l_ud": 0.65,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "29322",
+        "nombre": "Bebida de soja 0% azúcar Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 4.5,
+        "precio_kg_l_ud": 0.75,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      },
+      {
+        "sku": "29314",
+        "nombre": "Bebida de soja 0% azúcar Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.75,
+        "precio_kg_l_ud": 0.75,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Bebidas vegetales"
+      }
+    ]
+  },
+  "berenjena": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "69326",
+        "nombre": "Berenjena",
+        "contenido": 0.38,
+        "unidad": "kg",
+        "precio": 0.84,
+        "precio_kg_l_ud": 2.211,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "brocoli": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "61261",
+        "nombre": "Brócoli Hacendado ultracongelado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69622",
+        "nombre": "Floretas de brócoli para microondas lavadas",
+        "contenido": 0.23,
+        "unidad": "kg",
+        "precio": 1.7,
+        "precio_kg_l_ud": 7.391,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Verduras al vapor"
+      },
+      {
+        "sku": "69580",
+        "nombre": "Brócoli",
+        "contenido": 0.44,
+        "unidad": "kg",
+        "precio": 1.14,
+        "precio_kg_l_ud": 2.591,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "caballa_lata": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "13632",
+        "nombre": "Filetes de caballa del sur en tomate Hacendado",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 2.6,
+        "precio_kg_l_ud": 10.833,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caballa y melva"
+      },
+      {
+        "sku": "13628",
+        "nombre": "Filetes de caballa del sur en aceite de oliva Hacendado",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 2.7,
+        "precio_kg_l_ud": 11.25,
+        "packaging": "Pack-2",
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caballa y melva"
+      },
+      {
+        "sku": "12794",
+        "nombre": "Filetes de caballa del sur contenido reducido en sal Hacendado en aceite de oliva",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 3.2,
+        "precio_kg_l_ud": 13.333,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caballa y melva"
+      }
+    ]
+  },
+  "cacahuete": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 7,
+    "candidatos": [
+      {
+        "sku": "34820",
+        "nombre": "Cacahuete frito con sal Hacendado pelado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.9,
+        "precio_kg_l_ud": 3.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34031",
+        "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.55,
+        "precio_kg_l_ud": 3.875,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34016",
+        "nombre": "Cacahuete tostado con sal Hacendado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.65,
+        "precio_kg_l_ud": 4.125,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34868",
+        "nombre": "Cacahuete frito y salado Hacendado con piel",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 5.2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "13451",
+        "nombre": "Cacahuete tostado Hacendado 0% sal añadida pelado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.05,
+        "precio_kg_l_ud": 5.25,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "34143",
+        "nombre": "Cacahuete frito con miel Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.65,
+        "precio_kg_l_ud": 8.25,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      },
+      {
+        "sku": "13738",
+        "nombre": "Cacahuete +Proteínas en polvo desgrasado Hacendado 14 g proteínas 70% reducido en grasa",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.75,
+        "precio_kg_l_ud": 13.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aperitivos",
+        "subfamilia": "Frutos secos"
+      }
+    ]
+  },
+  "calabacin": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "69338",
+        "nombre": "Calabacín verde",
+        "contenido": 0.41,
+        "unidad": "kg",
+        "precio": 0.66,
+        "precio_kg_l_ud": 1.61,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Calabacín y pimiento"
+      },
+      {
+        "sku": "69339",
+        "nombre": "Calabacín blanco",
+        "contenido": 0.34,
+        "unidad": "kg",
+        "precio": 0.75,
+        "precio_kg_l_ud": 2.206,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Calabacín y pimiento"
+      }
+    ]
+  },
+  "calabaza": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "69853",
+        "nombre": "Media calabaza cacahuete",
+        "contenido": 0.7,
+        "unidad": "kg",
+        "precio": 2.1,
+        "precio_kg_l_ud": 3,
+        "packaging": "1/2 Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      },
+      {
+        "sku": "3527",
+        "nombre": "Calabaza cacahuete cortada a trozos",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 2.58,
+        "precio_kg_l_ud": 4.607,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "calamar_congelado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "24417",
+        "nombre": "Calamar grande Hacendado congelado",
+        "contenido": 0.31,
+        "unidad": "kg",
+        "precio": 5.42,
+        "precio_kg_l_ud": 17.484,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Congelados",
+        "subfamilia": "Pescado"
+      },
+      {
+        "sku": "24417",
+        "nombre": "Calamar grande Hacendado congelado",
+        "contenido": 0.31,
+        "unidad": "kg",
+        "precio": 5.42,
+        "precio_kg_l_ud": 17.484,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Sepia, pulpo y calamar congelado"
+      },
+      {
+        "sku": "87177",
+        "nombre": "Calamar pequeño limpio patagónico",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 5.85,
+        "precio_kg_l_ud": 19.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Sepia, pulpo y calamar"
+      }
+    ]
+  },
+  "caldo_pollo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "7313",
+        "nombre": "Caldo de pollo Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.75,
+        "precio_kg_l_ud": 0.75,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      },
+      {
+        "sku": "7031",
+        "nombre": "Caldo de pollo Hacendado bajo en sal",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.2,
+        "precio_kg_l_ud": 1.2,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      }
+    ]
+  },
+  "caldo_verduras": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "7032",
+        "nombre": "Caldo de verduras Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.95,
+        "precio_kg_l_ud": 0.95,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      }
+    ]
+  },
+  "carne_picada_cerdo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "2867",
+        "nombre": "Preparado de carne picada cerdo",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.75,
+        "precio_kg_l_ud": 5.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      }
+    ]
+  },
+  "carne_picada_mixta": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "3453",
+        "nombre": "Preparado de carne picada vacuno y cerdo",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 8,
+        "precio_kg_l_ud": 8,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      },
+      {
+        "sku": "2869",
+        "nombre": "Preparado de carne picada vacuno y cerdo",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 4.1,
+        "precio_kg_l_ud": 8.2,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      }
+    ]
+  },
+  "carne_picada_vacuno": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "3454",
+        "nombre": "Preparado de carne picada vacuno",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 10.8,
+        "precio_kg_l_ud": 10.8,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      },
+      {
+        "sku": "2868",
+        "nombre": "Preparado de carne picada vacuno",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 5.5,
+        "precio_kg_l_ud": 11,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      },
+      {
+        "sku": "52776",
+        "nombre": "Preparado de carne picada vacuno",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 5.4,
+        "precio_kg_l_ud": 13.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Picadas y otros"
+      }
+    ]
+  },
+  "cebolla": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "69079",
+        "nombre": "Cebollas",
+        "contenido": 2,
+        "unidad": "kg",
+        "precio": 3.6,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      },
+      {
+        "sku": "69089",
+        "nombre": "Cebollas",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 2,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      },
+      {
+        "sku": "69155",
+        "nombre": "Cebollas dulces",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.5,
+        "precio_kg_l_ud": 2.5,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      },
+      {
+        "sku": "69162",
+        "nombre": "Cebollas rojas",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 1.4,
+        "precio_kg_l_ud": 2.8,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      },
+      {
+        "sku": "69139",
+        "nombre": "Cebollas tiernas",
+        "contenido": 1,
+        "unidad": "ud",
+        "precio": 1.25,
+        "precio_kg_l_ud": 1.25,
+        "packaging": "Manojo",
+        "es_pack": false,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cebolla y ajo"
+      }
+    ]
+  },
+  "champinon": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "16618",
+        "nombre": "Champiñones laminados Hacendado",
+        "contenido": 0.355,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 2.817,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16616",
+        "nombre": "Champiñón laminado Hacendado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 4,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16625",
+        "nombre": "Champiñón entero Hacendado",
+        "contenido": 0.355,
+        "unidad": "kg",
+        "precio": 1.45,
+        "precio_kg_l_ud": 4.085,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "26951",
+        "nombre": "Champiñones blancos",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 1.56,
+        "precio_kg_l_ud": 5.2,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      },
+      {
+        "sku": "69519",
+        "nombre": "Champiñones laminados limpios",
+        "contenido": 0.32,
+        "unidad": "kg",
+        "precio": 2.11,
+        "precio_kg_l_ud": 6.594,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      },
+      {
+        "sku": "69664",
+        "nombre": "Champiñones Portobello",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 2.2,
+        "precio_kg_l_ud": 7.333,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      }
+    ]
+  },
+  "chorizo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "54209",
+        "nombre": "Chorizo dulce extra Hacendado",
+        "contenido": 0.28,
+        "unidad": "kg",
+        "precio": 2.49,
+        "precio_kg_l_ud": 8.893,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Chorizo"
+      },
+      {
+        "sku": "59154",
+        "nombre": "Chorizo asturiano",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.8,
+        "precio_kg_l_ud": 11.2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Arreglos"
+      },
+      {
+        "sku": "55135",
+        "nombre": "Taquitos de chorizo extra Revilla",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.55,
+        "precio_kg_l_ud": 12.75,
+        "packaging": "Pack-2",
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Chorizo"
+      },
+      {
+        "sku": "6048",
+        "nombre": "Chorizo oreado",
+        "contenido": 0.36,
+        "unidad": "kg",
+        "precio": 2.48,
+        "precio_kg_l_ud": 6.889,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Embutido"
+      },
+      {
+        "sku": "54105",
+        "nombre": "Chorizo de Tarancón Bricio",
+        "contenido": 0.35,
+        "unidad": "kg",
+        "precio": 3.05,
+        "precio_kg_l_ud": 8.714,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Chorizo"
+      }
+    ]
+  },
+  "chuleta_cordero": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "21836",
+        "nombre": "Chuletas de cordero pierna",
+        "contenido": 0.31,
+        "unidad": "kg",
+        "precio": 5.89,
+        "precio_kg_l_ud": 19,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cordero"
+      }
+    ]
+  },
+  "coliflor": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "61231",
+        "nombre": "Coliflor Hacendado ultracongelada",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69220",
+        "nombre": "Coliflor",
+        "contenido": 1.27,
+        "unidad": "kg",
+        "precio": 3.18,
+        "precio_kg_l_ud": 2.504,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Repollo y col"
+      }
+    ]
+  },
+  "colorante_alimentario": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "34182",
+        "nombre": "Colorante alimentario Hacendado",
+        "contenido": 0.085,
+        "unidad": "kg",
+        "precio": 0.95,
+        "precio_kg_l_ud": 11.176,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Colorante y pimentón"
+      }
+    ]
+  },
+  "comino": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "34120",
+        "nombre": "Comino molido Hacendado",
+        "contenido": 0.058,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 19.828,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Otras especias"
+      },
+      {
+        "sku": "34121",
+        "nombre": "Comino en grano Hacendado",
+        "contenido": 0.056,
+        "unidad": "kg",
+        "precio": 1.95,
+        "precio_kg_l_ud": 34.821,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Otras especias"
+      }
+    ]
+  },
+  "contramuslo_pollo": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "2777",
+        "nombre": "Contramuslos de pollo sin piel",
+        "contenido": 0.82,
+        "unidad": "kg",
+        "precio": 3.44,
+        "precio_kg_l_ud": 4.195,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "2789",
+        "nombre": "Contramuslos de pollo deshuesados y sin piel",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 3.58,
+        "precio_kg_l_ud": 6.509,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "25258",
+        "nombre": "Contramuslos deshuesados y sin piel de pollo certificado alimentado con un 50% de maíz",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 4.95,
+        "precio_kg_l_ud": 9,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      }
+    ]
+  },
+  "costilla_cerdo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "35286",
+        "nombre": "Costilla de cerdo churrasco",
+        "contenido": 0.79,
+        "unidad": "kg",
+        "precio": 4.5,
+        "precio_kg_l_ud": 5.696,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "17458",
+        "nombre": "Costillas de cerdo marinadas Smoke Honey",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 5.85,
+        "precio_kg_l_ud": 6.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "17458",
+        "nombre": "Costillas de cerdo marinadas Smoke Honey",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 5.85,
+        "precio_kg_l_ud": 6.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Empanados y elaborados"
+      },
+      {
+        "sku": "2811",
+        "nombre": "Costillas de cerdo carnosas a tacos",
+        "contenido": 0.63,
+        "unidad": "kg",
+        "precio": 5.04,
+        "precio_kg_l_ud": 8,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      }
+    ]
+  },
+  "curcuma": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "34163",
+        "nombre": "Cúrcuma molida Hacendado",
+        "contenido": 0.06,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 21.667,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Otras especias"
+      }
+    ]
+  },
+  "curry": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "34125",
+        "nombre": "Curry Hacendado",
+        "contenido": 0.057,
+        "unidad": "kg",
+        "precio": 1.1,
+        "precio_kg_l_ud": 19.298,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Otras especias"
+      }
+    ]
+  },
+  "dorada": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "87300",
+        "nombre": "Dorada limpia",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 5,
+        "precio_kg_l_ud": 12.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Dorada"
+      }
+    ]
+  },
+  "entrecot_vacuno": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "8932",
+        "nombre": "Entrecot de vacuno añojo",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 6.63,
+        "precio_kg_l_ud": 26.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Vacuno"
+      }
+    ]
+  },
+  "espagueti": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "6245",
+        "nombre": "Spaghetti Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 1.15,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Spaghetti y tallarines"
+      },
+      {
+        "sku": "6277",
+        "nombre": "Spaghetti fino Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Spaghetti y tallarines"
+      },
+      {
+        "sku": "6331",
+        "nombre": "Spaghetti Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Spaghetti y tallarines"
+      },
+      {
+        "sku": "35904",
+        "nombre": "Spaghetti Armando",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 1.4,
+        "precio_kg_l_ud": 2.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Spaghetti y tallarines"
+      },
+      {
+        "sku": "35670",
+        "nombre": "Spaghetti sin gluten Felicia",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.05,
+        "precio_kg_l_ud": 4.1,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Spaghetti y tallarines"
+      }
+    ]
+  },
+  "esparrago_verde": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "61238",
+        "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 2.55,
+        "precio_kg_l_ud": 8.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69656",
+        "nombre": "Espárragos verdes finos",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.45,
+        "precio_kg_l_ud": 9.8,
+        "packaging": "Manojo",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      },
+      {
+        "sku": "69643",
+        "nombre": "Espárragos verdes gruesos",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 3.9,
+        "precio_kg_l_ud": 13,
+        "packaging": "Manojo",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "espinaca": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "61279",
+        "nombre": "Espinaca en porciones Hacendado ultracongelada",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 0.9,
+        "precio_kg_l_ud": 2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "35781",
+        "nombre": "Espinaca picada en porciones Hacendado ultracongelada",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 2.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69730",
+        "nombre": "Espinacas cortadas y lavadas",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 4.333,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      },
+      {
+        "sku": "69984",
+        "nombre": "Espinacas baby lavadas",
+        "contenido": 0.1,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 11.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      }
+    ]
+  },
+  "fideo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "13577",
+        "nombre": "Fideo cabello de ángel Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Fideos"
+      },
+      {
+        "sku": "6261",
+        "nombre": "Fideo grueso Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Fideos"
+      },
+      {
+        "sku": "6256",
+        "nombre": "Fideo mediano Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Fideos"
+      }
+    ]
+  },
+  "filete_vacuno": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "8936",
+        "nombre": "Filetes de vacuno añojo para plancha",
+        "contenido": 0.42,
+        "unidad": "kg",
+        "precio": 7.98,
+        "precio_kg_l_ud": 19,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Vacuno"
+      }
+    ]
+  },
+  "gamba_congelada": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "62750",
+        "nombre": "Gamba arrocera pequeña Hacendado congelada",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 6,
+        "precio_kg_l_ud": 10.909,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Congelados",
+        "subfamilia": "Marisco"
+      },
+      {
+        "sku": "62750",
+        "nombre": "Gamba arrocera pequeña Hacendado congelada",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 6,
+        "precio_kg_l_ud": 10.909,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Marisco"
+      }
+    ]
+  },
+  "garbanzo_cocido": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "26029",
+        "nombre": "Garbanzo cocido Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.404,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      },
+      {
+        "sku": "26033",
+        "nombre": "Garbanzo cocido Pedrosillano Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 0.9,
+        "precio_kg_l_ud": 1.579,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      },
+      {
+        "sku": "26039",
+        "nombre": "Garbanzo cocido Hacendado",
+        "contenido": 0.295,
+        "unidad": "kg",
+        "precio": 0.75,
+        "precio_kg_l_ud": 2.542,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      }
+    ]
+  },
+  "garbanzo_seco": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "5202",
+        "nombre": "Garbanzo pedrosillano Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.9,
+        "precio_kg_l_ud": 1.9,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      },
+      {
+        "sku": "5214",
+        "nombre": "Garbanzo Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.15,
+        "precio_kg_l_ud": 2.15,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      },
+      {
+        "sku": "5220",
+        "nombre": "Garbanzo lechoso Andaluz Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.5,
+        "precio_kg_l_ud": 2.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Garbanzos"
+      }
+    ]
+  },
+  "guisante": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "61215",
+        "nombre": "Guisante fino Hacendado ultracongelado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.5,
+        "precio_kg_l_ud": 1.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "16416",
+        "nombre": "Guisantes extra Hacendado",
+        "contenido": 0.39,
+        "unidad": "kg",
+        "precio": 0.95,
+        "precio_kg_l_ud": 2.436,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16415",
+        "nombre": "Guisantes extra Hacendado",
+        "contenido": 0.555,
+        "unidad": "kg",
+        "precio": 1.75,
+        "precio_kg_l_ud": 3.153,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "61200",
+        "nombre": "Guisante muy tierno Hacendado ultracongelado",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 1.05,
+        "precio_kg_l_ud": 3.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      }
+    ]
+  },
+  "harina_maiz": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "29165",
+        "nombre": "Harina de maíz blanco precocida Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Harina"
+      },
+      {
+        "sku": "9588",
+        "nombre": "Harina fina de maíz Hacendado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Harina"
+      }
+    ]
+  },
+  "huevo": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 8,
+    "candidatos": [
+      {
+        "sku": "30167",
+        "nombre": "Huevos",
+        "contenido": 24,
+        "unidad": "ud",
+        "precio": 5.6,
+        "precio_kg_l_ud": 0.233,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31505",
+        "nombre": "Huevos medianos M",
+        "contenido": 12,
+        "unidad": "ud",
+        "precio": 3,
+        "precio_kg_l_ud": 0.25,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31504",
+        "nombre": "Huevos grandes L",
+        "contenido": 12,
+        "unidad": "ud",
+        "precio": 3.2,
+        "precio_kg_l_ud": 0.267,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "15768",
+        "nombre": "Huevos de gallinas camperas",
+        "contenido": 12,
+        "unidad": "ud",
+        "precio": 3.35,
+        "precio_kg_l_ud": 0.279,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31540",
+        "nombre": "Huevos grandes L",
+        "contenido": 6,
+        "unidad": "ud",
+        "precio": 1.8,
+        "precio_kg_l_ud": 0.3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31310",
+        "nombre": "Huevos de gallinas camperas",
+        "contenido": 6,
+        "unidad": "ud",
+        "precio": 1.95,
+        "precio_kg_l_ud": 0.325,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31592",
+        "nombre": "Huevos super grandes XL",
+        "contenido": 12,
+        "unidad": "ud",
+        "precio": 4.3,
+        "precio_kg_l_ud": 0.358,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      },
+      {
+        "sku": "31010",
+        "nombre": "Huevos cocidos",
+        "contenido": 6,
+        "unidad": "ud",
+        "precio": 2.2,
+        "precio_kg_l_ud": 0.367,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Huevos"
+      }
+    ]
+  },
+  "hummus": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "80858",
+        "nombre": "Hummus de garbanzos Hacendado receta clásica",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 1.05,
+        "precio_kg_l_ud": 4.375,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Pizzas y platos preparados",
+        "subfamilia": "Hummus y otros"
+      }
+    ]
+  },
+  "jamoncito_pollo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "25183",
+        "nombre": "Jamoncitos de pollo congelados",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 3.3,
+        "precio_kg_l_ud": 3.3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Carne congelada"
+      },
+      {
+        "sku": "2778",
+        "nombre": "Jamoncitos de pollo",
+        "contenido": 0.92,
+        "unidad": "kg",
+        "precio": 3.22,
+        "precio_kg_l_ud": 3.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      }
+    ]
+  },
+  "judia_verde": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "61283",
+        "nombre": "Judía verde plana Hacendado ultracongelada",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 1.3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "61282",
+        "nombre": "Judía verde redonda Hacendado ultracongelada",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 1.3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "16315",
+        "nombre": "Judías verdes redondas Hacendado",
+        "contenido": 0.66,
+        "unidad": "kg",
+        "precio": 1.1,
+        "precio_kg_l_ud": 1.667,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16313",
+        "nombre": "Judías verdes planas Hacendado",
+        "contenido": 0.66,
+        "unidad": "kg",
+        "precio": 1.1,
+        "precio_kg_l_ud": 1.667,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "69889",
+        "nombre": "Judía verde plana",
+        "contenido": 0.75,
+        "unidad": "kg",
+        "precio": 3.75,
+        "precio_kg_l_ud": 5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      },
+      {
+        "sku": "68131",
+        "nombre": "Judía verde plana",
+        "contenido": 0.35,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 5.714,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "laurel": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "47994",
+        "nombre": "Hoja de laurel Hacendado",
+        "contenido": 0.012,
+        "unidad": "kg",
+        "precio": 0.85,
+        "precio_kg_l_ud": 70.833,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Hierbas"
+      }
+    ]
+  },
+  "leche_semi": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 19,
+    "candidatos": [
+      {
+        "sku": "10381",
+        "nombre": "Leche semidesnatada Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 5.04,
+        "precio_kg_l_ud": 0.84,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10382",
+        "nombre": "Leche semidesnatada Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.84,
+        "precio_kg_l_ud": 0.84,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10721",
+        "nombre": "Leche semidesnatada sin lactosa Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 5.64,
+        "precio_kg_l_ud": 0.94,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10722",
+        "nombre": "Leche semidesnatada sin lactosa Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.94,
+        "precio_kg_l_ud": 0.94,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10541",
+        "nombre": "Leche semidesnatada Hacendado",
+        "contenido": 9,
+        "unidad": "l",
+        "precio": 8.7,
+        "precio_kg_l_ud": 0.967,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10542",
+        "nombre": "Leche semidesnatada Hacendado",
+        "contenido": 1.5,
+        "unidad": "l",
+        "precio": 1.45,
+        "precio_kg_l_ud": 0.967,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10683",
+        "nombre": "Leche semidesnatada calcio Hacendado",
+        "contenido": 6,
+        "unidad": "l",
+        "precio": 6.3,
+        "precio_kg_l_ud": 1.05,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10685",
+        "nombre": "Leche semidesnatada calcio Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.05,
+        "precio_kg_l_ud": 1.05,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10545",
+        "nombre": "Leche semidesnatada sin lactosa Hacendado",
+        "contenido": 9,
+        "unidad": "l",
+        "precio": 9.72,
+        "precio_kg_l_ud": 1.08,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      },
+      {
+        "sku": "10546",
+        "nombre": "Leche semidesnatada sin lactosa Hacendado",
+        "contenido": 1.5,
+        "unidad": "l",
+        "precio": 1.62,
+        "precio_kg_l_ud": 1.08,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Leche semidesnatada"
+      }
+    ]
+  },
+  "lechuga": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 8,
+    "candidatos": [
+      {
+        "sku": "69582",
+        "nombre": "Cogollos corazón de lechuga",
+        "contenido": 6,
+        "unidad": "ud",
+        "precio": 2,
+        "precio_kg_l_ud": 0.333,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69581",
+        "nombre": "Cogollos de lechuga",
+        "contenido": 3,
+        "unidad": "ud",
+        "precio": 1.05,
+        "precio_kg_l_ud": 0.35,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69121",
+        "nombre": "Lechugas corazón romana",
+        "contenido": 2,
+        "unidad": "ud",
+        "precio": 1.75,
+        "precio_kg_l_ud": 0.875,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "68130",
+        "nombre": "Lechuga Iceberg",
+        "contenido": 1,
+        "unidad": "ud",
+        "precio": 0.9,
+        "precio_kg_l_ud": 0.9,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69122",
+        "nombre": "Lechuga corazón romana",
+        "contenido": 1,
+        "unidad": "ud",
+        "precio": 1.1,
+        "precio_kg_l_ud": 1.1,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69114",
+        "nombre": "Lechuga hoja roble",
+        "contenido": 1,
+        "unidad": "ud",
+        "precio": 1.7,
+        "precio_kg_l_ud": 1.7,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69670",
+        "nombre": "Lechuga iceberg cortada y lavada",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.95,
+        "precio_kg_l_ud": 3.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      },
+      {
+        "sku": "69435",
+        "nombre": "Lechuga romana cortada y lavada",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 5.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Lechuga"
+      }
+    ]
+  },
+  "lenteja_cocida": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "26030",
+        "nombre": "Lenteja cocida Hacendado",
+        "contenido": 0.57,
+        "unidad": "kg",
+        "precio": 0.9,
+        "precio_kg_l_ud": 1.579,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Lentejas y otros"
+      },
+      {
+        "sku": "26011",
+        "nombre": "Lenteja cocida Hacendado",
+        "contenido": 0.295,
+        "unidad": "kg",
+        "precio": 0.75,
+        "precio_kg_l_ud": 2.542,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Lentejas y otros"
+      }
+    ]
+  },
+  "lenteja_pardina": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5330",
+        "nombre": "Lenteja pardina Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.95,
+        "precio_kg_l_ud": 1.95,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Lentejas y otros"
+      }
+    ]
+  },
+  "limon": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "3236",
+        "nombre": "Limones",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 3,
+        "precio_kg_l_ud": 3,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cítricos"
+      },
+      {
+        "sku": "3210",
+        "nombre": "Limón",
+        "contenido": 0.23,
+        "unidad": "kg",
+        "precio": 0.74,
+        "precio_kg_l_ud": 3.217,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Cítricos"
+      }
+    ]
+  },
+  "lomo_cerdo": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 7,
+    "candidatos": [
+      {
+        "sku": "3554",
+        "nombre": "Pieza cabeza lomo de cerdo",
+        "contenido": 1.11,
+        "unidad": "kg",
+        "precio": 5.44,
+        "precio_kg_l_ud": 4.901,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "4590",
+        "nombre": "Lomo de cerdo trozo",
+        "contenido": 1.1,
+        "unidad": "kg",
+        "precio": 5.45,
+        "precio_kg_l_ud": 4.955,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "3395",
+        "nombre": "Filetes lomo de cerdo familiar",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 5.67,
+        "precio_kg_l_ud": 6.3,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "2817",
+        "nombre": "Filetes lomo de cerdo cabeza",
+        "contenido": 0.65,
+        "unidad": "kg",
+        "precio": 4.1,
+        "precio_kg_l_ud": 6.308,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "12792",
+        "nombre": "Chuletas lomo de cerdo finas",
+        "contenido": 0.53,
+        "unidad": "kg",
+        "precio": 3.66,
+        "precio_kg_l_ud": 6.906,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "86395",
+        "nombre": "Filetes lomo de cerdo corte fino",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 3.91,
+        "precio_kg_l_ud": 7.109,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "2849",
+        "nombre": "Filetes lomo de cerdo extra tiernos",
+        "contenido": 0.46,
+        "unidad": "kg",
+        "precio": 3.54,
+        "precio_kg_l_ud": 7.696,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      }
+    ]
+  },
+  "lomo_merluza": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "62113",
+        "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 4.9,
+        "precio_kg_l_ud": 12.25,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Pescado"
+      },
+      {
+        "sku": "62113",
+        "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 4.9,
+        "precio_kg_l_ud": 12.25,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Pescado congelado"
+      }
+    ]
+  },
+  "lubina": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "87310",
+        "nombre": "Lubina limpia",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 5.2,
+        "precio_kg_l_ud": 13,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Lubina"
+      }
+    ]
+  },
+  "macarron": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "6250",
+        "nombre": "Macarrón Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 1.15,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Macarrones, pajaritas y hélices"
+      },
+      {
+        "sku": "6260",
+        "nombre": "Macarrón fino Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Macarrones, pajaritas y hélices"
+      },
+      {
+        "sku": "6326",
+        "nombre": "Macarrón Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Macarrones, pajaritas y hélices"
+      },
+      {
+        "sku": "6300",
+        "nombre": "Macarrón al huevo Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 1.45,
+        "precio_kg_l_ud": 2.9,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Macarrones, pajaritas y hélices"
+      }
+    ]
+  },
+  "maiz_dulce": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "61289",
+        "nombre": "Maíz dulce Hacendado ultracongelado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.24,
+        "precio_kg_l_ud": 3.1,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "16712",
+        "nombre": "Maíz dulce Hacendado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 1.55,
+        "precio_kg_l_ud": 3.444,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      },
+      {
+        "sku": "16714",
+        "nombre": "Maíz dulce Hacendado",
+        "contenido": 0.225,
+        "unidad": "kg",
+        "precio": 1.25,
+        "precio_kg_l_ud": 5.556,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Conservas verdura"
+      }
+    ]
+  },
+  "mejillon_congelado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "62401",
+        "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 3.25,
+        "precio_kg_l_ud": 7.222,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Marisco de concha y otros"
+      },
+      {
+        "sku": "62401",
+        "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 3.25,
+        "precio_kg_l_ud": 7.222,
+        "packaging": "Caja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Marisco de concha"
+      }
+    ]
+  },
+  "mejillon_lata": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "18615",
+        "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+        "contenido": 0.35,
+        "unidad": "kg",
+        "precio": 2.65,
+        "precio_kg_l_ud": 7.571,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Mejillones"
+      },
+      {
+        "sku": "18621",
+        "nombre": "Mejillones picantes en escabeche Hacendado pequeños",
+        "contenido": 0.111,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 18.018,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Mejillones"
+      },
+      {
+        "sku": "18619",
+        "nombre": "Mejillones en escabeche Hacendado pequeños",
+        "contenido": 0.111,
+        "unidad": "kg",
+        "precio": 2.15,
+        "precio_kg_l_ud": 19.369,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Mejillones"
+      },
+      {
+        "sku": "18602",
+        "nombre": "Mejillones en escabeche Hacendado medianos",
+        "contenido": 0.111,
+        "unidad": "kg",
+        "precio": 2.8,
+        "precio_kg_l_ud": 25.225,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Mejillones"
+      },
+      {
+        "sku": "18601",
+        "nombre": "Mejillones en escabeche Hacendado grandes",
+        "contenido": 0.111,
+        "unidad": "kg",
+        "precio": 4.95,
+        "precio_kg_l_ud": 44.595,
+        "packaging": "Lata",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Mejillones"
+      }
+    ]
+  },
+  "mostaza": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "17228",
+        "nombre": "Mostaza de Dijon Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.25,
+        "precio_kg_l_ud": 6.25,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Mostaza"
+      }
+    ]
+  },
+  "muslo_pollo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "2788",
+        "nombre": "Muslos de pollo deshuesados con piel",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.78,
+        "precio_kg_l_ud": 5.56,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      }
+    ]
+  },
+  "nata_cocinar": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "10199",
+        "nombre": "Nata ligera para cocinar Hacendado",
+        "contenido": 0.6,
+        "unidad": "l",
+        "precio": 1.85,
+        "precio_kg_l_ud": 3.083,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Nata"
+      },
+      {
+        "sku": "10161",
+        "nombre": "Nata ligera para cocinar Hacendado",
+        "contenido": 0.5,
+        "unidad": "l",
+        "precio": 1.55,
+        "precio_kg_l_ud": 3.1,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Nata"
+      },
+      {
+        "sku": "10320",
+        "nombre": "Nata ligera para cocinar sin lactosa Hacendado",
+        "contenido": 0.6,
+        "unidad": "l",
+        "precio": 2.4,
+        "precio_kg_l_ud": 4,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Nata"
+      },
+      {
+        "sku": "10117",
+        "nombre": "Nata fresca para cocinar Hacendado",
+        "contenido": 0.197,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 6.599,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Huevos, leche y mantequilla",
+        "subfamilia": "Nata"
+      }
+    ]
+  },
+  "oregano": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5598",
+        "nombre": "Orégano Hacendado",
+        "contenido": 0.025,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 40,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Hierbas"
+      }
+    ]
+  },
+  "pan": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 52,
+    "candidatos": [
+      {
+        "sku": "83203.1",
+        "nombre": "3 Barras de pan",
+        "contenido": 0.75,
+        "unidad": "kg",
+        "precio": 1.19,
+        "precio_kg_l_ud": 1.587,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      },
+      {
+        "sku": "83203.2",
+        "nombre": "3 Barras de pan rebanadas",
+        "contenido": 0.75,
+        "unidad": "kg",
+        "precio": 1.19,
+        "precio_kg_l_ud": 1.587,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Pan rebanado"
+      },
+      {
+        "sku": "83560",
+        "nombre": "Barra de pan tradicional",
+        "contenido": 0.7,
+        "unidad": "kg",
+        "precio": 1.28,
+        "precio_kg_l_ud": 1.829,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Otros panes"
+      },
+      {
+        "sku": "83202.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      },
+      {
+        "sku": "23086.1",
+        "nombre": "Barra pan de pueblo",
+        "contenido": 0.8,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      },
+      {
+        "sku": "83202.2",
+        "nombre": "Barra de pan rebanada",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Pan rebanado"
+      },
+      {
+        "sku": "23086.2",
+        "nombre": "Barra pan de pueblo rebanada",
+        "contenido": 0.8,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Pan rebanado"
+      },
+      {
+        "sku": "83452",
+        "nombre": "5 Barras de pan 51% integral",
+        "contenido": 0.625,
+        "unidad": "kg",
+        "precio": 1.35,
+        "precio_kg_l_ud": 2.16,
+        "packaging": "Bolsa",
+        "es_pack": false,
+        "unidades_pack": 5,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Pan de bocadillo"
+      },
+      {
+        "sku": "82830.1",
+        "nombre": "Barra de pan campesina masa madre",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.65,
+        "precio_kg_l_ud": 2.6,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      },
+      {
+        "sku": "82830.2",
+        "nombre": "Barra de pan campesina masa madre rebanada",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.65,
+        "precio_kg_l_ud": 2.6,
+        "packaging": null,
+        "es_pack": false,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Pan rebanado"
+      }
+    ]
+  },
+  "panceta": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "17944",
+        "nombre": "Panceta de cerdo pieza",
+        "contenido": 0.7,
+        "unidad": "kg",
+        "precio": 2.73,
+        "precio_kg_l_ud": 3.9,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "2815",
+        "nombre": "Panceta de cerdo",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 3.08,
+        "precio_kg_l_ud": 5.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      },
+      {
+        "sku": "8994",
+        "nombre": "Panceta fina sin corteza corte fino",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 3.15,
+        "precio_kg_l_ud": 6.3,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      }
+    ]
+  },
+  "patata": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 7,
+    "candidatos": [
+      {
+        "sku": "69099",
+        "nombre": "Patatas",
+        "contenido": 5,
+        "unidad": "kg",
+        "precio": 4.75,
+        "precio_kg_l_ud": 0.95,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      },
+      {
+        "sku": "69166",
+        "nombre": "Patatas",
+        "contenido": 3,
+        "unidad": "kg",
+        "precio": 4.65,
+        "precio_kg_l_ud": 1.55,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      },
+      {
+        "sku": "69098",
+        "nombre": "Patatas rojas",
+        "contenido": 2,
+        "unidad": "kg",
+        "precio": 3.8,
+        "precio_kg_l_ud": 1.9,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      },
+      {
+        "sku": "69448",
+        "nombre": "Patatas especial para freir",
+        "contenido": 2,
+        "unidad": "kg",
+        "precio": 3.9,
+        "precio_kg_l_ud": 1.95,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      },
+      {
+        "sku": "69386",
+        "nombre": "Patatas guarnición",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.55,
+        "precio_kg_l_ud": 2.55,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      },
+      {
+        "sku": "69484",
+        "nombre": "Patatas para microondas",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.5,
+        "precio_kg_l_ud": 3.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Verduras al vapor"
+      },
+      {
+        "sku": "69066",
+        "nombre": "Patata",
+        "contenido": 0.22,
+        "unidad": "kg",
+        "precio": 0.42,
+        "precio_kg_l_ud": 1.909,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Patata"
+      }
+    ]
+  },
+  "pechuga_pollo": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 8,
+    "candidatos": [
+      {
+        "sku": "30006",
+        "nombre": "Pechugas de pollo enteras congeladas",
+        "contenido": 1.2,
+        "unidad": "kg",
+        "precio": 6.96,
+        "precio_kg_l_ud": 5.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Carne congelada"
+      },
+      {
+        "sku": "3682",
+        "nombre": "Pechugas enteras familiar de pollo",
+        "contenido": 1.09,
+        "unidad": "kg",
+        "precio": 6.54,
+        "precio_kg_l_ud": 6,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "3724",
+        "nombre": "Pechugas enteras de pollo",
+        "contenido": 0.58,
+        "unidad": "kg",
+        "precio": 3.86,
+        "precio_kg_l_ud": 6.655,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "3653",
+        "nombre": "Filetes pechuga de pollo extra tiernos",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 4.09,
+        "precio_kg_l_ud": 7.304,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "2787",
+        "nombre": "Filetes pechuga de pollo",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 4.02,
+        "precio_kg_l_ud": 7.309,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "3400",
+        "nombre": "Filetes pechuga de pollo corte fino",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 3.85,
+        "precio_kg_l_ud": 7.7,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "25460",
+        "nombre": "Pechugas enteras de pollo certificado alimentado con un 50% de maíz",
+        "contenido": 0.47,
+        "unidad": "kg",
+        "precio": 4.46,
+        "precio_kg_l_ud": 9.489,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "2791",
+        "nombre": "Filetes pechuga de pollo certificado alimentado con un 50% de maíz",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 4.8,
+        "precio_kg_l_ud": 9.6,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      }
+    ]
+  },
+  "pepino": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "69584",
+        "nombre": "Pepino",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.38,
+        "precio_kg_l_ud": 1.52,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      },
+      {
+        "sku": "69964",
+        "nombre": "Pepino holandés",
+        "contenido": 0.425,
+        "unidad": "kg",
+        "precio": 1.13,
+        "precio_kg_l_ud": 2.659,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      }
+    ]
+  },
+  "perejil": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5599",
+        "nombre": "Perejil Hacendado",
+        "contenido": 0.018,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 55.556,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Hierbas"
+      }
+    ]
+  },
+  "pimenton_dulce": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "60573",
+        "nombre": "Pimentón dulce Hacendado",
+        "contenido": 0.075,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 17.333,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Colorante y pimentón"
+      },
+      {
+        "sku": "34102",
+        "nombre": "Pimentón dulce de la Vera Hacendado",
+        "contenido": 0.075,
+        "unidad": "kg",
+        "precio": 1.85,
+        "precio_kg_l_ud": 24.667,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Colorante y pimentón"
+      },
+      {
+        "sku": "50196",
+        "nombre": "Queso madurado de cabra con pimentón de la Vera Villa Noble",
+        "contenido": 0.35,
+        "unidad": "kg",
+        "precio": 5.58,
+        "precio_kg_l_ud": 15.943,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso curado"
+      }
+    ]
+  },
+  "pimienta_negra": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "34171",
+        "nombre": "Pimienta negra molida Hacendado",
+        "contenido": 0.07,
+        "unidad": "kg",
+        "precio": 1.3,
+        "precio_kg_l_ud": 18.571,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Pimienta"
+      },
+      {
+        "sku": "34172",
+        "nombre": "Pimienta negra en grano Hacendado",
+        "contenido": 0.07,
+        "unidad": "kg",
+        "precio": 1.7,
+        "precio_kg_l_ud": 24.286,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Pimienta"
+      },
+      {
+        "sku": "67693",
+        "nombre": "Molinillo pimienta negra Hacendado",
+        "contenido": 0.065,
+        "unidad": "kg",
+        "precio": 1.85,
+        "precio_kg_l_ud": 28.462,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Pimienta"
+      }
+    ]
+  },
+  "pimiento_rojo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "35221",
+        "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 2.667,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69310",
+        "nombre": "Pimiento rojo",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.63,
+        "precio_kg_l_ud": 2.52,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Calabacín y pimiento"
+      }
+    ]
+  },
+  "pimiento_verde": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 5,
+    "candidatos": [
+      {
+        "sku": "35221",
+        "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 2.667,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      },
+      {
+        "sku": "69320",
+        "nombre": "Pimiento verde freír",
+        "contenido": 0.1,
+        "unidad": "kg",
+        "precio": 0.25,
+        "precio_kg_l_ud": 2.5,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Calabacín y pimiento"
+      },
+      {
+        "sku": "69312",
+        "nombre": "Pimiento verde",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 0.67,
+        "precio_kg_l_ud": 2.792,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Calabacín y pimiento"
+      },
+      {
+        "sku": "35902",
+        "nombre": "Brochetas de pollo, pimiento verde y tocino de cerdo con varilla",
+        "contenido": 0.37,
+        "unidad": "kg",
+        "precio": 2.96,
+        "precio_kg_l_ud": 8,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "35902",
+        "nombre": "Brochetas de pollo, pimiento verde y tocino de cerdo con varilla",
+        "contenido": 0.37,
+        "unidad": "kg",
+        "precio": 2.96,
+        "precio_kg_l_ud": 8,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Empanados y elaborados"
+      }
+    ]
+  },
+  "pollo_troceado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "2779",
+        "nombre": "Medio pollo troceado",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 3.6,
+        "precio_kg_l_ud": 4,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      },
+      {
+        "sku": "10000",
+        "nombre": "Medio pollo certificado troceado alimentado con un 50% de maíz",
+        "contenido": 0.95,
+        "unidad": "kg",
+        "precio": 5.22,
+        "precio_kg_l_ud": 5.495,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pavo y otras aves"
+      },
+      {
+        "sku": "10000",
+        "nombre": "Medio pollo certificado troceado alimentado con un 50% de maíz",
+        "contenido": 0.95,
+        "unidad": "kg",
+        "precio": 5.22,
+        "precio_kg_l_ud": 5.495,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Pollo"
+      }
+    ]
+  },
+  "puerro": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "68408",
+        "nombre": "Puerros",
+        "contenido": 0.54,
+        "unidad": "kg",
+        "precio": 2.59,
+        "precio_kg_l_ud": 4.796,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Otras verduras y hortalizas"
+      }
+    ]
+  },
+  "queso_fresco": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 11,
+    "candidatos": [
+      {
+        "sku": "52406",
+        "nombre": "Queso fresco Burgos natural Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.05,
+        "precio_kg_l_ud": 4.1,
+        "packaging": "Pack-2",
+        "es_pack": true,
+        "unidades_pack": 2,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "52408",
+        "nombre": "Queso fresco Burgos natural Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 4.6,
+        "packaging": "Pack-4",
+        "es_pack": true,
+        "unidades_pack": 4,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "51191",
+        "nombre": "Queso fresco de vaca Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 6.4,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "17463",
+        "nombre": "Queso fresco de vaca QuesPro Hacendado",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 6.667,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "52411",
+        "nombre": "Queso fresco Burgos sin lactosa Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 1.9,
+        "precio_kg_l_ud": 7.6,
+        "packaging": "Pack-4",
+        "es_pack": true,
+        "unidades_pack": 4,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "51192",
+        "nombre": "Queso fresco light de vaca Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.2,
+        "precio_kg_l_ud": 8.8,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "50395",
+        "nombre": "Queso fresco Villalón mezcla Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.3,
+        "precio_kg_l_ud": 9.2,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "51072",
+        "nombre": "Queso fresco mascarpone de vaca Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.75,
+        "precio_kg_l_ud": 11,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "51194",
+        "nombre": "Queso fresco de cabra Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.95,
+        "precio_kg_l_ud": 11.8,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      },
+      {
+        "sku": "51044",
+        "nombre": "Queso fresco de vaca Burgo de Arias",
+        "contenido": 0.216,
+        "unidad": "kg",
+        "precio": 3.4,
+        "precio_kg_l_ud": 15.741,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso fresco"
+      }
+    ]
+  },
+  "queso_rallado": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "23622",
+        "nombre": "Queso rallado especial fundir mezcla Hacendado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      },
+      {
+        "sku": "23621",
+        "nombre": "Queso rallado especial fundir mezcla Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.15,
+        "precio_kg_l_ud": 5.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      },
+      {
+        "sku": "51110",
+        "nombre": "Queso rallado mozzarella pizza-Roma de vaca Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.6,
+        "precio_kg_l_ud": 8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      },
+      {
+        "sku": "22216",
+        "nombre": "Queso rallado emmental gratinar Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.65,
+        "precio_kg_l_ud": 8.25,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      },
+      {
+        "sku": "21581",
+        "nombre": "Queso rallado 4 quesos Hacendado",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 1.75,
+        "precio_kg_l_ud": 8.75,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      },
+      {
+        "sku": "51236",
+        "nombre": "Queso rallado sin lactosa de vaca Hacendado",
+        "contenido": 0.15,
+        "unidad": "kg",
+        "precio": 1.8,
+        "precio_kg_l_ud": 12,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Charcutería y quesos",
+        "subfamilia": "Queso rallado"
+      }
+    ]
+  },
+  "quinoa": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "9430",
+        "nombre": "Quinoa Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.65,
+        "precio_kg_l_ud": 5.3,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Arroz"
+      }
+    ]
+  },
+  "repollo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "68462",
+        "nombre": "Repollo liso partido",
+        "contenido": 0.9,
+        "unidad": "kg",
+        "precio": 1.94,
+        "precio_kg_l_ud": 2.156,
+        "packaging": "1/2 Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Repollo y col"
+      }
+    ]
+  },
+  "romero": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "14981",
+        "nombre": "Romero Hacendado",
+        "contenido": 0.035,
+        "unidad": "kg",
+        "precio": 1.35,
+        "precio_kg_l_ud": 38.571,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Hierbas"
+      }
+    ]
+  },
+  "sal": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 8,
+    "candidatos": [
+      {
+        "sku": "19731",
+        "nombre": "Sal fina Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 0.4,
+        "precio_kg_l_ud": 0.4,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "19733",
+        "nombre": "Sal gruesa Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 0.4,
+        "precio_kg_l_ud": 0.4,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "19732",
+        "nombre": "Sal yodada fina Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 0.45,
+        "precio_kg_l_ud": 0.45,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "19734",
+        "nombre": "Sal gruesa para hornear Hacendado",
+        "contenido": 2,
+        "unidad": "kg",
+        "precio": 1.4,
+        "precio_kg_l_ud": 0.7,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "16864",
+        "nombre": "Sal fina de mesa Hacendado",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 0.75,
+        "precio_kg_l_ud": 2.5,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "8930",
+        "nombre": "Sal rosa del Himalaya Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.65,
+        "precio_kg_l_ud": 2.65,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "19713",
+        "nombre": "Sal 60% menos de sodio Hacendado",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.3,
+        "precio_kg_l_ud": 9.2,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      },
+      {
+        "sku": "19740",
+        "nombre": "Escamas de sal marina natural Polasal",
+        "contenido": 0.125,
+        "unidad": "kg",
+        "precio": 2,
+        "precio_kg_l_ud": 16,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Sal y bicarbonato"
+      }
+    ]
+  },
+  "salchicha_fresca": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "6043",
+        "nombre": "Longaniza fresca sin tripa",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 3.15,
+        "precio_kg_l_ud": 5.625,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Carne",
+        "subfamilia": "Embutido"
+      },
+      {
+        "sku": "6040",
+        "nombre": "Longaniza magro fresca",
+        "contenido": 0.535,
+        "unidad": "kg",
+        "precio": 3.21,
+        "precio_kg_l_ud": 6,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Embutido"
+      },
+      {
+        "sku": "6041",
+        "nombre": "Longaniza fresca de pollo",
+        "contenido": 0.55,
+        "unidad": "kg",
+        "precio": 3.99,
+        "precio_kg_l_ud": 7.255,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Embutido"
+      },
+      {
+        "sku": "6045",
+        "nombre": "Longaniza fresca estilo criollo",
+        "contenido": 0.38,
+        "unidad": "kg",
+        "precio": 3.34,
+        "precio_kg_l_ud": 8.789,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Embutido"
+      }
+    ]
+  },
+  "sardina_fresca": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "17611",
+        "nombre": "Sardina sin limpiar",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 6,
+        "precio_kg_l_ud": 6,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Sardina"
+      },
+      {
+        "sku": "87916",
+        "nombre": "Sardina sin limpiar",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 2.4,
+        "precio_kg_l_ud": 6,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Sardina"
+      },
+      {
+        "sku": "87995",
+        "nombre": "Sardina limpia descongelada",
+        "contenido": 0.36,
+        "unidad": "kg",
+        "precio": 3.96,
+        "precio_kg_l_ud": 11,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Marisco y pescado",
+        "subfamilia": "Sardina"
+      }
+    ]
+  },
+  "seta": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "69653",
+        "nombre": "Setas",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.09,
+        "precio_kg_l_ud": 8.36,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      },
+      {
+        "sku": "69616",
+        "nombre": "Seta laminada",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 2.26,
+        "precio_kg_l_ud": 9.04,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      },
+      {
+        "sku": "69647",
+        "nombre": "Setas shiitake",
+        "contenido": 0.24,
+        "unidad": "kg",
+        "precio": 3.22,
+        "precio_kg_l_ud": 13.417,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      },
+      {
+        "sku": "69657",
+        "nombre": "Mix de setas intenso",
+        "contenido": 0.235,
+        "unidad": "kg",
+        "precio": 3.76,
+        "precio_kg_l_ud": 16,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Setas y champiñones"
+      }
+    ]
+  },
+  "soja_texturizada": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "13926",
+        "nombre": "Soja texturizada Luengo",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.7,
+        "precio_kg_l_ud": 13.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Lentejas y otros"
+      }
+    ]
+  },
+  "solomillo_cerdo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "4570",
+        "nombre": "Solomillo de cerdo",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 3.9,
+        "precio_kg_l_ud": 7.8,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Cerdo"
+      }
+    ]
+  },
+  "taco_vacuno": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "2807",
+        "nombre": "Tacos de vacuno añojo para guisar",
+        "contenido": 0.54,
+        "unidad": "kg",
+        "precio": 8.75,
+        "precio_kg_l_ud": 16.2,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Carne",
+        "subfamilia": "Vacuno"
+      }
+    ]
+  },
+  "tofu": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "51097",
+        "nombre": "Tofu firme Hacendado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.75,
+        "precio_kg_l_ud": 4.375,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Pizzas y platos preparados",
+        "subfamilia": "Hummus y otros"
+      }
+    ]
+  },
+  "tomate": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 13,
+    "candidatos": [
+      {
+        "sku": "69971",
+        "nombre": "Tomates",
+        "contenido": 2,
+        "unidad": "kg",
+        "precio": 4.2,
+        "precio_kg_l_ud": 2.1,
+        "packaging": "Malla",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69990",
+        "nombre": "Tomates cherry",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.2,
+        "precio_kg_l_ud": 4.4,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69930",
+        "nombre": "Tomates cherry pera kumato",
+        "contenido": 0.3,
+        "unidad": "kg",
+        "precio": 1.7,
+        "precio_kg_l_ud": 5.667,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69414",
+        "nombre": "Tomates cherry en rama Dulcita",
+        "contenido": 0.2,
+        "unidad": "kg",
+        "precio": 2.5,
+        "precio_kg_l_ud": 12.5,
+        "packaging": "Bandeja",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69912",
+        "nombre": "Tomate pera",
+        "contenido": 0.14,
+        "unidad": "kg",
+        "precio": 0.25,
+        "precio_kg_l_ud": 1.786,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69975",
+        "nombre": "Tomates pera",
+        "contenido": 1.11,
+        "unidad": "kg",
+        "precio": 2.11,
+        "precio_kg_l_ud": 1.901,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69968",
+        "nombre": "Tomate canario",
+        "contenido": 0.22,
+        "unidad": "kg",
+        "precio": 0.48,
+        "precio_kg_l_ud": 2.182,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69487",
+        "nombre": "Rama de Tomates",
+        "contenido": 0.74,
+        "unidad": "kg",
+        "precio": 1.63,
+        "precio_kg_l_ud": 2.203,
+        "packaging": "Granel",
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69937",
+        "nombre": "Tomate ensalada",
+        "contenido": 0.28,
+        "unidad": "kg",
+        "precio": 0.62,
+        "precio_kg_l_ud": 2.214,
+        "packaging": "Pieza",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "69973",
+        "nombre": "Tomate ensalada",
+        "contenido": 1.12,
+        "unidad": "kg",
+        "precio": 2.58,
+        "precio_kg_l_ud": 2.304,
+        "packaging": null,
+        "es_pack": true,
+        "unidades_pack": null,
+        "peso_variable": true,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Tomate"
+      }
+    ]
+  },
+  "tomate_frito": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 6,
+    "candidatos": [
+      {
+        "sku": "17132",
+        "nombre": "Tomate frito Hacendado",
+        "contenido": 1.2,
+        "unidad": "kg",
+        "precio": 1.35,
+        "precio_kg_l_ud": 1.125,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      },
+      {
+        "sku": "17151",
+        "nombre": "Tomate frito Hacendado",
+        "contenido": 0.63,
+        "unidad": "kg",
+        "precio": 0.95,
+        "precio_kg_l_ud": 1.508,
+        "packaging": "Pack-3",
+        "es_pack": true,
+        "unidades_pack": 3,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      },
+      {
+        "sku": "17108",
+        "nombre": "Tomate frito Hacendado",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 0.9,
+        "precio_kg_l_ud": 1.607,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      },
+      {
+        "sku": "17330",
+        "nombre": "Tomate frito sin azúcares añadidos Hacendado",
+        "contenido": 0.56,
+        "unidad": "kg",
+        "precio": 1.1,
+        "precio_kg_l_ud": 1.964,
+        "packaging": "Tarro",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      },
+      {
+        "sku": "17153",
+        "nombre": "Tomate frito estilo casero Hacendado",
+        "contenido": 0.38,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 3.158,
+        "packaging": "Brik",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      },
+      {
+        "sku": "17110",
+        "nombre": "Tomate frito Hida",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 1.55,
+        "precio_kg_l_ud": 3.875,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Tomate frito"
+      }
+    ]
+  },
+  "tomate_triturado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "16043",
+        "nombre": "Tomate triturado Hacendado",
+        "contenido": 0.8,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 1.25,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Tomate"
+      },
+      {
+        "sku": "16044",
+        "nombre": "Tomate triturado Hacendado",
+        "contenido": 0.4,
+        "unidad": "kg",
+        "precio": 0.55,
+        "precio_kg_l_ud": 1.375,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Tomate"
+      }
+    ]
+  },
+  "tomillo": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "5547",
+        "nombre": "Tomillo Hacendado",
+        "contenido": 0.024,
+        "unidad": "kg",
+        "precio": 1.05,
+        "precio_kg_l_ud": 43.75,
+        "packaging": "Bote",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Hierbas"
+      }
+    ]
+  },
+  "vinagre": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 2,
+    "candidatos": [
+      {
+        "sku": "4940",
+        "nombre": "Vinagre de vino blanco Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.65,
+        "precio_kg_l_ud": 0.65,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Vinagre y otros aderezos"
+      },
+      {
+        "sku": "4957",
+        "nombre": "Vinagre de manzana Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.9,
+        "precio_kg_l_ud": 0.9,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Vinagre y otros aderezos"
+      }
+    ]
+  },
+  "vinagre_manzana": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "4957",
+        "nombre": "Vinagre de manzana Hacendado",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 0.9,
+        "precio_kg_l_ud": 0.9,
+        "packaging": "Botella",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Aceite, especias y salsas",
+        "subfamilia": "Vinagre y otros aderezos"
+      }
+    ]
+  },
+  "yogur_natural": {
+    "confianza": "media",
+    "total_candidatos_encontrados": 3,
+    "candidatos": [
+      {
+        "sku": "22313",
+        "nombre": "Yogur natural Hacendado",
+        "contenido": 0.75,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 1.333,
+        "packaging": "Pack-6",
+        "es_pack": true,
+        "unidades_pack": 6,
+        "peso_variable": false,
+        "departamento": "Postres y yogures",
+        "subfamilia": "Yogures naturales"
+      },
+      {
+        "sku": "20260",
+        "nombre": "Yogur natural Danone",
+        "contenido": 0.96,
+        "unidad": "kg",
+        "precio": 1.99,
+        "precio_kg_l_ud": 2.073,
+        "packaging": "Pack-8",
+        "es_pack": true,
+        "unidades_pack": 8,
+        "peso_variable": false,
+        "departamento": "Postres y yogures",
+        "subfamilia": "Yogures naturales"
+      },
+      {
+        "sku": "20287",
+        "nombre": "Yogur natural de cabra Hacendado",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 2.1,
+        "precio_kg_l_ud": 4.2,
+        "packaging": "Pack-4",
+        "es_pack": true,
+        "unidades_pack": 4,
+        "peso_variable": false,
+        "departamento": "Postres y yogures",
+        "subfamilia": "Yogures naturales"
+      }
+    ]
+  },
+  "zanahoria": {
+    "confianza": "revisar",
+    "total_candidatos_encontrados": 4,
+    "candidatos": [
+      {
+        "sku": "69586",
+        "nombre": "Zanahorias",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 1.2,
+        "precio_kg_l_ud": 1.2,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      },
+      {
+        "sku": "69669",
+        "nombre": "Zanahorias",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 0.8,
+        "precio_kg_l_ud": 1.6,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      },
+      {
+        "sku": "69722",
+        "nombre": "Zanahoria rallada lavada",
+        "contenido": 0.15,
+        "unidad": "kg",
+        "precio": 1,
+        "precio_kg_l_ud": 6.667,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      },
+      {
+        "sku": "69877",
+        "nombre": "Palitos de zanahoria",
+        "contenido": 0.18,
+        "unidad": "kg",
+        "precio": 2.1,
+        "precio_kg_l_ud": 11.667,
+        "packaging": "Tarrina",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Fruta y verdura",
+        "subfamilia": "Pepino y zanahoria"
+      }
+    ]
+  }
+}

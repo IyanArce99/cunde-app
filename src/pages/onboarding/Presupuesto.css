@@ -6,18 +6,30 @@
 
 .presupuesto__cabecera-fila {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .presupuesto__marca {
-  font: 600 12px/1 var(--font-body);
-  letter-spacing: .22em;
-  color: var(--tinta);
+  display: block;
+  height: 16px;
+  width: auto;
 }
 
 .presupuesto__paso {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+/* Lo que viene. Cabe en el ticket, no cuesta un toque y dice que el producto
+   crece sin prometer una fecha. En --pauta daba 2.12:1: no es un control
+   deshabilitado —que estaría exento— sino texto informativo, y se leía peor
+   que ninguna otra línea de la pantalla más frágil del embudo. */
+.presupuesto__proximamente {
+  display: block;
+  margin-top: 6px;
+  text-align: right;
   font: 400 13px/1 var(--font-mono);
   color: var(--gris);
 }
@@ -27,7 +39,12 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding-top: 26px;
+  /* Estos cuatro huecos se afinaron cuando la cabecera medía 94 px. Ahora que
+     las tres líneas del resumen son pulsables mide 179, y con los valores
+     antiguos la pantalla se pasaba 34 px en un iPhone SE. Lo que se recorta
+     aquí es aire, no contenido: en pantallas altas el sobrante se lo queda de
+     todos modos el hueco de abajo, que tenía 330 px libres. */
+  padding-top: 18px;
   overflow-y: auto;
 }
 
@@ -37,12 +54,17 @@
   color: var(--tinta);
 }
 
+/* Al irse los dos selectores esta pantalla se quedó con mucho aire y la cifra
+   —que es lo único que importa aquí— caía por debajo de la mitad. Se apoya
+   arriba en vez de centrarse: el aire sobrante queda entre el deslizador y el
+   botón, que es donde no estorba. */
 .presupuesto__centro {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 16px;
+  justify-content: flex-start;
+  padding-top: 28px;
+  padding-bottom: 10px;
 }
 
 .presupuesto__cifra {
@@ -60,11 +82,11 @@
 }
 
 .presupuesto__slider {
-  margin-top: 42px;
+  margin-top: 28px;
 }
 
 .presupuesto__resumen {
-  margin-top: 30px;
+  margin-top: 24px;
   padding-top: 14px;
   border-top: var(--divider-dashed);
 }
@@ -101,12 +123,16 @@
   cursor: pointer;
 }
 
+/* Va en azulete y no en gris: es la otra salida, no una nota al pie. Además
+   --gris se queda en 4.17:1 sobre --papel-2 —pasa sobre papel, no sobre la
+   franja— y esto solo aparece cuando el presupuesto no cuadra, que es cuando
+   más falta hace poder leerlo. */
 .presupuesto__aviso-volver {
   min-height: 48px;
   padding: 0;
   background: none;
   border: none;
-  color: var(--gris);
+  color: var(--azulete);
   font: 400 13px/1 var(--font-mono);
   text-decoration: underline;
   cursor: pointer;

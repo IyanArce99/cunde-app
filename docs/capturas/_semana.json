@@ -1,0 +1,145 @@
+{
+ "total": 63.89,
+ "huecos": [
+  {
+   "dia": "LUN",
+   "ranura": "comida",
+   "tipo": "cocinado",
+   "nombre": "Quinoa con garbanzos",
+   "min": 25,
+   "precio": 0.98,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "LUN",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Picadillo de cerdo",
+   "min": 20,
+   "precio": 1.19,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "MAR",
+   "ranura": "comida",
+   "tipo": "cocinado",
+   "nombre": "Jamoncitos al ajillo",
+   "min": 35,
+   "precio": 1.03,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "MAR",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Espaguetis con soja",
+   "min": 25,
+   "precio": 0.96,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "MIÉ",
+   "ranura": "comida",
+   "tipo": "sobras",
+   "nombre": "Quinoa con garbanzos",
+   "min": 0,
+   "precio": 0,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "MIÉ",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Tofu a la mostaza",
+   "min": 18,
+   "precio": 1.23,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "JUE",
+   "ranura": "comida",
+   "tipo": "ensamblaje",
+   "nombre": "Sopa con el pollo del ajillo",
+   "min": 15,
+   "precio": 0.35,
+   "desde": "Jamoncitos al ajillo",
+   "foto": null
+  },
+  {
+   "dia": "JUE",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Merluza en salsa verde",
+   "min": 25,
+   "precio": 2.01,
+   "desde": null,
+   "foto": "merluza_salsa_verde.png"
+  },
+  {
+   "dia": "VIE",
+   "ranura": "comida",
+   "tipo": "cocinado",
+   "nombre": "Sardinas al horno",
+   "min": 25,
+   "precio": 1.18,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "VIE",
+   "ranura": "cena",
+   "tipo": "ensamblaje",
+   "nombre": "Tofu a la mostaza",
+   "min": 5,
+   "precio": 0,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "SÁB",
+   "ranura": "comida",
+   "tipo": "ensamblaje",
+   "nombre": "Merluza con patatas panadera",
+   "min": 22,
+   "precio": 0.4,
+   "desde": "Merluza en salsa verde",
+   "foto": "merluza_salsa_verde.png"
+  },
+  {
+   "dia": "SÁB",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Quinoa con alubias y maíz",
+   "min": 25,
+   "precio": 1.04,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "DOM",
+   "ranura": "comida",
+   "tipo": "cocinado",
+   "nombre": "Lentejas con chorizo",
+   "min": 40,
+   "precio": 0.8,
+   "desde": null,
+   "foto": null
+  },
+  {
+   "dia": "DOM",
+   "ranura": "cena",
+   "tipo": "cocinado",
+   "nombre": "Sardinas al horno",
+   "min": 25,
+   "precio": 1.18,
+   "desde": null,
+   "foto": null
+  }
+ ]
+}

@@ -1,0 +1,599 @@
+{
+  "nota": "El lote que faltaba por el otro extremo. Medido antes de escribirlo: de 90 recetas, 3 pasaban de 2 €/ración y 71 estaban por debajo de 1,20 €. Con un presupuesto de 65 € para dos —el que trae el onboarding por defecto— el motor solo llegaba a gastar el 77%, y no porque le sobrara nada que hacer sino porque el recetario no tenía en qué gastarlo: catorce comidas a 1,50 €/ración son 42 € de consumo y solo había 11 recetas por encima de eso. Esto son ocho platos de 1,55 a 3,60 €/ración con carne y pescado que hasta ahora no estaban mapeados: entrecot, vacuno de guisar, filetes de añojo, chuletas de cordero, solomillo de cerdo, dorada y lubina. Todo con SKU verificado contra el catálogo de Mercadona del 28-07-2026. Cinco son de mediodía por técnica y minutos, tres valen de cena.",
+  "recetas": [
+    {
+      "id": "entrecot_patatas_panadera",
+      "nombre": "Entrecot con panaderas",
+      "minutos": 40,
+      "tags": [
+        "carne",
+        "horno",
+        "sarten"
+      ],
+      "proteina": "vacuno",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "entrecot_vacuno",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "acompanamiento",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "acompanamiento",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta la patata en rodajas finas y la cebolla y el pimiento en tiras.",
+        "Extiéndelo en la bandeja con el aceite y sal, y hornea 30 min a 200º.",
+        "Saca el entrecot de la nevera 20 min antes y sécalo bien.",
+        "Márcalo en la sartén muy caliente, 2 min por cada lado, y salpimienta al sacarlo.",
+        "Déjalo reposar 4 min sobre las patatas antes de cortarlo."
+      ]
+    },
+    {
+      "id": "estofado_ternera_zanahoria",
+      "nombre": "Estofado de ternera",
+      "minutos": 75,
+      "tags": [
+        "carne",
+        "olla"
+      ],
+      "proteina": "vacuno",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "taco_vacuno",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sella la carne en la olla con el aceite a fuego fuerte y resérvala.",
+        "Pocha la cebolla y la zanahoria en la misma grasa, 8 min.",
+        "Devuelve la carne, añade el tomate y el laurel y cubre de agua.",
+        "Guisa tapado 50 min a fuego suave.",
+        "Echa la patata en trozos y sal, y sigue 20 min hasta que estén tiernas."
+      ]
+    },
+    {
+      "id": "filetes_vacuno_encebollados",
+      "nombre": "Filetes encebollados",
+      "minutos": 30,
+      "tags": [
+        "carne",
+        "sarten"
+      ],
+      "proteina": "vacuno",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "filete_vacuno",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon la cebolla en juliana a pochar con la mitad del aceite, 15 min a fuego lento.",
+        "Cuece la patata en dados 18 min y escúrrela.",
+        "Sube el fuego y marca los filetes salpimentados, 1 min por cada lado.",
+        "Añade el ajo picado a la cebolla y deja 1 min más.",
+        "Sirve la carne con la cebolla por encima y la patata al lado."
+      ]
+    },
+    {
+      "id": "chuletas_cordero_ajillo",
+      "nombre": "Chuletas de cordero",
+      "minutos": 25,
+      "tags": [
+        "carne",
+        "sarten",
+        "rapido"
+      ],
+      "proteina": "cordero",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "chuleta_cordero",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la patata en dados 18 min, escúrrela y saltéala 3 min para que dore.",
+        "Calienta bien la sartén con el aceite y lamina el ajo.",
+        "Dora el ajo 40 segundos y retíralo antes de que se queme.",
+        "Marca las chuletas saladas 3 min por cada lado a fuego fuerte.",
+        "Devuelve el ajo con el perejil picado y remueve fuera del fuego."
+      ]
+    },
+    {
+      "id": "solomillo_cerdo_mostaza",
+      "nombre": "Solomillo a la mostaza",
+      "minutos": 30,
+      "tags": [
+        "carne",
+        "sarten"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "solomillo_cerdo",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "nata_cocinar",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "mostaza",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "arroz_largo",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "acompanamiento",
+          "cantidad": 140,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz en el agua con sal, 16 min.",
+        "Corta el solomillo en medallones de dos dedos y sálalos.",
+        "Dóralos en la sartén con el aceite, 2 min por cada lado, y resérvalos.",
+        "Pocha la cebolla picada en la misma sartén, 6 min.",
+        "Añade la nata y la mostaza, y devuelve la carne 4 min a fuego suave."
+      ]
+    },
+    {
+      "id": "dorada_horno_limon",
+      "nombre": "Dorada al horno",
+      "minutos": 40,
+      "tags": [
+        "pescado",
+        "horno"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "dorada",
+          "parte": "principal",
+          "cantidad": 230,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon la patata en rodajas finas y la cebolla en la bandeja con aceite y sal.",
+        "Hornea 25 min a 190º hasta que la patata esté casi hecha.",
+        "Haz dos cortes a la dorada, sálala y mete rodajas de limón dentro.",
+        "Colócala sobre las patatas y riega con el resto del aceite.",
+        "Hornea 15 min más a 190º, hasta que la carne se separe de la espina."
+      ]
+    },
+    {
+      "id": "lubina_espalda_refrito",
+      "nombre": "Lubina a la espalda",
+      "minutos": 30,
+      "tags": [
+        "pescado",
+        "horno"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "lubina",
+          "parte": "principal",
+          "cantidad": 230,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 190,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 18,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la patata en rodajas gruesas 15 min y escúrrela.",
+        "Abre la lubina por la mitad, sálala y ponla abierta sobre la patata.",
+        "Hornea 12 min a 200º, hasta que la carne quede opaca.",
+        "Lamina el ajo y dóralo en el aceite hasta que tome color.",
+        "Aparta del fuego, añade el vinagre con cuidado y riega el pescado."
+      ]
+    },
+    {
+      "id": "solomillo_cerdo_horno_verduras",
+      "nombre": "Solomillo al horno",
+      "minutos": 45,
+      "tags": [
+        "carne",
+        "horno"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "solomillo_cerdo",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "acompanamiento",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "acompanamiento",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "acompanamiento",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "tomillo",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta toda la verdura y la patata en trozos parejos y aliña con aceite y sal.",
+        "Hornea 25 min a 200º removiendo a mitad.",
+        "Ata el solomillo con hilo para que quede parejo y sálalo con el tomillo.",
+        "Ponlo encima de la verdura y hornea 18 min más.",
+        "Deja reposar 5 min fuera del horno antes de cortarlo en rodajas."
+      ]
+    }
+  ]
+}

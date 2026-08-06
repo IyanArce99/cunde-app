@@ -1,0 +1,663 @@
+
+> cunde@0.0.1 dev
+> vite
+
+Port 5173 is in use, trying another one...
+Port 5174 is in use, trying another one...
+
+  VITE v5.4.21  ready in 1795 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: use --host to expose
+11:12:14 [vite] hmr update /src/components/SelectorProteina.tsx
+11:12:20 [vite] hmr update /src/components/SelectorCoste.css
+11:14:47 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+11:14:55 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:15:03 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:15:11 [vite] hmr update /src/components/HojaDeDia.tsx
+11:15:27 [vite] hmr update /src/components/HojaDeDia.tsx
+11:23:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:23:58 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:24:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:24:18 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:24:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:24:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:24:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:25:06 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:25:41 [vite] hmr update /src/components/SelectorCoste.tsx
+11:25:52 [vite] hmr update /src/components/SelectorCoste.css
+11:25:58 [vite] hmr update /src/components/SelectorCoste.css
+11:26:13 [vite] hmr update /src/components/SelectorProteina.tsx
+11:27:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:27:24 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:28:40 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:30:47 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:31:18 [vite] hmr update /src/pages/onboarding/Datos.css
+11:31:42 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:31:47 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+11:31:53 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+11:32:09 [vite] hmr update /src/pages/onboarding/Portada.css
+11:32:32 [vite] hmr update /src/components/AjustesSemana.tsx
+11:32:38 [vite] hmr update /src/components/AjustesSemana.tsx
+11:34:59 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:35:08 [vite] hmr update /src/pages/onboarding/Datos.css
+11:35:13 [vite] hmr update /src/pages/onboarding/Datos.css
+11:36:03 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+11:47:30 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/pages/onboarding/Datos.tsx
+11:47:35 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/pages/onboarding/Datos.tsx
+11:47:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+11:48:36 [vite] hmr update /src/pages/Compra.tsx
+11:48:45 [vite] hmr update /src/pages/Compra.tsx
+11:48:58 [vite] hmr update /src/components/HojaDeDia.tsx
+11:49:09 [vite] hmr update /src/components/HojaDeDia.tsx
+11:49:15 [vite] hmr update /src/components/HojaDeDia.tsx
+11:49:31 [vite] hmr update /src/pages/Semana.tsx
+11:49:37 [vite] hmr update /src/pages/Semana.tsx
+11:49:45 [vite] hmr update /src/components/RecetaPlato.tsx
+11:49:52 [vite] hmr update /src/components/RecetaPlato.tsx
+11:51:21 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:51:33 [vite] hmr update /src/pages/onboarding/Datos.css
+11:51:44 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:51:51 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:52:01 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:52:09 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:52:16 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+11:58:26 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:58:32 [vite] hmr update /src/components/AjustesSemana.tsx
+11:58:44 [vite] hmr update /src/components/AjustesSemana.tsx
+11:58:58 [vite] hmr update /src/components/AjustesSemana.tsx
+11:59:06 [vite] hmr update /src/components/AjustesSemana.css
+12:17:38 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+12:18:00 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+12:18:14 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+12:18:26 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:53:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:54:02 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:54:24 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:54:33 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:54:55 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:55:10 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:55:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:55:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:55:59 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:56:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:56:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:57:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+13:57:24 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:57:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:58:35 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:01:16 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:01:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:01:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:01:55 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:02:58 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:03:13 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:03:37 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:03:46 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:03:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:09:02 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:10:47 [vite] hmr update /src/pages/Semana.tsx
+14:24:48 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:25:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:26:14 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:26:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:26:42 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:17 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:24 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:38 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:27:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:28:05 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:28:17 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:28:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:28:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:28:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:29:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:29:19 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:29:28 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:29:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:31:35 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:32:22 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:32:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:32:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:32:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:34:15 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:34:29 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:34:39 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+14:34:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:35:07 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:35:18 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:35:29 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+14:35:52 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:36:00 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:36:08 [vite] hmr update /src/state/AppStateContext.tsx
+14:36:16 [vite] hmr update /src/state/AppStateContext.tsx
+14:36:31 [vite] hmr update /src/components/TarjetaDia.tsx
+14:36:39 [vite] hmr update /src/components/TarjetaDia.tsx
+14:36:50 [vite] hmr update /src/components/HojaDeDia.tsx
+14:37:01 [vite] hmr update /src/components/HojaDeDia.tsx
+14:37:18 [vite] hmr update /src/components/RecetaPlato.tsx
+14:39:27 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+14:54:03 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:55:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+14:56:49 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+17:11:56 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:12:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:12:19 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:12:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:12:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:13:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:13:30 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:13:54 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+17:14:29 [vite] hmr update /src/state/AppStateContext.tsx
+17:14:43 [vite] hmr update /src/state/AppStateContext.tsx
+17:14:57 [vite] hmr update /src/state/AppStateContext.tsx
+17:15:04 [vite] hmr update /src/state/AppStateContext.tsx
+17:15:13 [vite] hmr update /src/state/AppStateContext.tsx
+17:15:20 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+17:15:43 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+17:15:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+17:15:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+17:20:01 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:20:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+17:38:04 [vite] hmr update /src/state/AppStateContext.tsx
+17:38:16 [vite] hmr update /src/state/AppStateContext.tsx
+18:13:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+18:21:28 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+18:35:18 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:35:30 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:38:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:00 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:10 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:23 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:31 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:48 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:39:59 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:40:19 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:40:33 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:40:41 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:40:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:40:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:48:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:48:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:52:40 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:52:49 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:52:55 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:54:49 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:57:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:58:58 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:59:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:59:14 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:59:20 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+18:59:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:05:53 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:05:59 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:06:40 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:07:03 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:07:55 [vite] hmr update /src/components/CambioSemana.tsx
+19:08:05 [vite] hmr update /src/components/CambioSemana.tsx
+19:08:11 [vite] hmr update /src/components/CambioSemana.tsx
+19:08:16 [vite] hmr update /src/components/CambioSemana.tsx
+19:08:21 [vite] hmr update /src/pages/Semana.tsx
+19:12:56 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:13:03 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:19:52 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:19:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:20:14 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:20:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:22:16 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:23:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:33:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+19:35:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:35:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:35:55 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:36:03 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:36:17 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:36:26 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:42:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:53:05 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:53:16 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:53:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:53:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:53:39 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:55:10 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:55:16 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:55:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:55:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:56:15 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:57:31 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:59:07 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+19:59:13 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:00:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:03:15 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:04:38 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:04:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:06:30 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:06:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:23:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:23:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:24:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:34:18 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:43:31 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:46:00 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:46:15 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:46:24 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:50:40 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:50:54 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+20:51:26 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:07:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:07:19 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:07:40 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:07:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:08:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:08:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:08:35 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:09:11 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:11:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:11:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:54:07 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+22:54:16 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+22:54:28 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+22:55:10 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+22:55:31 [vite] hmr update /src/state/AppStateContext.tsx
+22:55:49 [vite] hmr update /src/state/AppStateContext.tsx
+22:55:49 [vite] hmr update /src/pages/Semana.tsx
+22:55:59 [vite] hmr update /src/pages/Semana.tsx
+22:56:28 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:56:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+22:57:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+23:02:45 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:02:45 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+23:02:45 [vite] hmr update /src/state/AppStateContext.tsx
+23:02:58 [vite] hmr update /src/pages/Compra.tsx
+23:03:15 [vite] hmr update /src/pages/Compra.css
+23:09:50 [vite] hmr update /src/pages/Compra.tsx
+23:12:11 [vite] hmr update /src/pages/Compra.tsx
+23:17:02 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+23:17:02 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx
+23:17:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:17:23 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:17:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:17:58 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:17:58 [vite] hmr update /src/state/AppStateContext.tsx
+23:18:32 [vite] hmr update /src/pages/Compra.tsx
+23:19:15 [vite] hmr update /src/components/ShoppingRow.tsx
+23:24:05 [vite] hmr update /src/pages/Compra.tsx
+23:24:47 [vite] hmr update /src/pages/Compra.tsx
+23:24:47 [vite] hmr update /src/pages/Compra.css
+23:24:47 [vite] hmr update /src/pages/Compra.tsx
+23:27:20 [vite] hmr update /src/pages/Compra.tsx
+23:27:20 [vite] hmr update /src/pages/Compra.css
+23:29:35 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:29:57 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+23:30:18 [vite] hmr update /src/state/AppStateContext.tsx
+23:30:18 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+23:32:36 [vite] hmr update /src/components/ShoppingRow.tsx
+23:51:11 [vite] hmr update /src/pages/Compra.css
+23:51:57 [vite] hmr update /src/components/TicketRow.css
+23:51:57 [vite] hmr update /src/pages/Compra.css
+8:52:52 [vite] hmr update /src/components/TarjetaDia.css
+8:53:11 [vite] hmr update /src/pages/Semana.tsx
+8:53:11 [vite] hmr update /src/pages/Semana.css
+8:54:39 [vite] hmr update /src/pages/Semana.tsx
+8:54:39 [vite] hmr update /src/pages/Semana.css
+8:55:56 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+8:56:19 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+8:56:41 [vite] hmr update /src/pages/onboarding/Portada.tsx
+8:56:41 [vite] hmr update /src/pages/onboarding/Portada.css
+8:58:52 [vite] hmr update /src/components/TarjetaDia.tsx
+8:58:52 [vite] hmr update /src/components/TarjetaDia.css
+9:00:25 [vite] hmr update /src/components/TarjetaDia.tsx
+9:00:25 [vite] hmr update /src/components/TarjetaDia.css
+9:02:13 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:02:13 [vite] hmr update /src/pages/onboarding/Portada.css
+9:11:46 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:11:46 [vite] hmr update /src/pages/onboarding/Portada.css
+9:11:48 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+9:11:48 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:17:12 [vite] page reload bocetos.html
+9:20:34 [vite] hmr update /src/bocetos.css
+9:24:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+9:24:45 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:25:43 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:26:48 [vite] hmr update /src/pages/onboarding/Portada.css
+9:28:55 [vite] hmr update /src/pages/onboarding/Portada.css
+9:28:55 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:31:22 [vite] hmr update /src/pages/onboarding/Portada.tsx
+9:31:22 [vite] hmr update /src/pages/onboarding/Portada.css
+9:32:24 [vite] page reload bocetos.html
+9:32:24 [vite] hmr update /src/bocetos.tsx
+9:32:24 [vite] hmr update /src/bocetos.css
+9:37:30 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:30 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:30 [vite] page reload agent/skills/wireframe/references/styleguide.html
+9:37:31 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:31 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:31 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:32 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:32 [vite] page reload .agents/skills/wireframe/references/styleguide.html
+9:37:34 [vite] page reload .claude/skills/wireframe/references/styleguide.html
+11:22:28 [vite] hmr update /src/theme/tokens.css
+11:22:28 [vite] hmr update /src/pages/Semana.css
+11:22:28 [vite] hmr update /src/pages/onboarding/Portada.css
+11:22:28 [vite] hmr update /src/components/TarjetaDia.css
+11:22:28 [vite] hmr update /src/pages/Compra.css
+11:22:28 [vite] hmr update /src/pages/SemanaVariante.css
+11:22:28 [vite] hmr update /src/components/MuroDePago.css
+11:22:28 [vite] hmr update /src/components/HojaDeDia.css
+11:22:28 [vite] hmr update /src/components/RecetaPlato.css
+11:22:46 [vite] hmr update /src/pages/Semana.css
+11:22:46 [vite] hmr update /src/pages/onboarding/Portada.css
+11:22:46 [vite] hmr update /src/components/TarjetaDia.css
+11:22:46 [vite] hmr update /src/pages/Compra.css
+11:22:46 [vite] hmr update /src/pages/SemanaVariante.css
+11:22:46 [vite] hmr update /src/components/MuroDePago.css
+11:22:46 [vite] hmr update /src/components/HojaDeDia.css
+11:22:46 [vite] hmr update /src/components/RecetaPlato.css
+11:23:49 [vite] hmr update /src/pages/Compra.css
+11:23:49 [vite] hmr update /src/components/SelectorSuper.css
+11:23:49 [vite] hmr update /src/pages/onboarding/Datos.css
+11:23:49 [vite] hmr update /src/pages/SemanaVariante.css
+11:23:49 [vite] hmr update /src/components/AjustesSemana.tsx
+11:23:50 [vite] hmr update /src/components/CierreDeSemana.tsx
+11:23:50 [vite] hmr update /src/components/CambioSemana.tsx
+11:23:50 [vite] hmr update /src/pages/Compra.tsx
+11:24:31 [vite] hmr update /src/components/SelectorSuper.tsx
+11:24:31 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:24:31 [vite] hmr update /src/components/AjustesSemana.tsx
+11:24:31 [vite] hmr update /src/pages/SemanaVariante.tsx
+11:24:31 [vite] hmr update /src/pages/onboarding/Portada.tsx
+11:25:25 [vite] hmr update /src/components/AjustesSemana.css
+11:25:25 [vite] hmr update /src/pages/SemanaVariante.css
+11:25:25 [vite] hmr update /src/components/CambioSemana.css
+11:25:25 [vite] hmr update /src/components/CierreDeSemana.css
+11:25:25 [vite] hmr update /src/components/AjustesSemana.css
+11:26:00 [vite] hmr update /src/components/CambioSemana.css
+11:26:00 [vite] hmr update /src/pages/onboarding/Generando.css
+11:52:19 [vite] hmr update /src/pages/Semana.tsx
+11:54:05 [vite] hmr update /src/pages/Semana.css
+11:54:39 [vite] hmr update /src/pages/Semana.css
+11:56:54 [vite] hmr update /src/pages/Semana.tsx
+11:58:31 [vite] hmr update /src/pages/Semana.tsx
+11:58:31 [vite] hmr update /src/pages/Semana.css
+12:01:29 [vite] hmr update /src/pages/onboarding/Datos.tsx
+12:01:29 [vite] hmr update /src/pages/onboarding/Generando.tsx
+12:01:29 [vite] hmr update /src/pages/onboarding/Datos.css
+12:01:29 [vite] hmr update /src/pages/onboarding/Generando.css
+12:03:35 [vite] hmr update /src/components/Vineta.tsx
+12:06:25 [vite] page reload src/main.tsx
+12:24:15 [vite] hmr update /src/pages/Semana.tsx
+12:30:11 [vite] hmr update /src/pages/Semana.css
+12:32:41 [vite] hmr update /src/pages/onboarding/Portada.css
+12:43:33 [vite] page reload docs/capturas/_cuerpo.html
+12:44:14 [vite] page reload docs/capturas/rediseno.html
+12:54:06 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+12:54:09 [vite] hmr update /src/pages/onboarding/Portada.tsx
+12:54:33 [vite] hmr update /src/components/TarjetaDia.css
+12:56:38 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+12:57:31 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+12:57:31 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+12:57:31 [vite] hmr update /src/components/HojaDeDia.tsx
+12:58:30 [vite] hmr update /src/components/RecetaPlato.tsx
+12:59:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+12:59:28 [vite] hmr update /src/pages/onboarding/Portada.tsx
+13:01:46 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:01:49 [vite] hmr update /src/pages/onboarding/Portada.tsx
+13:05:31 [vite] page reload docs/capturas/hueco-foto.html
+13:09:29 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:09:32 [vite] hmr update /src/pages/onboarding/Portada.tsx
+13:11:08 [vite] page reload docs/capturas/hueco-foto.html
+13:16:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:16:54 [vite] hmr update /src/pages/onboarding/Portada.tsx
+13:18:25 [vite] page reload docs/capturas/hueco-foto.html
+13:48:15 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+13:48:16 [vite] hmr update /src/pages/onboarding/Portada.tsx
+14:17:12 [vite] page reload docs/capturas/pastel-tarjetas.html
+14:17:12 [vite] page reload docs/capturas/pastel-tarjetas.html
+14:30:51 [vite] page reload docs/capturas/pastel-tarjetas.html
+14:30:51 [vite] page reload docs/capturas/pastel-tarjetas.html
+14:35:12 [vite] page reload docs/capturas/cinco-formatos.html
+14:35:12 [vite] page reload docs/capturas/cinco-formatos.html
+14:38:53 [vite] page reload docs/capturas/_cinco-sinfoto.html
+14:40:48 [vite] page reload docs/capturas/_sinfoto.html
+14:42:55 [vite] page reload docs/capturas/f6-mezcla.html
+14:42:55 [vite] page reload docs/capturas/f6-mezcla.html
+14:48:36 [vite] page reload docs/capturas/f6-pantalla.html
+14:53:25 [vite] page reload docs/capturas/f6-pantalla.html
+14:54:25 [vite] page reload docs/capturas/f6-pantalla.html
+14:55:05 [vite] page reload docs/capturas/f6-pantalla.html
+15:05:25 [vite] page reload docs/capturas/muro-de-pago.html
+16:08:31 [vite] page reload docs/capturas/postre.html
+16:11:01 [vite] page reload docs/capturas/postre.html
+16:12:03 [vite] page reload docs/capturas/postre.html
+16:18:21 [vite] page reload docs/capturas/onboarding.html
+16:29:16 [vite] hmr update /src/theme/tokens.css
+16:29:29 [vite] hmr update /src/components/SelectorCoste.css
+16:29:34 [vite] hmr update /src/components/SelectorSuper.css
+16:29:46 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+16:32:48 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+16:38:35 [vite] hmr update /src/theme/tokens.css
+16:38:45 [vite] hmr update /src/components/HojaDeDia.tsx
+16:38:51 [vite] hmr update /src/components/HojaDeDia.css
+16:38:57 [vite] hmr update /src/components/CierreDeSemana.tsx
+16:39:03 [vite] hmr update /src/components/CierreDeSemana.css
+16:39:10 [vite] hmr update /src/components/MuroDePago.tsx
+16:39:16 [vite] hmr update /src/components/MuroDePago.css
+16:39:25 [vite] hmr update /src/components/CierreDeSemana.tsx
+16:39:36 [vite] hmr update /src/components/CierreDeSemana.tsx
+16:39:52 [vite] hmr update /src/components/TopTabs.tsx
+16:40:07 [vite] hmr update /src/pages/Semana.css
+16:43:00 [vite] hmr update /src/theme/tokens.css
+16:43:10 [vite] hmr update /src/components/CierreDeSemana.css
+16:45:34 [vite] hmr update /src/components/OptionButton.tsx
+16:45:46 [vite] hmr update /src/pages/onboarding/Datos.tsx
+16:45:54 [vite] hmr update /src/components/AjustesSemana.tsx
+16:46:00 [vite] hmr update /src/components/AjustesSemana.tsx
+16:46:07 [vite] hmr update /src/components/AjustesSemana.tsx
+16:46:18 [vite] hmr update /src/components/AjustesSemana.tsx
+16:46:24 [vite] hmr update /src/pages/onboarding/Datos.tsx
+16:46:31 [vite] hmr update /src/components/CierreDeSemana.css
+16:48:37 [vite] hmr update /src/state/AppStateContext.tsx
+16:48:48 [vite] hmr update /src/state/AppStateContext.tsx
+16:49:06 [vite] hmr update /src/pages/Compra.tsx
+16:49:16 [vite] hmr update /src/pages/Compra.css
+16:49:27 [vite] hmr update /src/pages/Compra.css
+16:51:58 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+16:52:17 [vite] hmr update /src/state/AppStateContext.tsx
+16:52:23 [vite] hmr update /src/state/AppStateContext.tsx
+16:52:33 [vite] hmr update /src/state/AppStateContext.tsx
+16:53:01 [vite] hmr update /src/state/AppStateContext.tsx
+16:53:18 [vite] hmr update /src/pages/Semana.tsx
+16:53:26 [vite] hmr update /src/pages/Semana.tsx
+16:53:39 [vite] hmr update /src/pages/Semana.tsx
+16:53:57 [vite] hmr update /src/pages/Semana.css
+16:55:47 [vite] hmr update /src/components/BudgetSlider.tsx
+16:55:56 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+16:59:16 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/AjustesSemana.tsx
+16:59:29 [vite] hmr update /src/components/AjustesSemana.tsx
+17:01:55 [vite] hmr update /src/components/SelectorCoste.tsx
+17:02:09 [vite] hmr update /src/components/SelectorCoste.tsx
+17:02:36 [vite] hmr update /src/components/SelectorProteina.tsx
+17:02:43 [vite] hmr update /src/components/SelectorProteina.tsx
+17:02:53 [vite] hmr update /src/components/SelectorVariedad.tsx
+17:03:14 [vite] hmr update /src/components/AjustesSemana.tsx
+17:03:33 [vite] hmr update /src/components/AjustesSemana.tsx
+17:03:52 [vite] hmr update /src/components/AjustesSemana.tsx
+17:05:52 [vite] hmr update /src/components/AjustesSemana.tsx
+17:06:01 [vite] hmr update /src/components/AjustesSemana.tsx
+17:07:58 [vite] hmr update /src/pages/Semana.tsx
+17:08:04 [vite] hmr update /src/pages/Semana.tsx
+17:08:44 [vite] hmr update /src/pages/Semana.tsx
+17:08:44 [vite] hmr update /src/state/AppStateContext.tsx
+17:24:11 [vite] hmr update /src/pages/onboarding/Portada.tsx
+17:24:27 [vite] hmr update /src/pages/Semana.tsx
+17:24:39 [vite] hmr update /src/pages/Semana.tsx
+17:25:14 [vite] hmr update /src/pages/Semana.tsx
+17:25:24 [vite] hmr update /src/components/CierreDeSemana.tsx
+17:25:36 [vite] hmr update /src/components/SelectorVariedad.tsx
+20:44:32 [vite] hmr update /src/components/TarjetaDia.tsx
+20:45:49 [vite] hmr update /src/components/TarjetaDia.css
+20:46:17 [vite] hmr update /src/pages/Semana.tsx
+20:46:17 [vite] hmr update /src/pages/Semana.css
+20:48:04 [vite] hmr update /src/components/Vineta.css
+20:50:01 [vite] hmr update /src/components/TarjetaDia.css
+20:51:46 [vite] hmr update /src/components/AjustesSemana.tsx
+20:52:00 [vite] hmr update /src/components/AjustesSemana.css
+20:52:38 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx
+20:53:11 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/components/HojaDeDia.tsx, /src/components/CambioSemana.tsx, /src/components/MuroDePago.tsx, /src/components/CierreDeSemana.tsx, /src/components/TarjetaDia.tsx, /src/components/AjustesSemana.tsx, /src/components/ShoppingRow.tsx, /src/components/SelectorCoste.tsx, /src/components/SelectorProteina.tsx, /src/pages/onboarding/Portada.tsx
+20:53:11 [vite] hmr update /src/pages/onboarding/Portada.tsx
+20:53:29 [vite] hmr update /src/pages/onboarding/Portada.tsx
+20:53:46 [vite] hmr update /src/pages/Compra.tsx
+20:53:46 [vite] hmr update /src/pages/Compra.css
+20:54:12 [vite] hmr update /src/components/ShoppingRow.css
+20:54:31 [vite] hmr update /src/components/ShoppingRow.css
+20:54:58 [vite] hmr update /src/pages/Compra.css
+20:55:08 [vite] hmr update /src/components/HojaDeDia.tsx
+21:02:43 [vite] hmr update /src/pages/onboarding/Datos.tsx
+21:03:17 [vite] hmr update /src/pages/onboarding/Datos.css
+21:05:35 [vite] hmr update /src/pages/onboarding/Generando.css
+21:06:46 [vite] hmr update /src/pages/onboarding/Datos.tsx
+21:06:46 [vite] hmr update /src/pages/onboarding/Datos.css
+21:08:19 [vite] hmr update /src/pages/onboarding/Datos.tsx
+21:13:34 [vite] hmr update /src/pages/onboarding/Generando.tsx
+21:13:34 [vite] hmr update /src/pages/onboarding/Generando.css
+21:18:38 [vite] hmr update /src/components/TicketImprimiendo.css
+21:21:34 [vite] hmr update /src/pages/Semana.tsx
+21:21:48 [vite] hmr update /src/pages/Semana.css
+22:04:07 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx, /src/pages/onboarding/Datos.tsx
+22:04:31 [vite] hmr update /src/state/AppStateContext.tsx
+22:06:32 [vite] hmr update /src/components/SelectorSuper.tsx
+22:06:55 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+22:06:55 [vite] hmr update /src/components/SelectorSuper.css
+22:24:32 [vite] hmr update /src/App.tsx
+22:24:32 [vite] hmr update /src/pages/onboarding/Portada.tsx
+22:24:32 [vite] hmr update /src/pages/onboarding/Datos.tsx
+22:24:52 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+22:24:52 [vite] hmr update /src/components/SelectorSuper.tsx
+22:25:48 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+22:37:21 [vite] page reload docs/capturas/ajustes-cinco.html
+22:42:20 [vite] page reload docs/capturas/ajustes-total.html
+22:57:40 [vite] page reload docs/capturas/ajustes-total.html
+23:20:20 [vite] page reload docs/capturas/ajustes-total.html
+23:49:51 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+9:36:20 [vite] page reload android/app/src/main/assets/public/index.html
+9:37:33 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+9:38:34 [vite] hmr update /src/components/SelectorVariedad.tsx
+9:39:00 [vite] hmr update /src/components/AjustesSemana.tsx
+9:42:58 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx, /src/pages/onboarding/Datos.tsx
+9:44:29 [vite] hmr update /src/state/AppStateContext.tsx
+9:44:30 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx, /src/pages/onboarding/Datos.tsx
+9:45:23 [vite] hmr update /src/components/MuroDePago.tsx
+9:46:14 [vite] hmr update /src/pages/Semana.tsx
+9:46:59 [vite] hmr update /src/pages/SemanaVariante.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx, /src/pages/onboarding/Datos.tsx
+9:46:59 [vite] hmr update /src/pages/Semana.tsx
+9:46:59 [vite] hmr update /src/state/AppStateContext.tsx
+9:47:35 [vite] hmr update /src/components/MuroDePago.css
+9:50:26 [vite] hmr update /src/state/AppStateContext.tsx
+9:53:45 [vite] hmr update /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/components/MuroDePago.tsx
+9:59:48 [vite] hmr update /src/pages/Semana.tsx, /src/state/AppStateContext.tsx, /src/components/MuroDePago.tsx
+10:33:17 [vite] page reload android/build/reports/problems/problems-report.html
+10:33:49 [vite] page reload android/build/reports/problems/problems-report.html
+10:33:50 [vite] page reload android/build/reports/problems/problems-report.html
+10:42:21 [vite] page reload android/build/reports/problems/problems-report.html
+10:43:17 [vite] page reload android/build/reports/problems/problems-report.html
+10:43:17 [vite] page reload android/build/reports/problems/problems-report.html
+10:45:19 [vite] page reload android/app/build/intermediates/assets/debug/mergeDebugAssets/public/index.html
+10:46:13 [vite] page reload android/build/reports/problems/problems-report.html
+10:47:26 [vite] page reload android/app/build/intermediates/assets/release/mergeReleaseAssets/public/index.html
+10:47:54 [vite] page reload android/build/reports/problems/problems-report.html
+10:57:56 [vite] page reload android/build/reports/problems/problems-report.html
+11:03:12 [vite] page reload android/build/reports/problems/problems-report.html
+11:08:51 [vite] vite.config.ts changed, restarting server...
+11:08:53 [vite] server restarted.
+11:26:36 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:26:44 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:26:54 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:27:03 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:27:13 [vite] hmr update /src/components/TicketRow.tsx
+11:27:20 [vite] hmr update /src/components/TicketRow.css
+11:27:32 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:27:46 [vite] hmr update /src/pages/onboarding/Presupuesto.tsx
+11:28:01 [vite] hmr update /src/pages/onboarding/Datos.css
+11:31:04 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:31:15 [vite] hmr update /src/pages/onboarding/Datos.tsx
+11:31:23 [vite] hmr update /src/pages/onboarding/Datos.css
+11:31:29 [vite] hmr update /src/pages/onboarding/Datos.css
+11:33:43 [vite] hmr update /src/pages/onboarding/Datos.css
+11:34:58 [vite] hmr update /src/pages/onboarding/Datos.css
+11:38:10 [vite] hmr update /src/components/SelectorSuper.css
+12:20:56 [vite] hmr update /src/pages/onboarding/Datos.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+12:21:03 [vite] hmr update /src/state/AppStateContext.tsx
+12:21:13 [vite] hmr update /src/state/AppStateContext.tsx
+12:21:29 [vite] hmr update /src/components/ElegirSuper.tsx
+12:31:51 [vite] hmr update /src/components/ElegirSuper.tsx
+12:32:22 [vite] hmr update /src/components/ElegirSuper.tsx
+12:32:32 [vite] hmr update /src/components/ElegirSuper.tsx
+12:32:40 [vite] hmr update /src/pages/onboarding/Super.tsx
+12:32:46 [vite] hmr update /src/pages/onboarding/Datos.tsx
+12:32:58 [vite] hmr update /src/pages/onboarding/Datos.css
+12:35:10 [vite] hmr update /src/pages/onboarding/Datos.tsx
+12:35:21 [vite] hmr update /src/pages/onboarding/Datos.tsx
+12:35:48 [vite] hmr update /src/pages/onboarding/Presupuesto.css
+12:38:51 [vite] hmr update /src/pages/onboarding/Super.css
+12:41:41 [vite] hmr update /src/pages/onboarding/Datos.css
+12:54:29 [vite] page reload android/app/src/main/assets/public/index.html
+12:54:29 [vite] page reload android/app/src/main/assets/public/index.html
+12:57:00 [vite] page reload android/build/reports/problems/problems-report.html
+12:58:08 [vite] page reload android/build/reports/problems/problems-report.html
+17:43:46 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:44:08 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:44:21 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:44:50 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:52:01 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:55:44 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:59:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+17:59:30 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+18:03:53 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+18:04:10 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+18:08:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+18:08:15 [vite] hmr update /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx
+18:08:26 [vite] hmr update /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx
+18:31:08 [vite] hmr update /src/components/TarjetaDia.css
+18:40:42 [vite] hmr update /src/theme/tokens.css
+18:40:42 [vite] hmr update /src/pages/Semana.css
+18:40:42 [vite] hmr update /src/pages/Compra.css
+18:46:14 [vite] hmr update /src/pages/Compra.css
+18:50:40 [vite] page reload android/app/src/main/assets/public/index.html
+18:50:41 [vite] page reload android/app/src/main/assets/public/index.html
+18:51:50 [vite] page reload android/build/reports/problems/problems-report.html
+19:54:42 [vite] hmr update /src/components/AjustesSemana.tsx
+19:54:55 [vite] hmr update /src/components/AjustesSemana.tsx
+19:57:38 [vite] hmr update /src/components/AjustesSemana.tsx
+19:57:51 [vite] hmr update /src/pages/Semana.tsx
+19:58:25 [vite] hmr update /src/components/AjustesSemana.css
+20:02:46 [vite] hmr update /src/pages/onboarding/Portada.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/TarjetaDia.tsx, /src/components/CambioSemana.tsx, /src/components/HojaDeDia.tsx, /src/components/AjustesSemana.tsx, /src/components/CierreDeSemana.tsx, /src/components/MuroDePago.tsx, /src/components/ShoppingRow.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/SelectorCoste.tsx
+20:03:01 [vite] hmr update /src/pages/onboarding/Portada.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/TarjetaDia.tsx, /src/components/CambioSemana.tsx, /src/components/HojaDeDia.tsx, /src/components/AjustesSemana.tsx, /src/components/CierreDeSemana.tsx, /src/components/MuroDePago.tsx, /src/components/ShoppingRow.tsx, /src/components/SelectorProteina.tsx, /src/components/SelectorVariedad.tsx, /src/components/SelectorCoste.tsx
+20:06:58 [vite] hmr update /src/components/SelectorProteina.tsx
+20:06:58 [vite] hmr update /src/components/SelectorCoste.css
+21:15:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:18:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:18:47 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:19:23 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:20:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:21:09 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:21:33 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+21:21:33 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:23:26 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:24:31 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:25:34 [vite] hmr update /src/pages/onboarding/Datos.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/state/AppStateContext.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/components/RecetaPlato.tsx, /src/components/HojaDeDia.tsx
+21:25:34 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:25:34 [vite] hmr update /src/state/AppStateContext.tsx
+21:26:10 [vite] hmr update /src/components/AjustesSemana.tsx
+21:26:40 [vite] hmr update /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx
+21:27:12 [vite] hmr update /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx
+21:33:04 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:33:37 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx
+21:38:34 [vite] hmr update /src/state/AppStateContext.tsx
+23:11:48 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+23:13:25 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+23:14:20 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+23:15:41 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx
+23:35:32 [vite] hmr update /src/state/AppStateContext.tsx, /src/pages/Semana.tsx, /src/pages/onboarding/Presupuesto.tsx, /src/pages/SemanaVariante.tsx, /src/pages/Compra.tsx, /src/components/AjustesSemana.tsx, /src/pages/onboarding/Datos.tsx, /src/components/RecetaPlato.tsx, /src/components/AvisoAlergenos.tsx

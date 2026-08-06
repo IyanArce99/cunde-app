@@ -1,0 +1,1157 @@
+{
+  "nota": "Catorce recetas para tapar el único agujero donde la app entrega un producto roto a un segmento entero: con filtro vegetariano o vegano, 9-10 de cada 10 semanas salían marcadas 'no llega la proteína'. El diagnóstico: de 40 vegetarianas solo 5 llegaban a 25 g/ración, y de 29 veganas solo 2. Todas estas van de 28 a 35 g y por debajo de 1,20 €/ración. Las bases están repartidas a propósito (lenteja, garbanzo, alubia, soja, quinoa, pasta, arroz, maíz) porque el tope de 2 platos por base es la restricción que más ata en los filtros estrechos. Nueve son veganas. La proteína sale de donde de verdad sale barata: legumbre seca (0,81 €/100 g de proteína) y soja texturizada (2,70 €), no de tofu (3,65 €).",
+  "recetas": [
+    {
+      "id": "lentejas_estofadas_soja",
+      "nombre": "Lentejas estofadas con soja",
+      "minutos": 40,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 255,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Sofríe la cebolla, el pimiento y la zanahoria picados en el aceite, 8 minutos.",
+        "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
+        "Echa las lentejas, la soja escurrida y el agua; sala.",
+        "Cuece 30 minutos a fuego suave, hasta que la lenteja esté tierna."
+      ]
+    },
+    {
+      "id": "garbanzos_espinacas_almendra",
+      "nombre": "Garbanzos con almendras",
+      "minutos": 45,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_seco",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 330,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon los garbanzos a remojo la noche antes y escúrrelos.",
+        "Cuécelos en el agua con sal 40 minutos, hasta que estén tiernos.",
+        "Fríe el ajo laminado y las almendras en el aceite hasta que doren.",
+        "Machácalos con un poco del caldo y devuélvelo a la olla.",
+        "Añade la espinaca y el pimentón y dale 5 minutos más."
+      ]
+    },
+    {
+      "id": "alubias_soja_tomate",
+      "nombre": "Alubias con soja y tomate",
+      "minutos": 40,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_seca",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 270,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 22,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon las alubias a remojo la noche antes y escúrrelas.",
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Cuece las alubias en el agua a fuego muy suave 45 minutos.",
+        "Sofríe la cebolla en el aceite, añade el pimentón fuera del fuego y el tomate.",
+        "Vuelca el sofrito y la soja en la olla, sala y guisa 10 minutos."
+      ]
+    },
+    {
+      "id": "quinoa_garbanzos_espinacas",
+      "nombre": "Quinoa con garbanzos",
+      "minutos": 25,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "curcuma",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Enjuaga la quinoa bajo el grifo hasta que el agua salga limpia.",
+        "Sofríe la cebolla picada en el aceite con la cúrcuma, 4 minutos.",
+        "Añade la quinoa, el agua y sal, y cuece tapado 15 minutos.",
+        "Incorpora los garbanzos escurridos y la espinaca.",
+        "Remueve 3 minutos hasta que la espinaca se deshaga y sirve."
+      ]
+    },
+    {
+      "id": "potaje_garbanzos_alubias",
+      "nombre": "Potaje de dos legumbres",
+      "minutos": 50,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_seco",
+          "parte": "principal",
+          "cantidad": 65,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_blanca_seca",
+          "parte": "principal",
+          "cantidad": 65,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 390,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon garbanzos y alubias a remojo juntos la noche antes.",
+        "Escúrrelos y cuécelos en el agua fría a fuego muy suave, 50 minutos.",
+        "Sofríe la cebolla y el ajo picados en el aceite.",
+        "Aparta del fuego, añade el pimentón y vuélcalo en la olla.",
+        "Echa la espinaca y sal, y dale 10 minutos más."
+      ]
+    },
+    {
+      "id": "lentejas_curry_espinacas",
+      "nombre": "Lentejas al curry",
+      "minutos": 35,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 330,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "curry",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pocha la cebolla y el ajo picados en el aceite, 5 minutos.",
+        "Añade el curry y remueve 20 segundos para que suelte el aroma.",
+        "Echa las lentejas y el agua, sala y cuece 25 minutos.",
+        "Incorpora la espinaca y remueve hasta que se deshaga.",
+        "Aplasta un cazo de lentejas contra la olla para que espese."
+      ]
+    },
+    {
+      "id": "chili_alubias_soja",
+      "nombre": "Chili de alubias y soja",
+      "minutos": 30,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_roja_cocida",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Sofríe la cebolla y el pimiento picados en el aceite, 6 minutos.",
+        "Añade la soja y el comino y saltea 3 minutos.",
+        "Vuelca el tomate y las alubias escurridas; sala.",
+        "Guisa 15 minutos a fuego suave, hasta que espese."
+      ]
+    },
+    {
+      "id": "espaguetis_soja_champinones",
+      "nombre": "Espaguetis con soja",
+      "minutos": 25,
+      "tags": [
+        "vegano",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "espagueti",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela.",
+        "Dora el ajo laminado en el aceite y añade los champiñones.",
+        "Cuando suelten el agua, echa la soja y saltea 3 minutos.",
+        "Vuelca el tomate y el orégano, sala y cocina 8 minutos.",
+        "Cuece los espaguetis, escúrrelos y mézclalos con la salsa."
+      ]
+    },
+    {
+      "id": "quinoa_alubias_maiz",
+      "nombre": "Quinoa con alubias y maíz",
+      "minutos": 25,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "frio"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "maiz_dulce",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Enjuaga la quinoa y cuécela en el agua con sal, 15 minutos.",
+        "Escúrrela y extiéndela para que temple.",
+        "Corta el pimiento en dados pequeños.",
+        "Mezcla la quinoa con las alubias escurridas, el maíz y el pimiento.",
+        "Aliña con el aceite y el vinagre y sirve templado."
+      ]
+    },
+    {
+      "id": "lentejas_huevo_verduras",
+      "nombre": "Lentejas con huevo",
+      "minutos": 25,
+      "tags": [
+        "vegetariano",
+        "legumbre",
+        "huevo",
+        "olla"
+      ],
+      "proteina": "huevo",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece los huevos 10 minutos, enfríalos y pélalos.",
+        "Pocha la cebolla y la zanahoria en dados con el aceite, 8 minutos.",
+        "Añade las lentejas escurridas y sal, y calienta 5 minutos.",
+        "Aparta del fuego y riega con el vinagre.",
+        "Sirve con los huevos partidos por la mitad encima."
+      ]
+    },
+    {
+      "id": "quinoa_champinones_huevo",
+      "nombre": "Quinoa con champiñones",
+      "minutos": 25,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "sarten"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Enjuaga la quinoa y cuécela en el agua con sal, 15 minutos.",
+        "Saltea la cebolla y los champiñones laminados en el aceite.",
+        "Añade la quinoa escurrida y saltea 3 minutos a fuego vivo.",
+        "Haz un hueco en la sartén y cuaja los huevos ahí mismo.",
+        "Remueve para repartir el huevo y espolvorea el perejil."
+      ]
+    },
+    {
+      "id": "macarrones_queso_huevo",
+      "nombre": "Macarrones con queso",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 1,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "macarron",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Bate los huevos con el queso y la pimienta.",
+        "Cuece los macarrones en agua con sal y añade los guisantes al final.",
+        "Escurre, reservando un vaso del agua de cocción.",
+        "Fuera del fuego, mezcla la pasta caliente con el huevo batido.",
+        "Añade agua de cocción y el aceite removiendo hasta que ligue cremoso."
+      ]
+    },
+    {
+      "id": "alubias_huevo_pimenton",
+      "nombre": "Alubias al pimentón",
+      "minutos": 25,
+      "tags": [
+        "vegetariano",
+        "legumbre",
+        "huevo",
+        "olla",
+        "economico"
+      ],
+      "proteina": "huevo",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla y el pimiento picados en la mitad del aceite.",
+        "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
+        "Echa las alubias escurridas y sal, y guisa 10 minutos suave.",
+        "Fríe los huevos en el resto del aceite bien caliente.",
+        "Sirve los huevos sobre las alubias y rómpelos al comer."
+      ]
+    },
+    {
+      "id": "arroz_horno_huevo_queso",
+      "nombre": "Arroz al horno con queso",
+      "minutos": 40,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "arroz",
+        "horno"
+      ],
+      "proteina": "huevo",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Dora el ajo laminado en el aceite y añade el arroz y el tomate.",
+        "Vuelca el agua caliente y sal, y pásalo a una fuente de horno.",
+        "Hornea 18 minutos, hasta que el arroz haya bebido el agua.",
+        "Casca los huevos encima, cubre de queso y hornea 8 minutos más."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "revisadoEn": "2026-07-30T13:03:10.772Z",
+  "almacen": "mad3",
+  "referencia": "2026-07-28",
+  "total": 108,
+  "iguales": 105,
+  "cambios": [
+    {
+      "canonico": "huevo",
+      "sku": "30167",
+      "nombre": "Huevos",
+      "contenido": 24,
+      "unidad": "ud",
+      "precio": 5.6,
+      "precio_kg_l_ud": 0.233,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Huevos",
+      "precioNuevo": 5.25,
+      "delta": -0.34999999999999964,
+      "nombreNuevo": "Huevos"
+    },
+    {
+      "canonico": "queso_rallado",
+      "sku": "23621",
+      "nombre": "Queso rallado especial fundir mezcla Hacendado",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 1.15,
+      "precio_kg_l_ud": 5.75,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Charcutería y quesos",
+      "subfamilia": "Queso rallado",
+      "precioNuevo": 1.1,
+      "delta": -0.04999999999999982,
+      "nombreNuevo": "Queso rallado especial fundir mezcla Hacendado"
+    },
+    {
+      "canonico": "berenjena",
+      "sku": "69326",
+      "nombre": "Berenjena",
+      "contenido": 0.38,
+      "unidad": "kg",
+      "precio": 0.84,
+      "precio_kg_l_ud": 2.211,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Otras verduras y hortalizas",
+      "precioNuevo": 0.81,
+      "delta": -0.029999999999999916,
+      "nombreNuevo": "Berenjena"
+    }
+  ],
+  "desaparecidos": [],
+  "fallos": []
+}

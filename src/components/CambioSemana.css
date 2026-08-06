@@ -1,0 +1,64 @@
+.cambio__titulo {
+  margin: 10px 0 16px;
+  font: 700 22px/1.15 var(--font-display);
+  color: var(--tinta);
+}
+
+.cambio__lista {
+  border-top: var(--divider-dashed);
+}
+
+.cambio__resto {
+  padding: 8px 0;
+  border-bottom: var(--divider-dashed);
+  font: 400 13px/1.2 var(--font-mono);
+  color: var(--gris);
+}
+
+.cambio__fila {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  padding: 8px 0;
+  border-bottom: var(--divider-dashed);
+}
+
+.cambio__cuando {
+  grid-row: span 2;
+  align-self: center;
+  font: 500 13px/1.2 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--gris);
+  white-space: nowrap;
+}
+
+.cambio__de {
+  font: 400 15px/1.2 var(--font-mono);
+  color: var(--gris);
+  text-decoration: line-through;
+}
+
+.cambio__a {
+  font: 500 15px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
+.cambio__cuentas {
+  margin-top: 16px;
+}
+
+.cambio__total {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: var(--divider-total);
+}
+
+.cambio__salida {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.cambio__salida a {
+  font: 400 15px/1 var(--font-body);
+  color: var(--gris);
+}

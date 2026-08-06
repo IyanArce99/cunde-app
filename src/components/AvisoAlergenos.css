@@ -1,0 +1,36 @@
+/* Franja de papel, no alerta. El sistema visual ya tiene un color para las
+   etiquetas y las franjas (--papel-2) y ese es el que toca: esto no es un
+   error del usuario ni algo que haya que arreglar, es una condición del dato.
+   El rojo está reservado a pasarse del presupuesto. */
+.aviso-alergenos {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 14px;
+  background: var(--papel-2);
+  border-top: var(--divider-dashed);
+  border-bottom: var(--divider-dashed);
+}
+
+/* Qué se ha excluido, en tinta llena: es la parte que hay que poder leer de
+   un vistazo empujando un carro. */
+.aviso-alergenos__que {
+  font: 600 13px/1.2 var(--font-mono);
+  color: var(--tinta);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.aviso-alergenos__texto {
+  font: 400 13px/1.45 var(--font-mono);
+  color: var(--gris);
+}
+
+/* Dentro de una hoja, donde ya hay contexto y el ancho es menor. */
+.aviso-alergenos--compacto {
+  margin-top: 16px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+}

@@ -1,0 +1,207 @@
+{
+  "nota": "Un ensamblaje NO es una receta: es lo que se le hace a la tanda de ayer para que no vuelva igual. `desde` es la receta de la que come, e `ingredientes` son SOLO los que se añaden — el guiso ya está comprado y cocinado. Los diez están construidos sobre las tandas que más se repiten en las semanas generadas (ranking de catalogo/_aud-ranking.ts), no sobre lo que sonaría bien. Cocina de casa española: lo que se hace de verdad con lo que sobra.",
+  "ensamblajes": [
+    {
+      "id": "garbanzos_salteados_huevo",
+      "nombre": "Garbanzos salteados con huevo",
+      "desde": "garbanzos_tomate",
+      "minutos": 10,
+      "ingredientes": [
+        { "canonico": "huevo", "parte": "principal", "cantidad": 2, "unidad": "ud", "escalado": "lineal" },
+        { "canonico": "ajo", "parte": "principal", "cantidad": 5, "unidad": "g", "escalado": "sublineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 10, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Escurre los garbanzos de ayer del caldo que hayan soltado.",
+        "Dora el ajo laminado en el aceite y saltéalos hasta que se tuesten un poco.",
+        "Casca los huevos encima y rómpelos con la espátula.",
+        "Remueve 2 minutos hasta que el huevo cuaje agarrado a los garbanzos."
+      ]
+    },
+    {
+      "id": "pollo_con_arroz",
+      "nombre": "Arroz con el pollo de ayer",
+      "desde": "pollo_guisado_zanahoria",
+      "minutos": 20,
+      "ingredientes": [
+        { "canonico": "arroz_redondo", "parte": "principal", "cantidad": 80, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "agua", "parte": "principal", "cantidad": 160, "unidad": "ml", "escalado": "lineal" },
+        { "canonico": "pimenton_dulce", "parte": "principal", "cantidad": 1, "unidad": "g", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Desmenuza el pollo y reserva su salsa aparte.",
+        "Tuesta el arroz un minuto en la cazuela con el pimentón.",
+        "Añade la salsa del guiso y el agua, y cuece 15 minutos.",
+        "Incorpora el pollo desmenuzado los últimos 3 minutos."
+      ]
+    },
+    {
+      "id": "pimientos_rellenos_picadillo",
+      "nombre": "Pimientos rellenos del picadillo",
+      "desde": "picadillo_cerdo_calabacin",
+      "minutos": 25,
+      "ingredientes": [
+        { "canonico": "pimiento_rojo", "parte": "principal", "cantidad": 200, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "queso_rallado", "parte": "principal", "cantidad": 20, "unidad": "g", "escalado": "lineal" }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta los pimientos por la mitad y quítales las pepitas.",
+        "Rellénalos con el picadillo de ayer.",
+        "Cúbrelos con el queso y hornea 20 minutos."
+      ]
+    },
+    {
+      "id": "lentejas_con_huevo",
+      "nombre": "Lentejas con huevo escalfado",
+      "desde": "lentejas_champinones",
+      "minutos": 10,
+      "ingredientes": [
+        { "canonico": "huevo", "parte": "principal", "cantidad": 1, "unidad": "ud", "escalado": "lineal" },
+        { "canonico": "vinagre", "parte": "principal", "cantidad": 10, "unidad": "ml", "escalado": "fijo" },
+        { "canonico": "pan", "parte": "principal", "cantidad": 40, "unidad": "g", "escalado": "lineal" }
+      ],
+      "pasos": [
+        "Calienta las lentejas a fuego suave.",
+        "Pon agua a hervir con el vinagre y escalfa un huevo por ración, 3 minutos.",
+        "Tuesta el pan.",
+        "Sirve las lentejas con el huevo encima y el pan al lado."
+      ]
+    },
+    {
+      "id": "boloñesa_gratinada",
+      "nombre": "Macarrones gratinados",
+      "desde": "bolonesa_soja_macarrones",
+      "minutos": 15,
+      "ingredientes": [
+        { "canonico": "queso_rallado", "parte": "principal", "cantidad": 30, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "oregano", "parte": "principal", "cantidad": 0.5, "unidad": "g", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Calienta el horno a 220 °C con el gratinador.",
+        "Pon los macarrones de ayer en una fuente.",
+        "Cúbrelos con el queso y el orégano.",
+        "Gratina 8 minutos, hasta que el queso burbujee y dore."
+      ]
+    },
+    {
+      "id": "alubias_con_arroz",
+      "nombre": "Alubias con arroz blanco",
+      "desde": "alubias_tomate",
+      "minutos": 20,
+      "ingredientes": [
+        { "canonico": "arroz_redondo", "parte": "principal", "cantidad": 70, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "agua", "parte": "principal", "cantidad": 140, "unidad": "ml", "escalado": "lineal" },
+        { "canonico": "huevo", "parte": "principal", "cantidad": 1, "unidad": "ud", "escalado": "lineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 8, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Cuece el arroz en el doble de agua con sal, 15 minutos.",
+        "Calienta las alubias mientras tanto.",
+        "Fríe un huevo por ración en el aceite.",
+        "Sirve el arroz al lado de las alubias, con el huevo encima."
+      ]
+    },
+    {
+      "id": "lomo_en_bocadillo",
+      "nombre": "Bocadillo de lomo con pimientos",
+      "desde": "lomo_pimientos_horno",
+      "minutos": 8,
+      "ingredientes": [
+        { "canonico": "pan", "parte": "principal", "cantidad": 90, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "tomate", "parte": "principal", "cantidad": 50, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 8, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Abre el pan y tuéstalo.",
+        "Restriega el tomate por la miga y riégalo con el aceite.",
+        "Calienta el lomo y los pimientos de ayer en la sartén, un minuto.",
+        "Monta el bocadillo con el lomo y los pimientos dentro."
+      ]
+    },
+    {
+      "id": "empanadillas_de_chilindron",
+      "nombre": "Pollo del chilindrón con puré",
+      "desde": "pollo_chilindron",
+      "minutos": 20,
+      "ingredientes": [
+        { "canonico": "patata", "parte": "principal", "cantidad": 200, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "leche_semi", "parte": "principal", "cantidad": 40, "unidad": "ml", "escalado": "lineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 8, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Cuece la patata en dados 15 minutos y escúrrela.",
+        "Aplástala con la leche y el aceite hasta que quede un puré fino.",
+        "Deshuesa el pollo del chilindrón y caliéntalo con su salsa.",
+        "Sirve el pollo sobre el puré."
+      ]
+    },
+    {
+      "id": "berenjenas_gratinadas_sobra",
+      "nombre": "Berenjenas gratinadas",
+      "desde": "berenjenas_rellenas_cerdo",
+      "minutos": 12,
+      "ingredientes": [
+        { "canonico": "queso_rallado", "parte": "principal", "cantidad": 30, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "tomate_frito", "parte": "principal", "cantidad": 50, "unidad": "g", "escalado": "lineal" }
+      ],
+      "pasos": [
+        "Calienta el horno a 220 °C con el gratinador.",
+        "Pon las berenjenas de ayer en una fuente y riégalas con el tomate.",
+        "Cúbrelas de queso.",
+        "Gratina 8 minutos."
+      ]
+    },
+    {
+      "id": "alubias_longaniza_huevo",
+      "nombre": "Alubias con longaniza y huevo",
+      "desde": "alubias_longaniza",
+      "minutos": 10,
+      "ingredientes": [
+        { "canonico": "huevo", "parte": "principal", "cantidad": 2, "unidad": "ud", "escalado": "lineal" },
+        { "canonico": "pimenton_dulce", "parte": "principal", "cantidad": 1, "unidad": "g", "escalado": "sublineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 10, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Calienta las alubias con la longaniza a fuego suave.",
+        "Fríe los huevos en el aceite bien caliente, con la puntilla crujiente.",
+        "Espolvorea el pimentón sobre el aceite fuera del fuego.",
+        "Sirve los huevos sobre las alubias y riega con ese aceite."
+      ]
+    },
+    {
+      "id": "merluza_al_pil_pil_sobra",
+      "nombre": "Merluza con patatas panadera",
+      "desde": "merluza_salsa_verde",
+      "minutos": 22,
+      "ingredientes": [
+        { "canonico": "patata", "parte": "principal", "cantidad": 200, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "cebolla", "parte": "principal", "cantidad": 50, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "aceite_oliva", "parte": "principal", "cantidad": 12, "unidad": "ml", "escalado": "sublineal" }
+      ],
+      "pasos": [
+        "Corta la patata en rodajas finas y la cebolla en pluma.",
+        "Pochalas tapadas en el aceite 15 minutos, sin que doren.",
+        "Coloca encima la merluza de ayer con su salsa verde.",
+        "Tapa y calienta 3 minutos, moviendo la sartén para que ligue."
+      ]
+    },
+    {
+      "id": "sopa_de_pollo_jamoncitos",
+      "nombre": "Sopa con el pollo del ajillo",
+      "desde": "jamoncitos_ajillo_champinones",
+      "minutos": 15,
+      "ingredientes": [
+        { "canonico": "fideo", "parte": "principal", "cantidad": 50, "unidad": "g", "escalado": "lineal" },
+        { "canonico": "caldo_pollo", "parte": "principal", "cantidad": 300, "unidad": "ml", "escalado": "lineal" },
+        { "canonico": "zanahoria", "parte": "principal", "cantidad": 40, "unidad": "g", "escalado": "lineal" }
+      ],
+      "pasos": [
+        "Deshuesa los jamoncitos y desmenuza la carne.",
+        "Lleva el caldo a hervir con la zanahoria en rodajas finas.",
+        "Echa los fideos y cuécelos el tiempo del paquete.",
+        "Añade el pollo desmenuzado y el jugo del ajillo al final."
+      ]
+    }
+  ]
+}

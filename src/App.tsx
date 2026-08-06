@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { AppStateProvider, useAppState } from './state/AppStateContext';
 import Portada from './pages/onboarding/Portada';
+import Super from './pages/onboarding/Super';
 import Datos from './pages/onboarding/Datos';
 import Presupuesto from './pages/onboarding/Presupuesto';
 import Generando from './pages/onboarding/Generando';
@@ -50,6 +51,9 @@ const Enrutador: React.FC = () => {
     <IonRouterOutlet>
       <Route exact path="/onboarding/portada">
         <Portada />
+      </Route>
+      <Route exact path="/onboarding/super">
+        <Super />
       </Route>
       <Route exact path="/onboarding/datos">
         <Datos />

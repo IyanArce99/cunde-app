@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Cunde</title>
-    
+    <title>Cunde — la compra semanal con presupuesto cerrado</title>
+    <meta name="description" content="Dime tu presupuesto. Te digo qué coméis esta semana y cuánto cuesta." />
+
     <base href="/" />
     
     <meta name="color-scheme" content="light dark" />
@@ -16,12 +17,17 @@
     
     <link rel="manifest" href="/manifest.json" />
     
-    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    
+    <!-- Todos generados desde public/cunde-icono.svg por catalogo/iconos.mjs. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/iconos/icono-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/iconos/icono-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/iconos/icono-180.png" />
+
     <!-- add to homescreen for ios -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Cunde" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- El papel térmico es claro: la barra de estado va en oscuro sobre él. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#EFEDE6" />
   </head>
   <body>
     <div id="root"></div>

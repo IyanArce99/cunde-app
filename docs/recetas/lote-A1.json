@@ -1,0 +1,702 @@
+{
+  "raciones_base": 2,
+  "lote": "A1",
+  "nota": "Bloque A · núcleo de cobertura: 8 potajes y guisos de cuchara, todos de olla y todos veganos, sin gluten y sin frutos secos. Base de arroz cero: legumbre, patata y verdura. Ninguno lleva acompañamiento propio (son plato único), así que rinde_huecos.acompanamiento va igualado al principal. Las cantidades son POR RACIÓN. Donde la legumbre entra seca, el agua no figura como ingrediente —no se compra— y el ratio 1:3 queda anotado en nota_ratio, igual que en recetas-piloto.json.",
+  "recetas": [
+    {
+      "id": "potaje_garbanzos_acelgas",
+      "nombre": "Potaje de garbanzos",
+      "minutos": 55,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_seco",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "acelga",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "ml",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Pon los garbanzos en remojo 12 h con agua fría.",
+        "Escúrrelos, cúbrelos con agua limpia y cuece 45 min.",
+        "Sofríe la cebolla y el ajo en el aceite 6 min.",
+        "Aparta del fuego, echa el pimentón y vuelca el sofrito en la olla.",
+        "Añade la patata en cachos y la acelga. Cuece 15 min.",
+        "Sala y deja reposar 5 min."
+      ],
+      "nota_ratio": "garbanzo seco : agua = 1 : 3"
+    },
+    {
+      "id": "garbanzos_tomate",
+      "nombre": "Garbanzos con tomate",
+      "minutos": 25,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "rapido",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla y el pimiento en el aceite 8 min.",
+        "Añade el ajo picado y el pimentón. Remueve 30 s.",
+        "Echa el tomate triturado y cuece 10 min.",
+        "Escurre y enjuaga los garbanzos. Incorpóralos.",
+        "Cuece 5 min más, sala y sirve."
+      ]
+    },
+    {
+      "id": "lentejas_champinones",
+      "nombre": "Lentejas con champiñones",
+      "minutos": 45,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "ml",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla, la zanahoria y el ajo en el aceite 8 min.",
+        "Añade el champiñón y saltea 5 min.",
+        "Echa el tomate triturado y cuece 5 min.",
+        "Incorpora la lenteja y cubre con tres veces su volumen de agua.",
+        "Cuece 30 min a fuego medio.",
+        "Sala al final y deja reposar 5 min."
+      ],
+      "nota_ratio": "lenteja seca : agua = 1 : 3"
+    },
+    {
+      "id": "lentejas_calabaza",
+      "nombre": "Lentejas con calabaza",
+      "minutos": 40,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabaza",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "ml",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla, la zanahoria y el ajo en el aceite 6 min.",
+        "Añade el comino y remueve 30 s.",
+        "Incorpora la lenteja y la calabaza en dados.",
+        "Cubre con tres veces el volumen de lenteja en agua.",
+        "Cuece 30 min. Aplasta unos dados de calabaza para espesar.",
+        "Sala y sirve."
+      ],
+      "nota_ratio": "lenteja seca : agua = 1 : 3"
+    },
+    {
+      "id": "alubias_blancas_guisadas",
+      "nombre": "Alubias blancas guisadas",
+      "minutos": 25,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "rapido",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla y el pimiento verde en el aceite 8 min.",
+        "Añade el ajo picado y el pimentón. Remueve 30 s.",
+        "Echa el tomate triturado y cuece 10 min.",
+        "Escurre y enjuaga las alubias. Incorpóralas.",
+        "Cuece 8 min a fuego suave. Mueve la olla, no la cuchara.",
+        "Sala y sirve."
+      ]
+    },
+    {
+      "id": "alubias_pintas_repollo",
+      "nombre": "Alubias pintas con repollo",
+      "minutos": 30,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_pinta_cocida",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "repollo",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el repollo picado y la patata en cachos 15 min.",
+        "Sofríe la cebolla y el ajo en el aceite 6 min.",
+        "Aparta del fuego y echa el pimentón.",
+        "Vuelca el sofrito sobre la verdura.",
+        "Escurre las alubias, incorpóralas y cuece 8 min.",
+        "Sala y sirve."
+      ]
+    },
+    {
+      "id": "patatas_guisadas_pimenton",
+      "nombre": "Patatas guisadas al pimentón",
+      "minutos": 35,
+      "tags": [
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 270,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la cebolla y el pimiento verde en el aceite 8 min.",
+        "Añade el ajo picado y el laurel. Remueve 1 min.",
+        "Casca la patata en trozos y échala a la olla.",
+        "Aparta del fuego, echa el pimentón y remueve.",
+        "Cubre con agua a ras y cuece 20 min.",
+        "Sala y deja reposar 5 min."
+      ]
+    },
+    {
+      "id": "judias_verdes_patata",
+      "nombre": "Judías verdes con patata",
+      "minutos": 30,
+      "tags": [
+        "verdura",
+        "vegano",
+        "olla",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "judia_verde",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Trocea la judía verde y pela la patata en cachos.",
+        "Cuece la judía, la patata y la zanahoria 20 min.",
+        "Sofríe la cebolla y el ajo en el aceite 6 min.",
+        "Aparta del fuego y echa el pimentón.",
+        "Escurre la verdura, mézclala con el sofrito y sala."
+      ]
+    }
+  ]
+}

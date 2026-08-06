@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none"
+     stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
+  <!-- Fragmento de ticket: dos comensales impresos. Borde inferior dentado,
+       como sale del rollo térmico. Cero curvas: una impresora de tickets no
+       dibuja curvas, imprime puntos en rejilla. -->
+  <path d="M20 16 H100 V94 L90 102 L80 94 L70 102 L60 94 L50 102 L40 94 L30 102 L20 94 Z"/>
+  <path d="M36 30 h14 v14 h-14 Z"/>
+  <path d="M34 52 L52 52 L56 76 L30 76 Z"/>
+  <path d="M70 30 h14 v14 h-14 Z"/>
+  <path d="M68 52 L86 52 L90 76 L64 76 Z"/>
+  <path d="M30 86 H90"/>
+</svg>

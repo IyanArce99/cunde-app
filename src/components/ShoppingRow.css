@@ -1,19 +1,49 @@
 .fila-producto {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: stretch;
+  gap: 10px;
   width: 100%;
+  border-bottom: 1px solid rgba(169, 164, 152, .4);
+}
+
+/* La casilla se alinea con el NOMBRE, no con el centro de la fila.
+   Con `align-items: center` y tres líneas de contenido, el cuadro caía a la
+   altura de la segunda —la del formato y el precio— y se leía como si
+   perteneciera a ella. Alineada arriba, con el desplazamiento justo para
+   centrarse en la primera línea, dice lo que es: la casilla de ese producto. */
+.fila-producto__principal {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
   min-height: 76px;
   padding: 12px 0;
   background: none;
   border: none;
-  border-bottom: 1px solid rgba(169, 164, 152, .4);
   cursor: pointer;
   text-align: left;
+  font-family: inherit;
+}
+
+/* Despensa dada por hecha: no cuenta y no hay nada que coger. Se apaga con
+   color, nunca con opacity — bajar la opacidad hunde el contraste por
+   debajo de AA y esta pantalla se usa con luz de fluorescente. */
+.fila-producto__principal:disabled {
+  cursor: default;
+}
+
+.fila-producto--fuera .fila-producto__nombre,
+.fila-producto--fuera .fila-producto__linea2,
+.fila-producto--fuera .fila-producto__linea2 .ticket-row {
+  color: var(--gris);
 }
 
 .fila-producto__caja {
   flex: none;
+  /* Centrada en la primera línea del nombre (17 px a 1.2 = 20 px de alto):
+     (28 − 20) / 2 = 4 px por encima de su línea base. */
+  margin-top: -4px;
   width: 28px;
   height: 28px;
   border: 2px solid var(--pauta);
@@ -39,6 +69,7 @@
 
 .fila-producto__linea1 {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 8px;
 }
@@ -82,4 +113,32 @@
 .fila-producto__linea3 {
   font: 400 13px/1.2 var(--font-mono);
   color: var(--gris);
+}
+
+/* Segundo control, solo en despensa: "ya lo tengo". Misma casilla que el
+   marcado de la lista para no inventar un idioma visual nuevo — lo que
+   cambia es dónde está y qué dice. */
+/* En columna y no en fila: en horizontal se comía ~90px de ancho y la línea
+   del formato de venta ("Paquete 1 kg ···· 0,40 €") partía en dos. */
+.fila-producto__tengo {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 60px;
+  min-height: var(--tap-min);
+  padding: 0 2px 0 10px;
+  border: none;
+  border-left: var(--divider-dashed);
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.fila-producto__tengo-texto {
+  font: 400 13px/1.1 var(--font-mono);
+  color: var(--gris);
+  text-align: center;
 }

@@ -1,0 +1,1308 @@
+{
+ "almacenes": {
+  "3842": "Baleares · Palma (07001)",
+  "4480": "Asturias · Oviedo (33001)",
+  "4804": "Galicia · A Coruña (15001)",
+  "mad3": "Madrid · centro (28001)",
+  "svq1": "Andalucía · Sevilla (41001)",
+  "bcn1": "Cataluña · Barcelona (08001)"
+ },
+ "tabla": {
+  "2779": {
+   "nombre": "Medio pollo troceado",
+   "base": 3.6,
+   "por": {
+    "3842": 3.6,
+    "4480": 3.6,
+    "4804": "no lo tiene",
+    "mad3": 3.6,
+    "svq1": 4.32,
+    "bcn1": 3.6
+   }
+  },
+  "2788": {
+   "nombre": "Muslos de pollo deshuesados con piel",
+   "base": 2.78,
+   "por": {
+    "3842": 2.78,
+    "4480": 2.78,
+    "4804": "no lo tiene",
+    "mad3": 2.78,
+    "svq1": 2.44,
+    "bcn1": 3.05
+   }
+  },
+  "2789": {
+   "nombre": "Contramuslos de pollo deshuesados y sin piel",
+   "base": 3.58,
+   "por": {
+    "3842": 3.58,
+    "4480": 4.16,
+    "4804": "no lo tiene",
+    "mad3": 3.58,
+    "svq1": 4.03,
+    "bcn1": 3.58
+   }
+  },
+  "2807": {
+   "nombre": "Tacos de vacuno añojo para guisar",
+   "base": 8.75,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 8.75,
+    "svq1": 8.75,
+    "bcn1": 8.75
+   }
+  },
+  "2849": {
+   "nombre": "Filetes lomo de cerdo extra tiernos",
+   "base": 3.54,
+   "por": {
+    "3842": 4,
+    "4480": 4,
+    "4804": 3.54,
+    "mad3": 3.54,
+    "svq1": 4.08,
+    "bcn1": 3.54
+   }
+  },
+  "2867": {
+   "nombre": "Preparado de carne picada cerdo",
+   "base": 2.75,
+   "por": {
+    "3842": 2.75,
+    "4480": 2.75,
+    "4804": 2.75,
+    "mad3": 2.75,
+    "svq1": 2.75,
+    "bcn1": 2.75
+   }
+  },
+  "2869": {
+   "nombre": "Preparado de carne picada vacuno y cerdo",
+   "base": 4.1,
+   "por": {
+    "3842": 4.1,
+    "4480": 4.1,
+    "4804": 4.1,
+    "mad3": 4.1,
+    "svq1": 4.1,
+    "bcn1": 4.1
+   }
+  },
+  "3210": {
+   "nombre": "Limón",
+   "base": 0.74,
+   "por": {
+    "3842": 0.54,
+    "4480": 0.54,
+    "4804": 0.54,
+    "mad3": 0.7,
+    "svq1": 0.54,
+    "bcn1": 0.7
+   }
+  },
+  "3400": {
+   "nombre": "Filetes pechuga de pollo corte fino",
+   "base": 3.85,
+   "por": {
+    "3842": 4.54,
+    "4480": 4.39,
+    "4804": "no lo tiene",
+    "mad3": 3.85,
+    "svq1": 4.39,
+    "bcn1": 3.85
+   }
+  },
+  "4240": {
+   "nombre": "Aceite de oliva 0,4º Hacendado",
+   "base": 3.8,
+   "por": {
+    "3842": 3.8,
+    "4480": 3.8,
+    "4804": 3.8,
+    "mad3": 3.8,
+    "svq1": 3.8,
+    "bcn1": 3.8
+   }
+  },
+  "4570": {
+   "nombre": "Solomillo de cerdo",
+   "base": 3.9,
+   "por": {
+    "3842": 4.29,
+    "4480": 4.29,
+    "4804": 3.9,
+    "mad3": 3.9,
+    "svq1": 4.37,
+    "bcn1": 4.84
+   }
+  },
+  "4940": {
+   "nombre": "Vinagre de vino blanco Hacendado",
+   "base": 0.65,
+   "por": {
+    "3842": 0.65,
+    "4480": 0.65,
+    "4804": 0.65,
+    "mad3": 0.65,
+    "svq1": 0.65,
+    "bcn1": 0.65
+   }
+  },
+  "4957": {
+   "nombre": "Vinagre de manzana Hacendado",
+   "base": 0.9,
+   "por": {
+    "3842": 0.9,
+    "4480": 0.9,
+    "4804": 0.9,
+    "mad3": 0.9,
+    "svq1": 0.9,
+    "bcn1": 0.9
+   }
+  },
+  "5044": {
+   "nombre": "Arroz redondo Hacendado",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "5063": {
+   "nombre": "Arroz largo Hacendado",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "5124": {
+   "nombre": "Alubia blanca Hacendado",
+   "base": 2.45,
+   "por": {
+    "3842": 2.45,
+    "4480": 2.45,
+    "4804": 2.45,
+    "mad3": 2.45,
+    "svq1": 2.45,
+    "bcn1": 2.45
+   }
+  },
+  "5184": {
+   "nombre": "Arroz integral largo Hacendado",
+   "base": 1.65,
+   "por": {
+    "3842": 1.65,
+    "4480": 1.65,
+    "4804": 1.65,
+    "mad3": 1.65,
+    "svq1": 1.65,
+    "bcn1": 1.65
+   }
+  },
+  "5202": {
+   "nombre": "Garbanzo pedrosillano Hacendado",
+   "base": 1.9,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": 1.9,
+    "4804": "no lo tiene",
+    "mad3": 1.9,
+    "svq1": "no lo tiene",
+    "bcn1": 1.9
+   }
+  },
+  "5330": {
+   "nombre": "Lenteja pardina Hacendado",
+   "base": 1.95,
+   "por": {
+    "3842": 1.95,
+    "4480": 1.95,
+    "4804": 1.95,
+    "mad3": 1.95,
+    "svq1": 1.95,
+    "bcn1": 1.95
+   }
+  },
+  "5547": {
+   "nombre": "Tomillo Hacendado",
+   "base": 1.05,
+   "por": {
+    "3842": 1.05,
+    "4480": 1.05,
+    "4804": 1.05,
+    "mad3": 1.05,
+    "svq1": 1.05,
+    "bcn1": 1.05
+   }
+  },
+  "5598": {
+   "nombre": "Orégano Hacendado",
+   "base": 1,
+   "por": {
+    "3842": 1,
+    "4480": 1,
+    "4804": 1,
+    "mad3": 1,
+    "svq1": 1,
+    "bcn1": 1
+   }
+  },
+  "5599": {
+   "nombre": "Perejil Hacendado",
+   "base": 1,
+   "por": {
+    "3842": 1,
+    "4480": 1,
+    "4804": 1,
+    "mad3": 1,
+    "svq1": 1,
+    "bcn1": 1
+   }
+  },
+  "6045": {
+   "nombre": "Longaniza fresca estilo criollo",
+   "base": 3.34,
+   "por": {
+    "3842": 3.34,
+    "4480": 3.34,
+    "4804": 3.34,
+    "mad3": 3.34,
+    "svq1": 3.34,
+    "bcn1": 3.34
+   }
+  },
+  "6260": {
+   "nombre": "Macarrón fino Hacendado",
+   "base": 0.8,
+   "por": {
+    "3842": 0.8,
+    "4480": 0.8,
+    "4804": 0.8,
+    "mad3": 0.8,
+    "svq1": 0.8,
+    "bcn1": 0.8
+   }
+  },
+  "6277": {
+   "nombre": "Spaghetti fino Hacendado",
+   "base": 0.8,
+   "por": {
+    "3842": 0.8,
+    "4480": 0.8,
+    "4804": 0.8,
+    "mad3": 0.8,
+    "svq1": 0.8,
+    "bcn1": 0.8
+   }
+  },
+  "7032": {
+   "nombre": "Caldo de verduras Hacendado",
+   "base": 0.95,
+   "por": {
+    "3842": 0.95,
+    "4480": 0.95,
+    "4804": 0.95,
+    "mad3": 0.95,
+    "svq1": 0.95,
+    "bcn1": 0.95
+   }
+  },
+  "7313": {
+   "nombre": "Caldo de pollo Hacendado",
+   "base": 0.75,
+   "por": {
+    "3842": 0.75,
+    "4480": 0.75,
+    "4804": 0.75,
+    "mad3": 0.75,
+    "svq1": 0.75,
+    "bcn1": 0.75
+   }
+  },
+  "8932": {
+   "nombre": "Entrecot de vacuno añojo",
+   "base": 6.63,
+   "por": {
+    "3842": 6.63,
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 6.63,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "8936": {
+   "nombre": "Filetes de vacuno añojo para plancha",
+   "base": 7.98,
+   "por": {
+    "3842": 7.98,
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 7.98,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "9430": {
+   "nombre": "Quinoa Hacendado",
+   "base": 2.65,
+   "por": {
+    "3842": 2.65,
+    "4480": 2.65,
+    "4804": 2.65,
+    "mad3": 2.65,
+    "svq1": 2.65,
+    "bcn1": 2.65
+   }
+  },
+  "9588": {
+   "nombre": "Harina fina de maíz Hacendado",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "10161": {
+   "nombre": "Nata ligera para cocinar Hacendado",
+   "base": 1.55,
+   "por": {
+    "3842": 1.55,
+    "4480": 1.55,
+    "4804": 1.55,
+    "mad3": 1.55,
+    "svq1": 1.55,
+    "bcn1": 1.55
+   }
+  },
+  "10382": {
+   "nombre": "Leche semidesnatada Hacendado",
+   "base": 0.84,
+   "por": {
+    "3842": 0.84,
+    "4480": 0.84,
+    "4804": 0.84,
+    "mad3": 0.84,
+    "svq1": 0.84,
+    "bcn1": 0.84
+   }
+  },
+  "11958": {
+   "nombre": "Corazones de alcachofa Hacendado",
+   "base": 2.15,
+   "por": {
+    "3842": 2.15,
+    "4480": 2.15,
+    "4804": 2.15,
+    "mad3": 2.15,
+    "svq1": 2.15,
+    "bcn1": 2.15
+   }
+  },
+  "13577": {
+   "nombre": "Fideo cabello de ángel Hacendado",
+   "base": 0.8,
+   "por": {
+    "3842": 0.8,
+    "4480": 0.8,
+    "4804": 0.8,
+    "mad3": 0.8,
+    "svq1": 0.8,
+    "bcn1": 0.8
+   }
+  },
+  "13632": {
+   "nombre": "Filetes de caballa del sur en tomate Hacendado",
+   "base": 2.6,
+   "por": {
+    "3842": 2.6,
+    "4480": 2.6,
+    "4804": 2.6,
+    "mad3": 2.6,
+    "svq1": 2.6,
+    "bcn1": 2.6
+   }
+  },
+  "13926": {
+   "nombre": "Soja texturizada Luengo",
+   "base": 2.7,
+   "por": {
+    "3842": 2.7,
+    "4480": 2.7,
+    "4804": 2.7,
+    "mad3": 2.7,
+    "svq1": 2.7,
+    "bcn1": 2.7
+   }
+  },
+  "14707": {
+   "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+   "base": 0.65,
+   "por": {
+    "3842": 0.65,
+    "4480": 0.65,
+    "4804": 0.65,
+    "mad3": 0.65,
+    "svq1": 0.65,
+    "bcn1": 0.65
+   }
+  },
+  "14981": {
+   "nombre": "Romero Hacendado",
+   "base": 1.35,
+   "por": {
+    "3842": 1.35,
+    "4480": 1.35,
+    "4804": 1.35,
+    "mad3": 1.35,
+    "svq1": 1.35,
+    "bcn1": 1.35
+   }
+  },
+  "16044": {
+   "nombre": "Tomate triturado Hacendado",
+   "base": 0.55,
+   "por": {
+    "3842": 0.55,
+    "4480": 0.55,
+    "4804": 0.55,
+    "mad3": 0.55,
+    "svq1": 0.55,
+    "bcn1": 0.55
+   }
+  },
+  "16314": {
+   "nombre": "Acelgas troceadas Hacendado",
+   "base": 1.8,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 1.8,
+    "svq1": "no lo tiene",
+    "bcn1": 1.8
+   }
+  },
+  "16315": {
+   "nombre": "Judías verdes redondas Hacendado",
+   "base": 1.1,
+   "por": {
+    "3842": 1.1,
+    "4480": 1.1,
+    "4804": 1.1,
+    "mad3": 1.1,
+    "svq1": 1.1,
+    "bcn1": 1.1
+   }
+  },
+  "16416": {
+   "nombre": "Guisantes extra Hacendado",
+   "base": 0.95,
+   "por": {
+    "3842": 0.95,
+    "4480": 0.95,
+    "4804": 0.95,
+    "mad3": 0.95,
+    "svq1": 0.95,
+    "bcn1": 0.95
+   }
+  },
+  "16618": {
+   "nombre": "Champiñones laminados Hacendado",
+   "base": 1,
+   "por": {
+    "3842": 1,
+    "4480": 1,
+    "4804": 1,
+    "mad3": 1,
+    "svq1": 1,
+    "bcn1": 1
+   }
+  },
+  "17151": {
+   "nombre": "Tomate frito Hacendado",
+   "base": 0.95,
+   "por": {
+    "3842": 0.95,
+    "4480": 0.95,
+    "4804": 0.95,
+    "mad3": 0.95,
+    "svq1": 0.95,
+    "bcn1": 0.95
+   }
+  },
+  "17228": {
+   "nombre": "Mostaza de Dijon Hacendado",
+   "base": 1.25,
+   "por": {
+    "3842": 1.25,
+    "4480": 1.25,
+    "4804": 1.25,
+    "mad3": 1.25,
+    "svq1": 1.25,
+    "bcn1": 1.25
+   }
+  },
+  "17463": {
+   "nombre": "Queso fresco de vaca QuesPro Hacendado",
+   "base": 2,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 2,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "17944": {
+   "nombre": "Panceta de cerdo pieza",
+   "base": 2.73,
+   "por": {
+    "3842": 2.73,
+    "4480": 2.73,
+    "4804": 2.73,
+    "mad3": 2.73,
+    "svq1": 2.73,
+    "bcn1": "no lo tiene"
+   }
+  },
+  "18037": {
+   "nombre": "Atún en salsa de tomate Hacendado",
+   "base": 2.1,
+   "por": {
+    "3842": 2.1,
+    "4480": 2.1,
+    "4804": 2.1,
+    "mad3": 2.1,
+    "svq1": 2.1,
+    "bcn1": 2.1
+   }
+  },
+  "18615": {
+   "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+   "base": 2.65,
+   "por": {
+    "3842": 2.65,
+    "4480": 2.65,
+    "4804": 2.65,
+    "mad3": 2.65,
+    "svq1": 2.65,
+    "bcn1": 2.65
+   }
+  },
+  "19731": {
+   "nombre": "Sal fina Hacendado",
+   "base": 0.4,
+   "por": {
+    "3842": 0.4,
+    "4480": 0.4,
+    "4804": 0.4,
+    "mad3": 0.4,
+    "svq1": 0.4,
+    "bcn1": 0.4
+   }
+  },
+  "21836": {
+   "nombre": "Chuletas de cordero pierna",
+   "base": 5.89,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 5.89,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "22313": {
+   "nombre": "Yogur natural Hacendado",
+   "base": 1,
+   "por": {
+    "3842": 1,
+    "4480": 1,
+    "4804": 1,
+    "mad3": 1,
+    "svq1": 1,
+    "bcn1": 1
+   }
+  },
+  "23047": {
+   "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+   "base": 1.05,
+   "por": {
+    "3842": 1.05,
+    "4480": 1.05,
+    "4804": 1.05,
+    "mad3": 1.05,
+    "svq1": 1.05,
+    "bcn1": 1.05
+   }
+  },
+  "23621": {
+   "nombre": "Queso rallado especial fundir mezcla Hacendado",
+   "base": 1.15,
+   "por": {
+    "3842": 1.1,
+    "4480": 1.1,
+    "4804": 1.1,
+    "mad3": 1.1,
+    "svq1": 1.1,
+    "bcn1": 1.1
+   }
+  },
+  "24417": {
+   "nombre": "Calamar grande Hacendado congelado",
+   "base": 5.42,
+   "por": {
+    "3842": 3.5,
+    "4480": "no lo tiene",
+    "4804": 5.42,
+    "mad3": 5.42,
+    "svq1": 3.5,
+    "bcn1": 3.5
+   }
+  },
+  "25183": {
+   "nombre": "Jamoncitos de pollo congelados",
+   "base": 3.3,
+   "por": {
+    "3842": 3.3,
+    "4480": 3.3,
+    "4804": 3.3,
+    "mad3": 3.3,
+    "svq1": 3.3,
+    "bcn1": 3.3
+   }
+  },
+  "26000": {
+   "nombre": "Alubia cocida roja Hacendado",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "26001": {
+   "nombre": "Alubia cocida pinta Hacendado",
+   "base": 1.25,
+   "por": {
+    "3842": 1.25,
+    "4480": 1.25,
+    "4804": 1.25,
+    "mad3": 1.25,
+    "svq1": "no lo tiene",
+    "bcn1": 1.25
+   }
+  },
+  "26011": {
+   "nombre": "Lenteja cocida Hacendado",
+   "base": 0.75,
+   "por": {
+    "3842": 0.75,
+    "4480": 0.75,
+    "4804": 0.75,
+    "mad3": 0.75,
+    "svq1": 0.75,
+    "bcn1": 0.75
+   }
+  },
+  "26019": {
+   "nombre": "Alubia cocida blanca Hacendado",
+   "base": 0.75,
+   "por": {
+    "3842": 0.75,
+    "4480": 0.75,
+    "4804": 0.75,
+    "mad3": 0.75,
+    "svq1": 0.75,
+    "bcn1": 0.75
+   }
+  },
+  "26029": {
+   "nombre": "Garbanzo cocido Hacendado",
+   "base": 0.8,
+   "por": {
+    "3842": 0.8,
+    "4480": 0.8,
+    "4804": 0.8,
+    "mad3": 0.8,
+    "svq1": 0.8,
+    "bcn1": 0.8
+   }
+  },
+  "30167": {
+   "nombre": "Huevos",
+   "base": 5.6,
+   "por": {
+    "3842": 5.25,
+    "4480": 5.25,
+    "4804": 5.25,
+    "mad3": 5.25,
+    "svq1": 5.25,
+    "bcn1": 5.25
+   }
+  },
+  "33205": {
+   "nombre": "Aceitunas verdes con hueso Hacendado",
+   "base": 1.4,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": 1.4,
+    "4804": 1.4,
+    "mad3": 1.4,
+    "svq1": 1.4,
+    "bcn1": 1.4
+   }
+  },
+  "34031": {
+   "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+   "base": 1.55,
+   "por": {
+    "3842": 1.55,
+    "4480": 1.55,
+    "4804": 1.55,
+    "mad3": 1.55,
+    "svq1": 1.55,
+    "bcn1": 1.55
+   }
+  },
+  "34120": {
+   "nombre": "Comino molido Hacendado",
+   "base": 1.15,
+   "por": {
+    "3842": 1.15,
+    "4480": 1.15,
+    "4804": 1.15,
+    "mad3": 1.15,
+    "svq1": 1.15,
+    "bcn1": 1.15
+   }
+  },
+  "34125": {
+   "nombre": "Curry Hacendado",
+   "base": 1.1,
+   "por": {
+    "3842": 1.1,
+    "4480": 1.1,
+    "4804": 1.1,
+    "mad3": 1.1,
+    "svq1": 1.1,
+    "bcn1": 1.1
+   }
+  },
+  "34163": {
+   "nombre": "Cúrcuma molida Hacendado",
+   "base": 1.3,
+   "por": {
+    "3842": 1.3,
+    "4480": 1.3,
+    "4804": 1.3,
+    "mad3": 1.3,
+    "svq1": 1.3,
+    "bcn1": 1.3
+   }
+  },
+  "34171": {
+   "nombre": "Pimienta negra molida Hacendado",
+   "base": 1.3,
+   "por": {
+    "3842": 1.3,
+    "4480": 1.3,
+    "4804": 1.3,
+    "mad3": 1.3,
+    "svq1": 1.3,
+    "bcn1": 1.3
+   }
+  },
+  "34182": {
+   "nombre": "Colorante alimentario Hacendado",
+   "base": 0.95,
+   "por": {
+    "3842": 0.95,
+    "4480": 0.95,
+    "4804": 0.95,
+    "mad3": 0.95,
+    "svq1": 0.95,
+    "bcn1": 0.95
+   }
+  },
+  "34865": {
+   "nombre": "Almendra natural Hacendado",
+   "base": 2.3,
+   "por": {
+    "3842": 2.3,
+    "4480": 2.3,
+    "4804": 2.3,
+    "mad3": 2.3,
+    "svq1": 2.3,
+    "bcn1": 2.3
+   }
+  },
+  "35221": {
+   "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "35286": {
+   "nombre": "Costilla de cerdo churrasco",
+   "base": 4.5,
+   "por": {
+    "3842": 4.67,
+    "4480": "no lo tiene",
+    "4804": 4.5,
+    "mad3": 4.5,
+    "svq1": 5.13,
+    "bcn1": 5.13
+   }
+  },
+  "47994": {
+   "nombre": "Hoja de laurel Hacendado",
+   "base": 0.85,
+   "por": {
+    "3842": 0.85,
+    "4480": 0.85,
+    "4804": 0.85,
+    "mad3": 0.85,
+    "svq1": 0.85,
+    "bcn1": 0.85
+   }
+  },
+  "51097": {
+   "nombre": "Tofu firme Hacendado",
+   "base": 1.75,
+   "por": {
+    "3842": 1.75,
+    "4480": 1.75,
+    "4804": 1.75,
+    "mad3": 1.75,
+    "svq1": 1.75,
+    "bcn1": 1.75
+   }
+  },
+  "52776": {
+   "nombre": "Preparado de carne picada vacuno",
+   "base": 5.4,
+   "por": {
+    "3842": 5.4,
+    "4480": 5.4,
+    "4804": 5.4,
+    "mad3": 5.4,
+    "svq1": 5.4,
+    "bcn1": 5.4
+   }
+  },
+  "55135": {
+   "nombre": "Taquitos de chorizo extra Revilla",
+   "base": 2.55,
+   "por": {
+    "3842": 2.55,
+    "4480": 2.55,
+    "4804": 2.55,
+    "mad3": 2.55,
+    "svq1": 2.55,
+    "bcn1": 2.55
+   }
+  },
+  "59170": {
+   "nombre": "Bacón ahumado sin corteza Monells",
+   "base": 2.99,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": 2.99,
+    "4804": 2.99,
+    "mad3": 2.99,
+    "svq1": "no lo tiene",
+    "bcn1": 2.99
+   }
+  },
+  "60573": {
+   "nombre": "Pimentón dulce Hacendado",
+   "base": 1.3,
+   "por": {
+    "3842": 1.3,
+    "4480": 1.3,
+    "4804": 1.3,
+    "mad3": 1.3,
+    "svq1": 1.3,
+    "bcn1": 1.3
+   }
+  },
+  "61231": {
+   "nombre": "Coliflor Hacendado ultracongelada",
+   "base": 1.8,
+   "por": {
+    "3842": 1.8,
+    "4480": 1.8,
+    "4804": 1.8,
+    "mad3": 1.8,
+    "svq1": 1.8,
+    "bcn1": 1.8
+   }
+  },
+  "61238": {
+   "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+   "base": 2.55,
+   "por": {
+    "3842": 2.55,
+    "4480": 2.55,
+    "4804": 2.55,
+    "mad3": 2.55,
+    "svq1": 2.55,
+    "bcn1": 2.55
+   }
+  },
+  "61279": {
+   "nombre": "Espinaca en porciones Hacendado ultracongelada",
+   "base": 0.9,
+   "por": {
+    "3842": 0.9,
+    "4480": 0.9,
+    "4804": 0.9,
+    "mad3": 0.9,
+    "svq1": 0.9,
+    "bcn1": 0.9
+   }
+  },
+  "61289": {
+   "nombre": "Maíz dulce Hacendado ultracongelado",
+   "base": 1.24,
+   "por": {
+    "3842": 1.24,
+    "4480": 1.24,
+    "4804": 1.24,
+    "mad3": 1.24,
+    "svq1": 1.24,
+    "bcn1": 1.24
+   }
+  },
+  "62050": {
+   "nombre": "Lomo de bacalao MareDeus ultracongelado",
+   "base": 9.41,
+   "por": {
+    "3842": 9.41,
+    "4480": 9.41,
+    "4804": 9.41,
+    "mad3": 9.41,
+    "svq1": 9.41,
+    "bcn1": 9.41
+   }
+  },
+  "62113": {
+   "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+   "base": 4.9,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": 4.9,
+    "4804": 4.9,
+    "mad3": 4.9,
+    "svq1": "no lo tiene",
+    "bcn1": 4.9
+   }
+  },
+  "62401": {
+   "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+   "base": 3.25,
+   "por": {
+    "3842": 3.25,
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 3.25,
+    "svq1": 3.25,
+    "bcn1": 3.25
+   }
+  },
+  "62750": {
+   "nombre": "Gamba arrocera pequeña Hacendado congelada",
+   "base": 6,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 6,
+    "svq1": 7.09,
+    "bcn1": "no lo tiene"
+   }
+  },
+  "68408": {
+   "nombre": "Puerros",
+   "base": 2.59,
+   "por": {
+    "3842": 2.16,
+    "4480": 2.16,
+    "4804": 2.59,
+    "mad3": 2.59,
+    "svq1": 2.16,
+    "bcn1": 2.16
+   }
+  },
+  "68462": {
+   "nombre": "Repollo liso partido",
+   "base": 1.94,
+   "por": {
+    "3842": 1.94,
+    "4480": 1.94,
+    "4804": "no lo tiene",
+    "mad3": 1.94,
+    "svq1": 1.94,
+    "bcn1": 1.94
+   }
+  },
+  "69079": {
+   "nombre": "Cebollas",
+   "base": 3.6,
+   "por": {
+    "3842": 3.6,
+    "4480": 3.6,
+    "4804": 3.6,
+    "mad3": 3.6,
+    "svq1": 3.6,
+    "bcn1": 3.6
+   }
+  },
+  "69166": {
+   "nombre": "Patatas",
+   "base": 4.65,
+   "por": {
+    "3842": 4.65,
+    "4480": 4.65,
+    "4804": 4.65,
+    "mad3": 4.65,
+    "svq1": 4.65,
+    "bcn1": 4.65
+   }
+  },
+  "69275": {
+   "nombre": "Apio verde",
+   "base": 1.23,
+   "por": {
+    "3842": 1.45,
+    "4480": 1.45,
+    "4804": 1.23,
+    "mad3": 1.23,
+    "svq1": 1.45,
+    "bcn1": 1.45
+   }
+  },
+  "69297": {
+   "nombre": "Ajos morados",
+   "base": 1.85,
+   "por": {
+    "3842": 1.85,
+    "4480": 1.85,
+    "4804": 1.85,
+    "mad3": 1.85,
+    "svq1": 1.85,
+    "bcn1": 1.85
+   }
+  },
+  "69320": {
+   "nombre": "Pimiento verde freír",
+   "base": 0.25,
+   "por": {
+    "3842": 0.26,
+    "4480": 0.26,
+    "4804": 0.26,
+    "mad3": 0.28,
+    "svq1": "no lo tiene",
+    "bcn1": 0.18
+   }
+  },
+  "69326": {
+   "nombre": "Berenjena",
+   "base": 0.84,
+   "por": {
+    "3842": 0.81,
+    "4480": 0.81,
+    "4804": 0.81,
+    "mad3": 0.79,
+    "svq1": 0.77,
+    "bcn1": 0.77
+   }
+  },
+  "69338": {
+   "nombre": "Calabacín verde",
+   "base": 0.66,
+   "por": {
+    "3842": 0.64,
+    "4480": 0.64,
+    "4804": 0.64,
+    "mad3": 0.66,
+    "svq1": 0.66,
+    "bcn1": 0.58
+   }
+  },
+  "69580": {
+   "nombre": "Brócoli",
+   "base": 1.14,
+   "por": {
+    "3842": 1.09,
+    "4480": 1.09,
+    "4804": 1.14,
+    "mad3": 1.14,
+    "svq1": 1.25,
+    "bcn1": 1.17
+   }
+  },
+  "69584": {
+   "nombre": "Pepino",
+   "base": 0.38,
+   "por": {
+    "3842": 0.39,
+    "4480": 0.31,
+    "4804": 0.31,
+    "mad3": 0.38,
+    "svq1": 0.35,
+    "bcn1": 0.38
+   }
+  },
+  "69586": {
+   "nombre": "Zanahorias",
+   "base": 1.2,
+   "por": {
+    "3842": 1.2,
+    "4480": 1.2,
+    "4804": 1.2,
+    "mad3": 1.2,
+    "svq1": 1.2,
+    "bcn1": 1.2
+   }
+  },
+  "69653": {
+   "nombre": "Setas",
+   "base": 2.09,
+   "por": {
+    "3842": 2.09,
+    "4480": 2.09,
+    "4804": 2.09,
+    "mad3": 2.09,
+    "svq1": 2.09,
+    "bcn1": 2.09
+   }
+  },
+  "69670": {
+   "nombre": "Lechuga iceberg cortada y lavada",
+   "base": 0.95,
+   "por": {
+    "3842": 0.95,
+    "4480": 0.95,
+    "4804": 0.95,
+    "mad3": 0.95,
+    "svq1": 0.95,
+    "bcn1": 0.95
+   }
+  },
+  "69853": {
+   "nombre": "Media calabaza cacahuete",
+   "base": 2.1,
+   "por": {
+    "3842": 2.22,
+    "4480": 2.22,
+    "4804": 2.1,
+    "mad3": 2.1,
+    "svq1": 2.04,
+    "bcn1": 2.25
+   }
+  },
+  "69912": {
+   "nombre": "Tomate pera",
+   "base": 0.25,
+   "por": {
+    "3842": 0.23,
+    "4480": 0.23,
+    "4804": 0.23,
+    "mad3": 0.25,
+    "svq1": 0.23,
+    "bcn1": 0.23
+   }
+  },
+  "80858": {
+   "nombre": "Hummus de garbanzos Hacendado receta clásica",
+   "base": 1.05,
+   "por": {
+    "3842": 1.05,
+    "4480": 1.05,
+    "4804": 1.05,
+    "mad3": 1.05,
+    "svq1": 1.05,
+    "bcn1": 1.05
+   }
+  },
+  "87300": {
+   "nombre": "Dorada limpia",
+   "base": 5,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": 5,
+    "mad3": 5,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "87310": {
+   "nombre": "Lubina limpia",
+   "base": 5.2,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": 5.2,
+    "mad3": 5.2,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "87916": {
+   "nombre": "Sardina sin limpiar",
+   "base": 2.4,
+   "por": {
+    "3842": "no lo tiene",
+    "4480": "no lo tiene",
+    "4804": "no lo tiene",
+    "mad3": 2.4,
+    "svq1": "no lo tiene",
+    "bcn1": "no lo tiene"
+   }
+  },
+  "83202.1": {
+   "nombre": "Barra de pan",
+   "base": 0.5,
+   "por": {
+    "3842": 0.5,
+    "4480": 0.5,
+    "4804": 0.5,
+    "mad3": 0.5,
+    "svq1": 0.5,
+    "bcn1": 0.5
+   }
+  }
+ }
+}

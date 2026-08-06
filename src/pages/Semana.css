@@ -5,14 +5,14 @@
 }
 
 .semana__etiqueta {
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
   color: var(--gris);
 }
 
 .semana__cifra {
-  margin-top: 8px;
   font: 700 56px/1 var(--font-display);
+  transition: font-size 140ms ease;
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
   letter-spacing: -.02em;
@@ -28,77 +28,6 @@
   height: 100%;
 }
 
-.semana__barra-pie {
-  margin-top: 9px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: space-between;
-  font: 400 13px/1 var(--font-mono);
-  color: var(--tinta);
-  font-variant-numeric: tabular-nums;
-}
-
-.semana__barra-pie-secundario {
-  color: var(--gris);
-}
-
-.semana__sobrante {
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  min-height: var(--tap-min);
-  padding: 0 14px;
-  background: var(--oferta-fondo);
-  border: 1.5px solid var(--oferta-borde);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: left;
-}
-
-.semana__sobrante--negativo {
-  /* Sin fondo ni borde de alarma: el rojo va solo en la cifra (arriba, en el
-     título) — misma caja neutra que cualquier otra fila de la app. */
-  background: transparent;
-  border-color: rgba(169, 164, 152, .7);
-}
-
-.semana__sobrante-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.semana__sobrante-titulo {
-  font: 500 17px/1.1 var(--font-body);
-  color: var(--tinta);
-}
-
-.semana__sobrante-subtitulo {
-  font: 400 13px/1.2 var(--font-mono);
-  color: var(--gris);
-}
-
-.semana__sobrante-flecha {
-  font: 400 17px/1 var(--font-mono);
-  color: var(--azulete);
-}
-
-.semana__ajuste {
-  margin-top: 8px;
-  display: block;
-  width: 100%;
-  min-height: var(--tap-min);
-  padding: 0;
-  background: none;
-  border: none;
-  border-bottom: var(--divider-dashed);
-  cursor: pointer;
-  text-align: left;
-}
-
 /* En cualquier otro sitio de la app, una fila de puntos es un dato ("Súper
    ···· Mercadona"). Aquí es la única que además es un botón: le damos a
    "ajustar" más peso que a un valor cualquiera para que no se confunda
@@ -108,10 +37,15 @@
 }
 
 .semana__dias-envoltorio {
-  flex: 1;
+  /* basis en 40% para que la lista de días reclame su sitio incluso cuando la
+     cabecera crece: sin esto, `flex:1` contra una cabecera de contenido
+     intrínseco enorme se quedaba en cero. */
+  flex: 1 1 40%;
   min-height: 0;
   overflow: hidden;
-  padding: 14px 30px 0;
+  /* Sin margen lateral aquí: se lo pone `.semana__dias`, que es quien hace
+     scroll, para que la barra caiga en el canto de la pantalla. */
+  padding: 14px 0 0;
   display: flex;
   flex-direction: column;
 }
@@ -120,58 +54,267 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  padding-inline: var(--margen-lateral);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  /* Sin gap: F6 son líneas seguidas de un ticket, no tarjetas separadas. La
+     separación la da la cabecera de cada día y el filete entre huecos. */
 }
 
-.semana__dia {
+/* Restricciones sin cobertura: se ofrecen las salidas, nunca el muro. Sin
+   fondo de alarma — es una decisión que tomar, no un error del usuario. */
+.semana__sin-cobertura {
   flex: none;
-  width: 100%;
-  padding: 13px 16px;
-  background: var(--papel);
-  border: 1px solid rgba(169, 164, 152, .7);
+  margin: 12px 30px 0;
+  padding: 12px 14px;
+  border: var(--border-rest);
   border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: left;
-  font-family: inherit;
 }
 
-.semana__dia-cabecera {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.semana__dia-nombre {
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
-  color: var(--gris);
-}
-
-.semana__dia-flecha {
-  margin-left: 8px;
-  color: var(--azulete);
-  font-family: var(--font-mono);
-}
-
-.semana__dia-meta {
-  font: 400 13px/1 var(--font-mono);
-  color: var(--gris);
-  font-variant-numeric: tabular-nums;
-}
-
-.semana__dia-plato {
-  margin-top: 6px;
-  font: 600 17px/1.2 var(--font-body);
+.semana__sin-cobertura-texto {
+  margin: 0 0 6px;
+  font: 400 15px/1.4 var(--font-mono);
   color: var(--tinta);
 }
+
+.semana__sin-cobertura-salida {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0;
+  border: none;
+  border-top: var(--divider-dashed);
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font: 500 15px/1.3 var(--font-body);
+  color: var(--azulete);
+}
+
+/* La tarjeta de día vive en components/TarjetaDia.css: ya no es un plato por
+   día, son los huecos que pida la preferencia. */
 
 .semana__pie {
   flex: none;
   padding: 12px 30px 34px;
   background: var(--papel);
   border-top: var(--divider-dashed);
+}
+
+.semana__sobrante--menor .semana__sobrante-titulo {
+  font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .semana__cifra { transition: none; }
+}
+
+/* --- CABECERA CONDENSADA --------------------------------------------------- */
+
+.semana__resumen {
+  /* No `flex: none`. Con el texto al 200% la cabecera medía más que el
+     viewport y las siete tarjetas de día desaparecían de la pantalla: el
+     usuario que más necesita el texto grande era el único que no podía ver su
+     menú. Con `shrink` la cabecera cede sitio y su contenido hace scroll
+     dentro de ella si hace falta; la cifra sigue siendo lo más grande. */
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  /* El margen lateral lo pone la cabecera, no `.pantalla`: el contenedor de
+     los días tiene el suyo propio para que el scroll llegue a los bordes. */
+  padding: 12px 30px 14px;
+}
+
+/* El rótulo lleva la entrada a los ajustes en la misma línea. Era una fila de
+   56 px propia y ahora no cuesta nada de alto. Sigue siendo un objetivo táctil
+   de 48: el padding vertical lo garantiza. */
+.semana__rotulo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 0 6px;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.semana__rotulo-guia {
+  flex: 1;
+  border-bottom: var(--divider-dotted);
+  transform: translateY(-4px);
+}
+
+.semana__rotulo-accion {
+  font: 500 13px/1 var(--font-mono);
+  color: var(--azulete);
+}
+
+/* La cifra y el saldo en la misma línea: el segundo dato de la pantalla al lado
+   del primero, no a tres filas. El saldo se alinea por su base, así que crece
+   hacia arriba y no descoloca la cifra. */
+.semana__cifra-fila {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  /* CON EL TEXTO AL 200% el saldo se salía del viewport y quedaba cortado
+     ("sob… / 3,0…"). Envolviendo, baja a su propia línea en vez de recortarse.
+     A tamaño normal nunca envuelve: caben de sobra. */
+  flex-wrap: wrap;
+}
+
+.semana__saldo {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 48px;
+  padding: 6px 0 6px 10px;
+  background: var(--oferta-fondo);
+  border: 1.5px solid var(--oferta-borde);
+  border-radius: var(--radius-sm);
+  padding-right: 6px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.semana__saldo-titulo {
+  font: 500 13px/1.3 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.semana__saldo-flecha {
+  font-family: var(--font-mono);
+  color: var(--azulete);
+}
+
+/* Sobrante pequeño o exceso: sin caja de oferta. El amarillo solo cuando hay
+   una acción que merezca color (ver UMBRAL_SOBRANTE). */
+.semana__saldo--menor,
+.semana__saldo--negativo {
+  background: transparent;
+  border-color: transparent;
+}
+
+.semana__contexto {
+  margin-top: 8px;
+  font: 400 13px/1.5 var(--font-mono);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- ESTADO COLAPSADO ------------------------------------------------------
+   Al leer los días, la cabecera se queda en una línea. No se oculta: la cifra
+   sigue en pantalla, más pequeña, con el saldo al lado. Se anima solo la
+   escala y la opacidad —nada de height— y se respeta reduced-motion. */
+.semana__resumen--compacta .semana__rotulo,
+.semana__resumen--compacta .semana__barra,
+.semana__resumen--compacta .semana__contexto {
+  display: none;
+}
+
+.semana__resumen--compacta {
+  padding: 8px 30px 10px;
+  border-bottom: var(--divider-dashed);
+}
+
+.semana__resumen--compacta .semana__cifra {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+/* Al colapsar, este botón se quedaba en 24 px de alto: justo el mínimo de
+   WCAG 2.5.8 y la mitad de la regla del proyecto. No se puede subir la caja
+   —la cabecera compacta entera mide 43 px y crecería—, así que se extiende
+   solo el área tocable con un pseudoelemento, que no ocupa sitio en el flujo.
+   El aspecto no cambia; lo que cambia es que se acierta. */
+.semana__resumen--compacta .semana__saldo {
+  position: relative;
+  min-height: 0;
+  padding: 2px 6px 2px 8px;
+  background: transparent;
+  border-color: transparent;
+}
+
+.semana__resumen--compacta .semana__saldo::after {
+  content: '';
+  position: absolute;
+  inset: -12px -8px;
+}
+
+.semana__resumen--compacta .semana__saldo-titulo br {
+  display: none;
+}
+
+.semana__resumen--compacta .semana__saldo-titulo {
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------------------------
+   DESHACER EL CIERRE
+
+   Aparece encima de todo y en las dos ramas de la pantalla. No es un "toast"
+   que se va solo: cerrar la semana se hace en el súper, muchas veces con el
+   móvil ya en el bolsillo, y una oferta de tres segundos no la ve nadie. Se
+   queda hasta que se usa, se quita o se genera la semana siguiente.
+
+   Sin amarillo ni rojo: no ha pasado nada malo. Es una franja de papel con la
+   acción en azulete, como el resto de acciones de la app.
+   --------------------------------------------------------------------------- */
+
+.semana__deshacer {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 30px 0;
+  padding: 6px 6px 6px 12px;
+  background: var(--papel-2);
+  border-left: 3px solid var(--azulete);
+  border-radius: var(--radius-box);
+}
+
+.semana__deshacer-texto {
+  flex: 1;
+  min-width: 0;
+  font: 400 13px/1.4 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.semana__deshacer-accion {
+  flex: none;
+  min-height: 48px;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  color: var(--azulete);
+  font: 500 15px/1 var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.semana__deshacer-cerrar {
+  flex: none;
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--gris);
+  font: 400 15px/1 var(--font-mono);
+  cursor: pointer;
+}
+
+/* Sobrante pequeño: es un dato, no un botón. Sin área táctil de 48, sin
+   cursor de mano y sin la flecha — ver el bloque en Semana.tsx. */
+span.semana__saldo {
+  min-height: 0;
+  padding: 0;
+  cursor: default;
 }

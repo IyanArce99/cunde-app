@@ -1,0 +1,1120 @@
+{
+  "nota": "El lote de los segmentos rotos. Medido antes de escribirlo, 12 semanas encadenadas a N=2 con 65 €: un vegano sin gluten veía 6 de 9 platos repetidos cada semana (36 recetas vivas), un vegetariano con prisa 7,3 de 9 (18 vivas), y 'lo mínimo' se quedaba en 27. El umbral está claro en los datos: por debajo de ~50 recetas vivas el solape pasa de 2, y por debajo de 40 se va por encima de 4. Y el agujero grande no era el vegano —1-2% del mercado— sino 'lo mínimo', que no es una dieta sino una preferencia que puede elegir cualquiera. Once de estas son veganas Y sin gluten Y de 20 minutos, así que cada una cuenta para los cinco segmentos a la vez; las otras tres llevan queso o huevo para el vegetariano sin huevo. Sin comino ni curry: los dos declaran trazas de gluten. La proteína sale de soja texturizada (se hidrata en diez minutos), legumbre de bote, tofu, almendra y cacahuete, que es lo único que da 28 g por ración en veinte minutos sin carne.",
+  "recetas": [
+    {
+      "id": "garbanzos_pimenton_soja",
+      "nombre": "Garbanzos al pimentón",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 32,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente mientras picas la verdura, 10 minutos.",
+        "Sofríe la cebolla y el pimiento en dados con el aceite, 5 minutos.",
+        "Añade el ajo picado y la soja escurrida y saltea 3 minutos a fuego vivo.",
+        "Aparta del fuego, echa el pimentón y remueve 20 segundos para que no amargue.",
+        "Devuelve al fuego con los garbanzos escurridos y sal, y calienta 3 minutos."
+      ]
+    },
+    {
+      "id": "alubias_tomillo_soja",
+      "nombre": "Alubias al tomillo",
+      "minutos": 18,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 175,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 32,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "puerro",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomillo",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente, 10 minutos, y escúrrela apretando.",
+        "Pocha el puerro en rodajas y la zanahoria en dados pequeños, 6 minutos.",
+        "Añade la soja, el tomillo y el laurel y saltea 3 minutos.",
+        "Incorpora las alubias escurridas y sal, y guisa 4 minutos moviendo la sartén.",
+        "Retira el laurel antes de servir."
+      ]
+    },
+    {
+      "id": "quinoa_alubia_roja_cacahuete",
+      "nombre": "Quinoa con alubia roja",
+      "minutos": 20,
+      "tags": [
+        "vegano",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 75,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_roja_cocida",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cacahuete",
+          "parte": "acompanamiento",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.4,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la quinoa en el agua con sal, 15 minutos, y escúrrela.",
+        "Saltea el pimiento en dados con el aceite, 5 minutos.",
+        "Añade la alubia escurrida y calienta 2 minutos.",
+        "Mezcla con la quinoa fuera del fuego y aliña con el zumo de limón.",
+        "Reparte el cacahuete picado por encima al servir, para que quede crujiente."
+      ]
+    },
+    {
+      "id": "tofu_limon_garbanzos",
+      "nombre": "Tofu al limón",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "tofu",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "tofu",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "tofu",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "judia_verde",
+          "parte": "acompanamiento",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Seca el tofu con papel y córtalo en dados de dos centímetros.",
+        "Dóralo en la sartén con el aceite sin moverlo, 3 minutos por cara.",
+        "Cuece la judía verde 8 minutos y escúrrela.",
+        "Añade el ajo laminado al tofu y deja 40 segundos.",
+        "Echa los garbanzos, la judía, el zumo de limón y sal, y calienta 2 minutos."
+      ]
+    },
+    {
+      "id": "lentejas_curcuma_soja",
+      "nombre": "Lentejas a la cúrcuma",
+      "minutos": 16,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabaza",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "curcuma",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente, 10 minutos.",
+        "Pocha la cebolla picada y la calabaza en dados pequeños, 8 minutos con la sartén tapada.",
+        "Añade la cúrcuma y remueve 20 segundos fuera del fuego.",
+        "Echa la soja escurrida y saltea 2 minutos.",
+        "Incorpora las lentejas escurridas y sal, y calienta 3 minutos."
+      ]
+    },
+    {
+      "id": "alubia_pinta_almendra_romero",
+      "nombre": "Alubias con almendra",
+      "minutos": 18,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_pinta_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 35,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "acelga",
+          "parte": "acompanamiento",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "romero",
+          "parte": "principal",
+          "cantidad": 0.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente, 10 minutos.",
+        "Tuesta la almendra picada en la sartén seca, 2 minutos, y resérvala.",
+        "Dora el ajo laminado en el aceite y añade la acelga, 5 minutos.",
+        "Echa la soja escurrida y el romero y saltea 3 minutos.",
+        "Añade las alubias y sal, calienta 3 minutos y remata con la almendra."
+      ]
+    },
+    {
+      "id": "hummus_garbanzos_cacahuete",
+      "nombre": "Garbanzos con hummus",
+      "minutos": 12,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sin_cocinar"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "hummus",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cacahuete",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "acompanamiento",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Saltea los garbanzos escurridos con el aceite a fuego fuerte, 5 minutos, hasta que se tuesten.",
+        "Aparta del fuego, echa el pimentón y sal, y remueve.",
+        "Extiende el hummus en el fondo del plato.",
+        "Pon los garbanzos calientes encima y el tomate en dados alrededor.",
+        "Remata con el cacahuete picado."
+      ]
+    },
+    {
+      "id": "tofu_mostaza_brocoli",
+      "nombre": "Tofu a la mostaza",
+      "minutos": 18,
+      "tags": [
+        "vegano",
+        "tofu",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "tofu",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "tofu",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "brocoli",
+          "parte": "acompanamiento",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "mostaza",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre_manzana",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Seca el tofu y córtalo en láminas de un centímetro.",
+        "Cuece el brócoli en ramitos 7 minutos y escúrrelo.",
+        "Dora el tofu en el aceite, 3 minutos por cara, y sálalo.",
+        "Baja el fuego, añade la mostaza y el vinagre y mueve la sartén para que ligue.",
+        "Echa las alubias y el brócoli y calienta 2 minutos."
+      ]
+    },
+    {
+      "id": "quinoa_calabacin_soja",
+      "nombre": "Quinoa con calabacín",
+      "minutos": 20,
+      "tags": [
+        "vegano",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 34,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la quinoa en el agua con sal, 15 minutos, y escúrrela.",
+        "Hidrata la soja en agua caliente, 10 minutos, y escúrrela apretando.",
+        "Saltea la cebolla y el calabacín en dados con el aceite, 6 minutos.",
+        "Añade la soja y el orégano y dora 3 minutos a fuego vivo.",
+        "Mezcla con la quinoa y sal, y calienta 2 minutos."
+      ]
+    },
+    {
+      "id": "garbanzos_esparragos_almendra",
+      "nombre": "Garbanzos con espárragos",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "esparrago_verde",
+          "parte": "acompanamiento",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 7,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente, 10 minutos.",
+        "Tuesta la almendra en la sartén seca, 2 minutos, y resérvala.",
+        "Dora el ajo laminado en el aceite y añade el espárrago, 5 minutos.",
+        "Echa la soja escurrida y los garbanzos y saltea 4 minutos.",
+        "Sala y remata con la almendra por encima."
+      ]
+    },
+    {
+      "id": "alubias_setas_oregano",
+      "nombre": "Alubias con setas",
+      "minutos": 16,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 32,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "seta",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 13,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente, 10 minutos.",
+        "Saltea la seta a fuego fuerte sin sal hasta que suelte el agua y se dore, 6 minutos.",
+        "Baja el fuego, añade la cebolla picada y el ajo y pocha 4 minutos.",
+        "Echa la soja escurrida y el orégano y saltea 2 minutos.",
+        "Incorpora las alubias y sal, y calienta 3 minutos."
+      ]
+    },
+    {
+      "id": "revuelto_alubias_queso",
+      "nombre": "Revuelto de alubias",
+      "minutos": 14,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "legumbre",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "acompanamiento",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Dora el ajo laminado en el aceite a fuego medio.",
+        "Añade la espinaca y sal y remueve hasta que se deshaga.",
+        "Echa las alubias escurridas y calienta 3 minutos.",
+        "Bate los huevos con el queso y viértelos por encima.",
+        "Remueve 2 minutos a fuego suave, hasta que cuaje pero quede jugoso."
+      ]
+    },
+    {
+      "id": "garbanzos_gratinados_queso",
+      "nombre": "Garbanzos gratinados",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "legumbre",
+        "rapido",
+        "horno"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Enciende el gratinador del horno.",
+        "Pocha la cebolla picada en el aceite, 5 minutos.",
+        "Añade el tomate, el orégano y sal, y guisa 5 minutos hasta que espese.",
+        "Mezcla con los garbanzos escurridos y pásalo a una fuente.",
+        "Cubre con el queso y gratina 6 minutos, hasta que burbujee y dore."
+      ]
+    },
+    {
+      "id": "quinoa_queso_fresco_tomate",
+      "nombre": "Quinoa con queso fresco",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "rapido",
+        "frio"
+      ],
+      "proteina": "lacteo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "quinoa",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_fresco",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "acompanamiento",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pepino",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece la quinoa en el agua con sal, 15 minutos, y escúrrela.",
+        "Extiéndela en un plato para que se enfríe mientras troceas.",
+        "Corta el tomate y el pepino en dados y el queso fresco en tacos.",
+        "Tuesta la almendra picada en la sartén seca, 2 minutos.",
+        "Mezcla todo con el aceite y sal, y remata con la almendra."
+      ]
+    }
+  ]
+}

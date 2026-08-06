@@ -1,0 +1,338 @@
+{
+  "raciones_base": 2,
+  "lote": "cerdo",
+  "nota": "Cerdo de diario con 28-35 g de proteína por ración. El bloque de cerdo eran tres recetas y una de chorizo, que arrastra lactosa y no pasa el filtro. Aquí cuatro cortes distintos (picada, lomo, costilla, longaniza), cuatro técnicas y cuatro bases: berenjena, champiñón, judía verde y alubia. Ninguna se apoya en la patata. Las cantidades son POR RACIÓN. Ver docs/ingredientes-canonicos.json para el vocabulario.",
+  "recetas": [
+    {
+      "id": "berenjenas_rellenas_cerdo",
+      "nombre": "Berenjenas rellenas de carne",
+      "minutos": 45,
+      "tags": [
+        "carne",
+        "horno"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "carne_picada_cerdo",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Parte las berenjenas a lo largo, marca la carne con el cuchillo, riégalas con aceite y hornea 20 minutos.",
+        "Vacía las berenjenas y pica la pulpa.",
+        "Sofríe la cebolla y el ajo, añade la carne picada y dórala 6 minutos.",
+        "Incorpora la pulpa y el tomate frito, sala y cocina 5 minutos.",
+        "Rellena las mitades, cubre con el queso y gratina 8 minutos."
+      ]
+    },
+    {
+      "id": "lomo_ajillo_champinones",
+      "nombre": "Lomo al ajillo",
+      "minutos": 20,
+      "tags": [
+        "carne",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "lomo_cerdo",
+          "parte": "principal",
+          "cantidad": 135,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta los filetes de lomo en tiras y salpimiéntalas.",
+        "Lamina el ajo y dóralo en el aceite a fuego suave.",
+        "Sube el fuego, echa el lomo y séllalo 3 minutos.",
+        "Añade la cebolla en pluma y el champiñón escurrido y saltea 6 minutos.",
+        "Espolvorea el perejil y sirve enseguida."
+      ]
+    },
+    {
+      "id": "costilla_judias_verdes",
+      "nombre": "Costilla con judías verdes",
+      "minutos": 55,
+      "tags": [
+        "carne",
+        "olla"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "costilla_cerdo",
+          "parte": "principal",
+          "cantidad": 155,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "judia_verde",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Separa la costilla en trozos y dórala en la olla con el aceite, 8 minutos.",
+        "Aparta la carne y sofríe la cebolla y el ajo picados 6 minutos.",
+        "Añade el pimentón, remueve 30 segundos y echa el tomate triturado.",
+        "Devuelve la costilla, cubre con agua, sala y cuece 30 minutos tapado.",
+        "Incorpora la judía verde escurrida y cuece 8 minutos más.",
+        "Deja reposar 5 minutos antes de servir."
+      ]
+    },
+    {
+      "id": "alubias_longaniza",
+      "nombre": "Alubias con longaniza",
+      "minutos": 35,
+      "tags": [
+        "carne",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "cerdo",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "salchicha_fresca",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta la longaniza en trozos de dos dedos y dórala en la olla.",
+        "Aparta la longaniza y pocha la cebolla y la zanahoria en la misma grasa, 8 minutos.",
+        "Añade el pimentón y el tomate triturado y cocina 5 minutos.",
+        "Devuelve la longaniza, cubre con un dedo de agua y cuece 10 minutos.",
+        "Echa la alubia escurrida, sala y cuece 8 minutos a fuego suave.",
+        "Mueve la olla en círculos para que ligue y aparta."
+      ],
+      "nota": "Sin lactosa ni gluten: es el guiso de cuchara con embutido que el chorizo no puede dar."
+    }
+  ]
+}

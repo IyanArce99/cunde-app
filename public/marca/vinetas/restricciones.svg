@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none"
+     stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter">
+  <!-- Tres líneas de concepto y UNA tachada a mano con un garabato.
+       La versión anterior llevaba un solo trazo diagonal, más grueso, que
+       cruzaba las tres: a 52 px no se leía "esto no lo como" sino un ticket
+       emborronado. El zigzag solo sobre la línea del medio dice dos cosas que
+       el aspa no decía — que se tacha UNA, y que lo tacha una mano y no la
+       impresora, porque una impresora térmica no dibuja garabatos. -->
+  <path d="M20 16 H100 V94 L90 102 L80 94 L70 102 L60 94 L50 102 L40 94 L30 102 L20 94 Z"/>
+  <path d="M32 38 H88"/>
+  <path d="M32 78 H88"/>
+  <path d="M32 58 H88" stroke-width="4"/>
+  <path d="M30 64 L44 52 L58 64 L72 52 L86 64" stroke-width="7"/>
+</svg>

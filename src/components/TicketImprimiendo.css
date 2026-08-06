@@ -1,0 +1,55 @@
+.imprimiendo {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 18px;
+  /* --tinta y no --gris: es el SUJETO de esta pantalla, no un accesorio de un
+     texto. Todo lo demás aquí —la marca, el mensaje, el cursor— va en tinta, y
+     una impresora térmica imprime con una sola tinta: no hay motivo para que
+     el dibujo salga más pálido que la frase que tiene debajo. En --pauta, que
+     era lo primero que probé, parecía una marca de agua. */
+  color: var(--tinta);
+}
+
+/* El papel mide 64 px de alto en el sistema de coordenadas del viewBox (de 40
+   a 104). Metiéndolo 66 px hacia arriba queda entero por encima del recorte, o
+   sea dentro de la máquina.
+
+   Solo transform y opacity: es la regla del proyecto y aquí no es teórica —
+   esto corre en el WebView de Android mientras el motor calcula la semana en
+   el mismo hilo. */
+@keyframes imprimir {
+  0% { transform: translateY(-66px); opacity: 1; }
+  /* El papel avanza durante el 82% del ciclo. La primera versión usaba una
+     curva de desaceleración y era el fallo: con ese easing el 85% del recorrido
+     pasaba en el primer tercio, así que el papel salía de golpe y se quedaba
+     quieto los dos tercios restantes. En una pantalla que dura 2,2 s eso se ve
+     como un icono estático — que es justo lo que no queremos. */
+  82% { transform: translateY(0); opacity: 1; }
+  92% { transform: translateY(0); opacity: 1; }
+  /* Y se arranca. El salto de vuelta pasa con el papel ya recogido detrás del
+     recorte, así que no se ve ningún corte. */
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.imprimiendo__papel {
+  /* 2,2 s = lo que dura la pantalla. Se ve imprimirse UN ticket entero, no
+     medio ni tres.
+
+     steps() y no una curva: una térmica no desliza el papel, lo empuja un
+     motor paso a paso. Los avances discretos se leen como movimiento mucho
+     mejor que un deslizamiento suave del mismo recorrido, y de paso son
+     fieles al objeto que esto imita. */
+  animation: imprimir 2.2s steps(11, end) infinite;
+  /* Sin esto, Android compone el grupo en cada fotograma en vez de subirlo a
+     su propia capa. */
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imprimiendo__papel {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}

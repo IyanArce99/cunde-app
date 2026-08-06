@@ -1,0 +1,591 @@
+{
+  "lote": "A3",
+  "raciones_base": 2,
+  "nota": "Bloque A · núcleo de cobertura: veganas, sin gluten y sin frutos secos, todas de 20 minutos o menos. Sirven para que el filtro 'lo mínimo' (20 min) tenga recetario propio, también con exclusión vegetariana o vegana. Legumbre siempre COCIDA de bote: la seca no cabe en el tiempo. `cantidad` es por ración, no total.",
+  "recetas": [
+    {
+      "id": "lentejas_templadas",
+      "nombre": "Lentejas templadas",
+      "minutos": 15,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla, la zanahoria y el pimiento en dados de 1 cm.",
+        "Sofríelos 8 min a fuego medio con el aceite y la sal.",
+        "Añade el comino y remueve 30 segundos.",
+        "Escurre y enjuaga las lentejas.",
+        "Incorpóralas a la sartén y saltea 3 min.",
+        "Aparta del fuego, riega con el vinagre y sirve templado."
+      ]
+    },
+    {
+      "id": "alubias_tomate",
+      "nombre": "Alubias con tomate",
+      "minutos": 15,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla y lamina el ajo.",
+        "Póchalos 6 min con el aceite y la sal.",
+        "Aparta del fuego y añade el pimentón.",
+        "Vuelve al fuego, echa el tomate frito y cuece 3 min.",
+        "Escurre las alubias, incorpóralas y calienta 4 min sin remover fuerte."
+      ]
+    },
+    {
+      "id": "garbanzos_calabacin",
+      "nombre": "Garbanzos salteados",
+      "minutos": 18,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el calabacín en medias lunas y pica la cebolla y el ajo.",
+        "Saltea la cebolla y el ajo 4 min con el aceite.",
+        "Añade el calabacín y la sal y saltea 6 min a fuego fuerte.",
+        "Aparta del fuego y añade el pimentón.",
+        "Echa el tomate frito y los garbanzos escurridos.",
+        "Saltea 4 min más y sirve."
+      ]
+    },
+    {
+      "id": "revuelto_tofu",
+      "nombre": "Revuelto de tofu",
+      "minutos": 12,
+      "tags": [
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "tofu"
+      ],
+      "proteina": "tofu",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "tofu",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "curcuma",
+          "parte": "principal",
+          "cantidad": 0.4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Escurre el tofu y desmígalo con las manos.",
+        "Pica la cebolla y el ajo y sofríelos 3 min con el aceite.",
+        "Añade los champiñones y saltea 4 min a fuego fuerte.",
+        "Incorpora el tofu, la cúrcuma y la sal.",
+        "Saltea 4 min removiendo y sirve."
+      ]
+    },
+    {
+      "id": "tofu_plancha_pimientos",
+      "nombre": "Tofu a la plancha",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "tofu"
+      ],
+      "proteina": "tofu",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "tofu",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 0.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Escurre el tofu y córtalo en lonchas de 1 cm.",
+        "Corta los pimientos en tiras y lamina el ajo.",
+        "Fríe los pimientos y el ajo 7 min con el aceite y la mitad de la sal.",
+        "Retíralos de la sartén.",
+        "Marca el tofu 3 min por cada cara en la misma sartén.",
+        "Sálalo, espolvorea el pimentón y sirve con los pimientos."
+      ]
+    },
+    {
+      "id": "arroz_verduras",
+      "nombre": "Arroz con verduras salteadas",
+      "minutos": 20,
+      "tags": [
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "sarten",
+        "arroz",
+        "economico"
+      ],
+      "proteina": "ninguna",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_largo",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "ml",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz 16 min en agua con la mitad de la sal.",
+        "Pica la cebolla, el ajo y el pimiento; corta el calabacín en dados.",
+        "Saltea la cebolla y el ajo 3 min con el aceite.",
+        "Añade el pimiento y el calabacín y saltea 6 min a fuego fuerte.",
+        "Echa los guisantes y el resto de la sal y saltea 3 min.",
+        "Escurre el arroz, mézclalo con la verdura y sirve."
+      ],
+      "nota_ratio": "arroz : agua = 1 : 2. El agua no va al carrito, por eso no aparece como ingrediente."
+    },
+    {
+      "id": "alubias_maiz",
+      "nombre": "Ensalada de alubias con maíz",
+      "minutos": 12,
+      "tags": [
+        "legumbre",
+        "vegano",
+        "vegetariano",
+        "rapido",
+        "frio",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sin_cocinar",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_pinta_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "maiz_dulce",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre_manzana",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el maíz 3 min y escúrrelo.",
+        "Escurre y enjuaga las alubias.",
+        "Pica el pimiento, el tomate y la cebolla en dados.",
+        "Júntalo todo en una fuente.",
+        "Aliña con el aceite, el vinagre y la sal y remueve."
+      ]
+    }
+  ]
+}

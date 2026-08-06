@@ -1,0 +1,54 @@
+.super__cabecera {
+  padding: 10px 0 12px;
+  border-bottom: var(--divider-dashed);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+}
+
+.super__marca {
+  display: block;
+  height: 16px;
+  width: auto;
+}
+
+.super__paso {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+/* Centrado como las otras dos del onboarding. `safe center` porque al elegir
+   una cadena con catálogo aparece el campo del código postal y el contenido
+   crece: con el centrado normal se recortaría por ARRIBA y la pregunta
+   dejaría de verse. */
+/* Pegado arriba, no centrado. El centrado se puso cuando esta pantalla tenía
+   seis tarjetas y llenaba el alto; al quedarse en una, dejaba 340 px de papel
+   en blanco entre el filete de la cabecera y la pregunta, y eso no se lee como
+   calma sino como que algo no ha cargado. Ahora la pregunta empieza donde
+   acaba la cabecera y el aire sobrante se va abajo, contra el botón, que es
+   donde un ticket deja el suyo. */
+.super__cuerpo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 26px;
+  padding-bottom: 8px;
+}
+
+.super__pregunta {
+  flex: none;
+  margin: 0 0 18px;
+  font: 600 22px/1.25 var(--font-display);
+  color: var(--tinta);
+}
+
+.super__proximamente {
+  flex: none;
+  margin: 22px 0 0;
+  font: 400 13px/1.6 var(--font-mono);
+  color: var(--gris);
+}

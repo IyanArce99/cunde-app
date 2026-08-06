@@ -1,0 +1,15 @@
+/* Sobre el papel, con la misma pauta que el resto: un borde de 1 px y nada
+   más. Sin redondeo grande, sin sombra, sin degradado sobre la imagen. */
+.foto-plato {
+  margin: 12px 0 2px;
+  border: 1px solid var(--pauta);
+  background: var(--papel-2);
+  line-height: 0;
+}
+
+.foto-plato img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}

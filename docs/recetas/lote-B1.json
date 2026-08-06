@@ -1,0 +1,311 @@
+{
+  "raciones_base": 2,
+  "bloque": "B · vegetarianas con huevo o lácteo",
+  "nota": "Ningún ingrediente de origen carne, pescado o marisco. Todas llevan huevo o lácteo, así que pasan el filtro Vegetariano y no el Vegano. Sin gluten: no entra ni pasta ni pan. Las cantidades son POR RACIÓN.",
+  "recetas": [
+    {
+      "id": "tortilla_calabacin",
+      "nombre": "Tortilla de calabacín",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.75,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Ralla el calabacín y la cebolla, sálalos y déjalos escurrir cinco minutos.",
+        "Sofríelos a fuego medio hasta que suelten el agua y se evapore.",
+        "Bate los huevos y mézclalos con la verdura escurrida.",
+        "Cuaja la tortilla dos minutos por cada lado y pásala a un plato.",
+        "Fríe los pimientos enteros en la misma sartén, escúrrelos y sálalos."
+      ],
+      "nota_parte": "La tortilla se come fría al día siguiente; los pimientos se fríen al momento. De ahí el hueco de ensamblaje."
+    },
+    {
+      "id": "huevos_plato_espinacas",
+      "nombre": "Huevos con espinacas",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "rapido",
+        "horno"
+      ],
+      "proteina": "huevo",
+      "tecnica": "horno",
+      "dias_nevera": 1,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "nata_cocinar",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200º.",
+        "Dora el ajo picado en la sartén y echa la espinaca hasta que suelte el agua.",
+        "Añade la nata, la sal y la pimienta y cocina dos minutos.",
+        "Reparte la espinaca en cazuelitas y casca un par de huevos sobre cada una.",
+        "Cubre con el queso y hornea diez minutos, hasta que la clara cuaje y la yema quede líquida."
+      ]
+    },
+    {
+      "id": "berenjenas_gratinadas",
+      "nombre": "Berenjenas gratinadas",
+      "minutos": 40,
+      "tags": [
+        "vegetariano",
+        "horno",
+        "economico"
+      ],
+      "proteina": "lacteo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200º. Parte las berenjenas a lo largo y marca la carne con el cuchillo.",
+        "Riégalas con aceite, sálalas y hornéalas veinte minutos boca arriba.",
+        "Vacía las mitades con una cuchara y pica la carne.",
+        "Pocha la cebolla y el ajo, suma la carne de berenjena, el tomate y el orégano y cocina diez minutos.",
+        "Rellena las mitades, cúbrelas de queso y gratina diez minutos."
+      ]
+    },
+    {
+      "id": "revuelto_puerros",
+      "nombre": "Revuelto de puerros",
+      "minutos": 15,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 1,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "puerro",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el puerro en rodajas finas y pica el ajo.",
+        "Póchalos a fuego suave ocho minutos, sin que cojan color.",
+        "Baja el fuego, añade los huevos batidos con la sal y remueve sin parar.",
+        "Retira antes de que el huevo cuaje del todo y mezcla el queso fuera del fuego."
+      ]
+    }
+  ]
+}

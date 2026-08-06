@@ -1,0 +1,321 @@
+{
+  "nota": "Cuatro recetas para la única celda que quedaba roja: 'vegetariano + lo mínimo' (≤20 min), donde de 14 recetas vivas solo una pasaba de 28 g y el suelo de proteína fallaba 10 de 10 semanas. El problema era de diseño del lote anterior: la legumbre seca da la proteína más barata pero cuesta 35-50 minutos de olla. Aquí la proteína sale de lo que está listo en quince minutos — legumbre de bote, huevo, queso y soja texturizada, que se hidrata en diez. Dos son veganas. Las bases van repartidas (garbanzo, lenteja, arroz, alubia) y la soja solo entra en dos, porque el tope de 2 platos por base es lo que ata en un filtro con tan pocas recetas vivas.",
+  "recetas": [
+    {
+      "id": "revuelto_garbanzos_queso",
+      "nombre": "Revuelto de garbanzos",
+      "minutos": 15,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "legumbre",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "acompanamiento",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Dora el ajo laminado en el aceite a fuego medio.",
+        "Añade los garbanzos escurridos y saltéalos 4 minutos hasta que se tuesten.",
+        "Incorpora la espinaca y sal, y remueve hasta que se deshaga.",
+        "Bate los huevos con el queso y viértelos por encima.",
+        "Remueve 2 minutos a fuego suave, hasta que cuaje pero quede jugoso."
+      ]
+    },
+    {
+      "id": "lentejas_salteadas_soja",
+      "nombre": "Lentejas salteadas",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en agua caliente mientras picas la verdura, 10 minutos.",
+        "Sofríe la cebolla y la zanahoria en dados con el aceite, 5 minutos.",
+        "Escurre la soja, échala a la sartén y saltéala 3 minutos.",
+        "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
+        "Incorpora las lentejas escurridas y sal, y calienta 3 minutos."
+      ]
+    },
+    {
+      "id": "arroz_salteado_soja_guisantes",
+      "nombre": "Arroz salteado con soja",
+      "minutos": 20,
+      "tags": [
+        "vegano",
+        "arroz",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 35,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece el arroz en el agua con sal, 16 minutos, y escúrrelo.",
+        "Hidrata la soja en agua caliente 10 minutos y escúrrela bien.",
+        "Saltea la cebolla y la zanahoria en dados pequeños con el aceite.",
+        "Añade la soja y dórala 3 minutos a fuego vivo.",
+        "Echa el arroz y los guisantes y saltea 3 minutos más, removiendo."
+      ]
+    },
+    {
+      "id": "huevos_al_plato_alubias",
+      "nombre": "Huevos al plato con alubias",
+      "minutos": 18,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "acompanamiento",
+          "cantidad": 2,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pocha la cebolla picada en el aceite, 5 minutos.",
+        "Aparta del fuego, añade el pimentón y vuelve a ponerla.",
+        "Echa el tomate frito y las alubias escurridas, y sala.",
+        "Guisa 6 minutos a fuego suave, hasta que ligue.",
+        "Casca los huevos encima, tapa y deja 4 minutos hasta que cuaje la clara."
+      ]
+    }
+  ]
+}

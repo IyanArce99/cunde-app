@@ -1,0 +1,2434 @@
+{
+  "2779": {
+    "sku": "2779",
+    "ean": "2105100027792",
+    "nombre": "Medio pollo troceado",
+    "canonicos": [
+      "pollo_troceado"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "2788": {
+    "sku": "2788",
+    "ean": "2105100027884",
+    "nombre": "Muslos de pollo deshuesados con piel",
+    "canonicos": [
+      "muslo_pollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "2789": {
+    "sku": "2789",
+    "ean": "2105100027891",
+    "nombre": "Contramuslos de pollo deshuesados y sin piel",
+    "canonicos": [
+      "contramuslo_pollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "2849": {
+    "sku": "2849",
+    "ean": "2105100028492",
+    "nombre": "Filetes lomo de cerdo extra tiernos",
+    "canonicos": [
+      "lomo_cerdo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Lomo de cerdo (88%), agua, sal, azúcar, jarabe de glucosa, dextrosa fermentada, extracto de levadura, estabilizante (E-407), antioxidantes (E-301 y E-331iii), conservante (E-267) y aromas naturales.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo"
+    ],
+    "trazas": []
+  },
+  "2867": {
+    "sku": "2867",
+    "ean": "8421610028673",
+    "nombre": "Preparado de carne picada cerdo",
+    "canonicos": [
+      "carne_picada_cerdo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo",
+        "soja",
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "sulfito"
+      ],
+      "ingredientes": "Carne de cerdo 90%, agua, fibra vegetal (guisante), cereal (maíz), antioxidantes (E-331, E-301), aroma, conservador E-221 (sulfito). sin gluten. Sin lactosa. Sin soja.",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo",
+      "soja",
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "2869": {
+    "sku": "2869",
+    "ean": "8421610028697",
+    "nombre": "Preparado de carne picada vacuno y cerdo",
+    "canonicos": [
+      "carne_picada_mixta"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo",
+        "soja",
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "sulfito"
+      ],
+      "ingredientes": "Carne de vacuno 45%, carne de cerdo 45%, agua, fibra vegetal (guisante), cereales (maíz), antioxidantes (E-331, E-301), aroma, conservador E-221 (sulfito). Sin gluten. Sin lactosa. Sin soja.",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo",
+      "soja",
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "3210": {
+    "sku": "3210",
+    "ean": "2105468032100",
+    "nombre": "Limón",
+    "canonicos": [
+      "limon"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "limón",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "3400": {
+    "sku": "3400",
+    "ean": "2105100034004",
+    "nombre": "Filetes pechuga de pollo corte fino",
+    "canonicos": [
+      "pechuga_pollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "4240": {
+    "sku": "4240",
+    "ean": "8402001027475",
+    "nombre": "Aceite de oliva 0,4º Hacendado",
+    "canonicos": [
+      "aceite_oliva"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Ingredientes: Aceite de oliva refinado y Aceite de Oliva Virgen.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "4940": {
+    "sku": "4940",
+    "ean": "8480000049407",
+    "nombre": "Vinagre de vino blanco Hacendado",
+    "canonicos": [
+      "vinagre"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Vinagre de vino , antioxidante: E-223 (Contiene sulfitos).",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "4957": {
+    "sku": "4957",
+    "ean": "8480000049575",
+    "nombre": "Vinagre de manzana Hacendado",
+    "canonicos": [
+      "vinagre_manzana"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Vinagre de manzana, antioxidante : E-223 (Contiene sulfitos)",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "5044": {
+    "sku": "5044",
+    "ean": "8480000050441",
+    "nombre": "Arroz redondo Hacendado",
+    "canonicos": [
+      "arroz_redondo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Arroz",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Arroz Redondo",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5063": {
+    "sku": "5063",
+    "ean": "8411078010105",
+    "nombre": "Arroz largo Hacendado",
+    "canonicos": [
+      "arroz_largo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Arroz",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5124": {
+    "sku": "5124",
+    "ean": "8480000051240",
+    "nombre": "Alubia blanca Hacendado",
+    "canonicos": [
+      "alubia_blanca_seca"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Alubia Blanca",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-content-unknown",
+        "en:vegan-status-unknown",
+        "en:vegetarian-status-unknown"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5184": {
+    "sku": "5184",
+    "ean": "8480000051844",
+    "nombre": "Arroz integral largo Hacendado",
+    "canonicos": [
+      "arroz_integral"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Arroz",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Arroz integral largo",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5330": {
+    "sku": "5330",
+    "ean": "8480000053305",
+    "nombre": "Lenteja pardina Hacendado",
+    "canonicos": [
+      "lenteja_pardina"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Lenteja Pardina",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5547": {
+    "sku": "5547",
+    "ean": "8480000055477",
+    "nombre": "Tomillo Hacendado",
+    "canonicos": [
+      "tomillo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Tomillo",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "5598": {
+    "sku": "5598",
+    "ean": "8402001033582",
+    "nombre": "Orégano Hacendado",
+    "canonicos": [
+      "oregano"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [
+        "soja"
+      ],
+      "resaltados": [
+        "soja"
+      ],
+      "ingredientes": "Orégano. Puede contener trazas de soja",
+      "alergenosTexto": "Puede contener soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": [
+      "soja"
+    ]
+  },
+  "5599": {
+    "sku": "5599",
+    "ean": "8480000055996",
+    "nombre": "Perejil Hacendado",
+    "canonicos": [
+      "perejil"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Perejil",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "6045": {
+    "sku": "6045",
+    "ean": "2105100060454",
+    "nombre": "Longaniza fresca estilo criollo",
+    "canonicos": [
+      "salchicha_fresca"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo",
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "sulfito"
+      ],
+      "ingredientes": "Carne de cerdo(70%), carne de vacuno(20%), agua, sal, dextrosa, almidón de maíz, especias, fibra vegetal (guisante), antioxidantes(E-331,E-300) conservador E-221 (sulfito), aromas. Tripa natural  de cerdo. Sin gluten. Sin lactosa.",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo",
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "6260": {
+    "sku": "6260",
+    "ean": "8480000062604",
+    "nombre": "Macarrón fino Hacendado",
+    "canonicos": [
+      "macarron"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ],
+      "resaltados": [
+        "trigo",
+        "gluten",
+        "Puede contener trazas de huevos y soja.",
+        " ",
+        "trigo",
+        "gluten",
+        "Puede contener trazas de huevos, soja y mostaza."
+      ],
+      "ingredientes": "Sémola de trigo duro (gluten). Puede contener trazas de huevos y soja. ***** / / / / / A PARTIR DEL LOTE 032114072000 Y FCP 10/23 HAY UN CAMBIO DE ETIQUETADO / / / / / ***** Sémola de trigo duro (gluten). Puede contener trazas de huevos, soja y mostaza.",
+      "alergenosTexto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "huevo",
+      "mostaza",
+      "soja"
+    ]
+  },
+  "6277": {
+    "sku": "6277",
+    "ean": "8402001042232",
+    "nombre": "Spaghetti fino Hacendado",
+    "canonicos": [
+      "espagueti"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ],
+      "resaltados": [
+        "trigo",
+        "gluten",
+        "Puede contener trazas de huevos",
+        "soja, y mostaza"
+      ],
+      "ingredientes": "Sémola de trigo duro (gluten). Puede contener trazas de huevos, soja, y mostaza.",
+      "alergenosTexto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "huevo",
+      "mostaza",
+      "soja"
+    ]
+  },
+  "7032": {
+    "sku": "7032",
+    "ean": "8480000070326",
+    "nombre": "Caldo de verduras Hacendado",
+    "canonicos": [
+      "caldo_verduras"
+    ],
+    "mercadona": {
+      "contiene": [
+        "apio"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "apio"
+      ],
+      "ingredientes": "Agua, hortalizas 10.6% (apio, zanahoria, espinaca, puerro, champiñón, cebolla, tomate), sal, almidón de maíz, levístico, aceite de oliva, aroma natural, aroma natural de cúrcuma.",
+      "alergenosTexto": "Contiene apio y productos derivados."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "apio"
+    ],
+    "trazas": []
+  },
+  "7313": {
+    "sku": "7313",
+    "ean": "8402001015168",
+    "nombre": "Caldo de pollo Hacendado",
+    "canonicos": [
+      "caldo_pollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Agua, pollo 4,3%, sal, hortalizas 0,03% (cebolla, zanahoria), aromas naturales, almidón, carne de vacuno, especias.",
+      "alergenosTexto": "Libre de trigo y productos derivados. Libre de mostaza y productos derivados. Libre de apio y productos derivados. Libre de soja y productos a base de soja. Libre de cereales que contengan gluten. Libre de leche y sus derivados (incluida la lactosa). Libre de pescado y productos a base de pescado. Libre de huevos y productos a base de huevo. Libre de crustáceos y productos a base de crustáceos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "9430": {
+    "sku": "9430",
+    "ean": "8011515946617",
+    "nombre": "Quinoa Hacendado",
+    "canonicos": [
+      "quinoa"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Granos de quinoa (100%). Sin gluten.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "9588": {
+    "sku": "9588",
+    "ean": "8480000095886",
+    "nombre": "Harina fina de maíz Hacendado",
+    "canonicos": [
+      "harina_maiz"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Almidón de maíz",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "10161": {
+    "sku": "10161",
+    "ean": "8402001027642",
+    "nombre": "Nata ligera para cocinar Hacendado",
+    "canonicos": [
+      "nata_cocinar"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "NATA"
+      ],
+      "ingredientes": "NATA ligera, almidón modificado de maíz, emulgente (E-471) y estabilizantes (E-415, E-451, E-460 y E-466). Origen de la leche: España",
+      "alergenosTexto": "Contiene leche y sus derivados (incluida la lactosa)."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": []
+  },
+  "10382": {
+    "sku": "10382",
+    "ean": "8402001002106",
+    "nombre": "Leche semidesnatada Hacendado",
+    "canonicos": [
+      "leche_semi"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Leche"
+      ],
+      "ingredientes": "Leche semidesnatada de vaca. Origen de la leche: España",
+      "alergenosTexto": "Contiene leche y sus derivados (incluida la lactosa)."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": []
+  },
+  "11958": {
+    "sku": "11958",
+    "ean": "8402001030864",
+    "nombre": "Corazones de alcachofa Hacendado",
+    "canonicos": [
+      "alcachofa"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Alcachofa, agua, sal, acidulante: ácido cítrico, antioxidante: ácido ascórbico",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Corazones de alcachofa",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "13577": {
+    "sku": "13577",
+    "ean": "8402001010880",
+    "nombre": "Fideo cabello de ángel Hacendado",
+    "canonicos": [
+      "fideo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "huevo",
+        "mostaza",
+        "soja"
+      ],
+      "resaltados": [
+        "trigo",
+        "soja",
+        "mostaza",
+        "huevo"
+      ],
+      "ingredientes": "Sémola de trigo duro. Puede contener trazas de soja, mostaza y huevo.",
+      "alergenosTexto": "Puede contener huevos y productos a base de huevo. Contiene trigo y productos derivados. Puede contener mostaza y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "huevo",
+      "mostaza",
+      "soja"
+    ]
+  },
+  "13632": {
+    "sku": "13632",
+    "ean": "8402001031120",
+    "nombre": "Filetes de caballa del sur en tomate Hacendado",
+    "canonicos": [
+      "caballa_lata"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "pescado"
+      ],
+      "ingredientes": "Caballa del sur (pescado) (68%) y salsa de tomate (32%) (agua, concentrado de tomate, aceite refinado de girasol, azúcar, sal). Sin gluten",
+      "alergenosTexto": "Libre de cereales que contengan gluten. Contiene pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": []
+  },
+  "13926": {
+    "sku": "13926",
+    "ean": "8410505320145",
+    "nombre": "Soja texturizada Luengo",
+    "canonicos": [
+      "soja_texturizada"
+    ],
+    "mercadona": {
+      "contiene": [
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Soja"
+      ],
+      "ingredientes": "Soja",
+      "alergenosTexto": "Contiene soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "soja"
+    ],
+    "trazas": []
+  },
+  "14707": {
+    "sku": "14707",
+    "ean": "8402001039232",
+    "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+    "canonicos": [
+      "bebida_soja"
+    ],
+    "mercadona": {
+      "contiene": [
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "soja"
+      ],
+      "ingredientes": "Agua, habas de soja descascarilladas (12%), calcio, aroma, estabilizantes (goma gellan y fosfatos de potasio), edulcorante (acesulfamo K), sal, vitaminas B2, B12 y D.",
+      "alergenosTexto": "Contiene soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "soja"
+    ],
+    "trazas": []
+  },
+  "14981": {
+    "sku": "14981",
+    "ean": "8402001041372",
+    "nombre": "Romero Hacendado",
+    "canonicos": [
+      "romero"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "16044": {
+    "sku": "16044",
+    "ean": "8402001001536",
+    "nombre": "Tomate triturado Hacendado",
+    "canonicos": [
+      "tomate_triturado"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Tomate, sal, azúcar, acidulante: ácido cítrico.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "16314": {
+    "sku": "16314",
+    "ean": "8480000163141",
+    "nombre": "Acelgas troceadas Hacendado",
+    "canonicos": [
+      "acelga"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Acelga, agua, sal y antioxidante; ácido ascórbico",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Acelgas",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "16315": {
+    "sku": "16315",
+    "ean": "8480000163158",
+    "nombre": "Judías verdes redondas Hacendado",
+    "canonicos": [
+      "judia_verde"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Judia verde, agua y sal",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "16416": {
+    "sku": "16416",
+    "ean": "8402001000799",
+    "nombre": "Guisantes extra Hacendado",
+    "canonicos": [
+      "guisante"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Guisantes, agua, azúcar y sal",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "16618": {
+    "sku": "16618",
+    "ean": "8480000166180",
+    "nombre": "Champiñones laminados Hacendado",
+    "canonicos": [
+      "champinon"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "disulfito sódico"
+      ],
+      "ingredientes": "Champiñones (Agaricus bisporus), agua, sal, antioxidantes: ácidos cítrico y disulfito sódico.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "17151": {
+    "sku": "17151",
+    "ean": "8480000171511",
+    "nombre": "Tomate frito Hacendado",
+    "canonicos": [
+      "tomate_frito"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Tomate, aceite refinado de girasol, azúcar, almidón de maíz, sal, cebolla, ajo y conservador (sorbato potásico).",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "17944": {
+    "sku": "17944",
+    "ean": "8402001059353",
+    "nombre": "Panceta de cerdo pieza",
+    "canonicos": [
+      "panceta"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "18037": {
+    "sku": "18037",
+    "ean": "8480000180377",
+    "nombre": "Atún en salsa de tomate Hacendado",
+    "canonicos": [
+      "atun_lata"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": "Contiene pescado y productos a base de pescado. Libre de cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Atum em Molho de Tomate",
+      "alergenos": [
+        "pescado"
+      ],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:non-vegan",
+        "en:non-vegetarian"
+      ]
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": []
+  },
+  "18615": {
+    "sku": "18615",
+    "ean": "8402001013645",
+    "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+    "canonicos": [
+      "mejillon_lata"
+    ],
+    "mercadona": {
+      "contiene": [
+        "marisco"
+      ],
+      "trazas": [
+        "pescado"
+      ],
+      "resaltados": [
+        "moluscos",
+        "pescado",
+        "crustáceos"
+      ],
+      "ingredientes": "Mejillones de Chile (Mythilus chilensis) (moluscos), aceite de girasol, vinagre de vino, especias y sal. Puede contener trazas de pescado y crustáceos.",
+      "alergenosTexto": "Contiene moluscos y productos a base de moluscos. Puede contener pescado y productos a base de pescado. Puede contener crustáceos y productos a base de crustáceos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "marisco"
+    ],
+    "trazas": [
+      "pescado"
+    ]
+  },
+  "19731": {
+    "sku": "19731",
+    "ean": "8402001001840",
+    "nombre": "Sal fina Hacendado",
+    "canonicos": [
+      "sal"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Sal marina.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "22313": {
+    "sku": "22313",
+    "ean": "8480000223135",
+    "nombre": "Yogur natural Hacendado",
+    "canonicos": [
+      "yogur_natural"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Leche",
+        "leche",
+        "lácteos"
+      ],
+      "ingredientes": "Leche entera pasteurizada, leche desnatada en polvo y fermentos lácteos.",
+      "alergenosTexto": "Contiene leche y sus derivados (incluida la lactosa)."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": []
+  },
+  "23047": {
+    "sku": "23047",
+    "ean": "8480000230478",
+    "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+    "canonicos": [
+      "bebida_arroz"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Agua, arroz (10%), aceite de arroz y sal.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Bebida arroz",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan-status-unknown",
+        "en:vegetarian-status-unknown"
+      ]
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "23621": {
+    "sku": "23621",
+    "ean": "8480000236210",
+    "nombre": "Queso rallado especial fundir mezcla Hacendado",
+    "canonicos": [
+      "queso_rallado"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Queso",
+        " leche",
+        "Mantequilla",
+        "Nata "
+      ],
+      "ingredientes": "Queso, Proteína de leche, Mantequilla, Almidones modificados, Nata de (vaca, oveja y cabra),Sal, Sales de fundido (E452, E340, E332, E330),Conservador (E-202), Aroma natural, Antiaglomerante (E460 ii).SIN GLUTEN, SIN HUEVO.",
+      "alergenosTexto": "Contiene leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": []
+  },
+  "24417": {
+    "sku": "24417",
+    "ean": "8480000244178",
+    "nombre": "Calamar grande Hacendado congelado",
+    "canonicos": [
+      "calamar_congelado"
+    ],
+    "mercadona": {
+      "contiene": [
+        "marisco"
+      ],
+      "trazas": [
+        "pescado"
+      ],
+      "resaltados": [
+        "moluscos",
+        "pescado",
+        "crustáceos"
+      ],
+      "ingredientes": "Calamar de la India (Loligo duvauceli) (moluscos), agua, sal. Puede contener pescado  y/o crustáceos.",
+      "alergenosTexto": "Contiene moluscos y productos a base de moluscos. Puede contener pescado y productos a base de pescado. Puede contener crustáceos y productos a base de crustáceos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "marisco"
+    ],
+    "trazas": [
+      "pescado"
+    ]
+  },
+  "25183": {
+    "sku": "25183",
+    "ean": "4052485456359",
+    "nombre": "Jamoncitos de pollo congelados",
+    "canonicos": [
+      "jamoncito_pollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Pollo 100%.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "26000": {
+    "sku": "26000",
+    "ean": "8429386916101",
+    "nombre": "Alubia cocida roja Hacendado",
+    "canonicos": [
+      "alubia_roja_cocida"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Alubia roja, agua, sal y antioxidante (E 385).",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "26001": {
+    "sku": "26001",
+    "ean": "8429386917108",
+    "nombre": "Alubia cocida pinta Hacendado",
+    "canonicos": [
+      "alubia_pinta_cocida"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Alubias pintas, agua, sal y antioxidante (E-385).",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "26011": {
+    "sku": "26011",
+    "ean": "8480000053329",
+    "nombre": "Lenteja cocida Hacendado",
+    "canonicos": [
+      "lenteja_cocida"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [
+        "gluten"
+      ],
+      "resaltados": [
+        "Puede contener gluten."
+      ],
+      "ingredientes": "Lenteja, agua, sal y antioxidantes (E 385, ácido ascórbico). Puede contener gluten.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": [
+      "gluten"
+    ]
+  },
+  "26019": {
+    "sku": "26019",
+    "ean": "8480000260192",
+    "nombre": "Alubia cocida blanca Hacendado",
+    "canonicos": [
+      "alubia_blanca_cocida"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "disulfito sódico"
+      ],
+      "ingredientes": "Alubia blanca, agua, sal y antioxidantes (disulfito sódico, E 385).",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Alubia Blanca",
+      "alergenos": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "26029": {
+    "sku": "26029",
+    "ean": "8480000260291",
+    "nombre": "Garbanzo cocido Hacendado",
+    "canonicos": [
+      "garbanzo_cocido"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "disulfito sódico"
+      ],
+      "ingredientes": "Garbanzos, agua, sal y antioxidantes (disulfito sódico, E 385).",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "sulfitos"
+    ],
+    "trazas": []
+  },
+  "30167": {
+    "sku": "30167",
+    "ean": "8402001028236",
+    "nombre": "Huevos",
+    "canonicos": [
+      "huevo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "huevo"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "huevo"
+      ],
+      "ingredientes": "huevo",
+      "alergenosTexto": "Contiene huevos y productos a base de huevo."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "huevo"
+    ],
+    "trazas": []
+  },
+  "34031": {
+    "sku": "34031",
+    "ean": "8480000340313",
+    "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+    "canonicos": [
+      "cacahuete"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cacahuete"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "CACAHUETES",
+        "TRAZAS DE FRUTOS DE CÁSCARA."
+      ],
+      "ingredientes": "CACAHUETES con cáscara tostados. TRAZAS DE FRUTOS DE CÁSCARA.",
+      "alergenosTexto": "Puede contener frutos de cáscara. Contiene cacahuetes y productos a base de cacahuetes."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cacahuete"
+    ],
+    "trazas": []
+  },
+  "34120": {
+    "sku": "34120",
+    "ean": "8480000341204",
+    "nombre": "Comino molido Hacendado",
+    "canonicos": [
+      "comino"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "mostaza",
+        "sesamo"
+      ],
+      "resaltados": [
+        "gluten",
+        "sésamo",
+        "mostaza"
+      ],
+      "ingredientes": "Comino. Contiene trazas de gluten, sésamo y mostaza.",
+      "alergenosTexto": "Contiene trigo y productos derivados. Puede contener mostaza y productos derivados. Puede contener granos de sésamo y productos a base de granos de sésamo. Puede contener cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "mostaza",
+      "sesamo"
+    ]
+  },
+  "34125": {
+    "sku": "34125",
+    "ean": "8402001025723",
+    "nombre": "Curry Hacendado",
+    "canonicos": [
+      "curry"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [
+        "cacahuete",
+        "gluten",
+        "mostaza",
+        "sesamo"
+      ],
+      "resaltados": [
+        "gluten",
+        "sésamo",
+        "mostaza",
+        "cacahuete"
+      ],
+      "ingredientes": "Cilantro, cúrcuma, ajo, pimienta negra, comino, jengibre, cebolla granulada, canela, cayena y anís estrellado. Puede contener trazas de gluten, sésamo, mostaza y cacahuete.",
+      "alergenosTexto": "Puede contener cacahuetes y productos a base de cacahuetes. Puede contener frutos de cáscara. Puede contener mostaza y productos derivados. Puede contener granos de sésamo y productos a base de granos de sésamo. Puede contener cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": [
+      "cacahuete",
+      "gluten",
+      "mostaza",
+      "sesamo"
+    ]
+  },
+  "34163": {
+    "sku": "34163",
+    "ean": "8480000341631",
+    "nombre": "Cúrcuma molida Hacendado",
+    "canonicos": [
+      "curcuma"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Cúrcuma. Sin gluten.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "34171": {
+    "sku": "34171",
+    "ean": "8480000341716",
+    "nombre": "Pimienta negra molida Hacendado",
+    "canonicos": [
+      "pimienta_negra"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Pimienta negra",
+      "alergenosTexto": "Libre de cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "34182": {
+    "sku": "34182",
+    "ean": "8480000341822",
+    "nombre": "Colorante alimentario Hacendado",
+    "canonicos": [
+      "colorante_alimentario"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [
+        "soja"
+      ],
+      "resaltados": [
+        "soja"
+      ],
+      "ingredientes": "Harina de maíz, colorante: tartrazina E-102 (14%) y sal. Puede contener trazas de soja. Sin gluten.",
+      "alergenosTexto": "Puede contener soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": [
+      "soja"
+    ]
+  },
+  "34865": {
+    "sku": "34865",
+    "ean": "8402001001727",
+    "nombre": "Almendra natural Hacendado",
+    "canonicos": [
+      "almendra"
+    ],
+    "mercadona": {
+      "contiene": [
+        "frutos_secos"
+      ],
+      "trazas": [
+        "cacahuete"
+      ],
+      "resaltados": [
+        "Almendra.",
+        "cacahuete",
+        "frutos de cáscara"
+      ],
+      "ingredientes": "Almendra. Puede contener trazas de cacahuete y otros frutos de cáscara",
+      "alergenosTexto": "Puede contener sw. Puede contener sc. Contiene sa. Puede contener cacahuetes y productos a base de cacahuetes. Puede contener frutos de cáscara."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Almendra Natural",
+      "alergenos": [
+        "frutos_secos"
+      ],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "frutos_secos"
+    ],
+    "trazas": [
+      "cacahuete"
+    ]
+  },
+  "35221": {
+    "sku": "35221",
+    "ean": "8402001005688",
+    "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+    "canonicos": [
+      "pimiento_rojo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Pimiento  rojo y verde en proporción variable.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "35286": {
+    "sku": "35286",
+    "ean": "2335586005360",
+    "nombre": "Costilla de cerdo churrasco",
+    "canonicos": [
+      "costilla_cerdo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Costilla churrasco",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "47994": {
+    "sku": "47994",
+    "ean": "8480000479945",
+    "nombre": "Hoja de laurel Hacendado",
+    "canonicos": [
+      "laurel"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "100% hojas de laurel",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "51097": {
+    "sku": "51097",
+    "ean": "8410789140118",
+    "nombre": "Tofu firme Hacendado",
+    "canonicos": [
+      "tofu"
+    ],
+    "mercadona": {
+      "contiene": [
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "soja "
+      ],
+      "ingredientes": "Habas de soja (65%), agua, gelificante: cloruro magnésico* y cloruro cálcico. *De origen marino (nigari)",
+      "alergenosTexto": "Contiene soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "soja"
+    ],
+    "trazas": []
+  },
+  "52776": {
+    "sku": "52776",
+    "ean": "8436569263174",
+    "nombre": "Preparado de carne picada vacuno",
+    "canonicos": [
+      "carne_picada_vacuno"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten",
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": "Contiene soja y productos a base de soja. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten",
+      "soja"
+    ],
+    "trazas": []
+  },
+  "55135": {
+    "sku": "55135",
+    "ean": "8410320014212",
+    "nombre": "Taquitos de chorizo extra Revilla",
+    "canonicos": [
+      "chorizo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo",
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "LACTOSA,",
+        "LÁCTEOS."
+      ],
+      "ingredientes": "Carne de cerdo, sal, pimentón, LACTOSA, aromas, dextrina, azúcar, ajo, estabilizante (E-451, E-450), antioxidantes (E-301, E-331, aroma natural de romero), conservadores (E-252, E-250), fermentos, colorante (E-120), concentrado de vegetales (remolacha, zanahoria). Tratamiento de superficie: conservador (E-202, E-250). Puede contener trazas de derivados LÁCTEOS.",
+      "alergenosTexto": "Puede contener leche y sus derivados (incluida la lactosa). Contiene ml."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo",
+      "lactosa"
+    ],
+    "trazas": []
+  },
+  "60573": {
+    "sku": "60573",
+    "ean": "8402001018756",
+    "nombre": "Pimentón dulce Hacendado",
+    "canonicos": [
+      "pimenton_dulce"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Pimentón dulce. Sin gluten.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "61231": {
+    "sku": "61231",
+    "ean": "8480000612311",
+    "nombre": "Coliflor Hacendado ultracongelada",
+    "canonicos": [
+      "coliflor"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Colilfor",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "61238": {
+    "sku": "61238",
+    "ean": "8480000612380",
+    "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+    "canonicos": [
+      "esparrago_verde"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Espárrago verde.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "61279": {
+    "sku": "61279",
+    "ean": "8480000612793",
+    "nombre": "Espinaca en porciones Hacendado ultracongelada",
+    "canonicos": [
+      "espinaca"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Espinacas",
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "61289": {
+    "sku": "61289",
+    "ean": "8480000612892",
+    "nombre": "Maíz dulce Hacendado ultracongelado",
+    "canonicos": [
+      "maiz_dulce"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Maíz dulce",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "62050": {
+    "sku": "62050",
+    "ean": "8436542057035",
+    "nombre": "Lomo de bacalao MareDeus ultracongelado",
+    "canonicos": [
+      "bacalao_congelado"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Bacalao",
+        "Gadus Morhua"
+      ],
+      "ingredientes": "Bacalao (Gadus Morhua) 90%, agua 8% y sal 2%.",
+      "alergenosTexto": "Contiene pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": []
+  },
+  "62401": {
+    "sku": "62401",
+    "ean": "8435035300320",
+    "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+    "canonicos": [
+      "mejillon_congelado"
+    ],
+    "mercadona": {
+      "contiene": [
+        "marisco"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Molusco"
+      ],
+      "ingredientes": "Molusco.",
+      "alergenosTexto": "Contiene moluscos y productos a base de moluscos."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "marisco"
+    ],
+    "trazas": []
+  },
+  "68408": {
+    "sku": "68408",
+    "ean": "2368408002612",
+    "nombre": "Puerros",
+    "canonicos": [
+      "puerro"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Puerro",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "68462": {
+    "sku": "68462",
+    "ean": "2368462001842",
+    "nombre": "Repollo liso partido",
+    "canonicos": [
+      "repollo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69079": {
+    "sku": "69079",
+    "ean": "5600319261069",
+    "nombre": "Cebollas",
+    "canonicos": [
+      "cebolla"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69166": {
+    "sku": "69166",
+    "ean": "8414014000079",
+    "nombre": "Patatas",
+    "canonicos": [
+      "patata"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69275": {
+    "sku": "69275",
+    "ean": "8480000692757",
+    "nombre": "Apio verde",
+    "canonicos": [
+      "apio"
+    ],
+    "mercadona": {
+      "contiene": [
+        "apio"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Apio"
+      ],
+      "ingredientes": "Apio",
+      "alergenosTexto": "Contiene apio y productos derivados."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "apio"
+    ],
+    "trazas": []
+  },
+  "69297": {
+    "sku": "69297",
+    "ean": "5600842240661",
+    "nombre": "Ajos morados",
+    "canonicos": [
+      "ajo"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Ajo morado, calibre: 45/55 mm.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69320": {
+    "sku": "69320",
+    "ean": "2105469693201",
+    "nombre": "Pimiento verde freír",
+    "canonicos": [
+      "pimiento_verde"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Pimiento verde",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69326": {
+    "sku": "69326",
+    "ean": "2105499693264",
+    "nombre": "Berenjena",
+    "canonicos": [
+      "berenjena"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Berenjena",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69338": {
+    "sku": "69338",
+    "ean": "2105487693382",
+    "nombre": "Calabacín verde",
+    "canonicos": [
+      "calabacin"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69580": {
+    "sku": "69580",
+    "ean": "2105490695809",
+    "nombre": "Brócoli",
+    "canonicos": [
+      "brocoli"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69584": {
+    "sku": "69584",
+    "ean": "2105467695849",
+    "nombre": "Pepino",
+    "canonicos": [
+      "pepino"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "PEPINO",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69586": {
+    "sku": "69586",
+    "ean": "2305191000692",
+    "nombre": "Zanahorias",
+    "canonicos": [
+      "zanahoria"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Zanahorias",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69653": {
+    "sku": "69653",
+    "ean": "2105400696537",
+    "nombre": "Setas",
+    "canonicos": [
+      "seta"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Seta",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69670": {
+    "sku": "69670",
+    "ean": "8402001035111",
+    "nombre": "Lechuga iceberg cortada y lavada",
+    "canonicos": [
+      "lechuga"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Lechuga iceberg",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69853": {
+    "sku": "69853",
+    "ean": "8480000698537",
+    "nombre": "Media calabaza cacahuete",
+    "canonicos": [
+      "calabaza"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "69912": {
+    "sku": "69912",
+    "ean": "2105404699121",
+    "nombre": "Tomate pera",
+    "canonicos": [
+      "tomate"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Tomate Pera",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "80858": {
+    "sku": "80858",
+    "ean": "8432089108018",
+    "nombre": "Hummus de garbanzos Hacendado receta clásica",
+    "canonicos": [
+      "hummus"
+    ],
+    "mercadona": {
+      "contiene": [
+        "sesamo"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "pasta de sésamo"
+      ],
+      "ingredientes": "Garbanzos cocidos 59%, aceite de girasol, agua, pasta de sésamo, zumo de limón 2%, aceite de oliva 1,8%, ajo molido, sal, acidulantes (E330 y E270 de orígen vegetal) y conservador E202.",
+      "alergenosTexto": "Libre de dióxido de azufre y sulfitos. Libre de cacahuetes y productos a base de cacahuetes. Libre de soja y productos a base de soja. Libre de apio y productos derivados. Contiene granos de sésamo y productos a base de granos de sésamo. Libre de x99. Libre de pescado y productos a base de pescado. Libre de mostaza y productos derivados. Libre de moluscos y productos a base de moluscos. Libre de leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de frutos de cáscara. Libre de crustáceos y productos a base de crustáceos. Libre de cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "sesamo"
+    ],
+    "trazas": []
+  },
+  "83202.1": {
+    "sku": "83202.1",
+    "ean": "8480000832023",
+    "nombre": "Barra de pan",
+    "canonicos": [
+      "pan"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "mostaza",
+        "soja"
+      ],
+      "resaltados": [
+        "Harina de trigo (gluten)",
+        ".",
+        "soja",
+        "mostaza."
+      ],
+      "ingredientes": "Harina de trigo (gluten), agua, sal, levadura, emulgente E 472e, antioxidante E 300 . Puede contener trazas de soja y mostaza.",
+      "alergenosTexto": "Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "mostaza",
+      "soja"
+    ]
+  }
+}

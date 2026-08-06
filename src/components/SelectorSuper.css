@@ -1,0 +1,109 @@
+.super__etiqueta {
+  display: block;
+  font: 600 15px/1 var(--font-body);
+  letter-spacing: 0;
+  color: var(--gris);
+  margin-bottom: 18px;
+}
+
+.super__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.super__opcion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* Envuelve en vez de desbordar. Con el zoom de página al 200% —viewport CSS
+     de 195 px, que es lo que usa quien no ve bien— "Mercadona" y "pídelo desde
+     ajustes" no caben en la misma línea, y sin esto el segundo se salía del
+     recuadro y quedaba cortado por el borde de la pantalla. Fila cuando cabe,
+     dos líneas cuando no. */
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  width: 100%;
+  min-height: var(--tap-min);
+  /* El relleno vertical es el que deja respirar cuando el texto pasa a dos
+     líneas; el min-height sigue mandando cuando va en una sola. */
+  padding: 10px 16px;
+  background: transparent;
+  border: var(--border-rest);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.super__opcion--seleccionado {
+  border: var(--border-selected);
+  background: var(--azulete-fondo);
+}
+
+/* Las que no tienen catálogo no se esconden: se ven apagadas y dicen por qué.
+   Enseñar lo que viene comunica que el producto crece; dejarlo elegir sería
+   prometer precios que no existen. */
+.super__opcion--fuera {
+  cursor: default;
+  border-style: dashed;
+}
+
+.super__opcion--fuera .super__nombre {
+  color: var(--gris);
+}
+
+.super__nombre {
+  font: 600 17px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.super__estado {
+  font: 400 13px/1 var(--font-mono);
+  color: var(--gris);
+}
+
+.super__nota {
+  margin: 20px 0 0;
+  font: 400 13px/1.6 var(--font-mono);
+  color: var(--gris);
+}
+
+/* El código postal, debajo de la cadena. Dos pasos en una hoja: qué tienda y
+   qué zona — ver la cabecera de SelectorSuper.tsx para por qué no está en el
+   onboarding. */
+.super__etiqueta--segunda {
+  display: block;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: var(--divider-dashed);
+}
+
+.super__cp {
+  margin-top: 12px;
+  display: flex;
+  border: 1.5px solid var(--azulete);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  background: var(--azulete-fondo-fuerte);
+}
+
+.super__cp:focus-within {
+  outline: 2px solid var(--azulete);
+  outline-offset: 2px;
+}
+
+.super__cp-campo {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  border: none;
+  background: none;
+  font: 500 22px/1 var(--font-mono);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+}
+
+.super__cp-campo::placeholder {
+  color: rgba(26, 25, 23, .3);
+}

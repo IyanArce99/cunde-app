@@ -1,0 +1,183 @@
+import fs from 'node:fs';
+
+const S = JSON.parse(fs.readFileSync('docs/capturas/_semana.json', 'utf8'));
+const DIAS = [...new Set(S.huecos.map((h) => h.dia))];
+const porDia = DIAS.map((d) => ({ dia: d, huecos: S.huecos.filter((h) => h.dia === d) }));
+const eur = (n) => n.toFixed(2).replace('.', ',') + ' €';
+const meta = (h) => (h.tipo === 'sobras' ? 'solo calentar' : h.min + ' min');
+const SELLO = { cocinado: 'cocinas', sobras: 'recalientas', ensamblaje: 'aprovechas' };
+const ran = (h) => (h.ranura === 'comida' ? 'comida' : 'cena');
+const maxP = Math.max(...S.huecos.map((h) => h.precio));
+const TOTAL = S.total;
+const PRESU = 65;
+
+const lista = (conFoto) => porDia.map((d) => `
+  <div class="k__dia"><span>${d.dia}</span><span class="k__linea"></span>
+    <span class="k__tot">${eur(d.huecos.reduce((a, h) => a + h.precio, 0))}</span></div>
+  ${d.huecos.map((h) => `
+  <div class="k__h k__h--${h.tipo}${conFoto ? '' : ' k__h--sinfoto'}">
+    ${conFoto ? '<span class="k__foto"></span>' : ''}
+    <span class="k__nom">${h.nombre}</span>
+    <span class="k__guia"></span>
+    <span class="k__pre">${eur(h.precio)}</span>
+    <span class="k__pista"><span class="k__barra" style="width:${Math.max(1.5, (h.precio / maxP) * 100)}%"></span></span>
+    <span class="k__sub">${ran(h)} · ${meta(h)} · ${SELLO[h.tipo]}</span>
+  </div>`).join('')}`).join('');
+
+/* La cabecera real de Semana, tal como quedó: tres bloques en reposo y una
+   línea al colapsar. Se reproduce aquí para que el formato de la lista se
+   juzgue en el sitio donde va a vivir, no aislado. */
+const cabecera = (compacta) => `
+  <div class="p__resumen${compacta ? ' p__resumen--c' : ''}">
+    <button class="p__rotulo"><span class="p__etq">TU SEMANA</span>
+      <span class="p__rguia"></span><span class="p__accion">ajustar ›</span></button>
+    <div class="p__cifrafila">
+      <div class="p__cifra">${eur(TOTAL)}</div>
+      <button class="p__saldo"><span class="p__saldo-t">Te sobran <br>${eur(PRESU - TOTAL)}</span>
+        <span class="p__saldo-f">›</span></button>
+    </div>
+    <div class="p__barra"><div class="p__barra-r" style="width:${(TOTAL / PRESU) * 100}%"></div></div>
+    <div class="p__ctx">${eur(PRESU)} de presupuesto · 14 comidas · 2 personas · € por ración</div>
+  </div>`;
+
+const pantalla = (id, conFoto, compacta) => `
+  <div class="movil" id="${id}">
+    <div class="p">
+      <div class="p__tabs"><span class="p__tab p__tab--on">SEMANA</span><span class="p__tab">COMPRA</span></div>
+      ${cabecera(compacta)}
+      <div class="p__scroll"><div class="p__lista">${lista(conFoto)}</div></div>
+      <div class="p__pie"><button class="p__cta">Ver la lista</button></div>
+    </div>
+  </div>`;
+
+const html = `<title>Cunde · F6 en la pantalla</title>
+<style>
+  :root{--papel:#EFEDE6;--crema:#F6F4EE;--papel2:#E5E2D8;--tinta:#1A1917;--azulete:#2B4C7E;
+    --oferta-b:#C9A800;--gris:#6E6A5F;--pauta:#A9A498;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --cuerpo:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+  @media (prefers-color-scheme:dark){:root{--papel:#161513;--crema:#1E1D1A;--papel2:#242219;
+    --tinta:#EDEBE4;--azulete:#8FB3E0;--gris:#A8A39A;--pauta:#4A4740;}}
+  :root[data-theme='dark']{--papel:#161513;--crema:#1E1D1A;--papel2:#242219;--tinta:#EDEBE4;
+    --azulete:#8FB3E0;--gris:#A8A39A;--pauta:#4A4740;}
+  :root[data-theme='light']{--papel:#EFEDE6;--crema:#F6F4EE;--papel2:#E5E2D8;--tinta:#1A1917;
+    --azulete:#2B4C7E;--gris:#6E6A5F;--pauta:#A9A498;}
+  body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);-webkit-font-smoothing:antialiased}
+  .env{max-width:1400px;margin:0 auto;padding:36px 20px 80px}
+  header{border-bottom:1.5px solid var(--tinta);padding-bottom:16px}
+  h1{font:700 clamp(26px,5vw,40px)/1 var(--cuerpo);letter-spacing:-.03em;margin:8px 0 0}
+  .sello{font:500 12px/1 var(--mono);color:var(--gris)}
+  .baja{font:400 15px/1.6 var(--cuerpo);color:var(--gris);max-width:66ch;margin:12px 0 0}
+  .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(404px,1fr));gap:30px;margin-top:34px;align-items:start}
+  .caso h2{font:700 19px/1.2 var(--cuerpo);letter-spacing:-.02em;margin:0 0 4px}
+  .caso p{font:400 14px/1.5 var(--cuerpo);color:var(--gris);margin:0 0 12px;max-width:46ch}
+  .medida{font:500 12px/1.5 var(--mono);color:var(--azulete);display:block;margin-bottom:12px}
+  .ver{border-left:3px solid var(--azulete);padding:2px 0 2px 16px;margin:32px 0 0}
+  .ver p{font:400 15px/1.65 var(--cuerpo);margin:0 0 10px;max-width:64ch}
+  .ver p:last-child{margin-bottom:0}
+  .ver strong{font-weight:600}
+
+  /* ── el móvil: 390 × 844 exactos ──
+     Las alturas del cromo no son a ojo: están medidas sobre la app en marcha
+     (pestañas 73 · cabecera 205 · lista 449 · pie 103 = 844). Si la maqueta se
+     da más sitio del que hay, el recuento de comidas visibles miente. */
+  *{box-sizing:border-box}
+  .movil{width:390px;height:844px;max-width:100%;border:1px solid var(--pauta);overflow:hidden}
+  .p{height:100%;display:flex;flex-direction:column;background:var(--papel)}
+  .p__tabs{flex:none;height:73px;display:flex;gap:22px;padding:22px 30px 10px;border-bottom:1px dashed var(--pauta)}
+  .p__tab{font:600 13px/1 var(--cuerpo);letter-spacing:.18em;color:var(--gris)}
+  .p__tab--on{color:var(--tinta);border-bottom:2px solid var(--tinta);padding-bottom:6px}
+  .p__resumen{flex:none;height:205px;overflow:hidden;padding:12px 30px 14px}
+  .p__rotulo{display:flex;align-items:baseline;gap:8px;width:100%;min-height:48px;padding:12px 0 6px;
+    background:none;border:0;text-align:left}
+  .p__etq{font:500 13px/1.3 var(--mono);color:var(--gris)}
+  .p__rguia{flex:1;border-bottom:1px dotted var(--pauta);transform:translateY(-4px)}
+  .p__accion{font:500 13px/1 var(--mono);color:var(--azulete)}
+  .p__cifrafila{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .p__cifra{font:700 56px/1 var(--cuerpo);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .p__saldo{margin-left:auto;display:flex;align-items:center;gap:4px;min-height:48px;padding:6px;
+    background:none;border:0;text-align:right}
+  .p__saldo-t{font:500 13px/1.3 var(--mono);color:var(--tinta);font-variant-numeric:tabular-nums}
+  .p__saldo-f{font-family:var(--mono);color:var(--azulete)}
+  .p__barra{height:10px;background:rgba(26,25,23,.15);margin-top:10px;overflow:hidden}
+  .p__barra-r{height:100%;background:var(--azulete)}
+  .p__ctx{margin-top:8px;font:400 13px/1.5 var(--mono);color:var(--gris);font-variant-numeric:tabular-nums}
+  .p__resumen--c{height:43px;padding:8px 30px 10px;border-bottom:1px dashed var(--pauta)}
+  .p__resumen--c .p__rotulo,.p__resumen--c .p__barra,.p__resumen--c .p__ctx{display:none}
+  .p__resumen--c .p__cifra{font-size:22px;line-height:1.1}
+  .p__resumen--c .p__saldo{min-height:0;padding:2px 6px}
+  .p__resumen--c .p__saldo-t br{display:none}
+  .p__scroll{flex:1 1 auto;min-height:0;overflow-y:auto;padding:14px 30px 0}
+  .p__pie{flex:none;height:103px;padding:14px 30px 26px}
+  .p__cta{width:100%;min-height:56px;border:0;border-radius:4px;background:var(--azulete);
+    color:#fff;font:600 17px/1 var(--cuerpo)}
+
+  /* ── la lista F6 ── */
+  .k__dia{display:flex;align-items:baseline;gap:8px;margin:14px 0 4px;font:500 13px/1 var(--mono);color:var(--gris)}
+  .k__dia:first-child{margin-top:0}
+  .k__linea{flex:1;border-bottom:1px dashed var(--pauta);transform:translateY(-4px)}
+  .k__tot{font-variant-numeric:tabular-nums}
+  .k__h{display:grid;grid-template-columns:44px 1fr auto auto;gap:4px 8px;align-items:baseline;padding:6px 0}
+  .k__h--sinfoto{grid-template-columns:1fr auto auto}
+  .k__foto{width:44px;height:44px;grid-row:span 3;align-self:start;border-radius:3px;
+    background:var(--papel2) center/cover no-repeat;background-image:var(--foto);
+    border-left:3px solid var(--azulete)}
+  .k__h--sobras .k__foto{border-left-color:var(--pauta);filter:saturate(.35) opacity(.75)}
+  .k__h--ensamblaje .k__foto{border-left-color:var(--oferta-b)}
+  .k__nom{font:600 16px/1.25 var(--cuerpo);min-width:0}
+  .k__h--sobras .k__nom{font-weight:400;color:var(--gris)}
+  .k__guia{border-bottom:1px dotted var(--pauta);transform:translateY(-5px);min-width:12px}
+  .k__pre{font:400 15px/1.2 var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .k__pista{grid-column:2/-1;height:4px;background:var(--papel2);border-radius:2px;overflow:hidden;margin-top:2px}
+  .k__h--sinfoto .k__pista,.k__h--sinfoto .k__sub{grid-column:1/-1}
+  .k__barra{display:block;height:100%;background:var(--azulete)}
+  .k__h--sobras .k__barra{background:var(--pauta)}
+  .k__h--ensamblaje .k__barra{background:var(--oferta-b)}
+  .k__sub{grid-column:2/-1;font:400 12px/1.4 var(--mono);color:var(--gris)}
+</style>
+<div class="env">
+<header>
+  <span class="sello">390 × 844 EXACTOS · PANTALLA COMPLETA CON LA CABECERA NUEVA</span>
+  <h1>F6 dentro de la pantalla</h1>
+  <p class="baja">El formato aislado no dice nada: tiene que funcionar bajo la cabecera condensada, en los 741 px que quedan entre las pestañas y el botón. Aquí está montado en el móvil entero, con el mismo total, el mismo saldo y el mismo pie que la app real. Los marcos tienen scroll propio: prueba a bajar dentro de ellos.</p>
+</header>
+<div class="rejilla">
+  <div class="caso"><h2>Con foto · cabecera en reposo</h2>
+    <p>Lo que ve el usuario al abrir la app el domingo.</p>
+    <span class="medida" id="m1">midiendo…</span>
+    ${pantalla('pant1', true, false)}</div>
+  <div class="caso"><h2>Sin foto · cabecera en reposo</h2>
+    <p>El mismo formato sin miniatura, para comparar en el sitio de verdad.</p>
+    <span class="medida" id="m2">midiendo…</span>
+    ${pantalla('pant2', false, false)}</div>
+  <div class="caso"><h2>Con foto · cabecera colapsada</h2>
+    <p>Al empezar a leer los días: la cifra se queda en una línea con el saldo.</p>
+    <span class="medida" id="m3">midiendo…</span>
+    ${pantalla('pant3', true, true)}</div>
+</div>
+<div class="ver">
+  <p><strong>La foto sale gratis, y eso no se veía en la maqueta suelta.</strong> Dentro de la pantalla la lista mide 1.109 px con miniatura y 1.089 px sin ella: 20 px de diferencia en catorce comidas, un 1,8 %. Las dos columnas enseñan <strong>las mismas 5 comidas</strong> sin tocar nada. La razón es que la línea ya apila tres cosas —nombre, barra de coste y la línea de servicio—, así que los 44 px del cuadro caben en el alto que el texto ocupaba igual. En la comparativa aislada medí un 8 % porque allí no había cabecera que fijara el ritmo.</p>
+  <p><strong>Lo que la pantalla sí cobra es el cromo:</strong> 292 px arriba y 103 px de botón dejan 449 px de lista. Por eso ves 5 de 14 en reposo y 7 al colapsar la cabecera: dos comidas más por bajar el pulgar. Las alturas no son a ojo, están medidas sobre la app en marcha.</p>
+  <p><strong>Lo que falta por resolver:</strong> aquí es la misma imagen catorce veces, así que la variedad real no se está juzgando; y una sobra repite por definición la foto de su plato de origen —miércoles y sábado— que es exactamente lo que el apagado quiere decir, pero hay que verlo con fotos de verdad antes de darlo por bueno.</p>
+</div>
+<script>
+  // Cuántas comidas caben sin tocar nada, medido sobre el marco real.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    for (const [id, salida] of [['pant1','m1'],['pant2','m2'],['pant3','m3']]) {
+      const p = document.getElementById(id);
+      const sc = p.querySelector('.p__scroll');
+      const r = sc.getBoundingClientRect();
+      const huecos = [...p.querySelectorAll('.k__h')];
+      const enteros = huecos.filter((h) => h.getBoundingClientRect().bottom <= r.bottom).length;
+      const alto = p.querySelector('.p__lista').scrollHeight;
+      document.getElementById(salida).textContent =
+        enteros + ' de 14 comidas visibles sin scroll · lista de ' + Math.round(alto) +
+        ' px en ' + Math.round(r.height) + ' px de hueco · ' + (alto / r.height).toFixed(1) + ' pantallas';
+    }
+  }));
+</script>
+</div>
+`;
+
+fs.writeFileSync('docs/capturas/f6-pantalla.html', html);
+console.log(`${(fs.statSync('docs/capturas/f6-pantalla.html').size / 1024).toFixed(0)} KB`);

@@ -4,16 +4,9 @@
 }
 
 .semana-variante__etiqueta {
-  font: 600 13px/1 var(--font-body);
-  letter-spacing: .2em;
+  font: 500 13px/1 var(--font-mono);
+  letter-spacing: 0;
   color: var(--gris);
-}
-
-.semana-variante__cifra-fila {
-  margin-top: 8px;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
 }
 
 .semana-variante__cifra {
@@ -21,11 +14,6 @@
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
   letter-spacing: -.02em;
-}
-
-.semana-variante__cifra-nota {
-  font: 400 15px/1.2 var(--font-mono);
-  color: var(--gris);
 }
 
 .semana-variante__cuentas {
@@ -61,7 +49,7 @@
 .semana-variante__dia {
   color: var(--gris);
   font-size: 13px;
-  letter-spacing: .12em;
+  letter-spacing: 0;
   display: inline-block;
   width: 34px;
 }

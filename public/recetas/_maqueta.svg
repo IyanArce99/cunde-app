@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- FIXTURE DE MAQUETA. No es una foto y no lo aparenta: sirve para ver cómo
+       se comporta el hueco cuando hay imagen. Las fotos de verdad las hace una
+       persona cocinando; ver LEEME.md. -->
+  <rect width="600" height="600" fill="#E5E2D8"/>
+  <g stroke="#A9A498" stroke-width="3" fill="none">
+    <path d="M40 40 H560 V560 H40 Z"/>
+    <path d="M40 40 L560 560"/>
+    <path d="M560 40 L40 560"/>
+  </g>
+  <rect x="150" y="262" width="300" height="76" fill="#E5E2D8"/>
+  <text x="300" y="298" text-anchor="middle" fill="#6E6A5F"
+        font-family="ui-monospace, Menlo, Consolas, monospace" font-size="30" letter-spacing="1">FOTO</text>
+  <text x="300" y="328" text-anchor="middle" fill="#6E6A5F"
+        font-family="ui-monospace, Menlo, Consolas, monospace" font-size="19">1080 × 1080</text>
+</svg>

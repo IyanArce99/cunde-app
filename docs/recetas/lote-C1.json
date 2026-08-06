@@ -1,0 +1,327 @@
+{
+  "raciones_base": 2,
+  "nota": "Lote C1 — carne, pollo. Escrito para que el motor pueda elegir carne: las dos recetas de pollo del piloto van a 1,56 € y 1,71 € la ración y siempre pierden contra una legumbre. Aquí la base es despiece barato (jamoncito 3,30 €/kg, pollo troceado 4,00 €/kg, muslo deshuesado 5,56 €/kg). Ninguna usa pechuga. Cantidades POR RACIÓN a N=2. Los cortes con hueso van a 170-180 g porque el hueso no se come; los deshuesados, a 130 g.",
+  "recetas": [
+    {
+      "id": "pollo_guisado_patata",
+      "nombre": "Pollo guisado con patatas",
+      "minutos": 45,
+      "tags": [
+        "carne",
+        "olla",
+        "economico"
+      ],
+      "proteina": "pollo",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "jamoncito_pollo",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Dora los jamoncitos en la cazuela con el aceite y sácalos.",
+        "Pocha la cebolla y el ajo picados 5 minutos.",
+        "Aparta del fuego, echa el pimentón y remueve.",
+        "Devuelve el pollo, añade el laurel, cubre con agua y cuece tapado 20 minutos.",
+        "Añade la patata en cachos y cuece 15 minutos más.",
+        "Sala y deja reposar 5 minutos fuera del fuego."
+      ]
+    },
+    {
+      "id": "pollo_chilindron",
+      "nombre": "Pollo al chilindrón",
+      "minutos": 40,
+      "tags": [
+        "carne",
+        "olla"
+      ],
+      "proteina": "pollo",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "jamoncito_pollo",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Dora el pollo en la cazuela con el aceite y sácalo.",
+        "Sofríe la cebolla, los pimientos en tiras y el ajo 10 minutos.",
+        "Añade el tomate triturado y cuece 5 minutos.",
+        "Devuelve el pollo, sala y tapa.",
+        "Cuece a fuego bajo 20 minutos, hasta que la carne se separe del hueso."
+      ]
+    },
+    {
+      "id": "macarrones_pollo",
+      "nombre": "Macarrones con pollo",
+      "minutos": 20,
+      "tags": [
+        "carne",
+        "rapido",
+        "olla"
+      ],
+      "proteina": "pollo",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "muslo_pollo",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "macarron",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cuece los macarrones en agua con sal.",
+        "Trocea el muslo y dóralo en la sartén con el aceite y el ajo picado.",
+        "Añade el tomate frito y el orégano. Cuece 5 minutos.",
+        "Escurre la pasta y échala a la sartén.",
+        "Remueve un minuto y sirve."
+      ]
+    },
+    {
+      "id": "pollo_ajillo",
+      "nombre": "Pollo al ajillo",
+      "minutos": 20,
+      "tags": [
+        "carne",
+        "rapido",
+        "sarten"
+      ],
+      "proteina": "pollo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "pollo_troceado",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.9,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "acompanamiento",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Trocea el pollo pequeño y salpimiéntalo.",
+        "Fríelo en la sartén con el aceite a fuego fuerte 10 minutos.",
+        "Añade los ajos laminados y el laurel. Baja el fuego.",
+        "Echa el vinagre y deja evaporar 2 minutos.",
+        "Fríe los pimientos aparte y sírvelos al lado."
+      ]
+    }
+  ]
+}

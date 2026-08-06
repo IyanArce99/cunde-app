@@ -10,7 +10,11 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
+    // El motor (src/motor) lo ejecutan los dos lados: Vite en la app y node
+    // --experimental-strip-types en los scripts de catalogo/. Node exige la
+    // extensión .ts explícita en los imports relativos; esto se la permite.
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

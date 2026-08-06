@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none"
+     stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- VARIANTE B · icono de línea de librería: círculos, remates redondos. -->
+  <circle cx="46" cy="42" r="16"/>
+  <path d="M22 92 c0-13 11-24 24-24 s24 11 24 24"/>
+  <circle cx="80" cy="48" r="12"/>
+  <path d="M70 92 c0-10 8-18 18-18 s18 8 18 18"/>
+</svg>

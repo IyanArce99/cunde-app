@@ -1,0 +1,16 @@
+/* El SVG entra como máscara para que tome el color del texto (currentColor no
+   cruza la frontera de un <img>). Sin fondo, sin caja, sin sombra: es tinta
+   sobre papel como todo lo demás. */
+/* 68 px en --pauta era el problema, no el dibujo: el signo más grande de la
+   pantalla pintado en el color más claro de la paleta se lee como marca de
+   agua, no como sello. A 48 px y en --gris pesa lo que tiene que pesar — menos
+   que la pregunta, más que el papel. */
+.vineta {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  background: var(--gris);
+  -webkit-mask: var(--vineta) center / contain no-repeat;
+  mask: var(--vineta) center / contain no-repeat;
+}

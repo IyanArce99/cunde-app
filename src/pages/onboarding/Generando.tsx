@@ -3,6 +3,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../../state/AppStateContext';
 import TicketRow from '../../components/TicketRow';
+import TicketImprimiendo from '../../components/TicketImprimiendo';
 import './Generando.css';
 
 const Generando: React.FC = () => {
@@ -31,6 +32,7 @@ const Generando: React.FC = () => {
           </div>
 
           <div className="generando__centro">
+            <TicketImprimiendo />
             <p className="generando__mensaje">
               Encadenando ingredientes para que no sobre nada<span className="generando__cursor" />
             </p>

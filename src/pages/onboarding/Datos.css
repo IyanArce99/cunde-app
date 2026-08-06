@@ -2,15 +2,15 @@
   padding: 10px 0 12px;
   border-bottom: var(--divider-dashed);
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   flex: none;
 }
 
 .datos__marca {
-  font: 600 12px/1 var(--font-body);
-  letter-spacing: .22em;
-  color: var(--tinta);
+  display: block;
+  height: 16px;
+  width: auto;
 }
 
 .datos__paso {
@@ -18,37 +18,173 @@
   color: var(--gris);
 }
 
+/* El padding de abajo es para que la última línea no quede escondida detrás
+   del botón, que vive fuera de este contenedor y no empuja nada.
+
+   ARRIBA, no centrado. Estuvo centrado mientras el ticket ocupaba tres líneas
+   y las preguntas llenaban el alto; con el ticket en una sola y sin la nota
+   del final, el centrado abría un hueco de 230 px entre el ticket y la primera
+   pregunta, que es exactamente lo que se le criticaba al anclado. Ahora los
+   tres pasos se componen igual —contenido bajo la cabecera, papel en blanco
+   contra el botón—, que es además cómo sale un ticket de la impresora.
+
+   De paso quita un riesgo: con `center`, al abrir las alergias el contenido
+   crecía por encima del hueco y se recortaba por ARRIBA, dejando la primera
+   pregunta fuera. Con `flex-start` eso no puede pasar. */
 .datos__cuerpo {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding-top: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  /* Aire entre el final del scroll y el botón. Con 8 px, al abrir las alergias
+     los chips quedaban cortados a media fila justo encima del botón azul y
+     parecía un fallo de maquetación en vez de "sigue hacia abajo". */
+  padding-bottom: 18px;
 }
 
 .datos__pregunta {
-  margin: 0 0 20px;
+  flex: none;
+  margin: 0 0 16px;
   font: 600 22px/1.25 var(--font-display);
   color: var(--tinta);
 }
 
-.datos__pregunta--super {
-  margin-top: 38px;
+/* Aire entre las dos preguntas. Antes lo daba el margen del ancla con la
+   viñeta; sin ella hay que ponerlo aquí o las dos se pegan. */
+.datos__pregunta--segunda {
+  margin-top: 24px;
 }
 
 .datos__grid-comensales {
+  flex: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 
-.datos__fila-super {
+/* Las dos salidas. La primera viene marcada, así que quien no tiene
+   restricciones lee una línea y sigue sin tocar nada. La segunda abre la
+   lista: no está escondida, dice "alergias" en el propio botón y pesa lo
+   mismo que la otra. */
+.datos__salida {
+  flex: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 0 16px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: var(--border-rest);
+  border-radius: var(--radius-sm);
+  color: var(--tinta);
+  font: 500 15px/1 var(--font-body);
+  text-align: left;
+  cursor: pointer;
 }
 
-.datos__nota {
-  margin: 30px 0 0;
-  font: 400 13px/1.6 var(--font-mono);
+.datos__salida--seleccionado {
+  border: var(--border-selected);
+  background: var(--azulete-fondo);
+  color: var(--azulete);
+}
+
+.datos__restricciones {
+  flex: none;
+  margin-top: 18px;
+}
+
+.datos__grupo {
+  display: block;
+  margin: 0 0 8px;
+  font: 600 15px/1 var(--font-body);
+  letter-spacing: 0;
   color: var(--gris);
+}
+
+.datos__chips+.datos__grupo {
+  margin-top: 18px;
+}
+
+.datos__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+/* Más apretado que el chip de Ajustes: aquí hay catorce y comparten pantalla
+   con la cuadrícula de comensales. Sigue por encima del mínimo táctil. */
+.datos__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 13px;
+  background: transparent;
+  border: 1.5px solid rgba(169, 164, 152, .7);
+  border-radius: var(--radius-chip);
+  color: var(--tinta);
+  font: 500 14px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.datos__chip--seleccionado {
+  background: var(--azulete-fondo);
+  border-color: var(--azulete);
+  color: var(--azulete);
+}
+
+/* ---------------------------------------------------------------------------
+   LA CONSECUENCIA VIVA
+
+   Una línea de ticket, no una tarjeta ni un contador. Es deliberado: el sistema
+   visual es papel térmico, y en un ticket un dato es una línea con su filete de
+   puntos. Meterlo en una caja con fondo lo convertiría en un aviso, y esto no
+   avisa de nada — es el precio de la respuesta que acabas de dar.
+
+   Filete arriba y no caja alrededor: separa del control sin cerrar nada, igual
+   que la línea que separa concepto de total en el ticket de verdad.
+   --------------------------------------------------------------------------- */
+
+.datos__consecuencia {
+  flex: none;
+  margin-top: 10px;
+  padding-top: 7px;
+  border-top: var(--divider-dotted);
+}
+
+/* Pegada al fondo del cuerpo con scroll: los chips pasan por debajo y el
+   número sigue ahí. Necesita fondo opaco propio —el papel— o los chips se
+   leerían a través, y `margin-top: auto` para que cuando el contenido SÍ quepa
+   se quede abajo en vez de flotando a media pantalla. */
+.datos__consecuencia--fija {
+  position: sticky;
+  /* El desplazamiento negativo y el relleno de abajo son la misma medida que
+     el `padding-bottom` del cuerpo: sin ellos la banda se ancla al borde del
+     scrollport y los chips siguen viéndose por debajo, en el hueco del
+     relleno. Se veía media fila de chips asomando bajo la línea. */
+  bottom: -18px;
+  padding-bottom: 18px;
+  background: var(--papel);
+  /* Filete de total, no de puntos. Dos motivos, y el segundo es el bueno:
+     por los huecos del punteado asomaban los chips que pasan por debajo, y
+     además esto ES una línea de total —lo que suman las respuestas de arriba—,
+     que en un ticket se separa con trazo continuo. */
+  border-top: var(--divider-total);
+  padding-top: 7px;
+}
+
+.datos__aprieta {
+  margin: 2px 0 0;
+  font: 400 13px/1.5 var(--font-mono);
+  color: var(--tinta);
+}
+
+/* El ticket que se va imprimiendo, igual que en la pantalla 2/2. Va bajo la
+   cabecera y crece según se contesta. */
+.datos__ticket {
+  flex: none;
+  padding: 12px 0 0;
 }

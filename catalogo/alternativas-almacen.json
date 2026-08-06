@@ -1,0 +1,399 @@
+{
+ "3842": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.58
+   },
+   {
+    "sku": "12746",
+    "nombre": "Tacos de vacuno marinado para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   },
+   {
+    "sku": "8932",
+    "nombre": "Entrecot de vacuno añojo",
+    "precio": 6.63
+   },
+   {
+    "sku": "8934",
+    "nombre": "Lomo de vacuno añojo",
+    "precio": 7.92
+   },
+   {
+    "sku": "8931",
+    "nombre": "Solomillo de vacuno",
+    "precio": 11.8
+   },
+   {
+    "sku": "8936",
+    "nombre": "Filetes de vacuno añojo para plancha",
+    "precio": 7.98
+   },
+   {
+    "sku": "8937",
+    "nombre": "Escalopín de vacuno añojo para plancha",
+    "precio": 7.59
+   },
+   {
+    "sku": "14485",
+    "nombre": "Churrasquito de vacuno añojo",
+    "precio": 3.55
+   },
+   {
+    "sku": "23964",
+    "nombre": "Entrecot de vacuno angus",
+    "precio": 7.79
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ },
+ "4480": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "3766",
+    "nombre": "Filetes de ternera 1º A para plancha o freir",
+    "precio": 11.14
+   },
+   {
+    "sku": "35323",
+    "nombre": "Solomillo de ternera para plancha",
+    "precio": 13.75
+   },
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "3765",
+    "nombre": "Entrecot de ternera grueso para barbacoa o plancha",
+    "precio": 8.58
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.68
+   },
+   {
+    "sku": "3767",
+    "nombre": "Escalopín de ternera",
+    "precio": 10.42
+   },
+   {
+    "sku": "3768",
+    "nombre": "Tacos de ternera para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "3769",
+    "nombre": "Chamón de ternera para guisar o cocidos",
+    "precio": 7.1
+   },
+   {
+    "sku": "35414",
+    "nombre": "Entrecot de ternera grueso para barbacoa o plancha",
+    "precio": 15.6
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ },
+ "4804": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.68
+   },
+   {
+    "sku": "4326",
+    "nombre": "Tacos de ternera para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   },
+   {
+    "sku": "4323",
+    "nombre": "Filetes lomo de ternera para plancha",
+    "precio": 12.69
+   },
+   {
+    "sku": "4325",
+    "nombre": "Solomillo de ternera para plancha",
+    "precio": 13.53
+   },
+   {
+    "sku": "4316",
+    "nombre": "Jarrete de ternera",
+    "precio": 8.29
+   },
+   {
+    "sku": "4322",
+    "nombre": "Filetes de ternera para plancha y guisar",
+    "precio": 9.81
+   },
+   {
+    "sku": "4318",
+    "nombre": "Filetes cadera babilla de ternera para plancha",
+    "precio": 10.36
+   },
+   {
+    "sku": "4324",
+    "nombre": "Filetes milanesa de ternera",
+    "precio": 10.18
+   },
+   {
+    "sku": "14483",
+    "nombre": "Churrasco de ternera para barbacoa o plancha",
+    "precio": 6.24
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ },
+ "mad3": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "2807",
+    "nombre": "Tacos de vacuno añojo para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.68
+   },
+   {
+    "sku": "21641",
+    "nombre": "Filetes de vacuno añojo para empanar",
+    "precio": 6.58
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   },
+   {
+    "sku": "8932",
+    "nombre": "Entrecot de vacuno añojo",
+    "precio": 6.63
+   },
+   {
+    "sku": "8934",
+    "nombre": "Lomo de vacuno añojo",
+    "precio": 7.92
+   },
+   {
+    "sku": "8931",
+    "nombre": "Solomillo de vacuno",
+    "precio": 11.8
+   },
+   {
+    "sku": "8936",
+    "nombre": "Filetes de vacuno añojo para plancha",
+    "precio": 7.98
+   },
+   {
+    "sku": "14483",
+    "nombre": "Churrasco de ternera para barbacoa o plancha",
+    "precio": 6.24
+   },
+   {
+    "sku": "14485",
+    "nombre": "Churrasquito de vacuno añojo",
+    "precio": 3.55
+   },
+   {
+    "sku": "23964",
+    "nombre": "Entrecot de vacuno angus",
+    "precio": 7.79
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ },
+ "svq1": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "2712",
+    "nombre": "Filetes de vacuno 1º B añojo para plancha o guisar",
+    "precio": 10.08
+   },
+   {
+    "sku": "2807",
+    "nombre": "Tacos de vacuno añojo para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "2800",
+    "nombre": "Filetes lomo de vacuno añojo para plancha",
+    "precio": 11.1
+   },
+   {
+    "sku": "2804",
+    "nombre": "Solomillo de vacuno añojo para plancha",
+    "precio": 12.21
+   },
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "2900",
+    "nombre": "Filetes de vacuno añojo para plancha",
+    "precio": 10.01
+   },
+   {
+    "sku": "3461",
+    "nombre": "Entrecot de vacuno añojo fino para barbacoa o plancha",
+    "precio": 12.85
+   },
+   {
+    "sku": "3460",
+    "nombre": "Entrecot de vacuno añojo grueso para barbacoa o plancha",
+    "precio": 9.77
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.58
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ },
+ "bcn1": {
+  "Cordero": null,
+  "Vacuno": [
+   {
+    "sku": "2807",
+    "nombre": "Tacos de vacuno añojo para guisar",
+    "precio": 8.75
+   },
+   {
+    "sku": "2800",
+    "nombre": "Filetes lomo de vacuno añojo para plancha",
+    "precio": 11.1
+   },
+   {
+    "sku": "21580",
+    "nombre": "Solomillo de vacuno añojo para plancha",
+    "precio": 11.8
+   },
+   {
+    "sku": "2632",
+    "nombre": "Carpaccio de vacuno",
+    "precio": 4.1
+   },
+   {
+    "sku": "2900",
+    "nombre": "Filetes de vacuno añojo para plancha",
+    "precio": 10.01
+   },
+   {
+    "sku": "3461",
+    "nombre": "Entrecot de vacuno añojo fino para barbacoa o plancha",
+    "precio": 12.85
+   },
+   {
+    "sku": "3460",
+    "nombre": "Entrecot de vacuno añojo grueso para barbacoa o plancha",
+    "precio": 9.77
+   },
+   {
+    "sku": "2861",
+    "nombre": "Filetes hígado de vacuno",
+    "precio": 4.58
+   },
+   {
+    "sku": "3738",
+    "nombre": "Filetes de vacuno añojo fricandó para plancha o guisar",
+    "precio": 10.08
+   },
+   {
+    "sku": "60633",
+    "nombre": "Filetes de vacuno marinado extra tiernos",
+    "precio": 8.85
+   },
+   {
+    "sku": "8308",
+    "nombre": "Steak Tartar de vacuno marinado",
+    "precio": 5.4
+   },
+   {
+    "sku": "14483",
+    "nombre": "Churrasco de ternera para barbacoa o plancha",
+    "precio": 6.24
+   }
+  ],
+  "Dorada": null,
+  "Lubina": null
+ }
+}
