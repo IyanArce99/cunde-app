@@ -1,200 +1,125 @@
-import { useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
-import type { Comensales } from '../../state/types';
-import { etiquetaComensales } from '../../state/types';
+import type { Comensales, ComidasPref } from '../../state/types';
 import { useAppState } from '../../state/AppStateContext';
-import { ALERGIAS, DIETAS } from '../../lib/restricciones';
-import { useSuelo, estadoDelRecetario } from '../../lib/consecuencias';
-import OptionButton from '../../components/OptionButton';
+import { useSuelo } from '../../lib/consecuencias';
 import PrimaryButton from '../../components/PrimaryButton';
-import TicketRow from '../../components/TicketRow';
+import Stepper from '../../components/Stepper';
 import './Datos.css';
 
 const OPCIONES_COMENSALES: Comensales[] = ['1', '2', '3', '4', '5+'];
 
 /**
- * Lo único que se pregunta antes de enseñar el menú es lo que, si falta, hace
- * que ese primer menú sea INSERVIBLE: cuántos sois y qué no podéis comer.
+ * Las tres formas de resolver la semana, con lo que cada una supone.
  *
- * La lista de restricciones va detrás de un toque, y no por adorno: la
- * inmensa mayoría no tiene ninguna, y enseñarles quince filtros en el punto
- * más frágil del embudo grita "esto es complicado" a quien solo quería saber
- * cuánto va a gastar. Con la lista plegada, quien no tiene restricciones lee
- * una línea —ya marcada— y sigue: cero toques.
+ * "Solo comidas" y no "Comidas" a secas: sin el "solo", puesto al lado de
+ * "Comidas y cenas", se lee como si fuera un subconjunto de la otra en vez de
+ * una alternativa.
+ */
+const OPCIONES_COMIDAS: { valor: ComidasPref; label: string; meta: string }[] = [
+  { valor: 'comidas', label: 'Solo comidas', meta: '7 platos' },
+  { valor: 'cenas', label: 'Solo cenas', meta: '7 platos' },
+  { valor: 'ambas', label: 'Comidas y cenas', meta: '14 platos' },
+];
+
+/**
+ * PASO 2 DE 3 · PARA CUÁNTOS Y QUÉ RESUELVO.
  *
- * No queda escondida: el botón que la abre dice "alergias" con todas sus
- * letras y está al mismo nivel visual que el otro. Es una capa, no tres.
+ * Una sola pregunta con tres respuestas encadenadas —cuántos sois, qué comidas
+ * y si hay postre— porque las tres deciden lo mismo: cuánta comida hay que
+ * comprar. Preguntarlas por separado las hacía parecer independientes.
+ *
+ * LAS ALERGIAS NO ESTÁN AQUÍ, y es deliberado. Quince chips en el paso más
+ * frágil del embudo le gritan "esto es complicado" a la inmensa mayoría, que
+ * no tiene ninguna. Viven en los ajustes, sobre el menú ya generado, donde
+ * además se ve lo que cuestan.
+ *
+ * Abajo, pegado al botón, lo que cuesta la semana más barata con lo elegido.
+ * Se mueve al tocar cualquiera de las tres respuestas y prepara la pregunta
+ * siguiente: quien llega al deslizador sabiendo el suelo no lo mueve a ciegas.
  */
 const Datos: React.FC = () => {
   const history = useHistory();
   const { estado, dispatch } = useAppState();
-  const { exclusiones, comidas, esfuerzo, proteina } = estado.preferencias;
-  // Abierta si ya había algo elegido: al volver atrás no se pierde de vista.
-  const [abierta, setAbierta] = useState(exclusiones.length > 0);
+  const preferencias = estado.preferencias;
+  const { exclusiones, comidas, esfuerzo, proteina, postre } = preferencias;
 
-  // Las dos consecuencias vivas. La del recetario es un filtro sobre 112
-  // recetas y sale en el render; la del suelo monta una semana entera y llega
-  // un par de marcos tarde. Ver lib/consecuencias.ts.
-  const suelo = useSuelo(estado.perfil.comensales, comidas, esfuerzo, exclusiones, proteina);
-  const recetario = estadoDelRecetario(exclusiones);
+  const suelo = useSuelo(estado.perfil.comensales, comidas, esfuerzo, exclusiones, proteina, postre);
 
-  const guardar = (siguiente: string[]) =>
-    dispatch({ type: 'SET_PREFERENCIAS', preferencias: { ...estado.preferencias, exclusiones: siguiente } });
-
-  const alternar = (que: string) =>
-    guardar(exclusiones.includes(que) ? exclusiones.filter((e) => e !== que) : exclusiones.concat(que));
-
-  const chip = (que: string) => (
-    <button
-      key={que}
-      type="button"
-      className={`datos__chip${exclusiones.includes(que) ? ' datos__chip--seleccionado' : ''}`}
-      aria-pressed={exclusiones.includes(que)}
-      onClick={() => alternar(que)}
-    >
-      {que}
-    </button>
-  );
+  const guardar = (cambio: Partial<typeof preferencias>) =>
+    dispatch({ type: 'SET_PREFERENCIAS', preferencias: { ...preferencias, ...cambio } });
 
   return (
     <IonPage>
       <IonContent fullscreen scrollY={false} className="pantalla-content">
         <div className="pantalla pantalla--onboarding datos">
-          <div className="datos__cabecera">
-            <img className="datos__marca" src="/cunde-logotipo.svg" alt="Cunde" />
-            <span className="datos__paso">2/3</span>
-          </div>
-
-          {/* EL TICKET IMPRIME LO QUE YA ESTÁ CONTESTADO, Y NADA MÁS.
-              Aquí eso es una sola línea: la del paso 1.
-
-              Antes salían las tres, y las otras dos eran las preguntas de ESTA
-              pantalla — el mismo dato dos veces con 300 px por medio, y 50 px
-              de alto para conseguirlo. Además rompía el mecanismo: un ticket
-              que imprime la respuesta antes de que la des no está registrando
-              nada, está adelantándose.
-
-              Las dos que faltan aparecen en 3/3, que es donde ya son pasado.
-              Lo que da la sensación de que la respuesta queda registrada, que
-              era el otro trabajo de estas líneas, ahora lo hacen mejor las
-              consecuencias vivas de más abajo. */}
-          <div className="datos__ticket">
-            {/* Ninguna línea es pulsable AQUÍ, y no por descuido. Dos de las
-                tres se contestan en esta misma pantalla treinta píxeles más
-                abajo, y la tercera —el súper— es la pantalla de la que se
-                acaba de venir. Probado pulsable: la fila crece a 44 px para
-                cumplir el área de toque y deja el ticket con una línea alta y
-                dos bajas, que se lee como un fallo de maquetación.
-                El resumen pulsable vive en 3/3, que es donde ya no se ve
-                ninguna de las tres preguntas. */}
-            <TicketRow
-              label="Súper"
-              value={estado.perfil.codigoPostal
-                ? `${estado.perfil.super} · ${estado.perfil.codigoPostal}`
-                : estado.perfil.super}
-            />
-          </div>
+          <Stepper paso={2} />
 
           <div className="datos__cuerpo">
-            {/* Sin pictograma. Las tres viñetas eran el MISMO rectángulo
-                dentado con tres o cuatro trazos distintos dentro: a 48 px el
-                contorno se come el peso visual y lo que las diferencia queda a
-                25 px, así que las tres se leían igual — "una caja con
-                garabatos". No es un problema de dibujo, y por eso rehacer el
-                interior no lo arreglaba.
+            <h1 className="datos__pregunta">¿Para cuántos y qué te resuelvo?</h1>
 
-                Y de fondo: un ticket no tiene iconos. Papel térmico es
-                tipografía, filetes y números. La pregunta se explica sola y
-                cualquier pictograma al lado es un cuerpo extraño en un sistema
-                que no tiene vocabulario para ellos. */}
-            <h2 className="datos__pregunta">¿Cuántos sois?</h2>
             <div className="datos__grid-comensales">
               {OPCIONES_COMENSALES.map((opcion) => (
-                <OptionButton
+                <button
                   key={opcion}
-                  label={opcion}
-                  variante="grid"
-                  seleccionado={estado.perfil.comensales === opcion}
+                  type="button"
+                  className={`datos__comensal${estado.perfil.comensales === opcion ? ' datos__comensal--seleccionado' : ''}`}
+                  aria-pressed={estado.perfil.comensales === opcion}
                   onClick={() => dispatch({ type: 'SET_COMENSALES', comensales: opcion })}
-                />
+                >
+                  {opcion}
+                </button>
               ))}
             </div>
 
-            {/* Debajo del control y no encima de él: se toca el 4 y se mueve lo
-                que hay justo debajo del dedo. Puesta entre pregunta y botones,
-                lo que cambia queda por encima de la mano. */}
-            <div className="datos__consecuencia" aria-live="polite">
-              <TicketRow
-                label={`Semana más barata para ${etiquetaComensales(estado.perfil.comensales)}`}
-                value={suelo === null ? '···' : `${suelo} €`}
-                color="var(--gris)"
-              />
+            <div className="datos__ranuras">
+              {OPCIONES_COMIDAS.map((o) => (
+                <button
+                  key={o.valor}
+                  type="button"
+                  className={`datos__ranura${comidas === o.valor ? ' datos__ranura--seleccionado' : ''}`}
+                  aria-pressed={comidas === o.valor}
+                  onClick={() => guardar({ comidas: o.valor })}
+                >
+                  <span className="datos__ranura-label">{o.label}</span>
+                  <span className="datos__ranura-meta">{o.meta}</span>
+                </button>
+              ))}
             </div>
 
-            <h2 className="datos__pregunta datos__pregunta--segunda">¿Hay algo que no podáis comer?</h2>
-
+            {/* EL POSTRE, BAJO "Y ADEMÁS".
+                No es una cuarta opción de la ranura: no compite con "comidas /
+                cenas / las dos", se SUMA a lo que se haya elegido. El rótulo
+                aparte es lo que hace que se lea así. */}
+            <span className="datos__ademas">Y además</span>
             <button
               type="button"
-              className={`datos__salida${!abierta ? ' datos__salida--seleccionado' : ''}`}
-              aria-pressed={!abierta}
-              onClick={() => { setAbierta(false); guardar([]); }}
+              className={`datos__ranura datos__conmutador${postre ? ' datos__ranura--seleccionado' : ''}`}
+              aria-pressed={postre}
+              onClick={() => guardar({ postre: !postre })}
             >
-              Nada, comemos de todo
+              <span className="datos__conmutador-texto">
+                <span className="datos__conmutador-titulo">Postre en cada comida</span>
+                <span className="datos__conmutador-sub">yogur, fruta, gelatina</span>
+              </span>
+              <span className={`datos__interruptor${postre ? ' datos__interruptor--on' : ''}`} aria-hidden="true">
+                <span className="datos__interruptor-bola" />
+              </span>
             </button>
-
-            <button
-              type="button"
-              className={`datos__salida${abierta ? ' datos__salida--seleccionado' : ''}`}
-              onClick={() => setAbierta(true)}
-              aria-expanded={abierta}
-            >
-              Sí, hay alergias o dietas
-            </button>
-
-            {abierta && (
-              <div className="datos__restricciones">
-                {/* Alergia y preferencia son cosas distintas y aquí se ven
-                    distintas: es la misma línea que decide si las trazas
-                    bloquean o no. */}
-                <span className="datos__grupo">Alergias e intolerancias</span>
-                <div className="datos__chips">{ALERGIAS.map(chip)}</div>
-
-                <span className="datos__grupo">Por dieta</span>
-                <div className="datos__chips">{DIETAS.map(chip)}</div>
-              </div>
-            )}
-
-            {/* La misma línea que arriba, con el número que de verdad importa
-                aquí: cuántas recetas sobreviven a los filtros. Se mueve a cada
-                chip. El aviso solo aparece cuando aprieta de verdad —ver
-                POCAS_RECETAS, medido— y dice lo único que es cierto: que vas a
-                repetir. No dice que no se pueda montar la semana, porque se
-                puede: ni con el peor caso posible queda un hueco vacío. */}
-            {/* PEGADA ABAJO CUANDO LA LISTA ESTÁ ABIERTA.
-                Los quince chips no caben en 844 px, así que el cuerpo hace
-                scroll. Con la línea al final del flujo, tocabas un chip y el
-                número que ese chip acaba de mover estaba fuera de la pantalla:
-                una consecuencia viva que no se ve no es una consecuencia. */}
-            <div
-              className={`datos__consecuencia${abierta ? ' datos__consecuencia--fija' : ''}`}
-              aria-live="polite"
-            >
-              <TicketRow
-                label="Recetas que te valen"
-                // "112 de 112" no dice nada. El denominador solo importa cuando
-                // hay algo que comparar, que es en cuanto se quita la primera.
-                value={exclusiones.length ? `${recetario.vivas} de ${recetario.total}` : `${recetario.vivas}`}
-                color={recetario.aprieta ? 'var(--tinta)' : 'var(--gris)'}
-              />
-              {recetario.aprieta && (
-                <p className="datos__aprieta">Con tan pocas vas a repetir plato en la semana.</p>
-              )}
-            </div>
-
           </div>
 
-          <PrimaryButton onClick={() => history.push('/onboarding/presupuesto')}>Seguir</PrimaryButton>
+          {/* LA CONSECUENCIA, EN TARJETA Y PEGADA AL BOTÓN.
+              Estaba como línea de ticket justo debajo de los comensales, y ahí
+              solo respondía a una de las tres respuestas. Al pie responde a las
+              tres, que es lo que de verdad hace: es el precio de todo lo que se
+              acaba de elegir. */}
+          <div className="datos__pie">
+            <div className="datos__suelo" aria-live="polite">
+              <span className="datos__suelo-texto">Lo más barato que te puedo montar</span>
+              <span className="datos__suelo-cifra">{suelo === null ? '···' : `${suelo} €`}</span>
+            </div>
+            <PrimaryButton onClick={() => history.push('/onboarding/presupuesto')}>Seguir</PrimaryButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>

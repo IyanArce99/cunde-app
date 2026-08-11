@@ -23,6 +23,19 @@ export function alergiasActivas(exclusiones: string[]): string[] {
  *
  * Es una advertencia, no un error: nada de rojo ni de iconos de alerta. Una
  * franja de papel, que es lo que es.
+ *
+ * ═══ EN COMPRA VA EN UNA LÍNEA ═══
+ *
+ * Dentro de una hoja hay sitio y se dice entero. En Compra no: ahí la franja se
+ * comía 150 px FIJOS de la cabecera —dos productos menos a la vista— en la
+ * pantalla que se recorre de pie, con una mano y empujando un carro, y en cada
+ * visita, no una vez.
+ *
+ * Lo que se recorta es "los fabricantes cambian los ingredientes", que es la
+ * JUSTIFICACIÓN. Lo que se conserva es "comprueba la etiqueta", que es la
+ * INSTRUCCIÓN, y es lo único que hay que hacer delante del lineal. El motivo
+ * entero sigue escrito donde se marca la alergia (ver SelectorExclusiones), que
+ * es donde el usuario tiene tiempo de leerlo.
  */
 const AvisoAlergenos: React.FC<{ exclusiones: string[]; compacto?: boolean }> = ({ exclusiones, compacto }) => {
   const alergias = alergiasActivas(exclusiones);
@@ -32,7 +45,8 @@ const AvisoAlergenos: React.FC<{ exclusiones: string[]; compacto?: boolean }> = 
     <div className={`aviso-alergenos${compacto ? ' aviso-alergenos--compacto' : ''}`} role="note">
       <span className="aviso-alergenos__que">Sin {alergias.join(', ').toLowerCase()}</span>
       <span className="aviso-alergenos__texto">
-        Comprueba siempre la etiqueta. Los fabricantes cambian los ingredientes.
+        Comprueba siempre la etiqueta.
+        {compacto && ' Los fabricantes cambian los ingredientes.'}
       </span>
     </div>
   );

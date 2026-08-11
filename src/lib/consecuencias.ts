@@ -88,9 +88,10 @@ export function useSuelo(
   esfuerzo: Esfuerzo,
   exclusiones: string[],
   proteina: NivelProteina,
+  postre = false,
 ): number | null {
-  const k = claveSuelo(comensales, comidas, esfuerzo, exclusiones, proteina);
-  const calcular = () => presupuestoMinimoViable(comensales, comidas, esfuerzo, exclusiones, proteina);
+  const k = `${claveSuelo(comensales, comidas, esfuerzo, exclusiones, proteina)}|${postre}`;
+  const calcular = () => presupuestoMinimoViable(comensales, comidas, esfuerzo, exclusiones, proteina, postre);
 
   // Si ya se calculó con estos mismos parámetros, sale del caché al instante y
   // no hay estado intermedio: volver atrás no debe parpadear.

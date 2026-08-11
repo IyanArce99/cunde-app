@@ -1,0 +1,62 @@
+{
+  "revisadoEn": "2026-08-10T11:57:19.330Z",
+  "almacen": "mad3",
+  "referencia": "2026-08-07",
+  "total": 117,
+  "iguales": 114,
+  "cambios": [
+    {
+      "canonico": "brocoli",
+      "sku": "69580",
+      "nombre": "Brócoli",
+      "contenido": 0.44,
+      "unidad": "kg",
+      "precio": 1.14,
+      "precio_kg_l_ud": 2.591,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Otras verduras y hortalizas",
+      "precioNuevo": 1.29,
+      "delta": 0.15000000000000013,
+      "nombreNuevo": "Brócoli"
+    },
+    {
+      "canonico": "limon",
+      "sku": "3210",
+      "nombre": "Limón",
+      "contenido": 0.23,
+      "unidad": "kg",
+      "precio": 0.66,
+      "precio_kg_l_ud": 2.8696,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Cítricos",
+      "precioNuevo": 0.69,
+      "delta": 0.029999999999999916,
+      "nombreNuevo": "Limón"
+    },
+    {
+      "canonico": "pepino",
+      "sku": "69584",
+      "nombre": "Pepino",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 0.39,
+      "precio_kg_l_ud": 1.56,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Pepino y zanahoria",
+      "precioNuevo": 0.38,
+      "delta": -0.010000000000000009,
+      "nombreNuevo": "Pepino"
+    }
+  ],
+  "desaparecidos": [],
+  "fallos": []
+}

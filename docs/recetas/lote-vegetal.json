@@ -510,7 +510,8 @@
         "Echa las lentejas y el agua, sala y cuece 25 minutos.",
         "Incorpora la espinaca y remueve hasta que se deshaga.",
         "Aplasta un cazo de lentejas contra la olla para que espese."
-      ]
+      ],
+      "foto": "lentejas_curry_espinacas.webp"
     },
     {
       "id": "chili_alubias_soja",
@@ -593,7 +594,8 @@
         "Añade la soja y el comino y saltea 3 minutos.",
         "Vuelca el tomate y las alubias escurridas; sala.",
         "Guisa 15 minutos a fuego suave, hasta que espese."
-      ]
+      ],
+      "foto": "chili_alubias_soja.webp"
     },
     {
       "id": "espaguetis_soja_champinones",
@@ -757,7 +759,8 @@
         "Corta el pimiento en dados pequeños.",
         "Mezcla la quinoa con las alubias escurridas, el maíz y el pimiento.",
         "Aliña con el aceite y el vinagre y sirve templado."
-      ]
+      ],
+      "foto": "quinoa_alubias_maiz.webp"
     },
     {
       "id": "lentejas_huevo_verduras",

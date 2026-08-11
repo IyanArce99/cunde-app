@@ -7,6 +7,23 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  /**
+   * EL CATÁLOGO, COMO CADENA QUE SE PARSEA, NO COMO OBJETO JS.
+   *
+   * Por defecto Vite incrusta un `.json` importado como un literal de objeto de
+   * JavaScript, y eso lo tiene que analizar el parser del lenguaje. Con
+   * `stringify` lo emite como `JSON.parse("…")`, que es un parser especializado
+   * y mucho más rápido para cargas grandes.
+   *
+   * Aquí importa porque `motor-datos.json` son 256 KB —las 142 recetas, los
+   * ingredientes y los 108 SKU— y entran en el arranque: sin ellos la app no
+   * genera nada. El porcentaje de gente que llega a ver su menú es LA métrica
+   * del producto, y se decide en esos primeros milisegundos.
+   *
+   * Ningún `.json` del proyecto se importa por nombre —solo por defecto—, que
+   * es lo único que esta opción rompería.
+   */
+  json: { stringify: true },
   plugins: [
     react(),
     legacy(),
@@ -57,5 +74,20 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
+    /**
+     * SOLO `src/`. Y no es cosmética.
+     *
+     * `npx vitest run` a secas barría también `.claude/worktrees/`, donde viven
+     * las copias del repo que usan los agentes en paralelo. Salían 11 fallos de
+     * ficheros que no están en este árbol —con trazas apuntando a un
+     * `node_modules` que no es el nuestro— y costaba media hora entender que el
+     * código de aquí estaba bien.
+     *
+     * Un test que falla tiene que señalar a código de este repositorio. Si no,
+     * la suite deja de ser una señal y pasa a ser ruido que se aprende a
+     * ignorar, que es la peor cosa que le puede pasar a una suite.
+     */
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    exclude: ['**/node_modules/**', '**/dist/**', '.claude/**', 'android/**'],
   }
 })

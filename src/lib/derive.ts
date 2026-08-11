@@ -99,14 +99,24 @@ export function presupuestoMinimoViable(
   esfuerzo: Esfuerzo = 'libre',
   exclusiones: string[] = [],
   proteina: NivelProteina = 'normal',
+  /**
+   * El postre CUENTA en el suelo, y no es una decisión menor.
+   *
+   * Estuvo fuera mientras el interruptor vivía solo en los ajustes: meterlo
+   * habría subido el mínimo que ve todo el mundo en el paso 2/3 por algo que
+   * la mayoría no había pedido.
+   *
+   * Ahora el interruptor está en esa misma pantalla, treinta píxeles debajo de
+   * la línea del suelo. Si el suelo no se moviera al encenderlo, el usuario
+   * vería un interruptor que no hace nada — y esta app se sostiene justo sobre
+   * lo contrario: que los números se muevan al tocar.
+   */
+  postre = false,
 ): number {
   // Sin techo: es el suelo de lo que puede costar la semana más barata.
   const ctx: Contexto = {
     comensales, comidas, esfuerzo, exclusiones, presupuesto: Infinity, variedad: 'poca', proteina,
-    // Sin postre: el suelo es lo mínimo para COMER, y el postre es opcional.
-    // Meterlo aquí subiría el suelo que se enseña en el paso 2/3 a todo el
-    // mundo por algo que la mayoría no ha pedido.
-    postre: false,
+    postre,
   };
   /**
    * Solo "poca", no las tres. Esto lo pide la línea viva del paso 2/3 en cada

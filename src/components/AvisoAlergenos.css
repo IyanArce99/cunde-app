@@ -2,33 +2,40 @@
    etiquetas y las franjas (--papel-2) y ese es el que toca: esto no es un
    error del usuario ni algo que haya que arreglar, es una condición del dato.
    El rojo está reservado a pasarse del presupuesto. */
+/* En Compra, en fila y no en columna: el qué y el qué hacer caben en una línea
+   y se leen de un vistazo. Envuelve si no cabe —con el texto al 200% no cabe—,
+   pero en reposo son 34 px en vez de 150. */
 .aviso-alergenos {
   flex: none;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
   padding: 9px 14px;
   background: var(--papel-2);
   border-top: var(--divider-dashed);
   border-bottom: var(--divider-dashed);
 }
 
+
 /* Qué se ha excluido, en tinta llena: es la parte que hay que poder leer de
    un vistazo empujando un carro. */
 .aviso-alergenos__que {
-  font: 600 13px/1.2 var(--font-mono);
+  font: 600 13px/1.2 var(--font-body);
   color: var(--tinta);
   letter-spacing: .04em;
   text-transform: uppercase;
 }
 
 .aviso-alergenos__texto {
-  font: 400 13px/1.45 var(--font-mono);
+  font: 400 13px/1.45 var(--font-body);
   color: var(--gris);
 }
 
-/* Dentro de una hoja, donde ya hay contexto y el ancho es menor. */
+/* Dentro de una hoja, donde ya hay contexto y el ancho es menor. Vuelve a
+   columna: ahí se dice entero y son dos frases. */
 .aviso-alergenos--compacto {
+  flex-direction: column;
   margin-top: 16px;
   padding: 9px 12px;
   border-radius: var(--radius-sm);

@@ -1,0 +1,806 @@
+{
+  "raciones_base": 2,
+  "lote": "vegetal-3",
+  "nota": "Nueve platos montados sobre tres fuentes que el menú vegetal no estaba usando: haba y edamame son familias nuevas de verdad —no otra alubia— y la alubia negra seca entra por precio, a 2,50 €/kg. Ninguna lleva garbanzo, soja texturizada, tofu ni quinoa, que es lo que copaba 8,6 de cada 12 platos.",
+  "recetas": [
+    {
+      "id": "habas_catalanas",
+      "nombre": "Habas a la catalana",
+      "minutos": 35,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "haba_congelada",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla y el pimiento y sofríelos en el aceite a fuego suave.",
+        "Añade el ajo picado y, con la cazuela fuera del fuego, el pimentón.",
+        "Echa el tomate triturado y el laurel y déjalo 10 minutos.",
+        "Suma las habas congeladas sin descongelar y sala.",
+        "Tapa y cuece 20 minutos a fuego bajo, hasta que las habas se aplasten."
+      ],
+      "nota": "La catalana lleva butifarra; sin ella el sofrito tiene que hacerse despacio o el plato sale plano."
+    },
+    {
+      "id": "habas_ajo_huevo",
+      "nombre": "Habas con ajo y huevo",
+      "minutos": 20,
+      "tags": [
+        "vegetariano",
+        "huevo",
+        "sarten",
+        "rapido",
+        "economico"
+      ],
+      "proteina": "huevo",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "haba_congelada",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Lamina el ajo y dóralo en el aceite sin que llegue a quemarse.",
+        "Añade la cebolla y el pimiento picados y hazlos 8 minutos.",
+        "Echa las habas congeladas, sala y tapa 8 minutos.",
+        "Aparta la sartén del fuego y espolvorea el pimentón.",
+        "Casca el huevo encima, tapa otra vez y deja que cuaje 3 minutos."
+      ],
+      "nota": "El huevo cuaja con el calor que queda en la sartén: si subes el fuego se seca."
+    },
+    {
+      "id": "habas_patata_horno",
+      "nombre": "Habas y patata al horno con pimentón",
+      "minutos": 45,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "horno",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "haba_congelada",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 grados.",
+        "Corta la patata en rodajas finas y la cebolla y el pimiento en tiras.",
+        "Mézclalo en la bandeja con el aceite, el ajo picado y la sal.",
+        "Hornea 30 minutos y remueve a media cocción.",
+        "Añade las habas y hornea 10 minutos más.",
+        "Espolvorea el pimentón nada más sacar la bandeja."
+      ],
+      "nota": "El pimentón se echa fuera del horno: dentro se quema y amarga toda la bandeja."
+    },
+    {
+      "id": "ensalada_templada_edamame_maiz",
+      "nombre": "Ensalada templada de edamame y maíz",
+      "minutos": 15,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "frio",
+        "rapido",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "edamame_congelado",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "maiz_dulce",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hierve el edamame 5 minutos con la sal y escúrrelo.",
+        "Escurre el maíz y pica el pimiento y la cebolla muy finos.",
+        "Mézclalo todo mientras el edamame sigue templado.",
+        "Aliña con el aceite, el zumo de limón y el orégano."
+      ],
+      "nota": "Se aliña en templado: el edamame frío no coge el aliño y sabe a agua."
+    },
+    {
+      "id": "salteado_edamame_calabacin",
+      "nombre": "Edamame salteado con calabacín",
+      "minutos": 18,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "verdura",
+        "sarten",
+        "rapido"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "edamame_congelado",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cubre el edamame con agua caliente 3 minutos y escúrrelo.",
+        "Corta el calabacín y el pimiento en dados del mismo tamaño.",
+        "Dora el ajo laminado en el aceite a fuego fuerte.",
+        "Echa el pimiento, luego el calabacín, y remueve 6 minutos.",
+        "Suma el edamame, sala, muele la pimienta y salta 2 minutos."
+      ],
+      "nota": "El calabacín suelta agua: si la sartén no está muy caliente, se cuece en vez de saltearse."
+    },
+    {
+      "id": "arroz_edamame_zanahoria",
+      "nombre": "Arroz con edamame y zanahoria",
+      "minutos": 30,
+      "tags": [
+        "vegano",
+        "arroz",
+        "olla",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 140,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "edamame_congelado",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "curcuma",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla y la zanahoria y sofríelas en el aceite 8 minutos.",
+        "Añade el ajo picado y la cúrcuma y remueve un minuto.",
+        "Echa el arroz y dale vueltas hasta que brille.",
+        "Vierte el agua hirviendo, sala y cuece 12 minutos a fuego medio.",
+        "Suma el edamame los últimos 5 minutos y apaga.",
+        "Deja el arroz tapado 3 minutos antes de llevarlo a la mesa."
+      ],
+      "nota": "Dos partes de agua por una de arroz: sale suelto y no hay que escurrir nada."
+    },
+    {
+      "id": "alubias_negras_guisadas",
+      "nombre": "Alubias negras guisadas con pimentón",
+      "minutos": 60,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_negra_seca",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 270,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon las alubias a remojo la noche antes y escúrrelas.",
+        "Cuécelas en el agua fría con el laurel a fuego muy suave, 50 minutos.",
+        "Pica la cebolla, el pimiento y la zanahoria en dados pequeños.",
+        "Sofríelos en el aceite con el ajo y, fuera del fuego, echa el pimentón.",
+        "Vuelca el sofrito en la olla, sala y cuece 10 minutos juntos."
+      ],
+      "nota": "El caldo sale casi negro: es el color de la alubia, no que se haya quemado.",
+      "foto": "alubias_negras_guisadas.webp"
+    },
+    {
+      "id": "alubias_negras_calabaza",
+      "nombre": "Alubias negras con calabaza y comino",
+      "minutos": 60,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_negra_seca",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 255,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabaza",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 0.8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Deja las alubias a remojo la noche antes y escúrrelas.",
+        "Cuécelas en el agua fría a fuego muy suave, 45 minutos.",
+        "Sofríe la cebolla picada en el aceite hasta que esté blanda.",
+        "Añade el ajo, y fuera del fuego el comino y el pimentón.",
+        "Echa el sofrito y la calabaza en dados a la olla y sala.",
+        "Cuece 15 minutos y aplasta unos dados de calabaza para que espese."
+      ],
+      "nota": "El comino de bote lleva trazas de trigo: si cocinas sin gluten, dobla el pimentón y quítalo."
+    },
+    {
+      "id": "alubias_negras_espinacas",
+      "nombre": "Alubias negras con espinacas",
+      "minutos": 55,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_negra_seca",
+          "parte": "principal",
+          "cantidad": 85,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 255,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Remoja las alubias la noche antes y escúrrelas.",
+        "Cuécelas en el agua fría a fuego muy suave, 45 minutos.",
+        "Pica la cebolla y échala a la olla a media cocción con la sal.",
+        "Dora el ajo laminado en el aceite y aparta la sartén del fuego.",
+        "Añade el pimentón y el vinagre al ajo y remueve.",
+        "Echa las espinacas a la olla, cuece 5 minutos y vuelca el refrito."
+      ],
+      "nota": "El chorro de vinagre en el refrito levanta la alubia negra, que sola es muy plana.",
+      "foto": "alubias_negras_espinacas.webp"
+    }
+  ]
+}

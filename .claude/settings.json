@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; New-Item -ItemType Directory -Force catalogo/fotos-brutas | Out-Null; Copy-Item public/recetas/merluza_salsa_verde.png catalogo/fotos-brutas/merluza_salsa_verde.png -Force; node catalogo/fotos.js 2>&1)",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; node -e \"const d=require\\('./src/data/motor-datos.json'\\); console.log\\('generadoEn:', d.generadoEn\\); console.log\\('nota:', \\(d.nota||''\\).slice\\(0,200\\)\\);\")",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; node catalogo/fotos.js --encender 2>&1 | Select-Object -Last 3)",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; npx tsx catalogo/generar.ts 2>&1 | Select-Object -Last 4; node catalogo/postres.js --escribir 2>&1 | Select-Object -Last 3; node catalogo/aplicar-precios.js 2>&1 | Select-Object -Last 5)",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; node catalogo/aplicar-precios.js catalogo/precios-2026-08-10.json 2>&1 | Select-Object -Last 8)",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; Remove-Item public/recetas/merluza_salsa_verde.png -Force; \"PNG original borrado de public/ \\(sigue en catalogo/fotos-brutas/\\)\"; Get-ChildItem public/recetas/ | Select-Object Name, @{n='KB';e={[math]::Round\\($_.Length/1KB\\)}})",
+      "PowerShell(Set-Location \"$env:USERPROFILE\\\\Desktop\\\\git_projects\\\\cunde\"; $env:BASE=\"http://localhost:5201\"; $env:ANCHO=\"390\"; $env:ALTO=\"844\"; $env:SALIDA=\"$env:TEMP\\\\cunde-foto\"; node \"$env:TEMP\\\\claude\\\\c--Users-iyiar-Desktop-git-projects-cunde\\\\2b20abd2-fcf7-40eb-a154-fc9155773078\\\\scratchpad\\\\conducir.mjs\" \"$env:TEMP\\\\claude\\\\c--Users-iyiar-Desktop-git-projects-cunde\\\\2b20abd2-fcf7-40eb-a154-fc9155773078\\\\scratchpad\\\\foto.mjs\" 2>&1)"
+    ]
+  }
+}

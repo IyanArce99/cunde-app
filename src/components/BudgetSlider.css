@@ -1,6 +1,23 @@
+/* ---------------------------------------------------------------------------
+   EL DESLIZADOR
+
+   Carril de 6 px y bola blanca con borde, no la barra de 2 px con cuadrado
+   azul que había antes. Dos motivos: 2 px de carril con un pulgar de 28 px
+   parecía un cuadrado suelto sobre una raya, y el azul lo empataba con el
+   botón de acción — aquí el azul no manda, manda la cifra de arriba.
+
+   El recorrido va en tinta: es lo mismo que llena la barra del tope en Semana,
+   y las dos cosas miden lo mismo. Un color distinto en cada sitio haría pensar
+   que miden cosas distintas.
+   --------------------------------------------------------------------------- */
+
 .budget-slider {
   position: relative;
-  height: 56px;
+  display: flex;
+  align-items: center;
+  /* 44 px de alto tocable con 6 px de carril pintado: el objetivo táctil no
+     puede ser el grosor de la línea. */
+  height: 44px;
   cursor: pointer;
   touch-action: none;
 }
@@ -9,32 +26,44 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 27px;
-  height: 2px;
-  background: var(--pauta);
+  height: 6px;
+  border-radius: 3px;
+  background: var(--linea-bloque);
 }
 
 .budget-slider__recorrido {
   position: absolute;
   left: 0;
-  top: 27px;
-  height: 2px;
-  background: var(--azulete);
+  height: 6px;
+  border-radius: 3px;
+  background: var(--tinta);
 }
 
 .budget-slider__pulgar {
   position: absolute;
-  top: 14px;
   width: 28px;
   height: 28px;
-  background: var(--azulete);
-  border-radius: var(--radius-box);
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--flecha);
+  /* Centrada sobre el punto, no desplazada por cálculo: así el borde de la
+     bola coincide con el extremo del carril en 0 % y en 100 %. */
+  transform: translateX(-50%);
+}
+
+.budget-slider:focus-visible {
+  outline: none;
+}
+
+.budget-slider:focus-visible .budget-slider__pulgar {
+  border-color: var(--tinta);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
 }
 
 .budget-slider__extremos {
   display: flex;
   justify-content: space-between;
-  font: 400 13px/1 var(--font-mono);
+  font: 400 12px/1 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
 }

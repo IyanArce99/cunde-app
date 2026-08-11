@@ -73,10 +73,38 @@ export interface Posicion {
   diaIndice: number;
 }
 
-export function posicionesDeSemana(numHuecos: number): Posicion[] {
+/**
+ * ═══ LOS SIETE DÍAS, EMPEZANDO POR DONDE TOCA ═══
+ *
+ * `orden` son los mismos siete nombres de `DIAS`, ROTADOS para que la posición
+ * 0 sea el día real en que el usuario empieza su semana. Empezando en viernes:
+ * VIE, SÁB, DOM, LUN, MAR, MIÉ, JUE.
+ *
+ * ═══ POR QUÉ SE ROTAN LOS NOMBRES Y NO SE SEPARAN DE LA POSICIÓN ═══
+ *
+ * Lo obvio habría sido dejar `LUN`–`DOM` como claves internas fijas y traducir
+ * a fechas solo en pantalla. Y habría roto la única regla del motor que depende
+ * del calendario de verdad: `esFinDeSemanaBueno` dice que el sábado por la
+ * noche y el domingo al mediodía se cocina y no se comen sobras, porque son las
+ * dos comidas por las que el usuario juzga la app. Con los nombres fijos, a
+ * quien empieza en viernes esa regla le caería en el miércoles y el jueves — y
+ * tendría sobras el sábado por la noche.
+ *
+ * Rotando, `esFinDeSemanaBueno` no se toca y sigue acertando, `Hueco.dia` pasa
+ * a ser VERDAD en vez de una convención (hoy dice LUN cuando se cocina un
+ * viernes), y el plan guardado no cambia de forma: mismos siete strings, cero
+ * migración de planes.
+ *
+ * `diaIndice` sigue siendo la POSICIÓN (0…6), que es lo que usan la distancia
+ * entre sobras y el reparto de minutos. Posición y nombre quedan separados sin
+ * inventar un tipo nuevo.
+ *
+ * Sin `orden`, se empieza en lunes: exactamente lo de siempre.
+ */
+export function posicionesDeSemana(numHuecos: number, orden: readonly string[] = DIAS): Posicion[] {
   const ranuras: Ranura[] = numHuecos >= 14 ? ['comida', 'cena'] : ['comida'];
   const posiciones: Posicion[] = [];
-  DIAS.forEach((dia, diaIndice) => {
+  orden.forEach((dia, diaIndice) => {
     for (const ranura of ranuras) posiciones.push({ dia, ranura, diaIndice });
   });
   return posiciones;

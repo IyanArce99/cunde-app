@@ -1,0 +1,991 @@
+{
+  "raciones_base": 2,
+  "lote": "vegano-2",
+  "nota": "Diez platos veganos escritos para romper la concentración del menú vegano: medido sobre semanas reales, soja texturizada, garbanzo y quinoa salían en 9,6 de cada 12 platos. Aquí la soja aparece una vez, el garbanzo dos (una de ellas como hummus) y la quinoa ninguna; el peso lo llevan las cuatro alubias y la lenteja, que estaban infrautilizadas pese a ser la proteína más barata del lineal. Ocho de las diez son sin gluten, que es el filtro que más apretaba.",
+  "recetas": [
+    {
+      "id": "potaje_alubia_calabaza",
+      "nombre": "Potaje de alubia con calabaza",
+      "minutos": 55,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_seca",
+          "parte": "principal",
+          "cantidad": 95,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 300,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabaza",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "puerro",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon las alubias a remojo la noche antes y escúrrelas.",
+        "Cuécelas en el agua fría con el laurel a fuego muy suave, 45 minutos.",
+        "Corta la calabaza, el puerro y la zanahoria en dados gordos.",
+        "Échalos a la olla a media cocción y sala.",
+        "Sofríe el ajo en el aceite, aparta del fuego y añade el pimentón.",
+        "Vuelca el sofrito y aplasta unos dados de calabaza para que espese."
+      ],
+      "nota": "La calabaza espesa el caldo sin harina y aguanta el recalentado del segundo día."
+    },
+    {
+      "id": "patatas_riojanas_alubia_pinta",
+      "nombre": "Patatas a la riojana con alubia pinta",
+      "minutos": 40,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_pinta_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pocha la cebolla, el pimiento y el ajo picados en el aceite, 10 minutos.",
+        "Aparta del fuego, echa el pimentón y remueve 20 segundos.",
+        "Chasca las patatas: clava el cuchillo y arranca el trozo.",
+        "Échalas a la olla con el laurel y cubre con el agua.",
+        "Cuece 20 minutos a fuego suave hasta que la patata esté tierna.",
+        "Añade la alubia escurrida, sala y dale 5 minutos más."
+      ],
+      "nota": "Sin chorizo el pimentón va doble y la patata se chasca en vez de cortarse: el almidón que suelta es lo único que liga el caldo."
+    },
+    {
+      "id": "lentejas_estofadas_puerro",
+      "nombre": "Lentejas estofadas con puerro",
+      "minutos": 40,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_pardina",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 320,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "puerro",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pocha el puerro y la zanahoria picados en el aceite, 8 minutos.",
+        "Añade el ajo, aparta del fuego y echa el pimentón.",
+        "Vuelve al fuego con las lentejas, el laurel y el agua.",
+        "Cuece 20 minutos y añade la patata en dados; sala.",
+        "Dale 12 minutos más, hasta que la patata esté tierna.",
+        "Echa los guisantes, cuece 3 minutos y apaga."
+      ],
+      "nota": "Los guisantes entran al final para que no se deshagan: son todo el color del plato."
+    },
+    {
+      "id": "arroz_verduras_alubia_colorante",
+      "nombre": "Arroz de verduras con alubia blanca",
+      "minutos": 35,
+      "tags": [
+        "vegano",
+        "arroz",
+        "legumbre",
+        "sarten"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 95,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "judia_verde",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alcachofa",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "colorante_alimentario",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Sofríe la judía verde y la alcachofa en el aceite a fuego fuerte, 6 minutos.",
+        "Añade el ajo y el pimiento picados y dale 3 minutos.",
+        "Echa el tomate y cocínalo hasta que pierda el agua.",
+        "Vuelca el arroz y el colorante y remueve un minuto.",
+        "Añade el agua caliente y la alubia escurrida; sala.",
+        "Cuece 18 minutos sin remover y deja reposar 5 fuera del fuego."
+      ],
+      "nota": "La alubia blanca hace aquí el papel del garrofón y entra con el agua, no antes: si se sofríe se rompe."
+    },
+    {
+      "id": "ensalada_alubia_roja_pimiento_asado",
+      "nombre": "Ensalada de alubia roja y pimiento asado",
+      "minutos": 45,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "horno",
+        "frio"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "alubia_roja_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "maiz_dulce",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceituna_verde",
+          "parte": "principal",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Asa los pimientos enteros 35 minutos, dándoles la vuelta a mitad.",
+        "Tápalos 10 minutos con un paño: así se pelan solos.",
+        "Pélalos, córtalos en tiras y recoge el jugo que sueltan.",
+        "Mezcla con la alubia escurrida, el maíz, la cebolla en pluma y la aceituna.",
+        "Aliña con el aceite, el vinagre, el orégano, la sal y ese jugo."
+      ],
+      "nota": "El jugo del pimiento asado es medio aliño. Si lo tiras, la ensalada sale seca."
+    },
+    {
+      "id": "berenjenas_rellenas_lenteja",
+      "nombre": "Berenjenas rellenas de lenteja",
+      "minutos": 50,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "horno",
+        "verdura"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Parte las berenjenas a lo largo, marca la carne en rejilla y riégalas con medio aceite.",
+        "Hornéalas 25 minutos boca arriba, hasta que se hundan.",
+        "Vacíalas dejando medio dedo de pared y pica la carne.",
+        "Sofríe la cebolla y el ajo en el resto del aceite, añade esa carne, el tomate frito, la lenteja y el orégano.",
+        "Sala, rellena, reparte la almendra picada y gratina 10 minutos."
+      ],
+      "nota": "La almendra picada hace el trabajo del queso rallado: cruje y dora."
+    },
+    {
+      "id": "espaguetis_bolonesa_lenteja",
+      "nombre": "Espaguetis a la boloñesa de lenteja",
+      "minutos": 35,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "espagueti",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "apio",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla, la zanahoria y el apio muy fino.",
+        "Sofríelos en el aceite a fuego suave 12 minutos, sin prisa.",
+        "Añade el ajo y el tomate y cocina 10 minutos hasta que espese.",
+        "Machaca la mitad de la lenteja y échala toda con el orégano; sala.",
+        "Cuece los espaguetis y mézclalos con la salsa y un poco de su agua."
+      ],
+      "nota": "Machacar solo la mitad de la lenteja es lo que da textura de picada; la otra mitad entera es lo que se nota al morder."
+    },
+    {
+      "id": "albondigas_soja_tomate",
+      "nombre": "Albóndigas de soja en salsa",
+      "minutos": 40,
+      "tags": [
+        "vegano",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "soja",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "harina_maiz",
+          "parte": "principal",
+          "cantidad": 22,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 16,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Hidrata la soja en el agua caliente 15 minutos y escúrrela apretando fuerte.",
+        "Mézclala con la harina de maíz, el ajo picado, el perejil y sal.",
+        "Aprieta la masa con las manos y forma bolas del tamaño de una nuez.",
+        "Dóralas en la mitad del aceite sin moverlas, hasta que agarren costra.",
+        "Sácalas, sofríe la cebolla y el pimiento en el resto del aceite y echa el pimentón fuera del fuego.",
+        "Añade el tomate, cocina 10 minutos y guisa las albóndigas dentro 8 minutos más."
+      ],
+      "nota": "La harina de maíz liga sin huevo y deja el plato sin gluten. Hay que apretar mucho las bolas o se abren en la sartén."
+    },
+    {
+      "id": "garbanzos_coliflor_pimenton",
+      "nombre": "Garbanzos con coliflor al pimentón",
+      "minutos": 25,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "rapido",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 190,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "coliflor",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta la coliflor en ramilletes pequeños y sécalos bien.",
+        "Dóralos en el aceite a fuego fuerte 8 minutos, removiendo poco.",
+        "Baja el fuego, añade el ajo laminado y deja que tome color.",
+        "Aparta del fuego y echa el pimentón y el vinagre de golpe.",
+        "Vuelve al fuego con los garbanzos escurridos, sala y saltea 5 minutos.",
+        "Espolvorea el perejil y sirve."
+      ],
+      "nota": "Dorada a fuego fuerte, la coliflor no sabe a coliflor cocida. Es el mismo gesto que un ajillo de toda la vida.",
+      "foto": "garbanzos_coliflor_pimenton.webp"
+    },
+    {
+      "id": "hummus_verduras_asadas",
+      "nombre": "Hummus con verduras asadas",
+      "minutos": 45,
+      "tags": [
+        "vegano",
+        "legumbre",
+        "horno",
+        "verdura",
+        "cena"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "hummus",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cacahuete",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pan",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "comino",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 210 °C.",
+        "Corta el calabacín, el pimiento, la berenjena y la cebolla en tiras gordas.",
+        "Extiéndelas en la bandeja sin amontonar, riega con el aceite y sala.",
+        "Asa 30 minutos, removiendo una vez, hasta que tengan los bordes tostados.",
+        "Extiende el hummus frío en el plato y vuelca encima la verdura caliente.",
+        "Reparte el cacahuete picado y el comino, y moja con el pan."
+      ],
+      "nota": "El hummus va debajo y frío: el contraste con la verdura recién salida del horno es todo el plato."
+    }
+  ]
+}

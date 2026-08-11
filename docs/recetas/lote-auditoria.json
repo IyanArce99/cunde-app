@@ -430,7 +430,8 @@
         "Incorpora los champiñones laminados.",
         "Tapa y cocina 15 minutos a fuego suave, moviendo de vez en cuando.",
         "Sirve con el jugo de la sartén."
-      ]
+      ],
+      "foto": "jamoncitos_ajillo_champinones.webp"
     },
     {
       "id": "revuelto_gambas_calabacin",
@@ -581,7 +582,8 @@
         "Añade la soja y el tomate; sala, pon el orégano y guisa 10 minutos.",
         "Cuece los macarrones en agua con sal y escúrrelos.",
         "Mezcla la salsa con la pasta y sirve."
-      ]
+      ],
+      "foto": "bolonesa_soja_macarrones.webp"
     },
     {
       "id": "tofu_tomate_arroz",
@@ -738,7 +740,8 @@
         "Añade la soja y saltéala 3 minutos hasta que tome color.",
         "Incorpora los garbanzos escurridos y las espinacas; sala.",
         "Saltea 5 minutos, remata con el pimentón y sirve."
-      ]
+      ],
+      "foto": "garbanzos_soja_espinacas.webp"
     }
   ]
 }

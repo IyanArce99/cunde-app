@@ -1,147 +1,204 @@
-.presupuesto__cabecera {
-  padding: 10px 0 12px;
-  border-bottom: var(--divider-dashed);
-  flex: none;
-}
-
-.presupuesto__cabecera-fila {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.presupuesto__marca {
-  display: block;
-  height: 16px;
-  width: auto;
-}
-
-.presupuesto__paso {
-  font: 400 13px/1 var(--font-mono);
-  color: var(--gris);
-}
-
-/* Lo que viene. Cabe en el ticket, no cuesta un toque y dice que el producto
-   crece sin prometer una fecha. En --pauta daba 2.12:1: no es un control
-   deshabilitado —que estaría exento— sino texto informativo, y se leía peor
-   que ninguna otra línea de la pantalla más frágil del embudo. */
-.presupuesto__proximamente {
-  display: block;
-  margin-top: 6px;
-  text-align: right;
-  font: 400 13px/1 var(--font-mono);
-  color: var(--gris);
-}
-
 .presupuesto__cuerpo {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  /* Estos cuatro huecos se afinaron cuando la cabecera medía 94 px. Ahora que
-     las tres líneas del resumen son pulsables mide 179, y con los valores
-     antiguos la pantalla se pasaba 34 px en un iPhone SE. Lo que se recorta
-     aquí es aire, no contenido: en pantallas altas el sobrante se lo queda de
-     todos modos el hueco de abajo, que tenía 330 px libres. */
-  padding-top: 18px;
-  overflow-y: auto;
 }
 
 .presupuesto__pregunta {
   margin: 0;
-  font: 600 22px/1.25 var(--font-display);
+  font: 600 25px/1.2 var(--font-body);
+  letter-spacing: -.025em;
   color: var(--tinta);
 }
 
-/* Al irse los dos selectores esta pantalla se quedó con mucho aire y la cifra
-   —que es lo único que importa aquí— caía por debajo de la mitad. Se apoya
-   arriba en vez de centrarse: el aire sobrante queda entre el deslizador y el
-   botón, que es donde no estorba. */
-.presupuesto__centro {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 28px;
-  padding-bottom: 10px;
-}
+/* ---------------------------------------------------------------------------
+   LA CIFRA
+
+   88 px. Es la única decisión de esta pantalla y no compite con nada; la regla
+   de la casa dice que la cifra en euros manda. El símbolo va aparte, pequeño y
+   en gris: al mismo cuerpo se lleva un tercio del ancho para decir una unidad
+   que ya se da por sabida.
+   --------------------------------------------------------------------------- */
 
 .presupuesto__cifra {
-  font: 700 56px/1 var(--font-display);
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 22px;
+}
+
+.presupuesto__cifra-numero {
+  font: 700 88px/.84 var(--font-display);
+  letter-spacing: -.055em;
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.02em;
+}
+
+.presupuesto__cifra-moneda {
+  margin-top: 7px;
+  font: 600 28px/1 var(--font-body);
+  color: var(--gris);
 }
 
 .presupuesto__por-dia {
-  margin-top: 12px;
-  font: 400 15px/1 var(--font-mono);
-  color: var(--tinta);
+  margin-top: 20px;
+  font: 400 14px/1 var(--font-body);
+  color: var(--gris);
   font-variant-numeric: tabular-nums;
 }
 
 .presupuesto__slider {
-  margin-top: 28px;
+  margin-top: 26px;
 }
 
-.presupuesto__resumen {
-  margin-top: 24px;
-  padding-top: 14px;
-  border-top: var(--divider-dashed);
+/* ---------------------------------------------------------------------------
+   LO QUE SALE CON ESE TOPE
+
+   Una cifra y una línea de contexto, sin caja. Antes eran dos filas dentro de
+   un recuadro con borde y las dos cifras pesaban lo mismo, así que ninguna
+   mandaba. El precio de la ración es el número con el que se compara por fuera
+   —un menú del día, un táper—; las comidas, los comensales y las recetas vivas
+   son el contexto que lo hace legible, no otro dato del mismo rango.
+
+   Sin borde: el filete de arriba ya lo separa del deslizador, y una caja más en
+   una pantalla que ya tiene la cifra grande compite con ella.
+   --------------------------------------------------------------------------- */
+
+.presupuesto__resultado {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--linea-bloque);
 }
+
+.presupuesto__resultado-fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.presupuesto__resultado-rotulo {
+  font: 400 17px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
+.presupuesto__resultado-cifra {
+  font: 700 var(--text-xl)/1 var(--font-display);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.presupuesto__resultado-detalle {
+  margin-top: 6px;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------------------
+   NO CUADRA · salida, nunca muro
+
+   Sin fondo de alarma: no es un error del usuario, es que el recetario no da
+   para ese dinero. Se dice cuánto falta y se ofrece ponerlo de un toque.
+   --------------------------------------------------------------------------- */
 
 .presupuesto__aviso {
-  margin-top: 26px;
-  padding: 14px 16px;
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: var(--crema);
+  border: var(--border-rest);
+  /* Un filete rojo en el canto, no el recuadro entero en rojo. Marca el sitio
+     sin gritar: el usuario no ha hecho nada mal, es que el recetario no da
+     para ese dinero. */
   border-left: 3px solid var(--roja);
-  background: var(--papel-2);
+  border-radius: var(--radius-boton);
 }
 
 .presupuesto__aviso-texto {
   margin: 0;
-  font: 400 15px/1.5 var(--font-mono);
+  font: 400 14px/1.5 var(--font-body);
   color: var(--tinta);
-}
-
-.presupuesto__aviso-acciones {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  text-wrap: pretty;
 }
 
 .presupuesto__aviso-subir {
-  min-height: var(--tap-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 14px;
   padding: 0 16px;
-  background: var(--azulete);
-  color: var(--papel);
-  border: none;
-  border-radius: var(--radius-sm);
+  background: var(--crema);
+  border: var(--border-selected);
+  border-radius: 12px;
+  color: var(--tinta);
   font: 600 15px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
   cursor: pointer;
 }
 
-/* Va en azulete y no en gris: es la otra salida, no una nota al pie. Además
-   --gris se queda en 4.17:1 sobre --papel-2 —pasa sobre papel, no sobre la
-   franja— y esto solo aparece cuando el presupuesto no cuadra, que es cuando
-   más falta hace poder leerlo. */
-.presupuesto__aviso-volver {
-  min-height: 48px;
-  padding: 0;
+.presupuesto__pie {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* ---------------------------------------------------------------------------
+   FUERA DEL MENÚ
+
+   Una fila, no una pregunta. Quien no excluye nada —la mayoría— no paga nada
+   por ella; quien sí, lee lo que lleva puesto antes de tocar "Ver mi semana".
+   Va con filete arriba porque cierra la pantalla, no porque agrupe.
+   --------------------------------------------------------------------------- */
+
+.presupuesto__fuera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 12px 0;
   background: none;
   border: none;
-  color: var(--azulete);
-  font: 400 13px/1 var(--font-mono);
-  text-decoration: underline;
+  border-top: 1px solid var(--linea-bloque);
   cursor: pointer;
   text-align: left;
 }
 
-.presupuesto__nota {
-  margin-top: 14px;
-  text-align: center;
-  font: 400 13px/1 var(--font-mono);
+.presupuesto__fuera-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.presupuesto__fuera-rotulo {
+  font: 400 13px/1 var(--font-body);
   color: var(--gris);
+}
+
+.presupuesto__fuera-resumen {
+  font: 500 13px/1.3 var(--font-body);
+  color: var(--tinta);
+  overflow-wrap: anywhere;
+}
+
+.presupuesto__fuera-cambiar {
+  flex: none;
+  font: 600 13px/1 var(--font-body);
+  color: var(--azulete);
+  white-space: nowrap;
+}
+
+.presupuesto__nota {
+  font: 400 13px/1 var(--font-body);
+  color: var(--gris);
+  text-align: center;
 }

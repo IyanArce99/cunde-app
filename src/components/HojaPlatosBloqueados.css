@@ -1,0 +1,70 @@
+.bloqueados__intro,
+.bloqueados__vacio {
+  margin: 10px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--gris);
+  text-wrap: pretty;
+}
+
+.bloqueados__lista {
+  margin-top: 18px;
+  padding-top: 6px;
+  border-top: 1px solid var(--linea-bloque);
+}
+
+.bloqueados__fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--linea-fila);
+}
+
+.bloqueados__texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.bloqueados__nombre {
+  display: block;
+  font: 600 16px/1.25 var(--font-body);
+  color: var(--tinta);
+  overflow-wrap: anywhere;
+}
+
+/* El plato que ya no está en el recetario. En gris y no tachado: tachar diría
+   "esto está mal" y no lo está — la preferencia sigue siendo válida, lo que ha
+   cambiado es el catálogo. Ver `nombresDeBloqueados`. */
+.bloqueados__nombre--ido {
+  color: var(--gris);
+  font-weight: 500;
+}
+
+.bloqueados__meta {
+  display: block;
+  margin-top: 4px;
+  font: 400 12px/1.3 var(--font-body);
+  color: var(--pauta);
+}
+
+/* Contorno, no relleno: devolver un plato es una acción menor y reversible, y
+   hay una por fila. Con relleno tinta, seis filas serían seis botones negros
+   compitiendo con el principal de abajo. */
+.bloqueados__permitir {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 14px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-chip);
+  color: var(--tinta);
+  font: 600 13px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.bloqueados__lista + .primary-button,
+.bloqueados__vacio + .primary-button {
+  margin-top: 24px;
+}

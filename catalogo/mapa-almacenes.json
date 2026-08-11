@@ -1,0 +1,485 @@
+{
+  "medidoEn": "2026-08-10",
+  "pedidos": 832,
+  "resueltos": 387,
+  "almacenes": {
+    "2129": [
+      "Granada"
+    ],
+    "2183": [
+      "Granada"
+    ],
+    "2275": [
+      "Cáceres"
+    ],
+    "2319": [
+      "Cáceres",
+      "Badajoz"
+    ],
+    "2382": [
+      "Soria"
+    ],
+    "2581": [
+      "Ciudad Real",
+      "Albacete"
+    ],
+    "2582": [
+      "La Rioja"
+    ],
+    "2595": [
+      "S.C. Tenerife"
+    ],
+    "2623": [
+      "Granada"
+    ],
+    "2637": [
+      "Tarragona"
+    ],
+    "2749": [
+      "Lleida"
+    ],
+    "2762": [
+      "Valencia"
+    ],
+    "2829": [
+      "Girona"
+    ],
+    "2875": [
+      "Castellón"
+    ],
+    "2946": [
+      "León"
+    ],
+    "3078": [
+      "Asturias"
+    ],
+    "3118": [
+      "Guadalajara"
+    ],
+    "3280": [
+      "S.C. Tenerife"
+    ],
+    "3497": [
+      "Badajoz"
+    ],
+    "3563": [
+      "Cádiz"
+    ],
+    "3632": [
+      "Zaragoza"
+    ],
+    "3669": [
+      "Cantabria"
+    ],
+    "3681": [
+      "Salamanca"
+    ],
+    "3683": [
+      "León"
+    ],
+    "3684": [
+      "Toledo"
+    ],
+    "3697": [
+      "Valladolid"
+    ],
+    "3718": [
+      "Zaragoza"
+    ],
+    "3729": [
+      "S.C. Tenerife"
+    ],
+    "3750": [
+      "Zaragoza"
+    ],
+    "3758": [
+      "Asturias"
+    ],
+    "3769": [
+      "Córdoba"
+    ],
+    "3836": [
+      "S.C. Tenerife"
+    ],
+    "3842": [
+      "Baleares"
+    ],
+    "3855": [
+      "S.C. Tenerife"
+    ],
+    "3880": [
+      "Palencia"
+    ],
+    "3885": [
+      "Las Palmas"
+    ],
+    "3889": [
+      "Baleares"
+    ],
+    "3902": [
+      "Las Palmas"
+    ],
+    "3919": [
+      "Almería"
+    ],
+    "3928": [
+      "Zaragoza"
+    ],
+    "3930": [
+      "La Rioja",
+      "Burgos"
+    ],
+    "3943": [
+      "Girona"
+    ],
+    "3947": [
+      "Tarragona"
+    ],
+    "3950": [
+      "Tarragona"
+    ],
+    "3951": [
+      "Girona"
+    ],
+    "3966": [
+      "Barcelona"
+    ],
+    "3968": [
+      "Granada"
+    ],
+    "4025": [
+      "Girona"
+    ],
+    "4028": [
+      "Granada"
+    ],
+    "4045": [
+      "Cantabria"
+    ],
+    "4055": [
+      "Cáceres"
+    ],
+    "4068": [
+      "Barcelona"
+    ],
+    "4069": [
+      "Girona"
+    ],
+    "4077": [
+      "Segovia"
+    ],
+    "4088": [
+      "Lleida"
+    ],
+    "4113": [
+      "Girona"
+    ],
+    "4115": [
+      "Lleida"
+    ],
+    "4140": [
+      "Pontevedra"
+    ],
+    "4153": [
+      "Barcelona"
+    ],
+    "4166": [
+      "A Coruña"
+    ],
+    "4167": [
+      "Barcelona"
+    ],
+    "4168": [
+      "Jaén"
+    ],
+    "4171": [
+      "Barcelona"
+    ],
+    "4211": [
+      "Navarra"
+    ],
+    "4229": [
+      "Navarra"
+    ],
+    "4230": [
+      "Navarra"
+    ],
+    "4241": [
+      "Guadalajara"
+    ],
+    "4242": [
+      "Baleares"
+    ],
+    "4256": [
+      "Las Palmas"
+    ],
+    "4290": [
+      "Gipuzkoa"
+    ],
+    "4294": [
+      "Barcelona"
+    ],
+    "4308": [
+      "Bizkaia"
+    ],
+    "4311": [
+      "Granada"
+    ],
+    "4313": [
+      "Girona"
+    ],
+    "4315": [
+      "Asturias"
+    ],
+    "4331": [
+      "Gipuzkoa"
+    ],
+    "4338": [
+      "Gipuzkoa"
+    ],
+    "4346": [
+      "Burgos"
+    ],
+    "4353": [
+      "Córdoba"
+    ],
+    "4354": [
+      "Almería"
+    ],
+    "4364": [
+      "Gipuzkoa"
+    ],
+    "4375": [
+      "La Rioja"
+    ],
+    "4377": [
+      "Las Palmas"
+    ],
+    "4385": [
+      "Castellón"
+    ],
+    "4389": [
+      "Huesca"
+    ],
+    "4391": [
+      "Bizkaia"
+    ],
+    "4402": [
+      "Melilla"
+    ],
+    "4405": [
+      "Ciudad Real"
+    ],
+    "4416": [
+      "Girona"
+    ],
+    "4418": [
+      "Las Palmas"
+    ],
+    "4425": [
+      "Castellón"
+    ],
+    "4434": [
+      "S.C. Tenerife"
+    ],
+    "4436": [
+      "Ceuta"
+    ],
+    "4443": [
+      "Huelva"
+    ],
+    "4450": [
+      "Lugo"
+    ],
+    "4458": [
+      "Córdoba"
+    ],
+    "4471": [
+      "Ávila"
+    ],
+    "4472": [
+      "Castellón"
+    ],
+    "4480": [
+      "Asturias"
+    ],
+    "4483": [
+      "Toledo"
+    ],
+    "4484": [
+      "Barcelona"
+    ],
+    "4493": [
+      "Zaragoza"
+    ],
+    "4509": [
+      "Huesca"
+    ],
+    "4519": [
+      "Baleares"
+    ],
+    "4522": [
+      "Cantabria"
+    ],
+    "4526": [
+      "Lleida"
+    ],
+    "4544": [
+      "Jaén"
+    ],
+    "4556": [
+      "Toledo"
+    ],
+    "4558": [
+      "Castellón"
+    ],
+    "4562": [
+      "Badajoz"
+    ],
+    "4568": [
+      "Toledo"
+    ],
+    "4569": [
+      "Huesca"
+    ],
+    "4570": [
+      "Las Palmas"
+    ],
+    "4572": [
+      "Bizkaia"
+    ],
+    "4579": [
+      "Tarragona"
+    ],
+    "4582": [
+      "Baleares"
+    ],
+    "4587": [
+      "Albacete"
+    ],
+    "4592": [
+      "Ourense"
+    ],
+    "4606": [
+      "Cuenca"
+    ],
+    "4608": [
+      "Tarragona"
+    ],
+    "4631": [
+      "S.C. Tenerife"
+    ],
+    "4632": [
+      "Murcia"
+    ],
+    "4644": [
+      "Ciudad Real"
+    ],
+    "4655": [
+      "Pontevedra"
+    ],
+    "4659": [
+      "Toledo"
+    ],
+    "4660": [
+      "Toledo"
+    ],
+    "4661": [
+      "Córdoba"
+    ],
+    "4665": [
+      "Teruel"
+    ],
+    "4670": [
+      "Almería"
+    ],
+    "4671": [
+      "La Rioja"
+    ],
+    "4673": [
+      "Zamora"
+    ],
+    "4677": [
+      "Las Palmas"
+    ],
+    "4678": [
+      "Cádiz"
+    ],
+    "4687": [
+      "Baleares"
+    ],
+    "4697": [
+      "Álava"
+    ],
+    "4701": [
+      "Las Palmas"
+    ],
+    "4705": [
+      "Cádiz"
+    ],
+    "4708": [
+      "Tarragona"
+    ],
+    "4727": [
+      "Valencia"
+    ],
+    "4732": [
+      "Zaragoza"
+    ],
+    "4735": [
+      "Valladolid"
+    ],
+    "4745": [
+      "Las Palmas"
+    ],
+    "4766": [
+      "A Coruña"
+    ],
+    "4770": [
+      "Badajoz"
+    ],
+    "4771": [
+      "Murcia"
+    ],
+    "4778": [
+      "Cantabria"
+    ],
+    "4781": [
+      "Baleares"
+    ],
+    "4785": [
+      "Salamanca"
+    ],
+    "4804": [
+      "A Coruña"
+    ],
+    "4808": [
+      "La Rioja"
+    ],
+    "svq1": [
+      "Cádiz",
+      "Huelva",
+      "Sevilla"
+    ],
+    "vlc1": [
+      "Castellón",
+      "Valencia"
+    ],
+    "mad3": [
+      "Madrid"
+    ],
+    "mad2": [
+      "Madrid"
+    ],
+    "mad1": [
+      "Madrid"
+    ],
+    "alc1": [
+      "Murcia",
+      "Alicante"
+    ],
+    "bcn1": [
+      "Barcelona"
+    ]
+  }
+}

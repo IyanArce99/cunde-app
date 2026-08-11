@@ -1,0 +1,124 @@
+/* El mismo filete y la misma altura que las filas del motor: se usan igual, se
+   ven igual. Lo que cambia es el contenido, no el sistema. */
+.fila-extra {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  border-bottom: 1px solid var(--linea-fila);
+}
+
+.fila-extra__principal {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  /* 62 y no 76: un extra tiene dos líneas y las del motor tienen tres (nombre,
+     formato y precio, y el "para: ..."). Con 76 quedaría un hueco de aire
+     debajo del precio que se lee como si faltara algo. */
+  min-height: 62px;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.fila-extra__texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fila-extra__nombre {
+  font: 500 17px/1.25 var(--font-body);
+  color: var(--tinta);
+  overflow-wrap: anywhere;
+}
+
+/* Tachado y en gris, igual que un producto del motor ya cogido. La regla de
+   accesibilidad del proyecto pide no usar solo el color: aquí van los dos —el
+   tachado y la casilla marcada— y además `aria-checked` lo dice. */
+.fila-extra__nombre--marcado {
+  color: var(--gris);
+  text-decoration: line-through;
+}
+
+.fila-extra__precio {
+  font: 600 15px/1 var(--font-body);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* La ausencia de un dato no es un dato: va en gris y sin negrita, para que no
+   se lea como una cifra. Ver el comentario de FilaExtra.tsx. */
+.fila-extra__precio--sin {
+  font-weight: 400;
+  color: var(--gris);
+}
+
+/* Los tres puntos: abre la hoja para poner precio o quitarlo. No es un icono
+   nuevo — es el mismo recurso tipográfico que ya usa la app para "hay más
+   detrás" (el «···» de los precios que se están calculando). */
+.fila-extra__editar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  background: none;
+  border: none;
+  color: var(--gris);
+  font: 600 17px/1 var(--font-body);
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+   AÑADIR OTRA COSA
+
+   Una línea más del ticket, no un botón flotante. Un botón flotante taparía
+   producto en la pantalla que se recorre de pie, y además diría que esto es una
+   acción principal — y no lo es: lo principal aquí es la lista del menú.
+   --------------------------------------------------------------------------- */
+
+.compra__anadir {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 14px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--linea-fila);
+  color: var(--tinta);
+  font: 500 15px/1 var(--font-body);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* El «+» ocupa la columna de las casillas para que la fila se alinee con las
+   de arriba. Es un signo tipográfico, no un icono. */
+.compra__anadir-mas {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  color: var(--gris);
+  font: 400 19px/1 var(--font-body);
+}
+
+/* Cuando no hay ningún extra todavía. Una línea, no un estado vacío ilustrado:
+   la sección solo existe si el usuario ha añadido algo o va a añadirlo. */
+.compra__extras-vacio {
+  padding: 12px 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--gris);
+  border-bottom: 1px solid var(--linea-fila);
+}

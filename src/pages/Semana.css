@@ -1,16 +1,19 @@
 .semana__resumen,
 .semana__gate-cabecera {
-  padding: 20px 30px 0;
+  padding: 20px var(--margen-lateral) 0;
   flex: none;
 }
 
 .semana__etiqueta {
-  font: 500 13px/1 var(--font-mono);
-  letter-spacing: 0;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .12em;
   color: var(--gris);
 }
 
 .semana__cifra {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 3px;
   font: 700 56px/1 var(--font-display);
   transition: font-size 140ms ease;
   color: var(--tinta);
@@ -18,15 +21,7 @@
   letter-spacing: -.02em;
 }
 
-.semana__barra {
-  margin-top: 18px;
-  height: 10px;
-  background: var(--barra-fondo);
-}
 
-.semana__barra-relleno {
-  height: 100%;
-}
 
 /* En cualquier otro sitio de la app, una fila de puntos es un dato ("Súper
    ···· Mercadona"). Aquí es la única que además es un botón: le damos a
@@ -50,22 +45,40 @@
   flex-direction: column;
 }
 
+/* Rótulo de las 21 cifras de abajo. En el margen lateral, no dentro del scroll:
+   se queda quieto mientras la lista corre, que es lo que hace un encabezado de
+   columna. Ver el porqué en Semana.tsx. */
+.semana__dias-rotulo {
+  flex: none;
+  padding: 0 var(--margen-lateral) 8px;
+  font: 400 12px/1 var(--font-body);
+  color: var(--gris);
+}
+
 .semana__dias {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   padding-inline: var(--margen-lateral);
+  /* Aire al final de la lista.
+     Medido: sin esto el padding de abajo era 0, así que al llegar al fondo la
+     última tarjeta acababa EXACTAMENTE en el filete del pie, sin un píxel de
+     margen. Se leía como una tarjeta cortada por el botón, no como el final de
+     la lista. Los mismos 12 px que separan las tarjetas entre sí: el final
+     también es una separación. */
+  padding-bottom: 12px;
   display: flex;
   flex-direction: column;
-  /* Sin gap: F6 son líneas seguidas de un ticket, no tarjetas separadas. La
-     separación la da la cabecera de cada día y el filete entre huecos. */
+  /* Ahora sí hay gap: los días son tarjetas separadas, no líneas seguidas de
+     un ticket. */
+  gap: 12px;
 }
 
 /* Restricciones sin cobertura: se ofrecen las salidas, nunca el muro. Sin
    fondo de alarma — es una decisión que tomar, no un error del usuario. */
 .semana__sin-cobertura {
   flex: none;
-  margin: 12px 30px 0;
+  margin: 12px var(--margen-lateral) 0;
   padding: 12px 14px;
   border: var(--border-rest);
   border-radius: var(--radius-sm);
@@ -73,7 +86,7 @@
 
 .semana__sin-cobertura-texto {
   margin: 0 0 6px;
-  font: 400 15px/1.4 var(--font-mono);
+  font: 400 15px/1.4 var(--font-body);
   color: var(--tinta);
 }
 
@@ -96,9 +109,58 @@
 
 .semana__pie {
   flex: none;
-  padding: 12px 30px 34px;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  /**
+   * 16 ABAJO, NO 34. EL 34 ESTABA CONTANDO DOS VECES.
+   *
+   * `.pantalla` ya aplica `padding-bottom: env(safe-area-inset-bottom)`, así que
+   * estos 34 px iban ENCIMA de la barra de gestos, no en su lugar: en un móvil
+   * con inset de 24 px quedaban 58 px de nada debajo del botón principal.
+   * En el navegador, donde el inset es 0, se veían los 34 pelados y por eso
+   * cantaban tanto.
+   *
+   * 16 fijos: en un móvil moderno son inset + 16, y en uno con botones físicos
+   * —inset 0— quedan 16, que es el aire mínimo para que el botón no nazca del
+   * canto de la pantalla. Lo mismo en el pie de Compra.
+   */
+  padding: 12px var(--margen-lateral) 16px;
   background: var(--papel);
   border-top: var(--divider-dashed);
+}
+
+/* El principal se queda TODO el ancho que sobra: sigue siendo el camino por
+   defecto de la pantalla y tiene que seguir pareciéndolo. */
+.semana__pie-principal {
+  flex: 1;
+  min-width: 0;
+}
+
+/**
+ * COMPARTIR: cuadrado, contorno, sin relleno.
+ *
+ * Con fondo de tinta serían dos botones negros del mismo peso uno al lado del
+ * otro y la pantalla dejaría de tener una acción principal. Con contorno se ve,
+ * se pulsa y no discute.
+ *
+ * 56 px de lado (--tap-min): cuadrado y no un rectángulo estrecho, porque esto
+ * se toca con el pulgar y un objetivo de 32 px de ancho falla una de cada
+ * tres veces.
+ */
+.semana__compartir {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  min-height: var(--tap-min);
+  padding: 0;
+  background: transparent;
+  border: 1.5px solid var(--pauta);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  cursor: pointer;
 }
 
 .semana__sobrante--menor .semana__sobrante-titulo {
@@ -122,7 +184,7 @@
   overflow-y: auto;
   /* El margen lateral lo pone la cabecera, no `.pantalla`: el contenedor de
      los días tiene el suyo propio para que el scroll llegue a los bordes. */
-  padding: 12px 30px 14px;
+  padding: 12px var(--margen-lateral) 14px;
 }
 
 /* El rótulo lleva la entrada a los ajustes en la misma línea. Era una fila de
@@ -141,15 +203,21 @@
   cursor: pointer;
 }
 
-.semana__rotulo-guia {
-  flex: 1;
-  border-bottom: var(--divider-dotted);
-  transform: translateY(-4px);
+/* "Ajustar ›" a la derecha, como enlace. El azul del rediseño es LA acción y
+   está reservado a esto; el subrayado con separación es lo que lo hace leer
+   como enlace y no como una etiqueta azul cualquiera. */
+.semana__rotulo-accion {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: 600 13px/1 var(--font-body);
+  color: var(--azulete);
 }
 
-.semana__rotulo-accion {
-  font: 500 13px/1 var(--font-mono);
-  color: var(--azulete);
+.semana__rotulo-accion-texto {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* La cifra y el saldo en la misma línea: el segundo dato de la pantalla al lado
@@ -166,59 +234,87 @@
   flex-wrap: wrap;
 }
 
+/* CHIP, NO CAJA. Antes era un recuadro ámbar con borde de dos líneas, que
+   pesaba tanto como la cifra de 56 px que tiene al lado. Ahora es una píldora
+   azul clara de una línea: sigue siendo el segundo dato de la pantalla, pero
+   deja de competir con el primero. */
 .semana__saldo {
+  position: relative;
   margin-left: auto;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
-  min-height: 48px;
-  padding: 6px 0 6px 10px;
-  background: var(--oferta-fondo);
-  border: 1.5px solid var(--oferta-borde);
-  border-radius: var(--radius-sm);
-  padding-right: 6px;
+  min-height: 34px;
+  padding: 7px 12px;
+  background: var(--azulete-chip);
+  border: none;
+  border-radius: var(--radius-chip);
   cursor: pointer;
   text-align: right;
 }
 
+/**
+ * El chip mide 34 px de alto porque es lo que pide el diseño, pero se toca de
+ * pie y con una mano. Se le extiende el área sensible con un pseudoelemento
+ * hasta los 44, sin tocar ni un píxel de lo que se ve.
+ *
+ * Solo cuando es botón: el sobrante pequeño no se toca, así que no necesita
+ * área ninguna.
+ */
+button.semana__saldo::before {
+  content: '';
+  position: absolute;
+  inset: -5px -4px;
+}
+
+/* Sobre el chip lavanda, no sobre el papel: ver --azulete-sobre-chip. */
 .semana__saldo-titulo {
-  font: 500 13px/1.3 var(--font-mono);
-  color: var(--tinta);
+  font: 600 13px/1 var(--font-body);
+  color: var(--azulete-sobre-chip);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .semana__saldo-flecha {
-  font-family: var(--font-mono);
-  color: var(--azulete);
+  font-family: var(--font-body);
+  color: var(--azulete-sobre-chip);
 }
 
-/* Sobrante pequeño o exceso: sin caja de oferta. El amarillo solo cuando hay
-   una acción que merezca color (ver UMBRAL_SOBRANTE). */
-.semana__saldo--menor,
+/* Pasarse del tope es la única alarma de la app: el chip cambia de familia de
+   color, no solo de tono. */
 .semana__saldo--negativo {
-  background: transparent;
-  border-color: transparent;
+  background: rgba(217, 58, 43, .10);
 }
 
-.semana__contexto {
-  margin-top: 8px;
-  font: 400 13px/1.5 var(--font-mono);
+/* Sobre el chip rojo al 10%, no sobre el papel: ver --roja-sobre-chip. */
+.semana__saldo--negativo .semana__saldo-titulo,
+.semana__saldo--negativo .semana__saldo-flecha {
+  color: var(--roja-sobre-chip);
+}
+
+/* Sobrante pequeño: no hay nada que hacer con veinte céntimos, así que ni chip
+   ni color. Es un dato. Ver UMBRAL_SOBRANTE. */
+.semana__saldo--menor {
+  background: transparent;
+  padding-inline: 0;
+}
+
+.semana__saldo--menor .semana__saldo-titulo {
   color: var(--gris);
-  font-variant-numeric: tabular-nums;
 }
 
 /* --- ESTADO COLAPSADO ------------------------------------------------------
    Al leer los días, la cabecera se queda en una línea. No se oculta: la cifra
    sigue en pantalla, más pequeña, con el saldo al lado. Se anima solo la
    escala y la opacidad —nada de height— y se respeta reduced-motion. */
-.semana__resumen--compacta .semana__rotulo,
-.semana__resumen--compacta .semana__barra,
-.semana__resumen--compacta .semana__contexto {
+/* Al colapsar se va el rótulo; quedan la cifra y el saldo, que son los dos
+   datos que no pueden desaparecer de esta pantalla. */
+.semana__resumen--compacta .semana__rotulo {
   display: none;
 }
 
 .semana__resumen--compacta {
-  padding: 8px 30px 10px;
+  padding: 8px var(--margen-lateral) 10px;
   border-bottom: var(--divider-dashed);
 }
 
@@ -271,7 +367,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 8px 30px 0;
+  margin: 8px var(--margen-lateral) 0;
   padding: 6px 6px 6px 12px;
   background: var(--papel-2);
   border-left: 3px solid var(--azulete);
@@ -281,7 +377,7 @@
 .semana__deshacer-texto {
   flex: 1;
   min-width: 0;
-  font: 400 13px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
 }
@@ -307,7 +403,7 @@
   background: none;
   border: none;
   color: var(--gris);
-  font: 400 15px/1 var(--font-mono);
+  font: 400 15px/1 var(--font-body);
   cursor: pointer;
 }
 
@@ -317,4 +413,32 @@ span.semana__saldo {
   min-height: 0;
   padding: 0;
   cursor: default;
+}
+
+/* El símbolo, en volado y en gris. Al mismo cuerpo que la cifra se llevaba un
+   tercio del ancho para decir una unidad que ya se da por sabida. */
+
+.semana__cifra-moneda {
+  font: 600 22px/1 var(--font-body);
+  color: var(--gris);
+  margin-top: 4px;
+}
+
+/* La barra del tope: 4 px, no 10. Es una referencia, no un titular — el dato
+   está en el chip de al lado y la cifra manda en la pantalla. */
+.semana__barra {
+  margin-top: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--barra-fondo);
+  overflow: hidden;
+}
+
+.semana__barra-relleno {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.semana__resumen--compacta .semana__barra {
+  display: none;
 }

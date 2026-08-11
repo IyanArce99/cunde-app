@@ -14,13 +14,19 @@ import PrimaryButton from '../components/PrimaryButton';
 import CierreDeSemana from '../components/CierreDeSemana';
 import BottomSheet from '../components/BottomSheet';
 import AvisoAlergenos from '../components/AvisoAlergenos';
-import datosMotor from '../data/motor-datos.json';
+import FilaExtra from '../components/FilaExtra';
+import HojaExtra from '../components/HojaExtra';
+import {
+  extrasLlevados, extrasSinPrecio, totalCompraPrevista, totalExtras,
+} from '../lib/extras';
+import { analitica } from '../lib/analitica';
+import { versionDePrecios } from '../data/motor';
 import './Compra.css';
 
 const Compra: React.FC = () => {
   const history = useHistory();
   const { estado, dispatch } = useAppState();
-  const { lista, perfil } = estado;
+  const { lista, perfil, extrasCompra } = estado;
   const enLinea = useEnLinea();
   const [mostrarCierre, setMostrarCierre] = useState(false);
 
@@ -60,11 +66,32 @@ const Compra: React.FC = () => {
   const pasillos = pasillosOrdenados(principal);
   // Carrito real, no consumo. totalLista/totalLlevas ya excluyen la despensa
   // que el usuario da por hecha (ver ItemLista.loTengo y lib/derive.ts).
+  /**
+   * ═══ LOS TRES NÚMEROS, Y CUÁL DE ELLOS ES LA PROMESA ═══
+   *
+   *   total       — el MENÚ. `totalLista` sobre la lista del motor. Es la
+   *                 cifra de la que Cunde responde y la que enseña Semana.
+   *                 NO la tocan los extras: no están en `lista`.
+   *   extras      — solo los que tienen precio.
+   *   totalCompra — lo que va a pasar por caja, si todo tiene precio.
+   *
+   * `restan` y la barra siguen siendo del MENÚ a propósito: miden el tope
+   * semanal, y el tope es de la comida.
+   */
   const total = totalLista(lista);
   const llevas = totalLlevas(lista);
   const restan = total - llevas;
   const pct = total === 0 ? 0 : (llevas / total) * 100;
-  const cifraLlevasRef = useContador(llevas, { formatear: (n) => eur(n) });
+  const extras = totalExtras(extrasCompra);
+  const sinPrecio = extrasSinPrecio(extrasCompra);
+  const totalCompra = totalCompraPrevista(total, extrasCompra);
+  /* LLEVAS sí los suma: en el carro van juntos, no hay dos carros. */
+  const cifraLlevasRef = useContador(llevas + extrasLlevados(extrasCompra), { formatear: (n) => eur(n) });
+
+  const [anadiendoExtra, setAnadiendoExtra] = useState(false);
+  const [editandoExtra, setEditandoExtra] = useState<string | null>(null);
+  const extraEditado = extrasCompra.find((e) => e.id === editandoExtra) ?? null;
+  const onMarcarExtra = useCallback((id: string) => dispatch({ type: 'TOGGLE_EXTRA', id }), [dispatch]);
 
   return (
     <IonPage>
@@ -91,7 +118,15 @@ const Compra: React.FC = () => {
                   por artículo diciendo lo mismo, en la pantalla que se recorre
                   de pie y con una mano. */}
               <div className="compra__fuente">
-                Precios de {perfil.super} del {fechaCorta(datosMotor.generadoEn)}
+                <span>Precios de {perfil.super} del</span>
+                {/* La fecha a la derecha y en versalitas: es el dato que se
+                    comprueba —"¿esto es de hoy?"—, y en el medio de una frase
+                    corrida hay que leerla entera para encontrarlo. */}
+                {/* La fecha de los precios que se están viendo, no la del APK:
+                    desde que los precios se actualizan sin publicar versión,
+                    los dos números pueden ser distintos y el que importa es el
+                    de los precios. Ver lib/precios.ts. */}
+                <span className="compra__fuente-fecha">{fechaCorta(versionDePrecios())}</span>
               </div>
               {pasillos.map((pasillo) => {
                 const delPasillo = principal.filter((item) => item.pasillo === pasillo);
@@ -163,6 +198,45 @@ const Compra: React.FC = () => {
                   </span>
                 </button>
               )}
+
+              {/**
+                * ═══ OTRAS COSAS ═══
+                *
+                * Va DESPUÉS de los pasillos y de "ya lo tienes", al final del
+                * ticket. No es un capricho de orden: los pasillos están puestos
+                * en el orden en que se recorre el súper, y estas cosas no
+                * tienen pasillo —el usuario las apunta, no las coloca la app—.
+                * Meterlas en medio rompería el recorrido, que es lo único que
+                * esta pantalla ordena.
+                *
+                * Sin subtotal en la banda, al contrario que los pasillos: el
+                * subtotal de los extras vive en el pie, junto al del menú, que
+                * es donde se comparan. Repetirlo aquí sería la misma cifra dos
+                * veces en la misma pantalla.
+                */}
+              <div className="compra__extras">
+                <div className="compra__pasillo-cabecera compra__pasillo-cabecera--extras">
+                  <span className="compra__pasillo-nombre">OTRAS COSAS</span>
+                  <span className="compra__pasillo-linea" />
+                </div>
+
+                {extrasCompra.map((extra) => (
+                  <FilaExtra
+                    key={extra.id}
+                    extra={extra}
+                    onMarcar={onMarcarExtra}
+                    onAbrir={setEditandoExtra}
+                  />
+                ))}
+
+                {/* Una línea del ticket, no un botón flotante: lo principal de
+                    esta pantalla es la lista del menú, y un botón encima
+                    taparía producto justo donde se recorre de pie. */}
+                <button className="compra__anadir" type="button" onClick={() => setAnadiendoExtra(true)}>
+                  <span className="compra__anadir-mas" aria-hidden="true">+</span>
+                  Añadir otra cosa
+                </button>
+              </div>
             </div>
           </div>
 
@@ -185,6 +259,20 @@ const Compra: React.FC = () => {
           )}
 
           <div className="compra__pie">
+            {/**
+              * ═══ LLEVAS SIGUE MANDANDO ═══
+              *
+              * Es la cifra que se lee de pie, con una mano, avanzando por el
+              * lineal, y responde a la única pregunta que se hace ahí: cuánto
+              * llevo ya. Se le añade lo que va cayendo de extras porque en el
+              * carro van juntos —no hay dos carros—, pero la cifra grande no
+              * cambia de sitio ni de tamaño.
+              *
+              * Y la BARRA sigue midiendo SOLO EL MENÚ. Es la única lectura de
+              * "cuánto de tu tope llevas gastado", y el tope es del menú: si el
+              * detergente empujara la barra, se pondría roja por comprar
+              * detergente y diría que te has pasado con la comida.
+              */}
             <div className="compra__pie-cabecera">
               <div>
                 <span className="compra__pie-etiqueta">LLEVAS</span>
@@ -201,15 +289,77 @@ const Compra: React.FC = () => {
             <div className="compra__pie-barra">
               <div className="compra__pie-barra-relleno" style={{ width: `${pct}%` }} />
             </div>
+
+            {/**
+              * ═══ EL DESGLOSE · SOLO SI HAY EXTRAS ═══
+              *
+              * Sin extras no se pinta nada: enseñar «EXTRAS 0,00 €» a quien no
+              * ha añadido ninguno es tres líneas de ticket para decir que no
+              * pasa nada.
+              *
+              * Y con extras, las tres cifras separadas y dichas por su nombre.
+              * Es la funcionalidad entera: MENÚ es lo que Cunde promete y no se
+              * mueve; EXTRAS es lo que has puesto tú; TOTAL es lo que vas a
+              * pagar. Un solo número que los mezclara borraría la única cifra
+              * de la que la app responde.
+              */}
+            {extrasCompra.length > 0 && (
+              <div className="compra__desglose">
+                <TicketRow label="Menú" value={eur(total)} size={13} />
+                <TicketRow label="Otras cosas" value={eur(extras)} size={13} />
+                <div className="compra__desglose-total">
+                  <TicketRow
+                    label={sinPrecio > 0 ? 'Total con precios' : 'Total'}
+                    value={eur(totalCompra)}
+                    size={15}
+                  />
+                </div>
+                {/**
+                  * ═══ LO QUE NO SE SABE, DICHO ═══
+                  *
+                  * Con extras sin precio, el total NO es toda la compra, y
+                  * callarlo sería enseñar una cifra que no es verdad —lo único
+                  * que esta app no se puede permitir—. No se estima, no se
+                  * pone 0: se dice cuántos faltan y se deja al usuario decidir
+                  * si le importa.
+                  */}
+                {sinPrecio > 0 && (
+                  <p className="compra__desglose-aviso">
+                    {sinPrecio} {sinPrecio === 1 ? 'cosa' : 'cosas'} sin precio. No {sinPrecio === 1 ? 'está' : 'están'} en esa suma.
+                  </p>
+                )}
+              </div>
+            )}
+
             <PrimaryButton onClick={() => setMostrarCierre(true)}>Cerrar la compra</PrimaryButton>
           </div>
         </div>
 
+        {(anadiendoExtra || extraEditado) && (
+          <HojaExtra
+            extra={extraEditado}
+            onAnadir={(nombre, precio) => dispatch({ type: 'ANADIR_EXTRA', nombre, precio })}
+            onPrecio={(id, precio) => dispatch({ type: 'PRECIO_EXTRA', id, precio })}
+            onQuitar={(id) => dispatch({ type: 'QUITAR_EXTRA', id })}
+            onCerrar={() => { setAnadiendoExtra(false); setEditandoExtra(null); }}
+          />
+        )}
+
         {mostrarCierre && (
           <CierreDeSemana
             previsto={total}
+            extras={extras}
+            extrasSinPrecio={sinPrecio}
             presupuesto={perfil.presupuestoSemanal}
             onGuardar={(importeReal) => {
+              if (extrasCompra.length > 0) {
+                analitica('shopping_closed_with_extras', {
+                  extras_count: extrasCompra.length,
+                  extras_total: Number(extras.toFixed(2)),
+                  unpriced_extras_count: sinPrecio,
+                  week_number: estado.contadores.semanaNumero,
+                });
+              }
               dispatch({ type: 'GUARDAR_CIERRE', importeRealTicket: importeReal });
               setMostrarCierre(false);
               history.push('/semana');

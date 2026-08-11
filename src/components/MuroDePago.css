@@ -1,5 +1,5 @@
 .muro__etiqueta {
-  font: 500 13px/1 var(--font-mono);
+  font: 500 13px/1 var(--font-body);
   letter-spacing: 0;
   color: var(--gris);
 }
@@ -17,9 +17,11 @@
   font-weight: 500;
 }
 
+/* Texto ámbar en vez de fondo resaltado: en el rediseño el ahorro se dice con
+   el color del número, no pintando la fila. Ver `.ajustes__delta--baja`. */
 .muro__resalte .ticket-row__label,
 .muro__resalte .ticket-row__value {
-  background: var(--oferta-resalte);
+  color: var(--oferta-texto);
 }
 
 .muro__cuerpo {
@@ -43,19 +45,19 @@
   min-height: 80px;
   padding: 16px;
   background: transparent;
-  border: 1.5px solid rgba(169, 164, 152, .7);
+  border: var(--border-rest);
   border-radius: var(--radius-sm);
   cursor: pointer;
   text-align: left;
 }
 
 .muro__plan--seleccionado {
-  background: var(--azulete-fondo);
-  border-color: var(--azulete);
+  background: var(--crema);
+  border-color: var(--tinta);
 }
 
 .muro__plan-precio {
-  font: 500 22px/1 var(--font-mono);
+  font: 500 22px/1 var(--font-body);
   font-variant-numeric: tabular-nums;
   color: var(--tinta);
 }
@@ -65,7 +67,7 @@
 }
 
 .muro__plan-periodo {
-  font: 400 13px/1.2 var(--font-mono);
+  font: 400 13px/1.2 var(--font-body);
   color: var(--gris);
 }
 
@@ -86,7 +88,7 @@
 .muro__legal {
   margin: 14px 0 0;
   text-align: center;
-  font: 400 13px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
   color: var(--gris);
 }
 
@@ -105,7 +107,7 @@
 
 .muro__logro-etiqueta {
   display: block;
-  font: 500 13px/1 var(--font-mono);
+  font: 500 13px/1 var(--font-body);
   letter-spacing: 0;
   color: var(--gris);
 }
@@ -122,7 +124,7 @@
 .muro__logro-pie {
   display: block;
   margin-top: 5px;
-  font: 400 13px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
   color: var(--gris);
 }
 
@@ -131,7 +133,7 @@
 .muro__plan-unidad {
   display: block;
   margin-top: 4px;
-  font: 400 13px/1.2 var(--font-mono);
+  font: 400 13px/1.2 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
 }

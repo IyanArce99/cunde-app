@@ -196,19 +196,34 @@ el total pegado arriba que dice qué le pasa a la cesta al elegir —"la cesta b
 3,67 €" en amarillo, "sube 0,80 €" en tinta, "te pasas 3,40 €" en rojo—. Subir
 no va en rojo a propósito: gastarte tu presupuesto en comida no es un error.
 
-### Postre — DISEÑADO, NO CONSTRUIDO
+### Postre — CONSTRUIDO
 
-Opción de añadir postre. **No toca el motor de selección**: es un contador de
-`N × 7` unidades y unos 6 SKUs de mapeo. Precios reales medidos: 14 postres para
-dos personas cuestan 3,57 € (yogur + plátano), 4,69 € (variado) o 6,62 € (solo
-fruta), **con cero sobrante** porque la fruta se vende por pieza.
+`src/motor/postres.ts`. Entra **dentro** del presupuesto, no encima: el coste se
+aparta ANTES de elegir platos —no depende de cuáles salgan— y se descuenta del
+techo con el que el motor optimiza. Si se sumara al final, encender el
+interruptor reventaría el tope y la app mentiría con su propia cifra. Medido a
+390×844: la cesta pasa de 57,40 € a 60,63 € dentro de un tope de 65.
 
-Entra **dentro** del presupuesto, no encima. Medido con el motor: el menú se
-rehace con 4,69 € menos, siguen saliendo 9 platos distintos y la proteína sube
-de 58 a 60 g.
+Un postre **no es una receta**: no se cocina, no tiene pasos ni minutos. Va por
+el mismo camino que cualquier ingrediente —necesidad por SKU, redondeo a
+envases, sobrante— y sale en la lista de la compra con «para: el postre».
 
-Motivo de fondo: hoy la app no lista el postre, el usuario lo compra igual, y al
-cerrar la semana la app le dice "te pasaste" por algo que no listamos.
+**La unidad del reparto es la COMIDA, y esto se corrigió tarde.** Al principio se
+repartían solo raciones («esta semana entran 7 yogures y 7 plátanos»), que basta
+para comprar y para cobrar pero no responde a «¿qué me como el martes?». Como el
+dato no existía, la pantalla no tenía nada que enseñar: el interruptor subía el
+precio y no cambiaba ni una línea de lo que el usuario ve. Reportado tal cual —
+«sube el precio pero no sale en el menú ni en la receta»—. Ahora `postrePorHueco`
+es la fuente de la verdad y las raciones se derivan de ella, así que lo que se
+compra es exactamente lo que el menú dice que se come.
+
+Dónde se ve: en la tarjeta del día, dentro de la línea que ya existe («comida ·
+25 min · postre: yogur natural») para no gastar 18 px por hueco; y en la hoja del
+día con su precio, que es la única respuesta a por qué sube la cifra. No entra en
+`precioRacion` —si entrara, comparar dos platos incluiría un yogur idéntico en
+los dos y el ahorro dejaría de ser el del plato—.
+
+Tests en `src/motor/postres.test.ts`.
 
 ### Accesibilidad — CERRADA
 

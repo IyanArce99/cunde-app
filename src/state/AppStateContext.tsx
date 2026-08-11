@@ -1,18 +1,62 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { ReactNode } from 'react';
-import type { AppState, Comensales, Preferencias, Ranura, Suscripcion } from './types';
+import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } from './types';
 import { CP_POR_DEFECTO } from './types';
-import { despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp } from '../data/motor';
+import {
+  despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadQueMenosDesperdicia,
+} from '../data/motor';
 import { SEMANAS_DE_MEMORIA } from '../motor/seleccionar.ts';
 import { despensaVisible, semanasDeMemoria } from '../lib/suscripcion';
+import { analitica } from '../lib/analitica';
+import { conValoracion, cuentaPreferencias } from '../lib/preferencias';
+import { crearExtra, extrasSinPrecio, totalExtras } from '../lib/extras';
+import { totalLista } from '../lib/derive';
+import { diasDesde, esFechaDia, hoy, sumarDias, diasEntre } from '../lib/fechas';
+import type { FechaDia } from '../lib/fechas';
+import type { ValoracionPlato } from '../lib/preferencias';
+import type { ExtraCompra } from '../lib/extras';
 import type { EstadoSuscripcion } from '../lib/suscripcion';
-import type { Retoque } from '../data/motor';
+import { hayPreciosNuevos, reprecioDeLista } from '../data/motor';
+import type { Retoque, SemanaParaApp } from '../data/motor';
 
-// v10: la despensa lleva la edad en semanas (para el plan gratuito) y el
-// estado recuerda si alguna vez hubo suscripción. Un v9 en disco no los tiene.
-// (v9 fue el código postal; v8, la despensa.)
-// (v11 es el postre; v10 fue el código postal por defecto.)
-const STORAGE_KEY = 'cunde:estado:v11';
+/**
+ * ═══ LAS VERSIONES DEL ESTADO GUARDADO ═══
+ *
+ * v8 despensa · v9 código postal · v10 código postal por defecto · v11 postre
+ * v12 `variedadElegida` · v13 `preferenciasPlatos` · v14 `extrasCompra`
+ * v15 `fechaInicioSemana` y `semana.fechaInicio`.
+ *
+ * ═══ Y CÓMO SE MIGRABA, QUE ESTABA MAL ═══
+ *
+ * Hasta v12 "migrar" era cambiar esta constante. `cargarEstadoInicial` solo
+ * miraba la clave nueva, así que subir de versión BORRABA todo lo del usuario:
+ * su despensa acumulada, su historial de tres semanas, el contador de semana y
+ * el cierre. Nadie lo notó porque en desarrollo se limpia el almacenamiento
+ * cada dos por tres, pero en producción cada versión habría reseteado a todo el
+ * mundo — y la despensa acumulada es literalmente lo que vendemos.
+ *
+ * Ahora se lee la primera clave que exista, de la más nueva a la más vieja, y
+ * se funde sobre el estado por defecto. Los campos que no existían entran con
+ * su valor de fábrica; los que sí, se conservan. Ver `cargarEstadoInicial`.
+ */
+const STORAGE_KEY = 'cunde:estado:v15';
+
+/**
+ * De la más nueva a la más vieja. Se lee la primera que exista.
+ *
+ * No se listan todas desde v1: v7 y anteriores tenían el plan de la semana con
+ * otra forma y rehidratarlo daría una semana rota, que es peor que empezar de
+ * cero. Desde v8 el plan es compatible.
+ */
+const CLAVES_ANTERIORES = [
+  'cunde:estado:v14',
+  'cunde:estado:v13',
+  'cunde:estado:v12',
+  'cunde:estado:v11',
+  'cunde:estado:v10',
+  'cunde:estado:v9',
+  'cunde:estado:v8',
+];
 
 const estadoInicial: AppState = {
   onboardingCompletado: false,
@@ -25,13 +69,22 @@ const estadoInicial: AppState = {
     // CP_POR_DEFECTO en types.ts.
     codigoPostal: CP_POR_DEFECTO,
     almacen: null,
+    /* Hoy. Sin preguntar: quien acaba el onboarding un viernes quiere empezar
+       el viernes, y una pregunta más en el embudo cuesta más de lo que aporta
+       — se cambia de un toque desde ajustes. */
+    fechaInicioSemana: hoy(),
   },
   preferencias: {
-    comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', proteina: 'normal',
-    exclusiones: [], postre: false,
+    // `variedad` es solo el valor de partida hasta la primera generación: con
+    // `variedadElegida: false`, `regenerar` la sustituye por la que menos
+    // desperdicia con este perfil. Ver mejorVariedad() en el motor.
+    comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', variedadElegida: false,
+    proteina: 'normal', exclusiones: [], postre: false,
   },
-  semana: { plan: { tandas: [], huecos: [] }, dias: [], generadaEn: 0 },
+  semana: { plan: { tandas: [], huecos: [] }, dias: [], generadaEn: 0, fechaInicio: null },
   historial: [],
+  preferenciasPlatos: {},
+  extrasCompra: [],
   despensa: {},
   lista: [],
   sinCobertura: null,
@@ -48,6 +101,11 @@ type Accion =
   | { type: 'SET_SUPER'; super: string }
   | { type: 'SET_CODIGO_POSTAL'; codigoPostal: string | null; almacen: string | null }
   | { type: 'SET_PRESUPUESTO'; presupuesto: number }
+  | {
+    type: 'SET_AJUSTES';
+    preferencias: Preferencias;
+    perfil: Pick<Perfil, 'comensales' | 'presupuestoSemanal'>;
+  }
   | { type: 'COMPLETAR_ONBOARDING' }
   | { type: 'TOGGLE_ITEM'; id: string }
   | { type: 'TOGGLE_PASILLO'; pasillo: string; marcar: boolean }
@@ -58,7 +116,14 @@ type Accion =
   | { type: 'SET_SUSCRIPCION'; plan: Suscripcion }
   | { type: 'SEGUIR_GRATIS'; numeroSemana: number }
   | { type: 'SET_PREFERENCIAS'; preferencias: Preferencias }
-  | { type: 'RETOCAR_HUECO'; dia: string; ranura: Ranura; retoque: Retoque };
+  | { type: 'RETOCAR_HUECO'; dia: string; ranura: Ranura; retoque: Retoque }
+  | { type: 'APLICAR_SEMANA'; semana: SemanaParaApp }
+  | { type: 'VALORAR_PLATO'; platoId: string; valoracion: ValoracionPlato; tipo: 'receta' | 'ensamblaje' }
+  | { type: 'ANADIR_EXTRA'; nombre: string; precio: number | null }
+  | { type: 'QUITAR_EXTRA'; id: string }
+  | { type: 'TOGGLE_EXTRA'; id: string }
+  | { type: 'PRECIO_EXTRA'; id: string; precio: number | null }
+  | { type: 'SET_INICIO_SEMANA'; fecha: FechaDia; origen: 'hoy' | 'manana' | 'lunes' | 'elegida' };
 
 /**
  * Vuelve a montar la semana entera con el motor. Si las restricciones no dan
@@ -79,27 +144,81 @@ type Accion =
  * se deja de descontar más allá de la última semana. Volver a pagar la
  * recupera tal cual. Ver lib/suscripcion.ts.
  */
-function estadoSuscripcion(estado: AppState): EstadoSuscripcion {
+export function estadoSuscripcion(estado: AppState): EstadoSuscripcion {
   if (estado.suscripcion) return 'activa';
   return estado.huboSuscripcion ? 'caducada' : 'ninguna';
 }
 
 function regenerar(estado: AppState): AppState {
+  const sus = estadoSuscripcion(estado);
+  const memoria = estado.historial.slice(0, semanasDeMemoria(sus, SEMANAS_DE_MEMORIA));
+  // Sin suscripción, solo lo que sobró de la semana pasada (semanas === 0).
+  const despensa = despensaVisible(estado.despensa, sus, (v) => (v.semanas ?? 0) === 0);
+
+  /**
+   * QUÉ SEMANA DARLE A QUIEN NO HA ELEGIDO NINGUNA.
+   *
+   * Antes era `variedad: 'normal'` fija. Los tres niveles no están ordenados
+   * por calidad, así que eso es elegir por nombre: medido, el arranque perdía
+   * contra otra que el motor sabía montar. Ahora lo decide `mejorVariedad`, que
+   * mira las tres y se queda con la que menos desperdicia — y deja de hacerlo
+   * en cuanto el usuario toca el selector.
+   *
+   * Cuesta tres construcciones en vez de una, ~70 ms más. Se pagan solas: van
+   * al mismo caché que consulta la hoja de ajustes, así que el selector de
+   * variedad, que antes se abría con "···" y rellenaba después, ya está
+   * calculado cuando se abre.
+   */
+  const preferencias = estado.preferencias.variedadElegida
+    ? estado.preferencias
+    : {
+      ...estado.preferencias,
+      variedad: variedadQueMenosDesperdicia(
+        estado.perfil, estado.preferencias, estado.contadores.semanaNumero, memoria, despensa,
+        estado.preferenciasPlatos,
+      ),
+    };
+
   // Dos cosas evitan que la semana 2 se parezca a la 1: el número de semana,
   // del que sale la SILUETA (qué días llevan hueco aprovechado), y el
   // HISTORIAL, que penaliza los platos de las semanas cerradas. Sin el
   // segundo, la silueta cambiaba y los platos no.
-  const sus = estadoSuscripcion(estado);
+  //
+  // Y aquí es donde entra lo que el usuario ha dicho de los platos: al
+  // GENERAR, no al valorar. Ver el caso VALORAR_PLATO.
   const semana = generarParaApp(
-    estado.perfil, estado.preferencias, estado.contadores.semanaNumero,
-    estado.historial.slice(0, semanasDeMemoria(sus, SEMANAS_DE_MEMORIA)),
-    // Sin suscripción, solo lo que sobró de la semana pasada (semanas === 0).
-    despensaVisible(estado.despensa, sus, (v) => (v.semanas ?? 0) === 0),
+    estado.perfil, preferencias, estado.contadores.semanaNumero, memoria, despensa,
+    estado.preferenciasPlatos,
   );
-  if (semana.sinCobertura) return { ...estado, sinCobertura: semana.sinCobertura };
+  /**
+   * La semana que se acaba de montar QUEDA ATADA a la fecha con que se montó.
+   *
+   * Ese es el segundo dato de fecha y aquí se ve por qué hacen falta los dos:
+   * la preferencia puede cambiar mañana y esta semana tiene que seguir
+   * representando los mismos siete días. Ver AppState.semana.fechaInicio.
+   */
+  const fechaInicio = estado.perfil.fechaInicioSemana;
+  if (semana.sinCobertura) {
+    analitica('generation_failed_by_disliked_dishes', {
+      week_number: estado.contadores.semanaNumero,
+      source_screen: 'semana',
+      total_disliked_dishes: semana.sinCobertura.platosBloqueados ?? 0,
+    });
+  } else {
+    const { bloqueados, favoritos } = cuentaPreferencias(estado.preferenciasPlatos);
+    if (bloqueados + favoritos > 0) {
+      analitica('generation_affected_by_preferences', {
+        week_number: estado.contadores.semanaNumero,
+        total_disliked_dishes: bloqueados,
+        total_liked_dishes: favoritos,
+      });
+    }
+  }
+  if (semana.sinCobertura) return { ...estado, preferencias, sinCobertura: semana.sinCobertura };
   return {
     ...estado,
-    semana: { plan: semana.plan, dias: semana.dias, generadaEn: Date.now() },
+    preferencias,
+    semana: { plan: semana.plan, dias: semana.dias, generadaEn: Date.now(), fechaInicio },
     lista: semana.lista,
     sinCobertura: null,
     salidaPresupuesto: semana.cuadra ? null : (semana.salida ?? null),
@@ -122,16 +241,45 @@ function regenerar(estado: AppState): AppState {
  * en el navegador —la semana 2 repetía 10 de 10 platos— y no era la memoria
  * fallando: era que la semana 2 nunca llegaba a generarse.
  */
+/**
+ * ═══ CUÁNDO EMPIEZA LA SEMANA SIGUIENTE ═══
+ *
+ * Dos casos, y el umbral es un día:
+ *
+ *   · Se genera EN CALIENTE, el mismo día del cierre o el siguiente → empieza
+ *     donde acababa la anterior. Es lo que espera quien cierra la compra del
+ *     domingo y planifica la semana que viene: continuidad.
+ *   · Han pasado más días → empieza HOY. Proponerle el 14 de agosto a quien
+ *     vuelve el 22 es proponerle una semana que ya pasó, y la app estaría
+ *     planificando el pasado.
+ *
+ * Un solo umbral y no una escala: cualquier cosa más fina —"si han pasado dos
+ * días, a medias"— sería una regla que nadie puede predecir mirando la app.
+ */
+function inicioDeLaSiguiente(anterior: FechaDia | null): FechaDia {
+  const ahora = hoy();
+  if (!anterior) return ahora;
+  const siguiente = sumarDias(anterior, 7);
+  return diasEntre(ahora, siguiente) >= -1 ? siguiente : ahora;
+}
+
 function abrirSemanaSiTocaba(estado: AppState): AppState {
   if (!estado.cierre.guardada) return estado;
   return regenerar({
     ...estado,
+    perfil: {
+      ...estado.perfil,
+      fechaInicioSemana: inicioDeLaSiguiente(estado.semana.fechaInicio),
+    },
     cierre: { importeRealTicket: null, guardada: false },
     contadores: { ...estado.contadores, ajustesEstaSemana: 0 },
   });
 }
 
-function reducer(estado: AppState, accion: Accion): AppState {
+/* Exportado solo para los tests: comprobar que valorar un plato NO mueve la
+   semana y que regenerar SÍ la aplica no se puede hacer desde fuera del
+   reducer sin montar la app entera. Ver preferencias.motor.test.ts. */
+export function reducer(estado: AppState, accion: Accion): AppState {
   switch (accion.type) {
     case 'SET_COMENSALES': {
       const siguiente = { ...estado, perfil: { ...estado.perfil, comensales: accion.comensales } };
@@ -210,7 +358,25 @@ function reducer(estado: AppState, accion: Accion): AppState {
         // Y lo que sobró se queda en el armario para la semana que viene: sin
         // esto el motor volvía a comprar cebollas con 1,65 kg en casa.
         despensa: despensaTrasLaSemana(estado.perfil, estado.preferencias, estado.semana.plan, estado.despensa),
-        cierre: { importeRealTicket: accion.importeRealTicket, guardada: true },
+        cierre: {
+          importeRealTicket: accion.importeRealTicket,
+          guardada: true,
+          /* La foto de contra qué se comparaba. Se toma AQUÍ porque los extras
+             se vacían tres líneas más abajo y la lista se regenera al abrir la
+             semana siguiente. Ver la cabecera de `Cierre`. */
+          menuPrevisto: totalLista(estado.lista),
+          extras: totalExtras(estado.extrasCompra),
+          extrasSinPrecio: extrasSinPrecio(estado.extrasCompra),
+        },
+        /**
+         * Y los extras se vacían: pertenecen a ESTA compra.
+         *
+         * El café que apuntaste esta semana no tiene por qué estar en la lista
+         * de la siguiente — y si lo arrastráramos, la lista se convertiría poco
+         * a poco en una lista permanente de la compra, que es exactamente lo
+         * que este producto no es. La copia queda en `deshacerCierre`.
+         */
+        extrasCompra: [],
         contadores: { ...estado.contadores, semanaNumero: estado.contadores.semanaNumero + 1 },
         // se cierra la semana en curso: el reloj de la siguiente empieza ahora.
         semana: { ...estado.semana, generadaEn: Date.now() },
@@ -221,6 +387,7 @@ function reducer(estado: AppState, accion: Accion): AppState {
           cierre: estado.cierre,
           contadores: estado.contadores,
           semana: estado.semana,
+          extrasCompra: estado.extrasCompra,
         },
       };
     }
@@ -275,6 +442,40 @@ function reducer(estado: AppState, accion: Accion): AppState {
         JSON.stringify(accion.preferencias) !== JSON.stringify(estado.preferencias);
       return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente) : siguiente;
     }
+    /**
+     * ═══ LO QUE GUARDA LA HOJA DE AJUSTES · TODO DE UNA VEZ ═══
+     *
+     * La hoja cambia preferencias Y perfil (cuántos sois, cuánto tienes), y
+     * encadenar `SET_COMENSALES` + `SET_PRESUPUESTO` + `SET_PREFERENCIAS`
+     * fallaba de dos maneras a la vez:
+     *
+     *   · De más: `SET_COMENSALES` regenera con el tope VIEJO y `SET_PREFERENCIAS`
+     *     vuelve a regenerar con el nuevo. Dos reconstrucciones de 2,6 s para
+     *     una semana, y la primera para tirarla.
+     *   · De menos: si solo mueves el tope, `SET_PRESUPUESTO` no regenera —nunca
+     *     lo ha hecho— y `SET_PREFERENCIAS` tampoco, porque las preferencias no
+     *     han cambiado. Guardabas 80 € y seguías viendo la semana de 51.
+     *
+     * Lo segundo es el mismo bug que ya tuvo el postre y por el que la
+     * comparación de arriba dejó de ser una lista de campos: se guarda, la hoja
+     * se cierra, y la semana es la de antes. No rompe nada a la vista.
+     *
+     * Una acción, un estado siguiente, una regeneración si algo cambió.
+     */
+    case 'SET_AJUSTES': {
+      const perfil = { ...estado.perfil, ...accion.perfil };
+      const siguiente = {
+        ...estado,
+        perfil,
+        preferencias: accion.preferencias,
+        contadores: { ...estado.contadores, ajustesEstaSemana: estado.contadores.ajustesEstaSemana + 1 },
+      };
+      const cambiaLaSemana =
+        JSON.stringify(accion.preferencias) !== JSON.stringify(estado.preferencias)
+        || perfil.comensales !== estado.perfil.comensales
+        || perfil.presupuestoSemanal !== estado.perfil.presupuestoSemanal;
+      return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente) : siguiente;
+    }
     case 'RETOCAR_HUECO': {
       // Se rehace desde ese hueco con el mismo motor: cambia el reparto, la
       // lista de la compra y el total. Ya no hay huecos intocables.
@@ -282,7 +483,7 @@ function reducer(estado: AppState, accion: Accion): AppState {
       if (indice < 0) return estado;
       const semana = retocarParaApp(
         estado.perfil, estado.preferencias, estado.semana.plan, indice, accion.retoque,
-        estado.contadores.semanaNumero, estado.historial, estado.despensa,
+        estado.contadores.semanaNumero, estado.historial, estado.despensa, estado.preferenciasPlatos,
       );
       // Lo que se ahorra con el retoque se acumula: es el dato real que el
       // muro enseña cuando todavía no hay despensa. Solo suma si BAJA.
@@ -300,19 +501,330 @@ function reducer(estado: AppState, accion: Accion): AppState {
         },
       };
     }
+    /**
+     * APLICAR UNA SEMANA YA CONSTRUIDA.
+     *
+     * La usa "cambiar por" de la hoja del día: el motor devolvió dos o tres
+     * alternativas, cada una con SU semana completa, y el usuario ha elegido
+     * una viendo su precio. Aquí solo se guarda.
+     *
+     * No se recalcula a propósito. Si se volviera a llamar al motor, podría
+     * devolver una semana distinta de la que se enseñó con ese delta, y el
+     * usuario habría elegido un ahorro que no recibe — que en una app cuya
+     * tesis es la cifra es el peor fallo posible.
+     */
+    case 'APLICAR_SEMANA': {
+      const antes = estado.lista.reduce((a, it) => a + (((it.esDespensa || it.yaEnCasa) && it.loTengo !== false) ? 0 : it.precio), 0);
+      const ahora = accion.semana.lista.reduce((a, it) => a + (((it.esDespensa || it.yaEnCasa) && it.loTengo !== false) ? 0 : it.precio), 0);
+      return {
+        ...estado,
+        semana: { ...estado.semana, plan: accion.semana.plan, dias: accion.semana.dias },
+        lista: accion.semana.lista,
+        contadores: {
+          ...estado.contadores,
+          ajustesEstaSemana: estado.contadores.ajustesEstaSemana + 1,
+          bajadoConRetoques: estado.contadores.bajadoConRetoques + Math.max(0, antes - ahora),
+        },
+      };
+    }
+    /**
+     * ═══ VALORAR NO REGENERA LA SEMANA ═══
+     *
+     * Se guarda y ya. Nada más se mueve.
+     *
+     * Es la decisión de producto más importante de esta función y va en contra
+     * de lo que hace todo el resto del reducer, así que conviene decir por qué:
+     * el usuario está mirando un plato de una semana que ya ha planificado, y
+     * puede que ya haya hecho la compra. Cambiarle el menú porque ha dicho "no
+     * me lo vuelvas a poner" sería leerle "no me lo pongas" — que no es lo que
+     * ha dicho— y además le dejaría en la nevera comida de un plato que la app
+     * acaba de quitar del plan.
+     *
+     * La preferencia entra cuando la semana se genere, se regenere o se ajuste.
+     * Eso ya pasa solo: `regenerar` lee `preferenciasPlatos` del estado.
+     */
+    case 'VALORAR_PLATO': {
+      const preferenciasPlatos = conValoracion(
+        estado.preferenciasPlatos,
+        accion.platoId,
+        accion.valoracion,
+        new Date().toISOString(),
+      );
+      // `conValoracion` devuelve el MISMO objeto si no cambia nada: tocar dos
+      // veces la opción que ya estaba puesta no tiene por qué escribir estado.
+      if (preferenciasPlatos === estado.preferenciasPlatos) return estado;
+
+      const { bloqueados, favoritos } = cuentaPreferencias(preferenciasPlatos);
+      const comun = {
+        dish_id: accion.platoId,
+        dish_type: accion.tipo,
+        preference: accion.valoracion,
+        week_number: estado.contadores.semanaNumero,
+        total_disliked_dishes: bloqueados,
+        total_liked_dishes: favoritos,
+      } as const;
+      if (accion.valoracion === 'neutral') {
+        analitica('dish_preference_removed', comun);
+      } else {
+        analitica('dish_preference_set', comun);
+        analitica(accion.valoracion === 'me_gusta' ? 'dish_liked' : 'dish_disliked', comun);
+      }
+
+      return { ...estado, preferenciasPlatos };
+    }
+
+    /**
+     * ═══ LOS EXTRAS · CUATRO CASOS Y NINGUNO TOCA LA SEMANA ═══
+     *
+     * Ninguno llama a `regenerar`, y no es un olvido: el café no entra en el
+     * motor, no cambia el menú, no cambia el presupuesto de la comida y no
+     * cambia el coste por ración. Lo único que mueven es su propia cuenta.
+     *
+     * Todos escriben SOLO `extrasCompra`. Que `lista` no se toque en ninguno de
+     * los cuatro es lo que garantiza que la cifra del menú no se mueva.
+     */
+    case 'ANADIR_EXTRA': {
+      const nombre = accion.nombre.trim();
+      if (!nombre) return estado;
+      const extra = crearExtra(nombre, accion.precio, new Date().toISOString());
+      const extrasCompra = [...estado.extrasCompra, extra];
+      analitica('extra_item_added', {
+        ...resumenExtras(extrasCompra, estado),
+        has_price: accion.precio !== null,
+        ...(accion.precio !== null ? { price: accion.precio } : {}),
+      });
+      return { ...estado, extrasCompra };
+    }
+    case 'QUITAR_EXTRA': {
+      const extrasCompra = estado.extrasCompra.filter((e) => e.id !== accion.id);
+      if (extrasCompra.length === estado.extrasCompra.length) return estado;
+      analitica('extra_item_removed', resumenExtras(extrasCompra, estado));
+      return { ...estado, extrasCompra };
+    }
+    case 'TOGGLE_EXTRA': {
+      const actual = estado.extrasCompra.find((e) => e.id === accion.id);
+      if (!actual) return estado;
+      const extrasCompra = estado.extrasCompra.map(
+        (e) => (e.id === accion.id ? { ...e, marcado: !e.marcado } : e),
+      );
+      analitica(actual.marcado ? 'extra_item_unchecked' : 'extra_item_checked', {
+        ...resumenExtras(extrasCompra, estado),
+        has_price: actual.precio !== null,
+      });
+      return { ...estado, extrasCompra };
+    }
+    /**
+     * Poner precio y corregirlo son el MISMO caso.
+     *
+     * Es la razón de ser de que el precio pueda faltar: se apunta el café el
+     * domingo sin saber lo que vale y se pone en el súper, delante del lineal.
+     * Se distinguen solo para la analítica —«añadido» y «cambiado» dicen cosas
+     * distintas sobre cómo se usa esto— pero la mecánica es una.
+     */
+    case 'PRECIO_EXTRA': {
+      const actual = estado.extrasCompra.find((e) => e.id === accion.id);
+      if (!actual || actual.precio === accion.precio) return estado;
+      const extrasCompra = estado.extrasCompra.map(
+        (e) => (e.id === accion.id ? { ...e, precio: accion.precio } : e),
+      );
+      analitica(actual.precio === null ? 'extra_item_price_added' : 'extra_item_price_changed', {
+        ...resumenExtras(extrasCompra, estado),
+        has_price: accion.precio !== null,
+        ...(accion.precio !== null ? { price: accion.precio } : {}),
+      });
+      return { ...estado, extrasCompra };
+    }
+    /**
+     * ═══ CAMBIAR EL DÍA DE INICIO NO REGENERA NADA ═══
+     *
+     * Y es la decisión central de esta funcionalidad, así que conviene decir
+     * por qué en el sitio donde alguien iría a añadir un `regenerar(...)`.
+     *
+     * Lo único que cambia es la relación posición → fecha. El plan sigue
+     * siendo el mismo, la lista de la compra la misma, las marcas las mismas y
+     * la despensa la misma. Regenerar aquí le tiraría al usuario un menú que a
+     * lo mejor ya ha comprado solo porque el lunes pasa a llamarse viernes.
+     *
+     * `semana.fechaInicio` SÍ se mueve, y no es una contradicción: la semana
+     * que tiene delante pasa a representar esos otros siete días, con los
+     * mismos platos en el mismo orden. Es exactamente lo que el usuario ha
+     * pedido al tocar la fila.
+     *
+     * (Lo que NO se puede evitar es que la próxima generación coloque el fin de
+     * semana en otro sitio: `ordenDias` cambia y con él dónde cae la regla de
+     * «sábado noche se cocina». Eso es correcto — es la regla haciendo su
+     * trabajo— y solo se nota en la semana siguiente, no en ésta.)
+     */
+    case 'SET_INICIO_SEMANA': {
+      if (!esFechaDia(accion.fecha) || accion.fecha === estado.perfil.fechaInicioSemana) return estado;
+      analitica('week_start_date_changed', {
+        source: accion.origen,
+        days_from_today: diasEntre(hoy(), accion.fecha),
+        previous_start_day: diasDesde(estado.perfil.fechaInicioSemana)[0],
+        new_start_day: diasDesde(accion.fecha)[0],
+        week_number: estado.contadores.semanaNumero,
+      });
+      return {
+        ...estado,
+        perfil: { ...estado.perfil, fechaInicioSemana: accion.fecha },
+        // La semana de delante pasa a representar esos días. Sin tocar el plan.
+        semana: { ...estado.semana, fechaInicio: accion.fecha },
+      };
+    }
     default:
       return estado;
   }
 }
 
+/**
+ * Lo que va en cada evento de extras. NUNCA el nombre: el usuario escribe ahí
+ * lo que quiere —«pañales», «test de embarazo», «champú anticaída»— y eso es
+ * suyo. Salen cuentas, no contenido.
+ */
+function resumenExtras(extras: AppState['extrasCompra'], estado: AppState) {
+  return {
+    extras_count: extras.length,
+    extras_total: Number(totalExtras(extras).toFixed(2)),
+    unpriced_extras_count: extrasSinPrecio(extras),
+    week_number: estado.contadores.semanaNumero,
+  };
+}
+
+/**
+ * ═══ MIGRAR SIN PERDER NADA ═══
+ *
+ * Se busca la clave más nueva que exista y se funde sobre el estado por
+ * defecto. Los campos nuevos entran de fábrica; los que ya estaban se
+ * conservan. Ver CLAVES_ANTERIORES.
+ *
+ * `reparar` existe porque un estado viejo puede traer un campo con la forma
+ * antigua, y `{...defecto, ...guardado}` lo pisaría con la mala: `undefined` y
+ * `null` machacan igual que un valor bueno. Se comprueban solo los campos donde
+ * eso rompería la app, no todos — esto es una fusión, no un validador de
+ * esquema, y un validador completo aquí acabaría rechazando estados
+ * perfectamente usables por un campo que no le gusta.
+ *
+ * La clave vieja NO se borra. Si algo sale mal en esta versión y hay que volver
+ * atrás, el estado anterior sigue donde estaba. Ocupa unos kilobytes.
+ */
 function cargarEstadoInicial(): AppState {
-  try {
-    const guardado = window.localStorage.getItem(STORAGE_KEY);
-    if (guardado) return { ...estadoInicial, ...JSON.parse(guardado) };
-  } catch {
-    // localStorage no disponible o JSON corrupto: seguimos con el estado por defecto
+  for (const clave of [STORAGE_KEY, ...CLAVES_ANTERIORES]) {
+    try {
+      const guardado = window.localStorage.getItem(clave);
+      if (!guardado) continue;
+      return conPreciosDeHoy(reparar({ ...estadoInicial, ...JSON.parse(guardado) }));
+    } catch {
+      // Clave corrupta: se prueba la siguiente en vez de tirar todo el estado.
+    }
   }
   return estadoInicial;
+}
+
+/**
+ * La lista guardada, vuelta a valorar con los precios que hay hoy.
+ *
+ * Solo cuando de verdad hay precios nuevos: rederivar en cada arranque
+ * costaría una construcción de carrito por apertura para no cambiar nada el
+ * 99% de los días. Ver `reprecioDeLista` para por qué el plan manda sobre la
+ * lista y qué se le devuelve al usuario de lo suyo.
+ */
+function conPreciosDeHoy(estado: AppState): AppState {
+  if (!hayPreciosNuevos()) return estado;
+  const lista = reprecioDeLista(estado.lista, estado.semana.plan, estado.perfil, estado.preferencias, estado.despensa);
+  return lista === estado.lista ? estado : { ...estado, lista };
+}
+
+/** Lo que hay que garantizar que existe y tiene la forma buena. */
+function reparar(estado: AppState): AppState {
+  const guardadas = estado.preferencias ?? {};
+  return {
+    ...estado,
+    preferencias: {
+      ...estadoInicial.preferencias,
+      ...guardadas,
+      // v12. Quien viene de v11 o antes nunca pudo elegir la variedad: la tenía
+      // de fábrica, así que entra como no elegida y la escoge `mejorVariedad`.
+      variedadElegida: typeof guardadas.variedadElegida === 'boolean' ? guardadas.variedadElegida : false,
+      exclusiones: Array.isArray(guardadas.exclusiones) ? guardadas.exclusiones : [],
+    },
+    // v13. Un estado anterior no lo trae, y sin objeto revientan los helpers.
+    preferenciasPlatos: esMapaDePreferencias(estado.preferenciasPlatos) ? estado.preferenciasPlatos : {},
+    // v14. Igual: sin array, la sección de "otras cosas" reventaría al pintar.
+    extrasCompra: sonExtras(estado.extrasCompra) ? estado.extrasCompra : [],
+    /**
+     * v15. Quien viene de antes no tiene fecha de inicio, y aquí hay dos
+     * decisiones distintas:
+     *
+     *   · La PREFERENCIA entra como HOY. Es lo único razonable: no sabemos
+     *     cuándo empezó su semana y hoy es la respuesta que menos sorprende.
+     *   · La SEMANA ACTIVA se queda en `null`, y NO se le pone hoy. Sus platos
+     *     se generaron para otros siete días que no sabemos cuáles fueron, y
+     *     ponerle la fecha de hoy sería inventarse que empieza hoy. Con `null`
+     *     la interfaz enseña los nombres de siempre —LUN, MAR…— que es lo que
+     *     esa semana significaba cuando se generó.
+     *
+     * En cuanto genere la siguiente, esa sí llevará fecha.
+     */
+    perfil: {
+      ...estadoInicial.perfil,
+      ...(estado.perfil ?? {}),
+      fechaInicioSemana: esFechaDia(estado.perfil?.fechaInicioSemana)
+        ? estado.perfil.fechaInicioSemana
+        : hoy(),
+    },
+    semana: {
+      ...estadoInicial.semana,
+      ...(estado.semana ?? {}),
+      fechaInicio: esFechaDia(estado.semana?.fechaInicio) ? estado.semana.fechaInicio : null,
+    },
+    historial: Array.isArray(estado.historial) ? estado.historial : [],
+    despensa: estado.despensa && typeof estado.despensa === 'object' ? estado.despensa : {},
+    lista: Array.isArray(estado.lista) ? estado.lista : [],
+  };
+}
+
+/**
+ * Que el mapa guardado tenga la forma de ahora. Un valor suelto o con una
+ * valoración que ya no existe se descarta ENTERO en vez de colarse: un mapa
+ * medio bueno haría fallar el motor en un sitio lejano y difícil de atar a
+ * esto.
+ */
+/**
+ * Que la lista de extras tenga la forma de ahora. Se descarta ENTERA si no,
+ * por lo mismo que el mapa de preferencias: una lista medio buena fallaría al
+ * sumar o al pintar, lejos de aquí y sin pista de la causa.
+ *
+ * `precio` admite `null` a propósito y hay que dejarlo pasar explícitamente: es
+ * el caso normal de "lo apunto y ya veré lo que cuesta", no un dato ausente.
+ */
+function sonExtras(v: unknown): v is AppState['extrasCompra'] {
+  if (!Array.isArray(v)) return false;
+  return v.every((e) => e && typeof e === 'object'
+    && typeof (e as ExtraCompra).id === 'string'
+    && typeof (e as ExtraCompra).nombre === 'string'
+    && typeof (e as ExtraCompra).marcado === 'boolean'
+    && ((e as ExtraCompra).precio === null || typeof (e as ExtraCompra).precio === 'number'));
+}
+
+function esMapaDePreferencias(v: unknown): v is AppState['preferenciasPlatos'] {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return false;
+  return Object.values(v as Record<string, unknown>).every((p) => {
+    if (!p || typeof p !== 'object') return false;
+    const { platoId, valoracion } = p as { platoId?: unknown; valoracion?: unknown };
+    return typeof platoId === 'string' && (valoracion === 'me_gusta' || valoracion === 'no_quiero');
+  });
+}
+
+/**
+ * El estado que saldría de lo que hay ahora en localStorage.
+ *
+ * Solo para los tests de migración: es la única forma de comprobar que un
+ * estado viejo se conserva sin montar la app entera, y esa comprobación
+ * importa —la migración anterior borraba la despensa de todo el mundo—.
+ * Ver migracion.test.ts.
+ */
+export function estadoParaTests(): AppState {
+  return cargarEstadoInicial();
 }
 
 interface AppStateContextValue {

@@ -1,0 +1,134 @@
+/* ═══ LA PREVISUALIZACIÓN DE LO QUE SE COMPARTE ═══
+ *
+ * Mismas proporciones que el PNG (4:5) pero medido en la caja que tenga, no en
+ * píxeles: dentro de una hoja a 360 px, unas medidas fijas de 1080 se salen.
+ * Lo que se conserva es el orden y el peso relativo, que es lo que hace que la
+ * previsualización sea creíble. */
+
+.compartible {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 20px;
+  background: var(--papel);
+  border: 1px solid var(--linea-bloque);
+  border-radius: var(--radius-card);
+}
+
+.compartible__marca {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.compartible__cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 18px;
+}
+
+.compartible__rotulo {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--gris);
+}
+
+.compartible__filas {
+  margin: 18px 0 0;
+}
+
+.compartible__fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+}
+
+.compartible__fila--total {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: var(--divider-total);
+}
+
+.compartible__etiqueta {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: var(--gris);
+}
+
+.compartible__fila--total .compartible__etiqueta {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.compartible__valor {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--tinta);
+}
+
+.compartible__valor--fuerte,
+.compartible__fila--total .compartible__valor {
+  font-weight: 700;
+}
+
+.compartible__fila--total .compartible__valor {
+  font-size: var(--text-lg);
+}
+
+/* El rojo SOLO cuando se pasa del presupuesto, y con el tono de chip: el de
+   texto plano no llega a AA sobre --papel. */
+.compartible__fila--roja .compartible__etiqueta,
+.compartible__fila--roja .compartible__valor {
+  color: var(--roja-sobre-chip);
+}
+
+.compartible__hueco {
+  height: 6px;
+}
+
+.compartible__nota {
+  margin: 0;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--gris);
+}
+
+/* La cifra grande necesita MÁS aire que las demás separaciones, no el mismo.
+   Medido: con los 18 px de todo lo demás, «2,05 €» quedaba a la misma distancia
+   del total que una fila cualquiera de la siguiente, y se leía como un renglón
+   más del ticket en vez de como la conclusión. La jerarquía la hace el hueco
+   tanto como el cuerpo de la letra. */
+.compartible__unidad {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 30px;
+}
+
+.compartible__cifra {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  /* La --text-xxl está reservada al total de la semana en la pantalla Semana.
+     Aquí es la mayor de la tarjeta sin robarle ese sitio. */
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--tinta);
+}
+
+.compartible__pie {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linea-bloque);
+  font-size: var(--text-xs);
+  color: var(--gris);
+}

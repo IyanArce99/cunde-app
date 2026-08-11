@@ -29,7 +29,7 @@
 
 .semanas__op--elegida {
   border: var(--border-selected);
-  background: var(--azulete-fondo);
+  background: var(--crema);
 }
 
 /* No se puede elegir: no se tacha ni se esconde, se apaga y se dice por qué.
@@ -45,19 +45,19 @@
 }
 
 .semanas__precio {
-  font: 500 17px/1.15 var(--font-mono);
+  font: 500 17px/1.15 var(--font-body);
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
 }
 
 .semanas__dato {
-  font: 400 13px/1.25 var(--font-mono);
+  font: 400 13px/1.25 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
 }
 
 .semanas__fuera {
   margin-top: 2px;
-  font: 400 13px/1.25 var(--font-mono);
+  font: 400 13px/1.25 var(--font-body);
   color: var(--gris);
 }

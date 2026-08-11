@@ -27,6 +27,26 @@ interface SelectorCosteProps<T extends string> {
    * precio que no son.
    */
   ejes?: (coste: CosteOpcion) => { principal: string; secundario: string };
+  /**
+   * ═══ SIN CIFRAS · SOLO NOMBRE Y QUÉ ES ═══
+   *
+   * Para el selector de proteína, que llevaba TRES números por tarjeta —gramos,
+   * euros y lo que se tira— en columnas de 100 px. Nueve cifras en una fila,
+   * ninguna dominante, y con nombres largos partiendo en tres líneas.
+   *
+   * Y hay una segunda razón, más de fondo: esos tres precios en fila invitan a
+   * compararlos, y el motor NO garantiza que sean comparables. Medido, en el
+   * 60-69% de los casos subir de nivel sale MÁS BARATO, porque cada nivel
+   * optimiza una cosa distinta (ver OBJETIVO_POR_NIVEL). Enseñarlos juntos es
+   * poner al usuario delante de una contradicción que no lo es.
+   *
+   * Sin las tres cifras, lo que cuesta cada elección se ve donde debe verse: en
+   * la cesta de arriba, que cambia al tocar. Una cifra que se mueve dice lo
+   * mismo que tres que se contradicen, y no miente.
+   *
+   * Lo que NO se calla es que un nivel no se pueda montar: eso sigue saliendo.
+   */
+  soloEtiqueta?: boolean;
 }
 
 /**
@@ -39,7 +59,7 @@ interface SelectorCosteProps<T extends string> {
  * atrás.
  */
 function SelectorCoste<T extends string>({
-  opciones, costes, valor, onCambiar, ejes,
+  opciones, costes, valor, onCambiar, ejes, soloEtiqueta,
 }: Readonly<SelectorCosteProps<T>>) {
   const posibles = costes
     ? opciones.map((o) => costes[o.valor]).filter((c) => c.disponible && Number.isFinite(c.carrito))
@@ -56,8 +76,13 @@ function SelectorCoste<T extends string>({
         if (coste && !coste.disponible) clases.push('selcoste__opcion--fuera');
 
         const fuera = coste ? motivo(coste) : null;
-        let lineas: { principal: string; secundario: string };
-        if (!coste) lineas = { principal: '···', secundario: 'calculando' };
+        /* Sin cifras se pinta solo el nombre y qué es — salvo que el nivel no se
+           pueda montar, que eso hay que decirlo siempre. Y sin el «calculando»:
+           si no hay nada que calcular, esperar no significa nada. */
+        let lineas: { principal: string; secundario: string } | null = null;
+        if (soloEtiqueta) {
+          if (fuera) lineas = { principal: '—', secundario: fuera };
+        } else if (!coste) lineas = { principal: '···', secundario: 'calculando' };
         else if (ejes && !fuera) lineas = ejes(coste);
         else lineas = { principal: precioDe(coste), secundario: fuera ?? extraDe(coste, masBarata) };
 
@@ -72,8 +97,12 @@ function SelectorCoste<T extends string>({
           >
             <span className="selcoste__label">{o.label}</span>
             <span className="selcoste__nota">{o.nota}</span>
-            <span className="selcoste__principal">{lineas.principal}</span>
-            <span className="selcoste__extra">{lineas.secundario}</span>
+            {lineas && (
+              <>
+                <span className="selcoste__principal">{lineas.principal}</span>
+                <span className="selcoste__extra">{lineas.secundario}</span>
+              </>
+            )}
           </button>
         );
       })}

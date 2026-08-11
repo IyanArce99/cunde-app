@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import type { ComidasPref, Esfuerzo, NivelProteina, Perfil, Preferencias, Variedad } from '../state/types';
+import type { Comensales, ComidasPref, Esfuerzo, NivelProteina, Perfil, Preferencias, Variedad } from '../state/types';
 import { costesDeProteina, costesDeVariedad } from '../lib/derive';
 import type { Contexto } from '../lib/derive';
 import type { CosteOpcion } from '../motor/seleccionar.ts';
-import { ALERGIAS, DIETAS } from '../lib/restricciones';
-import { eur } from '../lib/format';
+import { numComensales } from '../state/types';
+import { presupuestoMinimoViable } from '../lib/derive';
+import { diaConFecha, eur, eurSinSimbolo } from '../lib/format';
+import BudgetSlider from './BudgetSlider';
+import { hoy } from '../lib/fechas';
+import type { FechaDia } from '../lib/fechas';
 import PrimaryButton from './PrimaryButton';
 import BottomSheet from './BottomSheet';
+import SelectorExclusiones from './SelectorExclusiones';
 import SelectorVariedad from './SelectorVariedad';
 import SelectorProteina from './SelectorProteina';
 import './AjustesSemana.css';
@@ -17,19 +22,13 @@ const OPCIONES_COMIDAS: { valor: ComidasPref; label: string; meta: string }[] = 
   { valor: 'ambas', label: 'Las dos', meta: '14 platos' },
 ];
 
+/* Las mismas cinco y en el mismo orden que en el onboarding (Datos.tsx). */
+const OPCIONES_COMENSALES: Comensales[] = ['1', '2', '3', '4', '5+'];
+
 const OPCIONES_ESFUERZO: { valor: Esfuerzo; label: string; sub: string }[] = [
   { valor: 'minimo', label: 'Lo mínimo', sub: 'menos de 20 min' },
   { valor: 'normal', label: 'Lo normal', sub: '30 a 40 min' },
   { valor: 'libre', label: 'Me gusta cocinar', sub: 'sin límite' },
-];
-
-// El mismo orden y los mismos grupos que en el onboarding: quien puso "sin
-// gluten" en la primera pantalla tiene que encontrarlo en el mismo sitio al
-// volver. Ver src/lib/restricciones.ts, que además comprueba que la lista de
-// la app y la del motor no se separen.
-const RESTRICCIONES = [
-  { titulo: 'Alergias e intolerancias', opciones: ALERGIAS },
-  { titulo: 'Por dieta', opciones: DIETAS },
 ];
 
 interface AjustesSemanaProps {
@@ -38,8 +37,26 @@ interface AjustesSemanaProps {
   origen: 'exclusiones' | 'sobrante';
   /** Lo que cuesta la cesta que hay AHORA detrás de la hoja. La referencia. */
   cestaActual: number;
-  onGuardar: (preferencias: Preferencias) => void;
+  /**
+   * Se guardan las dos cosas a la vez porque cambian juntas: subir de 2 a 4
+   * comensales sube el suelo del presupuesto, y guardar una sin la otra deja el
+   * tope por debajo de lo que cuesta comer.
+   *
+   * El súper NO está aquí: solo Mercadona tiene catálogo, así que el selector
+   * serían cinco tarjetas apagadas para cambiar algo que solo puede valer una
+   * cosa. Cuando haya una segunda cadena, entra — y entra en la capa de «lo que
+   * no cambia», que es donde le toca.
+   */
+  onGuardar: (preferencias: Preferencias, perfil: Pick<Perfil, 'comensales' | 'presupuestoSemanal'>) => void;
   onCerrar: () => void;
+  /** Cuántos platos tiene bloqueados, para la fila de la capa 2. */
+  bloqueados: number;
+  /** Abre la lista para devolver alguno. La abre la pantalla, no esta hoja. */
+  onAbrirBloqueados: () => void;
+  /** Cuándo empieza la semana, para la fila de arriba. */
+  inicioSemana: FechaDia;
+  /** Abre el selector de fecha. Lo abre la pantalla, como los bloqueados. */
+  onAbrirInicio: () => void;
 }
 
 /**
@@ -67,7 +84,8 @@ interface AjustesSemanaProps {
  * cosas a ciegas y el precio nuevo no aparecía hasta guardar.
  */
 const AjustesSemana: React.FC<AjustesSemanaProps> = ({
-  preferenciasActuales, perfil, origen, cestaActual, onGuardar, onCerrar,
+  preferenciasActuales, perfil, origen, cestaActual, onGuardar, onCerrar, bloqueados, onAbrirBloqueados,
+  inicioSemana, onAbrirInicio,
 }) => {
   const [comidas, setComidas] = useState(preferenciasActuales.comidas);
   const [esfuerzo, setEsfuerzo] = useState(preferenciasActuales.esfuerzo);
@@ -77,18 +95,61 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
   const [postre, setPostre] = useState(preferenciasActuales.postre);
   const [capa, setCapa] = useState<'semana' | 'fijo'>('semana');
 
-  const alternarDieta = (dieta: string) => {
-    setExclusiones((actual) =>
-      actual.includes(dieta) ? actual.filter((d) => d !== dieta) : actual.concat(dieta),
-    );
-  };
+  /**
+   * ═══ CUÁNTOS SOIS, CUÁNTO TIENES Y DÓNDE COMPRAS · SE PODÍAN CONTESTAR UNA
+   * SOLA VEZ EN LA VIDA ═══
+   *
+   * `SET_COMENSALES` y `SET_SUPER` solo se despachaban desde el onboarding, y
+   * `SET_PRESUPUESTO` desde el onboarding y desde el botón de «con 46 € sí».
+   * O sea: contestabas «somos 2, Mercadona, 65 €» el primer día y no había
+   * forma de volver a tocarlo nunca. Reinstalar la app era la única salida.
+   *
+   * Y el presupuesto es SEMANAL por definición: la frase que define el producto
+   * es «tengo 65 € **esta semana**». Un tope semanal que no se puede cambiar
+   * cada semana no es un tope semanal.
+   *
+   * Van en esta capa y no detrás de «lo que no cambia» porque son las dos
+   * palancas que más mueven la cifra que hay justo encima. El súper sí va
+   * detrás: eso sí que no cambia.
+   */
+  const [comensales, setComensales] = useState(perfil.comensales);
+  const [presupuesto, setPresupuesto] = useState(perfil.presupuestoSemanal);
+  const n = numComensales(comensales);
+
+  /* El suelo se mueve con los comensales, las comidas y lo que no comes. Mismo
+     cálculo que en el onboarding, y por eso mismo helper: si aquí se pudiera
+     bajar de él, la semana siguiente saldría sin cuadrar. */
+  const minimoViable = presupuestoMinimoViable(comensales, comidas, esfuerzo, exclusiones, proteina, postre);
+  const techo = Math.ceil((minimoViable * 2.5) / 10) * 10;
+  const tope = Math.max(presupuesto, minimoViable);
+  useEffect(() => {
+    if (presupuesto < minimoViable) setPresupuesto(minimoViable);
+  }, [minimoViable, presupuesto]);
+
+  /**
+   * EL DESLIZADOR NO RECALCULA MIENTRAS EL DEDO SE MUEVE.
+   *
+   * Los otros controles de esta hoja son botones: un toque, un valor nuevo,
+   * seis generaciones del motor. El deslizador no — arrastrarlo de 50 a 80 €
+   * emite decenas de valores, y cada uno dispararía esas seis generaciones de
+   * ~1,2 s. La hoja se quedaría clavada durante todo el gesto.
+   *
+   * Así que el precio se recalcula 350 ms después de soltar. El número grande
+   * de arriba sí sigue al dedo, porque ese es el tope y lo pone el usuario; lo
+   * que espera es la estimación de lo que cabe dentro, que es lo caro.
+   */
+  const [topeQuieto, setTopeQuieto] = useState(tope);
+  useEffect(() => {
+    const id = setTimeout(() => setTopeQuieto(tope), 350);
+    return () => clearTimeout(id);
+  }, [tope]);
 
   const ctx: Contexto = {
-    comensales: perfil.comensales,
+    comensales,
     comidas,
     esfuerzo,
     exclusiones,
-    presupuesto: perfil.presupuestoSemanal,
+    presupuesto: topeQuieto,
     variedad,
     proteina,
     postre,
@@ -108,7 +169,8 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
    * estado. Los tres botones siguen siendo elegibles mientras tanto — el
    * precio informa la decisión, no la condiciona.
    */
-  const claveCtx = `${comidas}|${esfuerzo}|${variedad}|${proteina}|${exclusiones.join(',')}|${postre}`;
+  const claveCtx = `${comidas}|${esfuerzo}|${variedad}|${proteina}|${exclusiones.join(',')}|${postre}`
+    + `|${comensales}|${topeQuieto}`;
   const [costes, setCostes] = useState<{
     variedad: Record<Variedad, CosteOpcion>;
     proteina: Record<NivelProteina, CosteOpcion>;
@@ -159,7 +221,9 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
   const nuevaCesta = conFiltros && Number.isFinite(conFiltros.carrito) ? conFiltros.carrito : null;
   const delta = nuevaCesta === null ? 0 : nuevaCesta - cestaActual;
   const cambia = nuevaCesta !== null && Math.abs(delta) >= 0.05;
-  const tePasas = nuevaCesta !== null && nuevaCesta > perfil.presupuestoSemanal;
+  /* Contra el tope que hay puesto EN LA HOJA, no contra el guardado: si acabas
+     de subirlo para que quepa, el rojo tiene que irse en ese momento. */
+  const tePasas = nuevaCesta !== null && nuevaCesta > tope;
 
   /**
    * Guardar sí bloquea: regenera la semana entera y son 2,6 s medidos. No se
@@ -172,7 +236,20 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
   const guardar = () => {
     setGuardando(true);
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      onGuardar({ comidas, esfuerzo, variedad, proteina, exclusiones, postre });
+      onGuardar({
+        comidas,
+        esfuerzo,
+        variedad,
+        /* En cuanto toca una de las tres semanas, deja de elegirla la app.
+           Sin esto, `regenerar` se la cambiaría por debajo la próxima vez que
+           moviera el tope o los comensales — y un ajuste que el usuario pone y
+           la app le quita por su cuenta es peor que uno mal puesto de salida.
+           Ver Preferencias.variedadElegida. */
+        variedadElegida: preferenciasActuales.variedadElegida || variedad !== preferenciasActuales.variedad,
+        proteina,
+        exclusiones,
+        postre,
+      }, { comensales, presupuestoSemanal: tope });
     }));
   };
 
@@ -230,18 +307,98 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
           )}
         </div>
         {tePasas && (
-          <span className="ajustes__total-pie">Te pasas del tope de {eur(perfil.presupuestoSemanal)}.</span>
+          <span className="ajustes__total-pie">Te pasas del tope de {eur(tope)}.</span>
         )}
       </div>
 
       {capa === 'semana' ? (
         <>
+          {/**
+            * ═══ EMPIEZA · EN LA PRIMERA CAPA, NO EN «LO QUE NO CAMBIA» ═══
+            *
+            * La estructura de esta hoja dice que lo que se pone una vez en la
+            * vida va detrás y lo que se toca cada domingo va delante. La fecha
+            * de inicio se toca cada semana —o al menos puede— así que meterla
+            * con las alergias y el "comidas o cenas" habría sido seguir la
+            * forma de la hoja contra su propio criterio.
+            *
+            * Y va ARRIBA del todo, antes de variedad, porque es lo primero que
+            * se decide al planificar: cuándo empieza esto. Lo demás es cómo.
+            *
+            * Es una fila y no un selector desplegado: son cuatro opciones que
+            * no caben aquí sin empujar las dos palancas que mueven el dinero
+            * por debajo del pliegue, que es el problema que esta hoja ya tuvo.
+            */}
+          <button type="button" className="ajustes__puerta ajustes__puerta--primera" onClick={onAbrirInicio}>
+            <span className="ajustes__puerta-fila">
+              <span className="ajustes__puerta-titulo">Empieza</span>
+              <span className="ajustes__puerta-flecha" aria-hidden="true">›</span>
+            </span>
+            <span className="ajustes__puerta-resumen">
+              {inicioSemana === hoy() ? 'Hoy · ' : ''}{diaConFecha(inicioSemana)}
+            </span>
+          </button>
+
+          {/**
+            * ═══ SOIS · LAS MISMAS CINCO CASILLAS QUE EN EL ONBOARDING ═══
+            *
+            * Mismo control y mismo orden a propósito. Quien contestó «2» el
+            * primer día tiene que reconocer aquí la pregunta que contestó, no
+            * encontrarse otro artefacto que hace lo mismo.
+            *
+            * Va antes que el tope porque lo condiciona: subir de 2 a 4 sube el
+            * suelo del deslizador, y verlo moverse después de tocar aquí
+            * explica la relación sin escribirla en ningún sitio.
+            */}
+          <span className="ajustes__rotulo">Sois</span>
+          <div className="ajustes__comensales">
+            {OPCIONES_COMENSALES.map((o) => (
+              <button
+                key={o}
+                type="button"
+                className={`ajustes__comensal${comensales === o ? ' ajustes__comensal--seleccionado' : ''}`}
+                aria-pressed={comensales === o}
+                onClick={() => setComensales(o)}
+              >
+                {o}
+              </button>
+            ))}
+          </div>
+
+          {/**
+            * ═══ EL TOPE · LA CIFRA QUE DEFINE EL PRODUCTO ═══
+            *
+            * «Tengo 65 € **esta semana**». Es semanal en la propia frase que
+            * define la app, y hasta ahora solo se podía contestar una vez.
+            *
+            * El carril no baja del suelo, igual que en el onboarding: la
+            * consecuencia de pedir catorce comidas con poco dinero se aprende
+            * moviendo el dedo y no chocando con un error. Y el suelo se mueve
+            * solo cuando cambias los comensales o las alergias.
+            */}
+          <span className="ajustes__rotulo">Tu tope</span>
+          <div className="ajustes__tope">
+            <div className="ajustes__tope-cifra">
+              <span className="ajustes__tope-numero">{eurSinSimbolo(tope, 0)}</span>
+              <span className="ajustes__tope-moneda">€</span>
+              <span className="ajustes__tope-nota">a la semana · {eur(tope / 7 / n, 2)} por persona y día</span>
+            </div>
+            <BudgetSlider
+              value={tope}
+              min={minimoViable}
+              max={techo}
+              extremos={['AJUSTADO', 'HOLGADO']}
+              etiquetaValor={(v) => `${v} euros a la semana, ${eur(v / 7 / n, 2)} por persona y día`}
+              onChange={setPresupuesto}
+            />
+          </div>
+
           {/* Ya no se pregunta "cuánta variedad": se enseñan las tres semanas que
               el motor sabe montar, ordenadas por lo que cuestan. */}
-          <h2 className="ajustes__pregunta">Tu semana</h2>
+          <span className="ajustes__rotulo">Variedad</span>
           <SelectorVariedad ctx={ctx} costes={costes?.variedad ?? null} onCambiar={setVariedad} />
 
-          <h2 className="ajustes__pregunta">¿Cuánta proteína?</h2>
+          <span className="ajustes__rotulo">Proteína</span>
           <SelectorProteina ctx={ctx} costes={costes?.proteina ?? null} onCambiar={setProteina} />
 
           {/* EL POSTRE VA EN ESTA CAPA, no detrás de la puerta, porque mueve
@@ -251,7 +408,7 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
               Y como el total está pegado arriba, al encenderlo se lee al
               momento lo que cuesta —que es justo lo que hace que la decisión
               sea del usuario y no nuestra. */}
-          <h2 className="ajustes__pregunta">¿Postre?</h2>
+          <span className="ajustes__rotulo">Postre</span>
           <div className="ajustes__fila-pill">
             <button
               type="button"
@@ -267,8 +424,13 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
               aria-pressed={postre}
               onClick={() => setPostre(true)}
             >
+              {/* Sin «yogur, fruta, gelatina» debajo: los dos botones de esta
+                  fila dejaban de tener la misma forma —uno con dos líneas y otro
+                  con una— y lo que enumeraba no era una promesa, era la carta de
+                  postres de ESTA semana, que cambia con las exclusiones. Qué
+                  postre toca ya se dice donde importa: en cada comida de la
+                  tarjeta del día y en la hoja, con su precio. */}
               <span className="ajustes__pill-label">En cada comida</span>
-              <span className="ajustes__pill-meta">yogur, fruta, gelatina</span>
             </button>
           </div>
 
@@ -333,33 +495,11 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
             ))}
           </div>
 
+          {/* El mismo selector que antes de generar la semana: una alergia
+              contestada en el onboarding tiene que verse igual aquí, con los
+              mismos grupos y en el mismo orden. Ver SelectorExclusiones.tsx. */}
           <h2 className="ajustes__pregunta">¿Algo que no comes?</h2>
-          <button
-            type="button"
-            className={`ajustes__pill ajustes__pill--ancho${exclusiones.length === 0 ? ' ajustes__pill--seleccionado' : ''}`}
-            aria-pressed={exclusiones.length === 0}
-            onClick={() => setExclusiones([])}
-          >
-            <span className="ajustes__pill-label">Nada, como de todo</span>
-          </button>
-          {RESTRICCIONES.map(({ titulo, opciones }) => (
-            <div key={titulo}>
-              <span className="ajustes__grupo">{titulo}</span>
-              <div className="ajustes__chips">
-                {opciones.map((dieta) => (
-                  <button
-                    key={dieta}
-                    type="button"
-                    className={`ajustes__chip${exclusiones.includes(dieta) ? ' ajustes__chip--seleccionado' : ''}`}
-                    aria-pressed={exclusiones.includes(dieta)}
-                    onClick={() => alternarDieta(dieta)}
-                  >
-                    {dieta}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
+          <SelectorExclusiones valor={exclusiones} onCambiar={setExclusiones} />
 
           {avisoFiltro && (
             <p className="ajustes__nota ajustes__nota--coste">
@@ -367,6 +507,32 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
               {eur(conFiltros.carrito)} con ellos.
             </p>
           )}
+
+          {/**
+            * ═══ PLATOS QUE NO QUIERES · UNA FILA, NO UNA SECCIÓN ═══
+            *
+            * Va DEBAJO de las alergias y separada de ellas, y esa distancia es
+            * la decisión: son dos cosas que bloquean igual y no se parecen en
+            * nada más. Arriba, lo que no puedes comer. Aquí, lo que no te
+            * apetece. Juntarlas habría puesto "sin gluten" y "no me gusta la
+            * merluza" en la misma lista, y eso convierte una restricción de
+            * salud en una preferencia — que es exactamente el error que hay que
+            * no cometer cuando se maneja seguridad alimentaria.
+            *
+            * Una fila y no la lista entera porque quien entra aquí casi nunca
+            * viene a esto: viene a las alergias. La lista se abre a un toque.
+            */}
+          <button type="button" className="ajustes__puerta" onClick={onAbrirBloqueados}>
+            <span className="ajustes__puerta-fila">
+              <span className="ajustes__puerta-titulo">Platos que no quieres</span>
+              <span className="ajustes__puerta-flecha" aria-hidden="true">›</span>
+            </span>
+            <span className="ajustes__puerta-resumen">
+              {bloqueados === 0
+                ? 'Ninguno'
+                : `${bloqueados} ${bloqueados === 1 ? 'plato' : 'platos'}`}
+            </span>
+          </button>
         </>
       )}
 

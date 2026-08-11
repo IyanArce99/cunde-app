@@ -11,7 +11,7 @@
 .cambio__resto {
   padding: 8px 0;
   border-bottom: var(--divider-dashed);
-  font: 400 13px/1.2 var(--font-mono);
+  font: 400 13px/1.2 var(--font-body);
   color: var(--gris);
 }
 
@@ -26,14 +26,14 @@
 .cambio__cuando {
   grid-row: span 2;
   align-self: center;
-  font: 500 13px/1.2 var(--font-mono);
+  font: 500 13px/1.2 var(--font-body);
   letter-spacing: 0;
   color: var(--gris);
   white-space: nowrap;
 }
 
 .cambio__de {
-  font: 400 15px/1.2 var(--font-mono);
+  font: 400 15px/1.2 var(--font-body);
   color: var(--gris);
   text-decoration: line-through;
 }
@@ -53,12 +53,28 @@
   border-top: var(--divider-total);
 }
 
+/* El botón nacía pegado a «Te ahorras −6,08 €»: la última línea de la cuenta y
+   la decisión sobre esa cuenta se leían como una sola cosa. Son dos: primero se
+   entiende el número, después se decide. */
+.cambio__cuentas+.primary-button {
+  margin-top: 22px;
+}
+
 .cambio__salida {
   margin-top: 12px;
   text-align: center;
 }
 
+/**
+ * TINTA, NO GRIS.
+ *
+ * Era el único «volver atrás» de la app en gris: el cierre y la hoja de extras
+ * usan tinta. Y aquí es donde más importa — esto rechaza una propuesta que
+ * cambia catorce comidas, y CLAUDE.md prohíbe por escrito la salida en gris
+ * pequeño. Que la salida se vea no le quita fuerza al botón: el botón ya tiene
+ * relleno negro y 56 px de alto.
+ */
 .cambio__salida a {
   font: 400 15px/1 var(--font-body);
-  color: var(--gris);
+  color: var(--tinta);
 }

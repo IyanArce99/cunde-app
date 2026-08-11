@@ -1,7 +1,6 @@
 import type { NivelProteina } from '../state/types';
 import type { Contexto } from '../lib/derive';
 import type { CosteOpcion } from '../motor/seleccionar.ts';
-import { eur } from '../lib/format';
 import SelectorCoste from './SelectorCoste';
 import type { OpcionCoste } from './SelectorCoste';
 
@@ -25,13 +24,33 @@ const CONSECUENCIA: Record<NivelProteina, string> = {
 };
 
 /**
- * El precio NO es el protagonista de este selector. El intercambio de esta
- * palanca es proteína contra desperdicio, y poner euros grandes hacía leer
- * los tres niveles como una escalera de precio que no son: básica puede salir
- * más cara que alta y no pasa nada, porque lo que compra es otra cosa.
+ * ═══ ESTE SELECTOR NO ENSEÑA CIFRAS, Y ES DELIBERADO ═══
  *
- * Debajo de cada nivel van las dos cosas que sí se intercambian, y el precio
- * queda en la línea pequeña, donde le corresponde.
+ * Llevaba tres por tarjeta: gramos de proteína, lo que costaba la cesta y lo
+ * que se tiraba. Nueve números en una fila de tres columnas de 100 px, con
+ * «carne casi a diario» partiendo en tres líneas. Ilegible.
+ *
+ * Pero el motivo de fondo no es el espacio, es que esas cifras invitaban a una
+ * comparación que el motor NO sostiene. Medido sobre 162 casos: en el 60-69%,
+ * subir de nivel sale MÁS BARATO. No es un fallo del optimizador —se probó a
+ * unificarlo y salía igual o peor— sino que el suelo de proteína entra en la
+ * puntuación hueco a hueco, así que cada nivel recorre un valle distinto y sus
+ * precios no son comparables aunque se pinten en fila.
+ *
+ * Enseñar tres precios que se contradicen, en una app cuya única defensa es que
+ * sus cifras no mienten, es el peor sitio donde podía estar ese problema.
+ *
+ * Lo que cuesta la elección se ve donde siempre debió verse: en la cesta de
+ * arriba, que cambia al tocar. UNA cifra que se mueve dice lo mismo que tres
+ * que se contradicen, y esa sí es verdad.
+ *
+ * Lo que se pierde: ya no se ven los gramos de cada nivel. Se cambian por la
+ * frase de consecuencia de debajo, que es lo que el usuario decide de verdad
+ * —proteína contra desperdicio— y que está medida: al subir de nivel suben los
+ * gramos el 89% de las veces y lo que se tira el 88%.
+ *
+ * Cuidado con el precio: `lib/suscripcion.ts` llegó a apoyar una decisión de
+ * negocio en que «alta cuesta más», que es falso tres de cada cuatro veces.
  */
 const SelectorProteina: React.FC<{
   ctx: Contexto;
@@ -45,15 +64,7 @@ const SelectorProteina: React.FC<{
       costes={costes}
       valor={ctx.proteina}
       onCambiar={onCambiar}
-      ejes={(c) => ({
-        principal: `${c.proteina.toFixed(0)} g`,
-        // Dos líneas, no dos cifras separadas por un punto medio: en una
-        // columna de 100 px "tiras 1,45 € · 50,42 €" se partía en tres
-        // trozos arbitrarios. Primero lo que cuesta la cesta, que es lo que
-        // decide, y debajo lo que se tira, que es el argumento.
-        secundario: `${eur(c.carrito)}
-tira ${eur(c.perecedero)}`,
-      })}
+      soloEtiqueta
     />
     <p className="selcoste__consecuencia">{CONSECUENCIA[ctx.proteina]}</p>
   </>

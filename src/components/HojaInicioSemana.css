@@ -1,0 +1,100 @@
+.inicio__opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+/* Filas y no píldoras: cada opción lleva dos líneas —qué es y qué día es— y en
+   una píldora de tres columnas la fecha no cabría. Además son tres, no siete:
+   el alto no está en disputa aquí. */
+.inicio__opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 62px;
+  padding: 0 18px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Borde y no relleno: son tres filas de ancho completo, y una barra negra entre
+   dos blancas pesa más que el rótulo que las encabeza. Mismo criterio que las
+   ranuras del paso 2/3. */
+.inicio__opcion--elegida {
+  border: var(--border-selected);
+  background: var(--papel);
+}
+
+.inicio__opcion-que {
+  font: 500 16px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.inicio__opcion--elegida .inicio__opcion-que {
+  font-weight: 600;
+}
+
+/* La fecha, en la columna de la derecha y en versalitas: es el dato que se
+   comprueba antes de tocar, y a la derecha cae donde ya están todas las cifras
+   de la app. */
+.inicio__opcion-cuando {
+  flex: none;
+  font: 500 13px/1 var(--font-body);
+  letter-spacing: .04em;
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+.inicio__libre {
+  display: block;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: var(--divider-dashed);
+}
+
+.inicio__libre-rotulo {
+  display: block;
+  margin-bottom: 8px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+/* El campo nativo. `appearance: none` quitaría también el icono del calendario
+   del sistema, que es lo único que dice que esto se abre — así que se deja y
+   solo se le da la caja de la app. */
+.inicio__libre-campo {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 0 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  font: 400 16px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.inicio__libre-campo:focus-visible {
+  outline: none;
+  border: var(--border-selected);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
+}
+
+.inicio__libre + .primary-button {
+  margin-top: 20px;
+}
+
+.inicio__nota {
+  margin: 14px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--gris);
+  text-align: center;
+  text-wrap: pretty;
+}

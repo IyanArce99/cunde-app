@@ -8,6 +8,16 @@ interface BudgetSliderProps {
   onChange: (valor: number) => void;
   /** Lo que se lee en voz alta en vez del número pelado. */
   etiquetaValor?: (valor: number) => string;
+  /**
+   * Lo que se escribe bajo los extremos del carril.
+   *
+   * Por defecto los importes. Se puede pasar otra cosa —«AJUSTADO» / «HOLGADO»—
+   * porque desde que el mínimo es el suelo del recetario, ese número dejó de ser
+   * una elección del usuario: es un dato del catálogo. Escribirlo como cifra
+   * invita a pelearse con él; escribirlo como zona dice lo que de verdad
+   * significa moverse hacia ese lado.
+   */
+  extremos?: [string, string];
 }
 
 /** Un euro por flecha, diez por página: mover 170 € de uno en uno no es usable. */
@@ -23,7 +33,9 @@ const PASO_GRANDE = 10;
  * lector de pantalla no existía. En la pantalla donde se decide la única
  * cifra que importa, eso deja fuera a quien navega con teclado o con lector.
  */
-const BudgetSlider: React.FC<BudgetSliderProps> = ({ value, min, max, onChange, etiquetaValor }) => {
+const BudgetSlider: React.FC<BudgetSliderProps> = ({
+  value, min, max, onChange, etiquetaValor, extremos,
+}) => {
   const trackRef = useRef<HTMLDivElement>(null);
 
   const fijarDesdeX = (x: number) => {
@@ -82,11 +94,11 @@ const BudgetSlider: React.FC<BudgetSliderProps> = ({ value, min, max, onChange, 
       >
         <div className="budget-slider__carril" />
         <div className="budget-slider__recorrido" style={{ width: `${pct}%` }} />
-        <div className="budget-slider__pulgar" style={{ left: `calc(${pct}% - 14px)` }} />
+        <div className="budget-slider__pulgar" style={{ left: `${pct}%` }} />
       </div>
       <div className="budget-slider__extremos" aria-hidden="true">
-        <span>{min} €</span>
-        <span>{max} €</span>
+        <span>{extremos ? extremos[0] : `${min} €`}</span>
+        <span>{extremos ? extremos[1] : `${max} €`}</span>
       </div>
     </div>
   );

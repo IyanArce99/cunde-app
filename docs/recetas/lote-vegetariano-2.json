@@ -1,0 +1,1084 @@
+{
+  "raciones_base": 2,
+  "lote": "vegetariano-2",
+  "nota": "Diez platos vegetarianos sin un solo huevo, para romper la dependencia medida en el motor: hoy el huevo sale en 4,7 de los 12 platos de una semana vegetariana y en 5 de 12 si además quita lactosa. La proteína viene de legumbre variada (alubia roja, pinta, blanca cocida y seca, lenteja cocida, garbanzo), de los lácteos que el recetario casi no usaba (queso fresco, queso rallado, yogur, leche, nata) y de frutos secos (almendra, cacahuete). Cinco son veganas y sin lactosa, ocho son sin gluten, y ninguna pasa de 1,40 € por ración estimada.",
+  "recetas": [
+    {
+      "id": "pisto_horno_queso_fresco",
+      "nombre": "Pisto al horno con queso fresco",
+      "minutos": 45,
+      "tags": [
+        "vegetariano",
+        "verdura",
+        "horno",
+        "economico"
+      ],
+      "proteina": "lacteo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "queso_fresco",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "berenjena",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta el calabacín, la berenjena, el pimiento y la cebolla en dados de 2 cm.",
+        "Riégalos con el aceite, sala y ásalos 25 minutos removiendo a mitad.",
+        "Pásalos a una fuente con el tomate triturado, el ajo picado, el orégano y la pimienta.",
+        "Reparte el queso fresco desmenuzado por encima y cubre con el queso rallado.",
+        "Gratina 12 minutos, hasta que el queso se dore."
+      ],
+      "nota": "El queso fresco entra al final y sin batir: aguanta el horno sin soltar agua y pone la proteína que el pisto solo no tiene."
+    },
+    {
+      "id": "alubias_rojas_calabaza",
+      "nombre": "Alubias rojas con calabaza",
+      "minutos": 35,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_roja_cocida",
+          "parte": "principal",
+          "cantidad": 230,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabaza",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pica la cebolla, la zanahoria y el pimiento y sofríelos 10 minutos con el aceite y la sal.",
+        "Aparta del fuego, añade el ajo picado y el pimentón y remueve 20 segundos.",
+        "Suma el tomate triturado y cocina 5 minutos.",
+        "Incorpora la calabaza en dados, el laurel y el agua y cuece 15 minutos tapado.",
+        "Machaca la almendra y échala a la olla.",
+        "Añade las alubias escurridas y cuece 5 minutos más a fuego suave."
+      ],
+      "nota": "La calabaza se deshace y espesa el caldo, así que no hace falta harina ni triturar nada."
+    },
+    {
+      "id": "macarrones_gratinados_tomate",
+      "nombre": "Macarrones gratinados con tomate",
+      "minutos": 35,
+      "tags": [
+        "vegetariano",
+        "horno",
+        "economico"
+      ],
+      "proteina": "lacteo",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "macarron",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "leche_semi",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 4,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 210 °C.",
+        "Pocha la cebolla y el ajo picados 8 minutos con el aceite y la sal.",
+        "Añade el tomate triturado, el orégano y la pimienta y cocina 12 minutos a fuego medio.",
+        "Cuece los macarrones dos minutos menos de lo que diga el paquete y escúrrelos.",
+        "Mézclalos con el tomate y la leche en una fuente.",
+        "Cubre con el queso rallado y gratina 10 minutos."
+      ],
+      "nota": "La leche va dentro del tomate, no aparte: da salsa cremosa sin montar una bechamel."
+    },
+    {
+      "id": "coliflor_horno_alubia_almendra",
+      "nombre": "Coliflor al horno con alubias y almendra",
+      "minutos": 40,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "verdura",
+        "legumbre",
+        "horno",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_pinta_cocida",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "coliflor",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 16,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 210 °C.",
+        "Separa la coliflor en ramilletes, riégalos con el aceite y sala.",
+        "Ásalos 25 minutos, hasta que se tuesten por los bordes.",
+        "Tuesta la almendra y el ajo laminado en una sartén sin aceite, 3 minutos.",
+        "Májalos con el pimentón y el vinagre.",
+        "Mezcla la coliflor con las alubias y el majado, hornea 5 minutos y espolvorea el perejil."
+      ],
+      "nota": "La coliflor asada y no cocida pierde el olor a hervido y aguanta el majado sin deshacerse."
+    },
+    {
+      "id": "ensalada_lenteja_queso_fresco",
+      "nombre": "Ensalada de lentejas con queso fresco y pimiento",
+      "minutos": 12,
+      "tags": [
+        "vegetariano",
+        "legumbre",
+        "frio",
+        "sin_cocinar",
+        "rapido",
+        "cena",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sin_cocinar",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "lenteja_cocida",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_fresco",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "yogur_natural",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pepino",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.25,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Escurre y enjuaga las lentejas.",
+        "Corta el pimiento, el pepino y la cebolla en dados pequeños.",
+        "Bate el yogur con el aceite, el zumo de limón, la sal, el orégano y la pimienta.",
+        "Junta las lentejas con las verduras y el aliño.",
+        "Desmenuza el queso fresco por encima."
+      ],
+      "nota": "El yogur en el aliño hace de salsa y de proteína a la vez, y al segundo día la ensalada sigue jugosa."
+    },
+    {
+      "id": "calabacines_rellenos_garbanzo_queso",
+      "nombre": "Calabacines rellenos de garbanzo y queso",
+      "minutos": 45,
+      "tags": [
+        "vegetariano",
+        "legumbre",
+        "verdura",
+        "horno",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "horno",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 160,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 35,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_fresco",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Parte los calabacines a lo largo y vacíalos con una cuchara.",
+        "Pica la carne del calabacín y la cebolla y sofríelas 8 minutos con el aceite y la sal.",
+        "Añade el ajo, el tomate frito, el orégano y la pimienta y cocina 5 minutos.",
+        "Machaca los garbanzos con un tenedor y mézclalos con el sofrito y el queso fresco.",
+        "Rellena los calabacines, cúbrelos con el queso rallado y hornea 20 minutos."
+      ],
+      "nota": "Los garbanzos van machacados, no enteros: ligan el relleno y no se caen al cortar."
+    },
+    {
+      "id": "patatas_importancia_almendra",
+      "nombre": "Patatas a la importancia con majado de almendra",
+      "minutos": 40,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 300,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "almendra",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cacahuete",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "guisante",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "harina_maiz",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "colorante_alimentario",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 16,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta la patata en rodajas de 1 cm.",
+        "Pásalas por la harina de maíz y dóralas en el aceite, 3 minutos por cara.",
+        "Sácalas y pocha la cebolla picada en el mismo aceite 8 minutos.",
+        "Tuesta la almendra, el cacahuete y el ajo en una sartén y májalos con el perejil.",
+        "Devuelve las patatas a la cazuela con el caldo, el colorante y la sal.",
+        "Añade el majado y los guisantes y cuece 15 minutos a fuego suave."
+      ],
+      "nota": "Las patatas a la importancia se rebozan en huevo. Aquí la harina de maíz da la costra y el majado de almendra y cacahuete pone la proteína que faltaba."
+    },
+    {
+      "id": "alubias_blancas_acelgas",
+      "nombre": "Alubias blancas con acelgas",
+      "minutos": 65,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "verdura",
+        "olla",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "olla",
+      "dias_nevera": 4,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_seca",
+          "parte": "principal",
+          "cantidad": 95,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "acelga",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "zanahoria",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 285,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pon las alubias en remojo la noche anterior.",
+        "Cuécelas con el laurel y agua fría, 45 minutos a fuego suave.",
+        "Pica la cebolla, la zanahoria y el ajo y sofríelos 10 minutos con el aceite.",
+        "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
+        "Echa el sofrito a la olla con la patata en trozos y la sal.",
+        "Cuece 15 minutos, añade la acelga picada y dale 5 minutos más."
+      ],
+      "nota": "Alubia seca, no de bote: sale a un tercio de precio y triplica la proteína por gramo. Solo pide acordarse la noche antes."
+    },
+    {
+      "id": "espaguetis_champinon_nata",
+      "nombre": "Espaguetis con champiñones a la crema",
+      "minutos": 22,
+      "tags": [
+        "vegetariano",
+        "sarten",
+        "cena",
+        "economico"
+      ],
+      "proteina": "lacteo",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "espagueti",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "queso_rallado",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "nata_cocinar",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "champinon",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 40,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimienta_negra",
+          "parte": "principal",
+          "cantidad": 0.3,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Lamina los champiñones y pica la cebolla y el ajo.",
+        "Saltea los champiñones a fuego fuerte 5 minutos, hasta que suelten el agua y se evapore.",
+        "Baja el fuego, añade la cebolla, el ajo, el aceite y la sal y pocha 6 minutos.",
+        "Vierte la nata y la pimienta y cuece 3 minutos, hasta que espese.",
+        "Cuece los espaguetis y échalos a la sartén con un poco de su agua.",
+        "Apaga el fuego, añade el queso rallado y el perejil y remueve."
+      ],
+      "nota": "El queso entra con el fuego apagado. Si hierve con la nata se corta y la salsa queda granulosa."
+    },
+    {
+      "id": "alubias_blancas_salteadas_pimientos",
+      "nombre": "Alubias blancas salteadas con pimientos",
+      "minutos": 18,
+      "tags": [
+        "vegetariano",
+        "vegano",
+        "legumbre",
+        "sarten",
+        "rapido",
+        "economico"
+      ],
+      "proteina": "legumbre",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 2,
+        "acompanamiento": 2
+      },
+      "ingredientes": [
+        {
+          "canonico": "alubia_blanca_cocida",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "soja_texturizada",
+          "parte": "principal",
+          "cantidad": 20,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "agua",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_frito",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Cubre la soja con el agua caliente y espera 10 minutos.",
+        "Corta los pimientos y la cebolla en tiras y saltéalos 8 minutos con el aceite y la sal.",
+        "Añade el ajo picado y la soja escurrida y dora 3 minutos.",
+        "Aparta del fuego, echa el pimentón y remueve 20 segundos.",
+        "Suma el tomate frito y las alubias escurridas y saltea 4 minutos a fuego suave.",
+        "Espolvorea el perejil por encima."
+      ],
+      "nota": "La soja se dora en la sartén después de escurrirla. Si va mojada directa al guiso queda con textura de esponja."
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+.fuera__intro {
+  margin: 10px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--gris);
+  text-wrap: pretty;
+}
+
+.fuera__buscador {
+  width: 100%;
+  box-sizing: border-box;
+  height: 52px;
+  margin-top: 18px;
+  padding: 0 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  font: 400 15px/1 var(--font-body);
+}
+
+.fuera__buscador::placeholder {
+  color: var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   AÑADIR · chips con signo más
+
+   El "+" delante no decora: sin él, un chip apagado junto a una fila marcada
+   se lee como "esto también está puesto pero desactivado". Con el más se lee
+   como lo que es, un botón de añadir.
+   --------------------------------------------------------------------------- */
+
+.fuera__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.fuera__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  /* 40 px de alto pintado, no 48: es una parrilla de quince y a 48 ocupa una
+     fila más. Lo que da el objetivo táctil es el hueco de 6 px más el relleno
+     lateral; en una hoja que ya hace scroll, la altura pintada es el precio.
+     Ver `.fuera__quitar`, que sí es de 44 porque destruye. */
+  min-height: 40px;
+  padding: 0 14px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: 20px;
+  color: var(--tinta);
+  font: 500 13px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.fuera__chip-mas {
+  color: var(--gris);
+  font-size: 15px;
+}
+
+.fuera__vacio {
+  margin: 14px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   LO QUE ESTÁ FUERA · una fila por cosa
+
+   Fila y no chip porque aquí sí hay que decir dos cosas más: si es alergia o
+   dieta, y cuántas recetas se lleva. En un chip no caben, y son justo las dos
+   que hacen que quitar cosas deje de parecer gratis.
+   --------------------------------------------------------------------------- */
+
+.fuera__lista {
+  margin-top: 22px;
+  padding-top: 6px;
+  border-top: 1px solid var(--linea-bloque);
+}
+
+.fuera__nada {
+  margin: 0;
+  padding: 22px 0;
+  font: 400 14px/1.5 var(--font-body);
+  color: var(--gris);
+}
+
+.fuera__fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--linea-fila);
+}
+
+.fuera__fila-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.fuera__fila-nombre {
+  display: block;
+  font: 600 16px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.fuera__fila-resta {
+  display: block;
+  margin-top: 6px;
+  font: 400 12px/1 var(--font-body);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Etiqueta, no botón: la razón se deduce de la lista a la que pertenece cada
+   cosa y no se puede cambiar. Ver la cabecera de SelectorExclusiones.tsx. */
+.fuera__razon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 17px;
+  background: var(--papel-2);
+  color: var(--gris);
+  font: 500 12px/1 var(--font-body);
+}
+
+.fuera__razon--alergia {
+  background: var(--azulete-chip);
+  color: var(--azulete-sobre-chip);
+}
+
+.fuera__quitar {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: 17px;
+  color: var(--gris);
+  font: 400 14px/1 var(--font-body);
+  cursor: pointer;
+}
+
+/* El círculo se pinta a 34 y el objetivo táctil llega a 44 por fuera. Engordar
+   el círculo lo haría competir con el nombre de la fila; dejarlo en 34 tocables
+   lo haría fallar en un pulgar. */
+.fuera__quitar::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+}
+
+/* ---------------------------------------------------------------------------
+   LOS DOS AVISOS
+
+   Ninguno lleva fondo de alarma. Quitar cosas no es un error del usuario: es
+   lo que ha pedido. Se dice qué implica y ya.
+   --------------------------------------------------------------------------- */
+
+.fuera__alergia {
+  margin-top: 16px;
+  padding: 15px 17px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+}
+
+.fuera__alergia-rotulo {
+  display: block;
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--roja);
+}
+
+.fuera__alergia-texto {
+  margin: 8px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  color: var(--tinta);
+  text-wrap: pretty;
+}
+
+.fuera__pocas {
+  margin: 12px 0 0;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--roja);
+}
+
+.fuera__recuento {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--linea-bloque);
+}
+
+.fuera__recuento-texto {
+  font: 400 13px/1 var(--font-body);
+  color: var(--gris);
+}
+
+.fuera__recuento-cifra {
+  font: 600 20px/1 var(--font-body);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* El total, pequeño y al lado. "97" solo no dice nada; "97 de 112" dice cuánto
+   te has dejado por el camino, que es la pregunta que se está contestando. */
+.fuera__recuento-total {
+  font: 400 13px/1 var(--font-body);
+  color: var(--gris);
+}

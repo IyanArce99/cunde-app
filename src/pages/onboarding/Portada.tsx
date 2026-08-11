@@ -1,45 +1,32 @@
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import PrimaryButton from '../../components/PrimaryButton';
-import { eur, fechaCorta } from '../../lib/format';
+import { eur, eurSinSimbolo } from '../../lib/format';
 import muestra from '../../data/muestra-portada.json';
 import './Portada.css';
 
 /**
- * LA PORTADA ES UN TICKET.
+ * LA PORTADA ES UNA CIFRA CON DOS DATOS QUE LA SOSTIENEN.
  *
- * De cinco primeras pantallas comparadas —titular con una línea de prueba, la
- * cifra sola, el ticket, la pregunta con el deslizador, y la semana como
- * gráfico de barras— esta sale de mezclar dos:
+ * Antes era un rollo de ticket con tres productos y su total. La idea era
+ * buena —la prueba y la promesa siendo el mismo objeto— pero dependía entera
+ * de la metáfora de papel térmico, y el rediseño la retira. Sin ella, tres
+ * líneas de producto sobre papel crema no son una prueba: son una lista.
  *
- *   · la ESTRUCTURA del ticket, porque hace que la prueba y la promesa sean el
- *     mismo objeto. Era el problema que quedaba abierto en la versión
- *     anterior: enseñaba el precio de una bandeja de pollo y no había manera de
- *     decir por qué. Aquí no hay nada que explicar — un ticket con su total
- *     dice a la vez "sé precios de productos concretos" y "esto es lo que te va
- *     a costar comer".
+ * Lo que queda dice lo mismo con menos: el total de una semana real, y debajo
+ * las dos cifras que lo hacen creíble —cuántas comidas y a cuánto sale la
+ * ración—. Ese "2,28 € la ración" es el número con el que el usuario compara
+ * con un menú del día, y es lo que convierte un total abstracto en una
+ * afirmación que puede juzgar.
  *
- *   · la JERARQUÍA de la cifra sola. La escala del proyecto dice que la 56 "se
- *     reserva al total de la semana", y el total de este ticket ES un total de
- *     semana: junto con la pantalla Semana, es el único sitio donde ese tamaño
- *     está en su lugar. La portada anterior incumplía la regla de que la cifra
- *     en euros es el elemento más grande de la pantalla — el suyo era un
- *     párrafo de cuatro líneas.
+ * La cifra sigue siendo el elemento mayor de la pantalla, que es la regla que
+ * no se toca en ninguna pantalla de esta app.
  *
- * Descartados con razón, no por gusto: el gráfico de los siete días, porque con
- * precios de 7,96 a 9,60 € las barras salen todas iguales y era decoración con
- * forma de dato; y la pregunta con el deslizador, porque ahorra un toque pero
- * enseña el coste por persona antes de saber cuántas personas hay, y no dice en
- * ningún momento qué es esto.
- *
- * Tres líneas y "y N productos más", no cinco: esta pantalla solo tiene que
- * conseguir un toque y cada línea es una oportunidad de no darlo.
- *
- * El ticket lo genera el MISMO motor que la app (ver EJEMPLO en
- * catalogo/generar.ts), así que es un ticket que la app sabe producir y no una
- * maqueta con cifras bonitas. Y no se lee motor-datos.json aquí: son 289 KB
- * parseados antes del primer pintado, y el porcentaje que llega a ver su menú
- * es la métrica que decide el producto.
+ * Los datos salen del MISMO motor que la app (ver EJEMPLO en
+ * catalogo/generar.ts), así que es una semana que la app sabe producir y no
+ * una maqueta con cifras bonitas. Y no se lee motor-datos.json aquí: son
+ * 289 KB parseados antes del primer pintado, y el porcentaje que llega a ver
+ * su menú es la métrica que decide el producto.
  */
 const { ticket } = muestra;
 
@@ -50,62 +37,59 @@ const Portada: React.FC = () => {
     <IonPage>
       <IonContent fullscreen scrollY={false} className="pantalla-content">
         <div className="pantalla pantalla--onboarding portada">
-          <div className="portada__rollo">
-            {/* El SVG lleva el texto convertido a trazados, así que no depende
-                de que la fuente haya cargado. */}
-            <img className="portada__marca" src="/cunde-logotipo.svg" alt="Cunde" />
-            {/* La cabecera lleva fecha y comensales porque un total sin ellos no
-                afirma nada: 61,92 € para dos y para cinco son dos cosas
-                distintas. */}
-            <span className="portada__rollo-fuente">
-              MERCADONA · {fechaCorta(muestra.capturadoEn)} · {ticket.personas} PERSONAS
+          <div className="portada__cabecera">
+            <span className="portada__marca">cunde</span>
+          </div>
+
+          {/* ═══ SE VA EL ROLLO DE TICKET ═══
+              Era la firma del diseño anterior: papel crema, tres líneas de
+              productos con su guía de puntos y un borde dentado abajo. El
+              rediseño retira esa metáfora, así que lo que queda es lo que el
+              rollo estaba diciendo — el total de una semana de verdad, con dos
+              datos que lo hacen creíble.
+
+              La cifra sigue siendo lo más grande de la pantalla, que es la
+              regla que no se toca. Y el rótulo de arriba sigue llevando súper y
+              comensales: un total sin ellos no afirma nada, porque 63,89 € para
+              dos y para cinco son dos cosas distintas. */}
+          <div className="portada__centro">
+            <span className="portada__rotulo">
+              Una semana para {ticket.personas} · Mercadona
             </span>
 
-            <div className="portada__lineas">
-              {ticket.lineas.map((l) => (
-                <div className="portada__linea" key={l.nombre}>
-                  <span className="portada__linea-nombre">{l.nombre}</span>
-                  <span className="portada__linea-detalle">
-                    <span>{l.formato}</span>
-                    <span className="portada__linea-guia" />
-                    <span>{eur(l.precio)}</span>
-                  </span>
-                </div>
-              ))}
-              <div className="portada__linea portada__linea--resto">
-                <span className="portada__linea-detalle">
-                  <span>y {ticket.restoProductos} productos más</span>
-                  <span className="portada__linea-guia" />
-                  <span>{eur(ticket.restoImporte)}</span>
+            <div className="portada__cifra">
+              <span className="portada__cifra-numero">{eurSinSimbolo(ticket.total)}</span>
+              <span className="portada__cifra-moneda">€</span>
+            </div>
+
+            <div className="portada__tarjetas">
+              <div className="portada__tarjeta">
+                <span className="portada__tarjeta-rotulo">Comidas</span>
+                <span className="portada__tarjeta-dato">{ticket.comidas}</span>
+              </div>
+              <div className="portada__tarjeta">
+                <span className="portada__tarjeta-rotulo">Por ración</span>
+                <span className="portada__tarjeta-dato">
+                  {eur(ticket.total / ticket.comidas / ticket.personas)}
                 </span>
               </div>
             </div>
 
-            <div className="portada__total">
-              {/* Rótulo encima y cifra debajo, como en la pantalla Semana. Al
-                  lado, en 360 px de ancho la etiqueta se partía en tres líneas
-                  peleando por el sitio con una cifra de 56 px. */}
-              <span className="portada__total-etiqueta">TOTAL · {ticket.comidas} COMIDAS</span>
-              <span className="portada__total-cifra">{eur(ticket.total)}</span>
-            </div>
-          </div>
-
-          <div className="portada__acciones">
-            {/* El titular va DEBAJO del ticket. El objeto ya ha dicho de qué va
-                esto; aquí solo queda decirle al usuario qué tiene que hacer.
-
-                "Tú pones el presupuesto. Yo cuadro la semana." era simétrico y
-                sonaba bien, pero no decía qué recibe: "cuadrar la semana" no es
-                un entregable, es una metáfora. El titular nombra las dos cosas
-                que se lleva —las comidas y la lista— porque la segunda es la
-                única que la competencia gratuita no puede dar con precios de
-                verdad. Y "tope" en vez de "presupuesto": es más corto, es la
-                palabra que usa la gente, y dice que es un techo. */}
             <h1 className="portada__titular">
               Tú pones el tope. Yo pongo las {ticket.comidas} comidas y la lista.
             </h1>
-            <PrimaryButton onClick={() => history.push('/onboarding/super')}>Empezar</PrimaryButton>
-            <span className="portada__nota">Sin registro. Sin tarjeta.</span>
+            <p className="portada__sub">Con los precios de tu súper, los de hoy.</p>
+          </div>
+
+          <div className="portada__acciones">
+            {/* LA NOTA VA ENCIMA DEL BOTÓN, no debajo.
+                Debajo, el botón quedaba a distinta altura que en las otras
+                pantallas del onboarding y el pie bailaba al avanzar. Encima, el
+                botón se apoya siempre en el mismo sitio. */}
+            <span className="portada__nota">Un minuto. Sin registro. Sin tarjeta.</span>
+            <PrimaryButton onClick={() => history.push('/onboarding/super')}>
+              Cuadrar mi semana
+            </PrimaryButton>
           </div>
         </div>
       </IonContent>

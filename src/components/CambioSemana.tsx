@@ -1,6 +1,8 @@
 import type { Retoque } from '../data/motor';
 import type { DiaSemana, Ranura } from '../state/types';
-import { eur, eurConSigno } from '../lib/format';
+import { diaCortoConNumero, eur, eurConSigno } from '../lib/format';
+import { fechaDePosicion } from '../lib/fechas';
+import type { FechaDia } from '../lib/fechas';
 import { nombreRanura } from '../lib/menu';
 import TicketRow from './TicketRow';
 import PrimaryButton from './PrimaryButton';
@@ -9,6 +11,8 @@ import './CambioSemana.css';
 
 interface CambioSemanaProps {
   antes: DiaSemana[];
+  /** El primer día real de la semana. Nulo en las anteriores a las fechas. */
+  fechaInicio: FechaDia | null;
   despues: DiaSemana[];
   totalAntes: number;
   totalDespues: number;
@@ -45,23 +49,26 @@ const MAX_FILAS = 6;
  * el carrito, y no se aplica hasta que el usuario dice que sí.
  */
 const CambioSemana: React.FC<CambioSemanaProps> = ({
-  antes, despues, totalAntes, totalDespues, retoque, onConfirmar, onCancelar,
+  antes, fechaInicio, despues, totalAntes, totalDespues, retoque, onConfirmar, onCancelar,
 }) => {
   const cambios: { etiqueta: string; de: string; a: string }[] = [];
-  for (const diaAntes of antes) {
+  antes.forEach((diaAntes, i) => {
     const diaDespues = despues.find((d) => d.dia === diaAntes.dia);
+    /* El día REAL cuando se sabe: quien empieza en viernes no debe leer «MAR»
+       en la hoja que le dice qué comidas le van a cambiar. */
+    const cuando = fechaDePosicion(fechaInicio, i);
     for (const ranura of RANURAS) {
       const a = diaAntes[ranura];
       const b = diaDespues?.[ranura] ?? null;
       if (!a && !b) continue;
       if (a?.nombre === b?.nombre && a?.tipo === b?.tipo) continue;
       cambios.push({
-        etiqueta: `${diaAntes.dia} · ${nombreRanura(ranura)}`,
+        etiqueta: `${cuando ? diaCortoConNumero(cuando) : diaAntes.dia} · ${nombreRanura(ranura)}`,
         de: a?.nombre ?? 'libre',
         a: b?.nombre ?? 'libre',
       });
     }
-  }
+  });
 
   const delta = totalDespues - totalAntes;
 
@@ -107,8 +114,15 @@ const CambioSemana: React.FC<CambioSemanaProps> = ({
       </div>
 
       <PrimaryButton onClick={onConfirmar}>Dejarlo así</PrimaryButton>
+      {/**
+        * `salida-texto`, como «Ahora no» del cierre. Sin ella este enlace medía
+        * 92×19: la vuelta atrás de una propuesta que cambia catorce comidas era
+        * un objetivo de 19 px frente a un botón de 56. Eso no es una jerarquía
+        * visual, es hacer difícil decir que no — y esta app se posiciona
+        * justamente contra eso.
+        */}
       <div className="cambio__salida">
-        <a href="#!" onClick={(e) => { e.preventDefault(); onCancelar(); }}>
+        <a className="salida-texto" href="#!" onClick={(e) => { e.preventDefault(); onCancelar(); }}>
           Como estaba
         </a>
       </div>

@@ -10,26 +10,26 @@
   ],
   "ticket": {
     "personas": 2,
-    "total": 63.89,
+    "total": 63.14,
     "comidas": 14,
     "lineas": [
       {
-        "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
-        "formato": "Caja 400 g",
-        "precio": 9.8
-      },
-      {
-        "nombre": "Quinoa Hacendado",
-        "formato": "Paquete 500 g",
-        "precio": 5.3
+        "nombre": "Lomo de bacalao MareDeus ultracongelado",
+        "formato": "Paquete 384 g",
+        "precio": 9.41
       },
       {
         "nombre": "Sardina sin limpiar",
         "formato": "Bandeja 400 g",
-        "precio": 4.8
+        "precio": 5.6
+      },
+      {
+        "nombre": "Huevos",
+        "formato": "Paquete 24 uds",
+        "precio": 5.25
       }
     ],
     "restoProductos": 24,
-    "restoImporte": 43.99
+    "restoImporte": 42.88
   }
 }

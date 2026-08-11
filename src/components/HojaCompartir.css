@@ -1,0 +1,22 @@
+/* El marco de la previsualización. Centrado y con un ancho tope: en una
+   tablet, un ticket estirado a 700 px deja de parecerse a lo que se va a
+   compartir, que es lo único que esta previsualización tiene que hacer. */
+.compartir__marco {
+  max-width: 320px;
+  margin: 4px auto 0;
+}
+
+/**
+ * `display: block` y no es un detalle.
+ *
+ * `output` es INLINE por defecto, y un elemento inline se traga los márgenes
+ * verticales sin decir nada. Medido en el navegador: estos 16 px daban 3 px
+ * arriba y 2 abajo, y la tarjeta, la nota y el botón salían pegados los tres.
+ */
+.compartir__nota {
+  display: block;
+  margin: 18px 0;
+  font-size: var(--text-xs);
+  line-height: 1.45;
+  color: var(--gris);
+}

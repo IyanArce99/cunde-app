@@ -100,13 +100,49 @@ export function cartaDePostres(datos: DatosMotor, exclusiones: string[]): { ing:
   return carta;
 }
 
+/** Lo que cuesta una ración de este postre. Público: la UI lo enseña. */
+export function precioDeRacion(ing: IngredienteCanonico, sku: Sku): number {
+  return precioRacion(ing, sku);
+}
+
 /**
- * Reparte las raciones de la semana entre la carta, por turnos.
+ * ═══ QUÉ POSTRE TOCA EN CADA COMIDA ═══
  *
- * Por turnos y no al peso del precio: repartir por precio acabaría poniendo
- * once gelatinas y un plátano, que es más barato y es peor producto. La
- * variedad de la rotación es justo lo que separa "hay postre" de "hay un
- * postre repetido catorce veces".
+ * Esta es la fuente de la verdad del postre, y antes NO EXISTÍA.
+ *
+ * El reparto original era por RACIONES: «esta semana entran 7 yogures, 7
+ * plátanos, 7 gelatinas y 7 manzanas». Con eso se puede comprar y se puede
+ * cobrar, pero no se puede decir qué se come el martes — la pregunta no tenía
+ * respuesta en los datos. Por eso encender el interruptor subía el precio y no
+ * cambiaba nada de lo que el usuario ve: no había nada que enseñar.
+ *
+ * Ahora el reparto es por HUECO y en el orden de la semana, y las raciones se
+ * derivan de él. La rotación es la misma idea de siempre —por turnos, no al
+ * peso del precio, para que no salgan once gelatinas— pero aplicada a la unidad
+ * que el usuario entiende: la comida.
+ *
+ * Determinista y sin azar: mismo índice, mismo postre. Es lo que permite que
+ * `hidratar` lo reconstruya al recargar sin guardarlo en `PlanSerial`.
+ */
+export function postrePorHueco(
+  datos: DatosMotor,
+  exclusiones: string[],
+  numHuecos: number,
+): { ing: IngredienteCanonico; sku: Sku }[] {
+  const carta = cartaDePostres(datos, exclusiones);
+  if (!carta.length) return [];
+  return Array.from({ length: numHuecos }, (_, i) => carta[i % carta.length]);
+}
+
+/**
+ * Las raciones de la semana, DERIVADAS del reparto por comida.
+ *
+ * Se cuenta cuántos huecos le tocan a cada postre y se multiplica por los
+ * comensales. Así el carrito compra exactamente lo que el menú dice que se va a
+ * comer — antes eran dos repartos distintos del mismo total y podían no
+ * coincidir plato a plato aunque la suma cuadrara.
+ *
+ * El invariante se conserva: la suma de raciones sigue siendo N × numHuecos.
  */
 export function planDePostres(
   datos: DatosMotor,
@@ -114,22 +150,20 @@ export function planDePostres(
   N: number,
   numHuecos: number,
 ): RacionPostre[] {
-  const carta = cartaDePostres(datos, exclusiones);
-  if (!carta.length) return [];
+  const porHueco = postrePorHueco(datos, exclusiones, numHuecos);
+  if (!porHueco.length) return [];
 
-  const totalRaciones = N * numHuecos;
-  return carta.map((x, i) => {
-    // Reparto por turnos: los primeros de la carta —los más baratos— se
-    // quedan la ración de más cuando el total no divide exacto.
-    const raciones = Math.floor(totalRaciones / carta.length)
-      + (i < totalRaciones % carta.length ? 1 : 0);
-    return {
-      ingrediente: x.ing,
-      sku: x.sku,
-      porRacion: (x.ing as { postre_por_racion?: number }).postre_por_racion ?? 1,
-      raciones,
-    };
-  }).filter((p) => p.raciones > 0);
+  const huecosPorPostre = new Map<string, number>();
+  for (const x of porHueco) {
+    huecosPorPostre.set(x.ing.id, (huecosPorPostre.get(x.ing.id) ?? 0) + 1);
+  }
+
+  return cartaDePostres(datos, exclusiones).map((x) => ({
+    ingrediente: x.ing,
+    sku: x.sku,
+    porRacion: (x.ing as { postre_por_racion?: number }).postre_por_racion ?? 1,
+    raciones: (huecosPorPostre.get(x.ing.id) ?? 0) * N,
+  })).filter((p) => p.raciones > 0);
 }
 
 /**

@@ -382,7 +382,16 @@ function reglaCantidades(ctx: Contexto): Fallo[] {
 // ---------------------------------------------------------------------------
 
 const ARROCES = ['arroz_redondo', 'arroz_largo', 'arroz_integral', 'quinoa'];
-const LEGUMBRE_SECA = ['lenteja_pardina', 'garbanzo_seco', 'alubia_blanca_seca'];
+/**
+ * La lista es a mano, y por eso hay que acordarse de ella al dar de alta una
+ * legumbre. `alubia_negra_seca` entró en el vocabulario sin pasar por aquí, y
+ * durante un rato fue la única legumbre seca del catálogo que el guardián NO
+ * vigilaba: se le podía poner cualquier cantidad de agua sin que saltara nada.
+ *
+ * No se deduce del id a propósito —«seca» en el nombre no es un dato, es una
+ * convención— pero sí conviene mirarla cada vez que se añade una.
+ */
+const LEGUMBRE_SECA = ['lenteja_pardina', 'garbanzo_seco', 'alubia_blanca_seca', 'alubia_negra_seca'];
 const LIQUIDOS = ['agua', 'caldo_verduras', 'caldo_pollo', 'bebida_soja', 'bebida_arroz', 'leche_semi'];
 
 function reglaRatios(ctx: Contexto): Fallo[] {

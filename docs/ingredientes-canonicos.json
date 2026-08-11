@@ -1553,6 +1553,47 @@
       "proteina_g_por_100": 5,
       "base": null,
       "rendimiento_comestible": 1
+    },
+    {
+      "id": "haba_congelada",
+      "nombre": "Habas",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 8,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "edamame_congelado",
+      "nombre": "Edamame",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 4,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "soja"
+      ],
+      "proteina_g_por_100": 11,
+      "base": null,
+      "rendimiento_comestible": 1
+    },
+    {
+      "id": "alubia_negra_seca",
+      "nombre": "Alubia negra seca",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [],
+      "proteina_g_por_100": 21,
+      "base": "alubia",
+      "rendimiento_comestible": 1
     }
   ]
 }

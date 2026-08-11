@@ -5,43 +5,53 @@
   letter-spacing: -.015em;
 }
 
+/* Caja en reposo, no en azul. Estaba con marco azul de 1,5 px sobre fondo
+   lavanda y, al recibir el foco, encima un anillo azul de 2 px: tres capas de
+   azul alrededor de un campo vacío, en la única hoja de la app donde ya hay un
+   botón azul. El marco de la caja hace de campo; el foco se distingue
+   engordando el borde, que es lo mismo que hace el resto de la app. */
 .cierre__caja {
-  margin-top: 22px;
+  margin-top: 20px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
-  border: 1.5px solid var(--azulete);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  background: var(--azulete-fondo-fuerte);
+  height: 70px;
+  padding: 0 18px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
 }
 
-/* El campo no tiene borde propio —la caja hace de campo— así que el anillo de
-   foco va en la caja. Si fuera en el input se dibujaría por dentro del marco
-   azul y se leería como un error de pintado. */
+/* El anillo va en la caja, no en el campo: el campo no tiene borde propio —la
+   caja hace de campo— y un anillo dentro del marco se lee como un error de
+   pintado. Borde en tinta más halo, que es el mismo par que usa el deslizador. */
 .cierre__caja:focus-within {
-  outline: 2px solid var(--azulete);
-  outline-offset: 2px;
+  border: var(--border-selected);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
 }
 
 .cierre__input {
   flex: 1;
   min-width: 0;
-  /* 47 px con la altura de línea sola: un pixel por debajo del mínimo. */
   min-height: 48px;
   border: none;
   background: none;
-  font: 500 34px/1 var(--font-mono);
+  font: 700 34px/1 var(--font-display);
+  letter-spacing: -.03em;
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
 }
 
+.cierre__input:focus-visible {
+  outline: none;
+}
+
 .cierre__input::placeholder {
-  color: rgba(26, 25, 23, .3);
+  color: var(--pauta);
 }
 
 .cierre__moneda {
-  font: 500 22px/1 var(--font-mono);
+  font: 600 24px/1 var(--font-body);
   color: var(--gris);
 }
 
@@ -53,16 +63,27 @@
   flex-direction: column;
 }
 
+/* Filete grueso: es la línea de total del ticket, la que separa lo sumado de
+   la conclusión. */
 .cierre__diferencia {
   border-top: var(--divider-total);
   margin-top: 4px;
-  padding-top: 4px;
+  padding-top: 6px;
   font-weight: 500;
+}
+
+/* Y esta va detrás con puntos, no pegada: contesta otra pregunta —el tope de
+   la semana, no el ticket de hoy— y sin separación se leía como una segunda
+   línea de la diferencia. */
+.cierre__sobre {
+  border-top: var(--divider-dotted);
+  margin-top: 4px;
+  padding-top: 4px;
 }
 
 .cierre__nota {
   margin: 16px 0 0;
-  font: 400 13px/1.5 var(--font-mono);
+  font: 400 13px/1.5 var(--font-body);
   color: var(--gris);
 }
 
@@ -78,4 +99,14 @@
 .cierre__salida a {
   font: 400 17px/1 var(--font-body);
   color: var(--tinta);
+}
+
+/* Lo que se dice cuando NO se puede comparar. En gris y sin cifra: es la
+   explicación de una ausencia, no un dato. Ver la cabecera del componente. */
+.cierre__sin-comparar {
+  margin: 0;
+  padding: 4px 0;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
+  text-wrap: pretty;
 }

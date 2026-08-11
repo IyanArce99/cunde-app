@@ -1,6 +1,6 @@
 .compra__offline {
   flex: none;
-  padding: 8px 30px 10px;
+  padding: 8px var(--margen-lateral) 10px;
   border-bottom: var(--divider-dashed);
 }
 
@@ -8,7 +8,7 @@
    del scroll, sin caja ni color de fondo. Es información, no una medalla. */
 .compra__armario {
   flex: none;
-  padding: 8px 30px 10px;
+  padding: 8px var(--margen-lateral) 10px;
   border-bottom: var(--divider-dashed);
 }
 
@@ -32,10 +32,18 @@
   /* Se estira hasta el canto del scrollport. Con el relleno lateral ahora en
      `.compra__lista`, una banda de ancho 100% dejaría 30 px a cada lado por
      los que se vería pasar la lista bajo la cabecera de pasillo. */
-  width: auto;
+  /* Ancho explícito y no `auto`: como la banda es un botón con `display:flex`,
+     `auto` la encogía a su contenido y cada pasillo terminaba donde acababa su
+     nombre, dejando franjas de distinto largo. Se estira al ancho del
+     scrollport más los dos márgenes que se le restan. */
+  width: calc(100% + 2 * var(--margen-lateral));
   margin-inline: calc(-1 * var(--margen-lateral));
-  background: var(--papel);
+  /* Fondo propio, no el del papel: la banda de pasillo separa bloques de la
+     lista y tiene que leerse como una franja, no como un hueco. Y siendo
+     opaca, la lista que pasa por debajo al hacer scroll no se ve. */
+  background: var(--papel-2);
   border: none;
+  border-top: 1px solid var(--linea-bloque);
   cursor: pointer;
   text-align: left;
   /* La casilla de la fila mide 28 y su hueco 14: mismo gap aquí para que las
@@ -51,8 +59,8 @@
   align-items: center;
   gap: 14px;
   row-gap: 2px;
-  font: 500 13px/1 var(--font-mono);
-  letter-spacing: 0;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .08em;
   color: var(--tinta);
 }
 
@@ -92,17 +100,19 @@
   background: var(--azulete);
 }
 
+/* Espaciador, ya no guía. El filete que unía el nombre del pasillo con su
+   subtotal era la última guía de ticket que quedaba en esta pantalla; sin la
+   metáfora, un trazo suelto a media altura no significa nada. Sigue haciendo
+   su otro trabajo: empujar el subtotal a la derecha. */
 .compra__pasillo-linea {
   flex: 1 1 auto;
   min-width: 12px;
-  border-bottom: 1px solid rgba(169, 164, 152, .6);
-  transform: translateY(-3px);
 }
 
 .compra__pasillo-subtotal {
   margin-left: auto;
   white-space: nowrap;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   letter-spacing: 0;
   color: var(--gris);
@@ -121,7 +131,9 @@
 
 .compra__pie {
   flex: none;
-  padding: 12px 30px 34px;
+  /* 16 y no 34: `.pantalla` ya pone el `safe-area-inset-bottom` y estos px van
+     encima, no en su lugar. Ver el pie de Semana, donde está el razonamiento. */
+  padding: 12px var(--margen-lateral) 16px;
   background: var(--papel);
   border-top: var(--divider-total);
 }
@@ -134,8 +146,8 @@
 }
 
 .compra__pie-etiqueta {
-  font: 500 13px/1 var(--font-mono);
-  letter-spacing: 0;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: .12em;
   color: var(--gris);
 }
 
@@ -149,20 +161,25 @@
 
 .compra__pie-restan {
   margin-left: auto;
-  font: 400 15px/1.3 var(--font-mono);
+  font: 600 17px/1.3 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
 
 .compra__pie-barra {
-  margin-top: 10px;
+  margin-top: 14px;
   height: 10px;
+  /* Redondeada, como el resto de formas del rediseño. Un rectángulo de esquinas
+     vivas entre tarjetas de radio 16 se lee como de otra app. */
+  border-radius: 5px;
   background: var(--barra-fondo);
+  overflow: hidden;
 }
 
 .compra__pie-barra-relleno {
   height: 100%;
+  border-radius: 5px;
   background: var(--azulete);
 }
 
@@ -220,13 +237,74 @@
 /* La procedencia de los precios: una línea para la lista entera. Antes iba
    repetida en las 27 filas. */
 .compra__fuente {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
   padding: 4px 0 2px;
-  font: 400 13px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
   color: var(--gris);
+}
+
+.compra__fuente-fecha {
+  flex: none;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
 }
 
 /* La casilla de la fila sube 4 px para caer en la línea del nombre. La del
    pasillo va en una fila centrada de una sola línea, así que ahí no. */
 .compra__pasillo-cabecera .fila-producto__caja {
   margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   OTRAS COSAS
+
+   La sección de lo que el usuario añade a mano. Va al final del ticket: los
+   pasillos están en el orden en que se recorre el súper y esto no tiene
+   pasillo, así que meterlo en medio rompería el recorrido.
+   --------------------------------------------------------------------------- */
+
+/* Sin subtotal, al contrario que los pasillos: el de los extras vive en el pie,
+   junto al del menú, que es donde se comparan. Aquí sería la misma cifra dos
+   veces en la misma pantalla. */
+.compra__pasillo-cabecera--extras {
+  cursor: default;
+}
+
+/* ---------------------------------------------------------------------------
+   EL DESGLOSE DEL PIE
+
+   Tres líneas de ticket bajo la barra, y solo cuando hay extras. Es la
+   funcionalidad entera puesta en cifras: lo que Cunde promete, lo que has
+   puesto tú, y lo que vas a pagar.
+   --------------------------------------------------------------------------- */
+
+.compra__desglose {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: var(--divider-dashed);
+}
+
+/* Filete de total, como en el cierre: separa lo sumado de la conclusión. */
+.compra__desglose-total {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: var(--divider-total);
+  font-weight: 600;
+}
+
+/* Sin fondo de alarma: que falte un precio no es un error del usuario, es que
+   todavía no lo sabe. Es la nota que impide que el total mienta. */
+.compra__desglose-aviso {
+  margin: 8px 0 0;
+  font: 400 13px/1.4 var(--font-body);
+  color: var(--gris);
+}
+
+.compra__desglose + .primary-button {
+  margin-top: 14px;
 }

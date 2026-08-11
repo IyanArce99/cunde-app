@@ -1,6 +1,6 @@
 .option-button {
   background: transparent;
-  border: 1.5px solid rgba(169, 164, 152, .7);
+  border: var(--border-rest);
   border-radius: var(--radius-sm);
   color: var(--tinta);
   cursor: pointer;
@@ -8,14 +8,14 @@
 }
 
 .option-button--seleccionado {
-  background: var(--azulete-fondo);
-  border-color: var(--azulete);
-  color: var(--azulete);
+  background: var(--crema);
+  border-color: var(--tinta);
+  color: var(--tinta);
 }
 
 .option-button--grid {
   height: 64px;
-  font: 500 22px/1 var(--font-mono);
+  font: 500 22px/1 var(--font-body);
   font-variant-numeric: tabular-nums;
 }
 

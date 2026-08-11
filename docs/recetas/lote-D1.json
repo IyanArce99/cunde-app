@@ -71,7 +71,8 @@
         "Riega las sardinas con el majado.",
         "Hornea 12 minutos."
       ],
-      "nota": "190 g por ración vacían la bandeja de 400 g entre dos. La sardina aguanta 2 días: lo que sobre se tira."
+      "nota": "190 g por ración vacían la bandeja de 400 g entre dos. La sardina aguanta 2 días: lo que sobre se tira.",
+      "foto": "sardinas_horno.webp"
     },
     {
       "id": "arroz_mejillon",
@@ -396,7 +397,7 @@
         "Da la vuelta al pescado y cuece 3 minutos más hasta que la salsa ligue.",
         "Saltea la espinaca aparte y sírvela al lado."
       ],
-      "foto": "merluza_salsa_verde.png"
+      "foto": "merluza_salsa_verde.webp"
     }
   ]
 }

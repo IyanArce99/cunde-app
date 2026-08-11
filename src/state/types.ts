@@ -1,4 +1,7 @@
 import type { Existencias } from '../motor/carrito.ts';
+import type { PreferenciasPlatos } from '../lib/preferencias';
+import type { ExtraCompra } from '../lib/extras';
+import type { FechaDia } from '../lib/fechas';
 
 export type Comensales = '1' | '2' | '3' | '4' | '5+';
 
@@ -19,6 +22,23 @@ export interface Plato {
   minutos: number;
   precioRacion: number;
   tipo: TipoPlato;
+  /**
+   * ═══ LOS IDS, QUE ANTES NO BAJABAN HASTA AQUÍ ═══
+   *
+   * `Plato` solo llevaba el nombre visible, así que cualquier cosa que la UI
+   * quisiera decirle al motor sobre un plato concreto tenía que ir por nombre.
+   * Eso ya estaba señalado como frágil en el proyecto y la valoración de platos
+   * lo habría multiplicado: una preferencia guardada por nombre se pierde en
+   * cuanto alguien corrige una tilde en el recetario.
+   *
+   * `recetaId` es SIEMPRE el de la receta que se cocina — también en las sobras
+   * y en los ensamblajes, porque los dos salen de esa tanda.
+   * `ensamblajeId` solo está cuando el hueco es un ensamblaje CON NOMBRE PROPIO
+   * ("Garbanzos salteados con huevo"), que es otro plato a ojos del usuario.
+   * Ver `identidadDePlato` en lib/preferencias.ts.
+   */
+  recetaId: string;
+  ensamblajeId?: string;
   /** De qué hueco viene lo aprovechado. En 'sobras' y 'ensamblaje'. */
   origen?: { dia: string; ranura: Ranura };
   /**
@@ -40,6 +60,24 @@ export interface Plato {
    * días de un vistazo.
    */
   foto?: string;
+  /**
+   * ═══ EL POSTRE DE ESTA COMIDA ═══
+   *
+   * Cuelga del plato y no del día porque el postre es de la COMIDA: con comidas
+   * y cenas hay dos al día y son distintos.
+   *
+   * No es un `Plato`: no se cocina, no tiene minutos, no tiene pasos y no se
+   * puede cambiar por otro. Es un yogur que se saca de la nevera. Por eso lleva
+   * solo lo que hace falta para decirlo y para cuadrar la cuenta, y por eso no
+   * entra en `precioRacion` —que es lo que cuesta el plato y es con lo que se
+   * comparan las alternativas—: se suma aparte, donde se suma el día.
+   *
+   * Un hueco sin plato («No cocinas») no lo enseña, porque no hay comida a la
+   * que ponerle postre. Su ración sí está comprada: el coste se aparta antes de
+   * saber qué huecos quedarán libres, que es justo lo que permite descontarlo
+   * del presupuesto. Sale por el mismo sitio que cualquier otro sobrante.
+   */
+  postre?: { nombre: string; precioRacion: number };
 }
 
 export interface DiaSemana {
@@ -138,6 +176,23 @@ export interface Perfil {
    */
   codigoPostal: string | null;
   almacen: string | null;
+  /**
+   * QUÉ DÍA EMPIEZA LA SEMANA DEL USUARIO. `YYYY-MM-DD`, día de calendario.
+   *
+   * Es una PREFERENCIA: la que se usará al generar la siguiente. Lo que
+   * representa la semana que ya tiene delante vive en `semana.fechaInicio`.
+   *
+   * Va en el perfil y no en `Preferencias` porque `Preferencias` es lo que
+   * entra en la petición del motor y decide QUÉ semana sale —comidas, variedad,
+   * proteína, exclusiones—, y esto no cambia ni un plato: cambia qué días son.
+   * Además, todo lo que está en `Preferencias` regenera al tocarse, y esto no
+   * debe regenerar nada.
+   *
+   * Nunca un `Date` ni un instante ISO con hora: "el 7 de agosto" es el 7 de
+   * agosto en la cocina del usuario, no un momento del tiempo que pueda caer en
+   * otro día según la zona. Ver lib/fechas.ts.
+   */
+  fechaInicioSemana: FechaDia;
 }
 
 /**
@@ -163,6 +218,26 @@ export const CP_POR_DEFECTO = '28001';
 export interface Cierre {
   importeRealTicket: number | null;
   guardada: boolean;
+  /**
+   * ═══ CONTRA QUÉ SE COMPARABA ESE TICKET ═══
+   *
+   * Se congela al cerrar porque los tres números se pierden en ese mismo
+   * instante: `GUARDAR_CIERRE` vacía `extrasCompra` —los extras son de ESA
+   * compra— y la lista se regenera en cuanto se abre la semana siguiente.
+   *
+   * Sin esto, cualquier pantalla que quiera decir «previste 57,40 € y pagaste
+   * 71,30 €» lee los extras de la semana NUEVA, que están vacíos, y le atribuye
+   * a Cunde una diferencia de 13,90 € de los que 6,80 € eran detergente y otra
+   * parte una cosa cuyo precio nadie sabía. Salió al mirar la tarjeta que se
+   * comparte: afirmaba exactamente eso.
+   *
+   * Opcionales por compatibilidad: un cierre guardado antes de que esto
+   * existiera no los tiene, y quien los use debe callarse en vez de suponer
+   * cero —que es la suposición que causa el error—.
+   */
+  menuPrevisto?: number;
+  extras?: number;
+  extrasSinPrecio?: number;
 }
 
 export type Suscripcion = null | 'mes' | 'año';
@@ -190,6 +265,21 @@ export interface Preferencias {
   comidas: ComidasPref;
   esfuerzo: Esfuerzo;
   variedad: Variedad;
+  /**
+   * ¿La eligió el usuario, o se la pusimos nosotros?
+   *
+   * Los tres niveles de variedad no están ordenados por calidad —ver la
+   * cabecera de `SelectorVariedad.tsx`—, así que fijar una por nombre es
+   * elegir a ciegas: medido, la de arranque perdía contra otra que el motor
+   * sabía montar. Mientras nadie la haya tocado, la elige `mejorVariedad()`
+   * cada vez que cambia algo que la pueda mover (comensales, tope, huecos,
+   * proteína, exclusiones).
+   *
+   * En cuanto el usuario toca el selector, esto pasa a `true` y no se le vuelve
+   * a mover nunca: un ajuste que el usuario pone y la app le quita por su
+   * cuenta es peor que un ajuste mal puesto de salida.
+   */
+  variedadElegida: boolean;
   proteina: NivelProteina;
   exclusiones: string[];
   /**
@@ -210,7 +300,23 @@ export interface SinCobertura {
   recetasVivas: number;
   huecosCubribles: number;
   huecosPedidos: number;
-  salidas: { tipo: 'exclusion' | 'esfuerzo' | 'comidas'; que: string; huecosCubribles: number }[];
+  /**
+   * `bloqueados` es un tipo aparte de `exclusion` a propósito.
+   *
+   * Una alergia y un "no me lo vuelvas a poner" bloquean igual y NO se dicen
+   * igual: a quien tiene puesto "sin gluten" se le pregunta si quiere quitarlo
+   * —y eso es una decisión de salud que la app no debe empujar—, mientras que a
+   * quien ha bloqueado cuarenta platos se le dice cuántos y se le lleva a la
+   * lista para desbloquear uno. Con un solo tipo, la pantalla tendría que
+   * adivinar cuál de las dos frases toca a partir del texto de `que`.
+   */
+  salidas: {
+    tipo: 'exclusion' | 'esfuerzo' | 'comidas' | 'bloqueados';
+    que: string;
+    huecosCubribles: number;
+  }[];
+  /** Cuántos platos ha bloqueado el usuario. Para poder decir el número. */
+  platosBloqueados?: number;
 }
 
 /** Ver SemanaGenerada['salida'] en src/motor/seleccionar.ts. */
@@ -231,7 +337,20 @@ export interface AppState {
    * los dos porque el plan es lo que el motor necesita para rehacer desde un
    * hueco, y recalcularlo en cada render sería tirar trabajo.
    */
-  semana: { plan: PlanSerial; dias: DiaSemana[]; generadaEn: number };
+  /**
+   * `fechaInicio` es un HECHO de esta semana, no una preferencia.
+   *
+   * La preferencia vive en `Perfil.fechaInicioSemana` y dice cuándo quiero que
+   * empiecen mis semanas. Ésta dice qué siete días representa la que tengo
+   * delante. Son dos datos distintos y hacen falta los dos: sin este, cambiar
+   * la preferencia reescribiría las fechas de una semana que a lo mejor ya está
+   * comprada, y el usuario vería su lunes convertirse en viernes.
+   *
+   * `null` en las semanas generadas antes de esta versión: no hay forma de
+   * saber qué días fueron y no se inventan. La interfaz enseña los nombres de
+   * siempre cuando falta.
+   */
+  semana: { plan: PlanSerial; dias: DiaSemana[]; generadaEn: number; fechaInicio: FechaDia | null };
   /**
    * Lo que se comió en las semanas ya cerradas, de la más reciente a la más
    * antigua, como ids de receta. Es la MEMORIA del motor: sin ella la semana
@@ -242,6 +361,40 @@ export interface AppState {
    * decisión.
    */
   historial: string[][];
+  /**
+   * QUÉ LE PARECE AL USUARIO CADA PLATO.
+   *
+   * Por id de receta o de ensamblaje, nunca por nombre: el nombre visible se
+   * corrige, se le quita una tilde o se reescribe entero, y una preferencia
+   * atada a él se pierde en silencio. Ver lib/preferencias.ts, que además
+   * decide qué id le toca a una sobra y a un ensamblaje.
+   *
+   * Solo guarda lo que NO es neutral. "Está bien" borra la entrada: es lo mismo
+   * que no haber dicho nada, y guardarlo llenaría el mapa de ruido.
+   *
+   * Los ids que ya no existen en el recetario SE CONSERVAN. Limpiarlos al
+   * arrancar parece higiene y es pérdida de datos: una receta puede
+   * desaparecer una versión y volver a la siguiente, y quien la había
+   * bloqueado se la encontraría otra vez en la mesa sin haber cambiado de
+   * opinión. No molestan: el motor los busca con `Set.has` y no casan.
+   */
+  preferenciasPlatos: PreferenciasPlatos;
+  /**
+   * LO QUE EL USUARIO AÑADE A MANO A LA COMPRA: café, papel, champú.
+   *
+   * Va FUERA de `lista`, y esa separación es la funcionalidad entera. `lista`
+   * es lo que el motor ha calculado para el menú y `totalLista` la suma para
+   * decir «tu semana cuesta 61,20 €». Si un detergente entrara ahí, esa frase
+   * dejaría de ser verdad — y aunque se filtrara por un flag, bastaría un
+   * `reduce` nuevo escrito sin el filtro para romperla en silencio.
+   *
+   * Estando en otro campo no hay nada que filtrar: las cuentas del menú no
+   * pueden verlos. Ver lib/extras.ts.
+   *
+   * Pertenecen a UNA compra. Al cerrar la semana se vacían y se guardan en la
+   * foto de `deshacerCierre`, para que deshacer los devuelva tal cual.
+   */
+  extrasCompra: ExtraCompra[];
   /**
    * LO QUE QUEDÓ EN CASA de las semanas anteriores, por SKU.
    *
@@ -291,7 +444,15 @@ export interface AppState {
    * guardan enteros y no como diferencia porque restaurar tiene que ser exacto,
    * y va en el estado persistido para que sobreviva a cerrar la app.
    */
-  deshacerCierre: null | Pick<AppState, 'historial' | 'despensa' | 'cierre' | 'contadores' | 'semana'>;
+  /**
+   * Los extras entran en la foto igual que el historial y la despensa: cerrar
+   * la semana los vacía —pertenecen a esa compra— y deshacer tiene que
+   * devolverlos exactamente como estaban. Sin ellos aquí, deshacer restauraría
+   * la semana pero el usuario habría perdido lo que apuntó a mano.
+   */
+  deshacerCierre: null | Pick<
+    AppState, 'historial' | 'despensa' | 'cierre' | 'contadores' | 'semana' | 'extrasCompra'
+  >;
 }
 
 export function numComensales(c: Comensales): number {

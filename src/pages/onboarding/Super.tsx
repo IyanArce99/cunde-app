@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../../state/AppStateContext';
-import ElegirSuper, { CADENAS_QUE_VIENEN, cpValido } from '../../components/ElegirSuper';
+import ElegirSuper from '../../components/ElegirSuper';
 import PrimaryButton from '../../components/PrimaryButton';
+import Stepper from '../../components/Stepper';
 import './Super.css';
 
 /**
@@ -26,42 +28,47 @@ import './Super.css';
 const Super: React.FC = () => {
   const history = useHistory();
   const { estado, dispatch } = useAppState();
-  const { super: superElegido, codigoPostal } = estado.perfil;
-
-  // Sin CP se puede seguir: es mejor un menú con precios de Madrid que un
-  // muro. Lo que no se puede es medio código postal.
-  const puedeSeguir = codigoPostal === null || cpValido(codigoPostal);
+  const { super: superElegido } = estado.perfil;
+  const [pedida, setPedida] = useState<string | null>(null);
 
   return (
     <IonPage>
       <IonContent fullscreen scrollY={false} className="pantalla-content">
         <div className="pantalla pantalla--onboarding super">
-          <div className="super__cabecera">
-            <img className="super__marca" src="/cunde-logotipo.svg" alt="Cunde" />
-            <span className="super__paso">1/3</span>
-          </div>
+          <Stepper paso={1} />
 
           <div className="super__cuerpo">
-            <h2 className="super__pregunta">¿Dónde compras?</h2>
+            <h1 className="super__pregunta">¿Dónde compras?</h1>
+            {/* El subtítulo no adorna: explica por qué esta pantalla existe
+                antes que el dinero. Sin él, elegir cadena parece un ajuste de
+                perfil y no la fuente de los precios. */}
+            <p className="super__sub">Elige una: los precios de la lista salen de su catálogo.</p>
+
             <ElegirSuper
               valor={superElegido}
-              codigoPostal={codigoPostal}
-              onElegir={(cadena) => dispatch({ type: 'SET_SUPER', super: cadena })}
-              onCodigoPostal={(cp) => dispatch({ type: 'SET_CODIGO_POSTAL', codigoPostal: cp, almacen: null })}
+              onElegir={(cadena) => {
+                setPedida(null);
+                dispatch({ type: 'SET_SUPER', super: cadena });
+              }}
+              onSinCatalogo={setPedida}
             />
-            {/* Ahora que las cadenas sin catálogo ya no salen como tarjetas,
-                esta línea es lo único que dice que vienen — así que las nombra
-                todas en vez de tres y "alguna más". La coletilla de "solo doy
-                precios de las cadenas cuyo catálogo tengo" se cae: con una sola
-                opción en la lista, eso ya no hay que explicarlo. */}
-            <p className="super__proximamente">
-              {CADENAS_QUE_VIENEN.slice(0, -1).join(', ')} y {CADENAS_QUE_VIENEN.at(-1)}, próximamente.
-            </p>
+
+            {/* Salida, nunca muro. Tocar Lidl no puede terminar en nada: o se
+                dice cuándo llega, o el usuario se queda pensando que la app
+                está rota. Y se ofrece lo que sí hay, en la misma frase. */}
+            {pedida && (
+              <div className="super__aviso" role="status">
+                <p className="super__aviso-texto">
+                  De {pedida} todavía no tengo catálogo, así que no puedo darte precios reales. Empieza con
+                  Mercadona y te aviso cuando esté.
+                </p>
+              </div>
+            )}
           </div>
 
-          <PrimaryButton disabled={!puedeSeguir} onClick={() => history.push('/onboarding/datos')}>
-            Seguir
-          </PrimaryButton>
+          <div className="super__pie">
+            <PrimaryButton onClick={() => history.push('/onboarding/datos')}>Seguir</PrimaryButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>

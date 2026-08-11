@@ -1,50 +1,41 @@
-.super__etiqueta {
-  display: block;
-  font: 600 15px/1 var(--font-body);
-  letter-spacing: 0;
-  color: var(--gris);
-  margin-bottom: 18px;
-}
+/* ---------------------------------------------------------------------------
+   LAS SEIS CADENAS · rejilla de dos columnas
+
+   En columna, seis tarjetas de ancho completo pedían scroll en la primera
+   pantalla del embudo. En dos columnas caben las seis en 260 px y la pantalla
+   sigue sin moverse en un iPhone SE.
+   --------------------------------------------------------------------------- */
 
 .super__lista {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .super__opcion {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  /* Envuelve en vez de desbordar. Con el zoom de página al 200% —viewport CSS
-     de 195 px, que es lo que usa quien no ve bien— "Mercadona" y "pídelo desde
-     ajustes" no caben en la misma línea, y sin esto el segundo se salía del
-     recuadro y quedaba cortado por el borde de la pantalla. Fila cuando cabe,
-     dos líneas cuando no. */
-  flex-wrap: wrap;
-  gap: 2px 12px;
-  width: 100%;
-  min-height: var(--tap-min);
-  /* El relleno vertical es el que deja respirar cuando el texto pasa a dos
-     líneas; el min-height sigue mandando cuando va en una sola. */
-  padding: 10px 16px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 82px;
+  padding: 0 14px;
   background: transparent;
   border: var(--border-rest);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-boton);
   cursor: pointer;
   font-family: inherit;
+  text-align: left;
 }
 
 .super__opcion--seleccionado {
   border: var(--border-selected);
-  background: var(--azulete-fondo);
+  background: var(--crema);
 }
 
 /* Las que no tienen catálogo no se esconden: se ven apagadas y dicen por qué.
    Enseñar lo que viene comunica que el producto crece; dejarlo elegir sería
    prometer precios que no existen. */
 .super__opcion--fuera {
-  cursor: default;
   border-style: dashed;
 }
 
@@ -52,58 +43,51 @@
   color: var(--gris);
 }
 
-.super__nombre {
-  font: 600 17px/1 var(--font-body);
-  color: var(--tinta);
-}
-
-.super__estado {
-  font: 400 13px/1 var(--font-mono);
-  color: var(--gris);
-}
-
-.super__nota {
-  margin: 20px 0 0;
-  font: 400 13px/1.6 var(--font-mono);
-  color: var(--gris);
-}
-
-/* El código postal, debajo de la cadena. Dos pasos en una hoja: qué tienda y
-   qué zona — ver la cabecera de SelectorSuper.tsx para por qué no está en el
-   onboarding. */
-.super__etiqueta--segunda {
-  display: block;
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: var(--divider-dashed);
-}
-
-.super__cp {
-  margin-top: 12px;
+.super__fila {
   display: flex;
-  border: 1.5px solid var(--azulete);
-  border-radius: var(--radius-sm);
-  padding: 10px 16px;
-  background: var(--azulete-fondo-fuerte);
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
 }
 
-.super__cp:focus-within {
-  outline: 2px solid var(--azulete);
-  outline-offset: 2px;
-}
-
-.super__cp-campo {
-  flex: 1;
+.super__nombre {
+  /* Envuelve en vez de desbordar: con el zoom de página al 200% —viewport CSS
+     de 195 px, que es lo que usa quien no ve bien— "Carrefour" no cabe junto
+     al control y sin esto se salía del recuadro. */
   min-width: 0;
-  min-height: 48px;
-  border: none;
-  background: none;
-  font: 500 22px/1 var(--font-mono);
+  font: 600 16px/1.15 var(--font-body);
   color: var(--tinta);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: .08em;
+  overflow-wrap: anywhere;
 }
 
-.super__cp-campo::placeholder {
-  color: rgba(26, 25, 23, .3);
+/* Redondo, no cuadrado: un cuadrado dice "puedes marcar varias" y aquí solo se
+   elige una. Va a la derecha del nombre, no delante, porque el nombre es lo
+   que se lee al barrer la rejilla y el estado se comprueba después. */
+.super__radio {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--flecha);
+  border-radius: 50%;
+  color: var(--selec-texto);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.super__radio--marcado {
+  background: var(--selec-relleno);
+  border-color: var(--selec-relleno);
+}
+
+/* 11 px en versalitas: es una etiqueta de estado, no una frase. Al mismo
+   cuerpo que el nombre competiría con él en una tarjeta de 82 px. */
+.super__estado {
+  font: 500 11px/1.2 var(--font-body);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gris);
 }

@@ -86,14 +86,53 @@ const BONUS_VARIEDAD = 100;
  */
 interface Objetivo {
   peso: number;
-  criterio: (carrito: number, perecedero: number) => number;
+  criterio: (carrito: number, perecedero: number, consumo: number) => number;
 }
 
+/**
+ * ═══ EL DESPERDICIO SE MIDE, YA NO SE APROXIMA ═══
+ *
+ * `normal` desempataba por `carrito + perecedero`. Esa suma es una PROXY del
+ * desperdicio: cuenta lo que pagas y penaliza dos veces lo que se pudre, pero
+ * no sabe cuánto de lo que compras acaba en un plato. Con ella, una semana que
+ * gasta 8 € más y come 1 € menos puede ganar, porque nada mira la comida.
+ *
+ * Y se veía, con una persona y catorce huecos:
+ *
+ *     tope 45 €  →  carrito 39,05 €   come 16,86 €
+ *     tope 65 €  →  carrito 46,86 €   come 15,74 €   ← 7,81 € más, 1,12 € menos
+ *
+ * O sea que subir el tope veinte euros te daba menos comida. El pase de holgura
+ * no podía verlo: protege el consumo dentro de una construcción, pero
+ * `BANDA_PRESUPUESTO.objetivo` entra en la puntuación hueco a hueco, así que
+ * con más tope el greedy ya arranca en otro valle.
+ *
+ * Ahora `normal` desempata por `(carrito − consumo) + perecedero`: el
+ * desperdicio de verdad, como lo define CLAUDE.md, más la penalización extra a
+ * lo que además se pudre. Los otros dos niveles no cambian — `básica` vende no
+ * tirar nada y `alta` vende que salga barato, y ésas son sus métricas.
+ */
 const OBJETIVO_POR_NIVEL: Record<NivelProteina, Objetivo> = {
-  basica: { peso: 6, criterio: (_, p) => p },
-  normal: { peso: 2, criterio: (c, p) => c + p },
+  basica: { peso: 6, criterio: (_c, p) => p },
+  normal: { peso: 2, criterio: (c, p, consumo) => (c - consumo) + p },
   alta: { peso: 0.5, criterio: (c) => c },
 };
+
+/**
+ * El objetivo que se usa de verdad. `criterioUnico` es SOLO para calibrar.
+ *
+ * Unifica las dos mitades a la vez —el peso hueco a hueco y el desempate entre
+ * arranques— porque por separado no responde nada: con solo el desempate
+ * unificado, el greedy sigue recorriendo un valle distinto en cada nivel y las
+ * cifras siguen sin ser comparables. Ver catalogo/_aud-monotonia.ts.
+ */
+function objetivoDe(peticion: PeticionSemana): Objetivo {
+  if (peticion.criterioUnico === 'precio') return { peso: 0.5, criterio: (c) => c };
+  if (peticion.criterioUnico === 'desperdicio') {
+    return { peso: 2, criterio: (c, p, consumo) => (c - consumo) + p };
+  }
+  return OBJETIVO_POR_NIVEL[peticion.proteina ?? 'normal'];
+}
 
 /**
  * Cuánta proteína quiere el usuario, en gramos por persona y día. Es un
@@ -197,6 +236,36 @@ export const BANDA_PRESUPUESTO = { minimo: 0.85, objetivo: 0.95 };
  */
 const RENDIMIENTO_MINIMO_HOLGURA = 0.55;
 
+/**
+ * ═══ PENDIENTE · SUBIR EL TOPE PUEDE DARTE MENOS COMIDA ═══
+ *
+ * Medido sobre 64 pares de topes contiguos (1-4 personas × 7 y 14 huecos ×
+ * 40…100 €), **en 11 subir el tope BAJA lo que se come**. El peor:
+ *
+ *     dos personas, 7 huecos:  50 € → come 26,23 €  ·  55 € → come 14,75 €
+ *
+ * La causa está localizada y NO es el pase de holgura, que sí protege el
+ * consumo dentro de una construcción (`mejorConsumo` se guarda al alto).
+ * Es que `BANDA_PRESUPUESTO.objetivo` entra en la puntuación hueco a hueco:
+ * con más tope, el greedy toma otras decisiones desde el primer plato y acaba
+ * en otro valle. Cuando la holgura llega, el daño ya está hecho.
+ *
+ * Se probaron dos parches por fuera y los dos salieron PEOR que no hacer nada,
+ * medidos:
+ *
+ *   · sonda barata al 75% del tope (`sinHolgura`, sin escalar semillas):
+ *     sigue en 11 roturas y sube el coste de 214 a 237 ms por semana. La sonda
+ *     construye una semana tan pobre que casi nunca gana la comparación.
+ *   · sonda completa al 75%: 13 roturas —dos MÁS— y 435 ms por semana, el
+ *     doble. El escalón fijo no cae donde está la semana buena: para el caso de
+ *     50 €→55 € habría que sondar en 45 €, que es el 82%, no el 75%.
+ *
+ * Arreglarlo de verdad es sacar el objetivo de gasto de la puntuación hueco a
+ * hueco y convertirlo en una restricción posterior. Eso es rediseñar el corazón
+ * del motor, no ponerle una guarda, y toca las 900 semanas de la huella. Queda
+ * escrito aquí con sus números para que no se vuelva a intentar por fuera.
+ */
+
 const PENAL_PROTEINA_REPETIDA = 1.5;
 
 /**
@@ -237,6 +306,89 @@ const TANDAS_PARA_SER_SABOR_DE_FONDO = 2;
  * pegada al suelo, y el suelo está para aguantar. A 2,5 son 0,80 € y 55,4 g.
  */
 const PESO_SABOR_REPETIDO = 2.5;
+
+/**
+ * ═══ DE QUÉ VIVE LA SEMANA · Y POR QUÉ NO BASTABA EL SABOR DE FONDO ═══
+ *
+ * Medido sobre semanas reales con «mucha variedad», que pide doce platos
+ * distintos:
+ *
+ *   vegano              garbanzo + soja + tofu en 9,6 de 12 platos
+ *   vegano sin gluten   los mismos tres en 9 de 12
+ *   vegetariano         huevo en 4,7 de 12
+ *
+ * Doce recetas distintas, sí, pero tres cuartas partes del menú saliendo de
+ * tres ingredientes. El usuario no vive doce platos: vive garbanzo otra vez.
+ *
+ * Se escribieron 30 recetas nuevas para arreglarlo y NO se movió: de las diez
+ * veganas, el motor solo elegía tres. Ahí quedó claro que no era falta de
+ * recetario. Garbanzo y soja texturizada son de lo más barato del lineal, así
+ * que ganan la puntuación una y otra vez, y añadir alternativas solo añade
+ * candidatas que pierden.
+ *
+ * ═══ POR QUÉ NO LO TAPABA `PESO_SABOR_REPETIDO` ═══
+ *
+ * Porque es PLANO: se activa a partir de dos tandas y a partir de ahí cobra lo
+ * mismo. La cuarta tanda de garbanzo paga exactamente lo que la segunda, y
+ * frente a un ahorro de céntimo por hueco eso no disuade de nada.
+ *
+ * Esta escala. Cada tanda previa que ya vivía de la misma fuente suma otro
+ * escalón, así que la segunda cuesta 1,5 €, la tercera 3 y la cuarta 4,5: llega
+ * un punto en que la alubia, aunque sea más cara, sale ganando. Es el mismo
+ * mecanismo que ya usa PENAL_RECIENTE para la memoria entre semanas.
+ *
+ * Y solo sobre FUENTES DE PROTEÍNA, no sobre cualquier ingrediente: repetir
+ * cebolla no es repetir plato, y la cebolla está en todo. Lo que define lo que
+ * comes es de qué sale la proteína.
+ */
+const PROTEINA_QUE_DEFINE_EL_PLATO = 8;
+
+/**
+ * ═══ EL BARRIDO, Y LA TENSIÓN QUE DESTAPA ═══
+ *
+ * Semanas de 14 comidas para 2, 90 €, «mucha variedad», semanas 1-5.
+ * «top-3» = de cuántos de los 12 platos vive el trío de fuentes más repetido.
+ * Cuanto más bajo, más repartida la semana.
+ *
+ *   peso   sin filtros   vegano        vegano sin gluten
+ *          top-3  prot   top-3  prot   top-3  prot
+ *     0     7,0    58     9,4    55     9,6    55
+ *     1     6,6    58     8,6    54     9,2    55
+ *   1,5     5,0    56     8,6    54     8,6    53   ← el puesto
+ *     2     5,0    57     7,2    52     7,6    53
+ *     3     4,2    58     6,6    52     7,4    52
+ *     6     3,6    58     6,2    50     6,2    49
+ *
+ * En el caso general la mejora es grande: el trío baja de 7,0 a 5,0 platos de
+ * doce, y de paso el desperdicio de la semana cae de 37,73 € a 31,03 €.
+ *
+ * ═══ EL TECHO NO LO PONE LA VARIEDAD: LO PONE EL FAVORITO ═══
+ *
+ * A partir de 2 se cae `preferencias.test.tsx`: marcar ocho platos como «me
+ * gusta» dejaba de servir para NADA, no entraba ninguno. BONUS_FAVORITO son
+ * 2,5 € y esta penalización llega a 10, así que subir el listón de entrada del
+ * motor deja el bonus por debajo del ruido. Comprobado que no es el mecanismo
+ * lo que falla: con `pesoFavorito` a 10 esos ocho entran 22 veces; a 2,5,
+ * ninguna.
+ *
+ * Así que 1,5 no es un punto de compromiso estético: es el máximo que no rompe
+ * una instrucción explícita del usuario. Y la alternativa —subir
+ * BONUS_FAVORITO— es recalibrar una constante ajustada para tapar el síntoma de
+ * otra, y eso se hace con su propio barrido, no de paso.
+ *
+ * ═══ LO QUE ESTO NO ARREGLA ═══
+ *
+ * El vegano apenas se mueve: 9,4 → 8,6. Y no es cuestión de subir el peso. Las
+ * fuentes que más proteína aportan son EXACTAMENTE las que se repiten
+ * —garbanzo, soja, tofu—, así que repartir cuesta gramos: a peso 3 la proteína
+ * ya cae a 52 g contra un suelo de 55, y a 6 se queda en 49.
+ *
+ * El lineal vegano barato es estrecho y no lo arregla ningún ajuste de pesos.
+ * Salidas reales: más productos de proteína vegetal asequibles, o que sea el
+ * usuario quien elija entre variedad y proteína, como ya elige entre variedad y
+ * precio — son conflictivas por la misma razón. Ver catalogo/_aud-fuentes.ts.
+ */
+const PENAL_FUENTE_REPETIDA = 1.5;
 
 /**
  * Cuánto pesa aprovechar la asignación del hueco. Ver `aprovechamiento`.
@@ -295,6 +447,54 @@ export function familiaDeSabor(canonico: string): string {
  * repetición inmediata tiene que perder salvo que no haya nada más.
  */
 const PENAL_RECIENTE = [4, 1.6, 0.5];
+
+/**
+ * ═══ LO QUE PESA QUE UN PLATO TE GUSTE ═══
+ *
+ * En euros por hueco, como todo lo demás de la puntuación. El número no sale de
+ * la intuición: sale de dónde tiene que caber entre los términos que ya existen.
+ *
+ *   · POR DEBAJO DE PENAL_RECIENTE[0] = 4. Si un favorito le ganase a "lo
+ *     comiste la semana pasada", saldría todas las semanas, y el encargo pide
+ *     justo lo contrario. La memoria entre semanas manda sobre el gusto.
+ *   · POR ENCIMA DEL RUIDO DEL COSTE MARGINAL (0,40–1,50 € por hueco). Por
+ *     debajo de eso no desempataría nunca y la función sería decorativa: el
+ *     usuario marcaría platos y no pasaría nada.
+ *   · MUY POR DEBAJO DE BONUS_VARIEDAD = 100, que es lo que impide repetir
+ *     dentro de la semana. Ese no se toca.
+ *
+ * ═══ EL BARRIDO ═══
+ *
+ * 8 favoritos de 112 recetas, 5 semanas encadenadas × 3 tamaños de hogar × 2
+ * presupuestos. Por semana de 14 huecos:
+ *
+ *     peso   sale/sem   máx en 1 sem   carrito    comida
+ *        0     0,93           3        49,71 €   30,11 €
+ *        1     1,33           3        49,33 €   29,52 €
+ *      2,5     2,17           3        50,11 €   29,50 €   ← este
+ *        4     3,43           3        49,24 €   28,73 €
+ *        8     5,73           3        47,74 €   27,55 €
+ *       20     9,77           3        47,84 €   25,70 €
+ *
+ * A 2,5 los favoritos pasan de 0,93 a 2,17 apariciones por semana —se notan sin
+ * invadir— por 0,40 € de carrito y 0,61 € de comida (un 2%).
+ *
+ * Y se ve dónde está el techo: **a partir de 4 la comida se desploma**. A 20,
+ * de 30,11 € baja a 25,70 — casi cinco euros de comida menos por la misma
+ * compra. Eso es el motor renunciando a platos que alimentan mejor porque otro
+ * lleva una marca. El gusto no puede ganarle a la cuenta en una app de dinero.
+ *
+ * ═══ LA COLUMNA QUE NO SE MUEVE ═══
+ *
+ * «Máx en 1 sem» vale 3 con TODOS los pesos, incluido 20. Ahí está la prueba de
+ * que los frenos aguantan: por mucho que se suba el bonus, un favorito no puede
+ * salir más veces dentro de una semana. Lo impiden `BONUS_VARIEDAD = 100` y que
+ * el término vaya con `yaUsada ? 0 : …`, igual que la memoria — el bonus solo
+ * compite al ESTRENAR receta. (Los 3 son la tanda entera: el día que se cocina,
+ * su sobra y su ensamblaje. Eso no es repetir plato, es aprovecharlo, que es de
+ * lo que va el producto.)
+ */
+const BONUS_FAVORITO = 2.5;
 
 /**
  * Cuántas semanas de historial se guardan. Tres, y sale de PENAL_RECIENTE:
@@ -451,10 +651,35 @@ export function recetarioAdaptado(
   datos: DatosMotor,
   exclusiones: string[] = [],
   minutosMax = Infinity,
+  /**
+   * ═══ LOS PLATOS QUE EL USUARIO NO QUIERE, Y POR QUÉ VAN APARTE ═══
+   *
+   * Podrían haber entrado como una exclusión más y habría sido menos código.
+   * No van ahí por tres motivos que no son de estilo:
+   *
+   *   1. UNA ALERGIA NO ES UN GUSTO. `adaptarReceta` mira trazas, quita
+   *      especias de despensa para salvar el plato y nunca se relaja. Un "no me
+   *      gusta la merluza" no tiene trazas, no salva nada quitando comino y se
+   *      desbloquea de un toque. Compartir camino habría acabado en un `if` que
+   *      distinguiera los dos casos dentro de la función que garantiza que a un
+   *      celíaco no le entre gluten, y ese no es sitio para experimentar.
+   *   2. EL DIAGNÓSTICO SE ROMPÍA. `diagnosticar()` recorre `exclusiones` y
+   *      propone quitar cada una. Con los bloqueos dentro diría «quita
+   *      "merluza_horno" y salen 14 comidas» — un id crudo en pantalla — en vez
+   *      de «has quitado 40 platos».
+   *   3. SON IDS, NO ETIQUETAS. `exclusiones` son claves de FILTROS ('Gluten',
+   *      'Vegano'); esto son ids del recetario. Mezclar dos espacios de nombres
+   *      en un `string[]` es cómo se acaba con "Gluten" bloqueado como plato.
+   *
+   * Se filtra DESPUÉS de adaptar, no antes: adaptar puede devolver `null` por
+   * su cuenta y así el orden de las dos cribas no cambia el resultado.
+   */
+  bloqueados: readonly string[] = [],
 ): Receta[] {
+  const veto = bloqueados.length ? new Set(bloqueados) : null;
   return datos.recetas
     .map((r) => adaptarReceta(r, exclusiones, minutosMax, datos.ingredientes))
-    .filter((r): r is Receta => r !== null);
+    .filter((r): r is Receta => r !== null && !(veto?.has(r.id) ?? false));
 }
 
 // ---------------------------------------------------------------------------
@@ -473,10 +698,48 @@ export interface PeticionSemana {
   proteina?: NivelProteina;
   /** Solo para calibrar: ver TOPE_DESPERDICIO. En la app va el valor por defecto. */
   topeDesperdicio?: number;
+  /**
+   * ═══ LO QUE EL USUARIO HA DICHO DE LOS PLATOS ═══
+   *
+   * Dos listas de ids, separadas de `exclusiones` a propósito — ver el
+   * parámetro `bloqueados` de `recetarioAdaptado` para el porqué largo.
+   *
+   * `platosBloqueados` es una CRIBA: esos ids no llegan a ser candidatos.
+   * `platosFavoritos` es una PREFERENCIA: entra en la puntuación como un
+   * término más, en euros por hueco como todos los demás. Ver BONUS_FAVORITO.
+   *
+   * Los ids que ya no existan en el recetario simplemente no casan con nada y
+   * no hacen daño: la criba es un `Set.has` y el bonus un `Set.has`. Eso es
+   * deliberado — el recetario cambia y una preferencia guardada tiene que poder
+   * sobrevivir a que su receta desaparezca una versión y vuelva a la siguiente.
+   */
+  /**
+   * Los siete días en el ORDEN en que los vive el usuario.
+   *
+   * Ver `posicionesDeSemana` en reparto.ts para por qué se rotan los nombres en
+   * vez de separarlos de la posición: hay una regla del motor que depende del
+   * día real del calendario y con nombres fijos caería en el día equivocado.
+   *
+   * Sin él, se empieza en lunes: exactamente el comportamiento de siempre.
+   */
+  ordenDias?: readonly string[];
+  platosBloqueados?: readonly string[];
+  platosFavoritos?: readonly string[];
+  /** Solo para calibrar: ver BONUS_FAVORITO. En la app va el valor por defecto. */
+  pesoFavorito?: number;
   /** Solo para calibrar: apaga la pasada de aprovechar la holgura. */
   sinHolgura?: boolean;
   /** Solo para calibrar: ver RENDIMIENTO_MINIMO_HOLGURA. */
   rendimientoHolgura?: number;
+  /**
+   * Solo para calibrar: hace que los TRES niveles de proteína desempaten por lo
+   * mismo, en vez de cada uno por lo suyo.
+   *
+   * Existe para poder medir la pregunta que abre `OBJETIVO_POR_NIVEL`: cuánto
+   * de la incoherencia del selector —subir de nivel y pagar menos— viene de que
+   * cada nivel optimiza un objetivo distinto. Ver catalogo/_aud-monotonia.ts.
+   */
+  criterioUnico?: 'precio' | 'desperdicio';
   /**
    * Postre en cada comida. Ver motor/postres.ts.
    *
@@ -525,8 +788,21 @@ export interface SinCobertura {
   recetasVivas: number;
   huecosCubribles: number;
   huecosPedidos: number;
-  /** Qué soltar para que salga, de menor a mayor renuncia. */
-  salidas: { tipo: 'exclusion' | 'esfuerzo' | 'comidas'; que: string; huecosCubribles: number }[];
+  /**
+   * Qué soltar para que salga, de menor a mayor renuncia.
+   *
+   * `bloqueados` va aparte de `exclusion` porque la frase que le toca es otra:
+   * proponerle a alguien que se quite la alergia al marisco y proponerle que
+   * desbloquee un plato que no le gustaba no se dicen igual. Ver
+   * `diagnosticar()` y el tipo gemelo en state/types.ts.
+   */
+  salidas: {
+    tipo: 'exclusion' | 'esfuerzo' | 'comidas' | 'bloqueados';
+    que: string;
+    huecosCubribles: number;
+  }[];
+  /** Cuántos platos ha bloqueado el usuario, para poder decir el número. */
+  platosBloqueados?: number;
 }
 
 export interface SemanaGenerada {
@@ -564,7 +840,18 @@ export interface SemanaGenerada {
   sinCobertura?: SinCobertura;
 }
 
-function diaIndice(dia: string): number {
+/**
+ * Un número distinto por día de la semana. SOLO sirve para agrupar —los minutos
+ * que se cocinan cada día— y NO es la posición dentro de la semana.
+ *
+ * Se llamaba `diaIndice`, igual que `Posicion.diaIndice`, y desde que los días
+ * se rotan según cuándo empieza la semana los dos significan cosas distintas:
+ * empezando en viernes, VIE es la POSICIÓN 0 y esta función devuelve 4. Para
+ * agrupar da igual cuál sea mientras sea único por día; para cualquier otra
+ * cosa, no — y con el mismo nombre alguien acabaría usando este donde hacía
+ * falta el otro.
+ */
+function claveDeDia(dia: string): number {
   return DIAS.indexOf(dia);
 }
 
@@ -617,15 +904,19 @@ function contar(motivo: string): void {
 export function siluetaDeSemana(numHuecos: number, topeSobras: number, semanaNumero: number): Set<number> {
   const huecosPorDia = Math.max(1, Math.round(numHuecos / DIAS.length));
   /**
-   * El LUNES no está, y no es una preferencia: es que el primer día de la
+   * El día 0 no está, y no es una preferencia: es que el PRIMER día de la
    * semana no tiene nada cocinado antes de lo que aprovechar. Cuando sí
    * estaba, las rotaciones que lo elegían gastaban un cupo en un día que
    * nunca podía usarlo, y con "mucha variedad" —que necesita exactamente 2
    * huecos de sobra para llegar a 14— eso dejaba solo 1 sitio útil y la
    * semana entera salía VACÍA. Pasaba en las semanas 2 y 3 de cada siete, y
    * no se detectó porque todo se había medido con semanaNumero = 1.
+   *
+   * Son POSICIONES, no días del calendario, y por eso esto no ha hecho falta
+   * tocarlo al dejar que la semana empiece cualquier día: el primer día sigue
+   * siendo el primer día, se llame lunes o viernes.
    */
-  const ORDEN_BASE = [1, 3, 5, 2, 4, 6]; // MAR, JUE, SÁB, MIÉ, VIE, DOM
+  const ORDEN_BASE = [1, 3, 5, 2, 4, 6];
   const giro = ((semanaNumero % ORDEN_BASE.length) + ORDEN_BASE.length) % ORDEN_BASE.length;
   const orden = ORDEN_BASE.map((_, k) => ORDEN_BASE[(k + giro) % ORDEN_BASE.length]);
 
@@ -753,8 +1044,12 @@ export function construir(
   );
 
   const vetadas = new Set((arranque?.vetadaGlobal ?? '').split('|').filter(Boolean));
-  const elegibles = recetarioAdaptado(datos, exclusiones, minutosMax).filter((r) => !vetadas.has(r.id));
+  const elegibles = recetarioAdaptado(datos, exclusiones, minutosMax, peticion.platosBloqueados)
+    .filter((r) => !vetadas.has(r.id));
   if (elegibles.length === 0) return null;
+  /* Se resuelve aquí y no dentro del bucle de puntuación: eso corre ~50.000
+     veces por generación y construir el Set cada vez sería el coste dominante. */
+  const favoritos = peticion.platosFavoritos?.length ? new Set(peticion.platosFavoritos) : null;
   /**
    * Índice por id. El bucle de capacidad —el que decide si toca estrenar
    * receta— buscaba con `elegibles.find(...)` DENTRO de un bucle sobre las
@@ -775,7 +1070,7 @@ export function construir(
     elegibles.filter((r) => proteinaAnimal(r, datos) === 'fresca').length,
   );
 
-  const posiciones = posicionesDeSemana(numHuecos);
+  const posiciones = posicionesDeSemana(numHuecos, peticion.ordenDias);
   const diasConSobra = siluetaDeSemana(numHuecos, topeSobras, peticion.semanaNumero ?? 1);
 
   /**
@@ -808,7 +1103,7 @@ export function construir(
   const basesPorDia = new Map<number, Set<string>>();
   const diasDeReceta = new Map<string, Set<number>>();
   const anotarProteina = (dia: string, proteina: string) => {
-    const d = diaIndice(dia);
+    const d = claveDeDia(dia);
     if (!proteinasPorDia.has(d)) proteinasPorDia.set(d, new Set());
     proteinasPorDia.get(d)!.add(proteina);
   };
@@ -828,7 +1123,7 @@ export function construir(
 
   const minutosPorDia = new Map<number, number>();
   const anotarDia = (receta: Receta, dia: string) => {
-    const d = diaIndice(dia);
+    const d = claveDeDia(dia);
     if (!basesPorDia.has(d)) basesPorDia.set(d, new Set());
     for (const b of basesDe(receta)) basesPorDia.get(d)!.add(b);
     if (!diasDeReceta.has(receta.id)) diasDeReceta.set(receta.id, new Set());
@@ -839,7 +1134,7 @@ export function construir(
     anotarProteina(h.dia, h.receta.proteina);
     anotarDia(h.receta, h.dia);
     const minutos = h.tipo === 'cocinado' ? h.receta.minutos : (h.ensamblaje?.minutos ?? 0);
-    minutosPorDia.set(diaIndice(h.dia), (minutosPorDia.get(diaIndice(h.dia)) ?? 0) + minutos);
+    minutosPorDia.set(claveDeDia(h.dia), (minutosPorDia.get(claveDeDia(h.dia)) ?? 0) + minutos);
   }
 
   if (arranque?.librearEn != null && !ocupados[arranque.librearEn]) {
@@ -868,7 +1163,7 @@ export function construir(
   let primeraVuelta = true;
 
   // --- Estado de las restricciones nuevas ---------------------------------
-  const objetivo = OBJETIVO_POR_NIVEL[peticion.proteina ?? 'normal'];
+  const objetivo = objetivoDe(peticion);
   const suelo = GRAMOS_POR_NIVEL[peticion.proteina ?? 'normal'];
   // Gramos de proteína que tiene que sumar la semana entera, para todos.
   // ESCALADO por los huecos que de verdad se planifican: con 7 huecos la app
@@ -1050,7 +1345,7 @@ export function construir(
           let familia = false;
           let repetida = false;
           for (const h of plan.huecos) {
-            const d = diaIndice(h.dia);
+            const d = claveDeDia(h.dia);
             // Ni dos platos de la misma familia el mismo día: misma proteína
             // (dos de huevo, dos de mar) o el mismo almidón/legumbre de base.
             if (receta.proteina !== 'ninguna' && proteinasPorDia.get(d)?.has(receta.proteina)) familia = true;
@@ -1084,7 +1379,7 @@ export function construir(
         const costeMarginal = (carritoPrueba.totalCarrito - costeActual) / cubre;
         const perecederoMarginal = (carritoPrueba.totalPerecedero - perecederoActual) / cubre;
 
-        const d = diaIndice(plan.huecos[0].dia);
+        const d = claveDeDia(plan.huecos[0].dia);
         const vecinas = new Set([...(proteinasPorDia.get(d) ?? []), ...(proteinasPorDia.get(d - 1) ?? [])]);
         const repiteProteina = vecinas.has(receta.proteina);
         const puestos = ocupados.filter(Boolean).length;
@@ -1121,7 +1416,7 @@ export function construir(
         // encima de lo cómodo. Es blanda: si hay que cocinar, se cocina.
         let excesoMinutos = 0;
         for (const h of plan.huecos) {
-          const d = diaIndice(h.dia);
+          const d = claveDeDia(h.dia);
           const suma = (minutosPorDia.get(d) ?? 0)
             + (h.tipo === 'cocinado' ? receta.minutos : (plan.tanda.ensamblaje?.minutos ?? 0));
           excesoMinutos += Math.max(0, suma - MINUTOS_COMODOS_POR_DIA);
@@ -1150,12 +1445,53 @@ export function construir(
           if ((tandasPorSabor.get(f) ?? 0) >= TANDAS_PARA_SER_SABOR_DE_FONDO) sabores++;
         }
 
+        /**
+         * De qué vive este plato, y cuántas tandas de la semana viven ya de lo
+         * mismo. Escala: cada tanda previa suma un escalón. Ver
+         * PENAL_FUENTE_REPETIDA.
+         *
+         * Por FAMILIA y no por canónico: `garbanzo_cocido` y `garbanzo_seco`
+         * son el mismo garbanzo en el plato, y contándolos por separado la
+         * penalización no se activaba nunca — que es el mismo agujero que ya
+         * tuvo el tomate con el sabor de fondo.
+         */
+        const fuentes = new Set<string>();
+        for (const ing of receta.ingredientes) {
+          const meta = datos.ingredientes[ing.canonico];
+          if (!meta || meta.es_despensa) continue;
+          if ((meta.proteina_g_por_100 ?? 0) < PROTEINA_QUE_DEFINE_EL_PLATO) continue;
+          fuentes.add(familiaDeSabor(ing.canonico));
+        }
+        let fuentesYaVistas = 0;
+        for (const f of fuentes) fuentesYaVistas += tandasPorSabor.get(f) ?? 0;
+        /**
+         * SALVO QUE EL USUARIO HAYA DICHO QUE LE GUSTA.
+         *
+         * Lo cazó `preferencias.test.tsx`: con la penalización puesta, marcar
+         * ocho platos como favoritos dejaba de servir para nada — ninguno salía.
+         * El motivo es de escala: BONUS_FAVORITO son 2,5 € y esta penalización
+         * llega a 10, así que un favorito que viva de una fuente repetida no
+         * podía ganar por mucho que el usuario lo pidiera.
+         *
+         * Y eso está mal de principio, no solo de número: repartir las fuentes
+         * es una heurística NUESTRA sobre cómo debería verse una buena semana;
+         * marcar un favorito es una instrucción SUYA. Cuando chocan, gana la
+         * instrucción. Subir el bonus habría tapado el síntoma dejando la app
+         * discutiendo con el usuario en todo lo demás.
+         *
+         * El riesgo de que ocho favoritos de garbanzo hagan una semana de
+         * garbanzo existe y se acepta: lo pidió él, y BONUS_VARIEDAD sigue
+         * impidiendo que sea el MISMO plato una y otra vez.
+         */
+        if (favoritos?.has(receta.id)) fuentesYaVistas = 0;
+
         const puntuacion =
           -excesoCoste
           + aprovechamiento
           - PENAL_POR_MINUTO_DE_MAS * excesoMinutos
           - penalRegistro
           - PESO_SABOR_REPETIDO * sabores
+          - PENAL_FUENTE_REPETIDA * fuentesYaVistas
           - objetivo.peso * perecederoMarginal
           + bonusProteina
           + (animal === 'fresca' ? BONUS_PROTEINA_FRESCA : 0)
@@ -1165,7 +1501,10 @@ export function construir(
           // Lo que se comió las semanas anteriores. Solo cuenta al ESTRENAR:
           // si la receta ya está en esta semana, repetirla dentro de la
           // semana es una decisión de variedad que ya gobierna BONUS_VARIEDAD.
-          - (yaUsada ? 0 : (penalPorReceta.get(receta.id) ?? 0));
+          - (yaUsada ? 0 : (penalPorReceta.get(receta.id) ?? 0))
+          // Y lo que el usuario ha dicho que le gusta. Mismo `yaUsada ? 0 :` y
+          // por el mismo motivo. Ver BONUS_FAVORITO para el peso.
+          + (yaUsada || !favoritos?.has(receta.id) ? 0 : (peticion.pesoFavorito ?? BONUS_FAVORITO));
 
         const candidato = { tanda: plan.tanda, nuevos: plan.huecos, puntuacion };
         if (!mejor || puntuacion > mejor.puntuacion) mejor = candidato;
@@ -1199,7 +1538,7 @@ export function construir(
       anotarProteina(h.dia, mejor.tanda.receta.proteina);
       anotarDia(mejor.tanda.receta, h.dia);
       const minutos = h.tipo === 'cocinado' ? mejor.tanda.receta.minutos : (h.ensamblaje?.minutos ?? 0);
-      minutosPorDia.set(diaIndice(h.dia), (minutosPorDia.get(diaIndice(h.dia)) ?? 0) + minutos);
+      minutosPorDia.set(claveDeDia(h.dia), (minutosPorDia.get(claveDeDia(h.dia)) ?? 0) + minutos);
       proteinaAcumulada += proteinaDe(mejor.tanda.receta);
       if (h.ensamblaje) proteinaAcumulada += proteinaDeEnsamblaje(h.ensamblaje, datos, N) * N;
       if (proteinaAnimal(mejor.tanda.receta, datos) === 'fresca') { huecosFrescos++; hayFrescoEnElMenu = true; }
@@ -1347,7 +1686,7 @@ const MARGEN_DE_AJUSTE = 0.97;
 
 function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | null {
   const minutosMax = MINUTOS_POR_ESFUERZO[peticion.esfuerzo ?? 'libre'];
-  const ordenadas = recetarioAdaptado(peticion.datos, peticion.exclusiones, minutosMax)
+  const ordenadas = recetarioAdaptado(peticion.datos, peticion.exclusiones, minutosMax, peticion.platosBloqueados)
     .map((r) => ({ r, coste: consumoPorRacion(r, peticion.datos, peticion.N) }))
     .sort((a, b) => a.coste - b.coste)
     .map((x) => x.r);
@@ -1363,13 +1702,13 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
    * Primero que alimente, luego que quepa, y solo entonces el criterio del
    * nivel — que en "básica" es tirar poco y en "alta" es costar poco.
    */
-  const criterio = OBJETIVO_POR_NIVEL[peticion.proteina ?? 'normal'].criterio;
+  const criterio = objetivoDe(peticion).criterio;
   const rango = (c: NonNullable<ReturnType<typeof construir>>) => {
     const nutricion = nutricionDe(c.huecos, peticion.datos, peticion.N, suelo);
     return [
       nutricion.cumpleSuelo ? 0 : 1,
       c.carrito.totalCarrito <= presupuesto ? 0 : 1,
-      criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero),
+      criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero, c.carrito.totalConsumo),
     ];
   };
 
@@ -1618,6 +1957,38 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
     }
   }
 
+  /**
+   * ═══ SUBIR EL TOPE NO PUEDE DARTE MENOS COMIDA ═══
+   *
+   * Medido antes de esto, con una persona y catorce huecos:
+   *
+   *     tope 45 €  →  carrito 39,05 €   come 16,86 €
+   *     tope 65 €  →  carrito 46,86 €   come 15,74 €   ← 7,81 € más, 1,12 € menos
+   *
+   * Le das veinte euros más al motor y come menos. En una app cuya tesis es que
+   * el dinero se convierte en comida, no hay ningún fallo peor que ese.
+   *
+   * ═══ POR QUÉ NO LO PILLABA NADA ═══
+   *
+   * El pase de holgura sí protege el consumo, pero solo DENTRO de una
+   * construcción: guarda `mejorConsumo` al alto y no acepta ningún candidato
+   * que baje de ahí. Lo que no puede ver es que el punto de partida ya sea
+   * peor, y lo es: `BANDA_PRESUPUESTO.objetivo` entra en la puntuación hueco a
+   * hueco, así que con más tope el greedy toma otras decisiones desde el primer
+   * plato. Cuando la holgura llega, ya está en otro valle.
+   *
+   * ═══ LA GUARDA ═══
+   *
+   * Se construye también con el tope encogido y se compara. Si la semana del
+   * tope grande no da más comida que la del pequeño, se devuelve la pequeña:
+   * misma o más comida por menos dinero, y el usuario se queda con la holgura
+   * en el bolsillo en vez de en el cubo.
+   *
+   * Solo se paga cuando puede pasar. Con el tope apretado —la semana ya gasta
+   * casi todo— encogerlo solo puede dar una semana peor, así que ni se prueba;
+   * y esa es la mayoría de los casos, que son los del usuario que ajusta su
+   * presupuesto de verdad.
+   */
   return mejor ?? construir(peticion);
 }
 
@@ -1629,8 +2000,10 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
 /** Cuántos huecos se podrían llenar como mucho con estas restricciones. */
 function huecosCubribles(peticion: PeticionSemana): { vivas: number; cubribles: number } {
   const minutosMax = MINUTOS_POR_ESFUERZO[peticion.esfuerzo ?? 'libre'];
+  const bloqueados = peticion.platosBloqueados?.length ? new Set(peticion.platosBloqueados) : null;
   const vivas = peticion.datos.recetas.filter(
-    (r) => recetaPermitida(r, peticion.exclusiones ?? [], minutosMax, peticion.datos.ingredientes),
+    (r) => !bloqueados?.has(r.id)
+      && recetaPermitida(r, peticion.exclusiones ?? [], minutosMax, peticion.datos.ingredientes),
   );
   const rinde = (r: Receta) =>
     FRACCION_SOBRAS_POR_VARIEDAD[peticion.variedad] > 0 ? rindeEfectivo(r, 'principal', peticion.numHuecos) : 1;
@@ -1674,6 +2047,30 @@ function diagnosticar(peticion: PeticionSemana): SinCobertura {
     });
   }
 
+  /**
+   * ═══ Y LOS PLATOS QUE HA BLOQUEADO ═══
+   *
+   * Va como salida propia y no como una `exclusion` más porque la frase que
+   * toca es otra: a nadie se le propone quitarse la alergia al marisco en el
+   * mismo tono que desbloquear un plato que no le gustaba.
+   *
+   * `que` lleva el NÚMERO, no los ids: la pantalla dice "has quitado 40 platos"
+   * y lleva a la lista. Enseñar `merluza_horno` en pantalla sería filtrar un
+   * identificador interno a la interfaz.
+   *
+   * Se calcula soltando TODOS los bloqueos a la vez y no de uno en uno: quitar
+   * uno solo casi nunca desbloquea la semana, así que la lista de salidas se
+   * habría llenado de cuarenta líneas que no arreglan nada.
+   */
+  const bloqueados = peticion.platosBloqueados ?? [];
+  if (bloqueados.length > 0) {
+    salidas.push({
+      tipo: 'bloqueados',
+      que: `${bloqueados.length}`,
+      huecosCubribles: huecosCubribles({ ...peticion, platosBloqueados: [] }).cubribles,
+    });
+  }
+
   const pedidos = peticion.numHuecos;
   salidas.sort((a, b) => b.huecosCubribles - a.huecosCubribles);
   return {
@@ -1681,6 +2078,7 @@ function diagnosticar(peticion: PeticionSemana): SinCobertura {
     huecosCubribles: base.cubribles,
     huecosPedidos: pedidos,
     salidas: salidas.filter((s) => s.huecosCubribles >= (s.tipo === 'comidas' ? 7 : pedidos)),
+    ...(bloqueados.length > 0 ? { platosBloqueados: bloqueados.length } : {}),
   };
 }
 
@@ -1857,6 +2255,16 @@ function presupuestoNecesarioPara(
  */
 export interface CosteOpcion {
   carrito: number;
+  /**
+   * LO QUE DE VERDAD SE COME de ese carrito.
+   *
+   * Está aquí porque sin él no se puede comparar una opción con otra sin
+   * mentirse: el carrito es lo que pasa por caja, y dos semanas del mismo
+   * precio pueden dar cantidades de comida muy distintas. La diferencia entre
+   * los dos es el desperdicio, y minimizarla es la función objetivo del
+   * producto — así que el número tiene que estar donde se elige.
+   */
+  consumo: number;
   /** Cabe en el presupuesto y cumple el nivel de proteína pedido. */
   disponible: boolean;
   /** Por qué no, para poder decirlo en una línea. */
@@ -1880,13 +2288,33 @@ export interface CosteOpcion {
    */
   platos: number;
   repeticiones: number;
+  /**
+   * ═══ CUÁNTAS VECES TE PONES A COCINAR LO MISMO OTRA VEZ ═══
+   *
+   * `repeticiones` NO es esto, y confundirlos costó una etiqueta falsa en
+   * pantalla: cuenta los huecos que se cubren sin cocinar, o sea las sobras.
+   * Con «mucha variedad» eso da 2 y el selector decía «repites 2» — cuando en
+   * esa semana no se cocina dos veces ningún plato. Aprovechar la olla del lunes
+   * el jueves no es repetir: es de donde sale que la semana cueste 57 € y no 90.
+   *
+   * Esto sí es repetir: tandas menos recetas distintas. Si cocinas garbanzos el
+   * lunes y otra vez el viernes, cuenta uno.
+   *
+   *   14 comidas   poca    9 tandas ·  5 recetas  → 4
+   *                normal 10 tandas ·  9 recetas  → 1
+   *                mucha  12 tandas · 12 recetas  → 0
+   *
+   * Es lo único que sostiene la frase «nunca repites plato», que con el otro
+   * número habría sido mentira.
+   */
+  platosRepetidos: number;
 }
 
 function medir(c: Construida | null, peticion: PeticionSemana, nivel: NivelProteina): CosteOpcion {
   if (!c) {
     return {
-      carrito: Number.NaN, disponible: false, porque: 'recetario',
-      proteina: 0, perecedero: 0, platos: 0, repeticiones: 0,
+      carrito: Number.NaN, consumo: Number.NaN, disponible: false, porque: 'recetario',
+      proteina: 0, perecedero: 0, platos: 0, repeticiones: 0, platosRepetidos: 0,
     };
   }
 
@@ -1898,11 +2326,14 @@ function medir(c: Construida | null, peticion: PeticionSemana, nivel: NivelProte
 
   return {
     carrito: c.carrito.totalCarrito,
+    consumo: c.carrito.totalConsumo,
     disponible: cabe && nutricion.cumpleSuelo,
     porque,
     proteina: nutricion.proteinaPorPersonaDia,
     perecedero: c.carrito.totalPerecedero,
     platos: new Set(c.tandas.map((t) => t.receta.id)).size,
+    // Tandas menos recetas distintas. Ver `platosRepetidos` en CosteOpcion.
+    platosRepetidos: c.tandas.length - new Set(c.tandas.map((t) => t.receta.id)).size,
     // Todo hueco con plato que no se cocina: sobras y ensamblajes. Es lo que
     // el usuario vive como "repetir", cocine o no.
     repeticiones: c.huecos.filter((h) => h.receta && h.tipo !== 'cocinado').length,
@@ -1911,10 +2342,100 @@ function medir(c: Construida | null, peticion: PeticionSemana, nivel: NivelProte
 
 /** Lo que cuesta la semana en cada nivel de variedad, con el resto fijo. */
 export function costesPorVariedad(peticion: Omit<PeticionSemana, 'variedad'>): Record<Variedad, CosteOpcion> {
-  const nivel = peticion.proteina ?? 'normal';
   const r = {} as Record<Variedad, CosteOpcion>;
   for (const v of ORDEN_VARIEDAD) r[v] = costeDeUnaVariedad(peticion, v);
   return r;
+}
+
+/**
+ * CUÁL DE LAS TRES SEMANAS DARLE A QUIEN NO HA ELEGIDO NINGUNA.
+ *
+ * ═══ POR QUÉ HACÍA FALTA ═══
+ *
+ * El arranque usaba `variedad: 'normal'` fija, por nombre. Pero los tres
+ * niveles no están ordenados por calidad —lo dice con datos la cabecera de
+ * `SelectorVariedad.tsx`, y por eso esa pantalla los pinta por precio y sin
+ * adjetivos—, así que elegir por nombre es elegir a ciegas.
+ *
+ * ═══ EL CRITERIO, ELEGIDO MIDIENDO Y NO RAZONANDO ═══
+ *
+ * Medido sobre 113 combinaciones de comensales × tope × proteína × huecos:
+ *
+ *                     carrito   comida  desper  usa tope  repite  peores
+ *     fijo «normal»   50,76 €   30,98 €    39%     74%     2,9      6
+ *     este criterio   55,54 €   34,42 €    38%     81%     2,6      0
+ *
+ * Gana en todas menos en gasto, y esa no es una columna que se gane: gastar más
+ * de un tope que el usuario ha puesto, para darle 3,44 € más de comida y
+ * repetirle medio plato menos, es literalmente lo que la app promete.
+ *
+ * («peores» = arranques que pierden contra otra de las tres en precio,
+ * repeticiones, platos y comida a la vez.)
+ *
+ * El ratio es la función objetivo de CLAUDE.md leída como proporción, que es la
+ * lectura que no se puede ganar haciendo trampa comprando menos.
+ *
+ * ═══ PERO EL RATIO SOLO NO VALE ═══
+ *
+ * Probado en el navegador: con dos personas y 65 € de tope elegía `poca` —41,08 €
+ * repitiendo cinco de catorce comidas—, dejando 23,92 € sin usar. El ratio, a
+ * secas, premia comprar poco: la semana que no compra nada no desperdicia nada.
+ * Y esa es exactamente la promesa incumplida que el pase de holgura vino a
+ * arreglar y que está documentada treinta líneas más arriba — la pantalla dice
+ * "te sobran 23,92 €, súbete la variedad" y el motor no se los gasta.
+ *
+ * Así que el ratio decide SOLO entre las que usan el presupuesto. La banda ya
+ * existía (`BANDA_PRESUPUESTO.minimo`), es la misma que usa el pase de holgura
+ * para saber si se ha quedado corto, y usarla aquí también evita tener dos
+ * definiciones de "gastar el tope" que puedan separarse.
+ *
+ * Si ninguna llega a la banda —tope generoso, recetario corto— no se castiga a
+ * nadie: entonces gana la que más gaste, que es la que más se acerca a lo que
+ * el usuario pidió.
+ */
+export function mejorVariedad(peticion: Omit<PeticionSemana, 'variedad'>): Variedad {
+  const costes = costesPorVariedad(peticion);
+  const vivas = ORDEN_VARIEDAD
+    .map((v) => ({ v, c: costes[v] }))
+    .filter(({ c }) => c.disponible && Number.isFinite(c.carrito) && c.carrito > 0);
+
+  // Ninguna cuadra: se devuelve la de siempre y la pantalla enseña las salidas.
+  if (!vivas.length) return 'normal';
+
+  /**
+   * Fuera las que pierden EN TODO contra otra: más caras, repiten igual o más,
+   * traen igual o menos platos y dan igual o menos comida. No hay usuario, por
+   * raro que sea, al que le convengan.
+   *
+   * Esto no es un adorno defensivo, se vio en el navegador: con dos personas y
+   * 65 € ninguna llega a la banda de presupuesto, así que decide la rama de
+   * abajo —la que más gasta— y la que más gasta era 53,32 € repitiendo 4,
+   * habiendo 51,74 € repitiendo 2. Más cara y peor.
+   */
+  const noDominadas = vivas.filter(({ c: a }) => !vivas.some(({ c: b }) => b !== a
+    && b.carrito < a.carrito - 0.01
+    && b.repeticiones <= a.repeticiones
+    && b.platos >= a.platos
+    && b.consumo >= a.consumo - 0.01));
+  const candidatas = noDominadas.length ? noDominadas : vivas;
+
+  const presupuesto = peticion.presupuesto ?? Infinity;
+  const usanElTope = Number.isFinite(presupuesto)
+    ? candidatas.filter(({ c }) => c.carrito >= presupuesto * BANDA_PRESUPUESTO.minimo)
+    : candidatas;
+
+  // Ninguna llega a la banda: la que más se acerque a lo que el usuario pidió.
+  if (!usanElTope.length) {
+    return candidatas.reduce((mejor, act) => (act.c.carrito > mejor.c.carrito ? act : mejor)).v;
+  }
+
+  return usanElTope.reduce((mejor, act) => {
+    const r = act.c.consumo / act.c.carrito;
+    const rm = mejor.c.consumo / mejor.c.carrito;
+    // Medio punto de rendimiento no decide nada: por debajo de eso, más comida.
+    if (Math.abs(r - rm) > 0.005) return r > rm ? act : mejor;
+    return act.c.consumo > mejor.c.consumo ? act : mejor;
+  }).v;
 }
 
 /**
@@ -2111,6 +2632,78 @@ export function repararHueco(
   return primera;
 }
 
+/** Una alternativa concreta para un hueco, ya medida contra lo que hay puesto. */
+export interface Alternativa {
+  recetaId: string;
+  nombre: string;
+  minutos: number;
+  /** Lo que costaría la ración de este plato. */
+  precioRacion: number;
+  /** Diferencia por ración contra el plato que está puesto. Negativa = ahorra. */
+  deltaRacion: number;
+  /** La semana entera ya rehecha con este plato. Se aplica sin recalcular. */
+  semana: SemanaGenerada;
+}
+
+/**
+ * QUÉ MÁS PUEDE IR EN ESTE HUECO, con lo que cuesta el cambio.
+ *
+ * La hoja del día ofrecía "cambiar plato" a ciegas: se tocaba y salía otra
+ * cosa, sin saber qué ni a cuánto. Esto enseña dos o tres candidatos con su
+ * diferencia POR RACIÓN y con signo, que es la cifra con la que se decide.
+ *
+ * Por ración y no el precio absoluto: lo que el usuario quiere saber no es que
+ * el otro plato vale 0,95 € —eso no lo sitúa— sino que le ahorra 0,89. Es la
+ * misma unidad que ya lee en la tarjeta del día.
+ *
+ * Se apoya en la misma maquinaria que `repararHueco`: construir la semana
+ * entera vetando lo que ya se ha visto. Eso importa porque cada alternativa
+ * viene con SU semana ya cuadrada — al elegir una no hay que volver a
+ * calcular, y sobre todo no puede salir una semana distinta de la que se
+ * enseñó con ese precio.
+ *
+ * Cuesta una construcción por candidato (~35 ms), así que se pide fuera del
+ * render como el resto de estimaciones.
+ */
+export function alternativasParaHueco(
+  peticion: PeticionSemana,
+  semana: SemanaGenerada,
+  indiceHueco: number,
+  cuantas = 2,
+): Alternativa[] {
+  const actual = semana.huecos[indiceHueco]?.receta;
+  if (!actual) return [];
+  const precioActual = consumoPorRacion(actual, peticion.datos, peticion.N);
+
+  const vistas = new Set<string>([actual.id]);
+  const salida: Alternativa[] = [];
+
+  /* Un intento de más que candidatos pedidos: alguno se repite o no cambia
+     nada, y sin margen la hoja se quedaba con una sola opción. */
+  for (let intento = 0; intento < cuantas + 3 && salida.length < cuantas; intento++) {
+    const rehecha = repararHueco(
+      { ...peticion, recetasRecientes: [[...vistas], ...(peticion.recetasRecientes ?? [])] },
+      semana,
+      indiceHueco,
+      'cambiar',
+    );
+    if (!rehecha) break;
+    const puesta = rehecha.huecos[indiceHueco]?.receta;
+    if (!puesta || vistas.has(puesta.id)) break;
+    vistas.add(puesta.id);
+    const precio = consumoPorRacion(puesta, peticion.datos, peticion.N);
+    salida.push({
+      recetaId: puesta.id,
+      nombre: puesta.nombre,
+      minutos: puesta.minutos,
+      precioRacion: precio,
+      deltaRacion: precio - precioActual,
+      semana: rehecha,
+    });
+  }
+  return salida;
+}
+
 export function rehacerDesde(
   peticion: PeticionSemana,
   semana: SemanaGenerada,
@@ -2192,3 +2785,6 @@ export function rehacerDesde(
 
   return conCuadre ?? sinCuadre ?? semana;
 }
+
+
+

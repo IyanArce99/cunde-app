@@ -300,7 +300,8 @@
         "Cuece la pasta el tiempo que indique el paquete.",
         "Sofríe el ajo, añade el tomate triturado y el orégano y cuece 10 min.",
         "Incorpora el atún escurrido y mezcla con la pasta escurrida."
-      ]
+      ],
+      "foto": "pasta_atun.webp"
     },
     {
       "id": "tortilla_ensalada",
@@ -636,7 +637,8 @@
         "Sofríe el ajo laminado y añade la espinaca hasta que reduzca.",
         "Añade el pimentón, los garbanzos escurridos y el caldo.",
         "Cuece 10 min a fuego medio y rectifica de sal."
-      ]
+      ],
+      "foto": "garbanzos_espinacas.webp"
     },
     {
       "id": "pisto_huevo",

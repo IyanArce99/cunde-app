@@ -18,9 +18,22 @@
   color: var(--gris);
 }
 
+/**
+ * TINTA, NO AZUL.
+ *
+ * En el rediseño el azul es LA acción —una sola, y va en enlaces como
+ * "Ajustar"—, así que el botón de continuar no puede llevarlo: dos azules
+ * distintos en la misma pantalla dejan de señalar nada. El botón grande de pie
+ * de pantalla no compite, es el camino por defecto, y por eso va en tinta.
+ *
+ * La clase conserva el nombre `--azulete` a propósito: la usan doce sitios y
+ * renombrarla ahora obligaba a tocarlos todos para un cambio que es de color,
+ * no de significado.
+ */
 .primary-button--azulete {
-  background: var(--azulete);
-  color: var(--papel);
+  background: var(--tinta);
+  color: #FFFFFF;
+  border-radius: var(--radius-boton);
 }
 
 .primary-button--contorno {

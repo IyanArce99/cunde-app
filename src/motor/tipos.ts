@@ -140,6 +140,16 @@ export interface Sku {
 }
 
 export interface DatosMotor {
+  /**
+   * La fecha del catálogo, en ISO. La escribe `catalogo/generar.ts`.
+   *
+   * Estaba en el JSON desde el principio pero no en el tipo, así que quien la
+   * quería la leía importando el `.json` a pelo —la pantalla Compra lo hacía—
+   * y TypeScript no vigilaba nada. Ahora es lo que compara la app para saber si
+   * los precios que se ha bajado son más nuevos que los que trae el APK, así
+   * que ha dejado de ser decorativa. Ver src/lib/precios.ts.
+   */
+  generadoEn: string;
   recetas: Receta[];
   ingredientes: Record<string, IngredienteCanonico>;
   /** canonico -> producto elegido. Ver catalogo/mapeo-elegido.json. */

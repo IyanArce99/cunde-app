@@ -72,8 +72,19 @@ export type Plan = keyof typeof PRECIOS;
  *     conversión — cobrarlos es cobrar por lo único que nos dice quién va a
  *     pagar. Y la regla 5 dice que la app absorbe el fallo del martes: cobrar
  *     por rehacer el martes es cobrar por cumplir nuestra propia promesa.
- *   · Los tres niveles de proteína. Es una preferencia dietética, y encima
- *     "alta" le cuesta MÁS dinero al usuario: no hay nada premium ahí.
+ *   · Los tres niveles de proteína. Es una preferencia dietética, y ninguno de
+ *     los tres es "el bueno" que se pueda vender aparte.
+ *
+ *     Aquí ponía que "alta le cuesta MÁS dinero al usuario, así que no hay nada
+ *     premium ahí". Es falso y estaba sosteniendo esta decisión: medido sobre
+ *     48 combinaciones, el precio solo sube al subir de nivel en 13 (27%), y
+ *     hay casos que van al revés de largo — una persona con 65 € y poca
+ *     variedad paga 41,05 € en «básica» y 30,94 € en «alta».
+ *
+ *     La conclusión no cambia, pero el motivo sí, y era el motivo el que
+ *     importaba: no se cobra porque cobrar por comer legumbre en vez de carne
+ *     es cobrar por una dieta, no por una función. Si algún día alguien busca
+ *     "lo caro" para ponerlo detrás del muro, que no se apoye en este dato.
  *   · El selector de semana ya arreglado.
  *   · Cerrar la semana con el ticket.
  *   · Memoria de UNA semana: no te repite la anterior. Sin esto el motor cicla
@@ -91,6 +102,50 @@ export type Plan = keyof typeof PRECIOS;
  */
 export const SEMANAS_DE_MEMORIA_GRATIS = 1;
 export const SEMANAS_DE_DESPENSA_GRATIS = 1;
+
+/**
+ * CUÁNTOS CAMBIOS DE PLATO SE OFRECEN SIN PAGAR.
+ *
+ * ═══ LA OBJECIÓN, ESCRITA AQUÍ PARA QUE NO SE PIERDA ═══
+ *
+ * Esto contradice lo de arriba. Tres párrafos más arriba dice, con estas
+ * palabras, que los retoques van sin límite porque son la métrica 2 y "cobrarlos
+ * es cobrar por lo único que nos dice quién va a pagar". Cambiar el plato de un
+ * hueco es exactamente eso: un retoque, con otro nombre.
+ *
+ * El riesgo concreto: quien abre la hoja del día lo hace porque algo no le
+ * encaja —no le gusta, no tiene tiempo, no le apetece—. Enseñarle UNA salida y
+ * cobrar la segunda convierte el momento de "esto no me vale" en "y encima me
+ * cobras". Es el momento con peor ánimo de todo el recorrido para pedir dinero,
+ * y el que la regla 5 del proyecto dice que la app tiene que absorber.
+ *
+ * Contraargumento a favor: una alternativa no es una limitación de producto si
+ * la que se ofrece es LA BUENA. El motor las devuelve ordenadas, así que la
+ * primera es la mejor candidata; las demás son variedad, no rescate. Con esa
+ * lectura, capar a una deja intacto el "arréglame el martes" y solo cobra el
+ * "enséñame más opciones", que sí es acumulación y no rescate.
+ *
+ * ═══ CÓMO QUEDA MONTADO ═══
+ *
+ * La hoja enseña UNA alternativa a todo el mundo, pague o no. Lo que se cobra
+ * es la SEGUNDA tanda: "ver más platos" pide dos más si hay suscripción y abre
+ * el muro si no la hay. Así el tope de una es visible desde hoy —no depende de
+ * la bandera— y lo único que la bandera enciende es la puerta de pago.
+ *
+ * De paso sale gratis en rendimiento: dos candidatos menos por hoja abierta son
+ * 70 ms menos de motor cada vez que alguien toca una comida.
+ *
+ * Revertirlo es subir esta constante a 2 y borrar la rama del muro en
+ * `verMasPlatos` (Semana.tsx).
+ */
+export const ALTERNATIVAS_GRATIS = 1;
+
+/**
+ * Cuántas trae cada tanda de "ver más platos". Dos y no cinco porque cada
+ * candidato es una construcción entera del motor (~35 ms) y nadie compara cinco
+ * platos de golpe: se mira el siguiente, y si tampoco, el siguiente.
+ */
+export const ALTERNATIVAS_POR_TANDA = 2;
 
 export type EstadoSuscripcion = 'ninguna' | 'activa' | 'caducada';
 

@@ -166,7 +166,22 @@ cuentas. Con 46 € sí"* + deslizador ya puesto en 46.
   intercambiable**: vamos a tener que cambiarlo al menos una vez.
 - Ritmo educado: 300-500 ms entre peticiones. `User-Agent` identificable.
 - Mercadona: los precios van por **almacén** (`mad1`, `vlc1`, `bcn1`…), no por
-  código postal. Son una docena, no 11.000.
+  código postal. **NO son una docena: medido el 10 ago 2026 salen 157 y ese
+  número es un suelo** — con 6 códigos por provincia salían 106 y con 16 salen
+  157, sin estabilizarse. Girona tiene 8, Las Palmas 9, Barcelona 8, **Madrid 3**.
+  Ver `catalogo/_aud-mapa-almacenes.ts` y `mapa-almacenes.json`.
+
+  Aquí decía «una docena» y sobre eso se decidió quitar el código postal del
+  onboarding. La conclusión de fondo —no hace falta el CP exacto, hace falta la
+  zona— sigue siendo válida, pero el número no, y con 157 la consecuencia
+  cambia: mantener un catálogo por almacén es inviable.
+
+  Lo que de verdad varía, medido: **los envasados llevan referencia nacional**
+  (huevos 5,25 € y garbanzos 0,80 € idénticos en Madrid y Oviedo). **El
+  mostrador fresco NO**: 13 de 108 referencias dan 404 en Oviedo, y dentro del
+  propio Madrid 15 de 34 frescos cambian de precio entre `mad1`, `mad2` y
+  `mad3` (el calamar, 1,92 €). O sea: un catálogo nacional para lo envasado y
+  una capa regional solo para los ~34 de peso variable, resuelta bajo demanda.
 - **La API nunca raspa. Solo lee de la base de datos.** Si están acoplados y
   Mercadona cambia algo, la app se cae para todos a la vez.
 

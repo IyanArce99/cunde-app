@@ -1,122 +1,125 @@
-/* EL ROLLO DE TICKET.
-   Va en `--crema` sobre el `--papel` de la pantalla y se sale a los lados con
-   márgenes negativos: así el papel llega a los bordes y se lee como un ticket
-   apoyado, no como una tarjeta. Se corta abajo con una raya discontinua, que
-   es donde el papel térmico se rompe. Sin sombras ni degradados: el proyecto
-   los prohíbe y en WebView de Android cuestan repintado. */
-.portada__rollo {
+.portada__cabecera {
   flex: none;
-  display: flex;
-  flex-direction: column;
-  margin: 0 -30px;
-  padding: 20px 30px 14px;
-  background: var(--crema);
-  border-bottom: 1.5px dashed var(--pauta);
+  padding: 14px 0 0;
 }
 
 .portada__marca {
-  /* align-self, no display:block. En una columna flex el `stretch` por defecto
-     estiraba el <img> a todo el ancho y el trazado se centraba dentro: el
-     logotipo salía en medio del rollo con su recuadro a la vista. */
-  align-self: flex-start;
-  height: 32px;
-  width: auto;
-  max-width: 70%;
-}
-
-.portada__rollo-fuente {
-  margin-top: 10px;
-  padding-bottom: 12px;
-  border-bottom: var(--divider-dashed);
-  font: 500 13px/1.4 var(--font-mono);
-  letter-spacing: 0;
-  color: var(--gris);
-}
-
-.portada__lineas {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 12px 0;
-}
-
-.portada__linea-nombre {
   display: block;
-  font: 600 15px/1.25 var(--font-body);
-  color: var(--tinta);
-}
-
-.portada__linea-detalle {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font: 400 13px/1.7 var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  color: var(--gris);
-}
-
-/* "y 24 productos más" no es letra pequeña: es la mayor parte del carrito. */
-.portada__linea--resto .portada__linea-detalle {
-  color: var(--tinta);
-}
-
-.portada__linea-guia {
-  flex: 1;
-  min-width: 12px;
-  border-bottom: var(--divider-dotted);
-  transform: translateY(-5px);
-}
-
-/* La 56 se reserva al total de la semana, y este lo es. La etiqueta va a dos
-   líneas a la izquierda para que la cifra tenga el ancho que necesita:
-   "61,92 €" a 56 px no cabe compartiendo línea con un rótulo largo. */
-.portada__total {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 10px;
-  border-top: var(--divider-total);
-}
-
-.portada__total-etiqueta {
-  font: 500 13px/1 var(--font-mono);
-  letter-spacing: 0;
-  color: var(--gris);
-}
-
-.portada__total-cifra {
-  margin-top: 4px;
-  /* Sin `nowrap` con el texto al 200%: a 112 px "61,92 €" mide 416 px en un
-     viewport de 390 y se salía por la derecha. Envolviendo entre el número y
-     el símbolo la cifra sigue completa y legible, que es lo que importa a
-     quien necesita el texto grande. */
-  overflow-wrap: anywhere;
-  font: 700 56px/.92 var(--font-display);
-  font-variant-numeric: tabular-nums;
+  font: 700 19px/1 var(--font-body);
   letter-spacing: -.03em;
   color: var(--tinta);
 }
 
-/* El titular y el botón, pegados al fondo. El aire queda entre el ticket y
-   ellos, que es donde se lee como pausa antes de decidir. */
-.portada__acciones {
-  margin-top: auto;
+/* A media altura, no pegado arriba: entre el logo y el bloque queda el aire
+   que hace que la cifra sea lo primero que se mira. */
+.portada__centro {
+  margin: auto 0;
+}
+
+.portada__rotulo {
+  display: block;
+  font: 500 11px/1 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   LA CIFRA
+
+   92 px, por encima de los 56 del resto de la app. Es la única pantalla donde
+   la cifra no compite con nada —no hay lista, ni barra, ni saldo— y es lo
+   único que tiene que hacer: que quien abre la app por primera vez vea un
+   número de euros antes que ninguna otra cosa.
+
+   El € va aparte y en gris para que no reste sitio a las cifras. Con el mismo
+   peso, el símbolo se lleva un tercio del ancho de un número de cinco dígitos.
+   --------------------------------------------------------------------------- */
+
+.portada__cifra {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 24px;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 14px;
+}
+
+.portada__cifra-numero {
+  font: 700 92px/.84 var(--font-display);
+  letter-spacing: -.055em;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+
+.portada__cifra-moneda {
+  margin-top: 7px;
+  font: 600 30px/1 var(--font-body);
+  color: var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   LOS DOS DATOS QUE SOSTIENEN LA CIFRA
+
+   "63,89 €" solo no afirma nada: podrían ser tres comidas o veinte. Estas dos
+   tarjetas son lo que lo convierte en una afirmación que el usuario puede
+   juzgar contra lo que él se gasta.
+   --------------------------------------------------------------------------- */
+
+.portada__tarjetas {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.portada__tarjeta {
+  flex: 1;
+  padding: 14px 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+}
+
+.portada__tarjeta-rotulo {
+  display: block;
+  font: 500 11px/1 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.portada__tarjeta-dato {
+  display: block;
+  margin-top: 8px;
+  font: 600 22px/1 var(--font-body);
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
 }
 
 .portada__titular {
-  margin: 0;
-  font: 600 22px/1.25 var(--font-display);
+  margin: 26px 0 0;
+  font: 600 24px/1.24 var(--font-body);
+  letter-spacing: -.025em;
   color: var(--tinta);
-  letter-spacing: -.01em;
-  text-wrap: balance;
+  /* `pretty` y no `balance`: el titular tiene tres líneas y lo que hay que
+     evitar es la palabra huérfana al final, no repartir el ancho. */
+  text-wrap: pretty;
+}
+
+.portada__sub {
+  margin: 10px 0 0;
+  font: 400 15px/1.5 var(--font-body);
+  color: var(--gris);
+}
+
+/* El botón, pegado al fondo, con su nota justo encima. */
+.portada__acciones {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .portada__nota {
-  font: 400 13px/1 var(--font-mono);
+  font: 400 13px/1 var(--font-body);
   color: var(--gris);
   text-align: center;
 }

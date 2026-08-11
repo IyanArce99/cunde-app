@@ -13,6 +13,9 @@
 
 # misc
 .DS_Store
+# `.env` estaba fuera de git por suerte, no por regla: solo se ignoraban las
+# variantes `.local`. Con una clave de OpenAI dentro, esa suerte se acaba.
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -29,3 +32,10 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# Logs de arranque de vite preview (76 bytes cada uno, cero valor).
+.vp*.log
+
+# Fuentes de las fotos de plato: pesan MB y lo que se publica es el WebP
+# convertido en public/recetas/. Ver public/recetas/LEEME.md
+catalogo/fotos-brutas/

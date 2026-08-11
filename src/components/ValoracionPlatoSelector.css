@@ -1,0 +1,72 @@
+/* Filete arriba, no tarjeta. Esto es otro asunto que el precio y las
+   alternativas, y en un ticket lo que separa asuntos es una línea. */
+.valoracion {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: var(--divider-dashed);
+}
+
+.valoracion__pregunta {
+  display: block;
+  margin-bottom: 10px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.valoracion__opciones {
+  display: flex;
+  gap: 7px;
+}
+
+/**
+ * Tres iguales que se reparten el ancho. `flex: 1` y no `auto`: con anchos por
+ * contenido, «Está bien» quedaba la mitad que «No, gracias» y las tres dejaban
+ * de leerse como tres opciones del mismo rango.
+ */
+.valoracion__opcion {
+  flex: 1;
+  min-width: 0;
+  /* 44 pintados, y el objetivo táctil llega a 48 por el ::after de abajo. A 48
+     pintados, tres píldoras seguidas pesan más que la pregunta que encabezan. */
+  min-height: 44px;
+  padding: 0 6px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-chip);
+  color: var(--tinta);
+  font: 500 13px/1.2 var(--font-body);
+  cursor: pointer;
+  position: relative;
+}
+
+.valoracion__opcion::after {
+  content: '';
+  position: absolute;
+  inset: -2px 0;
+}
+
+/**
+ * Relleno tinta para la elegida.
+ *
+ * Es el mismo lenguaje que ya usan los comensales del paso 2/3 y los chips de
+ * exclusiones: relleno = esto es lo que has puesto. Aquí importa más que en
+ * otros sitios porque las tres opciones son del mismo tamaño y con solo un
+ * borde más grueso habría que compararlas para saber cuál está marcada.
+ *
+ * Sin color propio para «no quiero»: pintarla de rojo la convertiría en una
+ * alarma, y bloquear un plato no es un error ni una advertencia — es una
+ * preferencia tan legítima como las otras dos.
+ */
+.valoracion__opcion--elegida {
+  background: var(--selec-relleno);
+  border-color: var(--selec-relleno);
+  color: var(--selec-texto);
+  font-weight: 600;
+}
+
+.valoracion__nota {
+  margin: 10px 0 0;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
+  text-wrap: pretty;
+}

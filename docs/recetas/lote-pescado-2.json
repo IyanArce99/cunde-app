@@ -1,0 +1,960 @@
+{
+  "raciones_base": 2,
+  "lote": "pescado-2",
+  "nota": "Segundo lote de pescado y marisco: abre el bacalao congelado, que no se usaba en ninguna receta, y da una segunda preparación a la dorada y la lubina, que solo tenían una cada una. Reparte el gasto: caballa, atún y mejillón de lata por debajo de 1,50 € la ración; dorada y lubina como el plato caro de la semana. Reparte también la técnica: tres de sartén, tres de olla, dos de horno y dos frías sin encender fuego. Las cantidades son POR RACIÓN. Ver docs/ingredientes-canonicos.json para el vocabulario.",
+  "recetas": [
+    {
+      "id": "bacalao_tomate",
+      "nombre": "Bacalao con tomate",
+      "minutos": 30,
+      "tags": [
+        "pescado",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "bacalao_congelado",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 130,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pan",
+          "parte": "acompanamiento",
+          "cantidad": 55,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Pasa el bacalao del congelador a la nevera la noche antes y sécalo con papel.",
+        "Pocha la cebolla y el pimiento picados en el aceite 10 minutos.",
+        "Añade el ajo laminado y dale un minuto.",
+        "Echa el tomate y el laurel, sala y cuece 12 minutos a fuego suave.",
+        "Mete los lomos en la salsa, tapa y cuece 8 minutos sin moverlos.",
+        "Sirve con el pan cortado para mojar."
+      ],
+      "nota": "El bacalao va directo a la salsa. Si lo fríes antes se seca y suelta agua en el tomate."
+    },
+    {
+      "id": "potaje_vigilia_bacalao",
+      "nombre": "Potaje de vigilia",
+      "minutos": 45,
+      "tags": [
+        "pescado",
+        "olla",
+        "legumbre",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "bacalao_congelado",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "espinaca",
+          "parte": "principal",
+          "cantidad": 90,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "huevo",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 200,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Descongela el bacalao, córtalo en tacos y cuece el huevo 10 minutos.",
+        "Pocha la cebolla en el aceite 8 minutos.",
+        "Añade el ajo y el pimentón y remueve 30 segundos.",
+        "Echa el tomate y cuece 5 minutos.",
+        "Incorpora el garbanzo escurrido y el caldo y hierve 10 minutos.",
+        "Mete la espinaca y el bacalao, cuece 5 minutos y reparte el huevo picado."
+      ],
+      "nota": "El bacalao ya sala el guiso. Prueba antes de echar más sal."
+    },
+    {
+      "id": "dorada_plancha_verduras",
+      "nombre": "Dorada a la plancha con verduras",
+      "minutos": 25,
+      "tags": [
+        "pescado",
+        "sarten",
+        "verdura"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sarten",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "dorada",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "calabacin",
+          "parte": "acompanamiento",
+          "cantidad": 120,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "limon",
+          "parte": "principal",
+          "cantidad": 0.5,
+          "unidad": "ud",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Corta el calabacín, el pimiento y la cebolla en tiras.",
+        "Saltéalos con la mitad del aceite y sal 10 minutos, hasta que pierdan el agua.",
+        "Sácalos a los platos y sube el fuego.",
+        "Pide la dorada abierta en la pescadería, sálala y ponla piel abajo con el resto del aceite.",
+        "Hazla 5 minutos sin tocarla y 2 minutos por el otro lado.",
+        "Dora el ajo laminado 30 segundos y échalo sobre el pescado con el limón exprimido."
+      ],
+      "nota": "Abierta se hace en la sartén en 7 minutos. Entera pide horno y media hora."
+    },
+    {
+      "id": "lubina_horno_tomate_aceituna",
+      "nombre": "Lubina al horno con tomate y aceitunas",
+      "minutos": 45,
+      "tags": [
+        "pescado",
+        "horno"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "lubina",
+          "parte": "principal",
+          "cantidad": 240,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "acompanamiento",
+          "cantidad": 140,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "aceituna_verde",
+          "parte": "acompanamiento",
+          "cantidad": 25,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "oregano",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Pon la patata en rodajas finas y la cebolla en tiras en la bandeja con aceite y sal.",
+        "Hornea 20 minutos.",
+        "Sala la lubina por dentro y ponla encima.",
+        "Reparte el tomate en gajos, las aceitunas, el ajo picado y el orégano.",
+        "Hornea 18 minutos más, hasta que la carne se separe de la espina."
+      ],
+      "nota": "La aceituna ya sala el plato. Echa poca sal al pescado."
+    },
+    {
+      "id": "calamares_encebollados",
+      "nombre": "Calamares encebollados",
+      "minutos": 45,
+      "tags": [
+        "marisco",
+        "sarten",
+        "economico"
+      ],
+      "proteina": "marisco",
+      "tecnica": "sarten",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "calamar_congelado",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 150,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 8,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 15,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "arroz_largo",
+          "parte": "acompanamiento",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Descongela el calamar y córtalo en aros.",
+        "Pon la cebolla en pluma con el aceite y una pizca de sal a fuego bajo.",
+        "Déjala 20 minutos removiendo de vez en cuando, hasta que quede melosa.",
+        "Añade el ajo, el laurel y el pimentón y remueve 30 segundos.",
+        "Echa el calamar y el vinagre, tapa y cuece 15 minutos a fuego bajo.",
+        "Cuece el arroz aparte y sírvelo al lado."
+      ],
+      "nota": "El calamar o 3 minutos o 20. En medio se queda como una goma."
+    },
+    {
+      "id": "arroz_caldoso_gambas",
+      "nombre": "Arroz con gambas",
+      "minutos": 35,
+      "tags": [
+        "marisco",
+        "olla",
+        "arroz"
+      ],
+      "proteina": "marisco",
+      "tecnica": "olla",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "gamba_congelada",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "arroz_redondo",
+          "parte": "principal",
+          "cantidad": 80,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 165,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 55,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "colorante_alimentario",
+          "parte": "principal",
+          "cantidad": 0.2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Saca la gamba del congelador y déjala escurrir en un colador.",
+        "Pocha la cebolla y el pimiento picados en el aceite 8 minutos.",
+        "Añade el ajo y el pimentón y remueve 30 segundos.",
+        "Echa el tomate y cuece 5 minutos hasta que espese.",
+        "Suma el arroz, el colorante y el caldo hirviendo, sala y cuece 16 minutos.",
+        "Mete las gambas los tres últimos minutos y sirve enseguida."
+      ],
+      "nota": "Caldoso quiere cinco partes de caldo por una de arroz y comerse recién hecho. Al día siguiente ya no es caldoso."
+    },
+    {
+      "id": "marmitako_atun",
+      "nombre": "Marmitako de atún",
+      "minutos": 45,
+      "tags": [
+        "pescado",
+        "olla",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "olla",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "patata",
+          "parte": "principal",
+          "cantidad": 220,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "atun_lata",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "ud",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 50,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate_triturado",
+          "parte": "principal",
+          "cantidad": 70,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caldo_verduras",
+          "parte": "principal",
+          "cantidad": 250,
+          "unidad": "ml",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "laurel",
+          "parte": "principal",
+          "cantidad": 0.1,
+          "unidad": "g",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 14,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Pocha la cebolla y los dos pimientos picados en el aceite 10 minutos.",
+        "Añade el ajo y el pimentón y remueve 30 segundos.",
+        "Echa el tomate y el laurel y cuece 5 minutos.",
+        "Casca la patata en trozos: clava el cuchillo y rómpela, no la cortes del todo.",
+        "Cúbrela con el caldo, sala y cuece 20 minutos a fuego medio.",
+        "Apaga, echa el atún escurrido y desmenuzado y tapa 5 minutos."
+      ],
+      "nota": "Cascar la patata suelta almidón y espesa el caldo. Cortada limpia, el guiso queda aguado. El marmitako original lleva bonito fresco y se va a 6 € la ración; con lata sale por menos de la cuarta parte y el guiso es el mismo."
+    },
+    {
+      "id": "ensalada_garbanzos_caballa",
+      "nombre": "Ensalada de garbanzos con caballa",
+      "minutos": 12,
+      "tags": [
+        "pescado",
+        "sin_cocinar",
+        "frio",
+        "legumbre",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "sin_cocinar",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "garbanzo_cocido",
+          "parte": "principal",
+          "cantidad": 180,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "caballa_lata",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "principal",
+          "cantidad": 100,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 30,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "vinagre_manzana",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Escurre el garbanzo y enjuágalo bajo el grifo.",
+        "Pica el tomate, el pimiento y la cebolla en dados pequeños.",
+        "Mézclalo con el garbanzo en una fuente.",
+        "Escurre la caballa y échala en trozos grandes, sin deshacerla.",
+        "Aliña con el aceite, el vinagre, la sal y el perejil picado."
+      ],
+      "nota": "Está mejor a la media hora, cuando el garbanzo ha cogido el aliño. Sin fuego y de un día para otro: es la comida de tupper del lote."
+    },
+    {
+      "id": "salpicon_mejillones",
+      "nombre": "Salpicón de mejillones",
+      "minutos": 15,
+      "tags": [
+        "marisco",
+        "sin_cocinar",
+        "frio",
+        "economico"
+      ],
+      "proteina": "marisco",
+      "tecnica": "sin_cocinar",
+      "dias_nevera": 3,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "mejillon_lata",
+          "parte": "principal",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "tomate",
+          "parte": "principal",
+          "cantidad": 110,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_verde",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "principal",
+          "cantidad": 45,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "principal",
+          "cantidad": 35,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "vinagre",
+          "parte": "principal",
+          "cantidad": 10,
+          "unidad": "ml",
+          "escalado": "fijo"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 12,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 1.5,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pan",
+          "parte": "acompanamiento",
+          "cantidad": 55,
+          "unidad": "g",
+          "escalado": "lineal"
+        }
+      ],
+      "pasos": [
+        "Pica el tomate, los dos pimientos y la cebolla en dados pequeños.",
+        "Escurre los mejillones y guarda dos cucharadas del escabeche.",
+        "Mezcla la verdura con el aceite, el vinagre, la sal y ese escabeche.",
+        "Añade los mejillones enteros y remueve con cuidado.",
+        "Mete la fuente en la nevera 30 minutos y sirve con el pan."
+      ],
+      "nota": "El escabeche de la lata es medio aliño. Si lo tiras, esto sabe a ensalada."
+    },
+    {
+      "id": "sardinas_bandeja_patata",
+      "nombre": "Sardinas a la bandeja con patata",
+      "minutos": 45,
+      "tags": [
+        "pescado",
+        "horno",
+        "economico"
+      ],
+      "proteina": "pescado",
+      "tecnica": "horno",
+      "dias_nevera": 2,
+      "rinde_huecos": {
+        "principal": 1,
+        "acompanamiento": 1
+      },
+      "ingredientes": [
+        {
+          "canonico": "sardina_fresca",
+          "parte": "principal",
+          "cantidad": 170,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "patata",
+          "parte": "acompanamiento",
+          "cantidad": 190,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "pimiento_rojo",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "cebolla",
+          "parte": "acompanamiento",
+          "cantidad": 60,
+          "unidad": "g",
+          "escalado": "lineal"
+        },
+        {
+          "canonico": "ajo",
+          "parte": "principal",
+          "cantidad": 6,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "perejil",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "pimenton_dulce",
+          "parte": "principal",
+          "cantidad": 1,
+          "unidad": "g",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "aceite_oliva",
+          "parte": "principal",
+          "cantidad": 16,
+          "unidad": "ml",
+          "escalado": "sublineal"
+        },
+        {
+          "canonico": "sal",
+          "parte": "principal",
+          "cantidad": 2,
+          "unidad": "g",
+          "escalado": "sublineal"
+        }
+      ],
+      "pasos": [
+        "Calienta el horno a 200 °C.",
+        "Corta la patata en rodajas finas y el pimiento y la cebolla en tiras.",
+        "Extiéndelo en la bandeja con la mitad del aceite y sal y hornea 25 minutos.",
+        "Quita cabeza y tripas a las sardinas, lávalas y sécalas.",
+        "Ponlas abiertas encima, sálalas y riega con el ajo y el perejil picados, el pimentón y el resto del aceite.",
+        "Hornea 10 minutos más y sirve en la misma bandeja."
+      ],
+      "nota": "La patata tarda el triple que la sardina. Por eso entra sola al horno."
+    }
+  ]
+}

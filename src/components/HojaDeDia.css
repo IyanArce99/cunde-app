@@ -6,8 +6,22 @@
 }
 
 .hoja-dia__titulo {
-  font: 500 13px/1.3 var(--font-mono);
-  letter-spacing: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+/* El sitio: día y hueco. Gris y pequeño porque es lo que ya sabías al tocar. */
+.hoja-dia__titulo-donde {
+  font: 600 13px/1.3 var(--font-body);
+  letter-spacing: .08em;
+  color: var(--gris);
+}
+
+.hoja-dia__titulo-plato {
+  font: 700 15px/1.3 var(--font-body);
+  letter-spacing: .04em;
   color: var(--tinta);
 }
 
@@ -22,78 +36,179 @@
   background: none;
   border: none;
   color: var(--gris);
-  font: 400 17px/1 var(--font-mono);
+  font: 400 18px/1 var(--font-body);
   cursor: pointer;
 }
 
+/* La línea de precio, separada del resto con un filete: es la última cosa que
+   se lee del plato que HAY, y todo lo que viene debajo es lo que se puede
+   hacer con él. */
 .hoja-dia__cabecera+.ticket-row {
   margin-top: 10px;
   padding-bottom: 20px;
   border-bottom: var(--divider-dashed);
 }
 
-.hoja-dia__acciones {
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.hoja-dia__aviso {
+  margin: 14px 0 0;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
 }
 
-.hoja-dia__accion {
+/* ---------------------------------------------------------------------------
+   CAMBIAR POR · alternativas con su delta
+
+   Cada tarjeta dice qué plato es, cuánto se tarda y —lo que de verdad decide—
+   cuánto cambia la RACIÓN respecto a lo que hay puesto. El precio absoluto no
+   sitúa a nadie; la diferencia sí.
+   --------------------------------------------------------------------------- */
+
+.hoja-dia__rotulo {
+  display: block;
+  margin-top: 20px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.hoja-dia__alternativas {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hoja-dia__alternativa {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 62px;
+  padding: 0 18px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  cursor: pointer;
+  text-align: left;
+}
+
+.hoja-dia__alt-texto {
+  min-width: 0;
+}
+
+.hoja-dia__alt-nombre {
+  display: block;
+  font: 600 15px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
+.hoja-dia__alt-meta {
+  display: block;
+  margin-top: 5px;
+  font: 400 12px/1 var(--font-body);
+  color: var(--gris);
+}
+
+.hoja-dia__alt-precio {
+  flex: none;
+  text-align: right;
+}
+
+/* Neutro por defecto: que un plato cueste 17 céntimos más no es un error, y
+   pintarlo en rojo convertiría elegir en una regañina. */
+.hoja-dia__alt-delta {
+  display: block;
+  font: 600 16px/1 var(--font-body);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}
+
+/* El ámbar del ahorro, el mismo que en Ajustes. */
+.hoja-dia__alt-delta--baja {
+  color: var(--oferta-texto);
+}
+
+.hoja-dia__alt-unidad {
+  display: block;
+  margin-top: 4px;
+  font: 400 11px/1 var(--font-body);
+  color: var(--gris);
+}
+
+/* Centrado y sin recuadro: es una salida menor entre dos bloques que sí son
+   decisiones —las alternativas y las tres acciones—, y con borde competiría
+   con las dos. */
+.hoja-dia__mas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: var(--tap-min);
-  padding: 10px 0;
+  margin-top: 10px;
+  padding: 0;
   background: none;
   border: none;
-  text-align: left;
+  color: var(--azulete);
+  font: 500 14px/1 var(--font-body);
   cursor: pointer;
 }
 
+/* ---------------------------------------------------------------------------
+   LA FILA COMPACTA DE TRES
+
+   Eran tres filas de 56 px con título y subtítulo cada una —"Cambiar plato ·
+   otro reparto desde aquí"— y ocupaban más que las alternativas, que es lo
+   que de verdad hay que mirar. Son acciones conocidas: no necesitan que se
+   les explique cada vez.
+   --------------------------------------------------------------------------- */
+
+.hoja-dia__acciones {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.hoja-dia__accion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 78px;
+  padding: 0;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  cursor: pointer;
+}
+
+/* Nunca `opacity` sobre el bloque entero: medido en el diseño anterior, el
+   título caía a 2,81:1 y el icono a 2,15:1. Se apaga con un gris sólido que
+   mantiene contraste real. */
 .hoja-dia__accion:disabled {
-  /* Nunca opacity sobre el bloque entero: medido, el título caía a 2,81:1,
-     el icono a 2,15:1. Se apagan a un gris sólido con contraste real
-     (4,61:1) en vez de difuminarse hacia el fondo. */
   cursor: not-allowed;
 }
 
 .hoja-dia__accion:disabled .hoja-dia__icono,
 .hoja-dia__accion:disabled .hoja-dia__accion-titulo {
-  color: var(--gris);
+  color: var(--pauta);
 }
 
 .hoja-dia__icono {
-  flex: none;
-  width: 16px;
-  text-align: center;
-  font: 400 17px/1 var(--font-mono);
+  font: 400 18px/1 var(--font-body);
+  color: var(--gris);
+}
+
+/* Solo "más barato" lleva el azul: es la única de las tres que persigue lo que
+   persigue el producto. Las otras dos son salidas. */
+.hoja-dia__icono--accion {
+  font-size: 20px;
   color: var(--azulete);
 }
 
-.hoja-dia__texto {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
 .hoja-dia__accion-titulo {
-  font: 600 17px/1.1 var(--font-body);
+  font: 600 13px/1 var(--font-body);
   color: var(--tinta);
-}
-
-.hoja-dia__accion-subtitulo {
-  font: 400 13px/1.2 var(--font-mono);
-  color: var(--gris);
-}
-
-.hoja-dia__ver-receta {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.hoja-dia__ver-receta a {
-  font: 400 15px/1 var(--font-mono);
-  color: var(--gris);
 }

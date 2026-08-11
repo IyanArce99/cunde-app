@@ -3,18 +3,76 @@ import {
   calcularCarrito, consumoDeEnsamblaje, consumoPorRacion, existenciasTrasLaSemana,
 } from '../motor/carrito.ts';
 import type { Existencias } from '../motor/carrito.ts';
-import { planDePostres } from '../motor/postres.ts';
+import { platosBloqueados, platosFavoritos } from '../lib/preferencias';
+import { diasDesde } from '../lib/fechas';
+import type { PreferenciasPlatos } from '../lib/preferencias';
+import { planDePostres, postrePorHueco, precioDeRacion } from '../motor/postres.ts';
+import type { RacionPostre } from '../motor/postres.ts';
 import {
-  generarSemana, nutricionDe, recetarioAdaptado, rehacerDesde, repararHueco, GRAMOS_POR_NIVEL,
+  alternativasParaHueco, generarSemana, mejorVariedad, nutricionDe, recetarioAdaptado, rehacerDesde,
+  repararHueco, GRAMOS_POR_NIVEL,
 } from '../motor/seleccionar.ts';
 import type {
   PeticionSemana, SemanaGenerada, Retoque, Variedad, NivelProteina,
 } from '../motor/seleccionar.ts';
 import type { Carrito, DatosMotor, Hueco, Ranura } from '../motor/tipos.ts';
 import { numComensales, numHuecos } from '../state/types';
+import { aplicarInstantanea, leerGuardada } from '../lib/precios';
 import type { DiaSemana, ItemLista, Perfil, PlanSerial, Plato, Preferencias } from '../state/types';
 
 export const datos = datosJson as unknown as DatosMotor;
+
+/**
+ * ═══ LOS PRECIOS GUARDADOS PISAN A LOS DEL APK · Y ES LO PRIMERO QUE PASA ═══
+ *
+ * Aquí, en el módulo y no en un `useEffect`, porque `datos` lo importan media
+ * docena de ficheros por referencia y algunos calculan en cuanto se cargan —el
+ * suelo de presupuesto de la pantalla 3/3, por ejemplo—. Si esto se hiciera
+ * después de montar React, esos cálculos ya habrían salido con los precios del
+ * APK y la primera cifra que ve el usuario sería la vieja.
+ *
+ * Es síncrono a propósito: sale de `localStorage`, no de la red. Lo que viene
+ * de la red se guarda para la SIGUIENTE apertura. Ver lib/precios.ts.
+ */
+/**
+ * La versión que de verdad está aplicada, que NO es la que se ha descargado.
+ *
+ * Lo cazó la prueba de navegador: con una instantánea que se descarta por
+ * inverosímil —el catálogo entero a un céntimo— la cabecera seguía anunciando
+ * su fecha mientras las cifras eran las del APK. O sea, la app diciendo «precios
+ * del 1 de junio» debajo de precios de agosto. Se anuncia lo aplicado, no lo
+ * recibido.
+ */
+const versionAplicada = (() => {
+  const guardada = leerGuardada();
+  if (!guardada || guardada.version <= datos.generadoEn) return datos.generadoEn;
+  const r = aplicarInstantanea(datos, guardada);
+  /**
+   * `aplicados === 0` y no solo `descartada`, y la diferencia la encontró la
+   * prueba de navegador.
+   *
+   * Con el catálogo entero a un céntimo, ninguna línea llega a `descartada`:
+   * cada una se cae por su cuenta en el tope del 60% y la instantánea se queda
+   * sin nada que aplicar. Mirando solo `descartada`, la cabecera anunciaba esa
+   * fecha con los precios del APK debajo. Si no se aplicó ni una línea, los
+   * precios son los de antes y eso es lo que hay que decir.
+   */
+  if (r.descartada || r.aplicados === 0) {
+    console.warn(`precios: instantánea ${guardada.version} sin efecto (${r.descartada ?? 'todo rechazado'})`);
+    return datos.generadoEn;
+  }
+  return guardada.version;
+})();
+
+/** La fecha de los precios que el usuario está viendo AHORA MISMO. */
+export function versionDePrecios(): string {
+  return versionAplicada;
+}
+
+/** ¿Se han aplicado precios distintos a los que trae el APK? */
+export function hayPreciosNuevos(): boolean {
+  return versionDePrecios() !== datos.generadoEn;
+}
 
 /**
  * Puente entre el estado de la app y el motor. El motor no sabe nada de
@@ -27,9 +85,23 @@ export function peticionDe(
   semanaNumero = 1,
   historial: string[][] = [],
   existencias: Existencias = {},
+  /**
+   * Lo que el usuario ha dicho de los platos. Entra por aquí y no por
+   * `preferencias` porque `Preferencias` es lo que se contesta en el onboarding
+   * y en la hoja de ajustes —cosas que el usuario ELIGE de una lista cerrada— y
+   * esto son ids del recetario que se acumulan de uno en uno. Ver
+   * lib/preferencias.ts.
+   */
+  preferenciasPlatos: PreferenciasPlatos = {},
 ): PeticionSemana {
   return {
     datos,
+    /* Los siete días en el orden en que los vive el usuario. Es lo único que
+       necesita el motor para que su regla de fin de semana caiga donde toca.
+       Ver `posicionesDeSemana` en motor/reparto.ts. */
+    ordenDias: diasDesde(perfil.fechaInicioSemana),
+    platosBloqueados: platosBloqueados(preferenciasPlatos),
+    platosFavoritos: platosFavoritos(preferenciasPlatos),
     N: numComensales(perfil.comensales),
     numHuecos: numHuecos(preferencias.comidas),
     variedad: preferencias.variedad,
@@ -144,6 +216,9 @@ export function hidratar(
 
 const MINUTOS_ENSAMBLAJE = 5;
 
+/** Lo que devuelve `postrePorHueco`: el postre que toca en cada comida. */
+type PostreDeHueco = ReturnType<typeof postrePorHueco>[number];
+
 /** Los nombres de verdad de lo que se ha quitado, para poder decirlo. */
 function omitidosDe(hueco: Hueco): { omitidos: string[] } | Record<string, never> {
   const ids = hueco.receta?.omitidos ?? [];
@@ -156,6 +231,9 @@ function platoDeHueco(hueco: Hueco, N: number): Plato | null {
   if (hueco.tipo === 'sobras') {
     return {
       nombre: hueco.receta.nombre, minutos: 0, precioRacion: 0, tipo: 'sobras', origen: hueco.origen,
+      // Una sobra ES el mismo plato recalentado, así que lleva el id de su
+      // receta y ninguno propio: valorarla es valorar el plato original.
+      recetaId: hueco.receta.id,
       // Una sobra ES el mismo plato: si tiene foto, es la suya.
       ...(hueco.receta.foto ? { foto: hueco.receta.foto } : {}),
     };
@@ -174,7 +252,11 @@ function platoDeHueco(hueco: Hueco, N: number): Plato | null {
       ),
       tipo: 'ensamblaje',
       origen: hueco.origen,
-      ...(e ? { desde: hueco.receta.nombre } : {}),
+      // La receta base SIEMPRE, para saber de qué tanda come. El id propio solo
+      // cuando el ensamblaje tiene nombre propio: sin `e`, lo que el usuario ve
+      // es el plato original servido de acompañamiento, no otro plato.
+      recetaId: hueco.receta.id,
+      ...(e ? { ensamblajeId: e.id, desde: hueco.receta.nombre } : {}),
       ...omitidosDe(hueco),
     };
   }
@@ -183,17 +265,41 @@ function platoDeHueco(hueco: Hueco, N: number): Plato | null {
     minutos: hueco.receta.minutos,
     precioRacion: Number(consumoPorRacion(hueco.receta, datos, N).toFixed(2)),
     tipo: 'cocinado',
+    recetaId: hueco.receta.id,
     ...(hueco.receta.foto ? { foto: hueco.receta.foto } : {}),
     ...omitidosDe(hueco),
   };
 }
 
-export function diasDe(huecos: Hueco[], N: number): DiaSemana[] {
+/**
+ * ═══ AQUÍ SE PERDÍA EL POSTRE ═══
+ *
+ * `diasDe` recorría los huecos y montaba los días sin mirar el postre, que no
+ * llegaba a esta función. Resultado: encender el interruptor subía la cifra y no
+ * cambiaba ni una línea de lo que el usuario ve — ni en la semana, ni al abrir
+ * el día. Reportado como «sube el precio pero no sale en el menú ni en la
+ * receta», y era exacto.
+ *
+ * El postre entra por posición: el hueco `i` de la semana lleva el postre `i` de
+ * la rotación, que es la misma cuenta con la que se compran las raciones. Un
+ * hueco sin plato no lo enseña; ver el comentario de `Plato.postre`.
+ */
+export function diasDe(huecos: Hueco[], N: number, postres: PostreDeHueco[] = []): DiaSemana[] {
   const porDia = new Map<string, DiaSemana>();
-  for (const h of huecos) {
+  huecos.forEach((h, i) => {
     if (!porDia.has(h.dia)) porDia.set(h.dia, { dia: h.dia, comida: null, cena: null });
-    porDia.get(h.dia)![h.ranura] = platoDeHueco(h, N);
-  }
+    const plato = platoDeHueco(h, N);
+    const postre = postres[i];
+    porDia.get(h.dia)![h.ranura] = plato && postre
+      ? {
+        ...plato,
+        postre: {
+          nombre: postre.ing.nombre,
+          precioRacion: Number(precioDeRacion(postre.ing, postre.sku).toFixed(2)),
+        },
+      }
+      : plato;
+  });
   return [...porDia.values()];
 }
 
@@ -205,7 +311,7 @@ function formatearContenido(contenido: number, unidad: string): string {
   return `${contenido} uds`;
 }
 
-export function listaDe(carrito: Carrito, huecos: Hueco[]): ItemLista[] {
+export function listaDe(carrito: Carrito, huecos: Hueco[], postres: RacionPostre[] = []): ItemLista[] {
   // Qué platos usan cada canónico, para la línea "para: ...". Si lo usa más
   // de uno no se atribuye a ninguno: repartir el envase sería inventar.
   const platosPorCanonico = new Map<string, Set<string>>();
@@ -216,11 +322,19 @@ export function listaDe(carrito: Carrito, huecos: Hueco[]): ItemLista[] {
       platosPorCanonico.get(ing.canonico)!.add(h.receta.nombre);
     }
   }
+  /* Los canónicos que están en la lista por el postre. Sin esto, el yogur y el
+     plátano salían como dos filas más sin decir de dónde venían: el usuario veía
+     productos que no había pedido y que no correspondían a ningún plato. */
+  const canonicosDePostre = new Set(postres.map((p) => p.ingrediente.id));
 
   return carrito.lineas
     .map((l) => {
       const usan = new Set(l.canonicos.flatMap((c) => [...(platosPorCanonico.get(c) ?? [])]));
-      const paraPlato = usan.size === 1 ? [...usan][0] : undefined;
+      const esPostre = l.canonicos.some((c) => canonicosDePostre.has(c));
+      /* «para: el postre» y no un nombre de plato: el postre no es de ninguno
+         en concreto, es de toda la semana. La fila se lee igual que las demás y
+         deja de ser un producto aparecido de la nada. */
+      const paraPlato = esPostre ? 'el postre' : (usan.size === 1 ? [...usan][0] : undefined);
       const base = `${l.packaging ?? 'Unidad'} ${formatearContenido(l.contenidoEnvase, l.unidad)}`;
       /**
        * Lo que sale ENTERO del armario tiene `compras: 0`, así que su
@@ -284,11 +398,35 @@ export interface SemanaParaApp {
   sinCobertura?: SemanaGenerada['sinCobertura'];
 }
 
+/**
+ * La rotación de postres, reconstruida desde el plan de raciones.
+ *
+ * No hace falta que el motor la devuelva aparte: `postres` viene en el orden de
+ * la carta y la rotación es esa misma carta por turnos, así que el hueco `i`
+ * lleva el postre que ocupa la posición `i` módulo el número de postres. Es la
+ * misma cuenta que hizo `postrePorHueco` al repartir las raciones, leída al
+ * revés.
+ *
+ * Vale mientras haya al menos tantas comidas como postres en la carta —siempre:
+ * son 7 o 14 comidas contra 4 postres como mucho—. Con menos, algún postre se
+ * quedaría a cero raciones, saldría del plan y la cuenta se desalinearía; por
+ * eso está dicho aquí y no dado por supuesto.
+ */
+function rotacionDePostres(semana: SemanaGenerada): PostreDeHueco[] {
+  const plan = semana.postres;
+  if (!plan.length) return [];
+  return semana.huecos.map((_, i) => {
+    const p = plan[i % plan.length];
+    return { ing: p.ingrediente, sku: p.sku };
+  });
+}
+
 function bajar(semana: SemanaGenerada, N: number): SemanaParaApp {
+  const postres = rotacionDePostres(semana);
   return {
     plan: serializar(semana),
-    dias: diasDe(semana.huecos, N),
-    lista: listaDe(semana.carrito, semana.huecos),
+    dias: diasDe(semana.huecos, N, postres),
+    lista: listaDe(semana.carrito, semana.huecos, semana.postres),
     carrito: semana.carrito,
     recetasDistintas: semana.recetasDistintas,
     delArmario: {
@@ -307,8 +445,9 @@ export function generarParaApp(
   semanaNumero = 1,
   historial: string[][] = [],
   existencias: Existencias = {},
+  preferenciasPlatos: PreferenciasPlatos = {},
 ): SemanaParaApp {
-  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias);
+  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos);
   return bajar(generarSemana(peticion), peticion.N);
 }
 
@@ -332,13 +471,76 @@ export function retocarParaApp(
   semanaNumero = 1,
   historial: string[][] = [],
   existencias: Existencias = {},
+  preferenciasPlatos: PreferenciasPlatos = {},
 ): SemanaParaApp {
-  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias);
+  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos);
   const actual = hidratar(
     plan, peticion.N, preferencias.exclusiones, preferencias.proteina, existencias, preferencias.postre,
   );
   const local = retoque === 'barato' ? null : repararHueco(peticion, actual, indiceHueco, retoque);
   return bajar(local ?? rehacerDesde(peticion, actual, indiceHueco, retoque), peticion.N);
+}
+
+/** Lo que la hoja del día necesita para ofrecer "cambiar por". */
+export interface AlternativaParaApp {
+  recetaId: string;
+  nombre: string;
+  minutos: number;
+  deltaRacion: number;
+  /** La semana ya rehecha con este plato, lista para guardar sin recalcular. */
+  semana: SemanaParaApp;
+}
+
+/**
+ * DOS O TRES PLATOS QUE PODRÍAN IR EN ESE HUECO, con su diferencia por ración.
+ *
+ * Cada uno viene con SU semana ya construida, no con una promesa: al elegir
+ * uno se guarda esa misma semana. Si se recalculara al aplicar, el motor podría
+ * devolver otra cosa y el usuario habría elegido un precio que no recibe.
+ */
+/**
+ * Cuál de las tres semanas desperdicia menos, con este perfil. Ver
+ * `mejorVariedad` en el motor: el criterio y por qué es ese están allí.
+ *
+ * Vive aquí y no en el contexto de estado porque es el motor quien lo sabe, y
+ * porque así usa el mismo `peticionDe` que todo lo demás — si se armara la
+ * petición a mano, un día mediría una semana distinta de la que se genera.
+ */
+export function variedadQueMenosDesperdicia(
+  perfil: Perfil,
+  preferencias: Preferencias,
+  semanaNumero = 1,
+  historial: string[][] = [],
+  existencias: Existencias = {},
+  preferenciasPlatos: PreferenciasPlatos = {},
+): Variedad {
+  return mejorVariedad(peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos));
+}
+
+export function alternativasParaApp(
+  perfil: Perfil,
+  preferencias: Preferencias,
+  plan: PlanSerial,
+  indiceHueco: number,
+  semanaNumero = 1,
+  historial: string[][] = [],
+  existencias: Existencias = {},
+  /* Dos de salida. Cada una cuesta una construcción entera del motor (~35 ms),
+     así que la cuarta y la quinta solo se pagan si alguien las pide. */
+  cuantas = 2,
+  preferenciasPlatos: PreferenciasPlatos = {},
+): AlternativaParaApp[] {
+  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos);
+  const actual = hidratar(
+    plan, peticion.N, preferencias.exclusiones, preferencias.proteina, existencias, preferencias.postre,
+  );
+  return alternativasParaHueco(peticion, actual, indiceHueco, cuantas).map((a) => ({
+    recetaId: a.recetaId,
+    nombre: a.nombre,
+    minutos: a.minutos,
+    deltaRacion: a.deltaRacion,
+    semana: bajar(a.semana, peticion.N),
+  }));
 }
 
 /**
@@ -357,6 +559,56 @@ export function despensaTrasLaSemana(
   const N = numComensales(perfil.comensales);
   const semana = hidratar(plan, N, preferencias.exclusiones, preferencias.proteina, antes, preferencias.postre);
   return existenciasTrasLaSemana(semana.carrito, antes);
+}
+
+/**
+ * ═══ VOLVER A PONERLE PRECIO A UNA LISTA YA GUARDADA ═══
+ *
+ * Sin esto, actualizar los precios sin publicar versión quedaba a medias y
+ * MENTÍA: la cabecera de la pantalla Compra decía «precios del 1 de enero»
+ * porque la instantánea ya se había aplicado, pero las cifras de la lista eran
+ * las del día en que se generó la semana. Salió en la prueba de navegador — la
+ * fecha cambiaba y el total no.
+ *
+ * El plan es la fuente de la verdad; la lista es un derivado. Así que se vuelve
+ * a derivar contra el catálogo de ahora y se le devuelven al usuario sus marcas
+ * —lo que ya lleva en el carro y lo que ha dicho que tiene en casa—, que es lo
+ * único suyo que hay en esa lista.
+ *
+ * Devuelve la lista de entrada si algo no cuadra. Perder los precios nuevos es
+ * una imprecisión de céntimos; perder la lista de la compra en el súper es
+ * quedarse sin la app.
+ */
+export function reprecioDeLista(
+  lista: ItemLista[],
+  plan: PlanSerial,
+  perfil: Perfil,
+  preferencias: Preferencias,
+  existencias: Existencias = {},
+): ItemLista[] {
+  if (!lista.length || !plan?.tandas?.length) return lista;
+  try {
+    const N = numComensales(perfil.comensales);
+    const semana = hidratar(
+      plan, N, preferencias.exclusiones, preferencias.proteina, existencias, preferencias.postre,
+    );
+    const frescas = listaDe(semana.carrito, semana.huecos, semana.postres);
+    /* Lo que el usuario ha tocado, por id de producto. `loTengo` puede ser
+       `false` a propósito —«esto NO lo tengo»— así que se distingue de que no
+       esté puesto, que es lo que ya arregló una vez la despensa. */
+    const suyo = new Map(lista.map((it) => [it.id, it]));
+    return frescas.map((it) => {
+      const antes = suyo.get(it.id);
+      if (!antes) return it;
+      return {
+        ...it,
+        enElCarro: antes.enElCarro,
+        ...(antes.loTengo !== undefined ? { loTengo: antes.loTengo } : {}),
+      };
+    });
+  } catch {
+    return lista;
+  }
 }
 
 /** Índice del hueco (día, ranura) dentro del plan. */

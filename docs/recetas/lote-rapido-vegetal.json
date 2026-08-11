@@ -637,7 +637,8 @@
         "Dora el tofu en el aceite, 3 minutos por cara, y sálalo.",
         "Baja el fuego, añade la mostaza y el vinagre y mueve la sartén para que ligue.",
         "Echa las alubias y el brócoli y calienta 2 minutos."
-      ]
+      ],
+      "foto": "tofu_mostaza_brocoli.webp"
     },
     {
       "id": "quinoa_calabacin_soja",
@@ -720,7 +721,8 @@
         "Saltea la cebolla y el calabacín en dados con el aceite, 6 minutos.",
         "Añade la soja y el orégano y dora 3 minutos a fuego vivo.",
         "Mezcla con la quinoa y sal, y calienta 2 minutos."
-      ]
+      ],
+      "foto": "quinoa_calabacin_soja.webp"
     },
     {
       "id": "garbanzos_esparragos_almendra",

@@ -3,7 +3,7 @@
   align-items: stretch;
   gap: 10px;
   width: 100%;
-  border-bottom: 1px solid rgba(169, 164, 152, .4);
+  border-bottom: 1px solid var(--linea-fila);
 }
 
 /* La casilla se alinea con el NOMBRE, no con el centro de la fila.
@@ -50,12 +50,12 @@
   border-radius: var(--radius-box);
   background: transparent;
   color: var(--papel);
-  font: 400 17px/26px var(--font-mono);
+  font: 700 15px/26px var(--font-body);
   text-align: center;
 }
 
 .fila-producto__caja--marcada {
-  border-color: var(--azulete);
+  border-color: var(--tinta);
   background: var(--azulete);
 }
 
@@ -89,7 +89,7 @@
   padding: 2px 6px;
   border: 1px solid var(--pauta);
   border-radius: 2px;
-  font: 400 13px/1.15 var(--font-mono);
+  font: 500 11px/1.15 var(--font-body);
   color: var(--gris);
   white-space: nowrap;
 }
@@ -99,7 +99,7 @@
 }
 
 .fila-producto__linea2 .ticket-row {
-  font: 400 15px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
 }
 
 .fila-producto__linea2--marcado {
@@ -111,7 +111,7 @@
 }
 
 .fila-producto__linea3 {
-  font: 400 13px/1.2 var(--font-mono);
+  font: 400 13px/1.3 var(--font-body);
   color: var(--gris);
 }
 
@@ -138,7 +138,7 @@
 }
 
 .fila-producto__tengo-texto {
-  font: 400 13px/1.1 var(--font-mono);
+  font: 400 13px/1.1 var(--font-body);
   color: var(--gris);
   text-align: center;
 }

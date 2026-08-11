@@ -1,0 +1,79 @@
+name: Precios de Mercadona
+
+# ═══ POR QUÉ ACTIONS Y NO UNA EDGE FUNCTION ═══
+#
+# Son 117 peticiones con 300-500 ms de espera entre cada una: entre 40 y 70
+# segundos de reloj, casi todo esperando. Las Edge Functions de Supabase tienen
+# límite de ejecución y esto choca con él. Además, un trabajo largo con esperas
+# educadas es exactamente lo que un runner de CI hace bien.
+#
+# ═══ LO QUE ESTE CRON HACE Y LO QUE NO ═══
+#
+# Hace:    preguntar los precios y guardarlos en el historial.
+# NO hace: publicar. Publicar es decir "estos precios son los buenos", y eso lo
+#          decide una persona. Si un scrape sale a medias o Mercadona cambia un
+#          campo, un cron que publicara mandaría esa basura a todos los móviles
+#          instalados. El historial, en cambio, guardarlo nunca hace daño.
+#
+# Para publicar, desde local y mirando el informe:
+#   node catalogo/aplicar-precios.js catalogo/precios-<fecha>.json
+#   node catalogo/publicar-precios.js
+#   node --experimental-strip-types catalogo/supabase.ts publicar
+
+on:
+  schedule:
+    # 06:15 UTC. Temprano, pero no en punto: a las horas redondas se juntan
+    # todos los crons del mundo contra el mismo servidor.
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+# Sin permisos de escritura sobre el repositorio: este trabajo lee precios y
+# escribe en Supabase. No tiene por qué poder tocar el código.
+permissions:
+  contents: read
+
+concurrency:
+  # Dos ejecuciones a la vez serían dos scrapes simultáneos contra Mercadona,
+  # que es justo lo que las reglas de cortesía prohíben.
+  group: precios
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Revisar precios contra Mercadona
+        id: revisar
+        # 300-500 ms entre peticiones, nunca concurrente, User-Agent con
+        # contacto, y PARA en el primer 403/429. Todo eso vive dentro del
+        # script; ver su cabecera.
+        run: node catalogo/revisar-precios.js mad3
+
+      - name: Guardar en el historial
+        # `if: success()` implícito: si el paso anterior detectó bloqueo salió
+        # con código 1 y aquí no se guarda nada a medias.
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          FICHERO=$(ls -t catalogo/precios-*.json | head -1)
+          echo "Informe: $FICHERO"
+          node --experimental-strip-types catalogo/supabase.ts guardar "$FICHERO"
+
+      - name: Guardar el informe para poder mirarlo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: precios-${{ github.run_number }}
+          path: catalogo/precios-*.json
+          if-no-files-found: warn
+          retention-days: 30

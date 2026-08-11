@@ -21,7 +21,7 @@
 
 .selcoste__opcion--seleccionado {
   border: var(--border-selected);
-  background: var(--azulete-fondo);
+  background: var(--crema);
 }
 
 /* No disponible: no se tacha ni se esconde. Se apaga y se dice por qué. */
@@ -45,13 +45,13 @@
 }
 
 .selcoste__nota {
-  font: 400 13px/1.1 var(--font-mono);
+  font: 400 13px/1.1 var(--font-body);
   color: var(--gris);
 }
 
 .selcoste__principal {
   margin-top: 4px;
-  font: 500 17px/1.1 var(--font-mono);
+  font: 500 17px/1.1 var(--font-body);
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
 }
@@ -61,12 +61,12 @@
    que le va a pasar a la nevera. */
 .selcoste__consecuencia {
   margin: 8px 0 0;
-  font: 400 13px/1.5 var(--font-mono);
+  font: 400 13px/1.5 var(--font-body);
   color: var(--gris);
 }
 
 .selcoste__extra {
-  font: 400 13px/1.1 var(--font-mono);
+  font: 400 13px/1.1 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
   /* `pre-line` para que el salto de línea que mete quien compone el texto

@@ -1,0 +1,135 @@
+.extra__campo {
+  display: block;
+  margin-top: 18px;
+}
+
+.extra__rotulo {
+  display: block;
+  margin-bottom: 8px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+/* «si lo sabes» pesa menos que el rótulo: es una condición, no otro rótulo. */
+.extra__opcional {
+  font-weight: 400;
+  color: var(--gris);
+}
+
+.extra__input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  font: 400 16px/1 var(--font-body);
+}
+
+.extra__input::placeholder {
+  color: var(--pauta);
+}
+
+.extra__input:focus-visible {
+  outline: none;
+  border: var(--border-selected);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
+}
+
+/* Al corregir, el nombre no se toca. `readonly` y no `disabled`: un campo
+   deshabilitado no se puede enfocar ni leer con lector de pantalla, y aquí el
+   nombre es justo lo que dice de qué producto va la hoja. */
+.extra__input[readonly] {
+  color: var(--gris);
+}
+
+/* La caja del precio lleva el € pegado dentro, como la del cierre de semana:
+   es el mismo gesto —escribir un importe— y se ve igual. */
+.extra__caja {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+}
+
+.extra__caja:focus-within {
+  border: var(--border-selected);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
+}
+
+/* Sin borde de alarma: lo rojo es el filete, no el recuadro entero. Escribir
+   algo raro en un campo no es un error del usuario que merezca una caja roja. */
+.extra__caja--mal {
+  border-left: 3px solid var(--roja);
+}
+
+.extra__input--precio {
+  flex: 1;
+  min-width: 0;
+  /* `stretch` y no `auto`: con altura automática el campo medía 20 px dentro de
+     una caja de 52, y el toque solo funcionaba porque la caja va envuelta en un
+     `label`. Estirado, el campo ES la caja y no depende de ese rescate. No
+     cambia nada de lo que se ve: el texto sigue centrado por la línea base. */
+  align-self: stretch;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  font: 600 17px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.extra__input--precio:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.extra__moneda {
+  flex: none;
+  font: 500 15px/1 var(--font-body);
+  color: var(--gris);
+}
+
+.extra__nota,
+.extra__aviso {
+  margin: 12px 0 0;
+  font: 400 13px/1.5 var(--font-body);
+  text-wrap: pretty;
+}
+
+.extra__nota {
+  color: var(--gris);
+}
+
+.extra__aviso {
+  color: var(--tinta);
+}
+
+.extra__nota + .primary-button,
+.extra__aviso + .primary-button {
+  margin-top: 20px;
+}
+
+.extra__salida {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.extra__salida .salida-texto {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 8px;
+  background: none;
+  border: none;
+  color: var(--tinta);
+  font: 400 15px/1 var(--font-body);
+  cursor: pointer;
+}

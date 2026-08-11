@@ -5,11 +5,13 @@
   column-gap: 8px;
   row-gap: 2px;
   width: 100%;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
-  line-height: 1.9;
+  /* 1.9 era el interlineado del ticket, pensado para que las guías de puntos
+     respiraran. Sin ellas sobra tanto aire: la fila queda flotando. */
+  line-height: 1.5;
   background: none;
   border: none;
   padding: 0;
@@ -29,11 +31,20 @@
   margin-left: auto;
 }
 
+/**
+ * LA GUÍA DE PUNTOS SE HA IDO, EL ESPACIADOR SE QUEDA.
+ *
+ * Era la firma del diseño anterior —el ticket de papel térmico— y el rediseño
+ * retira esa metáfora entera. Pero el elemento sigue haciendo falta: es lo que
+ * empuja el valor a la derecha y deja que la etiqueta ocupe lo que necesite.
+ *
+ * Se vacía aquí y no en cada componente porque `TicketRow` lo usan veintidós
+ * sitios: quitarlo del marcado obligaba a tocarlos todos para un cambio que es
+ * solo de piel.
+ */
 .ticket-row__leader {
   flex: 1 1 auto;
   min-width: 12px;
-  border-bottom: var(--divider-dotted);
-  transform: translateY(-5px);
 }
 
 /* Una fila de ticket que se puede pulsar es un botón, y un botón que se toca

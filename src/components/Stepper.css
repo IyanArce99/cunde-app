@@ -1,0 +1,36 @@
+.stepper {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0 24px;
+}
+
+.stepper__marca {
+  font: 700 19px/1 var(--font-body);
+  letter-spacing: -.03em;
+  color: var(--tinta);
+}
+
+.stepper__barras {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+}
+
+.stepper__barra {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--linea-bloque);
+}
+
+.stepper__barra--hecho {
+  background: var(--tinta);
+}
+
+.stepper__paso {
+  font: 600 12px/1 var(--font-body);
+  color: var(--gris);
+  font-variant-numeric: tabular-nums;
+}

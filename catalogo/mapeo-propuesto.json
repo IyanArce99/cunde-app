@@ -1144,8 +1144,8 @@
         "nombre": "Berenjena",
         "contenido": 0.38,
         "unidad": "kg",
-        "precio": 0.84,
-        "precio_kg_l_ud": 2.211,
+        "precio": 0.79,
+        "precio_kg_l_ud": 2.0789,
         "packaging": "Pieza",
         "es_pack": false,
         "unidades_pack": null,
@@ -1192,8 +1192,8 @@
         "nombre": "Brócoli",
         "contenido": 0.44,
         "unidad": "kg",
-        "precio": 1.14,
-        "precio_kg_l_ud": 2.591,
+        "precio": 1.29,
+        "precio_kg_l_ud": 2.9318,
         "packaging": "Pieza",
         "es_pack": false,
         "unidades_pack": null,
@@ -1364,8 +1364,8 @@
         "nombre": "Calabacín verde",
         "contenido": 0.41,
         "unidad": "kg",
-        "precio": 0.66,
-        "precio_kg_l_ud": 1.61,
+        "precio": 0.67,
+        "precio_kg_l_ud": 1.6341,
         "packaging": "Pieza",
         "es_pack": false,
         "unidades_pack": null,
@@ -2656,8 +2656,8 @@
         "nombre": "Huevos",
         "contenido": 24,
         "unidad": "ud",
-        "precio": 5.6,
-        "precio_kg_l_ud": 0.233,
+        "precio": 5.25,
+        "precio_kg_l_ud": 0.2188,
         "packaging": "Paquete",
         "es_pack": false,
         "unidades_pack": null,
@@ -3270,8 +3270,8 @@
         "nombre": "Limón",
         "contenido": 0.23,
         "unidad": "kg",
-        "precio": 0.74,
-        "precio_kg_l_ud": 3.217,
+        "precio": 0.69,
+        "precio_kg_l_ud": 3,
         "packaging": "Pieza",
         "es_pack": false,
         "unidades_pack": null,
@@ -4404,8 +4404,8 @@
         "nombre": "Pimiento verde freír",
         "contenido": 0.1,
         "unidad": "kg",
-        "precio": 0.25,
-        "precio_kg_l_ud": 2.5,
+        "precio": 0.28,
+        "precio_kg_l_ud": 2.8,
         "packaging": "Pieza",
         "es_pack": false,
         "unidades_pack": null,
@@ -4694,8 +4694,8 @@
         "nombre": "Queso rallado especial fundir mezcla Hacendado",
         "contenido": 0.2,
         "unidad": "kg",
-        "precio": 1.15,
-        "precio_kg_l_ud": 5.75,
+        "precio": 1.1,
+        "precio_kg_l_ud": 5.5,
         "packaging": "Paquete",
         "es_pack": false,
         "unidades_pack": null,
@@ -5024,8 +5024,8 @@
         "nombre": "Sardina sin limpiar",
         "contenido": 0.4,
         "unidad": "kg",
-        "precio": 2.4,
-        "precio_kg_l_ud": 6,
+        "precio": 2.8,
+        "precio_kg_l_ud": 7,
         "packaging": "Bandeja",
         "es_pack": false,
         "unidades_pack": null,
@@ -5642,6 +5642,66 @@
         "peso_variable": false,
         "departamento": "Fruta y verdura",
         "subfamilia": "Pepino y zanahoria"
+      }
+    ]
+  },
+  "haba_congelada": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "61233",
+        "nombre": "Habas fina Hacendado ultracongelada",
+        "contenido": 0.45,
+        "unidad": "kg",
+        "precio": 1.19,
+        "precio_kg_l_ud": 2.644,
+        "packaging": "Bolsa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      }
+    ]
+  },
+  "edamame_congelado": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "70740",
+        "nombre": "Edamame soja verde Hacendado ultracongelada",
+        "contenido": 0.5,
+        "unidad": "kg",
+        "precio": 1.75,
+        "precio_kg_l_ud": 3.5,
+        "packaging": "Bolsa",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Congelados",
+        "subfamilia": "Verdura"
+      }
+    ]
+  },
+  "alubia_negra_seca": {
+    "confianza": "alta",
+    "total_candidatos_encontrados": 1,
+    "candidatos": [
+      {
+        "sku": "67608",
+        "nombre": "Alubia negra Hacendado",
+        "contenido": 1,
+        "unidad": "kg",
+        "precio": 2.5,
+        "precio_kg_l_ud": 2.5,
+        "packaging": "Paquete",
+        "es_pack": false,
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Arroz, legumbres y pasta",
+        "subfamilia": "Alubias"
       }
     ]
   }

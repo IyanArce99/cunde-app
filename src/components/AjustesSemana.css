@@ -22,7 +22,7 @@
   min-height: var(--tap-min);
   padding: 8px 16px;
   background: transparent;
-  border: 1.5px solid rgba(169, 164, 152, .7);
+  border: var(--border-rest);
   border-radius: var(--radius-sm);
   cursor: pointer;
   text-align: left;
@@ -36,8 +36,8 @@
 }
 
 .ajustes__pill--seleccionado {
-  background: var(--azulete-fondo);
-  border-color: var(--azulete);
+  background: var(--crema);
+  border-color: var(--tinta);
 }
 
 .ajustes__pill-label {
@@ -46,11 +46,12 @@
 }
 
 .ajustes__pill--seleccionado .ajustes__pill-label {
-  color: var(--azulete);
+  color: var(--tinta);
+  font-weight: 600;
 }
 
 .ajustes__pill-meta {
-  font: 400 13px/1 var(--font-mono);
+  font: 400 13px/1 var(--font-body);
   color: var(--gris);
 }
 
@@ -68,15 +69,15 @@
   width: 100%;
   padding: 16px;
   background: transparent;
-  border: 1.5px solid rgba(169, 164, 152, .7);
+  border: var(--border-rest);
   border-radius: var(--radius-sm);
   cursor: pointer;
   text-align: left;
 }
 
 .ajustes__bloque--seleccionado {
-  background: var(--azulete-fondo);
-  border-color: var(--azulete);
+  background: var(--crema);
+  border-color: var(--tinta);
 }
 
 .ajustes__bloque-label {
@@ -85,53 +86,17 @@
 }
 
 .ajustes__bloque--seleccionado .ajustes__bloque-label {
-  color: var(--azulete);
+  color: var(--tinta);
 }
 
 .ajustes__bloque-sub {
-  font: 400 13px/1.2 var(--font-mono);
+  font: 400 13px/1.2 var(--font-body);
   color: var(--gris);
-}
-
-.ajustes__chips {
-  margin-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* Alergia y preferencia son cosas distintas y se ven distintas. Mismo rótulo
-   y mismo orden que en el onboarding. */
-.ajustes__grupo {
-  display: block;
-  margin: 16px 0 8px;
-  font: 600 15px/1.3 var(--font-body);
-  letter-spacing: 0;
-  color: var(--tinta);
-}
-
-.ajustes__chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  padding: 0 16px;
-  background: transparent;
-  border: 1.5px solid rgba(169, 164, 152, .7);
-  border-radius: var(--radius-chip);
-  color: var(--tinta);
-  font: 500 15px/1 var(--font-body);
-  cursor: pointer;
-}
-
-.ajustes__chip--seleccionado {
-  background: var(--azulete-fondo);
-  border-color: var(--azulete);
-  color: var(--azulete);
 }
 
 .ajustes__nota {
   margin: 20px 0 0;
-  font: 400 13px/1.6 var(--font-mono);
+  font: 400 13px/1.6 var(--font-body);
   color: var(--gris);
 }
 
@@ -146,7 +111,14 @@
   margin-top: 16px;
 }
 
-.ajustes__chips+.primary-button {
+.fuera+.primary-button {
+  margin-top: 24px;
+}
+
+/* Cuando la hoja acaba en una puerta y no en la nota, el botón se quedaba
+   pegado al resumen de la puerta —«14 platos · me gusta cocinar»— y parecía
+   que guardar era parte de esa fila. */
+.ajustes__puerta+.primary-button {
   margin-top: 24px;
 }
 
@@ -157,13 +129,24 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 4px;
+  /* 4 px dejaban el rótulo de la hoja tocando la banda del total. Es el título
+     de la pantalla contra el dato principal: son dos cosas, no una. */
+  margin-bottom: 12px;
 }
 
 .ajustes__titulo {
-  font: 500 13px/1.3 var(--font-mono);
+  font: 500 13px/1.3 var(--font-body);
   letter-spacing: 0;
   color: var(--gris);
+}
+
+/* Cuando la hoja no cuelga de una semana ya generada no hay contexto que
+   recordar, así que el rótulo pequeño sobra y la cabecera lleva el titular
+   directamente. */
+.ajustes__titulo-hoja {
+  font: 600 19px/1.2 var(--font-body);
+  letter-spacing: -.02em;
+  color: var(--tinta);
 }
 
 .ajustes__cerrar {
@@ -177,7 +160,7 @@
   background: none;
   border: none;
   color: var(--gris);
-  font: 400 17px/1 var(--font-mono);
+  font: 400 17px/1 var(--font-body);
   cursor: pointer;
 }
 
@@ -210,7 +193,7 @@
 
 .ajustes__total-rotulo {
   display: block;
-  font: 500 13px/1 var(--font-mono);
+  font: 500 13px/1 var(--font-body);
   letter-spacing: 0;
   color: var(--gris);
 }
@@ -224,32 +207,38 @@
 }
 
 .ajustes__total-cifra {
-  font: 700 34px/1 var(--font-display);
+  font: 700 40px/.9 var(--font-display);
   color: var(--tinta);
-  letter-spacing: -.02em;
+  letter-spacing: -.04em;
   font-variant-numeric: tabular-nums;
 }
 
-/* 34 y no 56: la de 56 está reservada al total de la semana, y esta hoja vive
-   ENCIMA de esa pantalla. Dos cifras de 56 compitiendo sería no tener ninguna. */
-
 .ajustes__delta {
-  font: 500 15px/1.2 var(--font-mono);
+  font: 500 15px/1.2 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
+/**
+ * EL AHORRO SE DICE CON TEXTO, NO CON FONDO.
+ *
+ * Era una píldora de amarillo saturado y pesaba tanto como la cifra de la
+ * cesta que tiene al lado: el dato principal quedaba compitiendo con su propio
+ * comentario. En el rediseño el ámbar es solo del número que baja.
+ *
+ * "Sube" se queda en gris a propósito. Subir no es un error mientras quepa en
+ * el presupuesto, y ponerlo en rojo convertiría cada ajuste en una regañina;
+ * el rojo está reservado a pasarse del tope, que sí lo pinta la línea de pie.
+ */
 .ajustes__delta--baja {
-  padding: 2px 6px;
-  background: var(--oferta);
-  color: var(--tinta);
+  color: var(--oferta-texto);
 }
 
 .ajustes__total-pie {
   display: block;
   margin-top: 4px;
-  font: 400 13px/1.4 var(--font-mono);
+  font: 400 13px/1.4 var(--font-body);
   color: var(--roja);
 }
 
@@ -294,21 +283,123 @@
 }
 
 .ajustes__puerta-resumen {
-  font: 400 13px/1.45 var(--font-mono);
+  font: 400 13px/1.45 var(--font-body);
   color: var(--gris);
 }
 
 /* La flecha de volver, solo en la segunda capa. */
+/**
+ * VOLVER: 48×48, no 32×32.
+ *
+ * Medido: era el único objetivo táctil de la app por debajo del mínimo sin una
+ * razón escrita al lado. Y es la salida de la segunda capa de la hoja: fallarlo
+ * deja al usuario dentro de una pantalla de la que creía estar saliendo.
+ *
+ * Crece hacia fuera, no hacia dentro: el margen negativo compensa para que la
+ * flecha siga pintada donde estaba y la cabecera no se mueva ni un píxel.
+ */
 .ajustes__volver {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  margin-left: -8px;
+  width: 48px;
+  height: 48px;
+  margin-left: -16px;
+  margin-block: -8px;
   background: transparent;
   border: none;
   font: 400 26px/1 var(--font-body);
   color: var(--tinta);
   cursor: pointer;
+}
+
+/* Lo que no se come vive en SelectorExclusiones.css: la misma lista se usa
+   aquí y antes de generar la semana, y tenerla en dos sitios era garantizar que
+   se separasen. */
+
+/* ---------------------------------------------------------------------------
+   RÓTULOS DE SECCIÓN, NO PREGUNTAS
+
+   Eran "¿Cuánta proteína?" a 22 px de display. Aquí no hace falta preguntar:
+   son tres controles seguidos con su nombre encima, y el titular de la hoja ya
+   dice qué se está haciendo. A 22 px, tres preguntas ocupaban más que los
+   controles que encabezaban.
+   --------------------------------------------------------------------------- */
+
+.ajustes__rotulo {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+/* --- Sois: las mismas casillas que en el onboarding ------------------------ */
+
+/* Mismas medidas que `.datos__comensal` a propósito. Quien contestó "2" el
+   primer día tiene que reconocer aquí la pregunta que contestó. Los 56 px son
+   además el mínimo táctil que se respeta en toda la app. */
+.ajustes__comensales {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.ajustes__comensal {
+  height: 56px;
+  background: transparent;
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  font: 600 18px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.ajustes__comensal--seleccionado {
+  border-color: var(--selec-relleno);
+  background: var(--selec-relleno);
+  color: var(--selec-texto);
+}
+
+/* --- El tope --------------------------------------------------------------- */
+
+.ajustes__tope-cifra {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+/* 34 y no los 56 del onboarding: allí era la única decisión de la pantalla,
+   aquí compite con el total de la cesta, que es el que manda. */
+.ajustes__tope-numero {
+  font: 700 34px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta);
+}
+
+.ajustes__tope-moneda {
+  font: 600 17px/1 var(--font-display);
+  color: var(--gris);
+}
+
+.ajustes__tope-nota {
+  margin-left: 6px;
+  font: 400 13px/1.3 var(--font-body);
+  color: var(--gris);
+}
+
+/* La puerta cuando va ARRIBA del todo y no cerrando la hoja: sin margen
+   superior y con el filete debajo en vez de encima, que es lo que la separa de
+   lo que viene después. Ver «Empieza» en AjustesSemana.tsx. */
+.ajustes__puerta--primera {
+  margin-top: 0;
+  /* Medido: 0 px entre el filete del total y «Empieza». La banda del total ya
+     trae su propia línea gruesa debajo, así que sin este hueco el texto nacía
+     pegado a ella y parecía parte de la cabecera. */
+  padding-top: 14px;
+  border-top: none;
+  border-bottom: var(--divider-dashed);
+  margin-bottom: 6px;
 }

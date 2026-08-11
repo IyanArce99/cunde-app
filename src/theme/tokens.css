@@ -1,42 +1,82 @@
-@import '@fontsource/ibm-plex-mono/400.css';
-@import '@fontsource/ibm-plex-mono/500.css';
-@import '@fontsource/ibm-plex-mono/600.css';
-@import '@fontsource/bricolage-grotesque/500.css';
-@import '@fontsource/bricolage-grotesque/600.css';
-@import '@fontsource/bricolage-grotesque/700.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
+/* ===========================================================================
+   tokens.css — REDISEÑO 2026 (paleta neutra tipo dashboard)
+   Reemplaza a src/theme/tokens.css.
+
+   ESTRATEGIA: se conservan los NOMBRES de variable del proyecto y solo cambian
+   sus VALORES. Así, la mayoría de componentes adoptan la piel nueva sin tocar
+   su código; el trabajo por pantalla es estructural (ver README), no de color.
+
+   Qué cambia de fondo respecto al original:
+   · Una sola familia tipográfica (Instrument Sans) en lugar de mono/display/body.
+     Los precios siguen en sans con `tabular-nums` (ya lo ponen los componentes).
+   · Fondo gris cálido casi blanco, tinta casi negra, UNA acción azul.
+   · Radios mayores (12–16px). Desaparecen ticket/guías de puntos como metáfora,
+     pero los tokens de divisor siguen existiendo por si se reutilizan.
+   =========================================================================== */
+
+/* Una familia, cuatro pesos. Requiere: npm i @fontsource/instrument-sans */
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+@import '@fontsource/instrument-sans/700.css';
 
 :root {
-  --papel: #EFEDE6;
-  --papel-2: #E5E2D8;
-  --crema: #F6F4EE;
-  --tinta: #1A1917;
-  --azulete: #2B4C7E;
-  --azulete-fondo: rgba(43, 76, 126, .07);
-  --azulete-fondo-fuerte: rgba(43, 76, 126, .06);
-  --oferta: #FFD400;
-  --oferta-resalte: rgba(255, 212, 0, .45);
-  --oferta-fondo: rgba(255, 212, 0, .22);
-  --oferta-borde: #C9A800;
-  --roja: #B32C19;
-  /* PAUTA ES COLOR DE RAYA, NO DE TEXTO. Sobre papel da 2.12:1 y el mínimo AA
-     son 4.5. Se usa en guías de puntos, bordes y separadores; en cuanto se usó
-     para escribir —el "próximamente" del súper y el precio de una opción que no
-     cabe— dejó ilegible justo lo que había que leer. Para apagar texto está
-     --gris, que es el suelo: por debajo de él la paleta no tiene sitio para un
-     tercer nivel de atenuación, y buscarlo es lo que produjo el fallo. */
-  --pauta: #A9A498;
-  /* 4.61:1 sobre papel. Pasa AA de justo: no bajarlo más. */
-  --gris: #6E6A5F;
-  --velo: rgba(20, 19, 15, .55);
-  --barra-fondo: rgba(26, 25, 23, .15);
+  /* --- Superficies --- */
+  --papel: #F5F5F3;      /* fondo de pantallas y hojas */
+  --papel-2: #EFEEEA;    /* cabecera de pasillo, franjas suaves */
+  --crema: #FFFFFF;      /* tarjetas, inputs, filas */
 
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: Inter, sans-serif;
+  /* --- Tinta --- */
+  --tinta: #17181A;      /* texto principal y botón principal */
+  --gris: #6E7075;       /* texto secundario (AA sobre --papel) */
+  --pauta: #C7C4B8;      /* SOLO líneas: divisores, guías. No escribir con él. */
 
+  /* --- Acción (una sola) --- */
+  --azulete: #2E5BFF;
+  --azulete-fondo: rgba(46, 91, 255, .06);
+  --azulete-fondo-fuerte: rgba(46, 91, 255, .06);
+
+  /* --- Ahorro / delta a la baja ---
+     OJO al migrar: en el original --oferta era un AMARILLO de FONDO (píldora
+     "baja X €"). En el rediseño el ahorro se comunica con TEXTO ámbar sobre
+     fondo claro. Por eso:
+       --oferta         = fondo ámbar muy claro (si se conserva la píldora)
+       --oferta-texto   = ámbar oscuro para el número que baja  ← NUEVO
+     Revisa AjustesSemana / CambioSemana: donde antes se pintaba fondo --oferta
+     con texto --tinta, ahora basta texto --oferta-texto sin fondo. */
+  --oferta: #FBF3D6;
+  --oferta-texto: #8A6D00;
+  --oferta-resalte: rgba(138, 109, 0, .18);
+  --oferta-fondo: rgba(138, 109, 0, .08);
+  --oferta-borde: #E4CE7A;
+
+  /* --- Pasarse del tope (única alarma) --- */
+  --roja: #D93A2B;
+
+  --velo: rgba(20, 19, 15, .5);
+  --barra-fondo: rgba(26, 25, 23, .12);
+
+  /* --- Tipografía: una familia para todo --- */
+  --font-mono: 'Instrument Sans', system-ui, sans-serif;     /* precios: + tabular-nums */
+  --font-display: 'Instrument Sans', system-ui, sans-serif;  /* cifras grandes (700) */
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+
+  /**
+   * IONIC TAMBIÉN.
+   *
+   * `ion-app`, `ion-content` y compañía traen su propia pila tipográfica
+   * —Roboto en Android, San Francisco en iOS— y se la aplican a lo que no
+   * declare la suya. Medido en las ocho pantallas: Roboto salía en todas
+   * conviviendo con Instrument Sans, que es justo lo que el rediseño viene a
+   * quitar.
+   *
+   * Hoy casi no se nota porque el texto de la app declara su fuente uno a uno;
+   * lo que evita esto es que el próximo elemento que no la declare herede la
+   * de Ionic sin que nadie se entere.
+   */
+  --ion-font-family: var(--font-body);
+
+  /* Escala sin cambios: 13 / 15 / 17 / 22 / 34 / 56 */
   --text-xs: 13px;
   --text-sm: 15px;
   --text-md: 17px;
@@ -44,42 +84,110 @@
   --text-xl: 34px;
   --text-xxl: 56px;
 
-  --radius-sm: 4px;
-  --radius-box: 3px;
-  --radius-sheet: 16px;
-  --radius-chip: 999px;
+  /* --- Formas --- */
+  --radius-sm: 12px;     /* botones, tarjetas de opción */
+  /* El escalón que faltaba. El diseño usa 14 en el botón principal, en las
+     tarjetas de alternativa y en las de la portada, y estaba escrito a mano en
+     los tres sitios. Entre el 12 de una opción y el 16 de una tarjeta grande. */
+  --radius-boton: 14px;
+  --radius-card: 16px;   /* tarjetas de día, hojas interiores  ← NUEVO */
+  --radius-box: 6px;     /* casillas de verificación */
+  --radius-sheet: 16px;  /* esquinas superiores de las hojas */
+  --radius-chip: 999px;  /* chips / píldoras redondas */
 
-  --border-rest: 1.5px solid rgba(169, 164, 152, .7);
-  --border-selected: 1.5px solid var(--azulete);
+  /**
+   * FILETES DE DENTRO DE UNA TARJETA.
+   *
+   * Distintos del borde de la tarjeta a propósito: el borde la separa del
+   * fondo, estos separan filas DENTRO de ella y tienen que pesar menos o la
+   * tarjeta se lee como una rejilla. Tres niveles porque hay tres alturas de
+   * jerarquía: la cabecera de una tarjeta, las filas entre sí, y la línea que
+   * separa bloques de una lista larga.
+   *
+   * Estaban escritos a mano en cinco ficheros con cinco valores parecidos y
+   * ningún criterio para elegir entre ellos.
+   */
+  --linea-cabecera: #F0F0ED;
+  --linea-fila: #F5F5F1;
+  --linea-bloque: #E3E3E0;
+
+  /** Fondo de una fila pulsada. Se usa en vez de opacity, que hunde el texto. */
+  --pulsado: #FAFAF8;
+
+  /** El gris de los chevrons: más claro que --gris, porque no es texto. */
+  --flecha: #C4C4C0;
+
+  /**
+   * El azul rebajado del chip de saldo. No sale de `--azulete-fondo`, que es
+   * casi transparente y sobre papel no llega a leerse como una píldora.
+   */
+  --azulete-chip: #EAECFF;
+  /**
+   * AZUL PARA ESCRIBIR SOBRE `--azulete-chip`.
+   *
+   * El prototipo pone `#2E5BFF` sobre `#EAECFF` y eso da 4,42:1 — se queda a
+   * ocho centésimas del 4,5 que pide AA para 13 px. Es el chip de "Sobran
+   * 11,68 €", o sea la segunda cifra más importante de la app.
+   *
+   * Se baja el azul del TEXTO, no el fondo: el fondo es lo que el diseñador
+   * dibujó y lo que da el color a la pieza. 0x FF → 0xED sube a 4,71:1 y no se
+   * distingue del original salvo a cuentagotas.
+   */
+  --azulete-sobre-chip: #2E5BED;
+
+  /**
+   * ROJO PARA ESCRIBIR SOBRE EL CHIP DE «TE PASAS».
+   *
+   * Mismo problema que el azul y por la misma causa: el chip pinta el fondo con
+   * `--roja` al 10% sobre papel —que compuesto da #F2E2DF— y escribía encima con
+   * `--roja` entera. Eso son 3,64:1 y AA pide 4,5 a 13 px.
+   *
+   * Y este par importa más que el azul: es la ÚNICA alarma de la app, la que
+   * dice que te pasas del presupuesto. Un aviso que no se lee bien no es un
+   * aviso.
+   *
+   * No lo pilló el barrido de contraste porque solo visita el estado normal, y
+   * pasarse del tope hay que provocarlo. Se encontró comprobando a mano el
+   * gemelo rojo del chip azul después de arreglar aquel.
+   *
+   * #BC2D1D da 4,73:1 sobre el mismo fondo. El fondo se queda como está: es el
+   * `--roja` del sistema al 10% y es lo que le da la familia de color a la
+   * alarma.
+   */
+  --roja-sobre-chip: #BC2D1D;
+
+  /**
+   * SELECCIONADO SE DICE CON TINTA, NO CON AZUL.
+   *
+   * El rediseño reserva el azul para UNA cosa: la acción —el enlace "Ajustar",
+   * el "Ver más platos"—. Si además marca lo elegido, dejan de distinguirse dos
+   * cosas que no se parecen en nada: "esto lleva a algún sitio" y "esto es lo
+   * que has escogido". En una pantalla con cinco comensales y tres ranuras, el
+   * azul acaba en todas partes y no señala nada.
+   *
+   * Dos intensidades, según el tamaño del control:
+   *   · RELLENO para las casillas pequeñas —los comensales—, donde hace falta
+   *     que se vea a un metro cuál está marcada. Es lo que pide el encargo:
+   *     "seleccionado = relleno tinta".
+   *   · BORDE para las filas de ancho completo. Tres barras negras seguidas
+   *     pesarían más que la pregunta que las encabeza.
+   */
+  --selec-relleno: var(--tinta);
+  --selec-texto: #FFFFFF;
+
+  --border-rest: 1px solid #E9E9E6;
+  --border-selected: 1.5px solid var(--tinta);
   --divider-dashed: 1px dashed var(--pauta);
-  --divider-dotted: 1px dotted var(--pauta);
+  --divider-dotted: 1px dotted #D9D6CA;
   --divider-total: 1.5px solid var(--tinta);
 
   --tap-min: 56px;
-
-  /**
-   * EL MARGEN LATERAL, como número único.
-   *
-   * Existe por la barra de scroll. Un contenedor que hace scroll dibuja su
-   * barra en SU borde derecho, no en el de la pantalla: si el contenedor está
-   * metido dentro del margen, la barra cae encima de la última columna de
-   * contenido — en Cunde, justo sobre el € de cada precio, en Semana y en
-   * Compra. Visto en un iPhone real, no es cosa del emulador.
-   *
-   * La regla que se sigue: el que hace scroll llega al borde físico de la
-   * pantalla y el margen se lo pone él como relleno. Así la barra queda en el
-   * canto y el contenido no se mueve ni un píxel.
-   */
-  --margen-lateral: 30px;
+  --margen-lateral: 24px;   /* 24 en el rediseño; sigue valiendo la regla de la barra de scroll */
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   background: var(--papel);
 }
@@ -92,22 +200,16 @@ body {
   overscroll-behavior-y: none;
 }
 
+a { color: var(--azulete); }
+a:hover { color: #1c3fcc; }
+
 button {
   font-family: inherit;
   -webkit-tap-highlight-color: transparent;
   transition: transform .1s ease-out, opacity .1s ease-out;
 }
+button:active { transform: scale(.97); opacity: .85; }
 
-/* Todo botón da una señal táctil inmediata al tocarlo — sin ella, en un
-   dispositivo algo lento, tocar no se distingue de que no ha pasado nada. */
-button:active {
-  transform: scale(.97);
-  opacity: .85;
-}
-
-/* La regla cubría solo button y a. El único input de la app —el importe del
-   ticket— además se quitaba el suyo con outline:none, así que quien navega con
-   teclado escribía a ciegas en el campo del que depende todo el historial. */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
@@ -119,10 +221,7 @@ textarea:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
@@ -130,92 +229,77 @@ textarea:focus-visible,
 }
 
 .pantalla {
-  /* altura FIJA (no min-height): si dejamos que crezca con el contenido, en
-     pantallas bajas el pie con el botón principal queda empujado fuera de
-     la vista y, al tener scroll desactivado en IonContent, es irrecuperable. */
   height: 100%;
   background: var(--papel);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  /* max(): en Android o fuera de una PWA instalada, env() suele resolver a 0
-     — sin el mínimo, el contenido queda pegado al borde físico del móvil. */
   padding-top: max(env(safe-area-inset-top), 12px);
   padding-bottom: env(safe-area-inset-bottom);
   overflow: hidden;
 }
 
-/* Pantallas de onboarding: marco sin pestañas, 30px de margen lateral uniforme. */
 .pantalla--onboarding {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: var(--margen-lateral);
+  padding-right: var(--margen-lateral);
   padding-bottom: calc(env(safe-area-inset-bottom) + 34px);
 }
 
-.pantalla-content {
-  --background: var(--papel);
+.pantalla-content { --background: var(--papel); }
+
+
+/**
+ * BARRA DE SCROLL OCULTA.
+ *
+ * En el diseño anterior se resolvió sacando cada contenedor con scroll hasta el
+ * canto físico de la pantalla, porque si se quedaba dentro del margen la barra
+ * se dibujaba ENCIMA de la última columna de contenido — justo sobre el € de
+ * cada precio. Se vio en un iPhone real.
+ *
+ * El rediseño la quita del todo: el contenido es tarjetas sobre un fondo claro
+ * y una barra gris flotando encima es un cuerpo extraño. La regla del canto
+ * sigue valiendo igual, así que la posición nunca vuelve a ser un problema.
+ *
+ * `overflow` sigue siendo `auto`: se puede desplazar con el dedo, con la rueda
+ * y con el teclado. Lo único que desaparece es el indicador.
+ */
+[class*='__lista'],
+[class*='__dias'],
+[class*='__cuerpo'],
+.bottom-sheet__hoja {
+  scrollbar-width: none;
 }
 
+[class*='__lista']::-webkit-scrollbar,
+[class*='__dias']::-webkit-scrollbar,
+[class*='__cuerpo']::-webkit-scrollbar,
+.bottom-sheet__hoja::-webkit-scrollbar {
+  display: none;
+}
 
 /* ---------------------------------------------------------------------------
-   RÓTULOS · tres niveles, uno por lo que hace el rótulo
-   ---------------------------------------------------------------------------
-   Había veinte declaraciones de letter-spacing repartidas en quince ficheros,
-   con seis valores distintos (.12 a .2em), todas en Inter y todas en
-   versalitas: el mismo recurso para la cabecera de un total, para el título de
-   una hoja y para una pregunta al usuario. Es el tic tipográfico más
-   reconocible del diseño generado, y además era infiel al objeto que imita —
-   una impresora térmica es monoespaciada y no tiene tracking; un ticket de
-   verdad usa mayúsculas SIN espaciar.
-
-   La distinción que organiza esto no es de tamaño, es de quién habla:
-
-     LA MÁQUINA IMPRIME  ·  mono, mayúsculas, tracking 0.
-       Cabeceras de datos y clasificaciones de línea: TU SEMANA, LLEVAS, los
-       pasillos, TOTAL, COMIDA · RECALIENTAS. Es la impresora del súper.
-
-     LA APP HABLA  ·  Inter, caja de frase, sin tracking.
-       Preguntas y títulos: "Dónde compras", "Alergias e intolerancias". Si es
-       una frase dirigida al usuario, se escribe como se escriben las frases.
-
-     LA NAVEGACIÓN  ·  Inter, mayúsculas, un solo valor de tracking.
-       Las dos pestañas y nada más. Aquí el espaciado sí trabaja: son dos
-       palabras cortas que tienen que leerse como pestañas y no como texto.
-   ------------------------------------------------------------------------- */
-
+   RÓTULOS — el rediseño mantiene la distinción "quién habla", pero la máquina
+   ya NO es monoespaciada: es Instrument Sans en mayúsculas con un tracking
+   pequeño. Sigue habiendo tres registros.
+   --------------------------------------------------------------------------- */
 .rotulo-maquina {
-  font: 500 13px/1.3 var(--font-mono);
-  letter-spacing: 0;
+  font: 600 12px/1.3 var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--gris);
 }
-
 .rotulo-app {
-  font: 600 15px/1.3 var(--font-body);
-  letter-spacing: 0;
+  font: 600 17px/1.3 var(--font-body);
+  letter-spacing: -.01em;
   color: var(--tinta);
 }
-
-/* ---------------------------------------------------------------------------
-   SALIDA DE TEXTO
-
-   El enlace suelto que deja irse sin ruido: "Ahora no", "Seguir con el plan
-   gratis", "Ver receta". Medían 21 y 22 px de alto — se leen bien y no se
-   aciertan con el pulgar, que es la peor combinación posible en la salida.
-
-   Se les da el área de 48 px sin tocar cómo se ven. Dos detalles:
-   · inline-flex y no block, para que el área no ocupe todo el ancho de la hoja
-     y siga leyéndose como un enlace y no como un botón.
-   · el subrayado pasa de border-bottom a text-decoration. Con la caja a 48 px
-     el borde se quedaba pegado al fondo de la caja, a 27 px del texto.
-   --------------------------------------------------------------------------- */
 
 .salida-texto {
   display: inline-flex;
   align-items: center;
   min-height: 48px;
   padding: 0 8px;
-  text-decoration: underline;
-  text-decoration-color: var(--pauta);
-  text-underline-offset: 4px;
+  color: var(--azulete);
+  text-decoration: none;
   cursor: pointer;
 }

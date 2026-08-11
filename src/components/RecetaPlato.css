@@ -6,7 +6,7 @@
 }
 
 .receta__titulo {
-  font: 500 13px/1.3 var(--font-mono);
+  font: 500 13px/1.3 var(--font-body);
   letter-spacing: 0;
   color: var(--tinta);
 }
@@ -22,7 +22,7 @@
   background: none;
   border: none;
   color: var(--gris);
-  font: 400 17px/1 var(--font-mono);
+  font: 400 17px/1 var(--font-body);
   cursor: pointer;
 }
 
@@ -31,7 +31,7 @@
   margin-top: 10px;
   padding-bottom: 20px;
   border-bottom: var(--divider-dashed);
-  font: 400 15px/1 var(--font-mono);
+  font: 400 15px/1 var(--font-body);
   color: var(--gris);
   font-variant-numeric: tabular-nums;
 }
@@ -48,17 +48,39 @@
 .receta__paso {
   display: flex;
   gap: 14px;
-  align-items: baseline;
+  align-items: flex-start;
 }
 
+/**
+ * Disco de tinta con el número en blanco, como en el prototipo. Eran cifras
+ * azules sueltas y en una pantalla donde el azul es la acción se leían como
+ * cinco enlaces que no llevan a ninguna parte — y donde de verdad se lee esto
+ * es de pie en la cocina, con las manos ocupadas y mirando de reojo.
+ *
+ * El disco además da el punto de anclaje: los pasos que ocupan dos líneas ya no
+ * dejan el número flotando a media altura, porque la fila alinea por arriba.
+ */
 .receta__paso-numero {
   flex: none;
-  width: 20px;
-  font: 500 15px/1.5 var(--font-mono);
-  color: var(--azulete);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  /* 3 px para que el disco caiga sobre la primera línea del texto, que va a
+     17/1.5 y tiene su mayúscula más arriba que el centro de la caja. */
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--tinta);
+  color: var(--papel);
+  font: 600 13px/1 var(--font-body);
   font-variant-numeric: tabular-nums;
 }
 
+/* Sin `text-wrap: pretty` a propósito: equilibra las líneas, y en un paso que
+   casi cabe en una lo parte en dos para no dejar una viuda corta. Aquí lo que
+   importa es al revés — esto se lee de reojo, cocinando, así que cada línea de
+   más es un renglón más que buscar. `pretty` es para titulares. */
 .receta__paso-texto {
   font: 400 17px/1.5 var(--font-body);
   color: var(--tinta);
@@ -66,6 +88,6 @@
 
 .receta__sin-datos {
   margin: 20px 0 0;
-  font: 400 15px/1.5 var(--font-mono);
+  font: 400 15px/1.5 var(--font-body);
   color: var(--gris);
 }
