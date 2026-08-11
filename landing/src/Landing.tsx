@@ -83,7 +83,7 @@ export default function Landing() {
               Precios reales de tu súper, hoy
             </p>
             <h1 className="hero__h1">
-              Tú pones el tope.<br />Yo pongo el menú<br />y la lista.
+              Tú pones el tope.<br /> Yo pongo el menú<br /> y la lista.
             </h1>
             <p className="hero__sub">
               Dime cuánto quieres gastar y para cuántos sois. Cunde arma la semana de
@@ -136,7 +136,7 @@ export default function Landing() {
           <div className="contenedor oscura__interior">
             <div>
               <p className="eyebrow eyebrow--claro">Tú decides</p>
-              <h2 className="h2 h2--claro">Ajusta la semana<br />sin salirte del tope</h2>
+              <h2 className="h2 h2--claro">Ajusta la semana<br /> sin salirte del tope</h2>
               <p className="oscura__texto">
                 Más variedad, más proteína, postre a diario. Cambia lo que quieras y mira
                 cómo se mueve la cesta en tiempo real, siempre dentro de lo que dijiste.
@@ -155,7 +155,7 @@ export default function Landing() {
           <TarjetaPlato />
           <div>
             <p className="eyebrow">Todo cambiable</p>
-            <h2 className="h2">¿No te convence<br />un plato? Cámbialo</h2>
+            <h2 className="h2">¿No te convence<br /> un plato? Cámbialo</h2>
             <p className="cambiar__texto">
               Toca cualquier comida y elige otra. Cunde te dice al momento cuánto sube o
               baja por ración, te propone algo más barato o simplemente marca «no cocino»
@@ -175,7 +175,7 @@ export default function Landing() {
         <section className="cta" id="precio">
           <div className="contenedor cta__interior">
             <h2 className="cta__h2">
-              Come rico toda la semana<br />por lo que tú decidas
+              Come rico toda la semana<br /> por lo que tú decidas
             </h2>
             <div className="cta__botones">
               <div className="solo-ancho"><BotonesStore tam="grande" /></div>
