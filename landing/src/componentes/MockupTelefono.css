@@ -1,0 +1,283 @@
+/* El bisel. 300×610 en escritorio; en móvil se estrecha con la columna. */
+.tel {
+  width: 300px;
+  height: 610px;
+  padding: 10px;
+  border-radius: 44px;
+  background: var(--tinta);
+  box-shadow: var(--sombra-movil);
+  justify-self: center;
+}
+
+.tel--compacto {
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  padding: 9px;
+  border-radius: 38px;
+  margin: 0 auto;
+  box-shadow: 0 24px 50px rgb(0 0 0 / 20%);
+}
+
+.tel__pantalla {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  background: var(--papel);
+  overflow: hidden;
+}
+
+.tel--compacto .tel__pantalla {
+  border-radius: 30px;
+}
+
+/* --- Barra de estado ------------------------------------------------------- */
+
+.tel__estado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px 0;
+  font: 600 12px/1 var(--fuente);
+}
+
+.tel__estado-der {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tel__5g {
+  font-size: 9px;
+}
+
+.tel__pila {
+  display: block;
+  width: 20px;
+  height: 10px;
+  padding: 1.4px;
+  border: 1.4px solid rgb(23 24 26 / 35%);
+  border-radius: 3px;
+}
+
+.tel__pila-carga {
+  display: block;
+  width: 70%;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--tinta);
+}
+
+/* --- Pestañas -------------------------------------------------------------- */
+
+.tel__tabs {
+  display: flex;
+  gap: 22px;
+  padding: 16px 22px 0;
+}
+
+.tel__tab {
+  padding-bottom: 10px;
+  font: 600 12px/1 var(--fuente);
+  letter-spacing: 0.12em;
+  color: var(--texto-4);
+}
+
+.tel__tab--activa {
+  color: var(--tinta);
+  border-bottom: 2px solid var(--tinta);
+}
+
+/* --- Cabecera con la cifra -------------------------------------------------- */
+
+.tel__cabecera {
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid #ebebe7;
+}
+
+.tel__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tel__fila--cifra {
+  align-items: flex-end;
+  margin-top: 8px;
+}
+
+.tel__rotulo {
+  font: 600 11px/1 var(--fuente);
+  letter-spacing: 0.12em;
+  color: var(--texto-4);
+}
+
+.tel__ajustar {
+  font: 600 12px/1 var(--fuente);
+  color: var(--azul);
+}
+
+/* La cifra manda: es la regla de la casa y también aquí, dentro del mockup. */
+.tel__total {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  font: 700 44px/0.9 var(--fuente);
+  letter-spacing: -0.05em;
+}
+
+.tel__euro {
+  margin-top: 2px;
+  font: 600 16px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.tel__sobran {
+  font: 600 12px/1 var(--fuente);
+  white-space: nowrap;
+}
+
+.tel__barra {
+  height: 5px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: #e3e3e0;
+}
+
+.tel__barra-progreso {
+  width: 92%;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--azul);
+}
+
+.tel__pie-cabecera {
+  margin-top: 10px;
+  font: 400 11px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+/* --- Días ------------------------------------------------------------------ */
+
+.tel__dias {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 22px;
+}
+
+.tel__dia {
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background: var(--blanco);
+  overflow: hidden;
+}
+
+.tel__dia-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0ed;
+}
+
+.tel__dia-fecha {
+  font: 600 11px/1 var(--fuente);
+  letter-spacing: 0.06em;
+}
+
+.tel__dia-total {
+  font: 400 11px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.tel__plato {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+}
+
+.tel__plato + .tel__plato {
+  border-top: 1px solid #f0f0ed;
+}
+
+.tel__plato-nombre {
+  display: block;
+  font: 500 13.5px/1.2 var(--fuente);
+}
+
+.tel__plato-cuando {
+  display: block;
+  margin-top: 4px;
+  font: 400 11px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.tel__plato-precio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 13px/1 var(--fuente);
+}
+
+.tel__chevron {
+  color: var(--chevron);
+}
+
+/* --- Pie -------------------------------------------------------------------- */
+
+.tel__pie {
+  display: flex;
+  gap: 10px;
+  padding: 0 22px 20px;
+}
+
+.tel__boton {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--tinta);
+  color: #fff;
+  font: 600 14px/1 var(--fuente);
+}
+
+.tel__compartir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #dededa;
+  border-radius: 12px;
+  background: var(--blanco);
+}
+
+/* --- Variante compacta (hero móvil) ---------------------------------------- */
+
+.tel--compacto .tel__tabs { gap: 20px; padding: 16px 20px 0; }
+.tel--compacto .tel__tab { font-size: 11px; padding-bottom: 9px; }
+.tel--compacto .tel__cabecera { padding: 16px 20px 12px; }
+.tel--compacto .tel__rotulo { font-size: 10px; }
+.tel--compacto .tel__ajustar { font-size: 11px; }
+.tel--compacto .tel__total { font-size: 38px; }
+.tel--compacto .tel__euro { font-size: 14px; }
+.tel--compacto .tel__sobran { font-size: 11px; }
+.tel--compacto .tel__barra { height: 4px; margin-top: 10px; }
+.tel--compacto .tel__dias { padding: 12px 20px; gap: 10px; }
+.tel--compacto .tel__dia { border-radius: 13px; }
+.tel--compacto .tel__dia-cabecera { padding: 9px 13px; }
+.tel--compacto .tel__dia-fecha { font-size: 10px; }
+.tel--compacto .tel__dia-total { font-size: 10px; }
+.tel--compacto .tel__plato { padding: 10px 13px; }
+.tel--compacto .tel__plato-nombre { font-size: 13px; }
+.tel--compacto .tel__plato-cuando { font-size: 10px; margin-top: 3px; }
+.tel--compacto .tel__plato-precio { font-size: 12px; }
+.tel--compacto .tel__pie { padding: 0 20px 18px; }
+.tel--compacto .tel__boton { height: 44px; }

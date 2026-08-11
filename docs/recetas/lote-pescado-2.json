@@ -198,7 +198,8 @@
         "Incorpora el garbanzo escurrido y el caldo y hierve 10 minutos.",
         "Mete la espinaca y el bacalao, cuece 5 minutos y reparte el huevo picado."
       ],
-      "nota": "El bacalao ya sala el guiso. Prueba antes de echar más sal."
+      "nota": "El bacalao ya sala el guiso. Prueba antes de echar más sal.",
+      "foto": "potaje_vigilia_bacalao.webp"
     },
     {
       "id": "dorada_plancha_verduras",
@@ -463,7 +464,8 @@
         "Echa el calamar y el vinagre, tapa y cuece 15 minutos a fuego bajo.",
         "Cuece el arroz aparte y sírvelo al lado."
       ],
-      "nota": "El calamar o 3 minutos o 20. En medio se queda como una goma."
+      "nota": "El calamar o 3 minutos o 20. En medio se queda como una goma.",
+      "foto": "calamares_encebollados.webp"
     },
     {
       "id": "arroz_caldoso_gambas",

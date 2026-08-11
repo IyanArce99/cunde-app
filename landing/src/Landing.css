@@ -1,0 +1,456 @@
+/* ═══ EL CORTE ES 900 px ═══
+   Lo fija el handoff: por debajo, las retículas de dos columnas pasan a una.
+   Un solo punto de corte para todas, para que no haya un ancho intermedio
+   donde una sección ya ha colapsado y la de al lado no. */
+
+.contenedor {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding-inline: var(--lateral);
+}
+
+/* Dos utilidades y solo dos: el mockup y los botones de store son las únicas
+   piezas que cambian de forma, no solo de tamaño, entre anchos. */
+.solo-estrecho { display: none; }
+
+@media (width <= 900px) {
+  .contenedor { padding-inline: var(--lateral-movil); }
+  .solo-ancho { display: none; }
+  .solo-estrecho { display: block; }
+}
+
+/* --- Tipos compartidos ------------------------------------------------------ */
+
+.logo {
+  font: 700 24px/1 var(--fuente);
+  letter-spacing: -0.03em;
+  color: var(--tinta);
+}
+
+.logo--pie { font-size: 18px; }
+
+.eyebrow {
+  font: 600 13px/1 var(--fuente);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.eyebrow--claro { color: var(--azul-claro); }
+
+.h2 {
+  margin-top: 14px;
+  font: 700 38px/1.12 var(--fuente);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.h2--claro { color: #fff; }
+
+.checks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 500 16px/1.3 var(--fuente);
+  color: #2e3238;
+}
+
+.checks--claro li { color: #e4e4e6; }
+
+.check {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: #fff;
+  font: 700 12px/1 var(--fuente);
+}
+
+.check--oscuro { background: var(--tinta); }
+
+/* --- Nav -------------------------------------------------------------------- */
+
+.nav__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 26px;
+}
+
+.nav__enlaces {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav__enlaces a {
+  font: 500 15px/1 var(--fuente);
+  color: var(--nav);
+}
+
+.nav__enlaces a:hover { color: var(--tinta); }
+
+.nav__descargar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: var(--r-boton);
+  background: var(--tinta);
+  font: 600 15px/1 var(--fuente);
+}
+
+.nav__descargar,
+.nav__descargar:hover {
+  color: #fff;
+}
+
+.nav__descargar:hover { background: #000; }
+
+/* En móvil la nav se queda en logo + Descargar: tres enlaces de sección y un
+   botón no caben en 390 px, y un menú hamburguesa para tres anclas es más
+   maquinaria que la que resuelve. */
+@media (width <= 900px) {
+  .nav__interior { padding-block: 20px; }
+  .nav__enlaces > a:not(.nav__descargar) { display: none; }
+  .logo { font-size: 21px; }
+  .nav__descargar { height: 38px; padding: 0 16px; font-size: 14px; }
+}
+
+/* --- Hero ------------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  padding-block: 48px 72px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #ebebe7;
+  font: 500 13px/1 var(--fuente);
+  color: var(--nav);
+}
+
+.pill__punto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--azul);
+}
+
+.hero__h1 {
+  margin-top: 22px;
+  font: 700 56px/1.04 var(--fuente);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero__sub {
+  max-width: 440px;
+  margin-top: 22px;
+  font: 400 18px/1.55 var(--fuente);
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+.hero__botones { margin-top: 30px; }
+
+.hero__nota {
+  margin-top: 18px;
+  font: 400 14px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+@media (width <= 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-block: 20px 34px;
+  }
+
+  .hero__h1 { margin-top: 18px; font-size: 40px; line-height: 1.06; }
+
+  /* Los saltos de línea del titular son de escritorio: a 390 px partirlo en
+     tres líneas cortas deja huecos absurdos. */
+  .hero__h1 br { display: none; }
+
+  .hero__sub { margin-top: 16px; font-size: 16px; line-height: 1.5; }
+  .hero__botones { margin-top: 24px; }
+  .hero__nota { margin-top: 14px; text-align: center; font-size: 13px; }
+}
+
+/* --- Franja de supermercados ------------------------------------------------ */
+
+.franja {
+  background: var(--franja);
+  border-block: 1px solid var(--borde-2);
+}
+
+.franja__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 26px;
+}
+
+.franja__rotulo {
+  font: 500 13px/1 var(--fuente);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-4);
+}
+
+.franja__cadenas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 34px;
+  font: 600 18px/1 var(--fuente);
+  color: var(--texto-2);
+}
+
+.franja__cadena--pendiente { color: var(--chevron); }
+
+.franja__nota {
+  font: 400 13px/1.4 var(--fuente);
+  color: var(--texto-4);
+  text-align: right;
+}
+
+@media (width <= 900px) {
+  .franja__interior {
+    flex-direction: column;
+    gap: 12px;
+    padding-block: 22px;
+    text-align: center;
+  }
+
+  .franja__cadenas { justify-content: center; gap: 8px 18px; font-size: 16px; }
+  .franja__nota { text-align: center; }
+}
+
+/* --- Cómo funciona ---------------------------------------------------------- */
+
+.seccion__titulo {
+  padding-block: 80px 0;
+  text-align: center;
+}
+
+.seccion__titulo .h2 { font-size: 40px; line-height: 1.1; }
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-block: 44px 80px;
+}
+
+.paso {
+  padding: 30px;
+  border: 1px solid var(--borde);
+  border-radius: var(--r-tarjeta);
+  background: var(--blanco);
+}
+
+.paso__numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-boton);
+  background: var(--tinta);
+  color: #fff;
+  font: 700 18px/1 var(--fuente);
+}
+
+.paso__titulo {
+  margin-top: 20px;
+  font: 600 21px/1.25 var(--fuente);
+  letter-spacing: -0.02em;
+}
+
+.paso__texto {
+  margin-top: 10px;
+  font: 400 15.5px/1.55 var(--fuente);
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+@media (width <= 900px) {
+  .seccion__titulo { padding-block: 60px 0; }
+  .seccion__titulo .h2 { font-size: 32px; }
+  .pasos { grid-template-columns: 1fr; gap: 14px; padding-block: 28px 60px; }
+  .paso { padding: 24px; border-radius: 18px; }
+  .paso__numero { width: 36px; height: 36px; font-size: 16px; }
+  .paso__titulo { margin-top: 16px; font-size: 19px; }
+  .paso__texto { font-size: 15px; line-height: 1.5; }
+}
+
+/* --- Sección oscura --------------------------------------------------------- */
+
+.oscura {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.oscura__interior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-block: 80px;
+}
+
+.oscura__texto {
+  max-width: 400px;
+  margin-top: 18px;
+  font: 400 17px/1.55 var(--fuente);
+  color: var(--sobre-oscuro);
+  text-wrap: pretty;
+}
+
+@media (width <= 900px) {
+  .oscura__interior {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-block: 56px;
+  }
+
+  .oscura .h2 { font-size: 30px; }
+  .oscura .h2 br { display: none; }
+  .oscura__texto { max-width: none; font-size: 16px; }
+}
+
+/* --- Cambiar un plato -------------------------------------------------------- */
+
+.cambiar {
+  display: grid;
+  grid-template-columns: 0.95fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-block: 80px;
+}
+
+.cambiar__texto {
+  max-width: 400px;
+  margin-top: 18px;
+  font: 400 17px/1.55 var(--fuente);
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+@media (width <= 900px) {
+  .cambiar {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-block: 56px;
+  }
+
+  /* El texto antes que la tarjeta: en una columna, quien llega hasta aquí
+     necesita saber qué mira antes de mirarlo. */
+  .cambiar > :first-child { order: 2; }
+  .cambiar .h2 { font-size: 30px; }
+  .cambiar .h2 br { display: none; }
+  .cambiar__texto { max-width: none; font-size: 16px; }
+}
+
+/* --- CTA final --------------------------------------------------------------- */
+
+.cta__interior {
+  padding-block: 90px;
+  text-align: center;
+}
+
+.cta__h2 {
+  margin: 0;
+  font: 700 46px/1.08 var(--fuente);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.cta__botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.cta__nota {
+  margin-top: 16px;
+  font: 400 14px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+@media (width <= 900px) {
+  .cta {
+    background: var(--tinta);
+    color: var(--papel);
+  }
+
+  .cta__interior { padding-block: 56px; }
+  .cta__h2 { font-size: 30px; line-height: 1.15; color: #fff; }
+  .cta__h2 br { display: none; }
+  .cta__botones { display: block; margin-top: 26px; }
+  .cta__nota { color: var(--sobre-oscuro); }
+}
+
+/* --- Pie ---------------------------------------------------------------------- */
+
+.pie { border-top: 1px solid var(--borde-2); }
+
+.pie__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 30px;
+}
+
+.pie__enlaces {
+  display: flex;
+  gap: 28px;
+  font: 400 14px/1 var(--fuente);
+}
+
+.pie__enlaces a { color: var(--texto-3); }
+.pie__enlaces a:hover { color: var(--tinta); }
+
+.pie__copy {
+  font: 400 13px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+@media (width <= 900px) {
+  .pie { border-top: none; }
+
+  .pie__interior {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block: 22px;
+  }
+
+  .pie__enlaces { gap: 18px; font-size: 12px; }
+  .pie__copy { flex-basis: 100%; }
+}

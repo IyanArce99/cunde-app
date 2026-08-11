@@ -83,7 +83,8 @@
         "Devuelve el pollo, añade el laurel, cubre con agua y cuece tapado 20 minutos.",
         "Añade la patata en cachos y cuece 15 minutos más.",
         "Sala y deja reposar 5 minutos fuera del fuego."
-      ]
+      ],
+      "foto": "pollo_guisado_patata.webp"
     },
     {
       "id": "pollo_chilindron",

@@ -1,0 +1,263 @@
+.panel {
+  width: 100%;
+  max-width: 400px;
+  padding: 26px 28px;
+  border-radius: var(--r-tarjeta-grande);
+  background: var(--papel);
+  color: var(--tinta);
+  box-shadow: var(--sombra-panel);
+  justify-self: center;
+}
+
+.panel__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel__titulo {
+  font: 600 12px/1 var(--fuente);
+  letter-spacing: 0.12em;
+  color: var(--texto-4);
+}
+
+.panel__cerrar {
+  color: var(--texto-4);
+}
+
+.panel__cesta {
+  margin-top: 14px;
+}
+
+.panel__rotulo {
+  font: 600 11px/1 var(--fuente);
+  letter-spacing: 0.1em;
+  color: var(--texto-4);
+}
+
+.panel__cesta-fila {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.panel__cifra {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  font: 700 40px/0.9 var(--fuente);
+  letter-spacing: -0.04em;
+}
+
+.panel__euro {
+  margin-top: 2px;
+  font: 600 20px/1 var(--fuente);
+}
+
+/* Ámbar, no rojo: subir no es un error mientras quepa en el tope. */
+.panel__delta {
+  font: 600 13px/1 var(--fuente);
+  color: var(--ambar);
+}
+
+.panel__empieza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--tinta);
+}
+
+.panel__empieza-titulo {
+  display: block;
+  font: 600 15px/1 var(--fuente);
+}
+
+.panel__empieza-fecha {
+  display: block;
+  margin-top: 5px;
+  font: 400 12px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.panel__chevron {
+  color: var(--chevron);
+}
+
+.panel__seccion {
+  margin-top: 16px;
+}
+
+/* El punteado separa «lo de arriba» (cuándo empieza) de los controles que
+   mueven dinero. Es el divisor del sistema, no un adorno. */
+.panel__seccion--punteada {
+  padding-top: 16px;
+  border-top: 1px dashed var(--punteado);
+}
+
+.panel__etiqueta {
+  font: 600 13px/1 var(--fuente);
+}
+
+.panel__comensales {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.panel__comensal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border: 1px solid var(--borde-2);
+  border-radius: var(--r-boton);
+  font: 600 15px/1 var(--fuente);
+}
+
+.panel__comensal--activo {
+  border-color: var(--tinta);
+  background: var(--tinta);
+  color: #fff;
+}
+
+.panel__tope {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.panel__tope-cifra {
+  font: 700 30px/1 var(--fuente);
+  letter-spacing: -0.03em;
+}
+
+.panel__tope-euro {
+  font: 600 15px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.panel__tope-nota {
+  margin-left: 6px;
+  font: 400 12px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.panel__carril {
+  position: relative;
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: #e3e3e0;
+}
+
+.panel__carril-recorrido {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5%;
+  border-radius: 3px;
+  background: var(--tinta);
+}
+
+.panel__pulgar {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #d6d6d2;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+  transform: translate(-50%, -50%);
+}
+
+.panel__extremos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font: 500 10px/1 var(--fuente);
+  letter-spacing: 0.05em;
+  color: var(--texto-4);
+}
+
+.panel__opciones {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.panel__opciones--2 { grid-template-columns: 1fr 1fr; }
+.panel__opciones--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.panel__opcion {
+  padding: 12px;
+  border: 1px solid var(--borde-2);
+  border-radius: 12px;
+}
+
+.panel__opcion--activa {
+  border: 1.5px solid var(--tinta);
+}
+
+.panel__opcion-precio {
+  font: 700 16px/1 var(--fuente);
+}
+
+.panel__opcion-titulo {
+  font: 600 14px/1.2 var(--fuente);
+}
+
+.panel__opcion-nota {
+  margin-top: 6px;
+  font: 400 12px/1 var(--fuente);
+  color: var(--texto-3);
+}
+
+.panel__opcion-titulo + .panel__opcion-nota {
+  margin-top: 5px;
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+
+.panel__opcion-nota--tenue {
+  color: var(--texto-4);
+}
+
+.panel__guardar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 13px;
+  background: var(--tinta);
+  color: #fff;
+  font: 600 16px/1 var(--fuente);
+}
+
+/* A 390 px, tres columnas de proteína dejan 100 px por tarjeta y «carne casi a
+   diario» se parte en cuatro líneas. */
+@media (width <= 440px) {
+  .panel {
+    padding: 22px 20px;
+  }
+
+  .panel__opciones--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .panel__opciones--3 .panel__opcion {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .panel__opciones--3 .panel__opcion-nota {
+    margin-top: 0;
+  }
+}

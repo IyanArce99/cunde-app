@@ -1,0 +1,87 @@
+.stores {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.store {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  height: 56px;
+  padding: 0 22px;
+  border-radius: var(--r-boton-grande);
+  background: var(--tinta);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.store:hover {
+  background: #000;
+  color: #fff;
+}
+
+.stores--grande .store {
+  height: 58px;
+  padding: 0 24px;
+}
+
+/* Invertido, para la sección oscura. */
+.stores--claro .store {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.stores--claro .store:hover {
+  background: #fff;
+  color: var(--tinta);
+}
+
+.store__texto {
+  text-align: left;
+}
+
+.store__sobre {
+  display: block;
+  font: 400 10px/1 var(--fuente);
+  color: var(--sobre-oscuro);
+}
+
+.stores--claro .store__sobre {
+  color: #7e8087;
+}
+
+.store__marca {
+  display: block;
+  margin-top: 3px;
+  font: 600 17px/1 var(--fuente);
+}
+
+/* ═══ APILADOS Y A ANCHO COMPLETO ═══
+   Por bandera (la sección oscura del móvil los quiere así siempre) y por ancho:
+   a 390 px, los dos en fila dejan cada botón en 170 px y «Descárgala en» se
+   parte. */
+.stores--ancho {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.stores--ancho .store {
+  justify-content: center;
+}
+
+@media (width <= 560px) {
+  .stores {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .store {
+    justify-content: center;
+    height: 54px;
+  }
+
+  .store__marca {
+    font-size: 16px;
+  }
+}

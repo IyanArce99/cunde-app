@@ -1,0 +1,85 @@
+/**
+ * ═══ LA FUENTE VA AUTOALOJADA, NO DESDE GOOGLE ═══
+ *
+ * El handoff dice «Instrument Sans vía Google Fonts». Se ha cambiado a
+ * `@fontsource`, que sirve exactamente la misma fuente desde nuestro dominio.
+ *
+ * El motivo no es rendimiento: es que la propia página que estamos montando
+ * publica una política de privacidad que dice «cuanto menos sepamos de ti,
+ * mejor» y «no cedemos tus datos a terceros». Un `<link>` a fonts.gstatic.com
+ * envía la IP de cada visitante a Google antes de que la página pinte nada.
+ * Publicar esa frase y esa etiqueta en el mismo sitio es una contradicción que
+ * además tiene jurisprudencia en la UE.
+ *
+ * Se cargan solo los pesos que usa el diseño: 400, 500, 600 y 700.
+ */
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+@import '@fontsource/instrument-sans/700.css';
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* El canvas se ve por los lados cuando el contenido no llega: es el gris del
+     handoff, no blanco. */
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Toda cifra en euros va con cifras de ancho fijo: en el mockup hay precios en
+   columna y sin esto bailan. */
+.cifra {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--azul);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--azul-hover);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* El foco tiene que verse: la landing se puede recorrer con teclado. */
+:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

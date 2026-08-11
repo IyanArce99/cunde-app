@@ -89,7 +89,8 @@
         "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
         "Echa las lentejas, la soja escurrida y el agua; sala.",
         "Cuece 30 minutos a fuego suave, hasta que la lenteja esté tierna."
-      ]
+      ],
+      "foto": "lentejas_estofadas_soja.webp"
     },
     {
       "id": "garbanzos_espinacas_almendra",
@@ -677,7 +678,8 @@
         "Cuando suelten el agua, echa la soja y saltea 3 minutos.",
         "Vuelca el tomate y el orégano, sala y cocina 8 minutos.",
         "Cuece los espaguetis, escúrrelos y mézclalos con la salsa."
-      ]
+      ],
+      "foto": "espaguetis_soja_champinones.webp"
     },
     {
       "id": "quinoa_alubias_maiz",

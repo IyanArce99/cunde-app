@@ -1,0 +1,159 @@
+.plato {
+  width: 100%;
+  max-width: 400px;
+  padding: 26px 28px;
+  border: 1px solid var(--borde);
+  border-radius: var(--r-tarjeta-grande);
+  background: var(--papel);
+  box-shadow: var(--sombra-panel-claro);
+  justify-self: center;
+}
+
+.plato__cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.plato__cuando {
+  display: block;
+  font: 600 12px/1 var(--fuente);
+  letter-spacing: 0.1em;
+  color: var(--texto-4);
+}
+
+.plato__nombre {
+  display: block;
+  margin-top: 8px;
+  font: 700 22px/1.1 var(--fuente);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.plato__cerrar {
+  font-size: 18px;
+  color: var(--texto-4);
+}
+
+.plato__precios {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 12px;
+  font: 400 14px/1 var(--fuente);
+  color: var(--texto-3);
+}
+
+.plato__seccion {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--punteado);
+}
+
+.plato__etiqueta {
+  font: 600 14px/1 var(--fuente);
+}
+
+.plato__alternativa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background: var(--blanco);
+}
+
+.plato__alt-nombre {
+  display: block;
+  font: 600 15px/1.2 var(--fuente);
+}
+
+.plato__alt-nota {
+  display: block;
+  margin-top: 5px;
+  font: 400 12px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.plato__alt-precio {
+  text-align: right;
+}
+
+.plato__alt-delta {
+  display: block;
+  font: 700 15px/1 var(--fuente);
+  color: var(--ambar);
+}
+
+.plato__alt-unidad {
+  display: block;
+  margin-top: 4px;
+  font: 400 11px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.plato__mas {
+  margin-top: 14px;
+  font: 600 14px/1 var(--fuente);
+  color: var(--azul);
+  text-align: center;
+}
+
+.plato__valoracion,
+.plato__acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.plato__valoracion {
+  margin-top: 12px;
+}
+
+.plato__voto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border: 1px solid var(--borde);
+  border-radius: var(--r-pastilla);
+  background: var(--blanco);
+  font: 500 13.5px/1 var(--fuente);
+  text-align: center;
+}
+
+.plato__voto--activo {
+  border-color: var(--tinta);
+  background: var(--tinta);
+  color: #fff;
+  font-weight: 600;
+}
+
+.plato__acciones {
+  margin-top: 8px;
+}
+
+.plato__accion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background: var(--blanco);
+  font: 600 13px/1 var(--fuente);
+}
+
+@media (width <= 440px) {
+  .plato {
+    padding: 22px 20px;
+  }
+
+  /* «No, gracias» a 100 px se parte; en dos columnas respira. */
+  .plato__voto {
+    font-size: 12.5px;
+  }
+}
