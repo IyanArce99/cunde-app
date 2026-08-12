@@ -83,7 +83,8 @@
         "Añade el ajo picado y la soja escurrida y saltea 3 minutos a fuego vivo.",
         "Aparta del fuego, echa el pimentón y remueve 20 segundos para que no amargue.",
         "Devuelve al fuego con los garbanzos escurridos y sal, y calienta 3 minutos."
-      ]
+      ],
+      "foto": "garbanzos_pimenton_soja.webp"
     },
     {
       "id": "alubias_tomillo_soja",
@@ -167,7 +168,8 @@
         "Añade la soja, el tomillo y el laurel y saltea 3 minutos.",
         "Incorpora las alubias escurridas y sal, y guisa 4 minutos moviendo la sartén.",
         "Retira el laurel antes de servir."
-      ]
+      ],
+      "foto": "alubias_tomillo_soja.webp"
     },
     {
       "id": "quinoa_alubia_roja_cacahuete",
@@ -249,7 +251,8 @@
         "Añade la alubia escurrida y calienta 2 minutos.",
         "Mezcla con la quinoa fuera del fuego y aliña con el zumo de limón.",
         "Reparte el cacahuete picado por encima al servir, para que quede crujiente."
-      ]
+      ],
+      "foto": "quinoa_alubia_roja_cacahuete.webp"
     },
     {
       "id": "tofu_limon_garbanzos",
@@ -325,7 +328,8 @@
         "Cuece la judía verde 8 minutos y escúrrela.",
         "Añade el ajo laminado al tofu y deja 40 segundos.",
         "Echa los garbanzos, la judía, el zumo de limón y sal, y calienta 2 minutos."
-      ]
+      ],
+      "foto": "tofu_limon_garbanzos.webp"
     },
     {
       "id": "lentejas_curcuma_soja",
@@ -561,7 +565,8 @@
         "Extiende el hummus en el fondo del plato.",
         "Pon los garbanzos calientes encima y el tomate en dados alrededor.",
         "Remata con el cacahuete picado."
-      ]
+      ],
+      "foto": "hummus_garbanzos_cacahuete.webp"
     },
     {
       "id": "tofu_mostaza_brocoli",
@@ -958,7 +963,8 @@
         "Echa las alubias escurridas y calienta 3 minutos.",
         "Bate los huevos con el queso y viértelos por encima.",
         "Remueve 2 minutos a fuego suave, hasta que cuaje pero quede jugoso."
-      ]
+      ],
+      "foto": "revuelto_alubias_queso.webp"
     },
     {
       "id": "garbanzos_gratinados_queso",
@@ -1034,7 +1040,8 @@
         "Añade el tomate, el orégano y sal, y guisa 5 minutos hasta que espese.",
         "Mezcla con los garbanzos escurridos y pásalo a una fuente.",
         "Cubre con el queso y gratina 6 minutos, hasta que burbujee y dore."
-      ]
+      ],
+      "foto": "garbanzos_gratinados_queso.webp"
     },
     {
       "id": "quinoa_queso_fresco_tomate",
@@ -1116,7 +1123,8 @@
         "Corta el tomate y el pepino en dados y el queso fresco en tacos.",
         "Tuesta la almendra picada en la sartén seca, 2 minutos.",
         "Mezcla todo con el aceite y sal, y remata con la almendra."
-      ]
+      ],
+      "foto": "quinoa_queso_fresco_tomate.webp"
     }
   ]
 }

@@ -173,7 +173,8 @@
         "Fríe el ajo laminado y las almendras en el aceite hasta que doren.",
         "Machácalos con un poco del caldo y devuélvelo a la olla.",
         "Añade la espinaca y el pimentón y dale 5 minutos más."
-      ]
+      ],
+      "foto": "garbanzos_espinacas_almendra.webp"
     },
     {
       "id": "alubias_soja_tomate",
@@ -256,7 +257,8 @@
         "Cuece las alubias en el agua a fuego muy suave 45 minutos.",
         "Sofríe la cebolla en el aceite, añade el pimentón fuera del fuego y el tomate.",
         "Vuelca el sofrito y la soja en la olla, sala y guisa 10 minutos."
-      ]
+      ],
+      "foto": "alubias_soja_tomate.webp"
     },
     {
       "id": "quinoa_garbanzos_espinacas",
@@ -338,7 +340,8 @@
         "Añade la quinoa, el agua y sal, y cuece tapado 15 minutos.",
         "Incorpora los garbanzos escurridos y la espinaca.",
         "Remueve 3 minutos hasta que la espinaca se deshaga y sirve."
-      ]
+      ],
+      "foto": "quinoa_garbanzos_espinacas.webp"
     },
     {
       "id": "potaje_garbanzos_alubias",
@@ -920,7 +923,8 @@
         "Añade la quinoa escurrida y saltea 3 minutos a fuego vivo.",
         "Haz un hueco en la sartén y cuaja los huevos ahí mismo.",
         "Remueve para repartir el huevo y espolvorea el perejil."
-      ]
+      ],
+      "foto": "quinoa_champinones_huevo.webp"
     },
     {
       "id": "macarrones_queso_huevo",
@@ -996,7 +1000,8 @@
         "Escurre, reservando un vaso del agua de cocción.",
         "Fuera del fuego, mezcla la pasta caliente con el huevo batido.",
         "Añade agua de cocción y el aceite removiendo hasta que ligue cremoso."
-      ]
+      ],
+      "foto": "macarrones_queso_huevo.webp"
     },
     {
       "id": "alubias_huevo_pimenton",
@@ -1073,7 +1078,8 @@
         "Echa las alubias escurridas y sal, y guisa 10 minutos suave.",
         "Fríe los huevos en el resto del aceite bien caliente.",
         "Sirve los huevos sobre las alubias y rómpelos al comer."
-      ]
+      ],
+      "foto": "alubias_huevo_pimenton.webp"
     },
     {
       "id": "arroz_horno_huevo_queso",
@@ -1156,7 +1162,8 @@
         "Vuelca el agua caliente y sal, y pásalo a una fuente de horno.",
         "Hornea 18 minutos, hasta que el arroz haya bebido el agua.",
         "Casca los huevos encima, cubre de queso y hornea 8 minutos más."
-      ]
+      ],
+      "foto": "arroz_horno_huevo_queso.webp"
     }
   ]
 }

@@ -333,7 +333,8 @@
         "Mézclalos con el tomate y la leche en una fuente.",
         "Cubre con el queso rallado y gratina 10 minutos."
       ],
-      "nota": "La leche va dentro del tomate, no aparte: da salsa cremosa sin montar una bechamel."
+      "nota": "La leche va dentro del tomate, no aparte: da salsa cremosa sin montar una bechamel.",
+      "foto": "macarrones_gratinados_tomate.webp"
     },
     {
       "id": "coliflor_horno_alubia_almendra",
@@ -427,7 +428,8 @@
         "Májalos con el pimentón y el vinagre.",
         "Mezcla la coliflor con las alubias y el majado, hornea 5 minutos y espolvorea el perejil."
       ],
-      "nota": "La coliflor asada y no cocida pierde el olor a hervido y aguanta el majado sin deshacerse."
+      "nota": "La coliflor asada y no cocida pierde el olor a hervido y aguanta el majado sin deshacerse.",
+      "foto": "coliflor_horno_alubia_almendra.webp"
     },
     {
       "id": "ensalada_lenteja_queso_fresco",
@@ -963,7 +965,8 @@
         "Cuece los espaguetis y échalos a la sartén con un poco de su agua.",
         "Apaga el fuego, añade el queso rallado y el perejil y remueve."
       ],
-      "nota": "El queso entra con el fuego apagado. Si hierve con la nata se corta y la salsa queda granulosa."
+      "nota": "El queso entra con el fuego apagado. Si hierve con la nata se corta y la salsa queda granulosa.",
+      "foto": "espaguetis_champinon_nata.webp"
     },
     {
       "id": "alubias_blancas_salteadas_pimientos",

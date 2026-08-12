@@ -68,7 +68,8 @@
         "Salpimienta los filetes de pechuga.",
         "Hazlos 3 minutos por cara con el resto del aceite y el ajo laminado.",
         "Sirve la pechuga sobre los pimientos."
-      ]
+      ],
+      "foto": "pechuga_plancha_pimientos.webp"
     },
     {
       "id": "pollo_guisado_zanahoria",
@@ -150,7 +151,8 @@
         "Incorpora el tomate y la zanahoria en rodajas; sala.",
         "Cubre justo de agua y guisa 20 minutos a fuego medio.",
         "Añade los guisantes y dales 5 minutos más."
-      ]
+      ],
+      "foto": "pollo_guisado_zanahoria.webp"
     },
     {
       "id": "lomo_pimientos_horno",
@@ -217,7 +219,8 @@
         "Hornea la verdura 15 minutos.",
         "Pon encima los filetes de lomo salpimentados con el ajo laminado y el resto del aceite.",
         "Hornea 10 minutos más y sirve."
-      ]
+      ],
+      "foto": "lomo_pimientos_horno.webp"
     },
     {
       "id": "picadillo_cerdo_calabacin",
@@ -293,7 +296,8 @@
         "Incorpora el calabacín en dados pequeños y sala.",
         "Saltea 8 minutos a fuego vivo.",
         "Remata con el pimentón y el tomate frito, mezcla y aparta."
-      ]
+      ],
+      "foto": "picadillo_cerdo_calabacin.webp"
     },
     {
       "id": "sardinas_plancha_ensalada",
@@ -362,7 +366,8 @@
         "Calienta la plancha con el resto del aceite hasta que humee.",
         "Haz las sardinas 2 minutos por cara.",
         "Sirve con la ensalada."
-      ]
+      ],
+      "foto": "sardinas_plancha_ensalada.webp"
     },
     {
       "id": "jamoncitos_ajillo_champinones",
@@ -500,7 +505,8 @@
         "Bate los huevos con una pizca de sal.",
         "Viértelos en la sartén a fuego suave y remueve hasta que cuajen cremosos.",
         "Sirve en caliente."
-      ]
+      ],
+      "foto": "revuelto_gambas_calabacin.webp"
     },
     {
       "id": "bolonesa_soja_macarrones",
@@ -664,7 +670,8 @@
         "Aparta el tofu y sofríe la cebolla picada en la misma sartén.",
         "Vuelca el tomate y el pimentón, devuelve el tofu y dale 5 minutos.",
         "Sirve el tofu con su salsa sobre el arroz."
-      ]
+      ],
+      "foto": "tofu_tomate_arroz.webp"
     },
     {
       "id": "garbanzos_soja_espinacas",

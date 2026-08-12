@@ -2,6 +2,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 
+/* `import.meta.dirname` y no `__dirname`: Vite 8 avisa de que el cargador
+   nativo de configuración —que va a ser el de por defecto— no soporta el
+   segundo. */
+const aqui = import.meta.dirname;
+
 /**
  * DOS PÁGINAS, DOS HTML · SIN ENRUTADOR
  *
@@ -18,8 +23,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        privacidad: resolve(__dirname, 'privacidad.html'),
+        main: resolve(aqui, 'index.html'),
+        privacidad: resolve(aqui, 'privacidad.html'),
       },
     },
   },

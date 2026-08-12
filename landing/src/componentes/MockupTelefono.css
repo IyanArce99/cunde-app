@@ -82,7 +82,7 @@
   padding-bottom: 10px;
   font: 600 12px/1 var(--fuente);
   letter-spacing: 0.12em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .tel__tab--activa {
@@ -111,7 +111,7 @@
 .tel__rotulo {
   font: 600 11px/1 var(--fuente);
   letter-spacing: 0.12em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .tel__ajustar {
@@ -131,7 +131,7 @@
 .tel__euro {
   margin-top: 2px;
   font: 600 16px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .tel__sobran {
@@ -156,7 +156,7 @@
 .tel__pie-cabecera {
   margin-top: 10px;
   font: 400 11px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 /* --- Días ------------------------------------------------------------------ */
@@ -191,7 +191,7 @@
 
 .tel__dia-total {
   font: 400 11px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .tel__plato {
@@ -214,7 +214,7 @@
   display: block;
   margin-top: 4px;
   font: 400 11px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .tel__plato-precio {

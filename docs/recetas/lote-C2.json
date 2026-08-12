@@ -175,7 +175,8 @@
         "Sofríe la cebolla picada en esa misma sartén 8 minutos.",
         "Echa el tomate y el resto de la sal. Cuece 10 minutos.",
         "Devuelve las albóndigas y guisa 12 minutos más."
-      ]
+      ],
+      "foto": "albondigas_cerdo.webp"
     },
     {
       "id": "arroz_horno_costilla",
@@ -258,7 +259,8 @@
         "Vierte el caldo hirviendo: dos partes por cada una de arroz.",
         "Hornea 20 minutos sin tapar y deja reposar 5."
       ],
-      "nota_ratio": "arroz : líquido = 1 : 2"
+      "nota_ratio": "arroz : líquido = 1 : 2",
+      "foto": "arroz_horno_costilla.webp"
     },
     {
       "id": "picada_vacuno_patatas",
@@ -340,7 +342,8 @@
         "Chasca la patata en trozos y échala a la olla.",
         "Cubre con agua y cuece 20 minutos a fuego medio.",
         "Deja reposar 5 minutos antes de servir."
-      ]
+      ],
+      "foto": "picada_vacuno_patatas.webp"
     }
   ]
 }

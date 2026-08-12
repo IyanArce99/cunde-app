@@ -162,8 +162,22 @@
    les explique cada vez.
    --------------------------------------------------------------------------- */
 
+/**
+ * SEPARADA DE LA VALORACIÓN POR UNA LÍNEA, NO POR 12 px.
+ *
+ * Tenía `margin-top: 12px` y las filas de dentro llevan 7 y 8 de hueco: tres
+ * píldoras, doce píxeles, tres cuadros. Se leía como una rejilla de 2×3 y no
+ * como dos cosas distintas, que es lo que son — arriba se opina sobre el plato,
+ * abajo se actúa sobre él.
+ *
+ * El separador es el mismo punteado que usa `.valoracion` para despegarse de
+ * las alternativas: en un ticket lo que separa asuntos es una línea, y esto es
+ * un asunto nuevo.
+ */
 .hoja-dia__acciones {
-  margin-top: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: var(--divider-dashed);
   display: flex;
   flex-direction: row;
   gap: 8px;

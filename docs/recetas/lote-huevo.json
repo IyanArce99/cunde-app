@@ -86,7 +86,8 @@
         "Casca dos huevos por ración encima, separados.",
         "Hornea 10 minutos, hasta que la clara cuaje."
       ],
-      "nota_parte": "El sofrito aguanta tres días en la nevera; los huevos se cascan al momento. De ahí el hueco de ensamblaje."
+      "nota_parte": "El sofrito aguanta tres días en la nevera; los huevos se cascan al momento. De ahí el hueco de ensamblaje.",
+      "foto": "huevos_flamenca.webp"
     },
     {
       "id": "tortilla_acelgas_queso",
@@ -156,7 +157,8 @@
         "Bate los huevos con la sal y el queso y mézclalos con la verdura.",
         "Cuaja la tortilla 3 minutos por cada lado a fuego medio."
       ],
-      "nota": "Sale una tortilla gruesa, de dos huevos y medio por persona. Se come fría al día siguiente."
+      "nota": "Sale una tortilla gruesa, de dos huevos y medio por persona. Se come fría al día siguiente.",
+      "foto": "tortilla_acelgas_queso.webp"
     },
     {
       "id": "sopa_ajo_huevo",
@@ -234,7 +236,8 @@
         "Casca dos huevos por ración en la cazuela y tapa 4 minutos.",
         "Sirve en cuanto la clara cuaje."
       ],
-      "nota_parte": "El caldo con el pan y el ajo se guarda dos días; el huevo se casca al momento."
+      "nota_parte": "El caldo con el pan y el ajo se guarda dos días; el huevo se casca al momento.",
+      "foto": "sopa_ajo_huevo.webp"
     },
     {
       "id": "huevos_rellenos_caballa",
@@ -317,7 +320,8 @@
         "Rellena las mitades y deshuesa y pica la aceituna por encima.",
         "Cubre con el resto del tomate frito y sala.",
         "Aliña la lechuga con el aceite y el vinagre y sírvela al lado."
-      ]
+      ],
+      "foto": "huevos_rellenos_caballa.webp"
     },
     {
       "id": "alcachofas_huevo",
@@ -387,7 +391,8 @@
         "Baja el fuego, bate los huevos con la sal y échalos a la sartén.",
         "Remueve 2 minutos y aparta con el huevo aún jugoso.",
         "Espolvorea el perejil."
-      ]
+      ],
+      "foto": "alcachofas_huevo.webp"
     }
   ]
 }

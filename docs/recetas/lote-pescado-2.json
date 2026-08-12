@@ -92,7 +92,8 @@
         "Mete los lomos en la salsa, tapa y cuece 8 minutos sin moverlos.",
         "Sirve con el pan cortado para mojar."
       ],
-      "nota": "El bacalao va directo a la salsa. Si lo fríes antes se seca y suelta agua en el tomate."
+      "nota": "El bacalao va directo a la salsa. Si lo fríes antes se seca y suelta agua en el tomate.",
+      "foto": "bacalao_tomate.webp"
     },
     {
       "id": "potaje_vigilia_bacalao",
@@ -283,7 +284,8 @@
         "Hazla 5 minutos sin tocarla y 2 minutos por el otro lado.",
         "Dora el ajo laminado 30 segundos y échalo sobre el pescado con el limón exprimido."
       ],
-      "nota": "Abierta se hace en la sartén en 7 minutos. Entera pide horno y media hora."
+      "nota": "Abierta se hace en la sartén en 7 minutos. Entera pide horno y media hora.",
+      "foto": "dorada_plancha_verduras.webp"
     },
     {
       "id": "lubina_horno_tomate_aceituna",
@@ -373,7 +375,8 @@
         "Reparte el tomate en gajos, las aceitunas, el ajo picado y el orégano.",
         "Hornea 18 minutos más, hasta que la carne se separe de la espina."
       ],
-      "nota": "La aceituna ya sala el plato. Echa poca sal al pescado."
+      "nota": "La aceituna ya sala el plato. Echa poca sal al pescado.",
+      "foto": "lubina_horno_tomate_aceituna.webp"
     },
     {
       "id": "calamares_encebollados",
@@ -570,7 +573,8 @@
         "Suma el arroz, el colorante y el caldo hirviendo, sala y cuece 16 minutos.",
         "Mete las gambas los tres últimos minutos y sirve enseguida."
       ],
-      "nota": "Caldoso quiere cinco partes de caldo por una de arroz y comerse recién hecho. Al día siguiente ya no es caldoso."
+      "nota": "Caldoso quiere cinco partes de caldo por una de arroz y comerse recién hecho. Al día siguiente ya no es caldoso.",
+      "foto": "arroz_caldoso_gambas.webp"
     },
     {
       "id": "marmitako_atun",
@@ -682,7 +686,8 @@
         "Cúbrela con el caldo, sala y cuece 20 minutos a fuego medio.",
         "Apaga, echa el atún escurrido y desmenuzado y tapa 5 minutos."
       ],
-      "nota": "Cascar la patata suelta almidón y espesa el caldo. Cortada limpia, el guiso queda aguado. El marmitako original lleva bonito fresco y se va a 6 € la ración; con lata sale por menos de la cuarta parte y el guiso es el mismo."
+      "nota": "Cascar la patata suelta almidón y espesa el caldo. Cortada limpia, el guiso queda aguado. El marmitako original lleva bonito fresco y se va a 6 € la ración; con lata sale por menos de la cuarta parte y el guiso es el mismo.",
+      "foto": "marmitako_atun.webp"
     },
     {
       "id": "ensalada_garbanzos_caballa",
@@ -774,7 +779,8 @@
         "Escurre la caballa y échala en trozos grandes, sin deshacerla.",
         "Aliña con el aceite, el vinagre, la sal y el perejil picado."
       ],
-      "nota": "Está mejor a la media hora, cuando el garbanzo ha cogido el aliño. Sin fuego y de un día para otro: es la comida de tupper del lote."
+      "nota": "Está mejor a la media hora, cuando el garbanzo ha cogido el aliño. Sin fuego y de un día para otro: es la comida de tupper del lote.",
+      "foto": "ensalada_garbanzos_caballa.webp"
     },
     {
       "id": "salpicon_mejillones",
@@ -865,7 +871,8 @@
         "Añade los mejillones enteros y remueve con cuidado.",
         "Mete la fuente en la nevera 30 minutos y sirve con el pan."
       ],
-      "nota": "El escabeche de la lata es medio aliño. Si lo tiras, esto sabe a ensalada."
+      "nota": "El escabeche de la lata es medio aliño. Si lo tiras, esto sabe a ensalada.",
+      "foto": "salpicon_mejillones.webp"
     },
     {
       "id": "sardinas_bandeja_patata",
@@ -956,7 +963,8 @@
         "Ponlas abiertas encima, sálalas y riega con el ajo y el perejil picados, el pimentón y el resto del aceite.",
         "Hornea 10 minutos más y sirve en la misma bandeja."
       ],
-      "nota": "La patata tarda el triple que la sardina. Por eso entra sola al horno."
+      "nota": "La patata tarda el triple que la sardina. Por eso entra sola al horno.",
+      "foto": "sardinas_bandeja_patata.webp"
     }
   ]
 }

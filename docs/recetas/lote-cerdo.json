@@ -83,7 +83,8 @@
         "Sofríe la cebolla y el ajo, añade la carne picada y dórala 6 minutos.",
         "Incorpora la pulpa y el tomate frito, sala y cocina 5 minutos.",
         "Rellena las mitades, cubre con el queso y gratina 8 minutos."
-      ]
+      ],
+      "foto": "berenjenas_rellenas_cerdo.webp"
     },
     {
       "id": "lomo_ajillo_champinones",
@@ -165,7 +166,8 @@
         "Sube el fuego, echa el lomo y séllalo 3 minutos.",
         "Añade la cebolla en pluma y el champiñón escurrido y saltea 6 minutos.",
         "Espolvorea el perejil y sirve enseguida."
-      ]
+      ],
+      "foto": "lomo_ajillo_champinones.webp"
     },
     {
       "id": "costilla_judias_verdes",
@@ -247,7 +249,8 @@
         "Devuelve la costilla, cubre con agua, sala y cuece 30 minutos tapado.",
         "Incorpora la judía verde escurrida y cuece 8 minutos más.",
         "Deja reposar 5 minutos antes de servir."
-      ]
+      ],
+      "foto": "costilla_judias_verdes.webp"
     },
     {
       "id": "alubias_longaniza",
@@ -332,7 +335,8 @@
         "Echa la alubia escurrida, sala y cuece 8 minutos a fuego suave.",
         "Mueve la olla en círculos para que ligue y aparta."
       ],
-      "nota": "Sin lactosa ni gluten: es el guiso de cuchara con embutido que el chorizo no puede dar."
+      "nota": "Sin lactosa ni gluten: es el guiso de cuchara con embutido que el chorizo no puede dar.",
+      "foto": "alubias_longaniza.webp"
     }
   ]
 }

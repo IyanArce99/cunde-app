@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Suscripcion } from '../state/types';
 import { eur } from '../lib/format';
-import { PRECIOS, POR_SEMANA_ANUAL } from '../lib/suscripcion';
+import { AL_ANO, PRECIOS } from '../lib/suscripcion';
 import TicketRow from './TicketRow';
 import PrimaryButton from './PrimaryButton';
 import BottomSheet from './BottomSheet';
@@ -43,14 +43,40 @@ interface MuroDePagoProps {
  *   4. Nada. Si no hay ningún dato real, NO SE ENSEÑA CIFRA — antes que
  *      inventar una media del sector, se dice qué se lleva y ya.
  *
- * Y el precio se dice en la misma unidad que el ahorro: 0,57 € a la semana
- * contra 8,57 € ahorrados es una frase de una línea con un ratio de 15 a 1.
+ * Y el precio se dice en la misma unidad que el ahorro: el plan mensual sale a
+ * 0,92 € por semana contra 8,57 € ahorrados, un ratio de 9 a 1 en una línea.
  *
  * LO QUE NO SE TOCA, porque es el posicionamiento entero: ningún plan
  * preseleccionado, la salida gratuita en tinta y del mismo tamaño (no en gris
- * pequeño), "Se cobra hoy. Cancelas cuando quieras", y ni semanal, ni prueba
- * con cargo automático, ni cuenta atrás.
+ * pequeño), decir cuándo se cobra y cómo se sale, y ni prueba con cargo
+ * automático ni cuenta atrás.
+ *
+ * Aquí ponía también «ni semanal». Desde el 11 ago SÍ hay plan semanal, a
+ * 1,49 € — 77,48 al año, el más CARO de los tres: está para quien no quiere
+ * comprometerse a un mes, y paga esa comodidad. La regla se escribió contra una
+ * app que cobra 9,99 A LA SEMANA (519 al año); lo predatorio era el importe y
+ * la prueba trampa, no el periodo.
+ *
+ * Por eso cada plan enseña lo que suma en un año, y eso NO es decoración: sin
+ * esa línea, 1,49 parece tres veces más barato que 3,99 cuando es un 62% más
+ * caro. La línea es la condición para poder tener este plan.
+ *
+ * Con el plan de por vida cambia la letra pequeña: «cancelas cuando quieras»
+ * sobre un pago único sería falso.
  */
+/**
+ * Lo que se cobra por cada plan, en un solo sitio.
+ *
+ * Estaba escrito como un ternario dentro del botón, y con dos planes daba
+ * igual. Con tres, «si no es mes, es anual» cobraría 29,99 € por el de por
+ * vida — un fallo que no se ve en pantalla hasta que alguien paga de menos.
+ */
+function precioDe(plan: Exclude<Suscripcion, null>): number {
+  if (plan === 'semana') return PRECIOS.semana;
+  if (plan === 'de-por-vida') return PRECIOS.deporvida;
+  return PRECIOS.mes;
+}
+
 const MuroDePago: React.FC<MuroDePagoProps> = ({ logro, onElegirPlan, onSeguirGratis }) => {
   const [plan, setPlan] = useState<Suscripcion>(null);
 
@@ -90,16 +116,36 @@ const MuroDePago: React.FC<MuroDePagoProps> = ({ logro, onElegirPlan, onSeguirGr
         platos en tres semanas, y la cuenta de lo que llevas ahorrado.
       </p>
 
+      {/**
+        * ═══ TRES PLANES, NINGUNO SEÑUELO, Y CADA UNO DICE LO QUE SUMA AL AÑO ═══
+        *
+        * El patrón habitual de tres precios pone uno en medio marcado como «el
+        * recomendado» para que los otros dos parezcan malos. Aquí no: los tres
+        * tienen la misma caja, el mismo tamaño y ninguno viene marcado. Van en
+        * orden de compromiso creciente —semana, mes, siempre—, no ordenados
+        * para empujar al de en medio.
+        *
+        * Con periodos distintos, la cifra grande no es comparable: 0,49 parece
+        * ocho veces más barato que 3,99 y en realidad es la mitad de caro al
+        * año. La línea de abajo pone los tres en la misma unidad.
+        *
+        * No es un detalle de maquetación: enseñar 0,49 € sin decir que son
+        * 25,48 al año es exactamente el truco de la app que cobra 9,99 a la
+        * semana, y esa comparación es el posicionamiento entero de Cunde.
+        *
+        * Siguen sin preseleccionar y con la misma caja los tres: ninguno es
+        * «el recomendado».
+        */}
       <div className="muro__planes">
         <button
-          className={`muro__plan${plan === 'año' ? ' muro__plan--seleccionado' : ''}`}
-          onClick={() => setPlan('año')}
-          aria-pressed={plan === 'año'}
+          className={`muro__plan${plan === 'semana' ? ' muro__plan--seleccionado' : ''}`}
+          onClick={() => setPlan('semana')}
+          aria-pressed={plan === 'semana'}
           type="button"
         >
-          <span className="muro__plan-precio">{eur(PRECIOS.anual)}</span>
-          <span className="muro__plan-periodo">al año</span>
-          <span className="muro__plan-unidad">{eur(POR_SEMANA_ANUAL)} por semana</span>
+          <span className="muro__plan-precio">{eur(PRECIOS.semana)}</span>
+          <span className="muro__plan-periodo">a la semana</span>
+          <span className="muro__plan-unidad">{eur(AL_ANO.semana)} al año</span>
         </button>
         <button
           className={`muro__plan${plan === 'mes' ? ' muro__plan--seleccionado' : ''}`}
@@ -109,14 +155,27 @@ const MuroDePago: React.FC<MuroDePagoProps> = ({ logro, onElegirPlan, onSeguirGr
         >
           <span className="muro__plan-precio">{eur(PRECIOS.mes)}</span>
           <span className="muro__plan-periodo">al mes</span>
-          <span className="muro__plan-unidad">{eur(PRECIOS.mes / 4.33)} por semana</span>
+          <span className="muro__plan-unidad">{eur(AL_ANO.mes)} al año</span>
+        </button>
+        <button
+          className={`muro__plan${plan === 'de-por-vida' ? ' muro__plan--seleccionado' : ''}`}
+          onClick={() => setPlan('de-por-vida')}
+          aria-pressed={plan === 'de-por-vida'}
+          type="button"
+        >
+          <span className="muro__plan-precio">{eur(PRECIOS.deporvida)}</span>
+          <span className="muro__plan-periodo">una vez</span>
+          {/* Aquí no cabe «al año»: no hay periodo entre el que dividir. */}
+          <span className="muro__plan-unidad">y ya está</span>
         </button>
       </div>
 
       {/* Ninguno viene marcado: el CTA no se activa hasta que el usuario elige,
           y no elegimos por él poniendo el caro delante. */}
       <PrimaryButton disabled={!plan} onClick={() => plan && onElegirPlan(plan)}>
-        {plan ? `Empezar · ${eur(plan === 'mes' ? PRECIOS.mes : PRECIOS.anual)}` : 'Elige un plan'}
+        {/* Con dos planes bastaba un ternario; con tres, «lo que no es mes es
+            anual» cobraría 29,99 € por el de por vida. */}
+        {plan ? `Empezar · ${eur(precioDe(plan))}` : 'Elige un plan'}
       </PrimaryButton>
 
       <div className="muro__salida">
@@ -124,7 +183,15 @@ const MuroDePago: React.FC<MuroDePagoProps> = ({ logro, onElegirPlan, onSeguirGr
           Seguir con el plan gratis
         </a>
       </div>
-      <p className="muro__legal">Se cobra hoy. Cancelas cuando quieras.</p>
+      {/* La frase depende del plan elegido: «cancelas cuando quieras» sobre un
+          pago único es falso, y decir que algo se cancela cuando no se puede
+          cancelar es exactamente el tipo de letra pequeña contra el que se
+          posiciona este producto. Sin plan elegido se dice lo común a los tres. */}
+      <p className="muro__legal">
+        {plan === 'de-por-vida'
+          ? 'Un solo pago. No se renueva ni hay que cancelar nada.'
+          : 'Se cobra hoy. Cancelas cuando quieras.'}
+      </p>
       <TicketRow label="Tu despensa" value="se guarda aunque no pagues" size={13} color="var(--gris)" />
     </BottomSheet>
   );

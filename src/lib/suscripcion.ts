@@ -31,31 +31,74 @@ export const MURO_ACTIVO = false;
 /**
  * PRECIOS. Están aquí y en ningún otro sitio porque se van a mover.
  *
- * 29,99 € al año y no 34,99 a propósito: una app que ahorra dinero no puede
- * ser cara. A 29,99 la frase de venta cabe en una línea y usa la misma unidad
- * que el producto — "te cuesta 0,57 € a la semana y la despensa te ahorró
- * 8,57 € esta semana" —, un ratio de 15 a 1.
+ * Decididos por producto el 11 ago 2026. Banda de mercado verificada: la
+ * categoría va de 4,99 a 12 $/mes (Mealime 5,99, Eat This Much ~5, Plan to Eat
+ * 5,95, PlateJoy 12). AnyList, la de mejor retención del sector, cobra 9,99 $
+ * AL AÑO. Estamos deliberadamente en la banda baja.
  *
- * Banda de mercado verificada: la categoría va de 4,99 a 12 $/mes (Mealime
- * 5,99 $/mes o 49,99 $/año, Eat This Much ~5 $/mes, Plan to Eat 5,95 $/mes,
- * PlateJoy 12 $/mes). La excepción es AnyList a 9,99 $/año individual y 14,99 $
- * hogar, que es además la app con mejor retención demostrada del sector.
- * Estamos deliberadamente en la banda baja.
+ * ═══ LA FORMA DE LA TABLA ═══
+ *
+ *     1,49 × 52  =  77,48 € al año
+ *     3,99 × 12  =  47,88 € al año   ← el que se quiere vender, y el más barato
+ *     29,99 una vez
+ *
+ * El mensual es un 38% más barato al año que el semanal, así que es el que sale
+ * ganando en cuanto alguien compara — que es lo que tiene que pasar con el plan
+ * principal. El semanal no está para venderse: está para que quien no quiera
+ * comprometerse a un mes tenga por dónde entrar, y paga esa comodidad.
+ *
+ * ═══ HAY PLAN SEMANAL, Y `CLAUDE.md` LO PROHÍBE POR ESCRITO ═══
+ *
+ * La regla se escribió contra una app española que cobra 9,99 € A LA SEMANA
+ * —519 € al año— con prueba trampa de tres días. Lo predatorio de aquello es el
+ * importe y la trampa, no el periodo: 1,49 € a la semana son 77 al año, dentro
+ * de la banda de la categoría y sin prueba con cargo automático detrás.
+ *
+ * Lo que mantiene esto honesto es que cada plan diga EN PANTALLA lo que suma en
+ * un año. Sin esa línea, un precio semanal pequeño es el mismo truco con otra
+ * cifra: 1,49 parece tres veces más barato que 3,99 y en realidad es un 62% más
+ * caro. Esa línea no es decoración, es la condición para poder tener este plan.
+ *
+ * ═══ EL DE POR VIDA A 29,99 ═══
+ *
+ * Se amortiza en 7,5 meses de plan mensual, así que quien piense quedarse más
+ * de un año lo elige. Con unos 21 € netos tras la comisión de tienda cubre poco
+ * más de medio año de ingreso mensual: es una decisión de captación —caja por
+ * delante, cero fricción, y un usuario que ya no se puede ir— no de ingreso
+ * recurrente. Si lo que se busca es recurrencia, este es el número a subir.
  */
 export const PRECIOS = {
-  mes: 4.99,
-  anual: 29.99,
+  semana: 1.49,
+  mes: 3.99,
+  deporvida: 29.99,
   /** Preparado. No se ofrece hasta que exista la lista compartida. */
   hogar: 39.99,
 } as const;
 
-/** Lo que cuesta la semana en el plan anual. Es la unidad con la que se vende. */
-export const POR_SEMANA_ANUAL = PRECIOS.anual / 52;
+/**
+ * Lo que cuesta la semana en cada plan. Es la unidad con la que se vende: el
+ * argumento es «te cuesta X a la semana y la despensa te ahorró 8,57 €», y sin
+ * una unidad común los tres periodos no se pueden comparar de un vistazo.
+ */
+export const POR_SEMANA = {
+  semana: PRECIOS.semana,
+  mes: PRECIOS.mes / 4.33,
+} as const;
+
+/** Lo que suma cada plan recurrente en un año. Para poder decirlo en pantalla. */
+export const AL_ANO = {
+  semana: PRECIOS.semana * 52,
+  mes: PRECIOS.mes * 12,
+} as const;
 
 /** Identificadores de producto en RevenueCat. Los mismos en las dos tiendas. */
 export const PRODUCTOS = {
+  semana: 'cunde_semanal',
   mes: 'cunde_mensual',
-  anual: 'cunde_anual',
+  /* En las tiendas es un producto NO consumible, no una suscripción. Hay que
+     darlo de alta así en App Store Connect y Play Console, o RevenueCat no
+     sabrá que no caduca. */
+  deporvida: 'cunde_de_por_vida',
   hogar: 'cunde_hogar_anual',
 } as const;
 

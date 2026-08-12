@@ -85,7 +85,8 @@
         "Incorpora el mejillón escurrido, tapa y calienta 3 minutos.",
         "Sirve con el pan cortado para mojar la salsa."
       ],
-      "nota": "El pan no es guarnición: es la mitad del plato y la proteína más barata del carro."
+      "nota": "El pan no es guarnición: es la mitad del plato y la proteína más barata del carro.",
+      "foto": "mejillones_marinera.webp"
     },
     {
       "id": "sardinas_escabeche",
@@ -169,7 +170,8 @@
         "Añade el ajo, el laurel, el vinagre y el resto del aceite y hierve 3 minutos.",
         "Vuelca el escabeche sobre las sardinas y deja enfriar antes de guardar."
       ],
-      "nota": "Está mejor al segundo día. El escabeche aguanta cuatro en la nevera aunque la sardina fresca dure dos."
+      "nota": "Está mejor al segundo día. El escabeche aguanta cuatro en la nevera aunque la sardina fresca dure dos.",
+      "foto": "sardinas_escabeche.webp"
     },
     {
       "id": "calabacin_relleno_atun",
@@ -251,7 +253,8 @@
         "Sofríe la cebolla, el ajo y la pulpa picados 10 minutos y sala.",
         "Aparta del fuego y mezcla con el atún escurrido y el huevo batido.",
         "Rellena las barcas, cubre con el queso y gratina 10 minutos."
-      ]
+      ],
+      "foto": "calabacin_relleno_atun.webp"
     }
   ]
 }

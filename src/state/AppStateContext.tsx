@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { ReactNode } from 'react';
 import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } from './types';
-import { CP_POR_DEFECTO } from './types';
+import { CP_POR_DEFECTO, numComensales, numHuecos } from './types';
+import { tramoDiferencia, tramoPresupuesto } from '../lib/analitica-buckets';
 import {
   despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadQueMenosDesperdicia,
 } from '../data/motor';
@@ -205,6 +206,34 @@ function regenerar(estado: AppState): AppState {
       total_disliked_dishes: semana.sinCobertura.platosBloqueados ?? 0,
     });
   } else {
+    /**
+     * ═══ EL EVENTO QUE DECIDE SI ESTO ES UN NEGOCIO ═══
+     *
+     * `regenerar` es el ÚNICO punto por el que pasa una semana montada, venga
+     * de completar el onboarding, de guardar ajustes o de cambiar los
+     * comensales. Por eso el evento va aquí y no en cada pantalla: instrumentar
+     * los sitios que llaman a esto sería contar la misma semana varias veces o
+     * ninguna, según el camino.
+     *
+     * `week_number` es lo que convierte esto en una métrica de retención: la
+     * semana 2, la 3 y la 4 son un `where` sobre este mismo evento.
+     *
+     * Nada de importes: tramo de presupuesto y un booleano de si cabe. Cuántos
+     * filtros hay, no cuáles — una alergia concreta es un dato de salud.
+     */
+    analitica('week_generated', {
+      week_number: estado.contadores.semanaNumero,
+      people: numComensales(estado.perfil.comensales),
+      meals: numHuecos(preferencias.comidas),
+      within_budget: semana.carrito.totalCarrito <= estado.perfil.presupuestoSemanal,
+      budget_bucket: tramoPresupuesto(estado.perfil.presupuestoSemanal),
+      has_diet_filters: preferencias.exclusiones.length > 0,
+      diet_filters_count: preferencias.exclusiones.length,
+      has_dessert: !!preferencias.postre,
+      variety: preferencias.variedad,
+      protein: preferencias.proteina,
+    });
+
     const { bloqueados, favoritos } = cuentaPreferencias(estado.preferenciasPlatos);
     if (bloqueados + favoritos > 0) {
       analitica('generation_affected_by_preferences', {
@@ -303,6 +332,14 @@ export function reducer(estado: AppState, accion: Accion): AppState {
     case 'SET_PRESUPUESTO':
       return { ...estado, perfil: { ...estado.perfil, presupuestoSemanal: accion.presupuesto } };
     case 'COMPLETAR_ONBOARDING':
+      /* Antes de regenerar: así el par onboarding_completed → week_generated
+         queda en ese orden, que es como se lee el embudo. */
+      analitica('onboarding_completed', {
+        people: numComensales(estado.perfil.comensales),
+        budget_bucket: tramoPresupuesto(estado.perfil.presupuestoSemanal),
+        has_diet_filters: estado.preferencias.exclusiones.length > 0,
+        diet_filters_count: estado.preferencias.exclusiones.length,
+      });
       return regenerar({ ...estado, onboardingCompletado: true });
     case 'TOGGLE_ITEM':
       return {
@@ -352,6 +389,32 @@ export function reducer(estado: AppState, accion: Accion): AppState {
       // cocinarla toda la semana. La memoria se aplica en la siguiente
       // generación, que es cuando pide una semana nueva.
       const comidas = [...new Set(estado.semana.plan.tandas.map((t) => t.recetaId))];
+
+      /**
+       * El final del embudo. Tramo de desviación, no el importe del ticket:
+       * para saber si Cunde acierta con el presupuesto basta el tramo, y el
+       * importe exacto de la compra de alguien junto a su número de semana ya
+       * empieza a señalar a una persona. Ese dato lo tiene el usuario en su
+       * móvil; no hace falta una segunda copia en un servidor.
+       *
+       * `items_checked` sobre `items_total` responde lo que ninguna otra cosa
+       * responde: si la lista se USA en el súper o solo se abre.
+       */
+      {
+        const previsto = totalLista(estado.lista);
+        const extras = totalExtras(estado.extrasCompra);
+        analitica('checkout_completed', {
+          week_number: estado.contadores.semanaNumero,
+          screen: 'cierre',
+          within_budget: accion.importeRealTicket <= estado.perfil.presupuestoSemanal,
+          difference_bucket: tramoDiferencia(previsto + extras, accion.importeRealTicket),
+          has_extras: estado.extrasCompra.length > 0,
+          has_unpriced_extras: extrasSinPrecio(estado.extrasCompra) > 0,
+          items_checked: estado.lista.filter((i) => i.enElCarro).length,
+          items_total: estado.lista.length,
+        });
+      }
+
       return {
         ...estado,
         historial: [comidas, ...estado.historial].slice(0, SEMANAS_DE_MEMORIA),

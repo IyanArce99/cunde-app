@@ -19,9 +19,23 @@
   .solo-estrecho { display: block; }
 }
 
+@media (width <= 560px) {
+  .nav__interior,
+  .hero {
+    width: 100%;
+    max-width: 390px;
+    margin-inline: 0;
+  }
+}
+
 /* --- Tipos compartidos ------------------------------------------------------ */
 
+/* El logo es un enlace a la portada, así que también hay que poder acertarle:
+   medía 24 px de alto. El relleno no mueve nada de lo que se ve. */
 .logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font: 700 24px/1 var(--fuente);
   letter-spacing: -0.03em;
   color: var(--tinta);
@@ -96,7 +110,21 @@
   gap: 36px;
 }
 
+/**
+ * ═══ 44 px DE ALTO AUNQUE LA LETRA MIDA 15 ═══
+ *
+ * Medido: los enlaces de la nav salían de 15 px de alto y los del pie de 12.
+ * Son enlaces que hay que acertar con el dedo, y en el pie hay tres seguidos
+ * separados por 28 px — fallar y darle a «Términos» queriendo «Privacidad» es
+ * lo normal ahí.
+ *
+ * El relleno vertical no cambia nada de lo que se ve: la caja crece, la letra
+ * no. El diseño se respeta y el dedo también.
+ */
 .nav__enlaces a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font: 500 15px/1 var(--fuente);
   color: var(--nav);
 }
@@ -125,7 +153,10 @@
    botón no caben en 390 px, y un menú hamburguesa para tres anclas es más
    maquinaria que la que resuelve. */
 @media (width <= 900px) {
-  .nav__interior { padding-block: 20px; }
+  .nav__interior {
+    max-width: 520px;
+    padding-block: 20px;
+  }
   .nav__enlaces > a:not(.nav__descargar) { display: none; }
   .logo { font-size: 21px; }
   .nav__enlaces { min-width: 0; gap: 0; }
@@ -201,21 +232,25 @@
     padding-block: 20px 34px;
   }
 
-  .hero__h1 { margin-top: 18px; font-size: 40px; line-height: 1.06; }
+  .hero__h1 {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: 40px;
+    line-height: 1.06;
+  }
 
   /* Los saltos de línea del titular son de escritorio: a 390 px partirlo en
-     tres líneas cortas deja huecos absurdos. */
+     tres líneas cortas deja huecos absurdos. Los espacios explícitos del JSX
+     evitan que las palabras se peguen al ocultarlos. */
   .hero__h1 br { display: none; }
 
   .hero__sub { margin-top: 16px; font-size: 16px; line-height: 1.5; }
-  .hero__texto,
-  .hero__h1 {
-    max-width: 100%;
-  }
-  .pill,
+  .hero__texto { width: 100%; max-width: 520px; }
+  .pill { max-width: 100%; }
   .hero__sub,
-  .hero__botones {
-    max-width: 100%;
+  .hero__botones,
+  .hero__nota {
+    max-width: 440px;
   }
   .hero__botones { margin-top: 24px; }
   .hero__nota { margin-top: 14px; text-align: center; font-size: 13px; }
@@ -223,7 +258,25 @@
 
 /* --- Franja de supermercados ------------------------------------------------ */
 
-.franja {
+/**
+ * ═══ SOBRE LA FRANJA GRIS HACEN FALTA COLORES MÁS OSCUROS ═══
+ *
+ * El fondo pasa de #F5F5F3 a #EEEEEB, y eso tumba por debajo de AA a dos
+ * colores que sí cumplen sobre el papel:
+ *
+ *   --texto-3  #6E7075  →  4,54:1 sobre papel · 4,26:1 sobre franja  NO
+ *   --azul     #2E5BFF  →  4,68:1 sobre papel · 4,45:1 sobre franja  NO
+ *
+ * Se redefinen los tokens dentro de las secciones con este fondo, en vez de
+ * cambiarlos globalmente: sobre el papel los originales son correctos y
+ * oscurecerlos en toda la página sería pagar contraste que no hace falta.
+ */
+.franja,
+.precio {
+  --texto-3: #65676d;   /* 4,86:1 sobre la franja */
+  --texto-4: #5f6167;   /* 5,32:1 */
+  --azul: var(--azul-hover);  /* #1E42D6 · 6,90:1 */
+
   background: var(--franja);
   border-block: 1px solid var(--borde-2);
 }
@@ -243,16 +296,28 @@
   color: var(--texto-4);
 }
 
+/* Mercadona en tinta y las demás en gris. Al subir el gris para que cumpliera
+   AA, las seis quedaron casi del mismo tono y se perdía lo único que esta
+   franja tiene que decir: cuál se puede elegir hoy. La diferencia se recupera
+   oscureciendo la que SÍ está, no aclarando las que no. */
 .franja__cadenas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 34px;
   font: 600 18px/1 var(--fuente);
-  color: var(--texto-2);
+  color: var(--tinta);
 }
 
-.franja__cadena--pendiente { color: var(--chevron); }
+/**
+ * Las cadenas que todavía no están, en gris — pero LEGIBLE.
+ *
+ * Iban en `--chevron` (#C4C4BF): 1,51:1 sobre la franja, casi invisible. Son
+ * nombres que informan de algo («esto existe, aún no está»), no decoración, así
+ * que tienen que poder leerse. #65676D da 4,86:1 y sigue viéndose claramente
+ * más apagado que Mercadona, que va en `--texto-2` a 6,9:1.
+ */
+.franja__cadena--pendiente { color: #65676d; }
 
 .franja__nota {
   font: 400 13px/1.4 var(--fuente);
@@ -398,6 +463,86 @@
   .cambiar__texto { max-width: none; font-size: 16px; }
 }
 
+/* --- Precio ------------------------------------------------------------------ */
+
+.precio {
+  background: var(--franja);
+  border-block: 1px solid var(--borde-2);
+}
+
+.precio__interior {
+  padding-block: 80px;
+  text-align: center;
+}
+
+.precio__texto {
+  max-width: 620px;
+  margin: 18px auto 0;
+  font: 400 17px/1.55 var(--fuente);
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+.precio__planes {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+/* Mismo tamaño, mismo borde, mismo fondo: ninguno destacado. Es la regla del
+   muro de la app llevada a la landing — no se elige por el usuario. */
+.precio__plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  padding: 26px 28px;
+  border: 1px solid var(--borde);
+  border-radius: var(--r-tarjeta);
+  background: var(--blanco);
+}
+
+.precio__cifra {
+  font: 700 34px/1 var(--fuente);
+  letter-spacing: -0.03em;
+}
+
+.precio__periodo {
+  margin-top: 6px;
+  font: 500 15px/1 var(--fuente);
+  color: var(--texto-2);
+}
+
+.precio__unidad {
+  margin-top: 12px;
+  font: 400 13px/1 var(--fuente);
+  color: var(--texto-4);
+}
+
+.precio__letra-pequena {
+  max-width: 560px;
+  margin: 26px auto 0;
+  font: 400 14px/1.6 var(--fuente);
+  color: var(--texto-3);
+  text-wrap: pretty;
+}
+
+@media (width <= 900px) {
+  .precio__interior { padding-block: 56px; }
+  .precio .h2 { font-size: 30px; }
+  .precio .h2 br { display: none; }
+  .precio__texto { font-size: 16px; }
+
+  .precio__planes {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .precio__plan { min-width: 0; padding: 22px; }
+}
+
 /* --- CTA final --------------------------------------------------------------- */
 
 .cta__interior {
@@ -455,7 +600,13 @@
   font: 400 14px/1 var(--fuente);
 }
 
-.pie__enlaces a { color: var(--texto-3); }
+/* Mismo motivo que en la nav: medían 12 px de alto. Ver arriba. */
+.pie__enlaces a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--texto-3);
+}
 .pie__enlaces a:hover { color: var(--tinta); }
 
 .pie__copy {

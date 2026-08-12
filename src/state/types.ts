@@ -240,7 +240,17 @@ export interface Cierre {
   extrasSinPrecio?: number;
 }
 
-export type Suscripcion = null | 'mes' | 'año';
+/**
+ * `de-por-vida` no caduca nunca: una vez puesto, `estadoSuscripcion` lo trata
+ * como activo para siempre. Va con guiones y no con espacios porque se
+ * serializa a `localStorage` y viaja a RevenueCat como identificador.
+ *
+ * `'año'` sigue aceptándose aunque ya no se venda: es un valor que pudo quedar
+ * guardado en el móvil de alguien, y quitarlo del tipo convertiría a ese
+ * usuario en no suscrito de un día para otro. Se retira cuando conste que no
+ * queda ninguno.
+ */
+export type Suscripcion = null | 'semana' | 'mes' | 'de-por-vida' | 'año';
 
 export type ComidasPref = 'comidas' | 'cenas' | 'ambas';
 export type Esfuerzo = 'minimo' | 'normal' | 'libre';

@@ -19,7 +19,7 @@
   display: block;
   font: 600 12px/1 var(--fuente);
   letter-spacing: 0.1em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .plato__nombre {
@@ -32,7 +32,7 @@
 
 .plato__cerrar {
   font-size: 18px;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .plato__precios {
@@ -74,7 +74,7 @@
   display: block;
   margin-top: 5px;
   font: 400 12px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .plato__alt-precio {
@@ -91,7 +91,7 @@
   display: block;
   margin-top: 4px;
   font: 400 11px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .plato__mas {

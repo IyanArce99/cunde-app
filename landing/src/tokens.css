@@ -20,10 +20,38 @@
 
   /* Texto */
   --tinta: #17181a;      /* principal, y fondo de los botones oscuros */
-  --texto-2: #4e5056;    /* secundario */
-  --texto-3: #6e7075;    /* terciario y labels */
-  --texto-4: #9a9ba0;    /* atenuado */
-  --sobre-oscuro: #b4b6bc;
+  --texto-2: #4e5056;    /* secundario · 7,38:1 sobre papel */
+  --texto-3: #6e7075;    /* terciario · 4,54:1 sobre papel, justo en el límite */
+
+  /**
+   * ═══ EL ATENUADO ES #65676D, NO EL #9A9BA0 DEL HANDOFF ═══
+   *
+   * Medido con la fórmula de WCAG: #9A9BA0 sobre el papel da **2,54:1**, muy
+   * por debajo del 4,5 que AA exige para texto normal. Lo usaba la nota
+   * «Gratis para iPhone y Android», los rótulos de la franja de supermercados y
+   * los enlaces del pie — 40 elementos por debajo del mínimo en total.
+   *
+   * #65676D da 5,18:1 sobre el papel y 4,86:1 sobre la franja gris, que es el
+   * fondo más exigente de la página. Sigue leyéndose como gris secundario.
+   *
+   * No es purismo: la nota de debajo de los botones de descarga dice que la app
+   * es gratis y sin tarjeta, que es la objeción principal de quien duda. Que se
+   * lea mal es un problema de conversión antes que de accesibilidad.
+   */
+  --texto-4: #65676d;
+
+  /**
+   * El gris ORIGINAL del handoff, solo para las maquetas de la app.
+   *
+   * El teléfono del hero, el panel de ajustar y la tarjeta de plato son
+   * ilustraciones del producto —van `aria-hidden`, nadie navega por ellas— y
+   * ahí el valor exacto importa para que se parezcan a la app de verdad. Si
+   * algún día se decide que también deben cumplir AA, se cambia aquí y afecta
+   * solo a las maquetas.
+   */
+  --maqueta-tenue: #9a9ba0;
+
+  --sobre-oscuro: #b4b6bc;   /* 8,76:1 sobre tinta */
   --nav: #41434a;
 
   /* Acento */

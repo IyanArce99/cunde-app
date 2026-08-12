@@ -2,6 +2,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import PrimaryButton from '../../components/PrimaryButton';
 import { eur, eurSinSimbolo } from '../../lib/format';
+import { analitica } from '../../lib/analitica';
 import muestra from '../../data/muestra-portada.json';
 import './Portada.css';
 
@@ -87,7 +88,15 @@ const Portada: React.FC = () => {
                 pantallas del onboarding y el pie bailaba al avanzar. Encima, el
                 botón se apoya siempre en el mismo sitio. */}
             <span className="portada__nota">Un minuto. Sin registro. Sin tarjeta.</span>
-            <PrimaryButton onClick={() => history.push('/onboarding/super')}>
+            {/* El primer escalón del embudo. Va en el TOQUE y no al montar la
+                portada: quien abre la app y no toca nada ya está contado por
+                `app_opened`, y contarlo aquí también inflaría la conversión de
+                onboarding hasta hacerla inútil. */}
+            <PrimaryButton onClick={() => {
+              history.push('/onboarding/super');
+              analitica('onboarding_started', { screen: 'onboarding_portada' });
+            }}
+            >
               Cuadrar mi semana
             </PrimaryButton>
           </div>

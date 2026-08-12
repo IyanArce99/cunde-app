@@ -92,7 +92,8 @@
         "Suma las habas congeladas sin descongelar y sala.",
         "Tapa y cuece 20 minutos a fuego bajo, hasta que las habas se aplasten."
       ],
-      "nota": "La catalana lleva butifarra; sin ella el sofrito tiene que hacerse despacio o el plato sale plano."
+      "nota": "La catalana lleva butifarra; sin ella el sofrito tiene que hacerse despacio o el plato sale plano.",
+      "foto": "habas_catalanas.webp"
     },
     {
       "id": "habas_ajo_huevo",
@@ -346,7 +347,8 @@
         "Mézclalo todo mientras el edamame sigue templado.",
         "Aliña con el aceite, el zumo de limón y el orégano."
       ],
-      "nota": "Se aliña en templado: el edamame frío no coge el aliño y sabe a agua."
+      "nota": "Se aliña en templado: el edamame frío no coge el aliño y sabe a agua.",
+      "foto": "ensalada_templada_edamame_maiz.webp"
     },
     {
       "id": "salteado_edamame_calabacin",
@@ -517,7 +519,8 @@
         "Suma el edamame los últimos 5 minutos y apaga.",
         "Deja el arroz tapado 3 minutos antes de llevarlo a la mesa."
       ],
-      "nota": "Dos partes de agua por una de arroz: sale suelto y no hay que escurrir nada."
+      "nota": "Dos partes de agua por una de arroz: sale suelto y no hay que escurrir nada.",
+      "foto": "arroz_edamame_zanahoria.webp"
     },
     {
       "id": "alubias_negras_guisadas",

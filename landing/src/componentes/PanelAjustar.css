@@ -18,11 +18,11 @@
 .panel__titulo {
   font: 600 12px/1 var(--fuente);
   letter-spacing: 0.12em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__cerrar {
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__cesta {
@@ -32,7 +32,7 @@
 .panel__rotulo {
   font: 600 11px/1 var(--fuente);
   letter-spacing: 0.1em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__cesta-fila {
@@ -79,7 +79,7 @@
   display: block;
   margin-top: 5px;
   font: 400 12px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__chevron {
@@ -138,13 +138,13 @@
 
 .panel__tope-euro {
   font: 600 15px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__tope-nota {
   margin-left: 6px;
   font: 400 12px/1 var(--fuente);
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__carril {
@@ -182,7 +182,7 @@
   margin-top: 8px;
   font: 500 10px/1 var(--fuente);
   letter-spacing: 0.05em;
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__opciones {
@@ -225,7 +225,7 @@
 }
 
 .panel__opcion-nota--tenue {
-  color: var(--texto-4);
+  color: var(--maqueta-tenue);
 }
 
 .panel__guardar {

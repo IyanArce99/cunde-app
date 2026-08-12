@@ -4,10 +4,29 @@ import type { CosteOpcion } from '../motor/seleccionar.ts';
 import SelectorCoste from './SelectorCoste';
 import type { OpcionCoste } from './SelectorCoste';
 
+/**
+ * ═══ TRES PALABRAS Y NADA MÁS ═══
+ *
+ * Llevaban una nota debajo: «legumbre y huevo», «carne 3 días», «carne casi a
+ * diario». Se quitan por dos motivos.
+ *
+ * El de forma: en tres columnas de ~100 px, «carne casi a diario» ocupa dos
+ * líneas y «carne 3 días» una, así que las tarjetas salían de alturas distintas
+ * y el texto bailaba. Es lo que se veía descuadrado.
+ *
+ * El de fondo: la nota era una promesa de calendario que el motor no firma. No
+ * hay ninguna regla que garantice «carne 3 días» — el nivel fija un suelo de
+ * gramos de proteína, y con cuántos platos de carne se llega a ese suelo depende
+ * del presupuesto, de las exclusiones y de lo que haya en el catálogo esa
+ * semana. Una semana «normal» puede salir con dos días de carne o con cuatro.
+ *
+ * Lo que sí se puede sostener sigue debajo, en la frase de consecuencia, que
+ * habla de desperdicio y está medida.
+ */
 const OPCIONES: OpcionCoste<NivelProteina>[] = [
-  { valor: 'basica', label: 'Básica', nota: 'legumbre y huevo' },
-  { valor: 'normal', label: 'Normal', nota: 'carne 3 días' },
-  { valor: 'alta', label: 'Alta', nota: 'carne casi a diario' },
+  { valor: 'basica', label: 'Básica' },
+  { valor: 'normal', label: 'Normal' },
+  { valor: 'alta', label: 'Alta' },
 ];
 
 /**

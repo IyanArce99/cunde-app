@@ -5,8 +5,25 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
 
+import { readFileSync } from 'node:fs'
+
+/**
+ * LA VERSIÓN, DE UN SOLO SITIO.
+ *
+ * La analítica manda `app_version` con cada evento, y una constante escrita a
+ * mano en el código se desincroniza de `package.json` a la segunda publicación
+ * — con el resultado de que las métricas atribuyen a la versión equivocada
+ * justo cuando hay que decidir si un cambio funcionó.
+ *
+ * Se lee del `package.json` en tiempo de compilación y se incrusta.
+ */
+const version = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')).version
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __VERSION_APP__: JSON.stringify(version),
+  },
   /**
    * EL CATÁLOGO, COMO CADENA QUE SE PARSEA, NO COMO OBJETO JS.
    *

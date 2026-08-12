@@ -266,6 +266,34 @@ fotos), `_aud-cuanta-foto` (cuántos platos de una semana llevan foto),
 
 ---
 
+## 6 bis. Analítica
+
+Conectada el 11 ago. Detalle completo en **[docs/analytics.md](analytics.md)**.
+
+La métrica principal no son descargas ni sesiones: es **qué parte de la gente
+genera una segunda semana**, y luego una tercera y una cuarta.
+
+```
+componente → analitica() → sumidero → cola local → RPC → analytics_events
+```
+
+- **Ningún componente conoce Supabase.** Hay un test estructural que falla si
+  alguien lo importa fuera de `analitica-supabase.ts`.
+- **Cola offline** en `localStorage`, lotes de 50, límite de 1.000 FIFO. La
+  pantalla Compra se usa sin cobertura: la analítica no puede depender de la red.
+- **`install_id`** anónimo, sin correo, sin identificador publicitario, sin
+  huella. **`session_id`** por arranque real de la app.
+- **Idempotente** por `event_id` UUID de cliente + `unique` + `on conflict do
+  nothing`: reenviar tras una respuesta perdida no duplica.
+- **Eventos tipados.** El compilador rechaza propiedades inventadas.
+- **Privacidad limitada a propósito**: nunca importes exactos, ni alergias
+  concretas, ni nombres de extras, ni texto libre. Tramos y booleanos.
+- **La tabla está cerrada al cliente**: RLS sin políticas y `revoke all`. La
+  única puerta es `track_events`, `security definer` con `search_path` fijado.
+
+**Sin `VITE_SUPABASE_URL` no encola ni envía nada** — el estado correcto en
+desarrollo.
+
 ## 7. Restricciones
 
 12 alergias (`Gluten, Lactosa, Huevo, Frutos secos, Marisco, Pescado, Cacahuete,
@@ -307,7 +335,7 @@ listas se separen.
 |---|---|---|
 | 1 | **Rotar la contraseña de Postgres** y la **clave de OpenAI** — las dos se pegaron en un chat | tú |
 | 2 | Añadir `SUPABASE_DB_URL` como secreto de GitHub para que el cron corra | tú |
-| 3 | Conectar un sumidero de analítica: `registrarSumideroAnalitica` **existe y no lo llama nadie** | — |
+| 3 | ~~Conectar un sumidero de analítica~~ **Hecho el 11 ago.** Falta poner `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`, y aplicar la migración | tú |
 | 4 | Política de privacidad | — |
 | 5 | Build de release firmada | — |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |

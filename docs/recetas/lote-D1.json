@@ -155,7 +155,8 @@
         "Vierte el caldo caliente, sala y cuece 16 minutos a fuego medio.",
         "Añade el mejillón, tapa, aparta del fuego y espera 3 minutos."
       ],
-      "nota_ratio": "arroz : líquido = 1 : 2"
+      "nota_ratio": "arroz : líquido = 1 : 2",
+      "foto": "arroz_mejillon.webp"
     },
     {
       "id": "campera_caballa",
@@ -239,7 +240,8 @@
         "Corta la cebolla en pluma, pela y trocea el huevo y escurre la caballa.",
         "Mezcla todo con la aceituna, el aceite y el vinagre.",
         "Sirve templada, o fría al día siguiente."
-      ]
+      ],
+      "foto": "campera_caballa.webp"
     },
     {
       "id": "patatas_calamares",
@@ -321,7 +323,8 @@
         "Incorpora el tomate y el pimentón y cocina 2 minutos.",
         "Rompe la patata en trozos, échala, cubre de agua, sala y cuece 25 minutos.",
         "Aparta y deja reposar 10 minutos."
-      ]
+      ],
+      "foto": "patatas_calamares.webp"
     },
     {
       "id": "merluza_salsa_verde",

@@ -163,7 +163,8 @@
         "Añade el pimentón, remueve 30 segundos y echa las lentejas y la patata.",
         "Cubre con agua (1:3), añade el laurel y cuece 35 min a fuego medio.",
         "Rectifica de sal y deja reposar 5 min antes de servir."
-      ]
+      ],
+      "foto": "lentejas_verduras.webp"
     },
     {
       "id": "merluza_horno",
@@ -228,7 +229,8 @@
         "Corta la patata en rodajas finas y hornéala 20 min a 200 ºC con la cebolla.",
         "Coloca la merluza encima, riega con aceite y limón y hornea 12 min más.",
         "Deja reposar 2 min fuera del horno antes de servir."
-      ]
+      ],
+      "foto": "merluza_horno.webp"
     },
     {
       "id": "pasta_atun",
@@ -389,7 +391,8 @@
         "Fríe la patata y la cebolla en aceite a fuego medio 15 min.",
         "Bate los huevos con sal, mezcla con la patata escurrida y cuaja la tortilla.",
         "Aliña la lechuga, el tomate y las aceitunas con aceite y vinagre."
-      ]
+      ],
+      "foto": "tortilla_ensalada.webp"
     },
     {
       "id": "arroz_pollo",
@@ -491,7 +494,8 @@
         "Añade el ajo, el pimentón y el tomate triturado y sofríe 5 min.",
         "Echa el arroz, remueve y cubre con el doble de caldo (1:2).",
         "Añade el guisante y cuece 18 min sin remover. Reposa 5 min tapado."
-      ]
+      ],
+      "foto": "arroz_pollo.webp"
     },
     {
       "id": "crema_calabaza",
@@ -564,7 +568,8 @@
         "Pocha la cebolla y la zanahoria a fuego suave 8 min.",
         "Añade la calabaza troceada y el caldo y cuece 20 min.",
         "Tritura, incorpora la bebida de soja y rectifica de sal."
-      ]
+      ],
+      "foto": "crema_calabaza.webp"
     },
     {
       "id": "garbanzos_espinacas",
@@ -720,7 +725,8 @@
         "Añade el calabacín en dados y cocina 10 min más.",
         "Echa el tomate triturado y cuece 15 min hasta que reduzca.",
         "Casca el huevo por encima y cuaja tapado 4 min."
-      ]
+      ],
+      "foto": "pisto_huevo.webp"
     },
     {
       "id": "revuelto_champinones",
@@ -780,7 +786,8 @@
         "Saltea el champiñón laminado con el ajo hasta que suelte el agua.",
         "Bate los huevos con sal y échalos a la sartén a fuego bajo.",
         "Remueve sin parar hasta que cuajen ligeramente."
-      ]
+      ],
+      "foto": "revuelto_champinones.webp"
     }
   ]
 }

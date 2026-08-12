@@ -72,7 +72,8 @@
         "Cuaja la tortilla dos minutos por cada lado y pásala a un plato.",
         "Fríe los pimientos enteros en la misma sartén, escúrrelos y sálalos."
       ],
-      "nota_parte": "La tortilla se come fría al día siguiente; los pimientos se fríen al momento. De ahí el hueco de ensamblaje."
+      "nota_parte": "La tortilla se come fría al día siguiente; los pimientos se fríen al momento. De ahí el hueco de ensamblaje.",
+      "foto": "tortilla_calabacin.webp"
     },
     {
       "id": "huevos_plato_espinacas",
@@ -155,7 +156,8 @@
         "Añade la nata, la sal y la pimienta y cocina dos minutos.",
         "Reparte la espinaca en cazuelitas y casca un par de huevos sobre cada una.",
         "Cubre con el queso y hornea diez minutos, hasta que la clara cuaje y la yema quede líquida."
-      ]
+      ],
+      "foto": "huevos_plato_espinacas.webp"
     },
     {
       "id": "berenjenas_gratinadas",
@@ -237,7 +239,8 @@
         "Vacía las mitades con una cuchara y pica la carne.",
         "Pocha la cebolla y el ajo, suma la carne de berenjena, el tomate y el orégano y cocina diez minutos.",
         "Rellena las mitades, cúbrelas de queso y gratina diez minutos."
-      ]
+      ],
+      "foto": "berenjenas_gratinadas.webp"
     },
     {
       "id": "revuelto_puerros",
@@ -305,7 +308,8 @@
         "Póchalos a fuego suave ocho minutos, sin que cojan color.",
         "Baja el fuego, añade los huevos batidos con la sal y remueve sin parar.",
         "Retira antes de que el huevo cuaje del todo y mezcla el queso fuera del fuego."
-      ]
+      ],
+      "foto": "revuelto_puerros.webp"
     }
   ]
 }

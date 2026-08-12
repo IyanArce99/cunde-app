@@ -94,7 +94,11 @@ export async function paquetesDisponibles(): Promise<PurchasesPackage[]> {
 export async function comprar(plan: Plan): Promise<boolean> {
   if (!activable()) return false;
   const paquetes = await paquetesDisponibles();
-  const id = plan === 'mes' ? PRODUCTOS.mes : plan === 'anual' ? PRODUCTOS.anual : PRODUCTOS.hogar;
+  /* Un mapa y no una cadena de ternarios: la versión anterior acababa en
+     `: PRODUCTOS.hogar`, así que al añadir `deporvida` habría cobrado el
+     producto de hogar sin que nada fallara a la vista. Con el índice directo,
+     un plan nuevo sin producto es un error de TypeScript. */
+  const id = PRODUCTOS[plan];
   const paquete = paquetes.find((p) => p.product.identifier === id);
   if (!paquete) return false;
   const { customerInfo } = await Purchases.purchasePackage({ aPackage: paquete });

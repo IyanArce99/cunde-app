@@ -30,11 +30,13 @@
   color: var(--tinta);
 }
 
+/* Tres columnas iguales. Iguales de verdad: mismo ancho, mismo alto, mismo
+   borde. Ninguna destacada, ninguna «recomendada». */
 .muro__planes {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .muro__plan {
@@ -43,7 +45,9 @@
   align-items: flex-start;
   gap: 6px;
   min-height: 80px;
-  padding: 16px;
+  /* 12 y no 16: con tres columnas en 390 px, cada caja tiene 110 px de ancho y
+     «29,99 €» a 22 px necesita 78 de ellos. */
+  padding: 12px;
   background: transparent;
   border: var(--border-rest);
   border-radius: var(--radius-sm);
@@ -56,10 +60,13 @@
   border-color: var(--tinta);
 }
 
+/* 20 y no 22: «29,99 €» a 22 px no cabe en una columna de 110, y partirlo en
+   dos líneas descuadraba las tres cajas. */
 .muro__plan-precio {
-  font: 500 22px/1 var(--font-body);
+  font: 500 20px/1 var(--font-body);
   font-variant-numeric: tabular-nums;
   color: var(--tinta);
+  white-space: nowrap;
 }
 
 .muro__plan--seleccionado .muro__plan-precio {

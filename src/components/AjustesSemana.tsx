@@ -409,7 +409,10 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
               momento lo que cuesta —que es justo lo que hace que la decisión
               sea del usuario y no nuestra. */}
           <span className="ajustes__rotulo">Postre</span>
-          <div className="ajustes__fila-pill">
+          {/* Centrado porque son dos etiquetas de una línea: a la izquierda,
+              dentro de columnas iguales, «Sin postre» dejaba un hueco a la
+              derecha que parecía un fallo. */}
+          <div className="ajustes__fila-pill ajustes__fila-pill--centrado">
             <button
               type="button"
               className={`ajustes__pill${!postre ? ' ajustes__pill--seleccionado' : ''}`}

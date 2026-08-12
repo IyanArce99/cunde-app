@@ -84,7 +84,8 @@
         "Cuece tapado 18 min.",
         "Tritura con la bebida de soja.",
         "Muele la pimienta por encima y sirve."
-      ]
+      ],
+      "foto": "crema_puerro_patata.webp"
     },
     {
       "id": "crema_coliflor_asada",
@@ -167,7 +168,8 @@
         "Riega con el aceite, sala y asa 30 min. Remueve a mitad.",
         "Pasa lo asado a la olla con el caldo y el comino.",
         "Hierve 5 min y tritura."
-      ]
+      ],
+      "foto": "crema_coliflor_asada.webp"
     },
     {
       "id": "pure_patata_champinones",
@@ -250,7 +252,8 @@
         "Dora los champiñones a fuego fuerte 6 min con el resto del aceite.",
         "Añade el ajo picado y el perejil. Cocina 1 min más.",
         "Sirve los champiñones sobre el puré y muele la pimienta."
-      ]
+      ],
+      "foto": "pure_patata_champinones.webp"
     },
     {
       "id": "arroz_meloso_verduras",
@@ -335,7 +338,8 @@
         "Cuece 18 min a fuego medio removiendo cada poco.",
         "Aparta del fuego y reposa 3 min."
       ],
-      "nota_ratio": "arroz : líquido = 1 : 2,3 (meloso, dentro de la tolerancia del 1:2)"
+      "nota_ratio": "arroz : líquido = 1 : 2,3 (meloso, dentro de la tolerancia del 1:2)",
+      "foto": "arroz_meloso_verduras.webp"
     },
     {
       "id": "arroz_horno_garbanzos",
@@ -421,7 +425,8 @@
         "Reparte la patata en rodajas finas por encima.",
         "Hornea 40 min sin tapar."
       ],
-      "nota_ratio": "arroz : líquido = 1 : 2"
+      "nota_ratio": "arroz : líquido = 1 : 2",
+      "foto": "arroz_horno_garbanzos.webp"
     },
     {
       "id": "patatas_panaderas_pimiento",
@@ -504,7 +509,8 @@
         "Mezcla en la bandeja la patata, la cebolla, los pimientos, el ajo, el aceite y la sal.",
         "Hornea 40 min. Remueve a los 20 min.",
         "Saca la bandeja, espolvorea el pimentón y remueve."
-      ]
+      ],
+      "foto": "patatas_panaderas_pimiento.webp"
     },
     {
       "id": "escalivada_garbanzos",
@@ -588,7 +594,8 @@
         "Pela en caliente y desgarra las verduras en tiras.",
         "Aliña con el ajo picado, el resto del aceite, el vinagre y la sal.",
         "Mezcla con los garbanzos escurridos."
-      ]
+      ],
+      "foto": "escalivada_garbanzos.webp"
     },
     {
       "id": "tumbet_horno",
@@ -672,7 +679,8 @@
         "Monta en una fuente capas de patata, berenjena y pimiento.",
         "Cubre con el tomate frito, el ajo picado y el orégano.",
         "Hornea 15 min más."
-      ]
+      ],
+      "foto": "tumbet_horno.webp"
     }
   ]
 }

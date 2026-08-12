@@ -74,7 +74,8 @@
         "Saca el entrecot de la nevera 20 min antes y sécalo bien.",
         "Márcalo en la sartén muy caliente, 2 min por cada lado, y salpimienta al sacarlo.",
         "Déjalo reposar 4 min sobre las patatas antes de cortarlo."
-      ]
+      ],
+      "foto": "entrecot_patatas_panadera.webp"
     },
     {
       "id": "estofado_ternera_zanahoria",
@@ -155,7 +156,8 @@
         "Devuelve la carne, añade el tomate y el laurel y cubre de agua.",
         "Guisa tapado 50 min a fuego suave.",
         "Echa la patata en trozos y sal, y sigue 20 min hasta que estén tiernas."
-      ]
+      ],
+      "foto": "estofado_ternera_zanahoria.webp"
     },
     {
       "id": "filetes_vacuno_encebollados",
@@ -229,7 +231,8 @@
         "Sube el fuego y marca los filetes salpimentados, 1 min por cada lado.",
         "Añade el ajo picado a la cebolla y deja 1 min más.",
         "Sirve la carne con la cebolla por encima y la patata al lado."
-      ]
+      ],
+      "foto": "filetes_vacuno_encebollados.webp"
     },
     {
       "id": "chuletas_cordero_ajillo",
@@ -297,7 +300,8 @@
         "Dora el ajo 40 segundos y retíralo antes de que se queme.",
         "Marca las chuletas saladas 3 min por cada lado a fuego fuerte.",
         "Devuelve el ajo con el perejil picado y remueve fuera del fuego."
-      ]
+      ],
+      "foto": "chuletas_cordero_ajillo.webp"
     },
     {
       "id": "solomillo_cerdo_mostaza",
@@ -446,7 +450,8 @@
         "Haz dos cortes a la dorada, sálala y mete rodajas de limón dentro.",
         "Colócala sobre las patatas y riega con el resto del aceite.",
         "Hornea 15 min más a 190º, hasta que la carne se separe de la espina."
-      ]
+      ],
+      "foto": "dorada_horno_limon.webp"
     },
     {
       "id": "lubina_espalda_refrito",
@@ -513,7 +518,8 @@
         "Hornea 12 min a 200º, hasta que la carne quede opaca.",
         "Lamina el ajo y dóralo en el aceite hasta que tome color.",
         "Aparta del fuego, añade el vinagre con cuidado y riega el pescado."
-      ]
+      ],
+      "foto": "lubina_espalda_refrito.webp"
     },
     {
       "id": "solomillo_cerdo_horno_verduras",
@@ -594,7 +600,8 @@
         "Ata el solomillo con hilo para que quede parejo y sálalo con el tomillo.",
         "Ponlo encima de la verdura y hornea 18 min más.",
         "Deja reposar 5 min fuera del horno antes de cortarlo en rodajas."
-      ]
+      ],
+      "foto": "solomillo_cerdo_horno_verduras.webp"
     }
   ]
 }

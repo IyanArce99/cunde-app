@@ -20,6 +20,28 @@
  */
 
 export type EventoAnalitica =
+  /**
+   * ═══ EL EMBUDO · LOS QUE RESPONDEN LA PREGUNTA QUE IMPORTA ═══
+   *
+   * La métrica principal no son descargas ni sesiones: es **qué parte de la
+   * gente genera una segunda semana**, y luego una tercera y una cuarta.
+   *
+   * Por eso NO existe `week_2_started`. La semana va como columna
+   * (`week_number`) en `week_generated`, así que semana 2, 3 y 4 son un `where`
+   * sobre un solo evento. Un evento por semana sería la misma información
+   * escrita tres veces y con tres sitios donde equivocarse.
+   */
+  | 'app_opened'
+  | 'onboarding_started'
+  | 'onboarding_completed'
+  | 'week_generated'
+  | 'week_adjusted'
+  | 'shopping_opened'
+  | 'shopping_item_checked'
+  | 'shopping_item_unchecked'
+  | 'checkout_opened'
+  | 'checkout_completed'
+  | 'dish_changed'
   | 'week_start_date_changed'
   | 'week_start_date_picker_opened'
   | 'extra_item_added'
@@ -44,6 +66,36 @@ export type EventoAnalitica =
   | 'share_downloaded';
 
 export interface PropsAnalitica {
+  /**
+   * ═══ DÓNDE PASÓ · LISTA CERRADA ═══
+   *
+   * Nunca una ruta ni texto libre: un `screen` arbitrario acaba llevando
+   * identificadores dentro y convierte una columna de agrupación en un vertedero.
+   * `analitica-supabase.ts` descarta cualquier valor fuera de esta lista.
+   */
+  screen?:
+    | 'onboarding_portada' | 'onboarding_super' | 'onboarding_datos'
+    | 'onboarding_presupuesto' | 'semana' | 'compra' | 'ajustes'
+    | 'hoja_dia' | 'cierre' | 'platos_bloqueados';
+
+  /* ═══ EL EMBUDO ═══
+     Buckets y booleanos, nunca importes. Ver analitica-buckets.ts. */
+  people?: number;
+  meals?: number;
+  within_budget?: boolean;
+  /** Si hay filtros, no CUÁLES: una alergia concreta es un dato de salud. */
+  has_diet_filters?: boolean;
+  diet_filters_count?: number;
+  has_dessert?: boolean;
+  budget_bucket?: string;
+  difference_bucket?: string;
+  has_unpriced_extras?: boolean;
+  /** Cuántas casillas llevaba marcadas al cerrar: mide si la lista se usa. */
+  items_checked?: number;
+  items_total?: number;
+  variety?: string;
+  protein?: string;
+
   dish_id?: string;
   dish_type?: 'receta' | 'ensamblaje';
   preference?: 'me_gusta' | 'neutral' | 'no_quiero';

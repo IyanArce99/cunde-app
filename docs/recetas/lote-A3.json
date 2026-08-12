@@ -87,7 +87,8 @@
         "Escurre y enjuaga las lentejas.",
         "Incorpóralas a la sartén y saltea 3 min.",
         "Aparta del fuego, riega con el vinagre y sirve templado."
-      ]
+      ],
+      "foto": "lentejas_templadas.webp"
     },
     {
       "id": "alubias_tomate",
@@ -252,7 +253,8 @@
         "Aparta del fuego y añade el pimentón.",
         "Echa el tomate frito y los garbanzos escurridos.",
         "Saltea 4 min más y sirve."
-      ]
+      ],
+      "foto": "garbanzos_calabacin.webp"
     },
     {
       "id": "revuelto_tofu",
@@ -329,7 +331,8 @@
         "Añade los champiñones y saltea 4 min a fuego fuerte.",
         "Incorpora el tofu, la cúrcuma y la sal.",
         "Saltea 4 min removiendo y sirve."
-      ]
+      ],
+      "foto": "revuelto_tofu.webp"
     },
     {
       "id": "tofu_plancha_pimientos",
@@ -407,7 +410,8 @@
         "Retíralos de la sartén.",
         "Marca el tofu 3 min por cada cara en la misma sartén.",
         "Sálalo, espolvorea el pimentón y sirve con los pimientos."
-      ]
+      ],
+      "foto": "tofu_plancha_pimientos.webp"
     },
     {
       "id": "arroz_verduras",
@@ -501,7 +505,8 @@
         "Echa los guisantes y el resto de la sal y saltea 3 min.",
         "Escurre el arroz, mézclalo con la verdura y sirve."
       ],
-      "nota_ratio": "arroz : agua = 1 : 2. El agua no va al carrito, por eso no aparece como ingrediente."
+      "nota_ratio": "arroz : agua = 1 : 2. El agua no va al carrito, por eso no aparece como ingrediente.",
+      "foto": "arroz_verduras.webp"
     },
     {
       "id": "alubias_maiz",
@@ -586,7 +591,8 @@
         "Pica el pimiento, el tomate y la cebolla en dados.",
         "Júntalo todo en una fuente.",
         "Aliña con el aceite, el vinagre y la sal y remueve."
-      ]
+      ],
+      "foto": "alubias_maiz.webp"
     }
   ]
 }

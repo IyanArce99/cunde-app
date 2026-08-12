@@ -165,7 +165,8 @@
         "Añade el tomate triturado y cuece 5 minutos.",
         "Devuelve el pollo, sala y tapa.",
         "Cuece a fuego bajo 20 minutos, hasta que la carne se separe del hueso."
-      ]
+      ],
+      "foto": "pollo_chilindron.webp"
     },
     {
       "id": "macarrones_pollo",
@@ -323,7 +324,8 @@
         "Añade los ajos laminados y el laurel. Baja el fuego.",
         "Echa el vinagre y deja evaporar 2 minutos.",
         "Fríe los pimientos aparte y sírvelos al lado."
-      ]
+      ],
+      "foto": "pollo_ajillo.webp"
     }
   ]
 }

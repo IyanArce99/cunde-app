@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../state/AppStateContext';
@@ -23,6 +23,16 @@ import { analitica } from '../lib/analitica';
 import { versionDePrecios } from '../data/motor';
 import './Compra.css';
 
+/**
+ * Qué semanas ya han contado su apertura de Compra, en esta sesión.
+ *
+ * Fuera del componente a propósito: dentro de un `useRef` se reiniciaría en
+ * cada montaje, que es exactamente lo que hay que evitar. Se vacía sola al
+ * cerrar la app, y una sesión nueva vuelve a contar — que es lo correcto: dos
+ * viajes al súper en días distintos sí son dos aperturas.
+ */
+const yaContadaLaCompra = new Set<number>();
+
 const Compra: React.FC = () => {
   const history = useHistory();
   const { estado, dispatch } = useAppState();
@@ -30,7 +40,48 @@ const Compra: React.FC = () => {
   const enLinea = useEnLinea();
   const [mostrarCierre, setMostrarCierre] = useState(false);
 
-  const onToggle = useCallback((id: string) => dispatch({ type: 'TOGGLE_ITEM', id }), [dispatch]);
+  /**
+   * ═══ ABRIR LA COMPRA · UNA VEZ POR MONTAJE ═══
+   *
+   * Es el tercer escalón del embudo: cuánta gente que genera una semana llega
+   * de verdad al supermercado con ella. Va en un efecto con `[]` porque lo que
+   * se cuenta es la visita, no cada repintado — y esta pantalla repinta en cada
+   * casilla marcada.
+   */
+  useEffect(() => {
+    /* Una vez por SEMANA y por sesión, no por montaje.
+       Sin el guardia salían dos eventos por visita —React monta dos veces en
+       desarrollo— y uno más cada vez que el usuario va y vuelve de la pestaña
+       Semana. Cinco idas y venidas en un mismo viaje al súper no son cinco
+       aperturas de la compra. */
+    if (yaContadaLaCompra.has(estado.contadores.semanaNumero)) return;
+    yaContadaLaCompra.add(estado.contadores.semanaNumero);
+    analitica('shopping_opened', {
+      screen: 'compra',
+      week_number: estado.contadores.semanaNumero,
+      items_total: estado.lista.length,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- una vez por visita
+  }, []);
+
+  /**
+   * El `dispatch` va PRIMERO y la analítica después, sin `await`: marcar una
+   * casilla no puede quedar detrás de nada. Si el sumidero se cayera, la
+   * casilla se marca igual.
+   *
+   * Aquí no viaja ni el nombre ni el SKU del producto: solo si se marcó o se
+   * desmarcó. Para saber si la lista se usa basta con contar, y el contenido de
+   * la compra de alguien no es asunto de una métrica.
+   */
+  const onToggle = useCallback((id: string) => {
+    const iba = estado.lista.find((i) => i.id === id)?.enElCarro ?? false;
+    dispatch({ type: 'TOGGLE_ITEM', id });
+    analitica(iba ? 'shopping_item_unchecked' : 'shopping_item_checked', {
+      screen: 'compra',
+      week_number: estado.contadores.semanaNumero,
+    });
+  }, [dispatch, estado.lista, estado.contadores.semanaNumero]);
+
   const onToggleLoTengo = useCallback((id: string) => dispatch({ type: 'TOGGLE_LO_TENGO', id }), [dispatch]);
 
   // Tres listas y no dos: lo que hay que comprar, lo que la app da por hecho
@@ -331,7 +382,21 @@ const Compra: React.FC = () => {
               </div>
             )}
 
-            <PrimaryButton onClick={() => setMostrarCierre(true)}>Cerrar la compra</PrimaryButton>
+            <PrimaryButton onClick={() => {
+              setMostrarCierre(true);
+              /* Abrir el cierre y completarlo son dos cosas: entre las dos está
+                 la gente que abre la hoja y no llega a meter el ticket, que es
+                 la fuga que interesa ver. */
+              analitica('checkout_opened', {
+                screen: 'compra',
+                week_number: estado.contadores.semanaNumero,
+                items_checked: lista.filter((i) => i.enElCarro).length,
+                items_total: lista.length,
+              });
+            }}
+            >
+              Cerrar la compra
+            </PrimaryButton>
           </div>
         </div>
 

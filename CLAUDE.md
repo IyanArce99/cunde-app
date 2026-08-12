@@ -189,19 +189,33 @@ cuentas. Con 46 € sí"* + deslizador ya puesto en 46.
 
 ## Estado actual
 
-Hecho:
-- Maquetas de UI y especificación de UX completas.
-- Componentes `Semana` y `Compra` con datos falsos que tienen la **forma real**
-  del backend (`"Bandeja 700 g"`, no `"300 g de pollo"`).
-- Hook `useContador` para la animación de cifras.
-- Script `extraer.js` para el catálogo de Mercadona — **sin probar contra la
-  API real**. Los nombres de campo salen de documentación de febrero 2026.
+> **El detalle vive en [`docs/ESTADO_ACTUAL.md`](docs/ESTADO_ACTUAL.md).** Esta
+> sección se queda vieja sola; ese documento se reescribe.
+>
+> Aquí decía que solo había maquetas y datos falsos, y que faltaban el catálogo,
+> Supabase y el motor. Eso era cierto el 28 de julio.
 
-Siguiente:
-1. Ejecutar `extraer.js` y corregir `normalizar()` con los campos reales.
-2. Esquema en Supabase con los campos verificados.
-3. 30 recetas normalizadas y mapeadas a SKUs.
-4. Motor de menús.
+A 11 de agosto de 2026: motor determinista, catálogo real de Mercadona con 151
+recetas y 117 SKU, precios actualizables sin publicar en Play Store, 126 recetas
+con foto (100% de los platos que el motor sirve) y 304 tests en verde.
+
+### Analítica
+
+Conectada. Detalle en [`docs/analytics.md`](docs/analytics.md).
+
+La métrica principal **no** son descargas ni sesiones: es **qué parte de la
+gente genera una segunda semana**, y luego una tercera y una cuarta. Por eso no
+existen eventos `week_2_started`: la semana va como columna en `week_generated`.
+
+Reglas que no se negocian:
+- **Ningún componente conoce Supabase.** Se emite con `analitica(...)`; el único
+  fichero que sabe a dónde va es `lib/analitica-supabase.ts`. Hay un test
+  estructural que lo impide.
+- **La analítica nunca bloquea al usuario.** `dispatch` primero, evento después,
+  sin `await`. Si el sumidero se cae, la app funciona igual.
+- **Cola offline obligatoria**: la pantalla Compra se usa sin cobertura.
+- **Nunca** importes exactos, alergias concretas, nombres de extras ni texto
+  libre del usuario. Tramos y booleanos.
 
 ---
 

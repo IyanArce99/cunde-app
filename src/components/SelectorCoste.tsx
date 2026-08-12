@@ -5,8 +5,12 @@ import './SelectorCoste.css';
 export interface OpcionCoste<T extends string> {
   valor: T;
   label: string;
-  /** Una línea, sin adjetivos: qué obtienes. */
-  nota: string;
+  /**
+   * Una línea, sin adjetivos: qué obtienes. Opcional — el selector de proteína
+   * las quitó porque a tres columnas descuadraban las alturas y porque
+   * prometían un calendario («carne 3 días») que el motor no firma.
+   */
+  nota?: string;
 }
 
 interface SelectorCosteProps<T extends string> {
@@ -96,7 +100,10 @@ function SelectorCoste<T extends string>({
             disabled={!!coste && !coste.disponible}
           >
             <span className="selcoste__label">{o.label}</span>
-            <span className="selcoste__nota">{o.nota}</span>
+            {/* Sin nota, ni el hueco: un `<span>` vacío deja su altura de línea
+                y las tarjetas vuelven a descuadrarse, que es lo que se venía a
+                arreglar. */}
+            {o.nota && <span className="selcoste__nota">{o.nota}</span>}
             {lineas && (
               <>
                 <span className="selcoste__principal">{lineas.principal}</span>

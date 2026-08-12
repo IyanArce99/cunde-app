@@ -8,10 +8,32 @@
   margin-top: 14px;
 }
 
+/**
+ * COLUMNAS IGUALES, NO AL ANCHO DEL TEXTO.
+ *
+ * Era `flex` con `flex-wrap`, así que cada píldora medía lo que medía su
+ * palabra: «Sin postre» salía estrecha y «En cada comida» ancha, y la fila
+ * quedaba descuadrada. Con dos opciones se nota mucho porque no hay nada más
+ * en la línea que disimule.
+ *
+ * En rejilla, las opciones de una misma pregunta pesan lo mismo — que además
+ * es lo correcto: son alternativas equivalentes, no una principal y una
+ * secundaria.
+ */
 .ajustes__fila-pill {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 8px;
+}
+
+/* Cuando la píldora es de una sola línea, el texto va centrado: alineado a la
+   izquierda dentro de una caja que ya no se ajusta a él deja un hueco a la
+   derecha que parece un error de maquetación. Las de dos líneas (etiqueta +
+   meta) siguen a la izquierda, que es donde se leen. */
+.ajustes__fila-pill--centrado .ajustes__pill {
+  align-items: center;
+  text-align: center;
 }
 
 .ajustes__pill {

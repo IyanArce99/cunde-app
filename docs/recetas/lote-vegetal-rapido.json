@@ -154,7 +154,8 @@
         "Escurre la soja, échala a la sartén y saltéala 3 minutos.",
         "Aparta del fuego, añade el pimentón y remueve 20 segundos.",
         "Incorpora las lentejas escurridas y sal, y calienta 3 minutos."
-      ]
+      ],
+      "foto": "lentejas_salteadas_soja.webp"
     },
     {
       "id": "arroz_salteado_soja_guisantes",
@@ -238,7 +239,8 @@
         "Saltea la cebolla y la zanahoria en dados pequeños con el aceite.",
         "Añade la soja y dórala 3 minutos a fuego vivo.",
         "Echa el arroz y los guisantes y saltea 3 minutos más, removiendo."
-      ]
+      ],
+      "foto": "arroz_salteado_soja_guisantes.webp"
     },
     {
       "id": "huevos_al_plato_alubias",
