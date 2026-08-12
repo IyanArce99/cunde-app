@@ -16,6 +16,7 @@
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { cambiosUsados } from '../lib/premium';
 import type { AppState } from './types';
 
 /** Un v12 con todo lo que un usuario de verdad tendría dentro. */
@@ -91,6 +92,61 @@ describe('migrar de una versión anterior', () => {
   it('la clave vieja NO se borra: si hay que volver atrás, sigue ahí', async () => {
     await cargarCon('cunde:estado:v12', V12);
     expect(window.localStorage.getItem('cunde:estado:v12')).toBeTruthy();
+  });
+});
+
+/**
+ * ═══ v16 · EL CONTADOR DE CAMBIOS DE CUNDE+ ═══
+ *
+ * La migración que importa aquí no es de datos: es de dinero. Quien ya tenía la
+ * app instalada no puede aparecer con los cambios gastados ni, al revés, con
+ * una suscripción que nunca compró.
+ */
+describe('migrar a v16 (Cunde+)', () => {
+  /** v15 = todo lo de v12 más las fechas, y sin `cambiosDePlato`. */
+  const V15 = { ...V12, perfil: { ...V12.perfil, fechaInicioSemana: '2026-08-03' } };
+
+  it('quien viene de v15 entra con cero cambios usados', async () => {
+    const e = await cargarCon('cunde:estado:v15', V15);
+    expect(e.cambiosDePlato).toEqual({ semana: 0, usados: 0 });
+    // Y no `undefined`: el reductor hace `estado.cambiosDePlato.semana` a pelo.
+    expect(e.cambiosDePlato.semana).toBe(0);
+  });
+
+  it('la semana 0 de fábrica no choca con ninguna semana real', async () => {
+    // Está en la semana 7 y el contador dice 0 → cero usados sin lógica extra.
+    const e = await cargarCon('cunde:estado:v15', V15);
+    expect(e.contadores.semanaNumero).toBe(7);
+    expect(cambiosUsados(e, e.contadores.semanaNumero)).toBe(0);
+  });
+
+  it('un contador corrupto no rompe el cambio de plato', async () => {
+    // `null` guardado por lo que sea: el reductor reventaría al leer `.semana`.
+    for (const basura of [null, 'dos', { semana: 3 }, { semana: 1, usados: -4 }]) {
+      const e = await cargarCon('cunde:estado:v16', { ...V15, cambiosDePlato: basura });
+      expect(e.cambiosDePlato).toEqual({ semana: 0, usados: 0 });
+    }
+  });
+
+  it('un contador bueno se conserva: cerrar la app no regala cambios', async () => {
+    const e = await cargarCon('cunde:estado:v16', { ...V15, cambiosDePlato: { semana: 7, usados: 2 } });
+    expect(cambiosUsados(e, 7)).toBe(2);
+  });
+
+  /**
+   * `'año'` es un valor que ya no se vende —los planes son semana, mes y de por
+   * vida— pero está guardado en la app de quien lo compró. Si `Suscripcion`
+   * dejara de admitirlo, esa persona perdería lo que pagó.
+   */
+  it('un plan que ya no se vende sigue dando Cunde+', async () => {
+    const e = await cargarCon('cunde:estado:v15', V15);
+    expect(e.suscripcion).toBe('año');
+    expect(e.suscripcion).not.toBeNull();
+  });
+
+  it('quien nunca pagó no aparece con suscripción', async () => {
+    const e = await cargarCon('cunde:estado:v15', { ...V15, suscripcion: null, huboSuscripcion: false });
+    expect(e.suscripcion).toBeNull();
   });
 });
 

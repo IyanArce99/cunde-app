@@ -67,12 +67,21 @@ export const MURO_ACTIVO = false;
  * delante, cero fricción, y un usuario que ya no se puede ir— no de ingreso
  * recurrente. Si lo que se busca es recurrencia, este es el número a subir.
  */
+/**
+ * ═══ `hogar` SE FUE ═══
+ *
+ * Estaba definido a 39,99 € «preparado para cuando exista la lista compartida».
+ * Esa lista no existe, así que lo único que añadía sobre el plan normal era
+ * nada: habría sido cobrar 10 € de más por el mismo producto.
+ *
+ * Y con Cunde+ como concepto único —tres formas de pagar, las mismas funciones—
+ * un cuarto plan que da lo mismo no tiene sitio. Cuando la lista compartida
+ * exista será una función de Cunde+, no otro plan.
+ */
 export const PRECIOS = {
   semana: 1.49,
   mes: 3.99,
   deporvida: 29.99,
-  /** Preparado. No se ofrece hasta que exista la lista compartida. */
-  hogar: 39.99,
 } as const;
 
 /**
@@ -92,17 +101,47 @@ export const AL_ANO = {
 } as const;
 
 /** Identificadores de producto en RevenueCat. Los mismos en las dos tiendas. */
+/**
+ * ═══ IDENTIFICADORES DE PRODUCTO EN LAS TIENDAS ═══
+ *
+ * Llevan `plus` en el nombre porque lo que se compra es Cunde+, no «Cunde». La
+ * app gratis no es una versión recortada: es Cunde entero resolviendo su
+ * promesa. Estos tres solo añaden personalización.
+ *
+ * Se renombraron el 11 ago (antes `cunde_semanal`, `cunde_mensual`,
+ * `cunde_de_por_vida`). No hay migración que hacer: no había ninguno dado de
+ * alta todavía en Play Console.
+ *
+ * Los tres tienen que conceder el MISMO entitlement. Ver `compras.ts`.
+ */
 export const PRODUCTOS = {
-  semana: 'cunde_semanal',
-  mes: 'cunde_mensual',
-  /* En las tiendas es un producto NO consumible, no una suscripción. Hay que
-     darlo de alta así en App Store Connect y Play Console, o RevenueCat no
-     sabrá que no caduca. */
-  deporvida: 'cunde_de_por_vida',
-  hogar: 'cunde_hogar_anual',
+  semana: 'cunde_plus_weekly',
+  mes: 'cunde_plus_monthly',
+  /* NO consumible, no suscripción. Hay que darlo de alta así en Play Console y
+     App Store Connect, o RevenueCat no sabrá que no caduca. */
+  deporvida: 'cunde_plus_lifetime',
 } as const;
 
 export type Plan = keyof typeof PRECIOS;
+
+/**
+ * ═══ DOS VOCABULARIOS PARA LO MISMO, Y EL PUENTE ENTRE ELLOS ═══
+ *
+ * `Suscripcion` (lo que se guarda en el estado) dice `'de-por-vida'`, con
+ * guiones, porque se serializa a `localStorage` y se lee en el reductor.
+ * `Plan` (lo que indexa precios y productos) dice `'deporvida'`, porque es una
+ * clave de objeto.
+ *
+ * Traducir eso a ojo en cada sitio es exactamente cómo se acaba comprando el
+ * producto equivocado — ya pasó una vez con una cadena de ternarios que
+ * terminaba en `: PRODUCTOS.hogar`. Con este mapa, añadir un plan a
+ * `Suscripcion` sin darle producto es un error de compilación.
+ */
+export const PRODUCTO_DE: Record<'semana' | 'mes' | 'de-por-vida', Plan> = {
+  semana: 'semana',
+  mes: 'mes',
+  'de-por-vida': 'deporvida',
+};
 
 /**
  * ═══ QUÉ SE CAPA ═══
@@ -115,19 +154,29 @@ export type Plan = keyof typeof PRECIOS;
  *     conversión — cobrarlos es cobrar por lo único que nos dice quién va a
  *     pagar. Y la regla 5 dice que la app absorbe el fallo del martes: cobrar
  *     por rehacer el martes es cobrar por cumplir nuestra propia promesa.
- *   · Los tres niveles de proteína. Es una preferencia dietética, y ninguno de
- *     los tres es "el bueno" que se pueda vender aparte.
+ *   · Proteína BÁSICA y NORMAL. La ALTA pasó a Cunde+ el 12 ago 2026, por
+ *     decisión de producto. Ver `lib/premium.ts`, que es donde vive la regla.
  *
- *     Aquí ponía que "alta le cuesta MÁS dinero al usuario, así que no hay nada
- *     premium ahí". Es falso y estaba sosteniendo esta decisión: medido sobre
- *     48 combinaciones, el precio solo sube al subir de nivel en 13 (27%), y
- *     hay casos que van al revés de largo — una persona con 65 € y poca
- *     variedad paga 41,05 € en «básica» y 30,94 € en «alta».
+ *     ═══ AQUÍ DECÍA LO CONTRARIO, Y EL ARGUMENTO SIGUE EN PIE ═══
  *
- *     La conclusión no cambia, pero el motivo sí, y era el motivo el que
- *     importaba: no se cobra porque cobrar por comer legumbre en vez de carne
- *     es cobrar por una dieta, no por una función. Si algún día alguien busca
- *     "lo caro" para ponerlo detrás del muro, que no se apoye en este dato.
+ *     Este párrafo decía que los tres niveles van gratis porque "cobrar por
+ *     comer legumbre en vez de carne es cobrar por una dieta, no por una
+ *     función". Se deja escrito porque no se ha refutado: es el mejor argumento
+ *     que hay contra la decisión que el código implementa ahora, y quien la
+ *     revise merece leerlo antes que la conclusión.
+ *
+ *     Lo que sí quedó refutado es el dato que antes lo sostenía. Ponía que
+ *     "alta le cuesta MÁS dinero al usuario, así que no hay nada premium ahí":
+ *     medido sobre 48 combinaciones el precio solo sube al subir de nivel en 13
+ *     (27%), y hay casos que van al revés de largo — con 65 € y poca variedad,
+ *     41,05 € en básica contra 30,94 € en alta. O sea que alta no es "lo caro",
+ *     y si algún día alguien busca qué poner detrás del muro, que no se apoye
+ *     en ese dato.
+ *
+ *     La frontera que NO se mueve, y que no depende de esta decisión: alergias,
+ *     intolerancias y dietas por exclusión son gratis para siempre. Alta no es
+ *     ninguna de esas cosas —nadie se hace daño comiendo menos proteína— y ese
+ *     es el único motivo por el que se puede cobrar sin cruzar la línea.
  *   · El selector de semana ya arreglado.
  *   · Cerrar la semana con el ticket.
  *   · Memoria de UNA semana: no te repite la anterior. Sin esto el motor cicla
@@ -174,6 +223,24 @@ export const SEMANAS_DE_DESPENSA_GRATIS = 1;
  * es la SEGUNDA tanda: "ver más platos" pide dos más si hay suscripción y abre
  * el muro si no la hay. Así el tope de una es visible desde hoy —no depende de
  * la bandera— y lo único que la bandera enciende es la puerta de pago.
+ *
+ * ═══ OJO: HAY UNA SEGUNDA PUERTA SOBRE LA MISMA ACCIÓN ═══
+ *
+ * Esta constante limita cuántas alternativas se VEN por hueco.
+ * `CAMBIOS_GRATIS_POR_SEMANA` (lib/premium.ts) limita cuántas se APLICAN por
+ * semana. Son dos cosas distintas y las dos están activas, así que un usuario
+ * sin Cunde+ y con el muro encendido ve una alternativa por hueco y puede
+ * aplicar dos en toda la semana.
+ *
+ * Se documenta junto porque leyendo un fichero solo no se ve, y porque es la
+ * combinación —no cada límite por separado— la que decide si el plan gratuito
+ * se siente completo o capado. Si hay que aflojar, aflojar UNA: subir
+ * ALTERNATIVAS_GRATIS a 2 da a elegir; subir CAMBIOS_GRATIS_POR_SEMANA da más
+ * intentos. No son intercambiables.
+ *
+ * Lo que NINGUNA de las dos toca: `RETOCAR_HUECO` —"bájame el precio" y "no
+ * cocino este día"— sigue gratis y sin límite. Ahí está la regla 5 del
+ * proyecto, y por eso el martes roto se puede arreglar siempre.
  *
  * De paso sale gratis en rendimiento: dos candidatos menos por hoja abierta son
  * 70 ms menos de motor cada vez que alguien toca una comida.

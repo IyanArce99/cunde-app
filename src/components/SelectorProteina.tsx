@@ -76,14 +76,42 @@ const SelectorProteina: React.FC<{
   /** Los trae la hoja ya calculados, o null mientras el motor trabaja. */
   costes: Record<NivelProteina, CosteOpcion> | null;
   onCambiar: (v: NivelProteina) => void;
-}> = ({ ctx, costes, onCambiar }) => (
+  /**
+   * Si el usuario tiene Cunde+. Alta lo requiere.
+   *
+   * Entra como prop y no se consulta aquí dentro: este componente no conoce el
+   * estado global, y así se puede pintar en cualquier sitio —incluida la
+   * landing— sin arrastrar el contexto entero.
+   */
+  tienePlus?: boolean;
+  /** Se llama al tocar Alta sin tener Cunde+. Abre el muro; NO aplica nada. */
+  onPideAlta?: () => void;
+}> = ({ ctx, costes, onCambiar, tienePlus = true, onPideAlta }) => (
   <>
+    {/**
+      * ═══ ALTA SE VE SIEMPRE, TAMBIÉN SIN CUNDE+ ═══
+      *
+      * No se oculta ni se deshabilita. Un nivel escondido no se puede desear, y
+      * uno que desaparece al no pagar hace pensar que la app está rota.
+      *
+      * Se toca, y al tocarla sale el muro explicando qué hace. Lo que NO pasa
+      * es que se aplique el ajuste: si se aplicara y luego apareciera el muro,
+      * cerrar el muro dejaría la semana en un estado que el usuario no ha
+      * comprado. Ver `AjustesSemana`.
+      *
+      * La marca es un «CUNDE+» pequeño al lado de la etiqueta, en tinta. Sin
+      * candado, sin corona, sin dorado: es una palabra, y esta app escribe.
+      */}
     <SelectorCoste
       opciones={OPCIONES}
       costes={costes}
       valor={ctx.proteina}
-      onCambiar={onCambiar}
+      onCambiar={(v) => {
+        if (v === 'alta' && !tienePlus) { onPideAlta?.(); return; }
+        onCambiar(v);
+      }}
       soloEtiqueta
+      marcadas={tienePlus ? undefined : { alta: 'CUNDE+' }}
     />
     <p className="selcoste__consecuencia">{CONSECUENCIA[ctx.proteina]}</p>
   </>

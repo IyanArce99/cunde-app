@@ -31,6 +31,35 @@ export type EventoAnalitica =
    * sobre un solo evento. Un evento por semana sería la misma información
    * escrita tres veces y con tres sitios donde equivocarse.
    */
+  /**
+   * ═══ CUNDE+ · EL EMBUDO DE CONVERSIÓN ═══
+   *
+   * Lo que hay que poder contestar con SQL:
+   *   · cuántos llegan al límite de cambios, y qué parte de ellos compra
+   *   · cuántos intentan proteína alta, y qué parte compra
+   *   · conversión por ORIGEN: no es lo mismo el muro que sale por cambios que
+   *     el que sale por proteína, y la diferencia decide dónde apretar
+   *   · reparto entre semanal, mensual y de por vida
+   *
+   * `premium_feature_attempted` cubre cualquier función de pago que alguien
+   * intente sin tenerla — hoy solo proteína alta, mañana lo que venga. Por eso
+   * no hay un `high_protein_attempted`: sería el mismo evento con otro nombre.
+   *
+   * El intento de tercer cambio NO lleva evento propio: se deduce de
+   * `dish_change_limit_reached` + `paywall_opened` con `source: cambios_plato`.
+   */
+  | 'paywall_opened'
+  | 'paywall_closed'
+  | 'paywall_plan_selected'
+  | 'purchase_started'
+  | 'purchase_completed'
+  | 'purchase_cancelled'
+  | 'purchase_failed'
+  | 'restore_purchases_started'
+  | 'restore_purchases_completed'
+  | 'dish_change_used'
+  | 'dish_change_limit_reached'
+  | 'premium_feature_attempted'
   | 'app_opened'
   | 'onboarding_started'
   | 'onboarding_completed'
@@ -96,6 +125,20 @@ export interface PropsAnalitica {
   variety?: string;
   protein?: string;
 
+  /* ═══ CUNDE+ ═══
+     Nunca importes, ni identificadores de transacción, ni recibos, ni tokens de
+     Google o Apple. Para analítica de producto basta con QUÉ plan y DE DÓNDE
+     venía; el dinero lo lleva RevenueCat, que es su trabajo. */
+  plan?: 'semana' | 'mes' | 'de-por-vida';
+  /** Qué función de pago se intentó usar sin tenerla. */
+  feature?: 'cambios_ilimitados' | 'proteina_alta';
+  /** Si el usuario ya tiene Cunde+ en el momento del evento. */
+  is_plus?: boolean;
+  /** Cuántos cambios gratis llevaba gastados. Mide dónde está el techo real. */
+  free_changes_used?: number;
+  /** Si «restaurar compras» encontró algo. */
+  restored?: boolean;
+
   dish_id?: string;
   dish_type?: 'receta' | 'ensamblaje';
   preference?: 'me_gusta' | 'neutral' | 'no_quiero';
@@ -104,11 +147,16 @@ export interface PropsAnalitica {
   total_disliked_dishes?: number;
   total_liked_dishes?: number;
   /* Extras. NUNCA el nombre: el usuario escribe ahí lo que quiere y eso es
-     suyo. Salen cuentas, no contenido. */
+     suyo. Salen cuentas, no contenido.
+     Y NUNCA el importe exacto, que es lo que estas dos hacían: `price` llevaba
+     los euros tal cual los teclea el usuario y `extras_total` la suma con dos
+     decimales. La regla de arriba —tramos y booleanos— no tiene excepción para
+     los extras, y la política de privacidad promete literalmente que no se
+     envían importes exactos. Ahora son tramos. Ver `tramoImporte`. */
   has_price?: boolean;
-  price?: number;
+  price_bucket?: string;
   extras_count?: number;
-  extras_total?: number;
+  extras_total_bucket?: string;
   unpriced_extras_count?: number;
   /* Fecha de inicio. Se manda el DÍA DE LA SEMANA y la distancia en días, no
      la fecha: para saber si la gente empieza en lunes o en viernes no hace
@@ -116,7 +164,21 @@ export interface PropsAnalitica {
   days_from_today?: number;
   previous_start_day?: string;
   new_start_day?: string;
-  source?: 'hoy' | 'manana' | 'lunes' | 'elegida' | 'ajustes';
+  /**
+   * De dónde vino la acción.
+   *
+   * Un solo campo para las dos familias que lo necesitan —el selector de fecha
+   * de inicio y el muro de pago— porque preguntan lo mismo: «¿desde qué sitio
+   * llegó el usuario aquí?». Dos campos con el mismo significado y distinto
+   * nombre habrían obligado a hacer dos `group by` para responder una pregunta.
+   *
+   * Los valores no se solapan, así que en SQL basta con filtrar por evento.
+   */
+  source?:
+    /* selector de fecha de inicio */
+    | 'hoy' | 'manana' | 'lunes' | 'elegida' | 'ajustes'
+    /* muro de pago · ver OrigenMuro en MuroDePago.tsx */
+    | 'cambios_plato' | 'proteina_alta' | 'semana_2';
   /**
    * ═══ COMPARTIR ═══
    *

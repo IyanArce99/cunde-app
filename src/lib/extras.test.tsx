@@ -15,6 +15,8 @@ import {
 } from './extras';
 import type { ExtraCompra } from './extras';
 import { analitica, registrarSumideroAnalitica } from './analitica';
+import type { PropsAnalitica } from './analitica';
+import { tramoImporte } from './analitica-buckets';
 import { totalLista } from './derive';
 import type { ItemLista } from '../state/types';
 import FilaExtra from '../components/FilaExtra';
@@ -335,16 +337,62 @@ describe('la hoja de corregir', () => {
 // ---------------------------------------------------------------------------
 
 describe('la analítica de extras', () => {
+  /**
+   * ═══ ESTE TEST PROBABA LA MITAD DEL PROBLEMA ═══
+   *
+   * Comprobaba que no se enviara el NOMBRE del extra, y pasaba. Mientras tanto
+   * se enviaban `price: 4.25` y `extras_total: 8.3` —los euros exactos— contra
+   * la regla del proyecto y contra lo que la política de privacidad promete por
+   * escrito. El propio test los tenía dentro, escritos a mano, y los daba por
+   * buenos porque solo miraba las claves prohibidas.
+   *
+   * Ahora comprueba las dos cosas: ni contenido del usuario, ni importes.
+   */
+  const emitir = (props: PropsAnalitica) => {
+    const visto: { evento: string; props: PropsAnalitica }[] = [];
+    registrarSumideroAnalitica((evento, p) => visto.push({ evento, props: p }));
+    analitica('extra_item_added', props);
+    return visto[0].props;
+  };
+
   it('NUNCA lleva el nombre: ahí el usuario escribe lo que quiere y es suyo', () => {
-    const visto: { evento: string; props: object }[] = [];
-    registrarSumideroAnalitica((evento, props) => visto.push({ evento, props }));
-    analitica('extra_item_added', {
-      has_price: true, price: 4.25, extras_count: 3, extras_total: 8.3,
-      unpriced_extras_count: 1, week_number: 2,
+    const props = emitir({
+      has_price: true, price_bucket: '3-6', extras_count: 3,
+      extras_total_bucket: '6-12', unpriced_extras_count: 1, week_number: 2,
     });
-    const claves = Object.keys(visto[0].props);
-    for (const prohibida of ['nombre', 'name', 'item_name', 'label']) {
+    const claves = Object.keys(props);
+    for (const prohibida of ['nombre', 'name', 'item_name', 'label', 'text']) {
       expect(claves).not.toContain(prohibida);
     }
+  });
+
+  it('NUNCA lleva importes: ni el del extra ni la suma', () => {
+    const claves = Object.keys(emitir({
+      has_price: true, price_bucket: '3-6', extras_count: 3,
+      extras_total_bucket: '6-12', unpriced_extras_count: 1, week_number: 2,
+    }));
+    for (const prohibida of ['price', 'extras_total', 'amount', 'total', 'importe']) {
+      expect(claves).not.toContain(prohibida);
+    }
+  });
+
+  /**
+   * El candado de verdad, y el que habría cazado esto: un importe en euros lleva
+   * céntimos, así que ninguna propiedad numérica puede tener decimales. Los que
+   * sí son números aquí —cuántos extras, cuántos sin precio, la semana— son
+   * cuentas enteras por definición.
+   */
+  it('ninguna propiedad numérica lleva céntimos', () => {
+    const props = emitir({
+      has_price: true, price_bucket: tramoImporte(4.25), extras_count: 3,
+      extras_total_bucket: tramoImporte(8.3), unpriced_extras_count: 1, week_number: 2,
+    });
+    for (const [clave, valor] of Object.entries(props)) {
+      if (typeof valor !== 'number') continue;
+      expect(Number.isInteger(valor), `${clave} = ${valor} lleva decimales`).toBe(true);
+    }
+    // Y el tramo dice lo que tiene que decir, sin decir cuánto.
+    expect(props.price_bucket).toBe('3-6');
+    expect(props.extras_total_bucket).toBe('6-12');
   });
 });

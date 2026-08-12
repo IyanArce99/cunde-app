@@ -73,6 +73,15 @@
   text-wrap: pretty;
 }
 
+/* Dos párrafos seguidos se tocaban: el único margen superior lo daba
+   `h2 + p`, así que el segundo párrafo de cada apartado quedaba pegado al
+   primero. No se veía porque la política antigua traía casi un párrafo por
+   apartado; con textos legales de varios, se ve en todos.
+   `p + p` y no `margin-top` general para no pelearse con `h2 + p`. */
+.legal p + p {
+  margin-top: 14px;
+}
+
 /* --- La lista del apartado 3 -----------------------------------------------
    `<dl>` y no `<div>`: son pares término/definición, y así un lector de
    pantalla anuncia «4 elementos» y lee cada dato con su explicación. */

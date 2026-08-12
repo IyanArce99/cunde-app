@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Comensales, ComidasPref, Esfuerzo, NivelProteina, Perfil, Preferencias, Variedad } from '../state/types';
+import type { Existencias } from '../motor/carrito.ts';
+import type { PreferenciasPlatos } from '../lib/preferencias';
 import { costesDeProteina, costesDeVariedad } from '../lib/derive';
 import type { Contexto } from '../lib/derive';
 import type { CosteOpcion } from '../motor/seleccionar.ts';
@@ -57,6 +59,26 @@ interface AjustesSemanaProps {
   inicioSemana: FechaDia;
   /** Abre el selector de fecha. Lo abre la pantalla, como los bloqueados. */
   onAbrirInicio: () => void;
+
+  /**
+   * ═══ EL ESTADO DE LA CUENTA · SIN ESTO LA HOJA MIENTE ═══
+   *
+   * Son los cuatro que `regenerar()` pasa al motor. La hoja no los recibía, así
+   * que estimaba un problema distinto: 63,14 € contra los 47,29 que la app
+   * monta de verdad con dos semanas de historial.
+   *
+   * No son opcionales. Ponerlos con valor por defecto habría dejado que un
+   * `<AjustesSemana>` nuevo se olvidara de pasarlos y volviera el fallo sin que
+   * nada se quejara.
+   */
+  /** Si el usuario tiene Cunde+. Solo lo usa el selector de proteína. */
+  tienePlus: boolean;
+  /** Se llama al tocar Proteína alta sin Cunde+. Cierra la hoja y abre el muro. */
+  onPideAlta: () => void;
+  semanaNumero: number;
+  historial: string[][];
+  despensa: Existencias;
+  preferenciasPlatos: PreferenciasPlatos;
 }
 
 /**
@@ -86,6 +108,7 @@ interface AjustesSemanaProps {
 const AjustesSemana: React.FC<AjustesSemanaProps> = ({
   preferenciasActuales, perfil, origen, cestaActual, onGuardar, onCerrar, bloqueados, onAbrirBloqueados,
   inicioSemana, onAbrirInicio,
+  semanaNumero, historial, despensa, preferenciasPlatos, tienePlus, onPideAlta,
 }) => {
   const [comidas, setComidas] = useState(preferenciasActuales.comidas);
   const [esfuerzo, setEsfuerzo] = useState(preferenciasActuales.esfuerzo);
@@ -144,6 +167,17 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
     return () => clearTimeout(id);
   }, [tope]);
 
+  /**
+   * ═══ EL CONTEXTO LLEVA TAMBIÉN EL ESTADO DE LA CUENTA ═══
+   *
+   * Sin estos cuatro, la hoja estimaba un problema distinto del que resuelve
+   * `regenerar()`: enseñaba 63,14 € para una semana que la app monta por 47,29.
+   * Quince euros de desfase, y la misma cifra pasara lo que pasara en la cuenta
+   * — porque no sabía qué había en casa ni qué se comió la semana pasada.
+   *
+   * Se notaba al abrir la hoja sin tocar nada: aparecía un «sube 2,37 €» que el
+   * usuario no había provocado. Ver `lib/derive.ts:Contexto`.
+   */
   const ctx: Contexto = {
     comensales,
     comidas,
@@ -153,6 +187,14 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
     variedad,
     proteina,
     postre,
+    semanaNumero,
+    historial,
+    despensa,
+    preferenciasPlatos,
+    /* La fecha de inicio decide `ordenDias`, y de ahí en qué días caen los
+       huecos aprovechados. Sin ella la estimación reparte la semana distinto
+       de como la reparte la app. */
+    fechaInicioSemana: inicioSemana,
   };
 
   /**
@@ -240,12 +282,43 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
         comidas,
         esfuerzo,
         variedad,
-        /* En cuanto toca una de las tres semanas, deja de elegirla la app.
-           Sin esto, `regenerar` se la cambiaría por debajo la próxima vez que
-           moviera el tope o los comensales — y un ajuste que el usuario pone y
-           la app le quita por su cuenta es peor que uno mal puesto de salida.
-           Ver Preferencias.variedadElegida. */
-        variedadElegida: preferenciasActuales.variedadElegida || variedad !== preferenciasActuales.variedad,
+        /**
+         * ═══ GUARDAR AJUSTES ES ELEGIR LA VARIEDAD, SE HAYA TOCADO O NO ═══
+         *
+         * Aquí ponía `variedadElegida || variedad !== preferenciasActuales.variedad`:
+         * solo contaba como elegida si CAMBIABA. El comentario que lo acompañaba
+         * decía, con estas palabras, que «un ajuste que el usuario pone y la app
+         * le quita por su cuenta es peor que uno mal puesto de salida» — y era
+         * exactamente lo que provocaba.
+         *
+         * El fallo, reproducido en navegador y con el que arranca TODO usuario
+         * recién salido del onboarding (`variedadElegida: false`):
+         *
+         *   1. Abre Ajustes. La pantalla enseña «nunca repites plato» MARCADO.
+         *   2. Toca solo la proteína. Sigue marcado «nunca repites plato».
+         *   3. Pulsa Guardar → se guarda `variedad: 'poca'`. O sea «repites».
+         *
+         * Porque la variedad no había cambiado respecto a la anterior, esto
+         * dejaba `variedadElegida` en false, y entonces `regenerar` volvía a
+         * llamar a `variedadQueMenosDesperdicia` con la proteína NUEVA y se
+         * quedaba con la más barata, que ya no era la que el usuario tenía
+         * delante. La hoja enseñaba una cosa y guardaba la contraria.
+         *
+         * Ahora es `true` y punto: si has abierto la hoja, has visto las dos
+         * semanas con su precio, una marcada, y has pulsado «Guardar ajustes»,
+         * eso ES tu elección. No hace falta que la muevas para que cuente.
+         *
+         * Lo que se pierde: a quien abre Ajustes solo para mover el tope se le
+         * congela la variedad que tenía en pantalla, y la app deja de
+         * reoptimizársela sola. Es un precio pequeño y se paga a gusto —
+         * congelar lo que el usuario vio es predecible; cambiárselo por debajo
+         * después de que pulse Guardar no lo es, y era lo que pasaba.
+         *
+         * El automatismo sigue vivo donde tiene sentido: quien nunca abre
+         * Ajustes mantiene `variedadElegida: false` desde el onboarding y el
+         * motor le sigue eligiendo la que menos desperdicia.
+         */
+        variedadElegida: true,
         proteina,
         exclusiones,
         postre,
@@ -398,8 +471,27 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
           <span className="ajustes__rotulo">Variedad</span>
           <SelectorVariedad ctx={ctx} costes={costes?.variedad ?? null} onCambiar={setVariedad} />
 
+          {/**
+            * ═══ ALTA REQUIERE CUNDE+, Y NO SE APLICA AL TOCARLA ═══
+            *
+            * `onPideAlta` cierra esta hoja y abre el muro. El ajuste NO se
+            * toca: si se aplicara y luego saliera el muro, cerrar el muro
+            * dejaría la semana con proteína alta puesta sin haberla pagado —o,
+            * peor, habría que deshacerla, y deshacer un ajuste que el usuario
+            * ve aplicado es la clase de cosa que hace pensar que la app está
+            * rota.
+            *
+            * Al comprar, `Semana.tsx` retoma la intención y aplica Alta. Ver
+            * `pendiente` allí.
+            */}
           <span className="ajustes__rotulo">Proteína</span>
-          <SelectorProteina ctx={ctx} costes={costes?.proteina ?? null} onCambiar={setProteina} />
+          <SelectorProteina
+            ctx={ctx}
+            costes={costes?.proteina ?? null}
+            onCambiar={setProteina}
+            tienePlus={tienePlus}
+            onPideAlta={onPideAlta}
+          />
 
           {/* EL POSTRE VA EN ESTA CAPA, no detrás de la puerta, porque mueve
               dinero: entre 4 y 8 € a la semana según cuántos sean. Cualquier

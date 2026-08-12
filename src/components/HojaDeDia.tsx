@@ -25,6 +25,12 @@ interface HojaDeDiaProps {
   /** Qué más puede ir en este hueco. Vacío mientras el motor calcula. */
   alternativas: AlternativaParaApp[];
   onElegirAlternativa: (a: AlternativaParaApp) => void;
+  /**
+   * Cuántos cambios gratis quedan esta semana. `null` con Cunde+: no se cuenta,
+   * y por tanto no se enseña nada — quien ha pagado no necesita un recordatorio
+   * de que pagó en cada pantalla.
+   */
+  cambiosRestantes: number | null;
   /** Pide otra tanda al motor. Sin esto, el enlace no se pinta. */
   onVerMas?: () => void;
   /** Lo que el usuario tiene dicho de los platos. Para marcar la opción puesta. */
@@ -45,6 +51,7 @@ function tiempoDe(plato: Plato | null): string {
 
 const HojaDeDia: React.FC<HojaDeDiaProps> = ({
   dia, fecha, ranura, plato, comensales, exclusiones, alternativas, onElegirAlternativa, onVerMas,
+  cambiosRestantes,
   preferenciasPlatos, onValorar, onRetocar, onVerReceta, onCerrar,
 }) => {
   const n = numComensales(comensales);
@@ -160,7 +167,30 @@ const HojaDeDia: React.FC<HojaDeDiaProps> = ({
           devolver otra y el usuario habría elegido un precio que no recibe. */}
       {alternativas.length > 0 && (
         <>
-          <span className="hoja-dia__rotulo">Cambiar por</span>
+          {/**
+            * ═══ CUÁNTOS CAMBIOS QUEDAN · DISCRETO, NO UN CONTADOR ═══
+            *
+            * Va al lado del rótulo, en gris y a 12 px. No es una cuenta atrás ni
+            * un marcador: es la misma clase de nota que «25 min · 0,93 € la
+            * ración», que esta hoja ya tiene.
+            *
+            * Con Cunde+ no sale NADA. Nada de «ilimitado» ni de sellos: quien ha
+            * pagado no tiene que ver un recordatorio de que pagó en cada
+            * pantalla. Simplemente funciona.
+            *
+            * Y con cero restantes tampoco se enseña un aviso aquí: el usuario
+            * puede seguir mirando alternativas: lo que sale es el muro cuando
+            * elige una. Bloquear la lista antes de tiempo sería enseñarle un
+            * candado en vez de un producto.
+            */}
+          <span className="hoja-dia__rotulo">
+            Cambiar por
+            {cambiosRestantes !== null && cambiosRestantes > 0 && (
+              <span className="hoja-dia__cambios">
+                {cambiosRestantes === 1 ? 'te queda 1 cambio gratis' : `${cambiosRestantes} cambios gratis`}
+              </span>
+            )}
+          </span>
           <div className="hoja-dia__alternativas">
             {alternativas.map((a) => (
               <button

@@ -82,6 +82,64 @@
   margin-top: 14px;
 }
 
+/* El sello del recomendado. En tinta y minúsculas: no es una pegatina de
+   oferta, es una frase corta que dice cuál elegiríamos nosotros. Nada de
+   dorado, ni corona, ni "MÁS POPULAR" en mayúsculas — eso es lenguaje de
+   tienda de suscripciones y este producto se posiciona en contra. */
+.muro__plan-sello {
+  margin-top: 6px;
+  font: 500 10px/1 var(--font-body);
+  letter-spacing: 0.04em;
+  color: var(--azulete);
+}
+
+/* Qué ha intentado hacer el usuario, cuando arriba va su logro en euros. Sin
+   esta línea el muro aparece sin explicar por qué, y eso se lee como un peaje. */
+.muro__contexto {
+  margin-top: 14px;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: 0.06em;
+  color: var(--tinta);
+}
+
+/**
+ * RESTAURAR COMPRAS · discreto pero encontrable.
+ *
+ * Apple lo exige para aprobar la app. Y sin esto el plan de por vida es
+ * invendible: quien cambia de móvil no tendría forma de recuperar lo que pagó.
+ *
+ * Debajo de "seguir gratis" y más pequeño porque es una acción de rescate, no
+ * una opción del menú: la busca quien ya pagó, no quien está decidiendo.
+ */
+.muro__restaurar {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.muro__restaurar-boton {
+  min-height: var(--tap-min);
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  font: 400 13px/1 var(--font-body);
+  color: var(--gris);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.muro__restaurar-boton:disabled {
+  color: var(--pauta);
+  text-decoration: none;
+  cursor: default;
+}
+
+.muro__restaurar-aviso {
+  display: block;
+  margin-top: 6px;
+  font: 400 12px/1.4 var(--font-body);
+  color: var(--gris);
+}
+
 .muro__salida {
   margin-top: 16px;
   text-align: center;

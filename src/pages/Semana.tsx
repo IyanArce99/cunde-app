@@ -3,7 +3,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../state/AppStateContext';
 import { numComensales, platosDeSemana, ranurasVisibles } from '../state/types';
-import type { Plato, Ranura, SinCobertura } from '../state/types';
+import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
 import { eur, eurSinSimbolo } from '../lib/format';
 import { fechaDePosicion } from '../lib/fechas';
@@ -13,7 +13,7 @@ import { useContador } from '../hooks/useContador';
 import TopTabs from '../components/TopTabs';
 import PrimaryButton from '../components/PrimaryButton';
 import MuroDePago from '../components/MuroDePago';
-import { ALTERNATIVAS_GRATIS, ALTERNATIVAS_POR_TANDA, MURO_ACTIVO } from '../lib/suscripcion';
+import { ALTERNATIVAS_GRATIS, ALTERNATIVAS_POR_TANDA, MURO_ACTIVO, PRODUCTO_DE } from '../lib/suscripcion';
 import AjustesSemana from '../components/AjustesSemana';
 import TarjetaDia from '../components/TarjetaDia';
 import HojaDeDia from '../components/HojaDeDia';
@@ -27,6 +27,10 @@ import { rangoDeSemana } from '../lib/compartible';
 import type { DatosCompartibles } from '../lib/compartible';
 import { extrasSinPrecio, totalExtras } from '../lib/extras';
 import { analitica } from '../lib/analitica';
+import { accesoACambiarPlato, cambiosUsados, tieneCundePlus } from '../lib/premium';
+import { comprar, permisoSegunLaTienda, restaurarCompras } from '../lib/compras';
+import type { OrigenMuro } from '../components/MuroDePago';
+import type { SemanaParaApp } from '../data/motor';
 import './Semana.css';
 
 interface HuecoAbierto {
@@ -64,7 +68,7 @@ const Semana: React.FC = () => {
   const { estado, dispatch } = useAppState();
   const {
     perfil, preferencias, semana, lista, cierre, suscripcion, contadores, sinCobertura, salidaPresupuesto,
-    historial, despensa, deshacerCierre, preferenciasPlatos, extrasCompra,
+    historial, despensa, deshacerCierre, preferenciasPlatos, extrasCompra, cambiosDePlato,
   } = estado;
 
   /**
@@ -223,7 +227,22 @@ const Semana: React.FC = () => {
 
   /* El muro abierto a mano desde "ver más platos", que es distinto del que sale
      solo al entrar en la semana 2. */
-  const [muroPorPlatos, setMuroPorPlatos] = useState(false);
+  /**
+   * ═══ POR QUÉ SE ABRIÓ EL MURO, Y QUÉ HACER SI COMPRA ═══
+   *
+   * `muro` guarda el origen —decide el encabezado— y `null` significa cerrado.
+   * Sustituye al booleano anterior, que solo sabía «abierto por platos».
+   *
+   * `pendiente` es la intención que quedó a medias. Sin esto, quien compra
+   * desde el muro vuelve a la pantalla y tiene que buscar otra vez el botón que
+   * acaba de pulsar — que es la peor forma de estrenar algo que se acaba de
+   * pagar.
+   *
+   * Se guarda lo MÍNIMO para retomar: qué se quería hacer. No la acción entera
+   * ni una función, que no sobrevivirían a un remontaje.
+   */
+  const [muro, setMuro] = useState<OrigenMuro | null>(null);
+  const [pendiente, setPendiente] = useState<'proteina_alta' | null>(null);
   /* La lista de platos bloqueados. Se abre desde ajustes y desde el aviso de
      "no me salen las cuentas", así que vive aquí y no dentro de ninguna hoja. */
   const [verBloqueados, setVerBloqueados] = useState(false);
@@ -247,7 +266,7 @@ const Semana: React.FC = () => {
   const verMasPlatos = (() => {
     if (alternativas.length < cuantasAlt) return undefined;
     if (MURO_ACTIVO && suscripcion === null) {
-      return () => { setHuecoAbierto(null); setMuroPorPlatos(true); };
+      return () => { setHuecoAbierto(null); setMuro('cambios_plato'); };
     }
     return () => setCuantasAlt((n) => n + ALTERNATIVAS_POR_TANDA);
   })();
@@ -282,17 +301,116 @@ const Semana: React.FC = () => {
    * cerrarla deja la app funcionando.
    *
    * Eso además arregla el agujero que tenía: antes solo tapaba /semana y se
-   * llegaba a /compra y a /semana/variante escribiendo la URL. Ahora no hay
-   * nada que esquivar porque el bloqueo no está en el enrutador.
+   * llegaba a /compra escribiendo la URL. Ahora no hay nada que esquivar porque
+   * el bloqueo no está en el enrutador.
    *
    * Y sale APAGADO tras MURO_ACTIVO. Ver lib/suscripcion.ts.
    */
-  /* Dos puertas al mismo muro: la de la semana 2, que sale sola una vez por
-     semana, y la de "ver más platos", que la pide el usuario y por eso no
-     respeta el "seguir gratis" de esta semana — es una pregunta distinta. */
-  const mostrarMuro =
-    muroPorPlatos
+  /**
+   * Puertas al mismo muro. Las contextuales —las que abre el usuario al chocar
+   * con un límite— NO respetan el «seguir gratis» de esta semana: son una
+   * pregunta distinta de la que se contestó al abrirse solo.
+   */
+  const mostrarMuro = muro !== null
     || (MURO_ACTIVO && numeroSemana >= 2 && suscripcion === null && !yaVistoGratisEstaSemana);
+  const origenMuro: OrigenMuro = muro ?? 'semana_2';
+
+  /**
+   * ═══ EL LÍMITE DE CAMBIOS, EN UN SOLO SITIO ═══
+   *
+   * Ninguna pantalla escribe `if (!premium && usados >= 2)`: preguntan aquí, y
+   * la regla vive en `lib/premium.ts`.
+   */
+  const acceso = accesoACambiarPlato({ suscripcion, cambiosDePlato }, numeroSemana);
+
+  /**
+   * Cambiar un plato por otro. Es la ÚNICA acción que gasta un cambio.
+   *
+   * Si ya no quedan, no se cambia nada y sale el muro. El orden importa: primero
+   * se comprueba, después se actúa. Aplicar el cambio y luego enseñar el muro
+   * dejaría la semana en un estado que el usuario no ha comprado.
+   */
+  const pedirCambioDePlato = (semanaNueva: SemanaParaApp) => {
+    if (!acceso.puede) {
+      analitica('dish_change_limit_reached', {
+        week_number: numeroSemana,
+        free_changes_used: cambiosUsados({ cambiosDePlato }, numeroSemana),
+      });
+      setHuecoAbierto(null);
+      setMuro('cambios_plato');
+      return;
+    }
+    dispatch({ type: 'APLICAR_SEMANA', semana: semanaNueva });
+    analitica('dish_change_used', {
+      week_number: numeroSemana,
+      is_plus: tieneCundePlus({ suscripcion }),
+      free_changes_used: cambiosUsados({ cambiosDePlato }, numeroSemana) + 1,
+    });
+    setHuecoAbierto(null);
+  };
+
+  /**
+   * ═══ COMPRAR · Y RETOMAR LO QUE SE ESTABA HACIENDO ═══
+   *
+   * El estado premium NO lo decide esta función: lo decide la tienda. Aquí solo
+   * se refleja lo que RevenueCat contesta. Antes `SET_SUSCRIPCION` se
+   * despachaba con el plan elegido sin preguntar a nadie, así que abrir el muro
+   * y tocar un plan daba Cunde+ gratis para siempre.
+   *
+   * Y al terminar se retoma la intención: quien pulsó «Proteína alta» y compró
+   * se encuentra la proteína alta puesta, no el botón otra vez.
+   */
+  const comprarPlan = async (plan: Suscripcion) => {
+    if (plan === null || plan === 'año') return;
+    analitica('purchase_started', { plan, source: origenMuro });
+
+    const r = await comprar(PRODUCTO_DE[plan]);
+
+    if (r.estado === 'cancelada') {
+      /* Cambiar de idea no es un error. Se vuelve al muro y ya: ni aviso rojo,
+         ni «algo salió mal», que es lo que hace que la siguiente vez ni lo
+         intente. */
+      analitica('purchase_cancelled', { plan, source: origenMuro });
+      return;
+    }
+    if (r.estado === 'fallo') {
+      analitica('purchase_failed', { plan, source: origenMuro });
+      return;
+    }
+
+    analitica('purchase_completed', { plan, source: origenMuro });
+    dispatch({ type: 'SET_SUSCRIPCION', plan });
+    setMuro(null);
+
+    /* Y se retoma lo que se estaba haciendo. Una sola regeneración: el
+       despacho de abajo ya la provoca. */
+    if (pendiente === 'proteina_alta') {
+      dispatch({
+        type: 'SET_PREFERENCIAS',
+        preferencias: { ...preferencias, proteina: 'alta' },
+      });
+    }
+    setPendiente(null);
+  };
+
+  /**
+   * Restaurar. La llama el muro y le devuelve si había algo.
+   *
+   * Va aquí y no dentro del muro porque el muro no habla con la tienda: recibe
+   * un `onRestaurar` y pinta el resultado. Así se puede probar el componente
+   * sin RevenueCat.
+   */
+  const restaurar = async (): Promise<boolean> => {
+    const r = await restaurarCompras();
+    if (r.estado !== 'ok' || !r.tenia) return false;
+    /* No se sabe qué plan era —la tienda devuelve el permiso, no el producto—
+       y da igual: los tres dan lo mismo. Se marca el de por vida porque es el
+       único que no caduca, y si era una suscripción el chequeo de arranque la
+       corregirá en cuanto haya red. */
+    dispatch({ type: 'SET_SUSCRIPCION', plan: 'de-por-vida' });
+    setMuro(null);
+    return true;
+  };
 
   const proponerRetoque = (retoque: Retoque) => {
     if (!huecoAbierto) return;
@@ -639,6 +757,21 @@ const Semana: React.FC = () => {
             }}
             onCerrar={() => setMostrarAjustes(null)}
             bloqueados={cuentaPreferencias(preferenciasPlatos).bloqueados}
+            /* Lo mismo que `regenerar()` le pasa al motor. Sin esto la hoja
+               estima un problema distinto del que la app resuelve. */
+            semanaNumero={numeroSemana}
+            historial={historial}
+            despensa={despensa}
+            preferenciasPlatos={preferenciasPlatos}
+            tienePlus={tieneCundePlus({ suscripcion })}
+            /* Cierra la hoja y abre el muro. La proteína NO se aplica: si el
+               usuario cierra el muro tiene que quedarse donde estaba. */
+            onPideAlta={() => {
+              analitica('premium_feature_attempted', { feature: 'proteina_alta' });
+              setMostrarAjustes(null);
+              setPendiente('proteina_alta');
+              setMuro('proteina_alta');
+            }}
             inicioSemana={perfil.fechaInicioSemana}
             onAbrirInicio={() => { setMostrarAjustes(null); setVerInicio(true); analitica('week_start_date_picker_opened', { source: 'ajustes', week_number: numeroSemana }); }}
             /* Se cierra ajustes al abrir la lista: dos hojas apiladas sobre la
@@ -702,10 +835,8 @@ const Semana: React.FC = () => {
                a poner" sería leerle "no me lo pongas", que es otra frase. */
             onValorar={(platoId, valoracion, tipo) =>
               dispatch({ type: 'VALORAR_PLATO', platoId, valoracion, tipo })}
-            onElegirAlternativa={(a) => {
-              dispatch({ type: 'APLICAR_SEMANA', semana: a.semana });
-              setHuecoAbierto(null);
-            }}
+            onElegirAlternativa={(a) => pedirCambioDePlato(a.semana)}
+            cambiosRestantes={acceso.restantes}
             onRetocar={proponerRetoque}
             onVerReceta={() => {
               setRecetaAbierta(huecoAbierto);
@@ -754,9 +885,15 @@ const Semana: React.FC = () => {
               bajadoConRetoques: contadores.bajadoConRetoques ?? 0,
               ajustes: contadores.ajustesEstaSemana,
             }}
-            onElegirPlan={(plan) => { setMuroPorPlatos(false); dispatch({ type: 'SET_SUSCRIPCION', plan }); }}
+            origen={origenMuro}
+            onElegirPlan={comprarPlan}
+            onRestaurar={restaurar}
             onSeguirGratis={() => {
-              setMuroPorPlatos(false);
+              /* Cerrar el muro NO deja nada a medias: la proteína alta que se
+                 intentó no se aplica, y el plato no se cambia. El usuario vuelve
+                 exactamente a donde estaba. */
+              setPendiente(null);
+              setMuro(null);
               dispatch({ type: 'SEGUIR_GRATIS', numeroSemana });
             }}
           />

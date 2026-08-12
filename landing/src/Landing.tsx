@@ -288,7 +288,11 @@ export default function Landing() {
           <span className="logo logo--pie">cunde</span>
           <div className="pie__enlaces">
             <a href="/privacidad.html">Privacidad</a>
-            <a href="/privacidad.html">Términos</a>
+            {/* Esto apuntaba a `/privacidad.html`: el enlace de «Términos»
+                llevaba a la política de privacidad. Y de paso se llamaba
+                «Términos» y la página se titula «Condiciones de uso» — una
+                acción conserva su nombre en todo el recorrido. */}
+            <a href="/condiciones.html">Condiciones</a>
             <a href="mailto:hola@cunde.app">Contacto</a>
           </div>
           <span className="pie__copy">© 2026 Cunde</span>

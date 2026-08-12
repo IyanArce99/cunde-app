@@ -74,3 +74,22 @@
      partir dos importes seguidos daba cortes sin sentido. */
   white-space: pre-line;
 }
+
+/**
+ * LA MARCA DE CUNDE+ · una palabra, no un candado.
+ *
+ * Va dentro de la etiqueta y en la misma línea, así que no cambia la altura de
+ * la tarjeta: las tres siguen midiendo lo mismo, que es lo que se arregló al
+ * quitar las notas.
+ *
+ * En azulete y a 9 px: se lee como una nota al margen, no como una alarma. Nada
+ * de dorado, ni corona, ni diamante — eso es lenguaje de tienda de
+ * suscripciones y este producto se posiciona justo en contra.
+ */
+.selcoste__plus {
+  margin-left: 6px;
+  font: 600 9px/1 var(--font-body);
+  letter-spacing: 0.08em;
+  color: var(--azulete);
+  vertical-align: 1px;
+}

@@ -3,37 +3,101 @@ import './Privacidad.css';
 /**
  * POLÍTICA DE PRIVACIDAD.
  *
- * El texto es el del handoff, palabra por palabra: es copy final y jurídico, no
- * material de relleno, así que no se reescribe «para que suene mejor».
+ * ═══ POR QUÉ SE REESCRIBIÓ (12 ago 2026) ═══
  *
- * ═══ ESTE TEXTO CADUCA ═══
+ * El aviso que había aquí decía: «hay una implementación de analítica hacia
+ * Supabase en marcha: en cuanto exista, el apartado 7 tiene que decir exactamente
+ * qué se envía o esta página pasará a ser falsa».
  *
- * Dice que los datos «se almacenan localmente en tu teléfono» y que la analítica
- * es «agregada y anónima». Hay una implementación de analítica hacia Supabase en
- * marcha: en cuanto exista, el apartado 7 tiene que decir exactamente qué se
- * envía —identificador de instalación anónimo, sin nombre, sin email, sin
- * alergias concretas, sin texto libre— o esta página pasará a ser falsa.
+ * Existió el 11 de agosto, y la página pasó a ser falsa en tres sitios:
  *
- * El aviso del final ya dice que es una plantilla y hay que revisarla con un
+ *   · Decía que los datos «no se suben a nuestros servidores salvo que actives
+ *     una copia de seguridad». Se suben eventos de analítica, sin activar nada.
+ *   · Llamaba a la analítica «agregada y anónima». No es ninguna de las dos:
+ *     son filas por evento con un `install_id` que persiste. Un identificador
+ *     estable por instalación es dato personal seudonimizado en el RGPD, aunque
+ *     no lleve nombre — lo que importa es que singulariza, no que identifique.
+ *   · Declaraba el código postal, que dejó de pedirse. Declarar de más no es
+ *     ilegal, pero delata que el texto no describe la app.
+ *
+ * Y faltaba entero lo de las compras.
+ *
+ * ═══ LA REGLA PARA MANTENERLO ═══
+ *
+ * Esta página describe el código, no la intención. Si cambia lo que se envía —un
+ * campo nuevo en `PropsAnalitica`, un encargado nuevo, otra base legal— se
+ * cambia aquí en el mismo commit. La lista de `DATOS_ENVIADOS` sale una a una de
+ * `lib/analitica.ts`; si dejan de coincidir, esta página vuelve a mentir.
+ *
+ * ═══ LO QUE FALTA Y NO PUEDO SABER YO ═══
+ *
+ * Va marcado en el texto con [POR CONFIRMAR]. Son datos de la operativa real
+ * —razón social, región del servidor, plazo de conservación— que hay que rellenar
+ * antes de publicar. Están a la vista a propósito: si se publica sin rellenar,
+ * se ve. El aviso del final sigue diciendo que hay que revisarla con un
  * profesional. No lo quites.
  */
 
-const DATOS = [
+/** Lo que no sale del teléfono. Sale de `AppState`. */
+const DATOS_LOCALES = [
   {
     titulo: 'Presupuesto y número de comensales',
     texto: 'El tope semanal y para cuántas personas cocinas.',
   },
   {
-    titulo: 'Código postal (opcional)',
-    texto: 'Solo para cargar el catálogo de precios de tu zona. Si no lo indicas, usamos uno por defecto.',
+    titulo: 'Alergias, dietas y preferencias',
+    texto: 'Lo que no puedes o no quieres comer, para dejarlo fuera del menú. Puede incluir datos de salud (alergias). Se quedan en tu dispositivo: nunca enviamos qué alergia tienes.',
   },
   {
-    titulo: 'Alergias, dietas y preferencias',
-    texto: 'Lo que no puedes o no quieres comer, para dejarlo fuera del menú. Puede incluir datos de salud (alergias); los tratas tú, se quedan en tu dispositivo y nunca se asocian a tu identidad.',
+    titulo: 'Tu menú, tu lista y tu despensa',
+    texto: 'Los platos de la semana, los productos marcados y lo que te sobró. No se suben.',
   },
   {
     titulo: 'Valoraciones de platos',
-    texto: 'Si marcas «me gusta», «no cocino», etc., para afinar tus próximas semanas.',
+    texto: 'Si marcas «me gusta» o «no quiero», para afinar tus próximas semanas.',
+  },
+];
+
+/**
+ * Lo que SÍ sale, una a una. Sacado de `PropsAnalitica` en `lib/analitica.ts`.
+ * Si se añade un campo allí y no aquí, esta página miente.
+ */
+const DATOS_ENVIADOS = [
+  {
+    titulo: 'Un identificador de instalación',
+    texto: 'Un número aleatorio que se crea al instalar la app. No sale de tu correo, ni de tu nombre, ni del identificador publicitario, ni de una huella del dispositivo. Sirve para poder contar «cuántas personas vuelven la semana 4» sin saber quién eres. Si borras los datos de la app, desaparece y vuelves a contar como instalación nueva.',
+  },
+  {
+    titulo: 'Qué pantallas usas y cuándo',
+    texto: 'Por ejemplo: que has generado una semana, que has abierto la lista de la compra, o que has cerrado la compra. Con la versión de la app y si es Android, iOS o web.',
+  },
+  {
+    titulo: 'Tramos, nunca cifras exactas',
+    texto: 'Para cuántas personas cocinas, y tu presupuesto en tramos (por ejemplo «entre 60 y 80 €»), nunca el importe exacto ni lo que te costó la compra.',
+  },
+  {
+    titulo: 'Si usas filtros de dieta, no cuáles',
+    texto: 'Enviamos si tienes filtros activos y cuántos. Nunca cuáles. Que seas celíaco o alérgico al marisco no sale de tu teléfono.',
+  },
+  {
+    titulo: 'Ajustes de la semana',
+    texto: 'Nivel de variedad y de proteína, si llevas postre, y si te has quedado dentro del presupuesto.',
+  },
+];
+
+/** Quién trata datos por nuestra cuenta, y para qué exactamente. */
+const ENCARGADOS = [
+  {
+    titulo: 'Supabase — analítica',
+    texto: 'Guarda los eventos descritos arriba. No recibe tus preferencias, ni tu menú, ni tu lista. Servidores en [POR CONFIRMAR: región del proyecto].',
+  },
+  {
+    titulo: 'RevenueCat — gestión de la suscripción',
+    texto: 'Comprueba si tu compra de Cunde+ sigue activa. Recibe un identificador anónimo de comprador, el producto comprado y el país de tu tienda. Empresa estadounidense: la transferencia se ampara en las cláusulas contractuales tipo de la Comisión Europea.',
+  },
+  {
+    titulo: 'Google Play — el cobro',
+    texto: 'Procesa el pago y es responsable independiente de los datos de tu método de pago, con su propia política. Cunde no ve tu tarjeta en ningún momento, ni sabe tu nombre ni tu dirección de facturación.',
   },
 ];
 
@@ -50,7 +114,7 @@ export default function Privacidad() {
       <main className="legal">
         <p className="eyebrow">Legal</p>
         <h1 className="legal__h1">Política de privacidad</h1>
-        <p className="legal__fecha">Última actualización: 11 de agosto de 2026</p>
+        <p className="legal__fecha">Última actualización: 12 de agosto de 2026</p>
 
         <p className="legal__entrada">
           En Cunde creemos que planificar tus comidas no debería costarte tus datos. Esta
@@ -61,22 +125,30 @@ export default function Privacidad() {
 
         <h2>1. Quién es el responsable</h2>
         <p>
-          El responsable del tratamiento es <strong>Cunde</strong> (en adelante, «la app»,
-          «nosotros»). Para cualquier cuestión sobre privacidad puedes escribirnos a{' '}
+          El responsable del tratamiento es <strong>[POR CONFIRMAR: razón social y
+          domicilio]</strong> (en adelante, «Cunde», «la app», «nosotros»). Para cualquier
+          cuestión sobre privacidad puedes escribirnos a{' '}
           <a href="mailto:hola@cunde.app">hola@cunde.app</a>.
         </p>
 
-        <h2>2. Sin registro, sin cuenta</h2>
+        <h2>2. Sin cuenta y sin correo</h2>
         <p>
-          Cunde funciona sin que crees una cuenta, sin correo y sin tarjeta. No te pedimos
-          nombre, teléfono ni datos de pago para usar la app. No podemos identificarte
-          personalmente, porque no recogemos nada que lo permita.
+          Cunde funciona sin que crees una cuenta y sin darnos tu correo. No te pedimos
+          nombre ni teléfono, y no podemos identificarte personalmente porque no recogemos
+          nada que lo permita.
+        </p>
+        <p>
+          Si compras <strong>Cunde+</strong>, el pago lo procesa la tienda de tu móvil
+          (Google Play). <strong>Nosotros no vemos ni guardamos tu tarjeta</strong>, ni tu
+          nombre, ni tu dirección de facturación. Lo explicamos en el apartado 6.
         </p>
 
-        <h2>3. Qué datos tratamos</h2>
-        <p>Para armar tu semana, la app guarda en tu propio dispositivo tus preferencias:</p>
+        <h2>3. Qué se queda en tu teléfono</h2>
+        <p>
+          Casi todo. Para armar tu semana, la app guarda en tu propio dispositivo:
+        </p>
         <dl className="legal__lista">
-          {DATOS.map((d) => (
+          {DATOS_LOCALES.map((d) => (
             <div className="legal__dato" key={d.titulo}>
               <dt>{d.titulo}</dt>
               <dd>{d.texto}</dd>
@@ -84,59 +156,133 @@ export default function Privacidad() {
           ))}
         </dl>
         <p>
-          Estos datos se almacenan <strong>localmente en tu teléfono</strong>. No se suben a
-          nuestros servidores salvo que actives una copia de seguridad, en cuyo caso te lo
-          pediremos de forma expresa.
+          Estos datos <strong>no se suben a ningún servidor</strong>. Viven en el
+          almacenamiento local de la app y desaparecen si la desinstalas o borras sus datos.
         </p>
 
-        <h2>4. Para qué los usamos</h2>
+        <h2>4. Qué sí sale de tu teléfono</h2>
         <p>
-          Usamos tus preferencias únicamente para generar tu menú semanal y tu lista de la
-          compra ajustados a tu presupuesto, y para mejorar las recomendaciones dentro de la
-          app. <strong>No vendemos ni cedemos tus datos</strong> a terceros, ni los usamos
-          para publicidad.
+          Para saber si la app le sirve a la gente, enviamos eventos de uso a nuestro
+          servidor. Esto es exactamente lo que se envía, sin resumir:
         </p>
-
-        <h2>5. Base legal</h2>
+        <dl className="legal__lista">
+          {DATOS_ENVIADOS.map((d) => (
+            <div className="legal__dato" key={d.titulo}>
+              <dt>{d.titulo}</dt>
+              <dd>{d.texto}</dd>
+            </div>
+          ))}
+        </dl>
         <p>
-          Tratamos tus preferencias sobre la base de la <strong>ejecución del servicio</strong>{' '}
-          que nos pides (armar tu semana) y de tu <strong>consentimiento</strong>, que otorgas
-          al introducir esos datos y puedes retirar en cualquier momento borrándolos desde los
-          ajustes de la app.
+          <strong>Nunca enviamos</strong>: importes exactos, qué alergias o dietas tienes,
+          los nombres de los productos que añades a mano, ningún texto que escribas, tu
+          ubicación, el identificador publicitario de tu móvil ni nada que permita
+          identificarte.
+        </p>
+        <p>
+          Llamamos a estos datos <strong>seudonimizados</strong>, no anónimos, y la
+          diferencia importa: no sabemos quién eres, pero el identificador de instalación
+          permite distinguir tu móvil del de otra persona. Por eso los tratamos como datos
+          personales y te damos todos los derechos del apartado 9, aunque no podamos
+          ponerles un nombre.
         </p>
 
-        <h2>6. Precios de los supermercados</h2>
+        <h2>5. Para qué usamos todo esto</h2>
+        <p>
+          Tus preferencias, solo para generar tu menú y tu lista ajustados a tu presupuesto.
+          Los eventos de uso, solo para saber qué partes de la app funcionan y cuáles no.{' '}
+          <strong>No vendemos ni cedemos tus datos</strong>, no hacemos publicidad, no
+          hacemos perfiles con fines comerciales y no tomamos ninguna decisión automatizada
+          que te afecte legalmente.
+        </p>
+
+        <h2>6. Compras: Cunde+</h2>
+        <p>
+          Cunde es gratis y su promesa entera —menú, lista, precios y total— seguirá siendo
+          gratis. <strong>Cunde+</strong> es una suscripción opcional que desbloquea
+          personalización.
+        </p>
+        <p>
+          Cuando compras, el pago lo procesa <strong>Google Play</strong> con tu método de
+          pago de la tienda. Cunde no interviene en el cobro y no recibe los datos de tu
+          tarjeta. Para saber si tu suscripción sigue activa usamos{' '}
+          <strong>RevenueCat</strong>, que recibe un identificador anónimo de comprador, qué
+          producto compraste y el país de tu tienda. <strong>Ese identificador no se cruza
+          con el de analítica</strong>: no podemos saber qué hizo en la app la persona que
+          pagó.
+        </p>
+        <p>
+          Para gestionar o cancelar tu suscripción, se hace desde la tienda de tu móvil, no
+          desde Cunde. Cancelar no borra nada de lo que tienes guardado.
+        </p>
+
+        <h2>7. Base legal</h2>
+        <p>
+          Tratamos tus preferencias y tu compra sobre la base de la{' '}
+          <strong>ejecución del contrato</strong>: son necesarias para darte el servicio que
+          nos pides. Las <strong>alergias</strong>, que pueden ser datos de salud, se tratan
+          sobre la base de tu <strong>consentimiento explícito</strong>, que das al
+          introducirlas y retiras borrándolas — y que en la práctica nunca salen de tu
+          dispositivo. Los <strong>eventos de uso</strong> se tratan por{' '}
+          <strong>interés legítimo</strong> en mejorar la app, un interés que hemos ponderado
+          frente a tu privacidad limitando los datos a tramos y booleanos; puedes oponerte
+          escribiéndonos.
+        </p>
+
+        <h2>8. Con quién se comparte</h2>
+        <p>Solo con quien hace falta para que la app funcione:</p>
+        <dl className="legal__lista">
+          {ENCARGADOS.map((d) => (
+            <div className="legal__dato" key={d.titulo}>
+              <dt>{d.titulo}</dt>
+              <dd>{d.texto}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>
+          No hay ningún otro. Sin redes publicitarias, sin herramientas de marketing, sin
+          SDK de terceros que recojan datos por su cuenta.
+        </p>
+
+        <h2>9. Cuánto tiempo guardamos las cosas</h2>
+        <p>
+          Lo que está en tu teléfono, mientras tengas la app instalada: lo borras tú cuando
+          quieras. Los eventos de uso se conservan{' '}
+          <strong>[POR CONFIRMAR: plazo, propuesta 24 meses]</strong> y después se eliminan.
+          Los datos de tu suscripción, mientras esté activa y el tiempo que exijan las
+          obligaciones fiscales y contables.
+        </p>
+
+        <h2>10. Precios de los supermercados</h2>
         <p>
           Los precios que ves proceden de catálogos públicos de cada supermercado.
           Consultarlos no implica compartir ningún dato tuyo con esas cadenas: Cunde no se
           comunica con tu cuenta del súper ni realiza pedidos en tu nombre.
         </p>
 
-        <h2>7. Analítica</h2>
+        <h2>11. Tus derechos</h2>
         <p>
-          Podemos usar analítica agregada y anónima (por ejemplo, cuántas personas abren la
-          pantalla de compra) para mejorar la app. Estas métricas no permiten identificarte y
-          no se combinan con tus preferencias. Si usamos un proveedor externo para ello, se
-          limita a datos anonimizados.
-        </p>
-
-        <h2>8. Tus derechos</h2>
-        <p>
-          Como los datos viven en tu dispositivo, tienes el control directo: puedes
-          consultarlos, modificarlos o borrarlos por completo desde los ajustes de la app en
-          cualquier momento. Además, conforme al RGPD, te asisten los derechos de{' '}
+          Sobre lo que vive en tu dispositivo tienes el control directo: puedes consultarlo,
+          modificarlo o borrarlo por completo desde los ajustes de la app en cualquier
+          momento. Sobre lo demás te asisten, conforme al RGPD, los derechos de{' '}
           <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong>.
-          Para ejercerlos o presentar una reclamación ante la Agencia Española de Protección
-          de Datos, escríbenos a <a href="mailto:hola@cunde.app">hola@cunde.app</a>.
+        </p>
+        <p>
+          Para ejercerlos escríbenos a <a href="mailto:hola@cunde.app">hola@cunde.app</a>.
+          Ten en cuenta una limitación honesta: como no sabemos quién eres, para localizar
+          tus eventos necesitaríamos que nos facilitaras tu identificador de instalación
+          desde los ajustes de la app. Si no, no podemos encontrarlos — no por negarnos, sino
+          porque no hay nada que nos permita relacionarlos contigo. También puedes reclamar
+          ante la <strong>Agencia Española de Protección de Datos</strong> (aepd.es).
         </p>
 
-        <h2>9. Menores</h2>
+        <h2>12. Menores</h2>
         <p>
           Cunde está pensada para personas mayores de 14 años. No recogemos conscientemente
           datos de menores de esa edad.
         </p>
 
-        <h2>10. Cambios en esta política</h2>
+        <h2>13. Cambios en esta política</h2>
         <p>
           Si cambiamos algo relevante, actualizaremos esta página y la fecha de arriba, y te
           avisaremos dentro de la app cuando el cambio afecte a cómo tratamos tus datos.
@@ -146,13 +292,17 @@ export default function Privacidad() {
           <p className="legal__contacto-titulo">¿Dudas sobre tu privacidad?</p>
           <p>
             Escríbenos a <a href="mailto:hola@cunde.app">hola@cunde.app</a> y te respondemos.
+            Si lo que buscas son las condiciones del servicio y de Cunde+, están en las{' '}
+            <a href="/condiciones.html">condiciones de uso</a>.
           </p>
         </aside>
 
         <p className="legal__aviso">
           Este texto es una plantilla de partida y no constituye asesoramiento legal. Antes de
-          publicar, revísalo con un profesional para adaptarlo a tu operativa real (proveedor
-          de analítica, copias de seguridad, razón social y domicilio fiscal).
+          publicar hay que rellenar lo marcado como [POR CONFIRMAR] —razón social y domicilio,
+          región de los servidores y plazo de conservación— y revisarlo con un profesional
+          para adaptarlo a la operativa real. La ficha de Seguridad de los datos de Google
+          Play tiene que coincidir con lo que dice esta página.
         </p>
       </main>
     </>

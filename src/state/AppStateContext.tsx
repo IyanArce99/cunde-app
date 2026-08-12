@@ -2,16 +2,17 @@ import { createContext, useContext, useEffect, useMemo, useReducer } from 'react
 import type { ReactNode } from 'react';
 import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } from './types';
 import { CP_POR_DEFECTO, numComensales, numHuecos } from './types';
-import { tramoDiferencia, tramoPresupuesto } from '../lib/analitica-buckets';
+import { tramoDiferencia, tramoImporte, tramoPresupuesto } from '../lib/analitica-buckets';
 import {
   despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadQueMenosDesperdicia,
 } from '../data/motor';
 import { SEMANAS_DE_MEMORIA } from '../motor/seleccionar.ts';
 import { despensaVisible, semanasDeMemoria } from '../lib/suscripcion';
 import { analitica } from '../lib/analitica';
+import { permisoSegunLaTienda } from '../lib/compras';
 import { conValoracion, cuentaPreferencias } from '../lib/preferencias';
 import { crearExtra, extrasSinPrecio, totalExtras } from '../lib/extras';
-import { totalLista } from '../lib/derive';
+import { semanaEfectiva, totalLista } from '../lib/derive';
 import { diasDesde, esFechaDia, hoy, sumarDias, diasEntre } from '../lib/fechas';
 import type { FechaDia } from '../lib/fechas';
 import type { ValoracionPlato } from '../lib/preferencias';
@@ -25,7 +26,7 @@ import type { Retoque, SemanaParaApp } from '../data/motor';
  *
  * v8 despensa · v9 código postal · v10 código postal por defecto · v11 postre
  * v12 `variedadElegida` · v13 `preferenciasPlatos` · v14 `extrasCompra`
- * v15 `fechaInicioSemana` y `semana.fechaInicio`.
+ * v15 `fechaInicioSemana` y `semana.fechaInicio` · v16 `cambiosDePlato`.
  *
  * ═══ Y CÓMO SE MIGRABA, QUE ESTABA MAL ═══
  *
@@ -40,7 +41,7 @@ import type { Retoque, SemanaParaApp } from '../data/motor';
  * se funde sobre el estado por defecto. Los campos que no existían entran con
  * su valor de fábrica; los que sí, se conservan. Ver `cargarEstadoInicial`.
  */
-const STORAGE_KEY = 'cunde:estado:v15';
+const STORAGE_KEY = 'cunde:estado:v16';
 
 /**
  * De la más nueva a la más vieja. Se lee la primera que exista.
@@ -50,6 +51,7 @@ const STORAGE_KEY = 'cunde:estado:v15';
  * cero. Desde v8 el plan es compatible.
  */
 const CLAVES_ANTERIORES = [
+  'cunde:estado:v15',
   'cunde:estado:v14',
   'cunde:estado:v13',
   'cunde:estado:v12',
@@ -93,6 +95,9 @@ const estadoInicial: AppState = {
   cierre: { importeRealTicket: null, guardada: false },
   suscripcion: null,
   huboSuscripcion: false,
+  /* Semana 0 para que no coincida con ninguna real: quien migre desde una
+     versión anterior entra con cero cambios usados, que es lo correcto. */
+  cambiosDePlato: { semana: 0, usados: 0 },
   contadores: { semanaNumero: 1, ajustesEstaSemana: 0, semanaVistaGratis: 0, bajadoConRetoques: 0 },
   deshacerCierre: null,
 };
@@ -576,13 +581,41 @@ export function reducer(estado: AppState, accion: Accion): AppState {
      * usuario habría elegido un ahorro que no recibe — que en una app cuya
      * tesis es la cifra es el peor fallo posible.
      */
+    /**
+     * ═══ EL CAMBIO VOLUNTARIO DE PLATO · Y EL ÚNICO QUE GASTA ═══
+     *
+     * Esta acción tiene UN despachador en toda la app: elegir una alternativa
+     * en la hoja del día. O sea, exactamente «quiero otro plato aquí».
+     *
+     * Lo demás va por `RETOCAR_HUECO` y NO gasta nada, cada cosa por su motivo:
+     *   · «Bájame el precio» es la promesa central del producto. Cobrar por
+     *     bajar la cesta a quien se ha pasado sería vender la solución al
+     *     problema que la app dice resolver.
+     *   · «No cocino este día» es absorber el fallo del martes, que es la regla
+     *     5 del proyecto.
+     *   · Bloquear un plato es una preferencia persistente («no me lo vuelvas a
+     *     poner»), no una personalización de esta semana.
+     * Y ninguna regeneración del sistema pasa por aquí: `regenerar()` es otra
+     * cosa. Así que ni un cambio de alergia, ni un SKU que desaparezca, ni una
+     * corrección automática pueden gastar un cambio del usuario.
+     *
+     * Se cuenta SIEMPRE, también con Cunde+. No hace falta funcionalmente
+     * —ilimitado es ilimitado— pero si la suscripción caduca a mitad de semana
+     * el contador ya refleja la realidad, en vez de aparecer a cero y regalar
+     * dos cambios más.
+     */
     case 'APLICAR_SEMANA': {
       const antes = estado.lista.reduce((a, it) => a + (((it.esDespensa || it.yaEnCasa) && it.loTengo !== false) ? 0 : it.precio), 0);
       const ahora = accion.semana.lista.reduce((a, it) => a + (((it.esDespensa || it.yaEnCasa) && it.loTengo !== false) ? 0 : it.precio), 0);
+      /* La semana a la que pertenece la cuenta. Si la guardada es otra, esta
+         empieza de cero: el reseteo no necesita ningún gancho. */
+      const semanaAhora = semanaEfectiva(estado.contadores.semanaNumero, estado.semana.generadaEn);
+      const yaUsados = estado.cambiosDePlato.semana === semanaAhora ? estado.cambiosDePlato.usados : 0;
       return {
         ...estado,
         semana: { ...estado.semana, plan: accion.semana.plan, dias: accion.semana.dias },
         lista: accion.semana.lista,
+        cambiosDePlato: { semana: semanaAhora, usados: yaUsados + 1 },
         contadores: {
           ...estado.contadores,
           ajustesEstaSemana: estado.contadores.ajustesEstaSemana + 1,
@@ -654,7 +687,7 @@ export function reducer(estado: AppState, accion: Accion): AppState {
       analitica('extra_item_added', {
         ...resumenExtras(extrasCompra, estado),
         has_price: accion.precio !== null,
-        ...(accion.precio !== null ? { price: accion.precio } : {}),
+        ...(accion.precio !== null ? { price_bucket: tramoImporte(accion.precio) } : {}),
       });
       return { ...estado, extrasCompra };
     }
@@ -693,7 +726,7 @@ export function reducer(estado: AppState, accion: Accion): AppState {
       analitica(actual.precio === null ? 'extra_item_price_added' : 'extra_item_price_changed', {
         ...resumenExtras(extrasCompra, estado),
         has_price: accion.precio !== null,
-        ...(accion.precio !== null ? { price: accion.precio } : {}),
+        ...(accion.precio !== null ? { price_bucket: tramoImporte(accion.precio) } : {}),
       });
       return { ...estado, extrasCompra };
     }
@@ -747,7 +780,9 @@ export function reducer(estado: AppState, accion: Accion): AppState {
 function resumenExtras(extras: AppState['extrasCompra'], estado: AppState) {
   return {
     extras_count: extras.length,
-    extras_total: Number(totalExtras(extras).toFixed(2)),
+    /* Tramo y no `toFixed(2)`: la suma exacta de lo que alguien apunta a mano es
+       su compra, no un patrón. Ver `tramoImporte`. */
+    extras_total_bucket: tramoImporte(totalExtras(extras)),
     unpriced_extras_count: extrasSinPrecio(extras),
     week_number: estado.contadores.semanaNumero,
   };
@@ -840,10 +875,32 @@ function reparar(estado: AppState): AppState {
       ...(estado.semana ?? {}),
       fechaInicio: esFechaDia(estado.semana?.fechaInicio) ? estado.semana.fechaInicio : null,
     },
+    /**
+     * v16. El contador de cambios de plato de Cunde+.
+     *
+     * Quien viene de v15 no lo trae y le entra el de fábrica —`semana: 0`, que
+     * no coincide con ninguna semana real porque empiezan en 1—, o sea que
+     * migra con cero cambios usados sin necesitar ninguna lógica aparte.
+     *
+     * Se repara además la forma porque `APLICAR_SEMANA` lee `.semana` sin
+     * comprobar nada: un `null` guardado por lo que sea rompería el cambio de
+     * plato, y el usuario vería la app colgarse justo al tocar la función que
+     * paga. Ante la duda, cero: regalar dos cambios es infinitamente mejor que
+     * una pantalla en blanco.
+     */
+    cambiosDePlato: esContadorDeCambios(estado.cambiosDePlato)
+      ? estado.cambiosDePlato
+      : { ...estadoInicial.cambiosDePlato },
     historial: Array.isArray(estado.historial) ? estado.historial : [],
     despensa: estado.despensa && typeof estado.despensa === 'object' ? estado.despensa : {},
     lista: Array.isArray(estado.lista) ? estado.lista : [],
   };
+}
+
+function esContadorDeCambios(v: unknown): v is AppState['cambiosDePlato'] {
+  if (!v || typeof v !== 'object') return false;
+  const { semana, usados } = v as { semana?: unknown; usados?: unknown };
+  return Number.isFinite(semana) && Number.isFinite(usados) && (usados as number) >= 0;
 }
 
 /**
@@ -903,6 +960,43 @@ export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
   }, [estado]);
+
+  /**
+   * ═══ LA TIENDA MANDA SOBRE EL ESTADO PREMIUM ═══
+   *
+   * Una vez al arrancar. No antes de cada acción: «cambiar plato» y «proteína
+   * alta» tienen que responder al instante, y una llamada de red antes de cada
+   * toque sería medio segundo en el mejor caso y una app colgada en el sótano
+   * del súper en el peor.
+   *
+   * `null` significa QUE NO SE HA PODIDO SABER —sin red, normalmente— y ahí no
+   * se toca nada: quien pagó conserva lo suyo. Ese era el fallo que tenía
+   * `compras.ts`, cuyo `catch` devolvía `false` y degradaba al plan gratuito
+   * justo a quien está usando la app donde no hay cobertura.
+   *
+   * Cuando la tienda sí contesta, se corrige en las dos direcciones: activa si
+   * compró fuera de la app o restauró en otro móvil, y quita si la suscripción
+   * caducó o le devolvieron el dinero. Eso es lo que impide que un `true` mal
+   * puesto se quede para siempre en `localStorage`.
+   *
+   * Lo que NO hace es tocar la semana ya generada. Si alguien la montó con
+   * proteína alta y luego caduca, su semana sigue tal cual: lo que vuelve a
+   * pedir Cunde+ es el siguiente cambio, no el que ya hizo.
+   */
+  useEffect(() => {
+    let vivo = true;
+    void permisoSegunLaTienda().then((tiene) => {
+      if (!vivo || tiene === null) return;
+      const teniamos = estado.suscripcion !== null;
+      if (tiene === teniamos) return;
+      dispatch({ type: 'SET_SUSCRIPCION', plan: tiene ? 'de-por-vida' : null });
+    });
+    return () => { vivo = false; };
+    /* Una vez por arranque: si dependiera de `estado.suscripcion` se volvería a
+       preguntar cada vez que cambia, que es justo cuando ya lo sabemos.
+       eslint-disable-next-line react-hooks/exhaustive-deps */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const value = useMemo(() => ({ estado, dispatch }), [estado]);
 

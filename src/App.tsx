@@ -8,7 +8,6 @@ import Datos from './pages/onboarding/Datos';
 import Presupuesto from './pages/onboarding/Presupuesto';
 import Generando from './pages/onboarding/Generando';
 import Semana from './pages/Semana';
-import SemanaVariante from './pages/SemanaVariante';
 import Compra from './pages/Compra';
 
 /* Core CSS required for Ionic components to work properly */
@@ -67,9 +66,14 @@ const Enrutador: React.FC = () => {
       <Route exact path="/semana">
         <Semana />
       </Route>
-      <Route exact path="/semana/variante">
-        <SemanaVariante />
-      </Route>
+      {/* Aquí vivía `/semana/variante`, borrada el 12 ago 2026.
+          Era la maqueta «2a» del fichero de diseño —una hipótesis alternativa a
+          la pantalla Semana que se descartó— y su propio comentario decía «no
+          es la decisión final». Nadie navegaba nunca a ella: solo se llegaba
+          escribiendo la URL. Además de sobrar, estaba rota (centraba y
+          recortaba a la vez, y no se veían los platos del primer día) y su
+          botón ↻ no tenía `onClick`. Y una tercera pantalla contradice la
+          regla 4: dos pestañas, ninguna más. Está en el historial de git. */}
       <Route exact path="/compra">
         <Compra />
       </Route>

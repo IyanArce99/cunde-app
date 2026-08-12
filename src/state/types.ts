@@ -431,6 +431,22 @@ export interface AppState {
    * entera, y a quien nunca pagó no hay nada que devolverle.
    */
   huboSuscripcion: boolean;
+  /**
+   * ═══ CAMBIOS VOLUNTARIOS DE PLATO GASTADOS ═══
+   *
+   * Guarda a QUÉ semana pertenece la cuenta, no solo cuántos van. Así no hace
+   * falta ningún gancho de reseteo: si la semana guardada no es la actual, la
+   * cuenta vale cero. Un contador suelto habría necesitado acordarse de ponerlo
+   * a cero en `GUARDAR_CIERRE`, y de eso uno se olvida.
+   *
+   * `semana` es `semanaEfectiva()`, o sea el máximo entre semanas cerradas y
+   * semanas transcurridas. Nace una semana nueva al cerrar la compra o al pasar
+   * siete días — no al regenerar, que es lo que cierra el agujero de recuperar
+   * cambios moviendo el presupuesto.
+   *
+   * Solo cuentan los cambios que el usuario PIDE. Ver lib/premium.ts.
+   */
+  cambiosDePlato: { semana: number; usados: number };
   contadores: {
     semanaNumero: number;
     ajustesEstaSemana: number;

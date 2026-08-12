@@ -20,7 +20,10 @@ import {
   extrasLlevados, extrasSinPrecio, totalCompraPrevista, totalExtras,
 } from '../lib/extras';
 import { analitica } from '../lib/analitica';
+import { tramoImporte } from '../lib/analitica-buckets';
 import { versionDePrecios } from '../data/motor';
+import { DIAS_PRECIOS_VIEJOS, diasDePrecios } from '../lib/precios';
+import { hoy } from '../lib/fechas';
 import './Compra.css';
 
 /**
@@ -39,6 +42,12 @@ const Compra: React.FC = () => {
   const { lista, perfil, extrasCompra } = estado;
   const enLinea = useEnLinea();
   const [mostrarCierre, setMostrarCierre] = useState(false);
+
+  /* Se calcula en el render y no en un efecto: es una cuenta sobre dos fechas,
+     no un dato que haya que ir a buscar. Y se recalcula al volver a la pantalla,
+     que es cuando importa — la app puede llevar días abierta en segundo plano. */
+  const diasDeLosPrecios = diasDePrecios(versionDePrecios(), hoy());
+  const preciosDesfasados = diasDeLosPrecios >= DIAS_PRECIOS_VIEJOS;
 
   /**
    * ═══ ABRIR LA COMPRA · UNA VEZ POR MONTAJE ═══
@@ -168,8 +177,26 @@ const Compra: React.FC = () => {
                   filas repitiendo "precio del 28 jul"— y era una línea entera
                   por artículo diciendo lo mismo, en la pantalla que se recorre
                   de pie y con una mano. */}
-              <div className="compra__fuente">
-                <span>Precios de {perfil.super} del</span>
+              {/**
+                * ═══ CUANDO LOS PRECIOS SON VIEJOS, SE DICE ═══
+                *
+                * La fecha sola se lee igual con dos días que con cuarenta, y
+                * quien mira «10 AGO» un 21 de agosto tiene que restar de cabeza
+                * delante del lineal. Pasados siete días —más que la semana que
+                * están valorando— el rótulo dice la antigüedad y la fecha se
+                * queda donde estaba, que es lo que uno comprueba.
+                *
+                * Sin rojo ni icono de alerta: el rojo está reservado a pasarse
+                * del presupuesto, y esto no es un error del usuario ni algo que
+                * pueda arreglar. Es una condición del dato, como el aviso de
+                * alérgenos. Ver DIAS_PRECIOS_VIEJOS en lib/precios.ts.
+                */}
+              <div className={`compra__fuente${preciosDesfasados ? ' compra__fuente--vieja' : ''}`}>
+                <span>
+                  {preciosDesfasados
+                    ? `Precios de ${perfil.super} de hace ${diasDeLosPrecios} días`
+                    : `Precios de ${perfil.super} del`}
+                </span>
                 {/* La fecha a la derecha y en versalitas: es el dato que se
                     comprueba —"¿esto es de hoy?"—, y en el medio de una frase
                     corrida hay que leerla entera para encontrarlo. */}
@@ -420,7 +447,7 @@ const Compra: React.FC = () => {
               if (extrasCompra.length > 0) {
                 analitica('shopping_closed_with_extras', {
                   extras_count: extrasCompra.length,
-                  extras_total: Number(extras.toFixed(2)),
+                  extras_total_bucket: tramoImporte(extras),
                   unpriced_extras_count: sinPrecio,
                   week_number: estado.contadores.semanaNumero,
                 });

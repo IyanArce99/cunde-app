@@ -8,15 +8,18 @@ import { resolve } from 'node:path';
 const aqui = import.meta.dirname;
 
 /**
- * DOS PÁGINAS, DOS HTML · SIN ENRUTADOR
+ * UNA PÁGINA, UN HTML · SIN ENRUTADOR
  *
- * La landing tiene exactamente dos URLs: `/` y `/privacidad`. Meter
+ * La landing tiene tres URLs: `/`, `/privacidad` y `/condiciones`. Meter
  * `react-router` para eso sería añadir una dependencia y renderizado en cliente
  * a cambio de nada.
  *
- * Con dos entradas, Vite emite dos HTML de verdad: cada uno tiene su `<title>`,
- * su descripción y su canónica en el propio fichero, sin que haga falta
- * JavaScript para que un buscador o un WhatsApp los lean.
+ * Con una entrada por página, Vite emite HTML de verdad: cada uno tiene su
+ * `<title>`, su descripción y su canónica en el propio fichero, sin que haga
+ * falta JavaScript para que un buscador o un WhatsApp los lean.
+ *
+ * Las legales van juntas a propósito: Google exige las dos para aprobar una app
+ * con compras, y si una se publica sin la otra el enlace queda roto en la ficha.
  */
 export default defineConfig({
   plugins: [react()],
@@ -25,6 +28,7 @@ export default defineConfig({
       input: {
         main: resolve(aqui, 'index.html'),
         privacidad: resolve(aqui, 'privacidad.html'),
+        condiciones: resolve(aqui, 'condiciones.html'),
       },
     },
   },

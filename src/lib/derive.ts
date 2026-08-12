@@ -1,10 +1,15 @@
 import { numComensales, numHuecos, platosDeSemana } from '../state/types';
 import type {
-  Comensales, ComidasPref, DiaSemana, Esfuerzo, ItemLista, NivelProteina, Variedad,
+  Comensales, ComidasPref, DiaSemana, Esfuerzo, ItemLista, NivelProteina,
+  Perfil, Preferencias, Variedad,
 } from '../state/types';
-import { datos } from '../data/motor';
+import { peticionDe } from '../data/motor';
 import { costeDeUnaVariedad, costesPorProteina, costesPorVariedad } from '../motor/seleccionar.ts';
 import type { CosteOpcion } from '../motor/seleccionar.ts';
+import type { Existencias } from '../motor/carrito.ts';
+import type { PreferenciasPlatos } from './preferencias';
+import { hoy } from './fechas';
+import type { FechaDia } from './fechas';
 
 /**
  * Coste de CONSUMO de la semana: lo que se come. NO es lo que se paga.
@@ -16,9 +21,9 @@ export function totalPrevisto(dias: DiaSemana[], comensales: Comensales): number
   return platosDeSemana(dias).reduce((sum, p) => sum + p.precioRacion * n, 0);
 }
 
-export function costePersonaDia(total: number, comensales: Comensales): number {
-  return total / 7 / numComensales(comensales);
-}
+/* `costePersonaDia` se fue con `/semana/variante`, que era su único consumidor y
+   no tenía test. Ajustes y Presupuesto sí enseñan «por persona y día», pero
+   calculan sobre el TOPE y no sobre el total, y lo hacen en línea. */
 
 export function costePorHueco(presupuesto: number, comensales: Comensales, comidas: ComidasPref): number {
   return presupuesto / numHuecos(comidas) / numComensales(comensales);
@@ -36,6 +41,28 @@ export function costePorHueco(presupuesto: number, comensales: Comensales, comid
 const cacheCostes = new Map<string, unknown>();
 
 /** Lo que la pantalla necesita para pedirle una estimación al motor. */
+/**
+ * ═══ EL CONTEXTO ES LA SEMANA ENTERA, NO SOLO LOS SELECTORES ═══
+ *
+ * Los cuatro últimos campos faltaban, y la hoja de ajustes mentía por eso.
+ *
+ * Medido: con dos semanas de historial, la hoja enseñaba 63,14 € para una
+ * semana que la app monta por 47,29 €. **15,85 € de desfase**, y siempre la
+ * misma cifra pasara lo que pasara en la cuenta del usuario — porque la
+ * estimación no sabía qué había en casa ni qué se comió la semana anterior.
+ *
+ * El síntoma que lo destapó: abrir «Ajustar la semana» sin tocar nada enseñaba
+ * un «sube 2,37 €» que el usuario no había provocado. Y una vez tocado el
+ * primer selector parecía funcionar, porque a partir de ahí se comparan dos
+ * estimaciones calculadas igual de mal: coherentes entre sí, incoherentes con
+ * la semana de verdad.
+ *
+ * En una app cuya única defensa es que sus cifras no mienten, esta era la peor
+ * pantalla posible para tener este fallo.
+ *
+ * `regenerar()` en el reductor pasa estos cuatro al motor. Aquí tienen que
+ * entrar los mismos o no se está estimando el mismo problema.
+ */
 export interface Contexto {
   comensales: Comensales;
   comidas: ComidasPref;
@@ -45,24 +72,85 @@ export interface Contexto {
   variedad: Variedad;
   proteina: NivelProteina;
   postre: boolean;
+
+  /** De él sale la silueta: qué días llevan hueco aprovechado. */
+  semanaNumero?: number;
+  /** Lo cocinado en semanas cerradas. Penaliza repetir. */
+  historial?: string[][];
+  /** Lo que ya hay en casa. Es lo que más mueve la cifra. */
+  despensa?: Existencias;
+  /** Favoritos y bloqueados. */
+  preferenciasPlatos?: PreferenciasPlatos;
+  /**
+   * Con qué día empieza la semana. De aquí sale `ordenDias`, y de ahí dónde cae
+   * la regla de fin de semana: sin él, la estimación reparte los huecos
+   * aprovechados en días distintos de los de la semana real.
+   */
+  fechaInicioSemana?: FechaDia | null;
 }
 
+/**
+ * ═══ UN SOLO CONSTRUCTOR DE PETICIÓN, Y ES EL DE LA APP ═══
+ *
+ * Esto armaba a mano su propio objeto para el motor. Al lado de
+ * `data/motor.ts:peticionDe()`, que arma el de verdad. Dos constructores del
+ * mismo objeto, y por supuesto se separaron:
+ *
+ *   · faltaba `ordenDias`, así que la regla de fin de semana caía en otro sitio
+ *   · el historial se pasaba como `historial` y el motor lo lee de
+ *     `recetasRecientes`: llegaba `undefined` y no penalizaba nada
+ *   · las preferencias de platos igual — el motor quiere `platosBloqueados` y
+ *     `platosFavoritos` ya derivados
+ *   · y no llegaba ni la despensa ni el número de semana
+ *
+ * Ninguno de esos cuatro da error: son campos opcionales que el motor rellena
+ * con vacío. Simplemente estimaba OTRA semana. Medido: 63,14 € en la hoja
+ * contra 47,29 € reales con dos semanas de historial.
+ *
+ * Añadir los campos que faltaban habría arreglado el síntoma y dejado la causa:
+ * dos constructores que hay que acordarse de mantener iguales. Así que ahora
+ * hay uno. `Contexto` es una vista plana de `Perfil` + `Preferencias`, se
+ * rearman y se delega.
+ */
 function peticion(ctx: Contexto) {
-  // El presupuesto entra en la petición porque forma parte de la función
-  // objetivo: sin él, el motor no tiene techo y monta semanas más caras que
-  // las que luego genera de verdad. Sin este parámetro, la pantalla prometía
-  // 56,72 € y la semana salía por 49,52 €.
-  return {
-    datos,
-    N: numComensales(ctx.comensales),
-    numHuecos: numHuecos(ctx.comidas),
+  const perfil = {
+    comensales: ctx.comensales,
+    presupuestoSemanal: ctx.presupuesto,
+    /**
+     * `hoy()` y no `null`.
+     *
+     * `peticionDe` llama a `diasDesde(fecha)`, que hace `fecha.split('-')` sin
+     * comprobar nada: con `null` revienta y la hoja de ajustes se queda en
+     * blanco. Pasó en cuanto esta función empezó a delegar en `peticionDe` —
+     * antes no calculaba `ordenDias` y el nulo daba igual.
+     *
+     * `hoy()` es además el valor correcto: `presupuestoMinimoViable` no recibe
+     * fecha porque el suelo del presupuesto no depende de en qué día empiece la
+     * semana, pero el motor necesita UN orden de días para repartir los huecos.
+     */
+    fechaInicioSemana: ctx.fechaInicioSemana ?? hoy(),
+  } as Perfil;
+
+  const preferencias = {
+    comidas: ctx.comidas,
     esfuerzo: ctx.esfuerzo,
-    exclusiones: ctx.exclusiones,
-    presupuesto: ctx.presupuesto,
     variedad: ctx.variedad,
     proteina: ctx.proteina,
+    exclusiones: ctx.exclusiones,
     postre: ctx.postre,
-  };
+    variedadElegida: true,
+  } as Preferencias;
+
+  /* Los valores por defecto son los de una cuenta recién instalada, que es
+     exactamente el caso en que la hoja ya acertaba antes del arreglo. */
+  return peticionDe(
+    perfil,
+    preferencias,
+    ctx.semanaNumero ?? 1,
+    ctx.historial ?? [],
+    ctx.despensa ?? {},
+    ctx.preferenciasPlatos ?? {},
+  );
 }
 
 /**
@@ -75,10 +163,39 @@ function peticion(ctx: Contexto) {
  * mismo que ya tenía guardado. Medido en el navegador: 7,8 s de hilo bloqueado
  * por toque dentro de la hoja de ajustes. Simétrico para la proteína.
  */
+/**
+ * ═══ Y LA CLAVE TIENE QUE LLEVAR EL ESTADO, O LA CACHÉ MIENTE IGUAL ═══
+ *
+ * Añadir despensa e historial a la petición sin añadirlos aquí sería cambiar un
+ * fallo por otro peor: la primera consulta se guardaría con la despensa de hoy
+ * y se devolvería tal cual la semana que viene, cuando ya no queda nada en casa.
+ *
+ * De la despensa y el historial se guarda una HUELLA, no el contenido: son
+ * objetos grandes y lo único que importa es si cambiaron. `JSON.stringify` de
+ * la despensa entera en cada consulta sería el mismo coste que se intentaba
+ * evitar con la caché.
+ */
+const huellaDespensa = (d?: Existencias) => {
+  if (!d) return '0';
+  const claves = Object.keys(d);
+  if (claves.length === 0) return '0';
+  /* Número de líneas y suma de cantidades: cambia si entra, sale o se gasta
+     algo. Dos despensas distintas con la misma suma exacta son posibles pero
+     irrelevantes — darían semanas equivalentes. */
+  let total = 0;
+  for (const k of claves) total += (d[k] as { cantidad?: number })?.cantidad ?? 0;
+  return `${claves.length}:${Math.round(total)}`;
+};
+
 const clave = (ctx: Contexto, que: string, ejeVariable: 'variedad' | 'proteina') =>
   `${que}|${ctx.comensales}|${ctx.comidas}|${ctx.esfuerzo}|${ctx.exclusiones.join(',')}`
   + `|${ctx.presupuesto}|${ctx.postre}`
-  + `|${ejeVariable === 'variedad' ? ctx.proteina : ctx.variedad}`;
+  + `|${ejeVariable === 'variedad' ? ctx.proteina : ctx.variedad}`
+  + `|s${ctx.semanaNumero ?? 1}`
+  + `|h${(ctx.historial ?? []).length}`
+  + `|d${huellaDespensa(ctx.despensa)}`
+  + `|p${Object.keys(ctx.preferenciasPlatos ?? {}).length}`
+  + `|f${ctx.fechaInicioSemana ?? '-'}`;
 
 function conCache<T>(k: string, calcular: () => T): T {
   if (!cacheCostes.has(k)) cacheCostes.set(k, calcular());
@@ -113,7 +230,18 @@ export function presupuestoMinimoViable(
    */
   postre = false,
 ): number {
-  // Sin techo: es el suelo de lo que puede costar la semana más barata.
+  /**
+   * Sin techo: es el suelo de lo que puede costar la semana más barata.
+   *
+   * Y SIN DESPENSA a propósito, aunque `Contexto` ya la admita. El suelo del
+   * deslizador es «cuánto hace falta para comer una semana», no «cuánto hace
+   * falta esta semana concreta». Si la despensa lo bajara, alguien con la
+   * alacena llena pondría el tope en 38 €, y a la semana siguiente —con la
+   * despensa gastada— la app no le cuadraría las cuentas con el tope que ella
+   * misma le dejó poner.
+   *
+   * El suelo tiene que ser sostenible, no óptimo para hoy.
+   */
   const ctx: Contexto = {
     comensales, comidas, esfuerzo, exclusiones, presupuesto: Infinity, variedad: 'poca', proteina,
     postre,

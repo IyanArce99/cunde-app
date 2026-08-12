@@ -246,6 +246,15 @@
   color: var(--gris);
 }
 
+/* Precios de más de una semana. El rótulo pasa a tinta llena para que se lea
+   igual que la fecha: deja de ser un pie de página y pasa a ser algo que hay
+   que tener en cuenta. Sin rojo —reservado a pasarse del presupuesto— y sin
+   fondo: es una condición del dato, no un error del usuario. */
+.compra__fuente--vieja {
+  color: var(--tinta);
+  font-weight: 500;
+}
+
 .compra__fuente-fecha {
   flex: none;
   font-weight: 600;

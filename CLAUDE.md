@@ -195,9 +195,46 @@ cuentas. Con 46 € sí"* + deslizador ya puesto en 46.
 > Aquí decía que solo había maquetas y datos falsos, y que faltaban el catálogo,
 > Supabase y el motor. Eso era cierto el 28 de julio.
 
-A 11 de agosto de 2026: motor determinista, catálogo real de Mercadona con 151
+A 12 de agosto de 2026: motor determinista, catálogo real de Mercadona con 151
 recetas y 117 SKU, precios actualizables sin publicar en Play Store, 126 recetas
-con foto (100% de los platos que el motor sirve) y 304 tests en verde.
+con foto (100% de los platos que el motor sirve), analítica conectada, Cunde+
+montado con el muro apagado, y 343 tests en verde.
+
+### Monetización · Cunde+
+
+Detalle en [`docs/monetizacion.md`](docs/monetizacion.md). Lo que hay que hacer
+fuera del código, en
+[`docs/lanzamiento-cunde-plus.md`](docs/lanzamiento-cunde-plus.md).
+
+Tres planes —1,49 €/semana, **3,99 €/mes**, 29,99 € para siempre— que dan
+**exactamente lo mismo**. `MURO_ACTIVO = false`: la tubería está montada y
+probada, pero no se pone precio a algo que nadie ha usado una semana entera.
+
+Sí, hay plan semanal y esta guía lo prohíbe más arriba. La regla se escribió
+contra 9,99 € **a la semana** con prueba trampa; lo predatorio era el importe y
+la trampa, no el periodo. Lo que lo mantiene honesto es que cada plan **diga en
+pantalla lo que suma en un año** — sin esa línea es el mismo truco con otra
+cifra, y entonces el plan semanal se cae.
+
+Reglas que no se negocian:
+- **Cunde gratis resuelve su promesa entera.** Cunde+ no desbloquea el producto:
+  desbloquea personalización. Presupuesto, menú, lista y precio previsto son
+  gratis para siempre.
+- **Alergias y dietas NUNCA son premium.** Cobrar por «sin gluten» es cobrar por
+  no envenenar a alguien. No depende de ninguna tabla: no está en el código, y
+  hay un test que se pone rojo si alguien lo añade.
+- **«Bájame el precio» y «no cocino este día» son gratis y sin límite.** Uno es
+  la promesa central; el otro es la regla 5. Cobrar por rehacer el martes es
+  cobrar por cumplir nuestra propia promesa.
+- **Ninguna pantalla decide.** Preguntan a `lib/premium.ts`. Ningún componente
+  pregunta qué plan tiene alguien, solo si tiene Cunde+.
+- **La regla se prueba sin depender de la bandera.** `reglaDeCambios()` es pura;
+  con el muro apagado los tests seguirían midiendo la bandera, no la regla.
+
+Lo más discutible que hay aquí: **Proteína Alta detrás del muro**. El argumento
+en contra —«cobrar por comer legumbre en vez de carne es cobrar por una dieta»—
+sigue escrito en `suscripcion.ts` encima de la decisión que lo contradice, y no
+se ha refutado. Quitarlo es borrar un valor de un enum.
 
 ### Analítica
 

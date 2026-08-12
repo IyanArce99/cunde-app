@@ -51,6 +51,15 @@ interface SelectorCosteProps<T extends string> {
    * Lo que NO se calla es que un nivel no se pueda montar: eso sigue saliendo.
    */
   soloEtiqueta?: boolean;
+  /**
+   * Opciones que llevan una marca al lado de la etiqueta. Hoy solo la usa la
+   * proteína para señalar que Alta va con Cunde+.
+   *
+   * Marca, no bloqueo: la opción sigue siendo elegible y quien decide qué pasa
+   * al tocarla es quien pasa `onCambiar`. Este componente no sabe nada de
+   * suscripciones y no tiene por qué.
+   */
+  marcadas?: Partial<Record<T, string>>;
 }
 
 /**
@@ -63,7 +72,7 @@ interface SelectorCosteProps<T extends string> {
  * atrás.
  */
 function SelectorCoste<T extends string>({
-  opciones, costes, valor, onCambiar, ejes, soloEtiqueta,
+  opciones, costes, valor, onCambiar, ejes, soloEtiqueta, marcadas,
 }: Readonly<SelectorCosteProps<T>>) {
   const posibles = costes
     ? opciones.map((o) => costes[o.valor]).filter((c) => c.disponible && Number.isFinite(c.carrito))
@@ -99,7 +108,15 @@ function SelectorCoste<T extends string>({
             aria-pressed={seleccionado}
             disabled={!!coste && !coste.disponible}
           >
-            <span className="selcoste__label">{o.label}</span>
+            <span className="selcoste__label">
+              {o.label}
+              {/* La marca de Cunde+. Va DENTRO de la etiqueta y no debajo para
+                  no descuadrar las alturas: las tres tarjetas siguen midiendo
+                  lo mismo. */}
+              {marcadas?.[o.valor] && (
+                <span className="selcoste__plus">{marcadas[o.valor]}</span>
+              )}
+            </span>
             {/* Sin nota, ni el hueco: un `<span>` vacío deja su altura de línea
                 y las tarjetas vuelven a descuadrarse, que es lo que se venía a
                 arreglar. */}

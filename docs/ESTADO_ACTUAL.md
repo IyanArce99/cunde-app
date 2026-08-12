@@ -21,8 +21,8 @@ una app de dinero que se paga en comida.**
 
 ```
 151 recetas          118 ingredientes canónicos (17 de despensa)
-117 SKU elegidos     28 recetas con foto (72% de los platos servidos)
-30 componentes       13 ficheros de test · 275 tests en verde
+117 SKU elegidos     126 recetas con foto (100% de los platos servidos)
+30 componentes       19 ficheros de test · 343 tests en verde
 precios del          catálogo Mercadona real, actualizable sin
 2026-08-10           publicar en Play Store
 ```
@@ -87,6 +87,13 @@ saldría por 78 € y la 2 por 44, y el usuario creería que la app miente.
 ## 4. Pantallas
 
 **Dos pestañas: Semana y Compra.** Ninguna más.
+
+> Hasta el 12 ago había una tercera ruta, `/semana/variante`: la maqueta «2a»
+> del fichero de diseño, una hipótesis alternativa a la pantalla Semana que se
+> descartó. Nadie navegaba a ella —solo se llegaba escribiendo la URL—, su
+> botón ↻ no tenía `onClick` y estaba rota: centraba y recortaba a la vez, así
+> que los platos del primer día no se veían y no había forma de llegar a ellos.
+> Borrada. Con ella se fue `costePersonaDia`, que era su único consumidor.
 
 ### Onboarding — `src/pages/onboarding/`
 
@@ -294,6 +301,62 @@ componente → analitica() → sumidero → cola local → RPC → analytics_eve
 **Sin `VITE_SUPABASE_URL` no encola ni envía nada** — el estado correcto en
 desarrollo.
 
+## 6 ter. Cunde+ · monetización
+
+Montado el 12 ago, **con el muro apagado**. Detalle completo en
+**[docs/monetizacion.md](monetizacion.md)**; lo que hay que hacer fuera del
+código, en **[docs/lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)**.
+
+```
+lib/suscripcion.ts   precios · IDs de producto · MURO_ACTIVO · los dos límites
+lib/premium.ts       TODAS las reglas de acceso. Nadie más decide.
+lib/compras.ts       RevenueCat. Lo único que habla con la tienda.
+MuroDePago.tsx       pinta y avisa. No decide nada.
+```
+
+Tres planes —1,49 €/semana, **3,99 €/mes**, 29,99 € para siempre— que conceden
+**el mismo entitlement** (`cunde_plus`). Ningún componente pregunta qué plan
+tiene alguien: preguntan `tieneCundePlus(estado)`.
+
+Se cobran **dos cosas**, ambas de personalización:
+
+| | gratis | con Cunde+ |
+|---|---|---|
+| Cambios de plato | 2 por semana | sin límite, sin contar |
+| Proteína | básica y normal | + alta |
+
+Gratis para siempre: el menú con precios reales, la lista entera, **todas las
+alergias y dietas**, «bájame el precio», «no cocino este día», bloquear platos,
+cerrar la semana con el ticket y compartir.
+
+- **El contador guarda a qué semana pertenece**, no solo cuántos van. El reseteo
+  no necesita ningún gancho. Y cierra el ciclo de «gasto los dos → muevo el
+  presupuesto → regenero → los recupero»: `regenerar()` no incrementa
+  `semanaNumero`, solo `GUARDAR_CIERRE`.
+- **Solo `APLICAR_SEMANA` gasta un cambio.** Es el único despachador que lo hace.
+- **`reglaDeCambios()` es pura** y no mira `MURO_ACTIVO`. Con la bandera apagada,
+  probar `accesoACambiarPlato` mediría la bandera y no la regla.
+- **`permisoSegunLaTienda()` devuelve `boolean | null`**, y `null` es «no se pudo
+  saber» y no toca nada. Antes hacía `catch → false`, o sea que a quien había
+  pagado y abría la app en el sótano del súper se le retiraba el acceso.
+- **Migración a v16**: quien viene de v15 entra con `{semana: 0, usados: 0}`. La
+  semana 0 no coincide con ninguna real, así que migra con cero usados sin
+  lógica aparte. Un contador corrupto se repara a cero: regalar dos cambios es
+  mejor que una pantalla en blanco al tocar la función que paga.
+
+**Dos límites distintos sobre la misma acción, y los dos activos**:
+`ALTERNATIVAS_GRATIS = 1` limita cuántas alternativas se **ven** por hueco;
+`CAMBIOS_GRATIS_POR_SEMANA = 2` limita cuántas se **aplican** por semana. Si hay
+que aflojar, aflojar uno.
+
+> **Lo más discutible que hay en la app.** Proteína Alta detrás del muro
+> contradice un argumento que sigue escrito en `suscripcion.ts` y que no se ha
+> refutado: «cobrar por comer legumbre en vez de carne es cobrar por una dieta,
+> no por una función». Lo que sí se refutó es el dato que lo sostenía —alta no
+> es más cara: sobre 48 combinaciones el precio solo sube en 13, y con 65 € y
+> poca variedad son 41,05 € en básica contra 30,94 € en alta—. Quitarlo es
+> borrar un valor de un enum.
+
 ## 7. Restricciones
 
 12 alergias (`Gluten, Lactosa, Huevo, Frutos secos, Marisco, Pescado, Cacahuete,
@@ -326,6 +389,18 @@ listas se separen.
 - **El fondo de las fotos no necesita clavar el color.** `.foto-plato` lleva un
   borde de 1 px: la foto va enmarcada, no sangra. Dispersión medida entre las
   primeras 20: de 5 a 30 puntos RGB, invisible a 328 px.
+- **«Nunca repites plato» no repite ningún plato.** Medido en las tres
+  proteínas: 14 huecos, 12 recetas distintas, 12 cocinadas y **ninguna receta
+  cocinada dos veces**. Los dos nombres que salen repetidos son una sobra y un
+  ensamblaje —aprovechamiento, que es el producto—. Con «repites» sí hay
+  recocinadas (3 veces los calamares) y bajan a 5 recetas distintas. La
+  distinción funciona; lo que fallaba era la hoja de ajustes, no el motor.
+- **Los pasillos ordenan por recorrido de súper, no alfabéticamente.**
+  `orden_pasillo` está en el modelo de datos de `CLAUDE.md` pero **nunca se
+  capturó**: los productos traen `departamento` y `subfamilia`. El orden vive en
+  `ORDEN_PASILLOS` (`data/motor.ts`) y es una **hipótesis razonada, sin
+  verificar en tienda** — fresco por el perímetro, seco por el centro,
+  congelados al final. Corregirlo es mover una línea de esa lista.
 
 ---
 
@@ -336,9 +411,11 @@ listas se separen.
 | 1 | **Rotar la contraseña de Postgres** y la **clave de OpenAI** — las dos se pegaron en un chat | tú |
 | 2 | Añadir `SUPABASE_DB_URL` como secreto de GitHub para que el cron corra | tú |
 | 3 | ~~Conectar un sumidero de analítica~~ **Hecho el 11 ago.** Falta poner `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`, y aplicar la migración | tú |
-| 4 | Política de privacidad | — |
+| 4 | ~~Política de privacidad~~ **Hecha** (`landing/privacidad.html`). Faltan las **condiciones**, que Google exige para aprobar compras | — |
 | 5 | Build de release firmada | — |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |
+| 7 | Toda la configuración de RevenueCat y Play Console para Cunde+ → **[lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)** | tú |
+| 8 | Borrar las filas de analítica de prueba antes de la beta: `delete from analytics_events where created_at < '2026-08-12'` | tú |
 
 ## 10. Decidido y aparcado
 

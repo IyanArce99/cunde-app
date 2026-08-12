@@ -1,4 +1,5 @@
 import type { DatosMotor, Sku } from '../motor/tipos.ts';
+import { deFechaDia, esFechaDia } from './fechas';
 
 /**
  * ═══ PRECIOS QUE SE ACTUALIZAN SIN PUBLICAR EN LA TIENDA ═══
@@ -182,4 +183,55 @@ export async function buscarActualizacion(
   } catch {
     return null;
   }
+}
+
+/**
+ * ═══ CUÁNTOS DÍAS TIENEN LOS PRECIOS QUE SE ESTÁN VIENDO ═══
+ *
+ * La cabecera de Compra enseña la fecha del catálogo desde el principio, y eso
+ * está bien: es el dato que uno comprueba. Pero se lee EXACTAMENTE IGUAL con
+ * dos días que con cuarenta, y quien mira «10 AGO» un 21 de agosto tiene que
+ * restar de cabeza en mitad del súper para saber si fiarse.
+ *
+ * Esto existe porque la cadena que trae precios nuevos tiene tres eslabones
+ * —el cron que raspa, la publicación a mano, y que la app tenga configurada la
+ * URL— y ninguno avisa al usuario cuando se rompe. Que la app note su propia
+ * antigüedad es lo único que protege a quien está delante del lineal pase lo
+ * que pase por detrás.
+ */
+export function diasDePrecios(version: string, hoyISO: string): number {
+  /**
+   * `esFechaDia` y no `Number.isFinite` sobre el resultado: la cadena vacía
+   * pasaba la comprobación de finitud y salía por 46.244 días.
+   *
+   * El motivo es que `''.split('-')` da `['']` y `Number('')` es CERO, no
+   * `NaN`. Con eso, `deFechaDia` construía `new Date(0, 0, 1)` —y JavaScript
+   * interpreta los años de 0 a 99 como 1900+n— así que salía una fecha de 1900
+   * perfectamente válida y finita. Una versión ilegible tiene que dar cero, no
+   * un siglo.
+   */
+  if (!esFechaDia(version) || !esFechaDia(hoyISO)) return 0;
+  const dia = 24 * 60 * 60 * 1000;
+  const a = deFechaDia(version).getTime();
+  const b = deFechaDia(hoyISO).getTime();
+  // Nunca negativo: unos precios «del futuro» son un reloj mal puesto, no una
+  // antigüedad, y decir «hace -3 días» es peor que no decir nada.
+  return Math.max(0, Math.round((b - a) / dia));
+}
+
+/**
+ * A partir de cuántos días se dice la antigüedad en vez de solo la fecha.
+ *
+ * Siete, y el número tiene motivo: la app vende semanas. Unos precios de hace
+ * más de siete días son más viejos que la semana que están valorando, y ahí la
+ * fecha deja de ser un detalle y pasa a ser algo que hay que juzgar.
+ *
+ * Por debajo no se dice nada. Publicar es una decisión humana y puede tardar
+ * unos días con toda normalidad; avisar de eso sería gritar por costumbre y
+ * enseñar al usuario a no hacer caso del aviso cuando de verdad importe.
+ */
+export const DIAS_PRECIOS_VIEJOS = 7;
+
+export function preciosViejos(version: string, hoyISO: string): boolean {
+  return diasDePrecios(version, hoyISO) >= DIAS_PRECIOS_VIEJOS;
 }

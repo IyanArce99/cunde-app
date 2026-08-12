@@ -380,7 +380,68 @@ export function listaDe(carrito: Carrito, huecos: Hueco[], postres: RacionPostre
         // falta": se da por hecha aunque no haya sobrante que la respalde.
       } satisfies ItemLista;
     })
-    .sort((a, b) => a.pasillo.localeCompare(b.pasillo) || a.nombre.localeCompare(b.nombre));
+    .sort((a, b) => ordenDePasillo(a.pasillo) - ordenDePasillo(b.pasillo)
+      || a.nombre.localeCompare(b.nombre));
+}
+
+/**
+ * ═══ EL ORDEN DE LOS PASILLOS ES EL DEL SÚPER, NO EL DEL DICCIONARIO ═══
+ *
+ * Aquí había `a.pasillo.localeCompare(b.pasillo)`, o sea orden alfabético. La
+ * lista abría por APERITIVOS y seguía por ARROZ, LEGUMBRES Y PASTA — no porque
+ * sea por donde se entra, sino porque empiezan por A.
+ *
+ * Eso rompe la regla 6 del proyecto: la pantalla Compra se usa de pie, con una
+ * mano, empujando un carro. Recorrer el súper en orden de diccionario obliga a
+ * volver sobre tus pasos entre secciones que están en extremos opuestos, y la
+ * lista deja de ser una ruta para ser un índice.
+ *
+ * `orden_pasillo` está en el modelo de datos de CLAUDE.md, pero **nunca se
+ * capturó**: los productos del catálogo traen `departamento` y `subfamilia` y
+ * nada más. Así que el orden va aquí, explícito, hasta que el dato exista.
+ *
+ * ═══ ESTE ORDEN ES UNA HIPÓTESIS RAZONADA, NO UN DATO MEDIDO ═══
+ *
+ * Sale del recorrido típico de un Mercadona: se entra por fruta y verdura, el
+ * fresco va por el perímetro, el seco por el centro y los congelados caen cerca
+ * de las cajas. **No está verificado en tienda**, y las tiendas varían.
+ *
+ * Comprobarlo cuesta una compra con el móvil en la mano, y corregirlo es mover
+ * una línea de esta lista. Está montado así a propósito: cualquier orden
+ * plausible bate al alfabético, y este se arregla sin tocar lógica.
+ *
+ * Un departamento que no esté aquí cae al final en vez de romper nada — es lo
+ * que pasará cuando el catálogo crezca, y descolocar un pasillo nuevo es mejor
+ * que perderlo.
+ */
+const ORDEN_PASILLOS = [
+  'Fruta y verdura',
+  'Carne',
+  'Marisco y pescado',
+  'Charcutería y quesos',
+  'Panadería y pastelería',
+  'Huevos, leche y mantequilla',
+  'Postres y yogures',
+  'Conservas, caldos y cremas',
+  'Arroz, legumbres y pasta',
+  'Aceite, especias y salsas',
+  'Aperitivos',
+  'Pizzas y platos preparados',
+  'Congelados',
+];
+
+/**
+ * Se compara en mayúsculas porque `pasillo` ya viene con `.toUpperCase()`
+ * aplicado (ver arriba) y la lista de arriba está escrita como el catálogo, en
+ * capitalización normal. Sin esto no casaba ni uno: todos caían al final con el
+ * mismo rango, el orden quedaba en manos de la ordenación previa del carrito y
+ * el arreglo no hacía nada — medido en navegador antes de darlo por bueno.
+ */
+const ORDEN_EN_MAYUSCULAS = ORDEN_PASILLOS.map((p) => p.toUpperCase());
+
+function ordenDePasillo(pasillo: string): number {
+  const i = ORDEN_EN_MAYUSCULAS.indexOf(pasillo.toUpperCase());
+  return i === -1 ? ORDEN_EN_MAYUSCULAS.length : i;
 }
 
 // --- Lo que usa el estado ----------------------------------------------------

@@ -226,3 +226,13 @@
   font: 600 13px/1 var(--font-body);
   color: var(--tinta);
 }
+
+/* Cuántos cambios gratis quedan. Al lado del rótulo y en gris: es una nota,
+   no un marcador. Con Cunde+ este elemento no se pinta. */
+.hoja-dia__cambios {
+  margin-left: 8px;
+  font: 400 12px/1 var(--font-body);
+  color: var(--gris);
+  text-transform: none;
+  letter-spacing: 0;
+}
