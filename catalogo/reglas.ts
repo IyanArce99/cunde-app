@@ -392,6 +392,11 @@ const ARROCES = ['arroz_redondo', 'arroz_largo', 'arroz_integral', 'quinoa'];
  * convención— pero sí conviene mirarla cada vez que se añade una.
  */
 const LEGUMBRE_SECA = ['lenteja_pardina', 'garbanzo_seco', 'alubia_blanca_seca', 'alubia_negra_seca'];
+/**
+ * El cuscús no se cuece: se hidrata. Lleva poco más de su peso en agua, y con
+ * el 1:2 del arroz sale una papilla. Por eso no va en ARROCES.
+ */
+const CUSCUS = ['cuscus'];
 const LIQUIDOS = ['agua', 'caldo_verduras', 'caldo_pollo', 'bebida_soja', 'bebida_arroz', 'leche_semi'];
 
 function reglaRatios(ctx: Contexto): Fallo[] {
@@ -416,6 +421,15 @@ function reglaRatios(ctx: Contexto): Fallo[] {
       receta: ctx.nombre,
       regla: 'ratio',
       detalle: `legumbre seca ${seca} g con ${liquido} ml = 1:${(liquido / seca).toFixed(1)} (debe ser 1:3)`,
+      nivel: 'error',
+    });
+  }
+  const cuscus = suma(CUSCUS);
+  if (cuscus > 0 && liquido > 0 && Math.abs(liquido / cuscus - 1.25) > 0.25) {
+    fallos.push({
+      receta: ctx.nombre,
+      regla: 'ratio',
+      detalle: `cuscús ${cuscus} g con ${liquido} ml = 1:${(liquido / cuscus).toFixed(1)} (debe ser 1:1,25)`,
       nivel: 'error',
     });
   }

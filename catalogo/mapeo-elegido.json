@@ -26,7 +26,7 @@
   "calabaza": "69853",
   "calamar_congelado": "24417",
   "caldo_pollo": "7313",
-  "caldo_verduras": "7032",
+  "caldo_verduras": "18480",
   "carne_picada_cerdo": "2867",
   "carne_picada_mixta": "2869",
   "carne_picada_vacuno": "52776",
@@ -88,7 +88,6 @@
   "puerro": "68408",
   "queso_fresco": "17463",
   "queso_rallado": "23621",
-  "quinoa": "9430",
   "repollo": "68462",
   "romero": "14981",
   "sal": "19731",
@@ -109,5 +108,7 @@
   "zanahoria": "69586",
   "haba_congelada": "61233",
   "edamame_congelado": "70740",
-  "alubia_negra_seca": "67608"
+  "alubia_negra_seca": "67608",
+  "cuscus": "9395",
+  "pasta_lenteja_roja": "6106"
 }

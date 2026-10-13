@@ -221,6 +221,32 @@
     "alergenos": [],
     "trazas": []
   },
+  "4570": {
+    "sku": "4570",
+    "ean": "2105100045703",
+    "nombre": "Solomillo de cerdo",
+    "canonicos": [
+      "solomillo_cerdo"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Solomillo de cerdo",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [
+      "cerdo"
+    ],
+    "trazas": []
+  },
   "4940": {
     "sku": "4940",
     "ean": "8480000049407",
@@ -503,6 +529,40 @@
     ],
     "trazas": []
   },
+  "6106": {
+    "sku": "6106",
+    "ean": "8032804430822",
+    "nombre": "Pasta fusilli 100% lentejas rojas Felicia",
+    "canonicos": [
+      "pasta_lenteja_roja"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "gluten"
+      ],
+      "ingredientes": "100% Harina de lentejas rojas. No contiene gluten.",
+      "alergenosTexto": "Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Pasta Lentejas",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-content-unknown",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": []
+  },
   "6260": {
     "sku": "6260",
     "ean": "8480000062604",
@@ -633,6 +693,94 @@
     },
     "alergenos": [],
     "trazas": []
+  },
+  "8932": {
+    "sku": "8932",
+    "ean": "8436569263426",
+    "nombre": "Entrecot de vacuno añojo",
+    "canonicos": [
+      "entrecot_vacuno"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Entrecot",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "8936": {
+    "sku": "8936",
+    "ean": "8436569263464",
+    "nombre": "Filetes de vacuno añojo para plancha",
+    "canonicos": [
+      "filete_vacuno"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "FILETES",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
+  "9395": {
+    "sku": "9395",
+    "ean": "8011033012108",
+    "nombre": "Cous cous mediano Hacendado",
+    "canonicos": [
+      "cuscus"
+    ],
+    "mercadona": {
+      "contiene": [
+        "gluten"
+      ],
+      "trazas": [
+        "soja"
+      ],
+      "resaltados": [
+        "trigo",
+        "gluten",
+        "soja"
+      ],
+      "ingredientes": "Sémola de trigo duro, agua. Contiene gluten. Puede contener trazas de soja",
+      "alergenosTexto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Cous Cous mediano",
+      "alergenos": [
+        "gluten"
+      ],
+      "trazas": [
+        "soja"
+      ],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "gluten"
+    ],
+    "trazas": [
+      "soja"
+    ]
   },
   "9430": {
     "sku": "9430",
@@ -1051,6 +1199,43 @@
     "alergenos": [],
     "trazas": []
   },
+  "17228": {
+    "sku": "17228",
+    "ean": "3563490016397",
+    "nombre": "Mostaza de Dijon Hacendado",
+    "canonicos": [
+      "mostaza"
+    ],
+    "mercadona": {
+      "contiene": [
+        "mostaza",
+        "sulfitos"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Ingredientes: agua, SEMILLA De MOSTOZA, vinagre de alcohol (15% ácido), sal, acidulante (ácido cítrico), conservador (METABISULFITO POSTÁSICO).",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos. Contiene mostaza y productos derivados."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Mostaza de Dijon",
+      "alergenos": [
+        "mostaza",
+        "sulfitos"
+      ],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "mostaza",
+      "sulfitos"
+    ],
+    "trazas": []
+  },
   "17944": {
     "sku": "17944",
     "ean": "8402001059353",
@@ -1104,6 +1289,43 @@
     },
     "alergenos": [
       "pescado"
+    ],
+    "trazas": []
+  },
+  "18480": {
+    "sku": "18480",
+    "ean": "8410300349013",
+    "nombre": "Caldo de verduras casero Gallina blanca",
+    "canonicos": [
+      "caldo_verduras"
+    ],
+    "mercadona": {
+      "contiene": [
+        "apio"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "APIO",
+        "APIO"
+      ],
+      "ingredientes": "Agua, verduras (3,7%)(cebolla (34%), calabacín (18%), puerro (17%), zanahoria (15%), espinacas (11%), APIO (5%)), aceite de oliva virgen extra (0,15%), aromas naturales (contienen APIO), sal.",
+      "alergenosTexto": "Contiene apio y productos derivados."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Caldo casero de verduras",
+      "alergenos": [
+        "apio"
+      ],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [
+      "apio"
     ],
     "trazas": []
   },
@@ -1885,6 +2107,28 @@
     "alergenos": [],
     "trazas": []
   },
+  "61233": {
+    "sku": "61233",
+    "ean": "8413993110472",
+    "nombre": "Habas fina Hacendado ultracongelada",
+    "canonicos": [
+      "haba_congelada"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Habas",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": []
+    },
+    "alergenos": [],
+    "trazas": []
+  },
   "61238": {
     "sku": "61238",
     "ean": "8480000612380",
@@ -1980,6 +2224,36 @@
     ],
     "trazas": []
   },
+  "62113": {
+    "sku": "62113",
+    "ean": "8435035300566",
+    "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+    "canonicos": [
+      "lomo_merluza"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Pescado"
+      ],
+      "ingredientes": "Pescado.",
+      "alergenosTexto": "Contiene pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Lomos de merluza congelados",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": []
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": []
+  },
   "62401": {
     "sku": "62401",
     "ean": "8435035300320",
@@ -2006,6 +2280,34 @@
     "alergenos": [
       "marisco"
     ],
+    "trazas": []
+  },
+  "67608": {
+    "sku": "67608",
+    "ean": "8480000676085",
+    "nombre": "Alubia negra Hacendado",
+    "canonicos": [
+      "alubia_negra_seca"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Alubia Negra",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-free",
+        "en:vegan",
+        "en:vegetarian"
+      ]
+    },
+    "alergenos": [],
     "trazas": []
   },
   "68408": {
@@ -2364,6 +2666,40 @@
       "trazas": []
     },
     "alergenos": [],
+    "trazas": []
+  },
+  "70740": {
+    "sku": "70740",
+    "ean": "8480000707406",
+    "nombre": "Edamame soja verde Hacendado ultracongelada",
+    "canonicos": [
+      "edamame_congelado"
+    ],
+    "mercadona": {
+      "contiene": [
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "soja"
+      ],
+      "ingredientes": "Vainas de soja verde.",
+      "alergenosTexto": "Contiene soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": true,
+      "nombre": "Edamame soja verde",
+      "alergenos": [],
+      "trazas": [],
+      "analisis": [
+        "en:palm-oil-content-unknown",
+        "en:vegan-status-unknown",
+        "en:vegetarian-status-unknown"
+      ]
+    },
+    "alergenos": [
+      "soja"
+    ],
     "trazas": []
   },
   "80858": {

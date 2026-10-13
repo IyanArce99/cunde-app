@@ -849,6 +849,39 @@
       "rendimiento_comestible": 1
     },
     {
+      "id": "cuscus",
+      "nombre": "Cuscús",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 12,
+      "base": "cuscus",
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "soja"
+      ]
+    },
+    {
+      "id": "pasta_lenteja_roja",
+      "nombre": "Pasta de lenteja roja",
+      "unidad_base": "g",
+      "es_despensa": false,
+      "dias_conservacion": 365,
+      "gramos_por_unidad": null,
+      "origen": "vegetal",
+      "alergenos": [
+        "gluten"
+      ],
+      "proteina_g_por_100": 25,
+      "base": "pasta",
+      "rendimiento_comestible": 1
+    },
+    {
       "id": "harina_maiz",
       "nombre": "Harina de maíz",
       "unidad_base": "g",

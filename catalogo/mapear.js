@@ -150,6 +150,8 @@ const TABLA_BUSQUEDA = {
   arroz_largo: { requiere: ['arroz', 'largo'], evita: ['integral', 'cocido'], departamentos: ['Arroz, legumbres y pasta'] },
   arroz_integral: { requiere: ['arroz', 'integral'], evita: ['cocido'], departamentos: ['Arroz, legumbres y pasta'] },
   quinoa: { requiere: ['quinoa'], evita: ['muesli', 'cocida'], departamentos: ['Arroz, legumbres y pasta'] },
+  cuscus: { requiere: ['cous'], evita: ['tabule'], departamentos: ['Arroz, legumbres y pasta'] },
+  pasta_lenteja_roja: { requiere: ['pasta', 'lentejas', 'rojas'], departamentos: ['Arroz, legumbres y pasta'] },
   harina_maiz: { requiere: ['harina', 'maiz'] },
   macarron: { requiere: ['macarron'], evita: ['integral', 'gratinado', 'boloñesa'], departamentos: ['Arroz, legumbres y pasta'] },
   fideo: { requiere: ['fideo'], evita: ['oriental', 'gamba', 'arroz'], departamentos: ['Arroz, legumbres y pasta'] },
