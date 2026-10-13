@@ -54,8 +54,15 @@ const Portada: React.FC = () => {
               comensales: un total sin ellos no afirma nada, porque 63,89 € para
               dos y para cinco son dos cosas distintas. */}
           <div className="portada__centro">
+            {/* «de ejemplo», y no es un matiz. Esta cifra es una semana real del
+                motor para dos personas con 65 €, pero NO es la que va a salir
+                al terminar el onboarding: la semana del usuario empieza el día
+                en que abre la app y el motor reparte distinto según el día
+                (medido el 13 oct 2026: entre 54,32 € y 61,51 € para estos
+                mismos datos, de lunes a domingo). Presentarla como «tu semana»
+                sería prometer una cifra que tres pantallas después es otra. */}
             <span className="portada__rotulo">
-              Una semana para {ticket.personas} · Mercadona
+              Semana de ejemplo para {ticket.personas} · Mercadona
             </span>
 
             <div className="portada__cifra">

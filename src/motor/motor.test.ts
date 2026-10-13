@@ -418,6 +418,47 @@ describe('la cuenta de la compra', () => {
     }
   });
 
+  it('con la nevera llena, la construcción base no planifica más comida de la que cabe en el tope', () => {
+    /**
+     * Lo que la semana COME es caja más armario, y el motor ya lo medía así
+     * para decidir si le sobraba presupuesto. Pero las cuotas por hueco de
+     * `construir` solo restaban la caja: con comida en casa, cada hueco tenía
+     * su cuota entera de dinero nuevo encima de lo que ya había, y con dos
+     * personas y 65 € la semana 2 pagaba 13,73 € MÁS por caja que con la
+     * cocina vacía (catalogo/_aud-existencias.ts).
+     *
+     * Se mide la construcción base (sin la pasada de holgura, que gasta a
+     * propósito) con despensas crecientes: antes del arreglo, la de dos
+     * personas se iba a 67,18 € y 69,58 € de comida sobre 65 € de tope.
+     */
+    const escalar = (e: ReturnType<typeof existenciasTrasLaSemana>, k: number) =>
+      Object.fromEntries(Object.entries(e).map(([sku, x]) => [sku, { ...x, cantidad: x.cantidad * k }]));
+    for (const [N, presupuesto] of [[1, 45], [2, 65], [3, 80], [4, 100]] as const) {
+      const peticion = {
+        ...BASE, N, presupuesto, variedad: 'normal' as Variedad, proteina: 'normal' as NivelProteina,
+      };
+      const primera = generarSemana({ ...peticion, semanaNumero: 1 });
+      const enCasa = existenciasTrasLaSemana(primera.carrito);
+      const memoria = [[...new Set(primera.tandas.map((t) => t.receta.id))]];
+      for (const k of [1, 2, 4]) {
+        const s = generarSemana({
+          ...peticion, semanaNumero: 2, existencias: escalar(enCasa, k), recetasRecientes: memoria, sinHolgura: true,
+        });
+        if (!s.cuadra) continue;
+        const come = s.carrito.totalCarrito + s.carrito.totalDelArmario;
+        expect(
+          come,
+          `N=${N} con el armario ×${k}: paga ${s.carrito.totalCarrito.toFixed(2)} € y come ${come.toFixed(2)} € sobre ${presupuesto}`,
+        ).toBeLessThanOrEqual(presupuesto + 0.005);
+        // Y sigue siendo determinista con despensa: misma petición, misma semana.
+        const otra = generarSemana({
+          ...peticion, semanaNumero: 2, existencias: escalar(enCasa, k), recetasRecientes: memoria, sinHolgura: true,
+        });
+        expect(otra.carrito.totalCarrito).toBe(s.carrito.totalCarrito);
+      }
+    }
+  });
+
   it('la despensa caduca en vez de crecer para siempre', () => {
     // Sin restar los días de la semana el armario llegaba a 40 productos y
     // 51 € a la sexta semana, y una bolsa de cebollas no está buena mes y

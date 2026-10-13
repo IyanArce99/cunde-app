@@ -729,6 +729,12 @@ export interface PeticionSemana {
   pesoFavorito?: number;
   /** Solo para calibrar: apaga la pasada de aprovechar la holgura. */
   sinHolgura?: boolean;
+  /**
+   * Solo para comparaciones internas: enciende la pasada de holgura aunque
+   * `PASADA_DE_HOLGURA` esté apagada. Ver esa constante. `sinHolgura` sigue
+   * mandando si se dan las dos.
+   */
+  conHolgura?: boolean;
   /** Solo para calibrar: ver RENDIMIENTO_MINIMO_HOLGURA. */
   rendimientoHolgura?: number;
   /**
@@ -740,6 +746,24 @@ export interface PeticionSemana {
    * cada nivel optimiza un objetivo distinto. Ver catalogo/_aud-monotonia.ts.
    */
   criterioUnico?: 'precio' | 'desperdicio';
+  /**
+   * Solo para calibrar: reproduce la cuota de antes del 13 oct 2026, que no
+   * descontaba lo que ya salía del armario. Ver `armarioActual` en construir().
+   */
+  cuotaSinArmario?: boolean;
+  /**
+   * Solo para calibrar: una pasada de holgura que NO apunta a un porcentaje
+   * del presupuesto. Acepta gastar más solo por una mejora explícita de
+   * calidad —estrenar un plato, repetir menos la fuente de proteína, tirar
+   * menos— sin perder nada de lo demás, y hasta `topeExtra` del presupuesto
+   * por encima de la semana base. Ver `aceptarPorCalidad` en construirMejor().
+   */
+  holguraPorCalidad?: {
+    topeExtra: number;
+    criterio: 'variedad-fuentes' | 'fuentes-perecedero';
+    /** Cuánto puede subir el perecedero por cada euro de gasto adicional. 0 si no se da. */
+    toleranciaPerecedero?: number;
+  };
   /**
    * Postre en cada comida. Ver motor/postres.ts.
    *
@@ -1160,6 +1184,28 @@ export function construir(
   let totalesActuales = totalesDeNecesidad(necesidadActual, peticion.existencias);
   let costeActual = totalesActuales.totalCarrito;
   let perecederoActual = totalesActuales.totalPerecedero;
+  /**
+   * ═══ LO QUE YA SALE DEL ARMARIO CONSUME CUOTA ═══
+   *
+   * El objetivo de gasto es comida de esta semana, venga de caja o del
+   * armario: `construirMejor` ya mide así la holgura (`gastoEfectivo`) para
+   * no leer una nevera llena como «no he sabido llenar la semana». Pero las
+   * cuotas por hueco de aquí dentro solo restaban el carrito, así que con la
+   * nevera llena cada hueco disponía de su cuota ENTERA de dinero nuevo
+   * encima de lo que ya tenía en casa.
+   *
+   * Medido (catalogo/_aud-existencias.ts, 2 personas, 65 €, semana 2 con lo
+   * que sobró de la 1): la pasada de holgura, con esta cuota inflada, llevaba
+   * el carrito de 40,87 € a 62,45 € —tres bolsas de calamar congelado— para un
+   * gasto efectivo de 75,74 €, por encima del propio presupuesto que la
+   * pasada dice respetar; con la cocina vacía la misma semana se quedaba en
+   * 48,72 €. Tener comida en casa hacía pagar 13,73 € más por caja.
+   *
+   * El coste marginal de cada candidato sigue siendo por caja a propósito:
+   * es lo que hace que el plato que gasta lo abierto salga más barato y gane.
+   * Lo que cambia es cuánto queda por gastar.
+   */
+  let armarioActual = totalesActuales.totalDelArmario;
   let primeraVuelta = true;
 
   // --- Estado de las restricciones nuevas ---------------------------------
@@ -1243,7 +1289,8 @@ export function construir(
       let reservadoParaLosDemas = 0;
       const fraccion = arranque?.fraccionReserva ?? 1;
       for (let k = 0; k < ocupados.length; k++) if (!ocupados[k] && k !== i) reservadoParaLosDemas += cuotaDe(k) * fraccion;
-      permitidoPorHueco = Math.max(0, objetivoGasto - costeActual - reservadoParaLosDemas);
+      const delArmario = peticion.cuotaSinArmario ? 0 : armarioActual;
+      permitidoPorHueco = Math.max(0, objetivoGasto - costeActual - delArmario - reservadoParaLosDemas);
     }
 
     // Ritmo de proteína que hace falta de aquí al final para llegar al suelo.
@@ -1549,6 +1596,7 @@ export function construir(
     totalesActuales = totalesDeNecesidad(necesidadActual, peticion.existencias);
     costeActual = totalesActuales.totalCarrito;
     perecederoActual = totalesActuales.totalPerecedero;
+    armarioActual = totalesActuales.totalDelArmario;
     primeraVuelta = false;
   }
 
@@ -1621,6 +1669,34 @@ const PALANCAS_HOLGURA: { clave: keyof ArranqueParcial; valores: number[] }[] = 
  * de que la app le ha mentido. El margen es parte del producto.
  */
 const GASTO_SUFICIENTE = 0.97;
+
+/**
+ * ═══ LA PASADA DE HOLGURA ESTÁ APAGADA PARA LA BETA (13 oct 2026) ═══
+ *
+ * El presupuesto es el dinero máximo que el usuario quiere pagar por caja: un
+ * límite, no una meta. La pasada de holgura lo trataba como meta —rehacía la
+ * semana para acercarla al 95 % del tope— y, medido sobre seis hogares y 21
+ * semanas encadenadas con despensa (docs/motor-variantes-informe-2026-10-13.md):
+ *
+ *   · costaba un 5,5 % más de compra neta de inventario (866 € frente a 818 €),
+ *   · con los mismos 9 platos, el mismo reparto de fuentes de proteína y el
+ *     mismo perecedero (81,1 € frente a 81,2 €),
+ *   · a cambio de +0,4 g de proteína por persona y día,
+ *   · y producía la única regresión clara de la cuota con despensa: una persona
+ *     con 45 € pagaba 2,59 € más por una semana con la mitad de carne o pescado.
+ *   · Y era la mitad de la latencia: 280 ms por semana contra 107 en PC.
+ *
+ * Lo que se pierde al apagarla, también medido: la semana 1 del caso de
+ * arranque (2 personas, 65 €) baja de 62,02 € a 54,32 €, con 55,7 g de
+ * proteína en vez de 58,8 (suelo 55) y 6 huecos con carne o pescado en vez
+ * de 7. La pantalla enseña más sobrante, y el selector de variedad —que ya
+ * pone el precio de cada nivel al lado— es donde el usuario decide gastarlo.
+ *
+ * El código de la pasada se conserva entero y se enciende con `conHolgura`
+ * para comparaciones internas (catalogo/_aud-variantes.ts). No es una opción
+ * de usuario.
+ */
+const PASADA_DE_HOLGURA = false;
 
 /**
  * NOTA DE UN CALLEJÓN SIN SALIDA, para que no se vuelva a intentar sin datos.
@@ -1788,7 +1864,12 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
    */
   const gastoEfectivo = (c: Construida) => c.carrito.totalCarrito + c.carrito.totalDelArmario;
   const holgura = (c: Construida) => presupuesto * BANDA_PRESUPUESTO.minimo - gastoEfectivo(c);
-  if (aFondo && !peticion.sinHolgura && mejor && Number.isFinite(presupuesto) && holgura(mejor) > 0) {
+  /* Experimento (ver PeticionSemana.holguraPorCalidad): sin banda, la pasada
+     entra siempre que quede dinero y para cuando ninguna palanca aporta. */
+  const porCalidad = peticion.holguraPorCalidad;
+  const hayHueco = (c: Construida) => (porCalidad ? c.carrito.totalCarrito < presupuesto : holgura(c) > 0);
+  const holguraActiva = (peticion.conHolgura ?? PASADA_DE_HOLGURA) && !peticion.sinHolgura;
+  if (aFondo && holguraActiva && mejor && Number.isFinite(presupuesto) && hayHueco(mejor)) {
     /**
      * Y se ordena por CALIDAD, no por variedad. La primera versión de esta
      * pasada solo aceptaba semanas con más platos distintos, y se notó en la
@@ -1816,6 +1897,64 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
      */
     let mejorConsumo = mejor.carrito.totalConsumo;
     let mejorPerecedero = mejor.carrito.totalPerecedero;
+
+    /**
+     * ═══ EXPERIMENTO · ACEPTAR SOLO POR CALIDAD EXPLÍCITA ═══
+     *
+     * Solo con `holguraPorCalidad`. En vez de perseguir la banda del
+     * presupuesto, un intento entra si gasta como mucho `topeExtra` del tope
+     * más que la semana base, no pierde nada (proteína, fresco mínimo, sobras,
+     * platos distintos, repetición de fuentes, perecedero) y gana en algo que
+     * el usuario ve: un plato distinto más o una fuente de proteína menos
+     * repetida (`variedad-fuentes`), o menos repetición o menos basura
+     * (`fuentes-perecedero`). Una semana más barata e igual de buena también
+     * entra: no es un incremento de gasto.
+     */
+    const trioDeFuentes = (c: Construida) => {
+      const cuenta = new Map<string, number>();
+      for (const t of c.tandas) {
+        const vistas = new Set<string>();
+        for (const ing of t.receta.ingredientes) {
+          const meta = peticion.datos.ingredientes[ing.canonico];
+          if (!meta || meta.es_despensa) continue;
+          if ((meta.proteina_g_por_100 ?? 0) < PROTEINA_QUE_DEFINE_EL_PLATO) continue;
+          vistas.add(familiaDeSabor(ing.canonico));
+        }
+        for (const v of vistas) cuenta.set(v, (cuenta.get(v) ?? 0) + 1);
+      }
+      return [...cuenta.values()].sort((a, b) => b - a).slice(0, 3).reduce((a, b) => a + b, 0);
+    };
+    const carritoBase = mejor.carrito.totalCarrito;
+    let mejorCarrito = carritoBase;
+    let mejorTrio = trioDeFuentes(mejor);
+    const aceptarPorCalidad = (suelto: Construida, ahora: SemanaGenerada['nutricion']): boolean => {
+      if (!porCalidad) return false;
+      const carrito = suelto.carrito.totalCarrito;
+      if (carrito - carritoBase > porCalidad.topeExtra * presupuesto + 0.005) return false;
+      if (ahora.proteinaPorPersonaDia < antes.proteinaPorPersonaDia - 0.05) return false;
+      if (ahora.huecosConFresca < MINIMO_HUECOS_FRESCOS) return false;
+      const sobras = (c: Construida) => c.huecos.filter((h) => h.tipo !== 'cocinado').length;
+      if (sobras(suelto) < sobras(mejor!)) return false;
+      const distintas = distintasDe(suelto);
+      const trio = trioDeFuentes(suelto);
+      const perecedero = suelto.carrito.totalPerecedero;
+      const margen = (porCalidad.toleranciaPerecedero ?? 0) * Math.max(0, carrito - mejorCarrito);
+      if (distintas < mejorDistintas || trio > mejorTrio || perecedero > mejorPerecedero + 0.005 + margen) return false;
+      const gana = porCalidad.criterio === 'variedad-fuentes'
+        ? distintas > mejorDistintas || trio < mejorTrio
+        : trio < mejorTrio || perecedero < mejorPerecedero - 0.5;
+      const masBarata = carrito < mejorCarrito - 0.005;
+      if (!gana && !masBarata) return false;
+      mejor = suelto;
+      mejorCarrito = carrito;
+      mejorDistintas = distintas;
+      mejorTrio = trio;
+      mejorPerecedero = perecedero;
+      mejorFresca = Math.max(mejorFresca, ahora.huecosConFresca);
+      mejorGasto = gastoEfectivo(suelto);
+      mejorConsumo = Math.max(mejorConsumo, suelto.carrito.totalConsumo);
+      return true;
+    };
 
     /**
      * MEJOR EN TODO O NO ENTRA. Con "fresco primero y proteína después"
@@ -1848,6 +1987,7 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
       }
       if (!suelto || suelto.carrito.totalCarrito > presupuesto) return false;
       const ahora = nutricionDe(suelto.huecos, peticion.datos, peticion.N, suelo);
+      if (porCalidad) return aceptarPorCalidad(suelto, ahora);
       /**
        * La PROTEÍNA no se toca: fue lo que se rompió cuando esta pasada
        * ordenaba por fresco (54 g → 44 g a cambio de un hueco de pescado) y
@@ -1941,16 +2081,18 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
      * mediocre del que ya no se sale.
      */
     const fijado: ArranqueParcial = { aprovechar: true };
+    // Sin banda que perseguir (experimento), la pasada no para por gasto.
+    const suficiente = () => !porCalidad && mejorGasto >= presupuesto * GASTO_SUFICIENTE;
     probarHolgura(fijado);
     for (let vuelta = 0; vuelta < 2; vuelta++) {
-      if (mejorGasto >= presupuesto * GASTO_SUFICIENTE) break;
+      if (suficiente()) break;
       for (const { clave, valores } of PALANCAS_HOLGURA) {
-        if (mejorGasto >= presupuesto * GASTO_SUFICIENTE) break;
+        if (suficiente()) break;
         let ganador: number | undefined;
         for (const v of valores) {
           if (v === fijado[clave]) continue;
           if (probarHolgura({ ...fijado, [clave]: v })) ganador = v;
-          if (mejorGasto >= presupuesto * GASTO_SUFICIENTE) break;
+          if (suficiente()) break;
         }
         if (ganador !== undefined) (fijado as Record<string, unknown>)[clave] = ganador;
       }

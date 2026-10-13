@@ -55,6 +55,11 @@ const MUESTRA_PORTADA = ['pechuga_pollo'];
  * onboarding por defecto. Se genera con el MISMO motor que la app, así que el
  * ticket de la primera pantalla es un ticket que la app sabe producir — no una
  * maqueta con cifras bonitas. Si el catálogo sube de precio, la portada sube.
+ *
+ * Es un EJEMPLO y la portada lo dice: variedad «normal» y semana de lunes a
+ * domingo. La del usuario empieza el día en que abre la app y la variedad de
+ * arranque la elige `mejorVariedad`, así que su cifra no es esta (54,32 € aquí;
+ * entre 54,32 y 61,51 € según el día, medido el 13 oct 2026).
  */
 const EJEMPLO = { N: 2, presupuesto: 65, lineas: 3 } as const;
 

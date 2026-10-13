@@ -15,7 +15,7 @@ for (const umbral of [0, 0.4, 0.55, 0.7, 0.85, 1.1]) {
   for (const [N, presupuesto] of casos) {
     const base = { datos, N, numHuecos: 14, esfuerzo: 'libre' as const, variedad: 'normal' as const, proteina: 'normal' as const, semanaNumero: 1, presupuesto, rendimientoHolgura: umbral } as never;
     const off = M.generarSemana({ ...(base as object), sinHolgura: true } as never);
-    const on = M.generarSemana(base);
+    const on = M.generarSemana({ ...(base as object), conHolgura: true } as never); // la pasada está apagada en producción desde el 13 oct 2026
     const dG = on.carrito.totalCarrito - off.carrito.totalCarrito;
     basuraTotal += on.carrito.totalPerecedero;
     if (dG <= 0.01) continue;

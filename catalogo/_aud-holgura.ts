@@ -18,7 +18,7 @@ let bien = 0, mal = 0, sumaCarrito = 0, sumaConsumo = 0, sumaTirado = 0;
 for (const [N, presupuesto] of casos) {
   const base = { datos, N, numHuecos: 14, esfuerzo: 'libre' as const, variedad: 'normal' as const, proteina: 'normal' as const, semanaNumero: 1, presupuesto };
   const off = M.generarSemana({ ...base, sinHolgura: true });
-  const on = M.generarSemana({ ...base });
+  const on = M.generarSemana({ ...base, conHolgura: true }); // la pasada está apagada en producción desde el 13 oct 2026
   const dC = on.carrito.totalCarrito - off.carrito.totalCarrito;
   const dCons = on.carrito.totalConsumo - off.carrito.totalConsumo;
   const dTira = on.carrito.totalPerecedero - off.carrito.totalPerecedero;

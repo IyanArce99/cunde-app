@@ -5,31 +5,31 @@
     {
       "nombre": "Filetes pechuga de pollo corte fino",
       "formato": "Bandeja 500 g",
-      "precio": 3.85
+      "precio": 4.1
     }
   ],
   "ticket": {
     "personas": 2,
-    "total": 63.14,
+    "total": 54.32,
     "comidas": 14,
     "lineas": [
       {
-        "nombre": "Lomo de bacalao MareDeus ultracongelado",
-        "formato": "Paquete 384 g",
-        "precio": 9.41
+        "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+        "formato": "Caja 400 g",
+        "precio": 4.9
       },
       {
-        "nombre": "Sardina sin limpiar",
-        "formato": "Bandeja 400 g",
-        "precio": 5.6
+        "nombre": "Patatas",
+        "formato": "Malla 3 kg",
+        "precio": 4.65
       },
       {
-        "nombre": "Huevos",
-        "formato": "Paquete 24 uds",
-        "precio": 5.25
+        "nombre": "Queso fresco de vaca QuesPro Hacendado",
+        "formato": "Tarrina 300 g",
+        "precio": 4
       }
     ],
     "restoProductos": 24,
-    "restoImporte": 42.88
+    "restoImporte": 40.77
   }
 }
