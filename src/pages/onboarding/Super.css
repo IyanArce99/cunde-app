@@ -17,9 +17,63 @@
   color: var(--tinta);
 }
 
+/* El código postal. Mismo campo que el de los extras de Compra: una sola forma
+   de escribir en toda la app. Las cifras van tabulares, como todo dato. */
+.super__cp {
+  flex: none;
+  display: block;
+  margin-top: 12px;
+}
+
+.super__cp-rotulo {
+  display: block;
+  margin-bottom: 8px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--tinta);
+}
+
+.super__cp-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  color: var(--tinta);
+  font: 500 17px/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+}
+
+.super__cp-input::placeholder {
+  color: var(--pauta);
+}
+
+.super__cp-input:focus-visible {
+  outline: none;
+  border: var(--border-selected);
+  box-shadow: 0 0 0 3px var(--azulete-chip);
+}
+
+/* Sin rojo cuando falta: el rojo está reservado a pasarse del tope. Aquí basta
+   con que la nota pase de gris a tinta y diga qué hay que hacer. */
+.super__cp-nota {
+  flex: none;
+  margin: 8px 0 20px;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
+  text-wrap: pretty;
+}
+
+.super__cp-nota--falta {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
 .super__sub {
   flex: none;
-  margin: 0 0 22px;
+  margin: 0 0 14px;
   font: 400 14px/1.45 var(--font-body);
   color: var(--gris);
   text-wrap: pretty;

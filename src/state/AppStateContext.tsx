@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { ReactNode } from 'react';
 import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } from './types';
-import { CP_POR_DEFECTO, numComensales, numHuecos } from './types';
+import { numComensales, numHuecos } from './types';
 import { tramoDiferencia, tramoImporte, tramoPresupuesto } from '../lib/analitica-buckets';
 import {
   despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadQueMenosDesperdicia,
@@ -9,6 +9,7 @@ import {
 import { SEMANAS_DE_MEMORIA } from '../motor/seleccionar.ts';
 import { despensaVisible, semanasDeMemoria } from '../lib/suscripcion';
 import { analitica } from '../lib/analitica';
+import { provinciaDe } from '../lib/codigoPostal';
 import { permisoSegunLaTienda } from '../lib/compras';
 import { conValoracion, cuentaPreferencias } from '../lib/preferencias';
 import { crearExtra, extrasSinPrecio, totalExtras } from '../lib/extras';
@@ -67,10 +68,9 @@ const estadoInicial: AppState = {
     comensales: '2',
     super: 'Mercadona',
     presupuestoSemanal: 65,
-    // Puesto de salida: es la zona del catálogo que la app lleva cargado, así
-    // que enseñarlo es decir la verdad, no rellenar por el usuario. Ver
-    // CP_POR_DEFECTO en types.ts.
-    codigoPostal: CP_POR_DEFECTO,
+    // Vacío de salida: lo pide el onboarding y no deja seguir sin él. Ver la
+    // nota sobre el código postal en types.ts.
+    codigoPostal: null,
     almacen: null,
     /* Hoy. Sin preguntar: quien acaba el onboarding un viernes quiere empezar
        el viernes, y una pregunta más en el embudo cuesta más de lo que aporta
@@ -344,6 +344,7 @@ export function reducer(estado: AppState, accion: Accion): AppState {
         budget_bucket: tramoPresupuesto(estado.perfil.presupuestoSemanal),
         has_diet_filters: estado.preferencias.exclusiones.length > 0,
         diet_filters_count: estado.preferencias.exclusiones.length,
+        province: provinciaDe(estado.perfil.codigoPostal),
       });
       return regenerar({ ...estado, onboardingCompletado: true });
     case 'TOGGLE_ITEM':

@@ -117,6 +117,11 @@ export interface PropsAnalitica {
   diet_filters_count?: number;
   has_dessert?: boolean;
   budget_bucket?: string;
+  /**
+   * La provincia: las dos primeras cifras del código postal, nunca las cinco.
+   * Solo viaja en `onboarding_completed`. Ver lib/codigoPostal.ts.
+   */
+  province?: string;
   difference_bucket?: string;
   has_unpriced_extras?: boolean;
   /** Cuántas casillas llevaba marcadas al cerrar: mide si la lista se usa. */

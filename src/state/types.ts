@@ -196,24 +196,17 @@ export interface Perfil {
 }
 
 /**
- * EL CÓDIGO POSTAL CON EL QUE SE ARRANCA.
+ * EL CÓDIGO POSTAL YA NO VIENE PUESTO.
  *
- * Viene puesto, y eso NO es rellenar un dato por el usuario: es enseñar el que
- * la app ya está usando. Hoy el catálogo cargado es el de Madrid y el motor
- * tira de él tanto si el campo está vacío como si no —`almacen` no lo lee
- * nadie todavía—, así que un campo en blanco no significaba "zona
- * desconocida": significaba "Madrid, y sin decirlo".
+ * Hasta el 13 oct 2026 se arrancaba con `28001` relleno: el catálogo cargado es
+ * el de Madrid, y enseñar ese código era decir la verdad sin poner un teclado
+ * en la primera pantalla del embudo. El coste, que no se vio entonces, es que
+ * así nunca se sabe dónde están los usuarios: todos salían de Madrid.
  *
- * Lo que se gana además es que el onboarding entero deja de tener teclado. Era
- * el único, y estaba en la primera pantalla del embudo: cinco cifras a mano
- * antes de haber visto nada del producto.
- *
- * Cuando haya catálogo por almacén esto pasa a ser lo que parece —el CP de
- * verdad del usuario— y quien no lo cambie seguirá recibiendo Madrid, igual
- * que hoy. La nota bajo el campo dice de dónde son los precios, y avisa en
- * cuanto se escribe uno de otra provincia.
+ * Ahora empieza en `null` y el paso «¿Dónde compras?» lo pide y no deja seguir
+ * sin él. Sigue sin cambiar ni un precio —`almacen` no lo lee nadie—, y la
+ * pantalla lo dice. Ver lib/codigoPostal.ts.
  */
-export const CP_POR_DEFECTO = '28001';
 
 export interface Cierre {
   importeRealTicket: number | null;
