@@ -7,6 +7,11 @@
 >
 > Fuente de verdad complementaria: `CLAUDE.md` (reglas de producto, voz, modelo
 > de datos). Este documento cubre **qué hay construido**, no qué debería haber.
+>
+> **Revisado el 13 oct 2026** (secciones 2 y 9). El catálogo llevaba dos meses
+> sin tocar: 27 precios movidos, el caldo de verduras Hacendado descatalogado
+> en toda España y la quinoa seca fuera de Madrid. Y el proyecto de Supabase
+> ha dejado de resolver en DNS — ver el punto 0 de la sección 9.
 
 ---
 
@@ -20,12 +25,32 @@ una app de dinero que se paga en comida.**
 ## 2. Lo que hay, en números
 
 ```
-151 recetas          118 ingredientes canónicos (17 de despensa)
-117 SKU elegidos     126 recetas con foto (100% de los platos servidos)
-30 componentes       19 ficheros de test · 343 tests en verde
+152 recetas          120 ingredientes canónicos (17 de despensa)
+118 SKU elegidos     120 recetas con foto · 7 nuevas sin ella
+30 componentes       22 ficheros de test · 373 tests en verde
 precios del          catálogo Mercadona real, actualizable sin
-2026-08-10           publicar en Play Store
+2026-10-13           publicar en Play Store
 ```
+
+Eran 151 recetas y 117 SKU hasta el 13 oct. Las seis de quinoa están
+**aparcadas** en `docs/recetas-aparcadas/quinoa.json`, con sus fotos al lado:
+la quinoa seca (sku 9430) da 404 en `mad1`, `mad3`, `bcn1` y `svq1`, y en
+Madrid solo queda la cocida, que no vale para esas recetas tal cual. Una app
+que promete precios de productos concretos no puede listar uno que no está en
+el lineal. Devolverlas está explicado en la nota de ese fichero.
+
+Las repone `docs/recetas/lote-sin-quinoa.json`: cinco con **cuscús** (sku 9395,
+1,95 €/kg contra los 5,30 de la quinoa) y dos con **pasta de lenteja roja**
+(sku 6106). Pasan `revisar-lote.ts` y el motor ya las sirve, pero están
+**redactadas por IA y sin revisar ni cocinar por una persona, y sin foto**. Las
+dos bases llevan gluten declarado —la etiqueta de la pasta de lenteja se
+contradice y se ha declarado por prudencia—, así que al vegano sin gluten este
+lote no le devuelve lo que perdió con la quinoa.
+
+`fuentes.test.ts` mide ahora la **media** del trío de fuentes sobre cinco
+semanas (4,8 con la penalización, 6,0 sin ella, corte en 5,4) en vez de exigir
+6 semana a semana: la semana 1 da 7 con y sin penalización, así que el límite
+por semana ya no distinguía nada. `catalogo/_aud-trio.ts` es la sonda.
 
 Stack: Ionic React 8 + React 19 + Capacitor 8 + Vite 5, TypeScript estricto.
 Vitest. `sharp` para el proceso de fotos. Supabase (Postgres) solo como almacén
@@ -69,6 +94,32 @@ PENAL_COMIDA_LIGERA        0.8     PENAL_POR_MINUTO_DE_MAS    0.02
 menos. `PENAL_FUENTE_REPETIDA` está topado en 1,5 porque a 2 anulaba
 `BONUS_FAVORITO` y los platos marcados como favoritos dejaban de salir —
 medido, no supuesto.
+
+### El armario consume cuota (13 oct 2026)
+
+Las cuotas por hueco de `construir()` solo restaban la caja, mientras que la
+pasada de holgura medía el gasto como caja más armario. Con la nevera llena,
+cada hueco disponía de su cuota entera de dinero nuevo encima de lo que ya
+había: la semana 2 de dos personas con 65 € pagaba 62,45 € por caja teniendo
+13,29 € de comida en casa, y 48,72 € con la cocina vacía. Ahora la cuota
+descuenta lo que ya sale del armario. Medido en `catalogo/_aud-bench-motor.ts`
+(33 semanas, 15 con despensa; resultados en `catalogo/bench-motor/`): las 18
+semanas sin despensa salen idénticas; en las 15 con despensa la caja baja un
+6 %, el perecedero un 12 % y la comida un 2,6 %, con la proteína igual.
+`catalogo/_aud-existencias.ts` reproduce el caso.
+
+La comparación posterior (`docs/motor-variantes-informe-2026-10-13.md`) separa
+cuota y pasada de holgura: la pasada costaba un 5,5 % más de compra neta de
+inventario en 21 semanas sin comprar variedad ni menos desperdicio.
+**Decidido para la beta: la pasada de holgura está apagada**
+(`PASADA_DE_HOLGURA = false` en `seleccionar.ts`). El presupuesto es un
+límite, no una meta: el motor construye la semana más barata que cumple
+proteína y filtros y deja el sobrante a la vista; gastarlo es decisión del
+usuario en el selector de variedad. Contrapartida medida: la semana de
+arranque (2 personas, 65 €) pasa de 62,02 € a 54,32 €, con 55,7 g de proteína
+(suelo 55) y 6 huecos con carne o pescado en vez de 7. La pasada se conserva y
+se enciende con `conHolgura` para comparaciones internas; `cuotaSinArmario` y
+`holguraPorCalidad` son banderas de calibración, no opciones de usuario.
 
 ### Escalar por comensales no es multiplicar
 
@@ -192,6 +243,39 @@ Compra     TOGGLE_ITEM · TOGGLE_LO_TENGO · TOGGLE_PASILLO
 Cierre     GUARDAR_CIERRE · DESHACER_CIERRE · OLVIDAR_DESHACER
 Pago       SET_SUSCRIPCION · SEGUIR_GRATIS
 ```
+
+### Cuándo se abre la semana siguiente (13 oct 2026)
+
+**Cerrar la compra no es acabar la semana.** Se cierra en el súper, con siete
+días de cocina por delante.
+
+- `GUARDAR_CIERRE` solo guarda el ticket. El menú, el historial, la despensa y
+  el número de semana se quedan como estaban.
+- La semana siguiente se abre cuando la compra está cerrada **y** han pasado
+  los siete días de la vigente (`hoy ≥ semana.fechaInicio + 7`). La decide
+  `tocaAbrirLaSiguiente()` y la dispara la acción `ABRIR_SEMANA_SI_TOCA`, que
+  el provider despacha al arrancar y cada vez que la app vuelve a primer plano.
+  Sale del estado y del reloj del móvil: funciona sin conexión.
+- La contabilidad —historial, despensa, número de semana— se hace al abrir, en
+  `abrirSemanaSiTocaba()`, sobre el plan tal y como quedó. `cierre.guardada` se
+  apaga en la misma acción, así que no puede repetirse al recargar.
+- Con el muro activo y sin Cunde+ no cambia nada: la semana se abre al pasar el
+  muro (`SEGUIR_GRATIS`), como antes. Con Cunde+ abre la fecha.
+
+Antes la contabilidad se hacía al cerrar el ticket. Era inocuo mientras lo
+siguiente fuera el muro; con la semana cerrada vigente varios días, cualquier
+retoque o reprecio descontaba de ella sus propios sobrantes.
+
+Lo que esta regla NO cubre, a propósito:
+- **Quien nunca cierra la compra** sigue viendo su semana aunque pasen los
+  días. No se da por hecha una compra que nadie ha confirmado; puede cerrarla
+  cuando quiera. Si en la beta se ve que la gente no cierra, hay que decidir
+  qué hacer aquí.
+- **Quien compra tarde** (cierra con la semana ya pasada) conserva el menú en
+  ese momento y lo pierde la próxima vez que abre la app. Puede mover el día de
+  inicio en Ajustes antes de cerrar.
+
+Tests: `src/state/siguienteSemana.test.ts` (14, con reloj falso).
 
 Las acciones que cambian la semana llaman a `regenerar()`. `SET_PRESUPUESTO`
 por sí sola **no** regenera — es deliberado, y por eso existe `SET_AJUSTES`.
@@ -408,11 +492,16 @@ listas se separen.
 
 | | qué | quién |
 |---|---|---|
+| 0 | **El proyecto de Supabase no resuelve en DNS** (comprobado el 13 oct contra 1.1.1.1). Sin él no hay analítica, ni precios actualizables, ni historial del cron. Lo normal es que esté pausado por inactividad: se restaura desde el panel. Después, publicar la instantánea del 13 oct con `supabase.ts publicar` | tú |
+| 0b | ~~La semana siguiente no se abría sin muro ni RevenueCat~~ **Hecho el 13 oct.** Ver «Cuándo se abre la semana siguiente» en la sección 5 | — |
 | 1 | **Rotar la contraseña de Postgres** y la **clave de OpenAI** — las dos se pegaron en un chat | tú |
 | 2 | Añadir `SUPABASE_DB_URL` como secreto de GitHub para que el cron corra | tú |
 | 3 | ~~Conectar un sumidero de analítica~~ **Hecho el 11 ago.** Falta poner `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`, y aplicar la migración | tú |
-| 4 | ~~Política de privacidad~~ **Hecha** (`landing/privacidad.html`). Faltan las **condiciones**, que Google exige para aprobar compras | — |
-| 5 | Build de release firmada | — |
+| 4 | ~~Política de privacidad~~ **Hecha** (`landing/privacidad.html`). ~~Condiciones~~ **Hechas** (`landing/condiciones.html`) | — |
+| 5 | Build de release firmada. La del 13 oct (`app-release.aab`, versión 1.3, código 4) es **anterior** al código postal obligatorio, a la pasada de holgura apagada y a la apertura de semana: hay que recompilarla | — |
+| 5b | **Privacidad contra código**: `landing/src/Privacidad.tsx` dice «nunca enviamos tu ubicación» y `onboarding_completed` envía ya la provincia (dos cifras del código postal). Hay que declararlo antes de publicar | — |
+| 5c | **«No cocino este día» puede encarecer la compra.** Visto al escribir los tests de la transición: liberar un hueco de la semana de arranque (2 personas, 65 €, lunes) la lleva de 54,32 € a 69,44 €. Sin investigar; es el camino de `RETOCAR_HUECO` con `libre` | — |
+| 5d | La portada enseña una **semana de ejemplo** (54,32 €) y lo dice. La del usuario depende del día en que empieza: de 54,32 € a 61,51 € para los mismos datos, medido el 13 oct. La línea «Con los precios de tu súper, los de hoy» sigue sin ser cierta fuera de Madrid ni con el catálogo viejo | — |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |
 | 7 | Toda la configuración de RevenueCat y Play Console para Cunde+ → **[lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)** | tú |
 | 8 | Borrar las filas de analítica de prueba antes de la beta: `delete from analytics_events where created_at < '2026-08-12'` | tú |
