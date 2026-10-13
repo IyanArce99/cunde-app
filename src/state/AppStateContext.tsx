@@ -14,7 +14,8 @@ import { permisoSegunLaTienda } from '../lib/compras';
 import { conValoracion, cuentaPreferencias } from '../lib/preferencias';
 import { crearExtra, extrasSinPrecio, totalExtras } from '../lib/extras';
 import { semanaEfectiva, totalLista } from '../lib/derive';
-import { diasDesde, esFechaDia, hoy, sumarDias, diasEntre } from '../lib/fechas';
+import { aFechaDia, diasDesde, esFechaDia, hoy, sumarDias, diasEntre } from '../lib/fechas';
+import { tieneCundePlus } from '../lib/premium';
 import type { FechaDia } from '../lib/fechas';
 import type { ValoracionPlato } from '../lib/preferencias';
 import type { ExtraCompra } from '../lib/extras';
@@ -121,6 +122,8 @@ type Accion =
   | { type: 'OLVIDAR_DESHACER' }
   | { type: 'SET_SUSCRIPCION'; plan: Suscripcion }
   | { type: 'SEGUIR_GRATIS'; numeroSemana: number }
+  /** Al arrancar y al volver del segundo plano. Ver `tocaAbrirLaSiguiente`. */
+  | { type: 'ABRIR_SEMANA_SI_TOCA' }
   | { type: 'SET_PREFERENCIAS'; preferencias: Preferencias }
   | { type: 'RETOCAR_HUECO'; dia: string; ranura: Ranura; retoque: Retoque }
   | { type: 'APLICAR_SEMANA'; semana: SemanaParaApp }
@@ -299,15 +302,57 @@ function inicioDeLaSiguiente(anterior: FechaDia | null): FechaDia {
 
 function abrirSemanaSiTocaba(estado: AppState): AppState {
   if (!estado.cierre.guardada) return estado;
+  /* La contabilidad de la semana que se deja, sobre el plan tal y como quedó.
+     Va aquí y no en GUARDAR_CIERRE; ver ese caso. `cierre.guardada` se apaga en
+     la misma acción, así que no puede contarse dos veces. */
+  const comidas = [...new Set(estado.semana.plan.tandas.map((t) => t.recetaId))];
   return regenerar({
     ...estado,
+    historial: [comidas, ...estado.historial].slice(0, SEMANAS_DE_MEMORIA),
+    // Lo que sobró se queda en el armario para la semana que viene: sin esto
+    // el motor volvía a comprar cebollas con 1,65 kg en casa.
+    despensa: despensaTrasLaSemana(estado.perfil, estado.preferencias, estado.semana.plan, estado.despensa),
     perfil: {
       ...estado.perfil,
       fechaInicioSemana: inicioDeLaSiguiente(estado.semana.fechaInicio),
     },
     cierre: { importeRealTicket: null, guardada: false },
-    contadores: { ...estado.contadores, ajustesEstaSemana: 0 },
+    contadores: {
+      ...estado.contadores,
+      semanaNumero: estado.contadores.semanaNumero + 1,
+      ajustesEstaSemana: 0,
+    },
   });
+}
+
+const DIAS_DE_UNA_SEMANA = 7;
+
+/**
+ * ═══ CUÁNDO SE ABRE SOLA LA SEMANA SIGUIENTE ═══
+ *
+ * Cuando la compra está cerrada Y ya han pasado los siete días de la semana
+ * vigente. Las dos cosas: cerrar el ticket el lunes no quita el menú del
+ * lunes, y que pasen los días sin haber cerrado no da por comprada una compra
+ * que nadie ha confirmado.
+ *
+ * Existe porque la única puerta era el muro (`SEGUIR_GRATIS` y
+ * `SET_SUSCRIPCION`), y con el muro apagado y sin tienda configurada nadie la
+ * cruzaba: se cerraba la compra y la app enseñaba esa semana para siempre.
+ *
+ * Solo para quien no tiene el muro delante. Si lo tiene, la semana siguiente
+ * se sigue abriendo al pasarlo, como siempre.
+ *
+ * Todo sale del estado y del reloj del móvil: funciona sin conexión.
+ */
+export function tocaAbrirLaSiguiente(estado: AppState, hoyDia: FechaDia = hoy()): boolean {
+  if (!estado.onboardingCompletado || !estado.cierre.guardada) return false;
+  if (!tieneCundePlus(estado)) return false;
+  /* Las semanas anteriores a las fechas no saben cuándo empezaron: se usa el
+     día en que se generaron, que es lo más cerca que se puede estar. */
+  const inicio = estado.semana.fechaInicio
+    ?? (estado.semana.generadaEn ? aFechaDia(new Date(estado.semana.generadaEn)) : null);
+  if (!inicio) return false;
+  return diasEntre(sumarDias(inicio, DIAS_DE_UNA_SEMANA), hoyDia) >= 0;
 }
 
 /* Exportado solo para los tests: comprobar que valorar un plato NO mueve la
@@ -390,11 +435,22 @@ export function reducer(estado: AppState, accion: Accion): AppState {
       return { ...estado, lista };
     }
     case 'GUARDAR_CIERRE': {
-      // Al cerrar la semana, lo que se ha comido pasa al historial. NO se
-      // regenera aquí: el usuario acaba de comprar ESTA comida y va a
-      // cocinarla toda la semana. La memoria se aplica en la siguiente
-      // generación, que es cuando pide una semana nueva.
-      const comidas = [...new Set(estado.semana.plan.tandas.map((t) => t.recetaId))];
+      /**
+       * ═══ CERRAR LA COMPRA NO ES ACABAR LA SEMANA ═══
+       *
+       * Se cierra en el súper, con la comida recién comprada y siete días de
+       * cocina por delante. Aquí solo se guarda el ticket. El historial, la
+       * despensa y el número de semana se mueven al ABRIR la siguiente —ver
+       * `abrirSemanaSiTocaba`—, y no es un detalle de orden:
+       *
+       *   · Hasta el 13 oct 2026 se movían aquí, y era inocuo porque lo
+       *     siguiente era siempre el muro y, detrás, la semana nueva. Con el
+       *     muro apagado la semana cerrada sigue vigente varios días, y
+       *     retocarla, regenerarla o volver a ponerle precio con la despensa ya
+       *     actualizada descontaba de ella sus propios sobrantes.
+       *   · Y lo que se cuenta al abrir es la semana tal y como QUEDÓ: si el
+       *     jueves se dijo «no cocino», eso ya está en el plan.
+       */
 
       /**
        * El final del embudo. Tramo de desviación, no el importe del ticket:
@@ -423,10 +479,6 @@ export function reducer(estado: AppState, accion: Accion): AppState {
 
       return {
         ...estado,
-        historial: [comidas, ...estado.historial].slice(0, SEMANAS_DE_MEMORIA),
-        // Y lo que sobró se queda en el armario para la semana que viene: sin
-        // esto el motor volvía a comprar cebollas con 1,65 kg en casa.
-        despensa: despensaTrasLaSemana(estado.perfil, estado.preferencias, estado.semana.plan, estado.despensa),
         cierre: {
           importeRealTicket: accion.importeRealTicket,
           guardada: true,
@@ -446,9 +498,6 @@ export function reducer(estado: AppState, accion: Accion): AppState {
          * que este producto no es. La copia queda en `deshacerCierre`.
          */
         extrasCompra: [],
-        contadores: { ...estado.contadores, semanaNumero: estado.contadores.semanaNumero + 1 },
-        // se cierra la semana en curso: el reloj de la siguiente empieza ahora.
-        semana: { ...estado.semana, generadaEn: Date.now() },
         // La foto de antes, para poder volver. Ver AppState.deshacerCierre.
         deshacerCierre: {
           historial: estado.historial,
@@ -486,6 +535,10 @@ export function reducer(estado: AppState, accion: Accion): AppState {
         ...estado,
         contadores: { ...estado.contadores, semanaVistaGratis: accion.numeroSemana },
       });
+    case 'ABRIR_SEMANA_SI_TOCA':
+      /* Devuelve el MISMO objeto cuando no toca: se despacha en cada vuelta a
+         primer plano y no puede provocar ni un render ni una escritura. */
+      return tocaAbrirLaSiguiente(estado) ? abrirSemanaSiTocaba(estado) : estado;
     case 'SET_PREFERENCIAS': {
       const siguiente = {
         ...estado,
@@ -997,6 +1050,22 @@ export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>
        preguntar cada vez que cambia, que es justo cuando ya lo sabemos.
        eslint-disable-next-line react-hooks/exhaustive-deps */
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /**
+   * ═══ ABRIR LA SEMANA SIGUIENTE CUANDO TOCA ═══
+   *
+   * Al arrancar y cada vez que la app vuelve a primer plano: un móvil no
+   * reinicia la app entre un domingo y el siguiente, la deja dormida. El
+   * reducer decide si toca y, si no, devuelve el mismo estado.
+   */
+  useEffect(() => {
+    const comprobar = () => {
+      if (document.visibilityState === 'visible') dispatch({ type: 'ABRIR_SEMANA_SI_TOCA' });
+    };
+    comprobar();
+    document.addEventListener('visibilitychange', comprobar);
+    return () => document.removeEventListener('visibilitychange', comprobar);
   }, []);
 
   const value = useMemo(() => ({ estado, dispatch }), [estado]);

@@ -290,7 +290,13 @@ const Semana: React.FC = () => {
   // Persistido en estado global, no en useState: si viviera en el componente,
   // navegar a Compra y volver reseteaba la decisión y el muro reaparecía en
   // cada visita dentro de la misma semana (en vez de una vez por semana).
-  const yaVistoGratisEstaSemana = contadores.semanaVistaGratis === numeroSemana;
+  /**
+   * La semana que el muro tiene delante. Con la compra cerrada es la SIGUIENTE:
+   * el número ya no sube al cerrar el ticket sino al abrir la semana nueva (ver
+   * GUARDAR_CIERRE), y el muro tiene que seguir saliendo donde salía.
+   */
+  const semanaDelMuro = numeroSemana + (cierre.guardada ? 1 : 0);
+  const yaVistoGratisEstaSemana = contadores.semanaVistaGratis === semanaDelMuro;
   /**
    * EL MURO YA NO TAPA NADA, Y NO ES UN DESCUIDO.
    *
@@ -312,7 +318,7 @@ const Semana: React.FC = () => {
    * pregunta distinta de la que se contestó al abrirse solo.
    */
   const mostrarMuro = muro !== null
-    || (MURO_ACTIVO && numeroSemana >= 2 && suscripcion === null && !yaVistoGratisEstaSemana);
+    || (MURO_ACTIVO && semanaDelMuro >= 2 && suscripcion === null && !yaVistoGratisEstaSemana);
   const origenMuro: OrigenMuro = muro ?? 'semana_2';
 
   /**
@@ -894,7 +900,7 @@ const Semana: React.FC = () => {
                  exactamente a donde estaba. */
               setPendiente(null);
               setMuro(null);
-              dispatch({ type: 'SEGUIR_GRATIS', numeroSemana });
+              dispatch({ type: 'SEGUIR_GRATIS', numeroSemana: semanaDelMuro });
             }}
           />
         )}
