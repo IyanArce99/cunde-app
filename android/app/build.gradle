@@ -57,6 +57,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        // BETA PRIVADA: se instala JUNTO a la de produccion, sin tocarla ni
+        // borrar sus datos. Otro applicationId (es.cunde.app.beta), otro nombre
+        // visible (src/beta/res/values/strings.xml) y firma de depuracion de
+        // esta maquina. El applicationId de produccion NO cambia.
+        //   gradlew assembleBeta  ->  app/build/outputs/apk/beta/app-beta.apk
+        beta {
+            initWith debug
+            applicationIdSuffix ".beta"
+            versionNameSuffix "-beta"
+            matchingFallbacks = ['debug']
+        }
     }
 }
 

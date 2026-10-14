@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Solo para la compilación «beta» (ver app/build.gradle): el nombre visible
+     y los identificadores de esta variante, que convive con la de producción. -->
+<resources>
+    <string name="app_name">Cunde Beta</string>
+    <string name="title_activity_main">Cunde Beta</string>
+    <string name="package_name">es.cunde.app.beta</string>
+    <string name="custom_url_scheme">es.cunde.app.beta</string>
+</resources>
