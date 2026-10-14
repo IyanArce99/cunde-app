@@ -14,8 +14,8 @@
     "4677"
   ],
   "version": "2026-10-14",
-  "verificadoDesde": "2026-10-14T07:57:06.349Z",
-  "verificadoHasta": "2026-10-14T09:48:21.521Z",
+  "verificadoDesde": "2026-10-14T07:58:00.000Z",
+  "verificadoHasta": "2026-10-14T10:10:04.978Z",
   "fuente": "https://tienda.mercadona.es/api/products/<sku>/?wh=<almacén>, un almacén cada vez: precios y disponibilidad de la TIENDA ONLINE. Ver catalogo/construir-zona.ts.",
   "codigosPostales": [
     {
@@ -441,20 +441,7 @@
       "departamento": "Arroz, legumbres y pasta",
       "subfamilia": "Arroz"
     },
-    "atun_lata": {
-      "sku": "18037",
-      "nombre": "Atún en salsa de tomate Hacendado",
-      "contenido": 0.156,
-      "unidad": "kg",
-      "precio": 2,
-      "precio_kg_l_ud": 12.821,
-      "packaging": "Pack-3",
-      "unidades_pack": 3,
-      "peso_variable": false,
-      "departamento": "Conservas, caldos y cremas",
-      "subfamilia": "Atún",
-      "contenido_etiqueta": 0.24
-    },
+    "atun_lata": null,
     "bacalao_congelado": {
       "sku": "62050",
       "nombre": "Lomo de bacalao MareDeus ultracongelado",
@@ -469,46 +456,10 @@
       "subfamilia": "Pescado"
     },
     "bacon": null,
-    "bebida_arroz": {
-      "sku": "23047",
-      "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
-      "contenido": 1,
-      "unidad": "l",
-      "precio": 1.1,
-      "precio_kg_l_ud": 1.1,
-      "packaging": "Brik",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Huevos, leche y mantequilla",
-      "subfamilia": "Bebidas vegetales"
-    },
-    "bebida_soja": {
-      "sku": "14707",
-      "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
-      "contenido": 1,
-      "unidad": "l",
-      "precio": 0.7,
-      "precio_kg_l_ud": 0.7,
-      "packaging": "Brik",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Huevos, leche y mantequilla",
-      "subfamilia": "Bebidas vegetales"
-    },
+    "bebida_arroz": null,
+    "bebida_soja": null,
     "berenjena": null,
-    "brocoli": {
-      "sku": "69580",
-      "nombre": "Brócoli",
-      "contenido": 0.42,
-      "unidad": "kg",
-      "precio": 2.44,
-      "precio_kg_l_ud": 5.81,
-      "packaging": "Pieza",
-      "unidades_pack": null,
-      "peso_variable": true,
-      "departamento": "Fruta y verdura",
-      "subfamilia": "Otras verduras y hortalizas"
-    },
+    "brocoli": null,
     "caballa_lata": {
       "sku": "13632",
       "nombre": "Filetes de caballa del sur en tomate Hacendado",
@@ -539,35 +490,11 @@
     "calabacin": null,
     "calabaza": null,
     "calamar_congelado": null,
-    "caldo_pollo": {
-      "sku": "7313",
-      "nombre": "Caldo de pollo Hacendado",
-      "contenido": 1,
-      "unidad": "l",
-      "precio": 0.75,
-      "precio_kg_l_ud": 0.75,
-      "packaging": "Brik",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Conservas, caldos y cremas",
-      "subfamilia": "Caldo líquido"
-    },
+    "caldo_pollo": null,
     "caldo_verduras": null,
     "carne_picada_cerdo": null,
     "carne_picada_mixta": null,
-    "carne_picada_vacuno": {
-      "sku": "52776",
-      "nombre": "Preparado de carne picada vacuno",
-      "contenido": 0.4,
-      "unidad": "kg",
-      "precio": 5.4,
-      "precio_kg_l_ud": 13.5,
-      "packaging": "Paquete",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Carne",
-      "subfamilia": "Picadas y otros"
-    },
+    "carne_picada_vacuno": null,
     "cebolla": {
       "sku": "69079",
       "nombre": "Cebollas",
@@ -609,19 +536,7 @@
       "subfamilia": "Chorizo"
     },
     "chuleta_cordero": null,
-    "coliflor": {
-      "sku": "61231",
-      "nombre": "Coliflor Hacendado ultracongelada",
-      "contenido": 1,
-      "unidad": "kg",
-      "precio": 1.5,
-      "precio_kg_l_ud": 1.5,
-      "packaging": "Paquete",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Congelados",
-      "subfamilia": "Verdura"
-    },
+    "coliflor": null,
     "colorante_alimentario": {
       "sku": "34182",
       "nombre": "Colorante alimentario Hacendado",
@@ -648,19 +563,7 @@
       "departamento": "Aceite, especias y salsas",
       "subfamilia": "Otras especias"
     },
-    "contramuslo_pollo": {
-      "sku": "2789",
-      "nombre": "Contramuslos de pollo deshuesados y sin piel",
-      "contenido": 0.55,
-      "unidad": "kg",
-      "precio": 4.68,
-      "precio_kg_l_ud": 8.509,
-      "packaging": "Bandeja",
-      "unidades_pack": null,
-      "peso_variable": true,
-      "departamento": "Carne",
-      "subfamilia": "Pollo"
-    },
+    "contramuslo_pollo": null,
     "costilla_cerdo": null,
     "curcuma": {
       "sku": "34163",
@@ -729,19 +632,7 @@
       "subfamilia": "Verdura"
     },
     "espinaca": null,
-    "fideo": {
-      "sku": "13577",
-      "nombre": "Fideo cabello de ángel Hacendado",
-      "contenido": 0.5,
-      "unidad": "kg",
-      "precio": 0.8,
-      "precio_kg_l_ud": 1.6,
-      "packaging": "Paquete",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Arroz, legumbres y pasta",
-      "subfamilia": "Fideos"
-    },
+    "fideo": null,
     "filete_vacuno": null,
     "gamba_congelada": null,
     "garbanzo_cocido": {
@@ -799,19 +690,7 @@
       "departamento": "Huevos, leche y mantequilla",
       "subfamilia": "Huevos"
     },
-    "hummus": {
-      "sku": "80858",
-      "nombre": "Hummus de garbanzos Hacendado receta clásica",
-      "contenido": 0.24,
-      "unidad": "kg",
-      "precio": 1.05,
-      "precio_kg_l_ud": 4.375,
-      "packaging": "Tarrina",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Pizzas y platos preparados",
-      "subfamilia": "Hummus y otros"
-    },
+    "hummus": null,
     "jamoncito_pollo": {
       "sku": "25183",
       "nombre": "Jamoncitos de pollo congelados",
@@ -959,19 +838,7 @@
       "departamento": "Congelados",
       "subfamilia": "Verdura"
     },
-    "mejillon_congelado": {
-      "sku": "62401",
-      "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
-      "contenido": 0.45,
-      "unidad": "kg",
-      "precio": 3.25,
-      "precio_kg_l_ud": 7.222,
-      "packaging": "Caja",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Congelados",
-      "subfamilia": "Marisco de concha y otros"
-    },
+    "mejillon_congelado": null,
     "mejillon_lata": {
       "sku": "18615",
       "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
@@ -1027,19 +894,7 @@
       "subfamilia": "Hierbas"
     },
     "pan": null,
-    "panceta": {
-      "sku": "17944",
-      "nombre": "Panceta de cerdo pieza",
-      "contenido": 0.7,
-      "unidad": "kg",
-      "precio": 3.43,
-      "precio_kg_l_ud": 4.9,
-      "packaging": "Pieza",
-      "unidades_pack": null,
-      "peso_variable": true,
-      "departamento": "Carne",
-      "subfamilia": "Cerdo"
-    },
+    "panceta": null,
     "patata": {
       "sku": "69166",
       "nombre": "Patatas",
@@ -1120,19 +975,7 @@
       "subfamilia": "Verdura"
     },
     "pimiento_verde": null,
-    "pollo_troceado": {
-      "sku": "2779",
-      "nombre": "Medio pollo troceado",
-      "contenido": 0.9,
-      "unidad": "kg",
-      "precio": 3.78,
-      "precio_kg_l_ud": 4.2,
-      "packaging": "Bandeja",
-      "unidades_pack": null,
-      "peso_variable": true,
-      "departamento": "Carne",
-      "subfamilia": "Pollo"
-    },
+    "pollo_troceado": null,
     "puerro": {
       "sku": "68408",
       "nombre": "Puerros",
@@ -1146,20 +989,7 @@
       "departamento": "Fruta y verdura",
       "subfamilia": "Otras verduras y hortalizas"
     },
-    "queso_fresco": {
-      "sku": "17463",
-      "nombre": "Queso fresco de vaca QuesPro Hacendado",
-      "contenido": 0.15,
-      "unidad": "kg",
-      "precio": 2,
-      "precio_kg_l_ud": 13.333,
-      "packaging": "Tarrina",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Charcutería y quesos",
-      "subfamilia": "Queso fresco",
-      "contenido_etiqueta": 0.3
-    },
+    "queso_fresco": null,
     "queso_rallado": {
       "sku": "23621",
       "nombre": "Queso rallado especial fundir mezcla Hacendado",
@@ -1185,7 +1015,8 @@
       "unidades_pack": null,
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
-      "subfamilia": "Hierbas"
+      "subfamilia": "Hierbas",
+      "alergenos_desconocidos": true
     },
     "sal": {
       "sku": "19731",
@@ -1230,20 +1061,7 @@
     },
     "solomillo_cerdo": null,
     "taco_vacuno": null,
-    "tofu": {
-      "sku": "51097",
-      "nombre": "Tofu firme Hacendado",
-      "contenido": 0.275,
-      "unidad": "kg",
-      "precio": 1.75,
-      "precio_kg_l_ud": 6.364,
-      "packaging": "Paquete",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Pizzas y platos preparados",
-      "subfamilia": "Hummus y otros",
-      "contenido_etiqueta": 0.4
-    },
+    "tofu": null,
     "tomate": {
       "sku": "69912",
       "nombre": "Tomate pera",
@@ -1337,19 +1155,7 @@
       "subfamilia": "Pepino y zanahoria"
     },
     "haba_congelada": null,
-    "edamame_congelado": {
-      "sku": "70740",
-      "nombre": "Edamame soja verde Hacendado ultracongelada",
-      "contenido": 0.5,
-      "unidad": "kg",
-      "precio": 1.67,
-      "precio_kg_l_ud": 3.34,
-      "packaging": "Paquete",
-      "unidades_pack": null,
-      "peso_variable": false,
-      "departamento": "Congelados",
-      "subfamilia": "Verdura"
-    },
+    "edamame_congelado": null,
     "alubia_negra_seca": {
       "sku": "67608",
       "nombre": "Alubia negra Hacendado",
@@ -1390,32 +1196,8 @@
       "subfamilia": "Macarrones, pajaritas y hélices"
     },
     "postre_yogur_natural": null,
-    "postre_gelatina": {
-      "sku": "68172",
-      "nombre": "Gelatina sabor fresa Hacendado",
-      "contenido": 0.6,
-      "unidad": "kg",
-      "precio": 1,
-      "precio_kg_l_ud": 1.667,
-      "packaging": "Pack-6",
-      "unidades_pack": 6,
-      "peso_variable": false,
-      "departamento": "Postres y yogures",
-      "subfamilia": "Gelatina"
-    },
-    "postre_platano": {
-      "sku": "3819",
-      "nombre": "Plátano de Canarias IGP",
-      "contenido": 0.154,
-      "unidad": "kg",
-      "precio": 0.38,
-      "precio_kg_l_ud": 2.468,
-      "packaging": "Pieza",
-      "unidades_pack": null,
-      "peso_variable": true,
-      "departamento": "Fruta y verdura",
-      "subfamilia": "Plátano y uva"
-    },
+    "postre_gelatina": null,
+    "postre_platano": null,
     "postre_manzana": {
       "sku": "3028",
       "nombre": "Manzana Golden",
@@ -1492,7 +1274,7 @@
   "estado": {
     "aceite_oliva": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide; despensa, se asume en casa (sin verificar: la correspondencia solo la respalda la categoría: falta revisión humana)",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "aceituna_verde": {
@@ -1507,7 +1289,7 @@
     },
     "ajo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alcachofa": {
@@ -1517,57 +1299,57 @@
     },
     "almendra": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alubia_blanca_cocida": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alubia_blanca_seca": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alubia_pinta_cocida": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alubia_roja_cocida": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "apio": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "arroz_integral": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "arroz_largo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "arroz_redondo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "atun_lata": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "18037 Atún en salsa de tomate Hacendado"
     },
     "bacalao_congelado": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "bacon": {
@@ -1576,14 +1358,14 @@
       "detalle": "16252 Bacón Hacendado cintas"
     },
     "bebida_arroz": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "23047 Bebida de arroz sin azúcares añadidos Hacendado"
     },
     "bebida_soja": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "14707 Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado"
     },
     "berenjena": {
       "origen": "alternativa no validada",
@@ -1591,18 +1373,18 @@
       "detalle": "69143 Berenjena"
     },
     "brocoli": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "69580 Brócoli"
     },
     "caballa_lata": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "cacahuete": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "calabacin": {
@@ -1621,9 +1403,9 @@
       "detalle": "63432 Calamar patagónico pequeño Hacendado ultracongelado"
     },
     "caldo_pollo": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "7313 Caldo de pollo Hacendado"
     },
     "caldo_verduras": {
       "origen": "ninguno",
@@ -1645,23 +1427,23 @@
       "detalle": "5077 Preparado de carne picada vacuno y cerdo"
     },
     "carne_picada_vacuno": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "52776 Preparado de carne picada vacuno"
     },
     "cebolla": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "champinon": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "chorizo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "chuleta_cordero": {
@@ -1670,24 +1452,24 @@
       "detalle": "5186 Chuletas de cordero palo o riñonada congeladas"
     },
     "coliflor": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "61231 Coliflor Hacendado ultracongelada"
     },
     "colorante_alimentario": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide; despensa, se asume en casa (sin verificar: la correspondencia solo la respalda la categoría: falta revisión humana)",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "comino": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "contramuslo_pollo": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "2789 Contramuslos de pollo deshuesados y sin piel"
     },
     "costilla_cerdo": {
       "origen": "alternativa no validada",
@@ -1696,17 +1478,17 @@
     },
     "curcuma": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "curry": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide; despensa, se asume en casa (sin verificar: la correspondencia solo la respalda el nombre: falta revisión humana)",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "dorada": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "entrecot_vacuno": {
@@ -1716,12 +1498,12 @@
     },
     "espagueti": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "esparrago_verde": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "espinaca": {
@@ -1730,9 +1512,9 @@
       "detalle": "13986 Espinacas en porciones Hacendado ultracongeladas"
     },
     "fideo": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "13577 Fideo cabello de ángel Hacendado"
     },
     "filete_vacuno": {
       "origen": "alternativa no validada",
@@ -1746,7 +1528,7 @@
     },
     "garbanzo_cocido": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "garbanzo_seco": {
@@ -1756,62 +1538,62 @@
     },
     "guisante": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "harina_maiz": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "huevo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "hummus": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "80858 Hummus de garbanzos Hacendado receta clásica"
     },
     "jamoncito_pollo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "judia_verde": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "laurel": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "leche_semi": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lechuga": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lenteja_cocida": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lenteja_pardina": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "limon": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lomo_cerdo": {
@@ -1826,32 +1608,32 @@
     },
     "lubina": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "macarron": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "maiz_dulce": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "mejillon_congelado": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "62401 Mejillón de Chile entero cocido Hacendado ultracongelado"
     },
     "mejillon_lata": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "mostaza": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide; despensa, se asume en casa (sin verificar: la correspondencia solo la respalda la categoría: falta revisión humana)",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "muslo_pollo": {
@@ -1861,12 +1643,12 @@
     },
     "nata_cocinar": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "oregano": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pan": {
@@ -1888,18 +1670,18 @@
       ]
     },
     "panceta": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "17944 Panceta de cerdo pieza"
     },
     "patata": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pechuga_pollo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pepino": {
@@ -1909,22 +1691,22 @@
     },
     "perejil": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pimenton_dulce": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pimienta_negra": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pimiento_rojo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pimiento_verde": {
@@ -1933,23 +1715,23 @@
       "detalle": "68379 Pimiento verde"
     },
     "pollo_troceado": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "2779 Medio pollo troceado"
     },
     "puerro": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "queso_fresco": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "17463 Queso fresco de vaca QuesPro Hacendado"
     },
     "queso_rallado": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "repollo": {
@@ -1959,12 +1741,12 @@
     },
     "romero": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide; despensa, se asume en casa (sin verificar: sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda el nombre: falta revisión humana)",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "sal": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "salchicha_fresca": {
@@ -1979,12 +1761,12 @@
     },
     "seta": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "soja_texturizada": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "solomillo_cerdo": {
@@ -1998,38 +1780,38 @@
       "detalle": "4508 Morcillo de vacuno añojo"
     },
     "tofu": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "51097 Tofu firme Hacendado"
     },
     "tomate": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "tomate_frito": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "tomate_triturado": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "tomillo": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "vinagre": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "vinagre_manzana": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "yogur_natural": {
@@ -2039,7 +1821,7 @@
     },
     "zanahoria": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "haba_congelada": {
@@ -2048,43 +1830,43 @@
       "detalle": "el de Madrid (61233): no existe en 9 de 9 almacenes; No hay habas en el catálogo."
     },
     "edamame_congelado": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda el nombre: falta revisión humana",
+      "detalle": "70740 Edamame soja verde Hacendado ultracongelada"
     },
     "alubia_negra_seca": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "cuscus": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pasta_lenteja_roja": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "postre_yogur_natural": {
-      "origen": "alternativa no validada",
-      "verificacion": "alergenos incompatible: Trazas de gluten y de frutos de cáscara. El filtro de postres de la app (src/motor/postres.ts) no lee trazas, así que no podría apartarlo de quien filtra Gluten o Frutos secos. Sin tocar el motor, no se puede usar como postre. · discrepancia de auditoría: trazas · discrepancia de auditoría: trazas",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "20087 Yogur natural Danone"
     },
     "postre_gelatina": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "68172 Gelatina sabor fresa Hacendado"
     },
     "postre_platano": {
-      "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
-      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+      "origen": "mismo-sku sin verificar",
+      "verificacion": "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar; la correspondencia solo la respalda la categoría: falta revisión humana",
+      "detalle": "3819 Plátano de Canarias IGP"
     },
     "postre_manzana": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "postre_natillas": {
@@ -2094,7 +1876,7 @@
     },
     "postre_soja": {
       "origen": "mismo-sku",
-      "verificacion": "existe y coincide en todos los almacenes",
+      "verificacion": "existe y coincide en todos los almacenes; verificado",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     }
   }

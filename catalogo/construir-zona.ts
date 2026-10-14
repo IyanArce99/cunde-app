@@ -266,8 +266,14 @@ if (paso === 'cerrar') {
   const poner = (almacenes: string[], canonico: string, s: Sku) => {
     for (const wh of almacenes) (porAlmacen[wh] ??= {})[canonico] = s;
   };
+  /* Si la auditoría no encontró ni lista de ingredientes ni texto de alérgenos,
+     lo que ese producto declara es DESCONOCIDO, que no es «nada». Lo leen los
+     postres (src/motor/postres.ts). */
+  const sinEtiqueta = (f: Fila | undefined) =>
+    (f?.pendientes ?? []).some((x) => x.startsWith('sin lista de ingredientes'));
+  const marcar = (s: Sku, f: Fila | undefined): Sku => (sinEtiqueta(f) ? { ...s, alergenos_desconocidos: true } : s);
   for (const [canonico, x] of Object.entries<{ sku: Sku; almacenes: string[] }>(propuesta.madridParcial ?? {})) {
-    poner(x.almacenes, canonico, x.sku);
+    poner(x.almacenes, canonico, marcar(x.sku, auds.get(x.almacenes[0])!.get(canonico)));
   }
 
   for (const [canonico, s] of Object.entries<Sku | null>(propuesta.skus)) {
@@ -285,8 +291,32 @@ if (paso === 'cerrar') {
       continue;
     }
     if (m.origen === 'mismo-sku') {
-      skus[canonico] = s;
-      estado[canonico] = { origen: 'mismo-sku', verificacion: 'existe y coincide en todos los almacenes', detalle: m.detalle };
+      /* El mismo producto que en Madrid, igual en los nueve almacenes. Entra
+         si ESTÁ VERIFICADO: la etiqueta o una comprobación a mano
+         (verificaciones.json) respaldan que es el ingrediente, sin nada
+         pendiente ni alérgenos que no cuadren. La despensa (aceite, sal,
+         especias) se asume en casa y queda fuera del total: entra igual, con
+         su estado dicho. */
+      const fila = auds.get(zona.almacenes[0])!.get(canonico);
+      const correspondencia = ['etiqueta', 'verificada a mano'].includes(fila?.correspondencia ?? '');
+      const alergenosMal = (fila?.hallazgos ?? []).some((h) => (h.campo === 'alergeno' || h.campo === 'trazas') && h.gravedad === 'discrepancia');
+      const verificado = correspondencia && !(fila?.pendientes.length) && !alergenosMal;
+      const despensa = datos.ingredientes[canonico]?.es_despensa === true;
+      if (verificado || despensa) {
+        skus[canonico] = marcar(s, fila);
+        estado[canonico] = {
+          origen: 'mismo-sku',
+          verificacion: verificado ? 'existe y coincide en todos los almacenes; verificado' : `existe y coincide; despensa, se asume en casa (sin verificar: ${(fila?.pendientes ?? []).join('; ')})`,
+          detalle: m.detalle,
+        };
+      } else {
+        skus[canonico] = null;
+        estado[canonico] = {
+          origen: 'mismo-sku sin verificar',
+          verificacion: [...(fila?.pendientes ?? []), ...(alergenosMal ? ['alérgenos que no cuadran con el vocabulario'] : [])].join('; ') || 'sin auditoría',
+          detalle: `${s.sku} ${s.nombre}`,
+        };
+      }
       continue;
     }
     const { en, motivo: div } = coincidencia(filasDe(audsAlt, canonico));
@@ -315,7 +345,7 @@ if (paso === 'cerrar') {
       }
     }
     const conZona: Sku = {
-      ...s,
+      ...marcar(s, ref),
       ...(anadir.alergenos?.length ? { alergenos_zona: anadir.alergenos as Sku['alergenos_zona'] } : {}),
       ...(anadir.trazas?.length ? { trazas_zona: anadir.trazas as Sku['trazas_zona'] } : {}),
     };
@@ -374,7 +404,7 @@ if (paso === 'cerrar') {
   fs.mkdirSync(path.dirname(RUTA_SALIDA), { recursive: true });
   fs.writeFileSync(RUTA_SALIDA, `${JSON.stringify(salida, null, 2)}\n`);
   const cuenta = (f: (e: any) => boolean) => Object.values(estado).filter(f).length;
-  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen === 'alternativa sin aceptar')} validadas sin aceptar · ${cuenta((e) => e.origen === 'alternativa no validada')} no validadas · ${cuenta((e) => e.origen === 'alternativa no aceptada')} no aceptadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
+  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'mismo-sku sin verificar')} mismo SKU sin verificar · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen === 'alternativa sin aceptar')} validadas sin aceptar · ${cuenta((e) => e.origen === 'alternativa no validada')} no validadas · ${cuenta((e) => e.origen === 'alternativa no aceptada')} no aceptadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
   for (const [c, e] of Object.entries(estado)) if (e.origen !== 'mismo-sku') console.log(`  ${c.padEnd(24)} ${e.origen.padEnd(23)} ${e.almacenes ? `[${e.almacenes.join(',')}] ` : ''}${e.madridEn ? `(Madrid en ${e.madridEn.join(',')}) ` : ''}${e.detalle}`);
   for (const [wh, x] of Object.entries(porAlmacen)) console.log(`  solo en ${wh}: ${Object.entries(x).map(([c, s]) => `${c} ${s.sku}`).join(' · ')}`);
   console.log(`Escrito ${path.relative(process.cwd(), RUTA_SALIDA)}`);

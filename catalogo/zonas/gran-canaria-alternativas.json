@@ -748,7 +748,7 @@
     "postre_yogur_natural": {
       "sku": "20087",
       "motivo": "El mismo yogur natural Danone que yogur_natural.",
-      "ajustes": "RECHAZADA, igual que yogur_natural (trazas de gluten).",
+      "ajustes": "Ninguno. Mismo yogur natural que en la receta, 4 × 125 g.",
       "tecnica": {
         "formato": {
           "estado": "ok",
@@ -763,12 +763,18 @@
           "nota": "Denominación: Yogur natural. Ingredientes: Leche fresca parcialmente desnatada pasteurizada (97,6%), leche desnatada en polvo (1,4%) y fermentos lácticos. Origen de la leche: España (Canarias). Puede contener trazas de cereales (gluten menos de 3ppm) y frutos de "
         },
         "alergenos": {
-          "estado": "incompatible",
-          "nota": "Trazas de gluten y de frutos de cáscara. El filtro de postres de la app (src/motor/postres.ts) no lee trazas, así que no podría apartarlo de quien filtra Gluten o Frutos secos. Sin tocar el motor, no se puede usar como postre."
+          "estado": "segun-perfil",
+          "nota": "Ficha: «Puede contener trazas de cereales (gluten menos de 3 ppm) y frutos de cáscara. Sin gluten.» Desde el 14 oct los postres se filtran con las mismas reglas que las recetas (trazas incluidas en los filtros de alergia): sale para quien filtra Gluten, Frutos secos, Lactosa o Vegano y vale para los demás.",
+          "anadirEnLaZona": {
+            "trazas": [
+              "frutos_secos",
+              "gluten"
+            ]
+          }
         }
       },
       "naturaleza": "sustitucion",
-      "grupo": "insuficiente-o-incompatible"
+      "grupo": "sustitucion"
     },
     "postre_natillas": {
       "sku": "68235",

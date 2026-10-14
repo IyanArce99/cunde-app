@@ -63,7 +63,7 @@ const catalogo: Record<string, Sku | null> = rutaSkus
  * se sigue midiendo contra la API como siempre.
  */
 const RUTA_VERIFICACIONES = path.join(aqui, 'verificaciones.json');
-const verificaciones: Record<string, { identidad?: { estado: string; evidencia: string }; conversion?: { estado: string } }> =
+const verificaciones: Record<string, { identidad?: { estado: string; evidencia: string }; conversion?: { estado: string }; alergenos?: { estado: string } }> =
   fs.existsSync(RUTA_VERIFICACIONES) ? JSON.parse(fs.readFileSync(RUTA_VERIFICACIONES, 'utf8')).skus : {};
 
 const FILTRABLES = new Set(['gluten', 'lactosa', 'frutos_secos', 'cacahuete', 'huevo', 'pescado', 'marisco', 'soja', 'sesamo', 'mostaza', 'apio', 'sulfitos', 'cerdo']);
@@ -206,12 +206,18 @@ for (const [canonico, sku] of entradas) {
       ...(meta?.origen === 'pescado' ? ['pescado'] : []), ...(meta?.origen === 'marisco' ? ['marisco'] : []),
     ]);
     const trazasApp = new Set<string>((meta?.trazas ?? []).map((a) => String(a).toLowerCase()));
-    const conEtiqueta = Boolean(p.nutrition_information?.ingredients || p.nutrition_information?.allergens);
+    // «x99.» en el campo de alérgenos NO es una declaración: lo llevan fichas
+    // sin lista de ingredientes (el plátano) y fichas con sulfitos en ella (la
+    // longaniza). Sin lista de ingredientes y sin otro texto, no se sabe.
+    const textoAlergenos = (p.nutrition_information?.allergens ?? '').replace(/<[^>]+>/g, '').trim();
+    const conEtiqueta = Boolean(p.nutrition_information?.ingredients || (textoAlergenos && textoAlergenos !== 'x99.'));
     alergenos = {
       etiqueta: etiqueta.contiene, trazasEtiqueta: etiqueta.trazas, app: [...declarados], trazasApp: [...trazasApp],
       texto: etiqueta.alergenosTexto ?? null,
     };
-    if (!conEtiqueta) {
+    // Si se miró la etiqueta a mano (foto de la ficha) y está verificada, vale eso.
+    const alergenosVerificados = verificaciones[sku.sku]?.alergenos?.estado === 'verificado';
+    if (!conEtiqueta && !alergenosVerificados) {
       pendientes.push('sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar');
     } else {
       for (const a of etiqueta.contiene) {

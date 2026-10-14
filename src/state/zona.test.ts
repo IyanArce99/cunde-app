@@ -145,3 +145,28 @@ describe('precios nuevos sobre una compra ya planeada', () => {
     expect(estado.preciosEnEspera).toBeNull();
   });
 });
+
+describe('la prueba personal en 35007 (almacén 3120)', () => {
+  /*
+   * El menú del documento docs/verificacion-35007-2026-10-14.md: 2 personas,
+   * comidas y cenas, 65 €, variedad normal, semana que empieza el miércoles 14
+   * de octubre. Por el camino de la app: código postal guardado → zona → capa
+   * del almacén → generarParaApp. Si el catálogo verificado cambia, esto avisa
+   * antes de que la lista impresa deje de cuadrar con la del teléfono.
+   */
+  it('la app monta la misma compra de 57,04 €, solo con productos de la zona', async () => {
+    window.localStorage.clear();
+    window.localStorage.setItem(CLAVE, JSON.stringify({ perfil: { codigoPostal: '35007' } }));
+    const { estadoParaTests, generarParaApp, zonaCargada, datos } = await modulos();
+    expect(zonaCargada()).toEqual({ zona: 'gran-canaria', almacen: '3120', cobertura: 'medida' });
+    const base = estadoParaTests();
+    const s = generarParaApp(
+      { ...base.perfil, codigoPostal: '35007', comensales: '2', presupuestoSemanal: 65, fechaInicioSemana: '2026-10-14' },
+      { ...base.preferencias, comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', variedadElegida: true, proteina: 'normal', exclusiones: [], postre: false },
+    );
+    expect(s.carrito.totalCarrito).toBe(57.04);
+    const deLaZona = new Set(Object.values(datos.skus).map((x) => x.sku));
+    for (const it of s.lista) expect(deLaZona.has(it.id), it.nombre).toBe(true);
+    expect(datos.recetas.length).toBe(37);
+  });
+});

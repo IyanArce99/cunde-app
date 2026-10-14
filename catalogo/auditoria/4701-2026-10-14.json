@@ -1,6 +1,6 @@
 {
   "almacen": "4701",
-  "auditadoEn": "2026-10-14T07:57:59.897Z",
+  "auditadoEn": "2026-10-14T10:10:05.204Z",
   "catalogoApp": "2026-10-13",
   "filas": [
     {
@@ -61,7 +61,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4240/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:06.349Z",
+        "consultadoEn": "2026-10-14T10:09:17.719Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -79,12 +79,12 @@
       ],
       "app": {
         "precio": 1.4,
-        "contenido": 0.43,
+        "contenido": 0.25,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 3.256
+        "precioPorUnidad": 5.6
       },
       "mercadona": null,
       "alergenos": null,
@@ -99,7 +99,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/33205/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:06.809Z",
+        "consultadoEn": "2026-10-14T10:09:18.154Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -117,12 +117,12 @@
       ],
       "app": {
         "precio": 1.8,
-        "contenido": 0.66,
+        "contenido": 0.425,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 2.727
+        "precioPorUnidad": 4.235
       },
       "mercadona": null,
       "alergenos": null,
@@ -137,7 +137,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16314/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:07.150Z",
+        "consultadoEn": "2026-10-14T10:09:18.574Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -191,7 +191,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69297/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:07.604Z",
+        "consultadoEn": "2026-10-14T10:09:19.072Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -209,12 +209,12 @@
       ],
       "app": {
         "precio": 2.15,
-        "contenido": 0.43,
+        "contenido": 0.245,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 5
+        "precioPorUnidad": 8.776
       },
       "mercadona": null,
       "alergenos": null,
@@ -229,7 +229,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/11958/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:08.085Z",
+        "consultadoEn": "2026-10-14T10:09:19.557Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -298,7 +298,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34865/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:08.505Z",
+        "consultadoEn": "2026-10-14T10:09:19.899Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -316,12 +316,12 @@
       ],
       "app": {
         "precio": 0.75,
-        "contenido": 0.57,
+        "contenido": 0.4,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 1.316
+        "precioPorUnidad": 1.875
       },
       "mercadona": {
         "nombre": "Alubia cocida blanca Hacendado",
@@ -358,18 +358,12 @@
           "app": 0.75,
           "mercadona": 0.8,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.57 kg por envase",
-          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26019/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:08.956Z",
+        "consultadoEn": "2026-10-14T10:09:20.285Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -430,7 +424,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5124/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:09.361Z",
+        "consultadoEn": "2026-10-14T10:09:20.737Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -448,12 +442,12 @@
       ],
       "app": {
         "precio": 1.25,
-        "contenido": 0.57,
+        "contenido": 0.4,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 2.193
+        "precioPorUnidad": 3.125
       },
       "mercadona": {
         "nombre": "Alubia cocida pinta Hacendado",
@@ -486,18 +480,12 @@
           "app": 1.25,
           "mercadona": 1.05,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.57 kg por envase",
-          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26001/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:09.715Z",
+        "consultadoEn": "2026-10-14T10:09:21.157Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -515,12 +503,12 @@
       ],
       "app": {
         "precio": 1.2,
-        "contenido": 0.57,
+        "contenido": 0.4,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 2.105
+        "precioPorUnidad": 3
       },
       "mercadona": {
         "nombre": "Alubia cocida roja Hacendado",
@@ -553,18 +541,12 @@
           "app": 1.2,
           "mercadona": 1.15,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.57 kg por envase",
-          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26000/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:10.173Z",
+        "consultadoEn": "2026-10-14T10:09:21.607Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -635,7 +617,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69275/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:10.591Z",
+        "consultadoEn": "2026-10-14T10:09:21.914Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -694,7 +676,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5184/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:10.982Z",
+        "consultadoEn": "2026-10-14T10:09:22.334Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -755,7 +737,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5063/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:11.308Z",
+        "consultadoEn": "2026-10-14T10:09:22.847Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -816,7 +798,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5044/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:11.667Z",
+        "consultadoEn": "2026-10-14T10:09:23.265Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -834,12 +816,12 @@
       ],
       "app": {
         "precio": 2.1,
-        "contenido": 0.24,
+        "contenido": 0.156,
         "unidad": "kg",
         "unidadesPack": 3,
         "pesoVariable": false,
         "packaging": "Pack-3",
-        "precioPorUnidad": 8.75
+        "precioPorUnidad": 13.462
       },
       "mercadona": {
         "nombre": "Atún en salsa de tomate Hacendado",
@@ -876,12 +858,6 @@
           "app": 2.1,
           "mercadona": 2,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.24 kg por envase",
-          "mercadona": "escurrido 0.156 de 0.24 (65 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [
@@ -889,7 +865,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18037/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:12.137Z",
+        "consultadoEn": "2026-10-14T10:09:23.713Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -947,7 +923,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62050/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:12.480Z",
+        "consultadoEn": "2026-10-14T10:09:24.146Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -989,7 +965,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/59170/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:12.868Z",
+        "consultadoEn": "2026-10-14T10:09:24.569Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1056,7 +1032,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/23047/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:13.179Z",
+        "consultadoEn": "2026-10-14T10:09:24.992Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1123,7 +1099,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/14707/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:13.631Z",
+        "consultadoEn": "2026-10-14T10:09:25.414Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1141,12 +1117,12 @@
       ],
       "app": {
         "precio": 0.86,
-        "contenido": 0.38,
+        "contenido": 0.39,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 2.2632
+        "precioPorUnidad": 2.2051
       },
       "mercadona": null,
       "alergenos": null,
@@ -1161,7 +1137,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69326/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:14.112Z",
+        "consultadoEn": "2026-10-14T10:09:25.831Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1179,12 +1155,12 @@
       ],
       "app": {
         "precio": 1.1,
-        "contenido": 0.44,
+        "contenido": 0.48,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 2.5
+        "precioPorUnidad": 2.2917
       },
       "mercadona": {
         "nombre": "Brócoli",
@@ -1220,17 +1196,18 @@
         },
         {
           "campo": "contenido",
-          "app": 0.44,
+          "app": 0.48,
           "mercadona": 0.42,
           "gravedad": "discrepancia"
         }
       ],
       "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
         "la correspondencia solo la respalda el nombre: falta revisión humana"
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69580/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:14.546Z",
+        "consultadoEn": "2026-10-14T10:09:26.143Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1248,12 +1225,12 @@
       ],
       "app": {
         "precio": 2.85,
-        "contenido": 0.24,
+        "contenido": 0.17,
         "unidad": "kg",
         "unidadesPack": 2,
         "pesoVariable": false,
         "packaging": null,
-        "precioPorUnidad": 11.875
+        "precioPorUnidad": 16.7647
       },
       "mercadona": {
         "nombre": "Filetes de caballa del sur en tomate Hacendado",
@@ -1290,18 +1267,12 @@
           "app": 2.85,
           "mercadona": 2.8,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.24 kg por envase",
-          "mercadona": "escurrido 0.17 de 0.24 (71 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13632/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:14.919Z",
+        "consultadoEn": "2026-10-14T10:09:26.469Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1348,7 +1319,9 @@
         "etiqueta": [
           "cacahuete"
         ],
-        "trazasEtiqueta": [],
+        "trazasEtiqueta": [
+          "frutos_secos"
+        ],
         "app": [
           "cacahuete",
           "frutos_secos"
@@ -1362,18 +1335,12 @@
           "app": 1.45,
           "mercadona": 1.55,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "alergenoDeMas",
-          "app": "declara frutos_secos",
-          "mercadona": "la etiqueta no lo dice",
-          "gravedad": "aviso"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34031/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:15.312Z",
+        "consultadoEn": "2026-10-14T10:09:26.891Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1391,12 +1358,12 @@
       ],
       "app": {
         "precio": 0.7,
-        "contenido": 0.41,
+        "contenido": 0.37,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 1.7073
+        "precioPorUnidad": 1.8919
       },
       "mercadona": null,
       "alergenos": null,
@@ -1411,7 +1378,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69338/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:15.699Z",
+        "consultadoEn": "2026-10-14T10:09:27.245Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1449,7 +1416,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69853/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:16.121Z",
+        "consultadoEn": "2026-10-14T10:09:27.666Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1487,7 +1454,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/24417/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:16.618Z",
+        "consultadoEn": "2026-10-14T10:09:28.134Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1543,7 +1510,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/7313/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:17.085Z",
+        "consultadoEn": "2026-10-14T10:09:28.541Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1603,7 +1570,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18480/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:21.779Z",
+        "consultadoEn": "2026-10-14T10:09:28.979Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1641,7 +1608,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2867/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:22.150Z",
+        "consultadoEn": "2026-10-14T10:09:29.401Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1683,7 +1650,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2869/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:22.630Z",
+        "consultadoEn": "2026-10-14T10:09:29.714Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -1745,7 +1712,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/52776/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:24.403Z",
+        "consultadoEn": "2026-10-14T10:09:30.056Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1756,7 +1723,7 @@
       "sku": "69079",
       "nombreApp": "Cebollas",
       "estado": "discrepancia",
-      "correspondencia": "categoria",
+      "correspondencia": "verificada a mano",
       "recetas": 108,
       "unidadesReceta": [
         "g"
@@ -1803,12 +1770,10 @@
           "gravedad": "discrepancia"
         }
       ],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69079/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:24.844Z",
+        "consultadoEn": "2026-10-14T10:09:30.429Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1818,7 +1783,7 @@
       "papel": "receta",
       "sku": "16618",
       "nombreApp": "Champiñones laminados Hacendado",
-      "estado": "discrepancia",
+      "estado": "comprobado",
       "correspondencia": "etiqueta",
       "recetas": 9,
       "unidadesReceta": [
@@ -1826,12 +1791,12 @@
       ],
       "app": {
         "precio": 1,
-        "contenido": 0.355,
+        "contenido": 0.18,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Bote",
-        "precioPorUnidad": 2.817
+        "precioPorUnidad": 5.556
       },
       "mercadona": {
         "nombre": "Champiñones laminados Hacendado",
@@ -1862,18 +1827,11 @@
         "trazasApp": [],
         "texto": " x99."
       },
-      "hallazgos": [
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.355 kg por envase",
-          "mercadona": "escurrido 0.18 de 0.355 (51 %)",
-          "gravedad": "discrepancia"
-        }
-      ],
+      "hallazgos": [],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16618/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:25.245Z",
+        "consultadoEn": "2026-10-14T10:09:30.772Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1883,8 +1841,8 @@
       "papel": "receta",
       "sku": "55135",
       "nombreApp": "Taquitos de chorizo extra Revilla",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 1,
       "unidadesReceta": [
         "g"
@@ -1930,12 +1888,10 @@
         "texto": "Puede contener leche y sus derivados (incluida la lactosa). Contiene ml."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/55135/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:25.635Z",
+        "consultadoEn": "2026-10-14T10:09:31.082Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1973,7 +1929,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/21836/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:25.992Z",
+        "consultadoEn": "2026-10-14T10:09:31.550Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2036,7 +1992,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61231/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:26.303Z",
+        "consultadoEn": "2026-10-14T10:09:31.936Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2096,7 +2052,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34182/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:26.785Z",
+        "consultadoEn": "2026-10-14T10:09:32.247Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2167,7 +2123,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34120/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:27.207Z",
+        "consultadoEn": "2026-10-14T10:09:32.650Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2231,7 +2187,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2789/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:27.613Z",
+        "consultadoEn": "2026-10-14T10:09:33.146Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2269,7 +2225,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/35286/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:28.065Z",
+        "consultadoEn": "2026-10-14T10:09:33.487Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2323,7 +2279,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34163/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:28.438Z",
+        "consultadoEn": "2026-10-14T10:09:33.987Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2370,6 +2326,7 @@
         "etiqueta": [],
         "trazasEtiqueta": [
           "cacahuete",
+          "frutos_secos",
           "gluten",
           "mostaza",
           "sesamo"
@@ -2377,6 +2334,7 @@
         "app": [],
         "trazasApp": [
           "cacahuete",
+          "frutos_secos",
           "gluten",
           "mostaza",
           "sesamo"
@@ -2389,7 +2347,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34125/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:28.936Z",
+        "consultadoEn": "2026-10-14T10:09:34.470Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2442,7 +2400,9 @@
         "app": [
           "pescado"
         ],
-        "trazasApp": [],
+        "trazasApp": [
+          "marisco"
+        ],
         "texto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
       },
       "hallazgos": [
@@ -2451,18 +2411,12 @@
           "app": 5,
           "mercadona": 5.4,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "trazas",
-          "app": [],
-          "mercadona": "puede contener marisco",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/87300/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:29.339Z",
+        "consultadoEn": "2026-10-14T10:09:34.874Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2500,7 +2454,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/8932/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:29.819Z",
+        "consultadoEn": "2026-10-14T10:09:35.277Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2510,8 +2464,8 @@
       "papel": "receta",
       "sku": "6277",
       "nombreApp": "Spaghetti fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "sin evidencia",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 4,
       "unidadesReceta": [
         "g"
@@ -2563,12 +2517,10 @@
         "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
       },
       "hallazgos": [],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6277/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:30.255Z",
+        "consultadoEn": "2026-10-14T10:09:35.744Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2622,7 +2574,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61238/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:30.691Z",
+        "consultadoEn": "2026-10-14T10:09:36.136Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2660,7 +2612,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61279/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:31.002Z",
+        "consultadoEn": "2026-10-14T10:09:36.477Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2728,7 +2680,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13577/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:31.482Z",
+        "consultadoEn": "2026-10-14T10:09:36.821Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2766,7 +2718,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/8936/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:31.953Z",
+        "consultadoEn": "2026-10-14T10:09:37.193Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2804,7 +2756,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62750/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:32.325Z",
+        "consultadoEn": "2026-10-14T10:09:37.506Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2822,12 +2774,12 @@
       ],
       "app": {
         "precio": 0.8,
-        "contenido": 0.57,
+        "contenido": 0.4,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 1.404
+        "precioPorUnidad": 2
       },
       "mercadona": {
         "nombre": "Garbanzo cocido Hacendado",
@@ -2864,18 +2816,12 @@
           "app": 0.8,
           "mercadona": 0.75,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.57 kg por envase",
-          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26029/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:32.637Z",
+        "consultadoEn": "2026-10-14T10:09:37.833Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2913,7 +2859,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5202/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:32.980Z",
+        "consultadoEn": "2026-10-14T10:09:38.219Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -2931,12 +2877,12 @@
       ],
       "app": {
         "precio": 0.95,
-        "contenido": 0.39,
+        "contenido": 0.25,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Bote",
-        "precioPorUnidad": 2.436
+        "precioPorUnidad": 3.8
       },
       "mercadona": {
         "nombre": "Guisantes extra Hacendado",
@@ -2974,7 +2920,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16416/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:33.478Z",
+        "consultadoEn": "2026-10-14T10:09:38.701Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3028,7 +2974,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/9588/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:33.805Z",
+        "consultadoEn": "2026-10-14T10:09:39.026Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3093,7 +3039,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/30167/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:34.224Z",
+        "consultadoEn": "2026-10-14T10:09:39.478Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3153,7 +3099,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/80858/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:34.708Z",
+        "consultadoEn": "2026-10-14T10:09:39.961Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3214,7 +3160,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/25183/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:35.020Z",
+        "consultadoEn": "2026-10-14T10:09:40.351Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3232,12 +3178,12 @@
       ],
       "app": {
         "precio": 1.1,
-        "contenido": 0.66,
+        "contenido": 0.36,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 1.667
+        "precioPorUnidad": 3.056
       },
       "mercadona": {
         "nombre": "Judías verdes redondas Hacendado",
@@ -3268,7 +3214,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16315/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:35.349Z",
+        "consultadoEn": "2026-10-14T10:09:40.675Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3322,7 +3268,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/47994/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:35.691Z",
+        "consultadoEn": "2026-10-14T10:09:41.002Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3387,7 +3333,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/10382/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:36.046Z",
+        "consultadoEn": "2026-10-14T10:09:41.359Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3448,7 +3394,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69670/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:36.374Z",
+        "consultadoEn": "2026-10-14T10:09:41.825Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3466,12 +3412,12 @@
       ],
       "app": {
         "precio": 0.75,
-        "contenido": 0.295,
+        "contenido": 0.21,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarro",
-        "precioPorUnidad": 2.542
+        "precioPorUnidad": 3.571
       },
       "mercadona": {
         "nombre": "Lenteja cocida Hacendado",
@@ -3508,18 +3454,12 @@
           "app": 0.75,
           "mercadona": 0.7,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.295 kg por envase",
-          "mercadona": "escurrido 0.21 de 0.295 (71 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26011/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:36.762Z",
+        "consultadoEn": "2026-10-14T10:09:42.167Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3580,7 +3520,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5330/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:37.086Z",
+        "consultadoEn": "2026-10-14T10:09:42.495Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3598,12 +3538,12 @@
       ],
       "app": {
         "precio": 0.39,
-        "contenido": 0.23,
+        "contenido": 0.15,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 1.6957
+        "precioPorUnidad": 2.6
       },
       "mercadona": {
         "nombre": "Limón",
@@ -3639,17 +3579,15 @@
         },
         {
           "campo": "contenido",
-          "app": 0.23,
+          "app": 0.15,
           "mercadona": 0.17,
           "gravedad": "discrepancia"
         }
       ],
-      "pendientes": [
-        "la receta cuenta piezas y el producto se vende a peso (0.23 kg por pieza, de la ficha): sin verificar en tienda"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3210/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:37.414Z",
+        "consultadoEn": "2026-10-14T10:09:42.962Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3687,7 +3625,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2849/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:37.850Z",
+        "consultadoEn": "2026-10-14T10:09:43.287Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -3725,7 +3663,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62113/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:38.274Z",
+        "consultadoEn": "2026-10-14T10:09:43.767Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -3778,7 +3716,9 @@
         "app": [
           "pescado"
         ],
-        "trazasApp": [],
+        "trazasApp": [
+          "marisco"
+        ],
         "texto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
       },
       "hallazgos": [
@@ -3787,18 +3727,12 @@
           "app": 5.2,
           "mercadona": 5.04,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "trazas",
-          "app": [],
-          "mercadona": "puede contener marisco",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/87310/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:38.683Z",
+        "consultadoEn": "2026-10-14T10:09:44.093Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3808,8 +3742,8 @@
       "papel": "receta",
       "sku": "6260",
       "nombreApp": "Macarrón fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 4,
       "unidadesReceta": [
         "g"
@@ -3861,12 +3795,10 @@
         "texto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6260/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:39.073Z",
+        "consultadoEn": "2026-10-14T10:09:44.482Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3927,7 +3859,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61289/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:39.571Z",
+        "consultadoEn": "2026-10-14T10:09:44.902Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3987,7 +3919,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62401/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:40.069Z",
+        "consultadoEn": "2026-10-14T10:09:45.228Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4005,12 +3937,12 @@
       ],
       "app": {
         "precio": 2.75,
-        "contenido": 0.35,
+        "contenido": 0.212,
         "unidad": "kg",
         "unidadesPack": 2,
         "pesoVariable": false,
         "packaging": null,
-        "precioPorUnidad": 7.8571
+        "precioPorUnidad": 12.9717
       },
       "mercadona": {
         "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
@@ -4051,18 +3983,12 @@
           "app": 2.75,
           "mercadona": 2.65,
           "gravedad": "discrepancia"
-        },
-        {
-          "campo": "pesoEscurrido",
-          "app": "se usa el neto: 0.35 kg por envase",
-          "mercadona": "escurrido 0.212 de 0.35 (61 %)",
-          "gravedad": "discrepancia"
         }
       ],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18615/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:40.429Z",
+        "consultadoEn": "2026-10-14T10:09:45.727Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4124,7 +4050,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17228/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:40.834Z",
+        "consultadoEn": "2026-10-14T10:09:46.194Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4162,7 +4088,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2788/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:41.318Z",
+        "consultadoEn": "2026-10-14T10:09:46.676Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -4220,7 +4146,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/10161/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:41.632Z",
+        "consultadoEn": "2026-10-14T10:09:47.128Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4278,7 +4204,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5598/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:42.036Z",
+        "consultadoEn": "2026-10-14T10:09:47.549Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4344,7 +4270,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/83202.1/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:42.408Z",
+        "consultadoEn": "2026-10-14T10:09:47.967Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4402,12 +4328,6 @@
           "gravedad": "discrepancia"
         },
         {
-          "campo": "alergenoDeMas",
-          "app": "declara cerdo",
-          "mercadona": "la etiqueta no lo dice",
-          "gravedad": "aviso"
-        },
-        {
           "campo": "sinUso",
           "app": "ninguna receta lo usa",
           "mercadona": null,
@@ -4415,11 +4335,12 @@
         }
       ],
       "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
         "la correspondencia solo la respalda el nombre: falta revisión humana"
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17944/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:42.752Z",
+        "consultadoEn": "2026-10-14T10:09:48.325Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4430,7 +4351,7 @@
       "sku": "69166",
       "nombreApp": "Patatas",
       "estado": "discrepancia",
-      "correspondencia": "categoria",
+      "correspondencia": "verificada a mano",
       "recetas": 36,
       "unidadesReceta": [
         "g"
@@ -4477,12 +4398,10 @@
           "gravedad": "discrepancia"
         }
       ],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69166/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:43.250Z",
+        "consultadoEn": "2026-10-14T10:09:48.683Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4543,7 +4462,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3400/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:43.609Z",
+        "consultadoEn": "2026-10-14T10:09:49.177Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4561,12 +4480,12 @@
       ],
       "app": {
         "precio": 0.34,
-        "contenido": 0.25,
+        "contenido": 0.2,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 1.36
+        "precioPorUnidad": 1.7
       },
       "mercadona": null,
       "alergenos": null,
@@ -4581,7 +4500,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69584/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:44.013Z",
+        "consultadoEn": "2026-10-14T10:09:49.583Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -4642,7 +4561,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5599/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:44.431Z",
+        "consultadoEn": "2026-10-14T10:09:50.094Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4696,7 +4615,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/60573/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:44.883Z",
+        "consultadoEn": "2026-10-14T10:09:50.514Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4750,7 +4669,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34171/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:45.335Z",
+        "consultadoEn": "2026-10-14T10:09:50.871Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4811,7 +4730,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/35221/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:45.769Z",
+        "consultadoEn": "2026-10-14T10:09:51.229Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4829,12 +4748,12 @@
       ],
       "app": {
         "precio": 0.23,
-        "contenido": 0.1,
+        "contenido": 0.09,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 2.3
+        "precioPorUnidad": 2.5556
       },
       "mercadona": null,
       "alergenos": null,
@@ -4849,7 +4768,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69320/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:46.158Z",
+        "consultadoEn": "2026-10-14T10:09:51.709Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -4913,7 +4832,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2779/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:46.531Z",
+        "consultadoEn": "2026-10-14T10:09:52.037Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4980,7 +4899,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68408/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:47.014Z",
+        "consultadoEn": "2026-10-14T10:09:52.523Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4998,12 +4917,12 @@
       ],
       "app": {
         "precio": 2,
-        "contenido": 0.3,
+        "contenido": 0.15,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Tarrina",
-        "precioPorUnidad": 6.667
+        "precioPorUnidad": 13.333
       },
       "mercadona": {
         "nombre": "Queso fresco de vaca QuesPro Hacendado",
@@ -5040,7 +4959,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17463/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:47.450Z",
+        "consultadoEn": "2026-10-14T10:09:52.992Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5098,7 +5017,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/23621/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:47.823Z",
+        "consultadoEn": "2026-10-14T10:09:53.429Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5136,7 +5055,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68462/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:48.292Z",
+        "consultadoEn": "2026-10-14T10:09:53.818Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -5195,11 +5114,12 @@
         }
       ],
       "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
         "la correspondencia solo la respalda el nombre: falta revisión humana"
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/14981/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:48.664Z",
+        "consultadoEn": "2026-10-14T10:09:54.191Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5260,7 +5180,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/19731/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:49.131Z",
+        "consultadoEn": "2026-10-14T10:09:54.516Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5298,7 +5218,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6045/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:49.521Z",
+        "consultadoEn": "2026-10-14T10:09:54.951Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -5336,7 +5256,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/87916/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:49.847Z",
+        "consultadoEn": "2026-10-14T10:09:55.308Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -5397,7 +5317,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69653/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:50.264Z",
+        "consultadoEn": "2026-10-14T10:09:55.711Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5462,7 +5382,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13926/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:50.713Z",
+        "consultadoEn": "2026-10-14T10:09:56.165Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5500,7 +5420,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4570/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:51.040Z",
+        "consultadoEn": "2026-10-14T10:09:56.491Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -5538,7 +5458,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2807/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:51.433Z",
+        "consultadoEn": "2026-10-14T10:09:56.848Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -5556,12 +5476,12 @@
       ],
       "app": {
         "precio": 1.75,
-        "contenido": 0.4,
+        "contenido": 0.275,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": false,
         "packaging": "Paquete",
-        "precioPorUnidad": 4.375
+        "precioPorUnidad": 6.364
       },
       "mercadona": {
         "nombre": "Tofu firme Hacendado",
@@ -5598,7 +5518,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/51097/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:51.838Z",
+        "consultadoEn": "2026-10-14T10:09:57.237Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5616,12 +5536,12 @@
       ],
       "app": {
         "precio": 0.26,
-        "contenido": 0.14,
+        "contenido": 0.12,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 1.8571
+        "precioPorUnidad": 2.1667
       },
       "mercadona": {
         "nombre": "Tomate pera",
@@ -5657,7 +5577,7 @@
         },
         {
           "campo": "contenido",
-          "app": 0.14,
+          "app": 0.12,
           "mercadona": 0.125,
           "gravedad": "discrepancia"
         }
@@ -5665,7 +5585,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69912/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:52.336Z",
+        "consultadoEn": "2026-10-14T10:09:57.628Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5726,7 +5646,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17151/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:52.801Z",
+        "consultadoEn": "2026-10-14T10:09:58.098Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5780,7 +5700,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16044/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:53.284Z",
+        "consultadoEn": "2026-10-14T10:09:58.491Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5841,7 +5761,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5547/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:53.737Z",
+        "consultadoEn": "2026-10-14T10:09:58.988Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5906,7 +5826,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4940/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:54.062Z",
+        "consultadoEn": "2026-10-14T10:09:59.344Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -5971,7 +5891,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4957/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:54.452Z",
+        "consultadoEn": "2026-10-14T10:09:59.749Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6015,7 +5935,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/22313/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:54.827Z",
+        "consultadoEn": "2026-10-14T10:10:00.203Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -6076,7 +5996,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69586/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:55.152Z",
+        "consultadoEn": "2026-10-14T10:10:00.592Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6114,7 +6034,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61233/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:55.479Z",
+        "consultadoEn": "2026-10-14T10:10:00.949Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -6187,7 +6107,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/70740/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:55.913Z",
+        "consultadoEn": "2026-10-14T10:10:01.402Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6248,7 +6168,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/67608/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:56.411Z",
+        "consultadoEn": "2026-10-14T10:10:01.789Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6259,7 +6179,7 @@
       "sku": "9395",
       "nombreApp": "Cous cous mediano Hacendado",
       "estado": "discrepancia",
-      "correspondencia": "sin evidencia",
+      "correspondencia": "verificada a mano",
       "recetas": 5,
       "unidadesReceta": [
         "g"
@@ -6302,6 +6222,7 @@
           "gluten"
         ],
         "trazasApp": [
+          "mostaza",
           "soja"
         ],
         "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
@@ -6314,12 +6235,10 @@
           "gravedad": "discrepancia"
         }
       ],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/9395/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:56.769Z",
+        "consultadoEn": "2026-10-14T10:10:02.228Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6377,7 +6296,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6106/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:57.234Z",
+        "consultadoEn": "2026-10-14T10:10:02.590Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6419,7 +6338,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/22313/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:57.608Z",
+        "consultadoEn": "2026-10-14T10:10:02.949Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -6473,7 +6392,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68172/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:57.967Z",
+        "consultadoEn": "2026-10-14T10:10:03.371Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6489,12 +6408,12 @@
       "unidadesReceta": [],
       "app": {
         "precio": 0.45,
-        "contenido": 0.15,
+        "contenido": 0.16,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 3
+        "precioPorUnidad": 2.8125
       },
       "mercadona": {
         "nombre": "Plátano de Canarias IGP",
@@ -6530,17 +6449,18 @@
         },
         {
           "campo": "contenido",
-          "app": 0.15,
+          "app": 0.16,
           "mercadona": 0.154,
           "gravedad": "discrepancia"
         }
       ],
       "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
         "la correspondencia solo la respalda la categoría: falta revisión humana"
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3819/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:58.374Z",
+        "consultadoEn": "2026-10-14T10:10:03.732Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6556,12 +6476,12 @@
       "unidadesReceta": [],
       "app": {
         "precio": 0.48,
-        "contenido": 0.22,
+        "contenido": 0.24,
         "unidad": "kg",
         "unidadesPack": null,
         "pesoVariable": true,
         "packaging": "Pieza",
-        "precioPorUnidad": 2.1818
+        "precioPorUnidad": 2
       },
       "mercadona": {
         "nombre": "Manzana Golden",
@@ -6597,7 +6517,7 @@
         },
         {
           "campo": "contenido",
-          "app": 0.22,
+          "app": 0.24,
           "mercadona": 0.19,
           "gravedad": "discrepancia"
         }
@@ -6605,7 +6525,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3028/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:58.872Z",
+        "consultadoEn": "2026-10-14T10:10:04.228Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -6641,7 +6561,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68137/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:59.369Z",
+        "consultadoEn": "2026-10-14T10:10:04.605Z",
         "http": 404,
         "respuesta": "no-existe"
       }
@@ -6704,7 +6624,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/20200/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T07:57:59.791Z",
+        "consultadoEn": "2026-10-14T10:10:04.978Z",
         "http": 200,
         "respuesta": "ok"
       }
