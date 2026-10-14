@@ -346,6 +346,22 @@ Servidor: Supabase Postgres, con `capturado_en` en la clave primaria de `precio`
 (`.github/workflows/precios.yml`): **revisa y guarda, no publica**. Publicar es
 un acto humano.
 
+### Zonas: Madrid y Gran Canaria (14 oct 2026)
+
+El código postal elige la zona (`src/lib/zona.ts`) y la zona, el catálogo:
+`src/data/zonas/<zona>.json` trae un SKU por ingrediente —o `null`— sobre las
+mismas recetas, y `src/motor/zona.ts` quita las que necesitan algo que no hay.
+**Nunca se rellena con Madrid.** Gran Canaria son 9 almacenes medidos uno a
+uno; 31 de los 118 SKU de Madrid no existen allí y hoy quedan 49 recetas (122
+si se aprueban las alternativas de `catalogo/zonas/gran-canaria-alternativas.json`).
+Instantáneas por zona, plan atado a su zona, y una actualización no cambia una
+compra empezada. Todo en
+**[beta-catalogo-gran-canaria-2026-10-14.md](beta-catalogo-gran-canaria-2026-10-14.md)**.
+
+Lo que rinde un envase: las conservas cuentan su **escurrido**
+(`peso-escurrido.json`) y las piezas, su **peso de hoy** (`peso-pieza.json`).
+Los dos salen de una auditoría y los aplica `generar.ts`.
+
 ### Reglas de ingesta
 
 `upsert` por `(cadena, sku, almacén)`, nunca `delete` + `insert`. Lo que
@@ -379,6 +395,12 @@ Peso: 1080×1080 WebP q78, ~105 KB. El primer PNG pesaba 2,7 MB; a ese peso, 151
 recetas son 408 MB y Google Play corta el AAB en 200.
 
 ### Auditorías
+
+`auditar-catalogo.ts <almacén>` contrasta cada SKU de la app con su ficha de
+Mercadona —precio, formato, escurrido, alérgenos, qué prueba que es ese
+ingrediente— y separa un 404 de una descarga fallida. Resultado en
+`catalogo/auditoria/`; tabla SKU a SKU en
+[catalogo-auditoria-2026-10-14.md](catalogo-auditoria-2026-10-14.md).
 
 ~55 sondas `catalogo/_aud-*.ts`. No modifican nada: miden. Las que siguen
 sosteniendo decisiones vivas son `_aud-cobertura-fotos` (orden de encargo de
@@ -522,7 +544,7 @@ listas se separen.
 
 | | qué | quién |
 |---|---|---|
-| 0 | **El proyecto de Supabase no resuelve en DNS** (comprobado el 13 oct contra 1.1.1.1). Sin él no hay analítica, ni precios actualizables, ni historial del cron. Lo normal es que esté pausado por inactividad: se restaura desde el panel. Después, publicar la instantánea del 13 oct con `supabase.ts publicar` | tú |
+| 0 | **El proyecto de Supabase no resuelve en DNS** (comprobado el 13 oct contra 1.1.1.1, y otra vez el 14 oct: NXDOMAIN). Sin él no hay analítica, ni precios actualizables, ni historial del cron. Lo normal es que esté pausado por inactividad: se restaura desde el panel. Después, publicar la instantánea del 13 oct con `supabase.ts publicar` | tú |
 | 0b | ~~La semana siguiente no se abría sin muro ni RevenueCat~~ **Hecho el 13 oct.** Ver «Cuándo se abre la semana siguiente» en la sección 5 | — |
 | 1 | **Rotar la contraseña de Postgres** y la **clave de OpenAI** — las dos se pegaron en un chat | tú |
 | 2 | Añadir `SUPABASE_DB_URL` como secreto de GitHub para que el cron corra | tú |
@@ -533,7 +555,10 @@ listas se separen.
 | 5c | ~~«No cocino este día» encarecía la compra~~ **Hecho el 14 oct.** Ver «No cocino este día» en la sección 5 | — |
 | 5e | **Quien nunca cierra la compra** no recibe semana nueva ni aviso. Si en la beta la gente no cierra, hay que decidir qué ofrecerle (p. ej. el mismo aviso sin contabilidad de despensa) | — |
 | 5f | **«Cocino» puede pasarse del tope**: devolver una comida añade una y puede subir la compra; `cuadra` y la pantalla lo dicen, pero no se impide | — |
-| 5d | La portada enseña una **semana de ejemplo** (54,32 €) y lo dice. La del usuario depende del día en que empieza: de 54,32 € a 61,51 € para los mismos datos, medido el 13 oct. La línea «Con los precios de tu súper, los de hoy» sigue sin ser cierta fuera de Madrid ni con el catálogo viejo | — |
+| 5d | La portada enseña una **semana de ejemplo** (54,23 € desde el 14 oct) y lo dice. La del usuario depende del día en que empieza. ~~«Con los precios de tu súper, los de hoy»~~ **Cambiada el 14 oct** por «Con precios reales de Mercadona, producto a producto» | — |
+| 5g | **Gran Canaria**: revisar las 24 alternativas propuestas (`catalogo/zonas/gran-canaria-alternativas.json`) y rehacer la zona con `construir-zona.ts cerrar`. Sin ellas quedan 49 recetas | tú |
+| 5h | **Gran Canaria**: publicar su instantánea (`publicar-precios.js --zona gran-canaria`) y que el cron mida los 9 almacenes. Necesita Supabase y `VITE_PRECIOS_URL` con `{zona}` | tú |
+| 5i | Los precios medidos son los de la **tienda online**. Que la tienda física cobre lo mismo no está comprobado: el primer ticket real lo dirá | — |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |
 | 7 | Toda la configuración de RevenueCat y Play Console para Cunde+ → **[lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)** | tú |
 | 8 | Borrar las filas de analítica de prueba antes de la beta: `delete from analytics_events where created_at < '2026-08-12'` | tú |
