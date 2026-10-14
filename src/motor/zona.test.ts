@@ -103,3 +103,34 @@ describe('nunca se rellena con Madrid', () => {
     }
   });
 });
+
+describe('la capa de cada almacén', () => {
+  /*
+   * Medido el 14 oct: el caldo de verduras de Madrid (18480) existe en 4701 y
+   * 4570 y no en los otros siete; la barra de pan de Madrid, solo en 4701. Es el
+   * mismo producto, así que vale sin revisión, pero solo allí.
+   */
+  it('lo que está solo en algunos almacenes, solo para esos', () => {
+    const en4701 = datosDeZona(madrid, zona, '4701');
+    const en3120 = datosDeZona(madrid, zona, '3120');
+    expect(en4701.skus.caldo_verduras?.sku).toBe('18480');
+    expect(en4701.skus.pan?.sku).toBe('83202.1');
+    expect(en3120.skus.caldo_verduras).toBeUndefined();
+    expect(gc.skus.caldo_verduras).toBeUndefined();
+    expect(en4701.recetas.length).toBeGreaterThan(gc.recetas.length);
+    expect(en4701.almacen).toBe('4701');
+  });
+
+  it('la capa nunca trae un producto que no esté medido en ese almacén', () => {
+    for (const [wh, capa] of Object.entries(zona.porAlmacen ?? {})) {
+      expect(zona.almacenes, wh).toContain(wh);
+      for (const [canonico, sku] of Object.entries(capa)) {
+        const e = (granCanaria as { estado: Record<string, { almacenes?: string[]; madridEn?: string[] }> }).estado[canonico];
+        // O es el de Madrid medido en ese almacén, o una alternativa aprobada medida allí.
+        const medidoEn = sku.sku === madrid.skus[canonico]?.sku ? e?.madridEn : e?.almacenes;
+        expect(medidoEn, `${wh} · ${canonico}`).toContain(wh);
+        expect(sku.precio, `${wh} · ${canonico}`).toBeGreaterThan(0);
+      }
+    }
+  });
+});

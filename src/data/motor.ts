@@ -38,7 +38,7 @@ import type { DiaSemana, ItemLista, Perfil, PlanSerial, Plato, Preferencias } fr
 const ZONA: ZonaResuelta = zonaAlArrancar();
 
 export const datos: DatosMotor = ZONA.zona === 'gran-canaria'
-  ? datosDeZona(datosJson as unknown as DatosMotor, catalogoGranCanaria as unknown as CatalogoZona)
+  ? datosDeZona(datosJson as unknown as DatosMotor, catalogoGranCanaria as unknown as CatalogoZona, ZONA.almacen)
   : datosJson as unknown as DatosMotor;
 
 /** De qué zona es el catálogo que está cargado. */

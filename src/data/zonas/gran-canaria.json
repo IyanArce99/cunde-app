@@ -15,8 +15,8 @@
   ],
   "version": "2026-10-14",
   "verificadoDesde": "2026-10-14T07:57:06.349Z",
-  "verificadoHasta": "2026-10-14T08:13:22.349Z",
-  "fuente": "https://tienda.mercadona.es/api/products/<sku>/?wh=<almacén>, un almacén cada vez. Ver catalogo/construir-zona.ts.",
+  "verificadoHasta": "2026-10-14T09:10:20.456Z",
+  "fuente": "https://tienda.mercadona.es/api/products/<sku>/?wh=<almacén>, un almacén cada vez: precios y disponibilidad de la TIENDA ONLINE. Ver catalogo/construir-zona.ts.",
   "codigosPostales": [
     {
       "cp": "35001",
@@ -465,8 +465,8 @@
       "packaging": "Paquete",
       "unidades_pack": null,
       "peso_variable": true,
-      "departamento": "Marisco y pescado",
-      "subfamilia": "Pescado congelado"
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
     },
     "bacon": null,
     "bebida_arroz": {
@@ -822,8 +822,8 @@
       "packaging": "Paquete",
       "unidades_pack": null,
       "peso_variable": false,
-      "departamento": "Congelados",
-      "subfamilia": "Carne"
+      "departamento": "Carne",
+      "subfamilia": "Carne congelada"
     },
     "judia_verde": {
       "sku": "16315",
@@ -969,8 +969,8 @@
       "packaging": "Caja",
       "unidades_pack": null,
       "peso_variable": false,
-      "departamento": "Marisco y pescado",
-      "subfamilia": "Marisco de concha"
+      "departamento": "Congelados",
+      "subfamilia": "Marisco de concha y otros"
     },
     "mejillon_lata": {
       "sku": "18615",
@@ -1267,8 +1267,8 @@
       "packaging": "Pack-3",
       "unidades_pack": 3,
       "peso_variable": false,
-      "departamento": "Conservas, caldos y cremas",
-      "subfamilia": "Tomate"
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Tomate frito"
     },
     "tomate_triturado": {
       "sku": "16044",
@@ -1444,6 +1444,51 @@
       "subfamilia": "Postres de soja"
     }
   },
+  "porAlmacen": {
+    "4570": {
+      "caldo_verduras": {
+        "sku": "18480",
+        "nombre": "Caldo de verduras casero Gallina blanca",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.8,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Brik",
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      }
+    },
+    "4701": {
+      "caldo_verduras": {
+        "sku": "18480",
+        "nombre": "Caldo de verduras casero Gallina blanca",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.8,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Brik",
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      },
+      "pan": {
+        "sku": "83202.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    }
+  },
   "estado": {
     "aceite_oliva": {
       "origen": "mismo-sku",
@@ -1452,7 +1497,7 @@
     },
     "aceituna_verde": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "52783 Aceitunas verdes Hacendado con hueso"
     },
     "acelga": {
@@ -1467,7 +1512,7 @@
     },
     "alcachofa": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "16040 Corazones de alcachofa Hacendado"
     },
     "almendra": {
@@ -1527,7 +1572,7 @@
     },
     "bacon": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "16252 Bacón Hacendado cintas"
     },
     "bebida_arroz": {
@@ -1542,7 +1587,7 @@
     },
     "berenjena": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "69143 Berenjena"
     },
     "brocoli": {
@@ -1562,18 +1607,18 @@
     },
     "calabacin": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "69339 Calabacín blanco"
     },
     "calabaza": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "3251 Trozo de calabaza"
     },
     "calamar_congelado": {
-      "origen": "ninguno",
-      "verificacion": "sin producto",
-      "detalle": "el de Madrid (24417): no existe en 9 de 9 almacenes; la propuesta 24242 no tiene precio y contenido completos en el catálogo"
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "63432 Calamar patagónico pequeño Hacendado ultracongelado"
     },
     "caldo_pollo": {
       "origen": "mismo-sku",
@@ -1582,17 +1627,21 @@
     },
     "caldo_verduras": {
       "origen": "ninguno",
-      "verificacion": "sin producto",
-      "detalle": "el de Madrid (18480): no existe en 7 de 9 almacenes; El de Madrid (18480) solo está en 4701 y 4570. En pastillas (15592) no se puede: la receta lo pide en ml. Si tu almacén es 4701 o 4570, sí lo tienes."
+      "verificacion": "el de Madrid solo en 4701, 4570",
+      "detalle": "el de Madrid (18480): no existe en 7 de 9 almacenes; El de Madrid (18480) solo está en 4701 y 4570. En pastillas (15592) no se puede: la receta lo pide en ml. Si tu almacén es 4701 o 4570, sí lo tienes.",
+      "madridEn": [
+        "4701",
+        "4570"
+      ]
     },
     "carne_picada_cerdo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "5241 Preparado de carne picada cerdo"
     },
     "carne_picada_mixta": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "5077 Preparado de carne picada vacuno y cerdo"
     },
     "carne_picada_vacuno": {
@@ -1617,7 +1666,7 @@
     },
     "chuleta_cordero": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "5186 Chuletas de cordero palo o riñonada congeladas"
     },
     "coliflor": {
@@ -1642,7 +1691,7 @@
     },
     "costilla_cerdo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4467 Tira de costilla de cerdo"
     },
     "curcuma": {
@@ -1662,7 +1711,7 @@
     },
     "entrecot_vacuno": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4516 Entrecot de vacuno añojo para barbacoa o plancha"
     },
     "espagueti": {
@@ -1677,7 +1726,7 @@
     },
     "espinaca": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "13986 Espinacas en porciones Hacendado ultracongeladas"
     },
     "fideo": {
@@ -1687,13 +1736,13 @@
     },
     "filete_vacuno": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4620 Filetes de vacuno 1º añojo para empanar"
     },
     "gamba_congelada": {
-      "origen": "ninguno",
-      "verificacion": "sin producto",
-      "detalle": "el de Madrid (62750): no existe en 9 de 9 almacenes; la propuesta 24181 no tiene precio y contenido completos en el catálogo"
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "24181 Gamba pelada cruda tamaño mediano Hacendado ultracongelada"
     },
     "garbanzo_cocido": {
       "origen": "mismo-sku",
@@ -1702,7 +1751,7 @@
     },
     "garbanzo_seco": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "5214 Garbanzo Hacendado"
     },
     "guisante": {
@@ -1767,12 +1816,12 @@
     },
     "lomo_cerdo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4119 Filetes lomo de cerdo extra tiernos"
     },
     "lomo_merluza": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "62212 Lomos de merluza del Cabo Hacendado ultracongelados"
     },
     "lubina": {
@@ -1807,7 +1856,7 @@
     },
     "muslo_pollo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "2789 Contramuslos de pollo deshuesados y sin piel"
     },
     "nata_cocinar": {
@@ -1822,8 +1871,21 @@
     },
     "pan": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
-      "detalle": "9638.1 Barra de pan rústica"
+      "verificacion": "la auditoría no le encuentra problemas en 3120, 3544, 3864, 4745, 4418, 4570, 4377, 4677 (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "83264.1 Barra de pan",
+      "almacenes": [
+        "3120",
+        "3544",
+        "3864",
+        "4745",
+        "4418",
+        "4570",
+        "4377",
+        "4677"
+      ],
+      "madridEn": [
+        "4701"
+      ]
     },
     "panceta": {
       "origen": "mismo-sku",
@@ -1842,7 +1904,7 @@
     },
     "pepino": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "69253 Pepino"
     },
     "perejil": {
@@ -1867,7 +1929,7 @@
     },
     "pimiento_verde": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "68379 Pimiento verde"
     },
     "pollo_troceado": {
@@ -1892,7 +1954,7 @@
     },
     "repollo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "69167 Media col lisa"
     },
     "romero": {
@@ -1907,13 +1969,13 @@
     },
     "salchicha_fresca": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: sin evidencia); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: sin evidencia); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4463 Longaniza fresca de pueblo"
     },
     "sardina_fresca": {
-      "origen": "ninguno",
-      "verificacion": "sin producto",
-      "detalle": "el de Madrid (87916): no existe en 9 de 9 almacenes; Solo hay sardina congelada (sin peso neto en el catálogo) o en lata. Ninguna es sardina fresca para la plancha."
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "24442 Sardina pequeña Hacendado congelada"
     },
     "seta": {
       "origen": "mismo-sku",
@@ -1927,13 +1989,13 @@
     },
     "solomillo_cerdo": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "4460 Solomillo de cerdo"
     },
     "taco_vacuno": {
-      "origen": "ninguno",
-      "verificacion": "sin producto",
-      "detalle": "el de Madrid (2807): no existe en 9 de 9 almacenes; No hay tacos de vacuno para guisar en el catálogo."
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4508 Morcillo de vacuno añojo"
     },
     "tofu": {
       "origen": "mismo-sku",
@@ -2027,7 +2089,7 @@
     },
     "postre_natillas": {
       "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
       "detalle": "68235 Natillas sabor vainilla Hacendado"
     },
     "postre_soja": {

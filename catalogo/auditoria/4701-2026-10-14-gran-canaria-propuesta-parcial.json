@@ -1,6 +1,6 @@
 {
   "almacen": "4701",
-  "auditadoEn": "2026-10-14T08:11:54.221Z",
+  "auditadoEn": "2026-10-14T09:08:43.968Z",
   "catalogoApp": "2026-10-13",
   "catalogoAuditado": "catalogo\\zonas\\gran-canaria-propuesta.json",
   "filas": [
@@ -53,7 +53,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/52783/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:43.916Z",
+        "consultadoEn": "2026-10-14T09:08:32.411Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -107,7 +107,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16040/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:44.308Z",
+        "consultadoEn": "2026-10-14T09:08:32.809Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -172,7 +172,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16252/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:44.713Z",
+        "consultadoEn": "2026-10-14T09:08:33.287Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -229,7 +229,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69143/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:45.198Z",
+        "consultadoEn": "2026-10-14T09:08:33.598Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -285,7 +285,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69339/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:45.631Z",
+        "consultadoEn": "2026-10-14T09:08:33.911Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -342,7 +342,69 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3251/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:45.988Z",
+        "consultadoEn": "2026-10-14T09:08:34.284Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "calamar_congelado",
+      "papel": "receta",
+      "sku": "63432",
+      "nombreApp": "Calamar patagónico pequeño Hacendado ultracongelado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 5.5,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 11
+      },
+      "mercadona": {
+        "nombre": "Calamar patagónico pequeño Hacendado ultracongelado",
+        "ean": "8480000634320",
+        "packaging": "Paquete",
+        "precio": 5.5,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.5,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 11,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Pescado > Pescado",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "marisco"
+        ],
+        "trazasEtiqueta": [
+          "pescado"
+        ],
+        "app": [
+          "marisco"
+        ],
+        "trazasApp": [
+          "pescado"
+        ],
+        "texto": "Contiene moluscos y productos a base de moluscos. Puede contener pescado y productos a base de pescado. Puede contener crustáceos y productos a base de crustáceos."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/63432/?lang=es&wh=4701",
+        "consultadoEn": "2026-10-14T09:08:34.751Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -404,7 +466,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5241/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:46.348Z",
+        "consultadoEn": "2026-10-14T09:08:35.090Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -476,7 +538,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5077/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:46.814Z",
+        "consultadoEn": "2026-10-14T09:08:35.403Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -532,7 +594,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5186/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:47.157Z",
+        "consultadoEn": "2026-10-14T09:08:35.855Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -597,7 +659,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4467/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:47.530Z",
+        "consultadoEn": "2026-10-14T09:08:36.244Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -653,7 +715,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4516/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:47.889Z",
+        "consultadoEn": "2026-10-14T09:08:36.715Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -707,7 +769,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13986/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:48.245Z",
+        "consultadoEn": "2026-10-14T09:08:37.103Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -763,7 +825,71 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4620/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:48.648Z",
+        "consultadoEn": "2026-10-14T09:08:37.538Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "gamba_congelada",
+      "papel": "receta",
+      "sku": "24181",
+      "nombreApp": "Gamba pelada cruda tamaño mediano Hacendado ultracongelada",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 4.95,
+        "contenido": 0.36,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 13.75
+      },
+      "mercadona": {
+        "nombre": "Gamba pelada cruda tamaño mediano Hacendado ultracongelada",
+        "ean": "6944955502759",
+        "packaging": "Paquete",
+        "precio": 4.95,
+        "contenido": 0.36,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.36,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 13.75,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Marisco > Marisco",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "marisco",
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [
+          "pescado"
+        ],
+        "app": [
+          "marisco",
+          "sulfitos"
+        ],
+        "trazasApp": [
+          "pescado"
+        ],
+        "texto": "Puede contener moluscos y productos a base de moluscos. Contiene dióxido de azufre y sulfitos. Puede contener pescado y productos a base de pescado. Contiene crustáceos y productos a base de crustáceos."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/24181/?lang=es&wh=4701",
+        "consultadoEn": "2026-10-14T09:08:37.989Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -817,7 +943,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5214/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:49.006Z",
+        "consultadoEn": "2026-10-14T09:08:38.361Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -875,7 +1001,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4119/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:49.330Z",
+        "consultadoEn": "2026-10-14T09:08:38.733Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -935,7 +1061,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62212/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:49.843Z",
+        "consultadoEn": "2026-10-14T09:08:39.060Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -999,7 +1125,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2789/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:50.247Z",
+        "consultadoEn": "2026-10-14T09:08:39.403Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1007,63 +1133,39 @@
     {
       "canonico": "pan",
       "papel": "receta",
-      "sku": "9638.1",
-      "nombreApp": "Barra de pan rústica",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "sku": "83264.1",
+      "nombreApp": "Barra de pan",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
       "recetas": 7,
       "unidadesReceta": [
         "g"
       ],
       "app": {
-        "precio": 0.75,
+        "precio": 0.5,
         "contenido": 0.25,
         "unidad": "kg",
         "unidadesPack": 1,
         "pesoVariable": false,
         "packaging": null,
-        "precioPorUnidad": 3
+        "precioPorUnidad": 2
       },
-      "mercadona": {
-        "nombre": "Barra de pan rústica",
-        "ean": "8480000096388",
-        "packaging": null,
-        "precio": 0.75,
-        "contenido": 0.25,
-        "unidad": "kg",
-        "unidades": 1,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 3,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Panadería y pastelería > Pan de horno > Barra de pan",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [],
-        "trazasEtiqueta": [],
-        "app": [
-          "gluten"
-        ],
-        "trazasApp": [
-          "mostaza",
-          "soja"
-        ],
-        "texto": null
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "83264.1",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
       ],
+      "pendientes": [],
       "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/9638.1/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:50.728Z",
-        "http": 200,
-        "respuesta": "ok"
+        "fuente": "https://tienda.mercadona.es/api/products/83264.1/?lang=es&wh=4701",
+        "consultadoEn": "2026-10-14T09:08:39.822Z",
+        "http": 404,
+        "respuesta": "no-existe"
       }
     },
     {
@@ -1118,7 +1220,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69253/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:51.101Z",
+        "consultadoEn": "2026-10-14T09:08:40.131Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1175,7 +1277,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68379/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:51.443Z",
+        "consultadoEn": "2026-10-14T09:08:40.611Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1232,7 +1334,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69167/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:51.756Z",
+        "consultadoEn": "2026-10-14T09:08:40.939Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1294,7 +1396,66 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4463/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:52.307Z",
+        "consultadoEn": "2026-10-14T09:08:41.328Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "sardina_fresca",
+      "papel": "receta",
+      "sku": "24442",
+      "nombreApp": "Sardina pequeña Hacendado congelada",
+      "estado": "pendiente",
+      "correspondencia": "nombre",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.95,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 7.9
+      },
+      "mercadona": {
+        "nombre": "Sardina pequeña Hacendado congelada",
+        "ean": "8402001026256",
+        "packaging": "Paquete",
+        "precio": 3.95,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.5,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 7.9,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Pescado > Pescado",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": null
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/24442/?lang=es&wh=4701",
+        "consultadoEn": "2026-10-14T09:08:41.795Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1359,7 +1520,63 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4460/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:52.749Z",
+        "consultadoEn": "2026-10-14T09:08:42.135Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "taco_vacuno",
+      "papel": "receta",
+      "sku": "4508",
+      "nombreApp": "Morcillo de vacuno añojo",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 6.34,
+        "contenido": 0.43,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 14.744
+      },
+      "mercadona": {
+        "nombre": "Morcillo de vacuno añojo",
+        "ean": "2105100045086",
+        "packaging": "Bandeja",
+        "precio": 6.34,
+        "contenido": 0.43,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 14.75,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Vacuno > Vacuno",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/4508/?lang=es&wh=4701",
+        "consultadoEn": "2026-10-14T09:08:42.648Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1434,7 +1651,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/20087/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:53.199Z",
+        "consultadoEn": "2026-10-14T09:08:43.038Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1507,7 +1724,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/20087/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:53.681Z",
+        "consultadoEn": "2026-10-14T09:08:43.474Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1573,7 +1790,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68235/?lang=es&wh=4701",
-        "consultadoEn": "2026-10-14T08:11:54.119Z",
+        "consultadoEn": "2026-10-14T09:08:43.860Z",
         "http": 200,
         "respuesta": "ok"
       }

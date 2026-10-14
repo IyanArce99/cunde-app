@@ -201,8 +201,8 @@
       "packaging": "Paquete",
       "unidades_pack": null,
       "peso_variable": true,
-      "departamento": "Marisco y pescado",
-      "subfamilia": "Pescado congelado"
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
     },
     "bacon": {
       "sku": "16252",
@@ -322,7 +322,19 @@
       "departamento": "Fruta y verdura",
       "subfamilia": "Otras verduras y hortalizas"
     },
-    "calamar_congelado": null,
+    "calamar_congelado": {
+      "sku": "63432",
+      "nombre": "Calamar patagónico pequeño Hacendado ultracongelado",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 5.5,
+      "precio_kg_l_ud": 11,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
+    },
     "caldo_pollo": {
       "sku": "7313",
       "nombre": "Caldo de pollo Hacendado",
@@ -426,8 +438,8 @@
       "packaging": "Paquete",
       "unidades_pack": null,
       "peso_variable": true,
-      "departamento": "Congelados",
-      "subfamilia": "Carne"
+      "departamento": "Carne",
+      "subfamilia": "Carne congelada"
     },
     "coliflor": {
       "sku": "61231",
@@ -611,7 +623,19 @@
       "departamento": "Carne",
       "subfamilia": "Vacuno"
     },
-    "gamba_congelada": null,
+    "gamba_congelada": {
+      "sku": "24181",
+      "nombre": "Gamba pelada cruda tamaño mediano Hacendado ultracongelada",
+      "contenido": 0.36,
+      "unidad": "kg",
+      "precio": 4.95,
+      "precio_kg_l_ud": 13.75,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Marisco"
+    },
     "garbanzo_cocido": {
       "sku": "26029",
       "nombre": "Garbanzo cocido Hacendado",
@@ -702,8 +726,8 @@
       "packaging": "Paquete",
       "unidades_pack": null,
       "peso_variable": false,
-      "departamento": "Congelados",
-      "subfamilia": "Carne"
+      "departamento": "Carne",
+      "subfamilia": "Carne congelada"
     },
     "judia_verde": {
       "sku": "16315",
@@ -821,8 +845,8 @@
       "packaging": "Caja",
       "unidades_pack": null,
       "peso_variable": false,
-      "departamento": "Marisco y pescado",
-      "subfamilia": "Pescado congelado"
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
     },
     "lubina": {
       "sku": "87310",
@@ -873,8 +897,8 @@
       "packaging": "Caja",
       "unidades_pack": null,
       "peso_variable": false,
-      "departamento": "Marisco y pescado",
-      "subfamilia": "Marisco de concha"
+      "departamento": "Congelados",
+      "subfamilia": "Marisco de concha y otros"
     },
     "mejillon_lata": {
       "sku": "18615",
@@ -943,12 +967,12 @@
       "subfamilia": "Hierbas"
     },
     "pan": {
-      "sku": "9638.1",
-      "nombre": "Barra de pan rústica",
+      "sku": "83264.1",
+      "nombre": "Barra de pan",
       "contenido": 0.25,
       "unidad": "kg",
-      "precio": 0.75,
-      "precio_kg_l_ud": 3,
+      "precio": 0.5,
+      "precio_kg_l_ud": 2,
       "packaging": null,
       "unidades_pack": 1,
       "peso_variable": false,
@@ -1177,7 +1201,19 @@
       "departamento": "Carne",
       "subfamilia": "Embutido"
     },
-    "sardina_fresca": null,
+    "sardina_fresca": {
+      "sku": "24442",
+      "nombre": "Sardina pequeña Hacendado congelada",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 3.95,
+      "precio_kg_l_ud": 7.9,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
+    },
     "seta": {
       "sku": "69653",
       "nombre": "Setas",
@@ -1217,7 +1253,19 @@
       "departamento": "Carne",
       "subfamilia": "Cerdo"
     },
-    "taco_vacuno": null,
+    "taco_vacuno": {
+      "sku": "4508",
+      "nombre": "Morcillo de vacuno añojo",
+      "contenido": 0.43,
+      "unidad": "kg",
+      "precio": 6.34,
+      "precio_kg_l_ud": 14.744,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Vacuno"
+    },
     "tofu": {
       "sku": "51097",
       "nombre": "Tofu firme Hacendado",
@@ -1255,8 +1303,8 @@
       "packaging": "Pack-3",
       "unidades_pack": 3,
       "peso_variable": false,
-      "departamento": "Conservas, caldos y cremas",
-      "subfamilia": "Tomate"
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Tomate frito"
     },
     "tomate_triturado": {
       "sku": "16044",
@@ -1576,8 +1624,9 @@
       "revisado": false
     },
     "calamar_congelado": {
-      "origen": "ninguno",
-      "detalle": "el de Madrid (24417): no existe en 9 de 9 almacenes; la propuesta 24242 no tiene precio y contenido completos en el catálogo"
+      "origen": "alternativa",
+      "detalle": "el de Madrid (24417): no existe en 9 de 9 almacenes; Calamar patagónico pequeño Hacendado ultracongelado, 500 g escurridos. En Madrid, calamar grande congelado. La ficha no da peso neto: el escurrido es el que vale (precio de referencia 11,00 €/kg = 5,50 € / 0,5 kg).",
+      "revisado": false
     },
     "caldo_pollo": {
       "origen": "mismo-sku",
@@ -1679,8 +1728,9 @@
       "revisado": false
     },
     "gamba_congelada": {
-      "origen": "ninguno",
-      "detalle": "el de Madrid (62750): no existe en 9 de 9 almacenes; la propuesta 24181 no tiene precio y contenido completos en el catálogo"
+      "origen": "alternativa",
+      "detalle": "el de Madrid (62750): no existe en 9 de 9 almacenes; Gamba pelada cruda Hacendado ultracongelada, 360 g escurridos. En Madrid, gamba arrocera pequeña SIN pelar (550 g). La ficha no da neto: vale el escurrido (13,75 €/kg).",
+      "revisado": false
     },
     "garbanzo_cocido": {
       "origen": "mismo-sku",
@@ -1788,7 +1838,7 @@
     },
     "pan": {
       "origen": "alternativa",
-      "detalle": "el de Madrid (83202.1): no existe en 8 de 9 almacenes; Barra de pan rústica, 250 g. La barra de Madrid solo está en el almacén 4701; si esta tampoco está en los 9, se rechaza.",
+      "detalle": "el de Madrid (83202.1): no existe en 8 de 9 almacenes; «Barra de pan», mismo nombre, 250 g y 0,50 € que la de Madrid, con otra referencia. Está en 8 de los 9 almacenes; en 4701 está la de Madrid (83202.1). Va por almacén.",
       "revisado": false
     },
     "panceta": {
@@ -1864,8 +1914,9 @@
       "revisado": false
     },
     "sardina_fresca": {
-      "origen": "ninguno",
-      "detalle": "el de Madrid (87916): no existe en 9 de 9 almacenes; Solo hay sardina congelada (sin peso neto en el catálogo) o en lata. Ninguna es sardina fresca para la plancha."
+      "origen": "alternativa",
+      "detalle": "el de Madrid (87916): no existe en 9 de 9 almacenes; Sardina pequeña Hacendado congelada, 500 g escurridos. En Madrid, sardina fresca sin limpiar. La ficha NO trae etiqueta: alérgenos sin contrastar.",
+      "revisado": false
     },
     "seta": {
       "origen": "mismo-sku",
@@ -1881,8 +1932,9 @@
       "revisado": false
     },
     "taco_vacuno": {
-      "origen": "ninguno",
-      "detalle": "el de Madrid (2807): no existe en 9 de 9 almacenes; No hay tacos de vacuno para guisar en el catálogo."
+      "origen": "alternativa",
+      "detalle": "el de Madrid (2807): no existe en 9 de 9 almacenes; Morcillo de vacuno añojo, ≈430 g: corte de guisar, del mismo animal que los tacos de Madrid. Nuevo: no salió en la búsqueda del catálogo de 4701 porque no se llama «taco».",
+      "revisado": false
     },
     "tofu": {
       "origen": "mismo-sku",
@@ -1966,6 +2018,45 @@
     "postre_soja": {
       "origen": "mismo-sku",
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    }
+  },
+  "madridParcial": {
+    "caldo_verduras": {
+      "sku": {
+        "sku": "18480",
+        "nombre": "Caldo de verduras casero Gallina blanca",
+        "contenido": 1,
+        "unidad": "l",
+        "precio": 1.8,
+        "precio_kg_l_ud": 1.8,
+        "packaging": "Brik",
+        "unidades_pack": null,
+        "peso_variable": false,
+        "departamento": "Conservas, caldos y cremas",
+        "subfamilia": "Caldo líquido"
+      },
+      "almacenes": [
+        "4701",
+        "4570"
+      ]
+    },
+    "pan": {
+      "sku": {
+        "sku": "83202.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      },
+      "almacenes": [
+        "4701"
+      ]
     }
   }
 }

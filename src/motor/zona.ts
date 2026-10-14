@@ -30,6 +30,14 @@ export interface CatalogoZona {
   /** La fecha de la medición. Hace de versión de los precios de la zona. */
   version: string;
   skus: Record<string, Sku | null>;
+  /**
+   * Lo que existe igual solo en ALGUNOS almacenes de la zona, por almacén. Va
+   * encima de `skus` para quien compra en ese almacén: la barra de pan 83264.1
+   * está en ocho de los nueve almacenes de Gran Canaria y el caldo de verduras
+   * de Madrid solo en dos. Sin esta capa, lo que no está en todos se perdía
+   * para todos. Ver catalogo/construir-zona.ts.
+   */
+  porAlmacen?: Record<string, Record<string, Sku>>;
 }
 
 export interface RecetaFuera {
@@ -39,13 +47,17 @@ export interface RecetaFuera {
 
 export interface DatosDeZona extends DatosMotor {
   zona: string;
+  /** El almacén cuya capa se ha aplicado, o null si solo lo común. */
+  almacen: string | null;
   /** Lo que se ha quitado y por qué. Para decirlo, no para esconderlo. */
   recetasFuera: RecetaFuera[];
 }
 
-export function datosDeZona(base: DatosMotor, zona: CatalogoZona): DatosDeZona {
+export function datosDeZona(base: DatosMotor, zona: CatalogoZona, almacen?: string | null): DatosDeZona {
   const skus: Record<string, Sku> = {};
   for (const [canonico, sku] of Object.entries(zona.skus)) if (sku) skus[canonico] = sku;
+  // La capa del almacén, solo si se sabe cuál es. Sin almacén, lo común.
+  if (almacen) for (const [canonico, sku] of Object.entries(zona.porAlmacen?.[almacen] ?? {})) skus[canonico] = sku;
 
   const faltanEn = (ingredientes: { canonico: string }[]) => [...new Set(
     ingredientes.map((i) => i.canonico).filter((c) => !SIN_SKU.has(c) && !skus[c]),
@@ -73,6 +85,7 @@ export function datosDeZona(base: DatosMotor, zona: CatalogoZona): DatosDeZona {
     ...base,
     generadoEn: zona.version,
     zona: zona.zona,
+    almacen: almacen ?? null,
     skus,
     recetas,
     ...(ensamblajes ? { ensamblajes } : {}),

@@ -66,7 +66,9 @@ describe('un plan de otra zona no se reutiliza', () => {
     expect(zonaCargada().zona).toBe('gran-canaria');
     expect(estado.zonaDelPlan).toBe('gran-canaria');
     expect(estado.preciosDeLaLista).toBe(granCanaria.version);
-    const deLaZona = new Set(Object.values(granCanaria.skus).filter(Boolean).map((s) => s!.sku));
+    // Lo común de la isla más la capa del almacén de 35001 (4701).
+    const capa = (granCanaria as { porAlmacen?: Record<string, Record<string, { sku: string }>> }).porAlmacen?.['4701'] ?? {};
+    const deLaZona = new Set([...Object.values(granCanaria.skus), ...Object.values(capa)].filter(Boolean).map((s) => s!.sku));
     expect(estado.lista.length).toBeGreaterThan(0);
     for (const it of estado.lista) expect(deLaZona.has(it.id), it.nombre).toBe(true);
     // Lo del usuario que no depende de la zona se queda.

@@ -1,39 +1,202 @@
 {
-  "nota": "Alternativas para los productos de Madrid que no existen en los 9 almacenes de Gran Canaria. Las PROPONE el asistente mirando el catálogo de 4701 (14 oct 2026); un humano las revisa y pone revisado: true. construir-zona.ts solo usa las revisadas y además verificadas por la auditoría en los 9 almacenes. sku: null = no hay equivalente honesto y las recetas que lo necesitan se quitan en esta zona.",
+  "nota": "Alternativas para los productos de Madrid que no existen en los 9 almacenes de Gran Canaria. Las PROPONE el asistente mirando el catálogo de 4701 (14 oct 2026); un humano las revisa y pone revisado: true. construir-zona.ts solo usa las revisadas y además verificadas por la auditoría en los 9 almacenes. sku: null = no hay equivalente honesto y las recetas que lo necesitan se quitan en esta zona. Desde el 14 oct por la tarde una alternativa puede existir solo en algunos almacenes: construir-zona.ts la pone en porAlmacen.",
   "propuestoPor": "asistente (Claude), 2026-10-14",
   "alternativas": {
-    "aceituna_verde": { "sku": "52783", "motivo": "Mismo producto (verdes con hueso, Hacendado) en tarro mayor: 935 g, 530 g escurridos. Con hueso, así que vale el rendimiento de 0,8.", "revisado": false },
-    "acelga": { "sku": null, "motivo": "Solo hay acelga fresca (69725, 300 g). La receta cuenta acelga de bote escurrida, ya cocida: la fresca merma a la mitad y saldría la mitad de plato.", "revisado": false },
-    "alcachofa": { "sku": "16040", "motivo": "Mismos corazones de alcachofa Hacendado, tarro pequeño (290 g, 175 g escurridos).", "revisado": false },
-    "bacon": { "sku": "16252", "motivo": "Bacón Hacendado en cintas, 260 g, peso fijo. En Madrid es Monells sin corteza en taco; para cocinar es lo mismo.", "revisado": false },
-    "berenjena": { "sku": "69143", "motivo": "Berenjena a granel, pieza de ~347 g.", "revisado": false },
-    "calabacin": { "sku": "69339", "motivo": "Calabacín blanco, pieza de ~440 g. Variedad distinta del verde; se cocina igual.", "revisado": false },
-    "calabaza": { "sku": "3251", "motivo": "Trozo de calabaza, ~810 g. En Madrid es media calabaza cacahuete; el rendimiento de 0,75 (piel y pepitas) vale para las dos.", "revisado": false },
-    "calamar_congelado": { "sku": "24242", "motivo": "Calamar troceado limpio Hacendado congelado. El catálogo no trae su peso neto, solo el escurrido: si la auditoría no da un formato completo, se rechaza.", "revisado": false },
-    "carne_picada_cerdo": { "sku": "5241", "motivo": "Mismo producto que en Madrid (Preparado de carne picada cerdo, 500 g), otra referencia.", "revisado": false },
-    "carne_picada_mixta": { "sku": "5077", "motivo": "Mismo producto que en Madrid (Preparado de carne picada vacuno y cerdo, 500 g), otra referencia.", "revisado": false },
-    "chuleta_cordero": { "sku": "5186", "motivo": "Única chuleta de cordero: palo o riñonada CONGELADA, ~600 g. En Madrid es de pierna y fresca. Revisa si te vale congelada.", "revisado": false },
-    "costilla_cerdo": { "sku": "4467", "motivo": "Tira de costilla de cerdo, ~820 g. En Madrid, churrasco (también en tira).", "revisado": false },
-    "entrecot_vacuno": { "sku": "4516", "motivo": "Entrecot de vacuno añojo para plancha, ~500 g. Mismo corte y animal que en Madrid, bandeja doble.", "revisado": false },
-    "espinaca": { "sku": "13986", "motivo": "Espinacas en porciones Hacendado ultracongeladas, 500 g. Misma línea que en Madrid (450 g).", "revisado": false },
-    "filete_vacuno": { "sku": "4620", "motivo": "Filetes de vacuno 1º añojo para empanar, ~400 g: filete fino de añojo, sirve para plancha. NO el 4624, que es hígado.", "revisado": false },
-    "gamba_congelada": { "sku": "24181", "motivo": "Gamba pelada cruda Hacendado ultracongelada. El catálogo no trae su peso neto: si la auditoría no da formato completo, se rechaza.", "revisado": false },
-    "garbanzo_seco": { "sku": "5214", "motivo": "Garbanzo seco Hacendado, 1 kg. En Madrid, pedrosillano; aquí no dice variedad.", "revisado": false },
-    "lomo_cerdo": { "sku": "4119", "motivo": "Filetes lomo de cerdo extra tiernos: mismo nombre que en Madrid, otra referencia.", "revisado": false },
-    "lomo_merluza": { "sku": "62212", "motivo": "Lomos de merluza del Cabo Hacendado ultracongelados, 400 g. En Madrid, «lomos y centros» de la misma línea.", "revisado": false },
-    "muslo_pollo": { "sku": "2789", "motivo": "Contramuslos de pollo deshuesados y sin piel. En Madrid son muslos deshuesados CON piel. Es el mismo SKU que contramuslo_pollo: revisa si te vale.", "revisado": false },
-    "pan": { "sku": "9638.1", "motivo": "Barra de pan rústica, 250 g. La barra de Madrid solo está en el almacén 4701; si esta tampoco está en los 9, se rechaza.", "revisado": false },
-    "pepino": { "sku": "69253", "motivo": "Pepino a granel, pieza de ~390 g.", "revisado": false },
-    "pimiento_verde": { "sku": "68379", "motivo": "Pimiento verde a granel, ~230 g. En Madrid, pimiento verde de freír (italiano, más pequeño).", "revisado": false },
-    "repollo": { "sku": "69167", "motivo": "Media col lisa, ~720 g. Repollo liso y col lisa son lo mismo.", "revisado": false },
-    "salchicha_fresca": { "sku": "4463", "motivo": "Longaniza fresca de pueblo, ~436 g. En Madrid, longaniza fresca estilo criollo.", "revisado": false },
-    "sardina_fresca": { "sku": null, "motivo": "Solo hay sardina congelada (sin peso neto en el catálogo) o en lata. Ninguna es sardina fresca para la plancha.", "revisado": false },
-    "solomillo_cerdo": { "sku": "4460", "motivo": "Solomillo de cerdo, ~500 g: mismo nombre que en Madrid, otra referencia.", "revisado": false },
-    "taco_vacuno": { "sku": null, "motivo": "No hay tacos de vacuno para guisar en el catálogo.", "revisado": false },
-    "yogur_natural": { "sku": "20087", "motivo": "Yogur natural Danone, 4 × 125 g. En Madrid, Hacendado 6 × 125 g. No hay natural Hacendado.", "revisado": false },
-    "haba_congelada": { "sku": null, "motivo": "No hay habas en el catálogo.", "revisado": false },
-    "postre_yogur_natural": { "sku": "20087", "motivo": "El mismo yogur natural Danone que yogur_natural.", "revisado": false },
-    "postre_natillas": { "sku": "68235", "motivo": "Natillas sabor vainilla Hacendado, 500 g: mismo nombre que en Madrid, otra referencia.", "revisado": false },
-    "caldo_verduras": { "sku": null, "motivo": "El de Madrid (18480) solo está en 4701 y 4570. En pastillas (15592) no se puede: la receta lo pide en ml. Si tu almacén es 4701 o 4570, sí lo tienes.", "revisado": false }
+    "aceituna_verde": {
+      "sku": "52783",
+      "motivo": "Mismo producto (verdes con hueso, Hacendado) en tarro mayor: 935 g, 530 g escurridos. Con hueso, así que vale el rendimiento de 0,8.",
+      "revisado": false,
+      "ajustes": "Ninguno en la receta (20-25 g). Tarro de 530 g escurridos frente a 250: sobra casi todo; cerrado dura meses."
+    },
+    "acelga": {
+      "sku": null,
+      "motivo": "Solo hay acelga fresca (69725, 300 g). La receta cuenta acelga de bote escurrida, ya cocida: la fresca merma a la mitad y saldría la mitad de plato.",
+      "revisado": false
+    },
+    "alcachofa": {
+      "sku": "16040",
+      "motivo": "Mismos corazones de alcachofa Hacendado, tarro pequeño (290 g, 175 g escurridos).",
+      "revisado": false,
+      "ajustes": "Ninguno. Tarro pequeño (175 g escurridos): una receta de 140 g/ración para 2 pide 2 tarros; la app ya los cuenta."
+    },
+    "bacon": {
+      "sku": "16252",
+      "motivo": "Bacón Hacendado en cintas, 260 g, peso fijo. En Madrid es Monells sin corteza en taco; para cocinar es lo mismo.",
+      "revisado": false,
+      "ajustes": "Viene en cintas, no en taco: el paso «corta el bacon en tacos» se salta. Ninguna receta lo usa hoy."
+    },
+    "berenjena": {
+      "sku": "69143",
+      "motivo": "Berenjena a granel, pieza de ~347 g.",
+      "revisado": false,
+      "ajustes": "Ninguno. Pieza algo más pequeña (≈347 g frente a 390)."
+    },
+    "calabacin": {
+      "sku": "69339",
+      "motivo": "Calabacín blanco, pieza de ~440 g. Variedad distinta del verde; se cocina igual.",
+      "revisado": false,
+      "ajustes": "Ninguno en cantidad. El blanco es más tierno y suelta más agua: saltear un par de minutos menos."
+    },
+    "calabaza": {
+      "sku": "3251",
+      "motivo": "Trozo de calabaza, ~810 g. En Madrid es media calabaza cacahuete; el rendimiento de 0,75 (piel y pepitas) vale para las dos.",
+      "revisado": false,
+      "ajustes": "Variedad sin especificar frente a cacahuete; trozo de ≈810 g. El 25 % de piel y pepitas ya se descuenta. Puede ser más acuosa al asar."
+    },
+    "calamar_congelado": {
+      "sku": "63432",
+      "motivo": "Calamar patagónico pequeño Hacendado ultracongelado, 500 g escurridos. En Madrid, calamar grande congelado. La ficha no da peso neto: el escurrido es el que vale (precio de referencia 11,00 €/kg = 5,50 € / 0,5 kg).",
+      "ajustes": "Piezas pequeñas enteras: cortar en anillas o dejar enteras; 2-3 minutos menos de cocción.",
+      "revisado": false
+    },
+    "carne_picada_cerdo": {
+      "sku": "5241",
+      "motivo": "Mismo producto que en Madrid (Preparado de carne picada cerdo, 500 g), otra referencia.",
+      "revisado": false,
+      "ajustes": "Ninguno. Mismo preparado (lleva soja y sulfitos, ya declarados). 3,20 € frente a 2,75 €."
+    },
+    "carne_picada_mixta": {
+      "sku": "5077",
+      "motivo": "Mismo producto que en Madrid (Preparado de carne picada vacuno y cerdo, 500 g), otra referencia.",
+      "revisado": false,
+      "ajustes": "Ninguno. Ninguna receta la usa hoy."
+    },
+    "chuleta_cordero": {
+      "sku": "5186",
+      "motivo": "Única chuleta de cordero: palo o riñonada CONGELADA, ~600 g. En Madrid es de pierna y fresca. Revisa si te vale congelada.",
+      "revisado": false,
+      "ajustes": "CONGELADA: descongelar la víspera en la nevera. Palo o riñonada llevan más hueso que pierna: con el rendimiento de 0,72 la proteína real puede salir algo menor. Bandeja de ≈600 g a 11,34 €."
+    },
+    "costilla_cerdo": {
+      "sku": "4467",
+      "motivo": "Tira de costilla de cerdo, ~820 g. En Madrid, churrasco (también en tira).",
+      "revisado": false,
+      "ajustes": "Ninguno. Tira de ≈820 g; el rendimiento de 0,6 (hueso) vale para las dos."
+    },
+    "entrecot_vacuno": {
+      "sku": "4516",
+      "motivo": "Entrecot de vacuno añojo para plancha, ~500 g. Mismo corte y animal que en Madrid, bandeja doble.",
+      "revisado": false,
+      "ajustes": "Ninguno en preparación. Bandeja de ≈500 g a 12,23 € frente a 250 g: para 2 raciones de 130 g sobra media bandeja (se puede congelar)."
+    },
+    "espinaca": {
+      "sku": "13986",
+      "motivo": "Espinacas en porciones Hacendado ultracongeladas, 500 g. Misma línea que en Madrid (450 g).",
+      "revisado": false,
+      "ajustes": "Ninguno. Misma línea congelada, 500 g frente a 450."
+    },
+    "filete_vacuno": {
+      "sku": "4620",
+      "motivo": "Filetes de vacuno 1º añojo para empanar, ~400 g: filete fino de añojo, sirve para plancha. NO el 4624, que es hígado.",
+      "revisado": false,
+      "ajustes": "Filete fino para empanar: a la plancha, 1 minuto por lado en vez de 2-3."
+    },
+    "gamba_congelada": {
+      "sku": "24181",
+      "motivo": "Gamba pelada cruda Hacendado ultracongelada, 360 g escurridos. En Madrid, gamba arrocera pequeña SIN pelar (550 g). La ficha no da neto: vale el escurrido (13,75 €/kg).",
+      "ajustes": "Ya viene pelada: la receta sale con menos peso de compra para la misma gamba comestible. Etiqueta: crustáceos, sulfitos, trazas de moluscos y pescado (todo declarado).",
+      "revisado": false
+    },
+    "garbanzo_seco": {
+      "sku": "5214",
+      "motivo": "Garbanzo seco Hacendado, 1 kg. En Madrid, pedrosillano; aquí no dice variedad.",
+      "revisado": false,
+      "ajustes": "Ninguno: remojo de 12 h igual. No dice variedad (pedrosillano en Madrid)."
+    },
+    "lomo_cerdo": {
+      "sku": "4119",
+      "motivo": "Filetes lomo de cerdo extra tiernos: mismo nombre que en Madrid, otra referencia.",
+      "revisado": false,
+      "ajustes": "Ninguno. Mismo nombre y corte, bandeja de ≈500 g."
+    },
+    "lomo_merluza": {
+      "sku": "62212",
+      "motivo": "Lomos de merluza del Cabo Hacendado ultracongelados, 400 g. En Madrid, «lomos y centros» de la misma línea.",
+      "revisado": false,
+      "ajustes": "Ninguno. Lomos de la misma línea (en Madrid «lomos y centros»)."
+    },
+    "muslo_pollo": {
+      "sku": "2789",
+      "motivo": "Contramuslos de pollo deshuesados y sin piel. En Madrid son muslos deshuesados CON piel. Es el mismo SKU que contramuslo_pollo: revisa si te vale.",
+      "revisado": false,
+      "ajustes": "Sin piel: las recetas que doran la piel pierden ese paso; dorar 1-2 minutos menos para que no se seque. Mismo SKU que contramuslo_pollo. 4,68 € frente a 2,78 €."
+    },
+    "pan": {
+      "sku": "83264.1",
+      "motivo": "«Barra de pan», mismo nombre, 250 g y 0,50 € que la de Madrid, con otra referencia. Está en 8 de los 9 almacenes; en 4701 está la de Madrid (83202.1). Va por almacén.",
+      "ajustes": "Ninguno.",
+      "revisado": false,
+      "anterior": "9638.1 (barra rústica), propuesta el 14 oct antes de mirar el catálogo de 3120"
+    },
+    "pepino": {
+      "sku": "69253",
+      "motivo": "Pepino a granel, pieza de ~390 g.",
+      "revisado": false,
+      "ajustes": "Pieza de ≈390 g frente a 200: una receta de 60-80 g/ración para 2 usa un pepino y sobra."
+    },
+    "pimiento_verde": {
+      "sku": "68379",
+      "motivo": "Pimiento verde a granel, ~230 g. En Madrid, pimiento verde de freír (italiano, más pequeño).",
+      "revisado": false,
+      "ajustes": "Pimiento verde grande (≈230 g) frente al de freír (≈90 g). Las cantidades de la receta van en gramos y la app compra por peso: suele bastar UNO donde en Madrid eran dos o tres. Más carnoso: un par de minutos más al pochar."
+    },
+    "repollo": {
+      "sku": "69167",
+      "motivo": "Media col lisa, ~720 g. Repollo liso y col lisa son lo mismo.",
+      "revisado": false,
+      "ajustes": "Ninguno. Media col lisa de ≈720 g frente a 900."
+    },
+    "salchicha_fresca": {
+      "sku": "4463",
+      "motivo": "Longaniza fresca de pueblo, ~436 g. En Madrid, longaniza fresca estilo criollo.",
+      "revisado": false,
+      "ajustes": "Ninguno. Longaniza fresca de pueblo frente a estilo criollo; lleva sulfitos, ya declarados."
+    },
+    "sardina_fresca": {
+      "sku": "24442",
+      "motivo": "Sardina pequeña Hacendado congelada, 500 g escurridos. En Madrid, sardina fresca sin limpiar. La ficha NO trae etiqueta: alérgenos sin contrastar.",
+      "ajustes": "Congelada: descongelar en la nevera la víspera. Hay que limpiarla igual. Pequeña: 2 minutos menos por lado.",
+      "revisado": false
+    },
+    "solomillo_cerdo": {
+      "sku": "4460",
+      "motivo": "Solomillo de cerdo, ~500 g: mismo nombre que en Madrid, otra referencia.",
+      "revisado": false,
+      "ajustes": "Ninguno. Mismo nombre y corte."
+    },
+    "taco_vacuno": {
+      "sku": "4508",
+      "motivo": "Morcillo de vacuno añojo, ≈430 g: corte de guisar, del mismo animal que los tacos de Madrid. Nuevo: no salió en la búsqueda del catálogo de 4701 porque no se llama «taco».",
+      "ajustes": "Viene en pieza: cortarlo en tacos de 3-4 cm. El morcillo pide 15-20 minutos más de guiso que la aguja; tiene más colágeno.",
+      "revisado": false
+    },
+    "yogur_natural": {
+      "sku": "20087",
+      "motivo": "Yogur natural Danone, 4 × 125 g. En Madrid, Hacendado 6 × 125 g. No hay natural Hacendado.",
+      "revisado": false,
+      "ajustes": "RECHAZADA por la auditoría: la etiqueta declara trazas de gluten y el vocabulario no. Aprobarla no basta: habría que añadir esa traza al vocabulario."
+    },
+    "haba_congelada": {
+      "sku": null,
+      "motivo": "No hay habas en el catálogo.",
+      "revisado": false
+    },
+    "postre_yogur_natural": {
+      "sku": "20087",
+      "motivo": "El mismo yogur natural Danone que yogur_natural.",
+      "revisado": false,
+      "ajustes": "RECHAZADA, igual que yogur_natural (trazas de gluten)."
+    },
+    "postre_natillas": {
+      "sku": "68235",
+      "motivo": "Natillas sabor vainilla Hacendado, 500 g: mismo nombre que en Madrid, otra referencia.",
+      "revisado": false,
+      "ajustes": "Ninguno. Mismo nombre y formato (4 × 125 g)."
+    },
+    "caldo_verduras": {
+      "sku": null,
+      "motivo": "El de Madrid (18480) solo está en 4701 y 4570. En pastillas (15592) no se puede: la receta lo pide en ml. Si tu almacén es 4701 o 4570, sí lo tienes.",
+      "revisado": false
+    }
   }
 }

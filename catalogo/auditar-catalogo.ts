@@ -129,7 +129,8 @@ for (const [canonico, sku] of entradas) {
     const p = r.datos;
     const pi = p.price_instructions ?? {};
     const precio = num(pi.unit_price);
-    const contenido = num(pi.unit_size);
+    // Congelados sin neto en la ficha: el peso que vale es el escurrido (ver construir-zona.ts).
+    const contenido = num(pi.unit_size) ?? num(pi.drained_weight);
     const unidad = unidadApi(pi.size_format);
     const unidades = pi.total_units ?? null;
     const escurrido = num(pi.drained_weight);
