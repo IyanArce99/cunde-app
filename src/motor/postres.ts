@@ -1,4 +1,4 @@
-import { FILTROS, ingredienteVetado } from './filtros.ts';
+import { FILTROS, compatibilidadIncierta, ingredienteVetado } from './filtros.ts';
 import type { DatosMotor, IngredienteCanonico, Sku } from './tipos.ts';
 
 /**
@@ -57,7 +57,8 @@ const TIPOS_EN_ROTACION = 4;
  * de ese SKU suma al vocabulario (src/motor/zona.ts), y si de ese SKU no se
  * sabe qué declara (`alergenos_desconocidos`: sin lista de ingredientes ni
  * texto de alérgenos, como la ficha del plátano), eso NO es «sin alérgenos»:
- * queda fuera para cualquier filtro que dependa de un alérgeno.
+ * con un filtro de alergia, ese postre NO se ofrece (`compatibilidadIncierta`,
+ * la misma regla que las recetas). Con uno de preferencia, sí: va por origen.
  */
 export function postrePermitido(ing: IngredienteCanonico, sku: Sku | undefined, exclusiones: string[]): boolean {
   const ex = new Set(exclusiones);
@@ -65,7 +66,7 @@ export function postrePermitido(ing: IngredienteCanonico, sku: Sku | undefined, 
     const filtro = FILTROS[nombre];
     if (!filtro) continue;
     if (ingredienteVetado(ing, filtro)) return false;
-    if (sku?.alergenos_desconocidos && filtro.alergeno) return false;
+    if (compatibilidadIncierta(sku, filtro)) return false;
   }
 
   const noVegetariano = (ing as { postre_no_vegetariano?: boolean }).postre_no_vegetariano === true;

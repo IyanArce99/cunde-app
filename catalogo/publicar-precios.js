@@ -68,7 +68,7 @@ const CAMPOS = [
 ];
 /* Solo en las conservas: el neto de la etiqueta. Con él la app distingue un
    cambio de precio de un cambio de envase. */
-const OPCIONALES = ['contenido_etiqueta'];
+const OPCIONALES = ['contenido_etiqueta', 'alergenos_desconocidos'];
 
 const skus = {};
 const malos = [];

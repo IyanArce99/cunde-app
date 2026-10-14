@@ -8,7 +8,7 @@ import type { RacionPostre } from './postres.ts';
 import { esFinDeSemanaBueno, planificarTanda, posicionesDeSemana, registroDe, rindeEfectivo } from './reparto.ts';
 import { DIAS } from './tipos.ts';
 import type {
-  Carrito, DatosMotor, Ensamblaje, Hueco, IngredienteCanonico, Receta, Tanda,
+  Carrito, DatosMotor, Ensamblaje, Hueco, IngredienteCanonico, Receta, Sku, Tanda,
 } from './tipos.ts';
 
 export type Variedad = 'poca' | 'normal' | 'mucha';
@@ -522,9 +522,9 @@ const PESO_CUOTA_PROTEINA = 6;
 
 // Los filtros (FILTROS, EXCLUSIONES…) y la regla que los aplica viven en
 // filtros.ts, porque los postres usan exactamente las mismas.
-export { EXCLUSIONES, EXCLUSIONES_ALERGIA, EXCLUSIONES_PREFERENCIA, FILTROS, ingredienteVetado } from './filtros.ts';
+export { EXCLUSIONES, EXCLUSIONES_ALERGIA, EXCLUSIONES_PREFERENCIA, FILTROS, compatibilidadIncierta, ingredienteVetado } from './filtros.ts';
 export type { Filtro } from './filtros.ts';
-import { FILTROS, ingredienteVetado } from './filtros.ts';
+import { FILTROS, compatibilidadIncierta, ingredienteVetado } from './filtros.ts';
 
 /**
  * Un gramo de comino no es un plato. El comino lleva gluten en su etiqueta
@@ -548,6 +548,8 @@ export function adaptarReceta(
   exclusiones: string[],
   minutosMax: number,
   ingredientes: Record<string, IngredienteCanonico>,
+  /** Los productos de la zona: si de uno no se sabe qué declara, con un filtro de alergia no se ofrece. */
+  skus?: Record<string, Sku>,
 ): Receta | null {
   if (receta.minutos > minutosMax) return null;
 
@@ -558,7 +560,7 @@ export function adaptarReceta(
     for (const ing of receta.ingredientes) {
       const meta = ingredientes[ing.canonico];
       if (!meta) throw new Error(`"${ing.canonico}" (receta ${receta.id}) no está en el vocabulario canónico`);
-      if (!ingredienteVetado(meta, filtro)) continue;
+      if (!ingredienteVetado(meta, filtro) && !compatibilidadIncierta(skus?.[ing.canonico], filtro)) continue;
       if (!esPrescindible(meta, ing)) return null;
       quitar.add(ing.canonico);
     }
@@ -577,8 +579,9 @@ export function recetaPermitida(
   exclusiones: string[],
   minutosMax: number,
   ingredientes: Record<string, IngredienteCanonico>,
+  skus?: Record<string, Sku>,
 ): boolean {
-  return adaptarReceta(receta, exclusiones, minutosMax, ingredientes) !== null;
+  return adaptarReceta(receta, exclusiones, minutosMax, ingredientes, skus) !== null;
 }
 
 /**
@@ -617,7 +620,7 @@ export function recetarioAdaptado(
 ): Receta[] {
   const veto = bloqueados.length ? new Set(bloqueados) : null;
   return datos.recetas
-    .map((r) => adaptarReceta(r, exclusiones, minutosMax, datos.ingredientes))
+    .map((r) => adaptarReceta(r, exclusiones, minutosMax, datos.ingredientes, datos.skus))
     .filter((r): r is Receta => r !== null && !(veto?.has(r.id) ?? false));
 }
 
@@ -1046,7 +1049,7 @@ export function construir(
     (datos.ensamblajes?.[receta.id] ?? []).find((e) =>
       adaptarReceta(
         { ...receta, ingredientes: e.ingredientes, minutos: e.minutos },
-        exclusiones, minutosMax, datos.ingredientes,
+        exclusiones, minutosMax, datos.ingredientes, datos.skus,
       ) !== null);
 
   const ocupados: (Hueco | null)[] = arranque?.ocupados
@@ -2088,7 +2091,7 @@ function huecosCubribles(peticion: PeticionSemana): { vivas: number; cubribles: 
   const bloqueados = peticion.platosBloqueados?.length ? new Set(peticion.platosBloqueados) : null;
   const vivas = peticion.datos.recetas.filter(
     (r) => !bloqueados?.has(r.id)
-      && recetaPermitida(r, peticion.exclusiones ?? [], minutosMax, peticion.datos.ingredientes),
+      && recetaPermitida(r, peticion.exclusiones ?? [], minutosMax, peticion.datos.ingredientes, peticion.datos.skus),
   );
   const rinde = (r: Receta) =>
     FRACCION_SOBRAS_POR_VARIEDAD[peticion.variedad] > 0 ? rindeEfectivo(r, 'principal', peticion.numHuecos) : 1;

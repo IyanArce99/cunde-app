@@ -7,7 +7,7 @@
  * cáscara») lo destapó. Ahora recetas y postres preguntan aquí, con las mismas
  * reglas. Ver postres.ts.
  */
-import type { Alergeno, IngredienteCanonico, Origen } from './tipos.ts';
+import type { Alergeno, IngredienteCanonico, Origen, Sku } from './tipos.ts';
 
 /**
  * Los filtros los gobiernan los DATOS del ingrediente (`origen` y
@@ -74,4 +74,19 @@ export function ingredienteVetado(meta: IngredienteCanonico, filtro: Filtro): bo
   if (meta.alergenos.includes(filtro.alergeno)) return true;
   // Las trazas solo cuentan cuando el filtro es por alergia.
   return filtro.tipo === 'alergia' && (meta.trazas ?? []).includes(filtro.alergeno);
+}
+
+/**
+ * ¿No se puede saber si ESTE producto es compatible con ESTA alergia?
+ *
+ * Un producto cuya ficha no trae lista de ingredientes ni texto de alérgenos, y
+ * que nadie ha comprobado con su etiqueta (`Sku.alergenos_desconocidos`), no
+ * está «sin alérgenos»: no se sabe. Con un filtro de ALERGIA eso basta para no
+ * ofrecerlo. Con uno de preferencia (vegetariano, vegano, cerdo) no: esos se
+ * deciden por el origen del ingrediente, que sí se conoce.
+ *
+ * La misma regla para recetas (seleccionar.ts) y postres (postres.ts).
+ */
+export function compatibilidadIncierta(sku: Sku | undefined, filtro: Filtro): boolean {
+  return filtro.tipo === 'alergia' && sku?.alergenos_desconocidos === true;
 }

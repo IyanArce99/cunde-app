@@ -50,7 +50,8 @@ describe('todos los postres de hoy', () => {
           || ((ex === 'Vegetariano' || ex === 'Vegano' || ex === 'Cerdo') && (p as { postre_no_vegetariano?: boolean }).postre_no_vegetariano)
           || (ex === 'Vegano' && p.origen === 'lacteo')
           // El plátano: ficha sin ingredientes ni alérgenos → desconocido.
-          || (sku.alergenos_desconocidos === true && ['Gluten', 'Lactosa', 'Frutos secos', 'Cacahuete', 'Sésamo', 'Mostaza', 'Apio', 'Soja', 'Sulfitos', 'Huevo', 'Pescado', 'Marisco', 'Cerdo'].includes(ex))
+          // Con un filtro de ALERGIA no se ofrece; uno de preferencia va por origen.
+          || (sku.alergenos_desconocidos === true && ['Gluten', 'Lactosa', 'Frutos secos', 'Cacahuete', 'Sésamo', 'Mostaza', 'Apio', 'Soja', 'Sulfitos', 'Huevo', 'Pescado', 'Marisco'].includes(ex))
         );
         expect(vale, `${p.id} con «${ex}»`).toBe(deberia);
       }
@@ -108,14 +109,15 @@ describe('información desconocida', () => {
     expect(madrid.skus.postre_platano.alergenos_desconocidos).toBe(true);
   });
 
-  it('no se trata como «sin alérgenos»: sale para cualquier filtro de alérgeno, también siendo fruta', () => {
-    for (const ex of ['Gluten', 'Frutos secos', 'Lactosa', 'Cerdo']) {
+  it('no se trata como «sin alérgenos»: con cualquier filtro de alergia NO se ofrece, aunque sea fruta', () => {
+    for (const ex of ['Gluten', 'Frutos secos', 'Lactosa', 'Soja']) {
       expect(vale(madrid, 'postre_platano', [ex]), ex).toBe(false);
     }
   });
 
-  it('pero un filtro que solo mira el origen no depende de la etiqueta', () => {
+  it('pero un filtro de preferencia, que va por el origen, no depende de la etiqueta', () => {
     expect(vale(madrid, 'postre_platano', ['Vegetariano'])).toBe(true);
+    expect(vale(madrid, 'postre_platano', ['Cerdo'])).toBe(true);
     expect(vale(madrid, 'postre_platano', [])).toBe(true);
   });
 });

@@ -38,7 +38,7 @@ export type FilaPrecio = Pick<
   Sku,
   'sku' | 'nombre' | 'contenido' | 'unidad' | 'precio' | 'precio_kg_l_ud'
   | 'packaging' | 'unidades_pack' | 'peso_variable' | 'departamento' | 'subfamilia'
-> & Pick<Partial<Sku>, 'contenido_etiqueta'>;
+> & Pick<Partial<Sku>, 'contenido_etiqueta' | 'alergenos_desconocidos'>;
 
 export interface Instantanea {
   /** La fecha de captura. Es lo que se compara para saber si hay algo nuevo. */

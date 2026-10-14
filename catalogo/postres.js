@@ -39,6 +39,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { etiquetaDesconocida } from './alergenos-etiqueta.js';
 import { fileURLToPath } from 'node:url';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
@@ -244,10 +245,11 @@ const piezas = fs.existsSync(RUTA_PIEZAS) ? JSON.parse(fs.readFileSync(RUTA_PIEZ
  */
 const porEan = JSON.parse(fs.readFileSync(path.join(aqui, 'alergenos-por-ean.json'), 'utf8'));
 const FILTRABLES = new Set(['gluten', 'lactosa', 'frutos_secos', 'cacahuete', 'huevo', 'pescado', 'marisco', 'soja', 'sesamo', 'mostaza', 'apio', 'sulfitos', 'cerdo']);
+const verificaciones = fs.existsSync(path.join(aqui, 'verificaciones.json'))
+  ? JSON.parse(fs.readFileSync(path.join(aqui, 'verificaciones.json'), 'utf8')).skus : {};
 const etiquetaDe = (sku) => {
   const r = porEan[sku];
-  const texto = (r?.mercadona?.alergenosTexto ?? '').trim();
-  const desconocida = !r || (!r.mercadona?.ingredientes && (!texto || texto === 'x99.'));
+  const desconocida = etiquetaDesconocida(r, verificaciones[sku]);
   const trazas = (r?.trazas ?? []).filter((t) => FILTRABLES.has(t));
   return { desconocida, trazas };
 };

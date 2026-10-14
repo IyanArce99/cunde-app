@@ -22,6 +22,7 @@ import {
 } from '../src/motor/carrito.ts';
 import { generarSemana } from '../src/motor/seleccionar.ts';
 import { informar, revisarCoherencia } from './coherencia.ts';
+import { etiquetaDesconocida } from './alergenos-etiqueta.js';
 import type { DatosMotor, Sku } from '../src/motor/tipos.ts';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
@@ -322,6 +323,15 @@ function main() {
       skus[canonico].contenido_etiqueta = e.neto;
       skus[canonico].precio_kg_l_ud = Number((c.precio / e.escurrido).toFixed(3));
     }
+  }
+
+  /* Lo que no se sabe de un producto no es «sin alérgenos»: si su ficha no trae
+     ingredientes ni alérgenos y nadie ha mirado su etiqueta, se marca, y con un
+     filtro de alergia sus recetas no se ofrecen (src/motor/filtros.ts). */
+  const porEanDesconocidos = fs.existsSync(path.join(aqui, 'alergenos-por-ean.json')) ? leer(path.join(aqui, 'alergenos-por-ean.json')) : {};
+  const verificaciones = fs.existsSync(path.join(aqui, 'verificaciones.json')) ? leer(path.join(aqui, 'verificaciones.json')).skus : {};
+  for (const sku of Object.values(skus)) {
+    if (etiquetaDesconocida(porEanDesconocidos[sku.sku], verificaciones[sku.sku])) sku.alergenos_desconocidos = true;
   }
 
   const fallos = guardiaDeCoherencia(skus, ingredientes);

@@ -98,3 +98,22 @@ export function deMercadona(nutricion) {
     alergenosTexto: crudoAle ? crudoAle.replace(/<[^>]+>/g, '') : null,
   };
 }
+
+/**
+ * ¿Se desconoce qué alérgenos declara este producto?
+ *
+ * Sí, si su ficha no trae lista de ingredientes ni un texto de alérgenos de
+ * verdad («x99.» no lo es: lo llevan fichas sin ingredientes y fichas con
+ * sulfitos en ellos), y nadie lo ha comprobado con la foto de su etiqueta
+ * (catalogo/verificaciones.json). Lo usan generar.ts y postres.js; el motor lo
+ * lee en `Sku.alergenos_desconocidos` (src/motor/filtros.ts).
+ *
+ * @param registro   la entrada de alergenos-por-ean.json, o undefined
+ * @param verificacion la entrada de verificaciones.json, o undefined
+ */
+export function etiquetaDesconocida(registro, verificacion) {
+  if (verificacion?.alergenos?.estado === 'verificado') return false;
+  if (!registro) return true;
+  const texto = (registro.mercadona?.alergenosTexto ?? '').trim();
+  return !registro.mercadona?.ingredientes && (!texto || texto === 'x99.');
+}
