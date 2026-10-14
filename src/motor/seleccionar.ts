@@ -2800,7 +2800,11 @@ export function cocinarHueco(
 ): SemanaGenerada | null {
   if (semana.huecos[indiceHueco]?.tipo !== 'libre') return null;
   const ocupados: (Hueco | null)[] = semana.huecos.map((h, k) => (k === indiceHueco ? null : h));
-  const rehecha = construir(peticion, { ocupados, tandas: [...semana.tandas] });
+  /* `variedadExtra: 1` porque devolver una comida es AÑADIR una. Con «mucha
+     variedad» la semana ya tiene sus doce platos distintos y ninguno puede
+     repetirse, así que sin ese hueco de más no había candidato y el botón no
+     hacía nada (visto en el navegador el 14 oct 2026). */
+  const rehecha = construir(peticion, { ocupados, tandas: [...semana.tandas], variedadExtra: 1 });
   if (!rehecha?.huecos[indiceHueco]?.receta) return null;
   return terminarRetoque(peticion, rehecha);
 }

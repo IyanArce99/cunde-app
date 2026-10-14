@@ -152,14 +152,14 @@ describe('no cocino · barrido de huecos', () => {
 });
 
 describe('volver a cocinar un día libre', () => {
-  it('rellena solo ese hueco y deja el resto como estaba', () => {
-    for (const semanaNumero of [1, 2, 3]) {
-      const p = { ...BASE, semanaNumero };
+  it('rellena solo ese hueco y deja el resto como estaba, en los tres niveles de variedad', () => {
+    for (const [variedad, semanaNumero] of [['poca', 1], ['normal', 1], ['normal', 2], ['normal', 3], ['mucha', 1], ['mucha', 2]] as const) {
+      const p = { ...BASE, variedad, semanaNumero };
       const s = generarSemana(p);
       for (const i of [0, 4, 9, 13]) {
         const libre = liberarHueco(p, s, i);
         const vuelta = cocinarHueco(p, libre, i);
-        expect(vuelta, `sem ${semanaNumero} hueco ${i}`).not.toBeNull();
+        expect(vuelta, `${variedad} sem ${semanaNumero} hueco ${i}`).not.toBeNull();
         expect(vuelta!.huecos[i].tipo, `sem ${semanaNumero} hueco ${i}`).toBe('cocinado');
         vuelta!.huecos.forEach((h, k) => {
           if (k !== i) expect(clave(h), `sem ${semanaNumero} hueco ${i} → ${k}`).toBe(clave(libre.huecos[k]));
