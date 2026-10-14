@@ -149,21 +149,32 @@ export function planDePostres(
   exclusiones: string[],
   N: number,
   numHuecos: number,
+  /**
+   * Posiciones sin comida («no cocino este día»). No llevan postre: sin esto
+   * el yogur de una comida que no se hace seguía en la compra.
+   *
+   * Con libres, los postres que se quedan a cero raciones NO salen del plan:
+   * la rotación por hueco (`rotacionDePostres` en data/motor.ts) se lee por
+   * posición en la carta, y quitar uno la desalinearía.
+   */
+  libres?: ReadonlySet<number>,
 ): RacionPostre[] {
   const porHueco = postrePorHueco(datos, exclusiones, numHuecos);
   if (!porHueco.length) return [];
 
   const huecosPorPostre = new Map<string, number>();
-  for (const x of porHueco) {
+  porHueco.forEach((x, i) => {
+    if (libres?.has(i)) return;
     huecosPorPostre.set(x.ing.id, (huecosPorPostre.get(x.ing.id) ?? 0) + 1);
-  }
+  });
 
-  return cartaDePostres(datos, exclusiones).map((x) => ({
+  const plan = cartaDePostres(datos, exclusiones).map((x) => ({
     ingrediente: x.ing,
     sku: x.sku,
     porRacion: (x.ing as { postre_por_racion?: number }).postre_por_racion ?? 1,
     raciones: (huecosPorPostre.get(x.ing.id) ?? 0) * N,
-  })).filter((p) => p.raciones > 0);
+  }));
+  return libres?.size ? plan : plan.filter((p) => p.raciones > 0);
 }
 
 /**

@@ -32,6 +32,7 @@ const SIN_CAMBIO: Record<Retoque, string> = {
   barato: 'No hay nada más barato con lo que ya llevas en el carrito.',
   cambiar: 'No encuentro otro reparto para esa comida.',
   libre: 'No puedo dejar ese hueco libre sin descuadrar la semana.',
+  cocinar: 'No encuentro un plato para esa comida sin cambiar las demás.',
 };
 
 const RANURAS: Ranura[] = ['comida', 'cena'];

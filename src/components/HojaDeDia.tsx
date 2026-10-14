@@ -255,10 +255,20 @@ const HojaDeDia: React.FC<HojaDeDiaProps> = ({
           <span className="hoja-dia__accion-titulo">Más barato</span>
         </button>
 
-        <button className="hoja-dia__accion" type="button" onClick={() => onRetocar('libre')}>
-          <span className="hoja-dia__icono">✕</span>
-          <span className="hoja-dia__accion-titulo">No cocino</span>
-        </button>
+        {/* En un hueco libre, la misma casilla devuelve la comida: es el
+            camino de vuelta de «No cocino», y sin él no había forma de
+            recuperar un día liberado sin rehacer la semana. */}
+        {plato ? (
+          <button className="hoja-dia__accion" type="button" onClick={() => onRetocar('libre')}>
+            <span className="hoja-dia__icono">✕</span>
+            <span className="hoja-dia__accion-titulo">No cocino</span>
+          </button>
+        ) : (
+          <button className="hoja-dia__accion" type="button" onClick={() => onRetocar('cocinar')}>
+            <span className="hoja-dia__icono">＋</span>
+            <span className="hoja-dia__accion-titulo">Cocino</span>
+          </button>
+        )}
 
         <button
           className="hoja-dia__accion"

@@ -1176,8 +1176,12 @@ export function construir(
    * ingrediente, así que el coste marginal que guía la selección ya lleva
    * el postre puesto y el tope de presupuesto se respeta de verdad.
    */
+  /* Los huecos que ya nacen libres —«no cocino» y los que el usuario dejó así—
+     no llevan postre. */
+  const libresDeEntrada = new Set<number>();
+  ocupados.forEach((h, k) => { if (h?.tipo === 'libre') libresDeEntrada.add(k); });
   const plan = peticion.postre
-    ? planDePostres(datos, exclusiones, N, numHuecos)
+    ? planDePostres(datos, exclusiones, N, numHuecos, libresDeEntrada)
     : [];
   const basePostres = plan.length ? necesidadDePostres(plan) : undefined;
   let necesidadActual = acumularNecesidad(tandas, datos, N, basePostres);
@@ -2614,7 +2618,7 @@ export function costesPorProteina(peticion: PeticionSemana): Record<NivelProtein
 // Rehacer desde un hueco
 // ---------------------------------------------------------------------------
 
-export type Retoque = 'cambiar' | 'barato' | 'libre';
+export type Retoque = 'cambiar' | 'barato' | 'libre' | 'cocinar';
 
 /** Cuántos sustitutos se prueban antes de aceptar uno que rompa el cuadre. */
 const INTENTOS_RETOQUE = 5;
@@ -2707,12 +2711,107 @@ function terminarRetoque(
  * quien llama decide si recurre al reparto global (rehacerDesde), que es
  * honesto pero ruidoso.
  */
+/**
+ * ═══ «NO COCINO ESTE DÍA» QUITA UNA COMIDA, NO REHACE LA SEMANA ═══
+ *
+ * Antes iba por `repararHueco`, que deshace la tanda ENTERA del hueco tocado y
+ * rellena con el motor lo que queda libre. Cuando el hueco era una sobra, eso
+ * dejaba vacío el día en que se cocinaba, y el motor lo llenaba con otra cosa.
+ * Medido (catalogo/_aud-no-cocino.ts, 2 personas, 65 €, semana de lunes):
+ * liberar la sobra del miércoles cambiaba las alubias del lunes por un potaje
+ * con bacalao y la compra pasaba de 54,32 € a 69,44 €, fuera del presupuesto.
+ * Decir «ese día no cocino» costaba quince euros.
+ *
+ * Ahora no se elige ningún plato. Se quita la comida y se recalcula la compra
+ * de lo que queda:
+ *
+ *   · hueco cocinado sin sobra      → la tanda sale entera.
+ *   · hueco de sobra o ensamblaje   → la tanda se queda con su día de cocina,
+ *                                     para un hueco en vez de dos.
+ *   · hueco cocinado CON sobra      → lo que iba a ser sobra se cocina ese
+ *                                     otro día, para un hueco. Si era un
+ *                                     ensamblaje, pasa a ser el plato base: un
+ *                                     ensamblaje solo existe sobre la olla de
+ *                                     otro día, y esa olla ya no se hace.
+ *
+ * En los tres casos las cantidades de cada ingrediente solo pueden bajar, y el
+ * postre de ese hueco se deja de comprar. Con los mismos precios y la misma
+ * despensa, la compra NO puede subir. Hay un test que lo sujeta.
+ */
+export function liberarHueco(
+  peticion: PeticionSemana,
+  semana: SemanaGenerada,
+  indiceHueco: number,
+): SemanaGenerada {
+  const tocado = semana.huecos[indiceHueco];
+  if (!tocado?.receta || tocado.tipo === 'libre') return semana;
+  const indiceDe = (h: Hueco) => semana.huecos.findIndex((x) => x.dia === h.dia && x.ranura === h.ranura);
+
+  let duena: Tanda | null = null;
+  let suyos: Hueco[] = [];
+  for (const [tanda, huecos] of mapearHuecosDeTanda(semana)) {
+    if (huecos.some((h) => indiceDe(h) === indiceHueco)) { duena = tanda; suyos = huecos; break; }
+  }
+  if (!duena) return semana;
+
+  const huecos = [...semana.huecos];
+  huecos[indiceHueco] = { dia: tocado.dia, ranura: tocado.ranura, receta: null, tipo: 'libre' };
+
+  const otro = suyos.find((h) => indiceDe(h) !== indiceHueco);
+  const tandas: Tanda[] = [];
+  for (const t of semana.tandas) {
+    if (t !== duena) { tandas.push(t); continue; }
+    if (!otro) continue; // cocinado sin sobra: la tanda sale entera
+    const k = indiceDe(otro);
+    if (tocado.tipo === 'cocinado') {
+      // La sobra pasa a cocinarse ese día; sin origen y sin ensamblaje.
+      huecos[k] = { dia: otro.dia, ranura: otro.ranura, receta: duena.receta, tipo: 'cocinado' };
+    }
+    tandas.push({
+      receta: duena.receta,
+      huecosPrincipal: 1,
+      huecosAcompanamiento: Math.min(1, duena.huecosAcompanamiento),
+    });
+  }
+
+  const libres = new Set<number>();
+  huecos.forEach((h, k) => { if (h.tipo === 'libre') libres.add(k); });
+  const postres = peticion.postre
+    ? planDePostres(peticion.datos, peticion.exclusiones ?? [], peticion.N, huecos.length, libres)
+    : [];
+  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, postres);
+  return terminarRetoque(peticion, { huecos, tandas, carrito, postres });
+}
+
+/**
+ * ═══ VOLVER A COCINAR UN DÍA LIBRE ═══
+ *
+ * El camino de vuelta de `liberarHueco`. Rellena SOLO ese hueco, con el mismo
+ * motor de candidatos y el resto de la semana congelado: las demás comidas no
+ * se mueven. Añadir una comida sí puede subir la compra —es comida de más—, y
+ * `cuadra` dice si sigue cabiendo.
+ *
+ * `null` si no hay ningún plato que quepa en ese hueco con lo que ya hay.
+ */
+export function cocinarHueco(
+  peticion: PeticionSemana,
+  semana: SemanaGenerada,
+  indiceHueco: number,
+): SemanaGenerada | null {
+  if (semana.huecos[indiceHueco]?.tipo !== 'libre') return null;
+  const ocupados: (Hueco | null)[] = semana.huecos.map((h, k) => (k === indiceHueco ? null : h));
+  const rehecha = construir(peticion, { ocupados, tandas: [...semana.tandas] });
+  if (!rehecha?.huecos[indiceHueco]?.receta) return null;
+  return terminarRetoque(peticion, rehecha);
+}
+
 export function repararHueco(
   peticion: PeticionSemana,
   semana: SemanaGenerada,
   indiceHueco: number,
   retoque: 'cambiar' | 'libre',
 ): SemanaGenerada | null {
+  if (retoque === 'libre') return liberarHueco(peticion, semana, indiceHueco);
   const indiceDe = (h: Hueco) => semana.huecos.findIndex((x) => x.dia === h.dia && x.ranura === h.ranura);
   const mapa = mapearHuecosDeTanda(semana);
 
@@ -2752,8 +2851,7 @@ export function repararHueco(
 
   for (let intento = 0; intento < INTENTOS_RETOQUE; intento++) {
     const arranque: ArranqueParcial = { ocupados, tandas: tandasFijas };
-    if (retoque === 'cambiar') arranque.vetadaGlobal = [...vetadas].join('|');
-    if (retoque === 'libre') arranque.librearEn = indiceHueco;
+    arranque.vetadaGlobal = [...vetadas].join('|');
 
     const rehecha = construir(peticion, arranque);
     if (!rehecha) break;
@@ -2762,12 +2860,12 @@ export function repararHueco(
     const puesta = resultado.huecos[indiceHueco]?.receta?.id;
     // El veto no aplicó: mejor devolver null y que decida el reparto global
     // que enseñarle al usuario que su toque no ha hecho nada.
-    if (retoque === 'cambiar' && puesta && vetadas.has(puesta)) break;
+    if (puesta && vetadas.has(puesta)) break;
 
     primera ??= resultado;
     if (!cuadrabaAntes || resultado.cuadra) return resultado;
     // Rompió el cuadre: se veta lo que acaba de poner y se prueba otra cosa.
-    if (retoque === 'libre' || !puesta) break;
+    if (!puesta) break;
     vetadas.add(puesta);
   }
 
@@ -2852,6 +2950,9 @@ export function rehacerDesde(
   indiceHueco: number,
   retoque: Retoque,
 ): SemanaGenerada {
+  // Quitar o devolver una comida no reparte la semana: ver liberarHueco.
+  if (retoque === 'libre') return liberarHueco(peticion, semana, indiceHueco);
+  if (retoque === 'cocinar') return cocinarHueco(peticion, semana, indiceHueco) ?? semana;
   // Se congela POR TANDA, no por posición — se conserva la tanda solo si
   // TODOS sus huecos caen antes del que se toca. La tanda que contiene el
   // hueco tocado se deshace entera, y con ella su sobra.
@@ -2875,7 +2976,6 @@ export function rehacerDesde(
     arranque.vetadaAqui = semana.huecos[indiceHueco].receta?.id;
     arranque.vetadaGlobal = semana.huecos[indiceHueco].receta?.id;
   }
-  if (retoque === 'libre') arranque.librearEn = indiceHueco;
 
   if (retoque !== 'barato') {
     const rehecha = construir(peticion, arranque);

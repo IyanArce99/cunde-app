@@ -199,7 +199,10 @@ export function hidratar(
       ? { ensamblaje: ensamblajePorId(h.recetaId, h.ensamblajeId) }
       : {}),
   }));
-  const postres = postre ? planDePostres(datos, exclusiones, N, plan.huecos.length) : [];
+  // Los huecos libres no llevan postre; ver planDePostres.
+  const libres = new Set<number>();
+  plan.huecos.forEach((h, k) => { if (h.tipo === 'libre') libres.add(k); });
+  const postres = postre ? planDePostres(datos, exclusiones, N, plan.huecos.length, libres) : [];
   const carrito = calcularCarrito(tandas, datos, N, existencias, postres);
   return {
     huecos,
@@ -538,7 +541,7 @@ export function retocarParaApp(
   const actual = hidratar(
     plan, peticion.N, preferencias.exclusiones, preferencias.proteina, existencias, preferencias.postre,
   );
-  const local = retoque === 'barato' ? null : repararHueco(peticion, actual, indiceHueco, retoque);
+  const local = retoque === 'cambiar' || retoque === 'libre' ? repararHueco(peticion, actual, indiceHueco, retoque) : null;
   return bajar(local ?? rehacerDesde(peticion, actual, indiceHueco, retoque), peticion.N);
 }
 
