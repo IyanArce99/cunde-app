@@ -56,6 +56,16 @@ const catalogo: Record<string, Sku | null> = rutaSkus
   : datos.skus;
 
 /** Alérgenos que la app sabe filtrar (ver FILTROS en seleccionar.ts). */
+/**
+ * Comprobaciones a mano contra ficha y fotos oficiales (catalogo/verificaciones.json).
+ * Una identidad verificada sustituye a la correspondencia por categoría o
+ * nombre; una conversión verificada cierra la duda de «piezas o peso». Lo demás
+ * se sigue midiendo contra la API como siempre.
+ */
+const RUTA_VERIFICACIONES = path.join(aqui, 'verificaciones.json');
+const verificaciones: Record<string, { identidad?: { estado: string; evidencia: string }; conversion?: { estado: string } }> =
+  fs.existsSync(RUTA_VERIFICACIONES) ? JSON.parse(fs.readFileSync(RUTA_VERIFICACIONES, 'utf8')).skus : {};
+
 const FILTRABLES = new Set(['gluten', 'lactosa', 'frutos_secos', 'cacahuete', 'huevo', 'pescado', 'marisco', 'soja', 'sesamo', 'mostaza', 'apio', 'sulfitos', 'cerdo']);
 /** Palabras del id canónico que no dicen qué alimento es. */
 const GENERICAS = new Set(['cocido', 'cocida', 'seco', 'seca', 'lata', 'congelado', 'congelada', 'fresco', 'fresca', 'postre', 'de', 'en', 'semi', 'molido', 'molida', 'dulce', 'rojo', 'roja', 'verde', 'blanca', 'blanco', 'negra', 'negro', 'natural', 'picada', 'picado', 'triturado', 'frito']);
@@ -164,7 +174,9 @@ for (const [canonico, sku] of entradas) {
       const ok = (u === 'g' && sku.unidad === 'kg') || (u === 'ml' && sku.unidad === 'l') || (u === 'ud' && (sku.unidad === 'ud' || sku.unidades_pack != null || sku.packaging === 'Pieza'));
       if (!ok) hallazgos.push({ campo: 'conversion', app: `receta en ${u}`, mercadona: `envase en ${sku.unidad}${sku.unidades_pack ? ` · ${sku.unidades_pack} uds` : ''}`, gravedad: 'discrepancia' });
       if (u === 'ud' && sku.unidad !== 'ud' && sku.unidades_pack == null && sku.packaging === 'Pieza') {
-        pendientes.push(`la receta cuenta piezas y el producto se vende a peso (${sku.contenido} ${sku.unidad} por pieza, de la ficha): sin verificar en tienda`);
+        if (verificaciones[sku.sku]?.conversion?.estado !== 'verificado') {
+          pendientes.push(`la receta cuenta piezas y el producto se vende a peso (${sku.contenido} ${sku.unidad} por pieza, de la ficha): sin verificar en tienda`);
+        }
       }
     }
     // Lo que va en líquido rinde su escurrido (ver escurridos.ts). Cualquier
@@ -222,7 +234,10 @@ for (const [canonico, sku] of entradas) {
     else if (contiene(categoriaDe(p), ts)) correspondencia = 'categoria';
     else if (contiene(p.display_name, ts)) correspondencia = 'nombre';
     else correspondencia = 'sin evidencia';
-    if (correspondencia !== 'etiqueta') {
+    if (correspondencia !== 'etiqueta' && verificaciones[sku.sku]?.identidad?.estado === 'verificado') {
+      correspondencia = 'verificada a mano';
+    }
+    if (correspondencia !== 'etiqueta' && correspondencia !== 'verificada a mano') {
       pendientes.push(correspondencia === 'sin evidencia'
         ? 'ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano'
         : `la correspondencia solo la respalda ${correspondencia === 'nombre' ? 'el nombre' : 'la categoría'}: falta revisión humana`);

@@ -1,0 +1,98 @@
+{
+  "nota": "Comprobaciones hechas a mano contra la ficha oficial de Mercadona (API, almacén indicado) y sus fotos de envase y etiqueta. Una por SKU y por dimensión: identidad (es ese ingrediente), formato (peso y envase), conversión (de la cantidad de la receta al envase), ingredientes y alérgenos. Solo cuenta lo que se ha visto; lo que falta va en `pendiente` con la foto que haría falta. Las lee auditar-catalogo.ts: una identidad verificada aquí sustituye a la correspondencia por categoría o nombre. Las fotos y fichas crudas están en catalogo/capturas-crudas/ (no van a git).",
+  "comprobadoPor": "asistente (Claude), con ficha y fotos oficiales; no sustituye la comprobación en tienda",
+  "skus": {
+    "69079": {
+      "canonico": "cebolla",
+      "nombre": "Cebollas",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/69079/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9)"],
+      "identidad": { "estado": "verificado", "evidencia": "Ficha: denominación legal «Cebolla», categoría Fruta y verdura > Verdura > Cebolla y ajo. Etiqueta: «CEBOLLA GRANO», calibre 60 mm +." },
+      "formato": { "estado": "verificado", "evidencia": "Malla, peso neto 2 kg en ficha y etiqueta. 3,20 € online (1,60 €/kg)." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos; se compra por mallas de 2 kg. Sin merma en el vocabulario (rendimiento 1)." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Producto fresco de un solo ingrediente." },
+      "alergenos": { "estado": "verificado", "evidencia": "Sin alérgenos declarados en la ficha ni en la etiqueta; el vocabulario no declara ninguno." },
+      "pendiente": []
+    },
+    "69166": {
+      "canonico": "patata",
+      "nombre": "Patatas",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/69166/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9)"],
+      "identidad": { "estado": "verificado", "evidencia": "Ficha: denominación legal «Patata de conservación», categoría Fruta y verdura > Verdura > Patata. Etiqueta: «PAPAS NUEVAS», variedad Kingsman, categoría I." },
+      "formato": { "estado": "verificado", "evidencia": "Malla, peso neto 3 kg en ficha y etiqueta. 4,90 € online." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos; mallas de 3 kg." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Producto fresco de un solo ingrediente." },
+      "alergenos": { "estado": "verificado", "evidencia": "Sin alérgenos declarados; el vocabulario no declara ninguno." },
+      "pendiente": [],
+      "nota": "La ficha dice origen España y «patata de conservación»; la foto de etiqueta, «papas nuevas» de Reino Unido, envasadas en Moya. Hay diez proveedores: la foto es de uno. No cambia la receta."
+    },
+    "3210": {
+      "canonico": "limon",
+      "nombre": "Limón",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/3210/?lang=es&wh=3120", "foto del producto (perspectiva 2)"],
+      "identidad": { "estado": "verificado", "evidencia": "Ficha: ingrediente «limón», denominación «limón granel», categoría Fruta > Cítricos. Foto: limón entero y cortado." },
+      "formato": { "estado": "verificado", "evidencia": "Pieza de unos 170 g (approx_size), 0,48 € la pieza online; referencia 2,80 €/kg." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden limones en unidades; online se compra por pieza (selling_method 0): 1 unidad de receta = 1 pieza." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Un solo ingrediente: limón." },
+      "alergenos": { "estado": "verificado", "evidencia": "Sin alérgenos declarados." },
+      "pendiente": ["Precio en tienda física: online se cobra por pieza; en el lineal puede venderse a peso. Lo dirá el ticket."]
+    },
+    "6260": {
+      "canonico": "macarron",
+      "nombre": "Macarrón fino Hacendado",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/6260/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9), EAN 8480000062604 igual que la ficha"],
+      "identidad": { "estado": "verificado", "evidencia": "Denominación legal «MACARRÓN FINO. PASTA ALIMENTICIA DE CALIDAD SUPERIOR»; ingrediente único sémola de trigo duro." },
+      "formato": { "estado": "verificado", "evidencia": "Paquete de 500 g (ficha y etiqueta). 0,80 € online." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos de pasta seca; paquetes de 500 g." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Sémola de trigo duro (gluten)." },
+      "alergenos": { "estado": "verificado", "evidencia": "Contiene gluten; puede contener huevos, soja y mostaza. El vocabulario declara exactamente eso." },
+      "pendiente": []
+    },
+    "9395": {
+      "canonico": "cuscus",
+      "nombre": "Cous cous mediano Hacendado",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/9395/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9), con EAN 8402001026270 distinto del de la ficha (8011033012108)"],
+      "identidad": { "estado": "verificado", "evidencia": "Denominación legal «Cous cous mediano»; sémola de trigo duro precocida y secada; preparación de cuscús en la etiqueta (60 g + 60 ml de agua)." },
+      "formato": { "estado": "verificado", "evidencia": "Caja de 1 kg (ficha y etiqueta). 1,80 € online." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos en seco; cajas de 1 kg." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Sémola de trigo duro (gluten); la ficha añade agua." },
+      "alergenos": { "estado": "verificado", "evidencia": "Gluten. Trazas: la ficha dice soja; la etiqueta de la foto dice soja Y mostaza. Se añade la traza de mostaza al vocabulario, que es el lado seguro." },
+      "pendiente": ["La foto y la ficha llevan EAN distintos: puede haber dos proveedores. Si quieres cerrarlo, una foto de la etiqueta de ingredientes de la caja que compres."]
+    },
+    "55135": {
+      "canonico": "chorizo",
+      "nombre": "Taquitos de chorizo extra Revilla",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/55135/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9), EAN 8410320014212 igual que la ficha"],
+      "identidad": { "estado": "verificado", "evidencia": "Denominación legal «CHORIZO EXTRA»; categoría Embutido curado > Chorizo; en taquitos." },
+      "formato": { "estado": "verificado", "evidencia": "Pack de 2 barquetas de 100 g (200 g). 2,55 € online." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos; viene ya en tacos, sin merma." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Carne de cerdo, sal, pimentón, LACTOSA, aromas, dextrina… (etiqueta)." },
+      "alergenos": { "estado": "verificado", "evidencia": "Contiene lactosa; trazas de derivados lácteos; la etiqueta dice «sin gluten». El vocabulario declara cerdo y lactosa." },
+      "pendiente": []
+    },
+    "6277": {
+      "canonico": "espagueti",
+      "nombre": "Spaghetti fino Hacendado",
+      "almacen": "3120",
+      "consultadoEn": "2026-10-14",
+      "fuentes": ["https://tienda.mercadona.es/api/products/6277/?lang=es&wh=3120", "foto de etiqueta (perspectiva 9), con EAN 8480000062772 distinto del de la ficha (8402001042232)"],
+      "identidad": { "estado": "verificado", "evidencia": "Denominación legal «Spaghetti fino. Pasta alimenticia de calidad superior»; categoría Spaghetti y tallarines." },
+      "formato": { "estado": "verificado", "evidencia": "Paquete de 500 g (ficha y etiqueta). 0,80 € online." },
+      "conversion": { "estado": "verificado", "evidencia": "Las recetas piden gramos de pasta seca." },
+      "ingredientes": { "estado": "verificado", "evidencia": "Sémola de trigo duro (gluten), en la ficha y en la etiqueta." },
+      "alergenos": { "estado": "verificado", "evidencia": "Gluten; trazas de huevos, soja y mostaza en la ficha y en la etiqueta. Coincide con el vocabulario." },
+      "pendiente": []
+    }
+  }
+}

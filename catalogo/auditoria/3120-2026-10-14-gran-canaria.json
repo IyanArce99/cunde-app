@@ -1,6 +1,6 @@
 {
   "almacen": "3120",
-  "auditadoEn": "2026-10-14T09:11:05.347Z",
+  "auditadoEn": "2026-10-14T09:48:56.616Z",
   "catalogoApp": "2026-10-13",
   "catalogoAuditado": "src\\data\\zonas\\gran-canaria.json",
   "filas": [
@@ -55,7 +55,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4240/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:31.247Z",
+        "consultadoEn": "2026-10-14T09:48:21.755Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -109,7 +109,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69297/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:31.645Z",
+        "consultadoEn": "2026-10-14T09:48:22.160Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -171,7 +171,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34865/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:32.142Z",
+        "consultadoEn": "2026-10-14T09:48:22.626Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -229,7 +229,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26019/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:32.529Z",
+        "consultadoEn": "2026-10-14T09:48:23.090Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -283,7 +283,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5124/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:32.937Z",
+        "consultadoEn": "2026-10-14T09:48:23.401Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -337,7 +337,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26001/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:33.423Z",
+        "consultadoEn": "2026-10-14T09:48:23.728Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -391,7 +391,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26000/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:33.829Z",
+        "consultadoEn": "2026-10-14T09:48:24.181Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -449,7 +449,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69275/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:34.310Z",
+        "consultadoEn": "2026-10-14T09:48:24.571Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -508,7 +508,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5184/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:34.700Z",
+        "consultadoEn": "2026-10-14T09:48:24.899Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -562,7 +562,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5063/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:35.136Z",
+        "consultadoEn": "2026-10-14T09:48:25.398Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -616,7 +616,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5044/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:35.542Z",
+        "consultadoEn": "2026-10-14T09:48:25.881Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -676,7 +676,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18037/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:35.976Z",
+        "consultadoEn": "2026-10-14T09:48:26.318Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -734,7 +734,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62050/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:36.381Z",
+        "consultadoEn": "2026-10-14T09:48:26.642Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -795,7 +795,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/23047/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:36.696Z",
+        "consultadoEn": "2026-10-14T09:48:26.953Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -855,7 +855,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/14707/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:37.023Z",
+        "consultadoEn": "2026-10-14T09:48:27.402Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -911,7 +911,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69580/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:37.431Z",
+        "consultadoEn": "2026-10-14T09:48:27.730Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -969,7 +969,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13632/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:37.827Z",
+        "consultadoEn": "2026-10-14T09:48:28.162Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1016,7 +1016,9 @@
         "etiqueta": [
           "cacahuete"
         ],
-        "trazasEtiqueta": [],
+        "trazasEtiqueta": [
+          "frutos_secos"
+        ],
         "app": [
           "cacahuete",
           "frutos_secos"
@@ -1024,18 +1026,11 @@
         "trazasApp": [],
         "texto": "Puede contener frutos de cáscara. Contiene cacahuetes y productos a base de cacahuetes."
       },
-      "hallazgos": [
-        {
-          "campo": "alergenoDeMas",
-          "app": "declara frutos_secos",
-          "mercadona": "la etiqueta no lo dice",
-          "gravedad": "aviso"
-        }
-      ],
+      "hallazgos": [],
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34031/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:38.286Z",
+        "consultadoEn": "2026-10-14T09:48:28.660Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1091,7 +1086,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/7313/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:38.695Z",
+        "consultadoEn": "2026-10-14T09:48:29.126Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1153,7 +1148,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/52776/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:39.055Z",
+        "consultadoEn": "2026-10-14T09:48:29.561Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1163,8 +1158,8 @@
       "papel": "receta",
       "sku": "69079",
       "nombreApp": "Cebollas",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 108,
       "unidadesReceta": [
         "g"
@@ -1204,12 +1199,10 @@
         "texto": " x99."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69079/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:39.445Z",
+        "consultadoEn": "2026-10-14T09:48:30.031Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1267,7 +1260,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16618/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:39.788Z",
+        "consultadoEn": "2026-10-14T09:48:30.481Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1277,8 +1270,8 @@
       "papel": "receta",
       "sku": "55135",
       "nombreApp": "Taquitos de chorizo extra Revilla",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 1,
       "unidadesReceta": [
         "g"
@@ -1324,12 +1317,10 @@
         "texto": "Puede contener leche y sus derivados (incluida la lactosa). Contiene ml."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/55135/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:40.101Z",
+        "consultadoEn": "2026-10-14T09:48:30.884Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1385,7 +1376,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61231/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:40.491Z",
+        "consultadoEn": "2026-10-14T09:48:31.352Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1445,7 +1436,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34182/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:40.825Z",
+        "consultadoEn": "2026-10-14T09:48:31.788Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1509,7 +1500,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34120/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:41.173Z",
+        "consultadoEn": "2026-10-14T09:48:32.269Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1566,7 +1557,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2789/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:41.529Z",
+        "consultadoEn": "2026-10-14T09:48:32.737Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1620,7 +1611,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34163/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:41.933Z",
+        "consultadoEn": "2026-10-14T09:48:33.112Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1667,6 +1658,7 @@
         "etiqueta": [],
         "trazasEtiqueta": [
           "cacahuete",
+          "frutos_secos",
           "gluten",
           "mostaza",
           "sesamo"
@@ -1674,6 +1666,7 @@
         "app": [],
         "trazasApp": [
           "cacahuete",
+          "frutos_secos",
           "gluten",
           "mostaza",
           "sesamo"
@@ -1686,7 +1679,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34125/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:42.401Z",
+        "consultadoEn": "2026-10-14T09:48:33.592Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1748,7 +1741,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/87300/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:42.841Z",
+        "consultadoEn": "2026-10-14T09:48:33.935Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1758,8 +1751,8 @@
       "papel": "receta",
       "sku": "6277",
       "nombreApp": "Spaghetti fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "sin evidencia",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 4,
       "unidadesReceta": [
         "g"
@@ -1811,12 +1804,10 @@
         "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
       },
       "hallazgos": [],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6277/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:43.248Z",
+        "consultadoEn": "2026-10-14T09:48:34.323Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1870,7 +1861,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61238/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:43.713Z",
+        "consultadoEn": "2026-10-14T09:48:34.728Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1938,7 +1929,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13577/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:44.025Z",
+        "consultadoEn": "2026-10-14T09:48:35.119Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1996,7 +1987,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26029/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:44.508Z",
+        "consultadoEn": "2026-10-14T09:48:35.584Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2050,7 +2041,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16416/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:44.885Z",
+        "consultadoEn": "2026-10-14T09:48:36.036Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2104,7 +2095,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/9588/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:45.357Z",
+        "consultadoEn": "2026-10-14T09:48:36.520Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2162,7 +2153,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/30167/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:45.699Z",
+        "consultadoEn": "2026-10-14T09:48:37.005Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2222,7 +2213,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/80858/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:46.117Z",
+        "consultadoEn": "2026-10-14T09:48:37.425Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2276,7 +2267,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/25183/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:46.570Z",
+        "consultadoEn": "2026-10-14T09:48:37.753Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2330,7 +2321,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16315/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:46.882Z",
+        "consultadoEn": "2026-10-14T09:48:38.095Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2384,7 +2375,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/47994/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:47.305Z",
+        "consultadoEn": "2026-10-14T09:48:38.578Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2442,7 +2433,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/10382/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:47.667Z",
+        "consultadoEn": "2026-10-14T09:48:39.080Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2496,7 +2487,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69670/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:48.013Z",
+        "consultadoEn": "2026-10-14T09:48:39.437Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2554,7 +2545,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/26011/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:48.356Z",
+        "consultadoEn": "2026-10-14T09:48:39.809Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2608,7 +2599,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5330/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:48.775Z",
+        "consultadoEn": "2026-10-14T09:48:40.308Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2618,7 +2609,7 @@
       "papel": "receta",
       "sku": "3210",
       "nombreApp": "Limón",
-      "estado": "pendiente",
+      "estado": "comprobado",
       "correspondencia": "etiqueta",
       "recetas": 9,
       "unidadesReceta": [
@@ -2659,12 +2650,10 @@
         "texto": " x99."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la receta cuenta piezas y el producto se vende a peso (0.17 kg por pieza, de la ficha): sin verificar en tienda"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3210/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:49.198Z",
+        "consultadoEn": "2026-10-14T09:48:40.632Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2726,7 +2715,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/87310/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:49.592Z",
+        "consultadoEn": "2026-10-14T09:48:41.085Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2736,8 +2725,8 @@
       "papel": "receta",
       "sku": "6260",
       "nombreApp": "Macarrón fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 4,
       "unidadesReceta": [
         "g"
@@ -2789,12 +2778,10 @@
         "texto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6260/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:50.028Z",
+        "consultadoEn": "2026-10-14T09:48:41.476Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2848,7 +2835,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61289/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:50.356Z",
+        "consultadoEn": "2026-10-14T09:48:41.881Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2908,7 +2895,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/62401/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:50.731Z",
+        "consultadoEn": "2026-10-14T09:48:42.253Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -2970,7 +2957,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18615/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:51.167Z",
+        "consultadoEn": "2026-10-14T09:48:42.719Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3032,7 +3019,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17228/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:51.617Z",
+        "consultadoEn": "2026-10-14T09:48:43.108Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3090,7 +3077,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/10161/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:52.020Z",
+        "consultadoEn": "2026-10-14T09:48:43.605Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3148,7 +3135,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5598/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:52.485Z",
+        "consultadoEn": "2026-10-14T09:48:44.103Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3217,7 +3204,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17944/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:52.854Z",
+        "consultadoEn": "2026-10-14T09:48:44.479Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3227,8 +3214,8 @@
       "papel": "receta",
       "sku": "69166",
       "nombreApp": "Patatas",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 36,
       "unidadesReceta": [
         "g"
@@ -3268,12 +3255,10 @@
         "texto": " x99."
       },
       "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69166/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:53.258Z",
+        "consultadoEn": "2026-10-14T09:48:44.881Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3327,7 +3312,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3400/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:53.695Z",
+        "consultadoEn": "2026-10-14T09:48:45.288Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3381,7 +3366,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5599/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:54.052Z",
+        "consultadoEn": "2026-10-14T09:48:45.693Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3435,7 +3420,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/60573/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:54.378Z",
+        "consultadoEn": "2026-10-14T09:48:46.144Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3489,7 +3474,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/34171/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:54.737Z",
+        "consultadoEn": "2026-10-14T09:48:46.643Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3543,7 +3528,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/35221/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:55.143Z",
+        "consultadoEn": "2026-10-14T09:48:47.111Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3600,7 +3585,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/2779/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:55.486Z",
+        "consultadoEn": "2026-10-14T09:48:47.440Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3654,7 +3639,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68408/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:55.877Z",
+        "consultadoEn": "2026-10-14T09:48:47.876Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3714,7 +3699,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17463/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:56.327Z",
+        "consultadoEn": "2026-10-14T09:48:48.217Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3772,7 +3757,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/23621/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:56.654Z",
+        "consultadoEn": "2026-10-14T09:48:48.638Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3828,7 +3813,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/14981/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:57.062Z",
+        "consultadoEn": "2026-10-14T09:48:49.074Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3882,7 +3867,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/19731/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:57.482Z",
+        "consultadoEn": "2026-10-14T09:48:49.433Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3936,7 +3921,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69653/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:57.949Z",
+        "consultadoEn": "2026-10-14T09:48:49.745Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -3994,7 +3979,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13926/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:58.446Z",
+        "consultadoEn": "2026-10-14T09:48:50.088Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4054,7 +4039,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/51097/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:58.761Z",
+        "consultadoEn": "2026-10-14T09:48:50.399Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4108,7 +4093,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69912/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:59.210Z",
+        "consultadoEn": "2026-10-14T09:48:50.804Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4162,7 +4147,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17151/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:59.614Z",
+        "consultadoEn": "2026-10-14T09:48:51.161Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4216,7 +4201,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/16044/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:00.052Z",
+        "consultadoEn": "2026-10-14T09:48:51.503Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4270,7 +4255,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/5547/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:00.534Z",
+        "consultadoEn": "2026-10-14T09:48:51.937Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4328,7 +4313,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4940/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:01.029Z",
+        "consultadoEn": "2026-10-14T09:48:52.407Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4386,7 +4371,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4957/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:01.515Z",
+        "consultadoEn": "2026-10-14T09:48:52.859Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4440,7 +4425,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69586/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:01.935Z",
+        "consultadoEn": "2026-10-14T09:48:53.280Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4500,7 +4485,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/70740/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:02.370Z",
+        "consultadoEn": "2026-10-14T09:48:53.636Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4554,7 +4539,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/67608/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:02.774Z",
+        "consultadoEn": "2026-10-14T09:48:54.103Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4564,8 +4549,8 @@
       "papel": "receta",
       "sku": "9395",
       "nombreApp": "Cous cous mediano Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "sin evidencia",
+      "estado": "comprobado",
+      "correspondencia": "verificada a mano",
       "recetas": 5,
       "unidadesReceta": [
         "g"
@@ -4608,17 +4593,16 @@
           "gluten"
         ],
         "trazasApp": [
+          "mostaza",
           "soja"
         ],
         "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
       },
       "hallazgos": [],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
+      "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/9395/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:03.227Z",
+        "consultadoEn": "2026-10-14T09:48:54.416Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4676,7 +4660,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/6106/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:03.529Z",
+        "consultadoEn": "2026-10-14T09:48:54.864Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4730,7 +4714,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/68172/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:04.023Z",
+        "consultadoEn": "2026-10-14T09:48:55.256Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4784,7 +4768,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3819/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:04.441Z",
+        "consultadoEn": "2026-10-14T09:48:55.705Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4836,7 +4820,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/3028/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:04.861Z",
+        "consultadoEn": "2026-10-14T09:48:56.097Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -4892,7 +4876,7 @@
       "pendientes": [],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/20200/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:05.236Z",
+        "consultadoEn": "2026-10-14T09:48:56.487Z",
         "http": 200,
         "respuesta": "ok"
       }
