@@ -304,6 +304,14 @@
   color: var(--pauta);
 }
 
+.ajustes__legal {
+  display: block;
+  margin: 16px 0 4px;
+  text-align: center;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--gris);
+}
+
 .ajustes__puerta-resumen {
   font: 400 13px/1.45 var(--font-body);
   color: var(--gris);

@@ -5,6 +5,7 @@ import { eur, eurSinSimbolo } from '../../lib/format';
 import { analitica } from '../../lib/analitica';
 import muestra from '../../data/muestra-portada.json';
 import './Portada.css';
+import { URL_PRIVACIDAD } from '../../lib/legal';
 
 /**
  * LA PORTADA ES UNA CIFRA CON DOS DATOS QUE LA SOSTIENEN.
@@ -109,6 +110,7 @@ const Portada: React.FC = () => {
             >
               Cuadrar mi semana
             </PrimaryButton>
+            <a className="portada__legal" href={URL_PRIVACIDAD} target="_blank" rel="noopener noreferrer">Privacidad</a>
           </div>
         </div>
       </IonContent>

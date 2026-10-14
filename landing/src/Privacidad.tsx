@@ -22,6 +22,16 @@ import './Privacidad.css';
  *
  * Y faltaba entero lo de las compras.
  *
+ * ═══ Y OTRA VEZ (14 oct 2026) ═══
+ *
+ * Volvió a desviarse del código en cuatro sitios: decía «nunca enviamos tu
+ * ubicación» y `onboarding_completed` envía la provincia (dos cifras del código
+ * postal); prometía ver el identificador de instalación y borrar los datos
+ * «desde los ajustes de la app», y no hay ninguna de las dos pantallas; y
+ * prometía avisar dentro de la app de los cambios, que tampoco existe. Además
+ * faltaban el código postal (que se pide desde septiembre), el identificador de
+ * sesión y la descarga de precios.
+ *
  * ═══ LA REGLA PARA MANTENERLO ═══
  *
  * Esta página describe el código, no la intención. Si cambia lo que se envía —un
@@ -40,6 +50,10 @@ import './Privacidad.css';
 
 /** Lo que no sale del teléfono. Sale de `AppState`. */
 const DATOS_LOCALES = [
+  {
+    titulo: 'Tu código postal',
+    texto: 'Sirve para saber de qué zona son los precios (por ejemplo, Madrid o Gran Canaria). Se guarda en tu teléfono; de él solo sale la provincia, como se explica abajo.',
+  },
   {
     titulo: 'Presupuesto y número de comensales',
     texto: 'El tope semanal y para cuántas personas cocinas.',
@@ -64,8 +78,12 @@ const DATOS_LOCALES = [
  */
 const DATOS_ENVIADOS = [
   {
-    titulo: 'Un identificador de instalación',
-    texto: 'Un número aleatorio que se crea al instalar la app. No sale de tu correo, ni de tu nombre, ni del identificador publicitario, ni de una huella del dispositivo. Sirve para poder contar «cuántas personas vuelven la semana 4» sin saber quién eres. Si borras los datos de la app, desaparece y vuelves a contar como instalación nueva.',
+    titulo: 'Un identificador de instalación y otro de sesión',
+    texto: 'Números aleatorios: el de instalación se crea al instalar la app y el de sesión cada vez que la abres. No salen de tu correo, ni de tu nombre, ni del identificador publicitario, ni de una huella del dispositivo. Sirven para poder contar «cuántas personas vuelven la semana 4» sin saber quién eres. Si borras los datos de la app, desaparecen y vuelves a contar como instalación nueva.',
+  },
+  {
+    titulo: 'Tu provincia',
+    texto: 'Las dos primeras cifras de tu código postal (por ejemplo, «35» para Las Palmas), una sola vez, al terminar la configuración. Sirve para saber en qué zonas hay usuarios y cuáles merecen precios propios. El código postal completo no sale de tu teléfono.',
   },
   {
     titulo: 'Qué pantallas usas y cuándo',
@@ -73,7 +91,7 @@ const DATOS_ENVIADOS = [
   },
   {
     titulo: 'Tramos, nunca cifras exactas',
-    texto: 'Para cuántas personas cocinas, y tu presupuesto en tramos (por ejemplo «entre 60 y 80 €»), nunca el importe exacto ni lo que te costó la compra.',
+    texto: 'Para cuántas personas cocinas, cuántas comidas, y tu presupuesto en tramos (por ejemplo «entre 60 y 80 €»), nunca el importe exacto. Si cierras la compra, en qué tramo quedó la diferencia entre lo previsto y lo que pagaste (por ejemplo «entre un 2 y un 5 % más»), nunca lo que pagaste. Y cuántos productos marcaste de cuántos.',
   },
   {
     titulo: 'Si usas filtros de dieta, no cuáles',
@@ -81,19 +99,23 @@ const DATOS_ENVIADOS = [
   },
   {
     titulo: 'Ajustes de la semana',
-    texto: 'Nivel de variedad y de proteína, si llevas postre, y si te has quedado dentro del presupuesto.',
+    texto: 'Nivel de variedad y de proteína, si llevas postre, si te has quedado dentro del presupuesto, y si tu lista tiene productos añadidos a mano sin precio (si los hay, no cuáles).',
+  },
+  {
+    titulo: 'Cunde+',
+    texto: 'Si ves la pantalla de Cunde+ o compras: qué plan elegiste y qué función te la mostró. Y en cada evento, si tienes Cunde+ o no.',
   },
 ];
 
 /** Quién trata datos por nuestra cuenta, y para qué exactamente. */
 const ENCARGADOS = [
   {
-    titulo: 'Supabase — analítica',
-    texto: 'Guarda los eventos descritos arriba. No recibe tus preferencias, ni tu menú, ni tu lista. Servidores en [POR CONFIRMAR: región del proyecto].',
+    titulo: 'Supabase — analítica y precios',
+    texto: 'Guarda los eventos descritos arriba y sirve el fichero de precios de cada zona. No recibe tus preferencias, ni tu menú, ni tu lista. Servidores en [POR CONFIRMAR: región del proyecto].',
   },
   {
     titulo: 'RevenueCat — gestión de la suscripción',
-    texto: 'Comprueba si tu compra de Cunde+ sigue activa. Recibe un identificador anónimo de comprador, el producto comprado y el país de tu tienda. Empresa estadounidense: la transferencia se ampara en las cláusulas contractuales tipo de la Comisión Europea.',
+    texto: 'Comprueba si tu compra de Cunde+ sigue activa. Cuando las compras están activadas en la app, se conecta al abrirla y recibe un identificador anónimo de comprador y, si compras, el producto y el país de tu tienda. En la versión de prueba (beta) las compras están desactivadas y RevenueCat no recibe nada. Empresa estadounidense: la transferencia se ampara en las cláusulas contractuales tipo de la Comisión Europea.',
   },
   {
     titulo: 'Google Play — el cobro',
@@ -114,7 +136,7 @@ export default function Privacidad() {
       <main className="legal">
         <p className="eyebrow">Legal</p>
         <h1 className="legal__h1">Política de privacidad</h1>
-        <p className="legal__fecha">Última actualización: 12 de agosto de 2026</p>
+        <p className="legal__fecha">Última actualización: 14 de octubre de 2026</p>
 
         <p className="legal__entrada">
           En Cunde creemos que planificar tus comidas no debería costarte tus datos. Esta
@@ -176,8 +198,8 @@ export default function Privacidad() {
         <p>
           <strong>Nunca enviamos</strong>: importes exactos, qué alergias o dietas tienes,
           los nombres de los productos que añades a mano, ningún texto que escribas, tu
-          ubicación, el identificador publicitario de tu móvil ni nada que permita
-          identificarte.
+          código postal completo ni tu ubicación precisa (solo la provincia), el
+          identificador publicitario de tu móvil ni tu nombre o tu correo.
         </p>
         <p>
           Llamamos a estos datos <strong>seudonimizados</strong>, no anónimos, y la
@@ -185,6 +207,18 @@ export default function Privacidad() {
           permite distinguir tu móvil del de otra persona. Por eso los tratamos como datos
           personales y te damos todos los derechos del apartado 9, aunque no podamos
           ponerles un nombre.
+        </p>
+
+        <p>
+          <strong>Los precios.</strong> Para tener los precios al día, la app pide a
+          nuestro servidor el fichero de precios de tu zona. Esa petición no lleva
+          ningún dato tuyo; solo dice la zona (por ejemplo «gran-canaria»).
+        </p>
+        <p>
+          Como cualquier conexión a internet, el servidor ve la dirección IP desde la
+          que llegan los eventos y la petición de precios. La tabla donde guardamos los
+          eventos no guarda la IP; el proveedor del servidor puede registrarla en sus
+          registros técnicos según su propia política.
         </p>
 
         <h2>5. Para qué usamos todo esto</h2>
@@ -262,17 +296,19 @@ export default function Privacidad() {
 
         <h2>11. Tus derechos</h2>
         <p>
-          Sobre lo que vive en tu dispositivo tienes el control directo: puedes consultarlo,
-          modificarlo o borrarlo por completo desde los ajustes de la app en cualquier
-          momento. Sobre lo demás te asisten, conforme al RGPD, los derechos de{' '}
+          Sobre lo que vive en tu dispositivo tienes el control directo: puedes cambiarlo
+          en la app y borrarlo por completo borrando los datos de Cunde desde los ajustes
+          de tu teléfono o desinstalándola. Sobre lo demás te asisten, conforme al RGPD, los derechos de{' '}
           <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong>.
         </p>
         <p>
           Para ejercerlos escríbenos a <a href="mailto:hola@cunde.app">hola@cunde.app</a>.
-          Ten en cuenta una limitación honesta: como no sabemos quién eres, para localizar
-          tus eventos necesitaríamos que nos facilitaras tu identificador de instalación
-          desde los ajustes de la app. Si no, no podemos encontrarlos — no por negarnos, sino
-          porque no hay nada que nos permita relacionarlos contigo. También puedes reclamar
+          Ten en cuenta una limitación honesta: como no sabemos quién eres, no tenemos
+          forma de encontrar tus eventos entre los de los demás. La app no te enseña hoy
+          su identificador de instalación, así que no podemos localizarlos — no por
+          negarnos, sino porque no hay nada que nos permita relacionarlos contigo. Si
+          borras los datos de la app, los eventos que ya se enviaron quedan sin ninguna
+          relación con tu teléfono. También puedes reclamar
           ante la <strong>Agencia Española de Protección de Datos</strong> (aepd.es).
         </p>
 
@@ -284,8 +320,7 @@ export default function Privacidad() {
 
         <h2>13. Cambios en esta política</h2>
         <p>
-          Si cambiamos algo relevante, actualizaremos esta página y la fecha de arriba, y te
-          avisaremos dentro de la app cuando el cambio afecte a cómo tratamos tus datos.
+          Si cambiamos algo relevante, actualizaremos esta página y la fecha de arriba.
         </p>
 
         <aside className="legal__contacto">
