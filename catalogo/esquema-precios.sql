@@ -134,3 +134,33 @@ grant execute on function instantanea_actual(text) to anon;
 -- PostgREST cachea el esquema y no se entera de una función nueva hasta que se
 -- le avisa. Sin esto, la app recibe un 404 de un endpoint que existe.
 notify pgrst, 'reload schema';
+
+-- ═══ Desde el 14 oct 2026: una instantánea por zona ═══
+-- Igual que supabase/migrations/20261014_instantanea_por_zona.sql.
+
+alter table instantanea add column if not exists zona text not null default 'madrid';
+
+do $$
+begin
+  alter table instantanea drop constraint if exists instantanea_pkey;
+  alter table instantanea add constraint instantanea_pkey primary key (cadena, zona, version);
+end $$;
+
+drop index if exists instantanea_una_activa;
+create unique index if not exists instantanea_una_activa_por_zona
+  on instantanea (cadena, zona) where activa;
+
+drop function if exists instantanea_actual(text);
+create or replace function instantanea_actual(p_cadena text default 'mercadona', p_zona text default 'madrid')
+returns jsonb
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select datos from instantanea where cadena = p_cadena and zona = p_zona and activa limit 1;
+$$;
+revoke execute on function instantanea_actual(text, text) from public;
+grant execute on function instantanea_actual(text, text) to anon;
+
+notify pgrst, 'reload schema';

@@ -42,3 +42,6 @@ catalogo/fotos-brutas/
 
 # Capturas crudas de la API de Mercadona: no se publican.
 catalogo/capturas-crudas/
+
+# Build de pruebas contra el servidor local (catalogo/servidor-pruebas.mjs).
+/dist-pruebas

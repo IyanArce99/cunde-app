@@ -14,6 +14,7 @@
  *   node --experimental-strip-types catalogo/supabase.ts esquema
  *   node --experimental-strip-types catalogo/supabase.ts guardar catalogo/precios-2026-08-07.json
  *   node --experimental-strip-types catalogo/supabase.ts publicar
+ *   node --experimental-strip-types catalogo/supabase.ts publicar --zona gran-canaria
  *
  * ═══ LAS CREDENCIALES NO VAN AQUÍ ═══
  *
@@ -121,22 +122,31 @@ async function guardar(ruta: string) {
  * se decide nada: se sube lo decidido.
  */
 async function publicar() {
-  const inst = JSON.parse(fs.readFileSync('catalogo/instantanea-precios.json', 'utf8'));
+  /* Una por zona (ver supabase/migrations/20261014_instantanea_por_zona.sql).
+     La de Madrid sigue en el fichero de siempre; la de otra zona, en
+     instantanea-precios-<zona>.json, que escribe publicar-precios.js --zona. */
+  const i = process.argv.indexOf('--zona');
+  const zona = i > -1 ? process.argv[i + 1] : 'madrid';
+  const fichero = zona === 'madrid' ? 'catalogo/instantanea-precios.json' : `catalogo/instantanea-precios-${zona}.json`;
+  const inst = JSON.parse(fs.readFileSync(fichero, 'utf8'));
   if (!inst.version || !inst.skus || !Object.keys(inst.skus).length) {
     throw new Error('La instantánea no tiene versión o viene vacía.');
   }
+  // Que el fichero diga la misma zona que se publica: subir la de Madrid como de
+  // Gran Canaria es justo lo que la zona existe para impedir.
+  if ((inst.zona ?? 'madrid') !== zona) throw new Error(`${fichero} es de la zona «${inst.zona ?? 'madrid'}», no de «${zona}».`);
   await cliente.query('begin');
   try {
     // Primero se desactiva la anterior: el índice único no deja dos activas, y
     // hacerlo al revés fallaría por conflicto en vez de sustituir.
-    await cliente.query('update instantanea set activa = false where cadena = $1 and activa', [CADENA]);
+    await cliente.query('update instantanea set activa = false where cadena = $1 and zona = $2 and activa', [CADENA, zona]);
     await cliente.query(
-      `insert into instantanea (version, cadena, almacen, datos, activa)
-       values ($1,$2,$3,$4,true)
-       on conflict (version) do update
+      `insert into instantanea (version, cadena, zona, almacen, datos, activa)
+       values ($1,$2,$3,$4,$5,true)
+       on conflict (cadena, zona, version) do update
          set datos = excluded.datos, almacen = excluded.almacen,
              activa = true, publicada_en = now()`,
-      [inst.version, CADENA, inst.almacen ?? 'mad3', inst],
+      [inst.version, CADENA, zona, inst.almacen ?? 'mad3', inst],
     );
     await cliente.query('commit');
   } catch (e) {
@@ -144,7 +154,7 @@ async function publicar() {
     throw e;
   }
   const kb = Math.round(JSON.stringify(inst).length / 1024);
-  console.log(`Publicada ${inst.version} · ${Object.keys(inst.skus).length} SKU · ${kb} KB`);
+  console.log(`Publicada ${inst.version} · zona ${zona} · ${Object.keys(inst.skus).length} SKU · ${kb} KB`);
 }
 
 const ORDENES: Record<string, () => Promise<void>> = {
