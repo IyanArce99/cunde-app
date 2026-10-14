@@ -6,450 +6,6 @@
   "semanasBarridas": 36,
   "pendientesEnMenus": [
     {
-      "canonico": "cebolla",
-      "veces": 36,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "69079",
-      "nombreApp": "Cebollas",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
-      "recetas": 108,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 3.2,
-        "contenido": 2,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": false,
-        "packaging": "Malla",
-        "precioPorUnidad": 1.6
-      },
-      "mercadona": {
-        "nombre": "Cebollas",
-        "ean": "5600319261069",
-        "packaging": "Malla",
-        "precio": 3.2,
-        "contenido": 2,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 1.6,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Fruta y verdura > Verdura > Cebolla y ajo",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [],
-        "trazasEtiqueta": [],
-        "app": [],
-        "trazasApp": [],
-        "texto": " x99."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/69079/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:39.445Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "patata",
-      "veces": 26,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "69166",
-      "nombreApp": "Patatas",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
-      "recetas": 36,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 4.9,
-        "contenido": 3,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": false,
-        "packaging": "Malla",
-        "precioPorUnidad": 1.633
-      },
-      "mercadona": {
-        "nombre": "Patatas",
-        "ean": "8414014000079",
-        "packaging": "Malla",
-        "precio": 4.9,
-        "contenido": 3,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 1.634,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Fruta y verdura > Verdura > Patata",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [],
-        "trazasEtiqueta": [],
-        "app": [],
-        "trazasApp": [],
-        "texto": " x99."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/69166/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:53.258Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "limon",
-      "veces": 24,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "3210",
-      "nombreApp": "Limón",
-      "estado": "pendiente",
-      "correspondencia": "etiqueta",
-      "recetas": 9,
-      "unidadesReceta": [
-        "ud"
-      ],
-      "app": {
-        "precio": 0.48,
-        "contenido": 0.17,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": true,
-        "packaging": "Pieza",
-        "precioPorUnidad": 2.824
-      },
-      "mercadona": {
-        "nombre": "Limón",
-        "ean": "2105468032100",
-        "packaging": "Pieza",
-        "precio": 0.48,
-        "contenido": 0.17,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": true,
-        "metodoVenta": 0,
-        "precioReferencia": 2.8,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Fruta y verdura > Fruta > Cítricos",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [],
-        "trazasEtiqueta": [],
-        "app": [],
-        "trazasApp": [],
-        "texto": " x99."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "la receta cuenta piezas y el producto se vende a peso (0.17 kg por pieza, de la ficha): sin verificar en tienda"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/3210/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:49.198Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "macarron",
-      "veces": 24,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "6260",
-      "nombreApp": "Macarrón fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
-      "recetas": 4,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 0.8,
-        "contenido": 0.5,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": false,
-        "packaging": "Paquete",
-        "precioPorUnidad": 1.6
-      },
-      "mercadona": {
-        "nombre": "Macarrón fino Hacendado",
-        "ean": "8480000062604",
-        "packaging": "Paquete",
-        "precio": 0.8,
-        "contenido": 0.5,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 1.6,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Macarrones, pajaritas y hélices",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [
-          "gluten"
-        ],
-        "trazasEtiqueta": [
-          "huevo",
-          "mostaza",
-          "soja"
-        ],
-        "app": [
-          "gluten"
-        ],
-        "trazasApp": [
-          "huevo",
-          "mostaza",
-          "soja"
-        ],
-        "texto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/6260/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:50.028Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "cuscus",
-      "veces": 24,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "9395",
-      "nombreApp": "Cous cous mediano Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "sin evidencia",
-      "recetas": 5,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 1.8,
-        "contenido": 1,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": false,
-        "packaging": "Caja",
-        "precioPorUnidad": 1.8
-      },
-      "mercadona": {
-        "nombre": "Cous cous mediano Hacendado",
-        "ean": "8011033012108",
-        "packaging": "Caja",
-        "precio": 1.8,
-        "contenido": 1,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 1.8,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Arroz, legumbres y pasta > Arroz > Arroz",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [
-          "gluten"
-        ],
-        "trazasEtiqueta": [
-          "soja"
-        ],
-        "app": [
-          "gluten"
-        ],
-        "trazasApp": [
-          "soja"
-        ],
-        "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/9395/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:03.227Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "chorizo",
-      "veces": 23,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "55135",
-      "nombreApp": "Taquitos de chorizo extra Revilla",
-      "estado": "pendiente",
-      "correspondencia": "categoria",
-      "recetas": 1,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 2.55,
-        "contenido": 0.2,
-        "unidad": "kg",
-        "unidadesPack": 2,
-        "pesoVariable": false,
-        "packaging": "Pack-2",
-        "precioPorUnidad": 12.75
-      },
-      "mercadona": {
-        "nombre": "Taquitos de chorizo extra Revilla",
-        "ean": "8410320014212",
-        "packaging": "Pack-2",
-        "precio": 2.55,
-        "contenido": 0.2,
-        "unidad": "kg",
-        "unidades": 2,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 12.75,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Charcutería y quesos > Embutido curado > Chorizo",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [
-          "cerdo",
-          "lactosa"
-        ],
-        "trazasEtiqueta": [],
-        "app": [
-          "cerdo",
-          "lactosa"
-        ],
-        "trazasApp": [],
-        "texto": "Puede contener leche y sus derivados (incluida la lactosa). Contiene ml."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "la correspondencia solo la respalda la categoría: falta revisión humana"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/55135/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:40.101Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
-      "canonico": "espagueti",
-      "veces": 23,
-      "despensa": false,
-      "papel": "receta",
-      "sku": "6277",
-      "nombreApp": "Spaghetti fino Hacendado",
-      "estado": "pendiente",
-      "correspondencia": "sin evidencia",
-      "recetas": 4,
-      "unidadesReceta": [
-        "g"
-      ],
-      "app": {
-        "precio": 0.8,
-        "contenido": 0.5,
-        "unidad": "kg",
-        "unidadesPack": null,
-        "pesoVariable": false,
-        "packaging": "Paquete",
-        "precioPorUnidad": 1.6
-      },
-      "mercadona": {
-        "nombre": "Spaghetti fino Hacendado",
-        "ean": "8402001042232",
-        "packaging": "Paquete",
-        "precio": 0.8,
-        "contenido": 0.5,
-        "unidad": "kg",
-        "unidades": null,
-        "escurrido": null,
-        "granel": false,
-        "metodoVenta": 0,
-        "precioReferencia": 1.6,
-        "formatoReferencia": "kg",
-        "publicado": true,
-        "noDisponibleDesde": null,
-        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Spaghetti y tallarines",
-        "impuesto": 0
-      },
-      "alergenos": {
-        "etiqueta": [
-          "gluten"
-        ],
-        "trazasEtiqueta": [
-          "huevo",
-          "mostaza",
-          "soja"
-        ],
-        "app": [
-          "gluten"
-        ],
-        "trazasApp": [
-          "huevo",
-          "mostaza",
-          "soja"
-        ],
-        "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
-      },
-      "hallazgos": [],
-      "pendientes": [
-        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
-      ],
-      "procedencia": {
-        "fuente": "https://tienda.mercadona.es/api/products/6277/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:43.248Z",
-        "http": 200,
-        "respuesta": "ok"
-      }
-    },
-    {
       "canonico": "tofu",
       "veces": 18,
       "despensa": false,
@@ -506,7 +62,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/51097/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:58.761Z",
+        "consultadoEn": "2026-10-14T09:48:50.399Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -568,7 +124,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/70740/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:11:02.370Z",
+        "consultadoEn": "2026-10-14T09:48:53.636Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -626,7 +182,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/7313/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:38.695Z",
+        "consultadoEn": "2026-10-14T09:48:29.126Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -696,7 +252,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/13577/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:44.025Z",
+        "consultadoEn": "2026-10-14T09:48:35.119Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -754,7 +310,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/69580/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:37.431Z",
+        "consultadoEn": "2026-10-14T09:48:27.730Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -812,7 +368,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/61231/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:40.491Z",
+        "consultadoEn": "2026-10-14T09:48:31.352Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -874,7 +430,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/80858/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:46.117Z",
+        "consultadoEn": "2026-10-14T09:48:37.425Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -936,7 +492,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/18037/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:35.976Z",
+        "consultadoEn": "2026-10-14T09:48:26.318Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -994,7 +550,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/4240/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:31.247Z",
+        "consultadoEn": "2026-10-14T09:48:21.755Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1058,7 +614,7 @@
       ],
       "procedencia": {
         "fuente": "https://tienda.mercadona.es/api/products/17228/?lang=es&wh=3120",
-        "consultadoEn": "2026-10-14T09:10:51.617Z",
+        "consultadoEn": "2026-10-14T09:48:43.108Z",
         "http": 200,
         "respuesta": "ok"
       }
@@ -1068,96 +624,108 @@
     "N": 2,
     "presupuesto": 65,
     "variedad": "normal",
-    "recetasDisponibles": 6,
-    "total": 44.1,
+    "recetasDisponibles": 37,
+    "total": 57.04,
     "cuadra": true,
     "menu": [
       {
         "dia": "MIÉ",
         "ranura": "comida",
         "tipo": "cocinado",
-        "receta": "Arroz al horno con queso"
+        "receta": "Macarrones a la boloñesa"
       },
       {
         "dia": "MIÉ",
         "ranura": "cena",
         "tipo": "cocinado",
-        "receta": "Jamoncitos al ajillo"
+        "receta": "Garbanzos gratinados"
       },
       {
         "dia": "JUE",
         "ranura": "comida",
         "tipo": "cocinado",
-        "receta": "Alubias al tomillo"
+        "receta": "Jamoncitos al ajillo"
       },
       {
         "dia": "JUE",
         "ranura": "cena",
         "tipo": "cocinado",
-        "receta": "Revuelto de puerros"
+        "receta": "Cuscús con alubias y maíz"
       },
       {
         "dia": "VIE",
         "ranura": "comida",
-        "tipo": "sobras",
-        "receta": "Arroz al horno con queso"
-      },
-      {
-        "dia": "VIE",
-        "ranura": "cena",
-        "tipo": "cocinado",
-        "receta": "Garbanzos con espárragos"
-      },
-      {
-        "dia": "SÁB",
-        "ranura": "comida",
-        "tipo": "sobras",
-        "receta": "Alubias al tomillo"
-      },
-      {
-        "dia": "SÁB",
-        "ranura": "cena",
-        "tipo": "cocinado",
-        "receta": "Revuelto de champiñones"
-      },
-      {
-        "dia": "DOM",
-        "ranura": "comida",
-        "tipo": "cocinado",
-        "receta": "Jamoncitos al ajillo"
-      },
-      {
-        "dia": "DOM",
-        "ranura": "cena",
         "tipo": "ensamblaje",
-        "receta": "Garbanzos con espárragos"
+        "receta": "Macarrones a la boloñesa"
       },
       {
-        "dia": "LUN",
+        "dia": "VIE",
+        "ranura": "cena",
+        "tipo": "cocinado",
+        "receta": "Pollo al limón"
+      },
+      {
+        "dia": "SÁB",
         "ranura": "comida",
         "tipo": "sobras",
         "receta": "Jamoncitos al ajillo"
       },
       {
+        "dia": "SÁB",
+        "ranura": "cena",
+        "tipo": "cocinado",
+        "receta": "Fusilli de lenteja roja con champiñones"
+      },
+      {
+        "dia": "DOM",
+        "ranura": "comida",
+        "tipo": "cocinado",
+        "receta": "Lentejas con chorizo"
+      },
+      {
+        "dia": "DOM",
+        "ranura": "cena",
+        "tipo": "sobras",
+        "receta": "Fusilli de lenteja roja con champiñones"
+      },
+      {
+        "dia": "LUN",
+        "ranura": "comida",
+        "tipo": "sobras",
+        "receta": "Lentejas con chorizo"
+      },
+      {
         "dia": "LUN",
         "ranura": "cena",
         "tipo": "cocinado",
-        "receta": "Revuelto de champiñones"
+        "receta": "Cuscús con alubia roja"
       },
       {
         "dia": "MAR",
         "ranura": "comida",
         "tipo": "cocinado",
-        "receta": "Revuelto de puerros"
+        "receta": "Pollo guisado con patatas"
       },
       {
         "dia": "MAR",
         "ranura": "cena",
         "tipo": "cocinado",
-        "receta": "Alubias al tomillo"
+        "receta": "Fusilli de lenteja roja con champiñones"
       }
     ],
     "compra": [
+      {
+        "sku": "3400",
+        "nombre": "Filetes pechuga de pollo corte fino",
+        "envases": 1,
+        "importe": 4.68
+      },
+      {
+        "sku": "30167",
+        "nombre": "Huevos",
+        "envases": 1,
+        "importe": 5.85
+      },
       {
         "sku": "16618",
         "nombre": "Champiñones laminados Hacendado",
@@ -1165,16 +733,22 @@
         "importe": 7
       },
       {
-        "sku": "68408",
-        "nombre": "Puerros",
-        "envases": 2,
-        "importe": 4.5
+        "sku": "69166",
+        "nombre": "Patatas",
+        "envases": 1,
+        "importe": 4.9
       },
       {
-        "sku": "23621",
-        "nombre": "Queso rallado especial fundir mezcla Hacendado",
-        "envases": 2,
-        "importe": 2.2
+        "sku": "55135",
+        "nombre": "Taquitos de chorizo extra Revilla",
+        "envases": 1,
+        "importe": 2.55
+      },
+      {
+        "sku": "69079",
+        "nombre": "Cebollas",
+        "envases": 1,
+        "importe": 3.2
       },
       {
         "sku": "69586",
@@ -1189,58 +763,94 @@
         "importe": 1.85
       },
       {
+        "sku": "34031",
+        "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+        "envases": 1,
+        "importe": 1.55
+      },
+      {
         "sku": "25183",
         "nombre": "Jamoncitos de pollo congelados",
         "envases": 2,
         "importe": 5.8
       },
       {
+        "sku": "23621",
+        "nombre": "Queso rallado especial fundir mezcla Hacendado",
+        "envases": 1,
+        "importe": 1.1
+      },
+      {
+        "sku": "3210",
+        "nombre": "Limón",
+        "envases": 2,
+        "importe": 0.96
+      },
+      {
+        "sku": "5330",
+        "nombre": "Lenteja pardina Hacendado",
+        "envases": 1,
+        "importe": 1.8
+      },
+      {
+        "sku": "9395",
+        "nombre": "Cous cous mediano Hacendado",
+        "envases": 1,
+        "importe": 1.8
+      },
+      {
         "sku": "13926",
         "nombre": "Soja texturizada Luengo",
-        "envases": 2,
-        "importe": 4.8
-      },
-      {
-        "sku": "34865",
-        "nombre": "Almendra natural Hacendado",
         "envases": 1,
-        "importe": 2.2
+        "importe": 2.4
       },
       {
-        "sku": "5044",
-        "nombre": "Arroz redondo Hacendado",
+        "sku": "61289",
+        "nombre": "Maíz dulce Hacendado ultracongelado",
+        "envases": 1,
+        "importe": 1.15
+      },
+      {
+        "sku": "35221",
+        "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
         "envases": 1,
         "importe": 1.25
       },
       {
-        "sku": "17151",
-        "nombre": "Tomate frito Hacendado",
+        "sku": "26000",
+        "nombre": "Alubia cocida roja Hacendado",
         "envases": 1,
-        "importe": 0.9
+        "importe": 1.15
       },
       {
-        "sku": "61238",
-        "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+        "sku": "6106",
+        "nombre": "Pasta fusilli 100% lentejas rojas Felicia",
+        "envases": 2,
+        "importe": 3.3
+      },
+      {
+        "sku": "6260",
+        "nombre": "Macarrón fino Hacendado",
         "envases": 1,
-        "importe": 2.55
+        "importe": 0.8
+      },
+      {
+        "sku": "16044",
+        "nombre": "Tomate triturado Hacendado",
+        "envases": 2,
+        "importe": 1.1
       },
       {
         "sku": "26019",
         "nombre": "Alubia cocida blanca Hacendado",
-        "envases": 3,
-        "importe": 2.4
+        "envases": 1,
+        "importe": 0.8
       },
       {
         "sku": "26029",
         "nombre": "Garbanzo cocido Hacendado",
-        "envases": 2,
-        "importe": 1.5
-      },
-      {
-        "sku": "30167",
-        "nombre": "Huevos",
         "envases": 1,
-        "importe": 5.85
+        "importe": 0.75
       }
     ],
     "despensa": [
@@ -1249,12 +859,28 @@
         "nombre": "Aceite de oliva 0,4º Hacendado"
       },
       {
-        "sku": "5547",
-        "nombre": "Tomillo Hacendado"
+        "sku": "34171",
+        "nombre": "Pimienta negra molida Hacendado"
+      },
+      {
+        "sku": "60573",
+        "nombre": "Pimentón dulce Hacendado"
+      },
+      {
+        "sku": "5598",
+        "nombre": "Orégano Hacendado"
       },
       {
         "sku": "47994",
         "nombre": "Hoja de laurel Hacendado"
+      },
+      {
+        "sku": "5599",
+        "nombre": "Perejil Hacendado"
+      },
+      {
+        "sku": "4940",
+        "nombre": "Vinagre de vino blanco Hacendado"
       },
       {
         "sku": "19731",
@@ -1262,20 +888,35 @@
       }
     ],
     "caenPorUnProducto": {
-      "limon": 1,
-      "cebolla": 15,
-      "espinaca": 4,
-      "sardina_fresca": 1,
-      "patata": 2,
-      "aceituna_verde": 1,
+      "lomo_merluza": 1,
+      "atun_lata": 1,
+      "aceituna_verde": 5,
+      "pimiento_verde": 14,
+      "calabaza": 4,
+      "repollo": 1,
+      "bebida_soja": 1,
+      "caldo_verduras": 2,
+      "berenjena": 4,
+      "calabacin": 4,
+      "tofu": 3,
+      "espinaca": 7,
+      "muslo_pollo": 2,
+      "carne_picada_cerdo": 1,
+      "carne_picada_vacuno": 1,
+      "sardina_fresca": 4,
+      "lomo_cerdo": 2,
+      "costilla_cerdo": 1,
+      "salchicha_fresca": 1,
+      "taco_vacuno": 1,
+      "filete_vacuno": 1,
+      "chuleta_cordero": 1,
+      "solomillo_cerdo": 1,
+      "acelga": 3,
       "alcachofa": 2,
-      "acelga": 1,
+      "calamar_congelado": 1,
       "hummus": 1,
-      "cuscus": 1,
-      "calabaza": 1,
       "coliflor": 2,
-      "espagueti": 1,
-      "macarron": 1
+      "edamame_congelado": 2
     }
   }
 }
