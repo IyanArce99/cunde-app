@@ -155,7 +155,9 @@ const CierreDeSemana: React.FC<CierreDeSemanaProps> = ({
           gana la app, no lo que gana quien está tecleando en la cola del súper.
           Y se callaba lo único que hace volver — que esto no se pierde, que va
           sumando semana a semana. */}
-      <p className="cierre__nota">Afino los precios de tu tienda y te llevo la cuenta semana a semana.</p>
+      {/* Y decía «Afino los precios de tu tienda»: el importe no ajusta ningún
+          precio, solo dice cuánto sobró. No se promete lo que no se hace. */}
+      <p className="cierre__nota">Con esto te digo cuánto te sobró de verdad.</p>
       <PrimaryButton disabled={!hayValor} onClick={() => hayValor && onGuardar(pagado)}>
         Guardar esta semana
       </PrimaryButton>

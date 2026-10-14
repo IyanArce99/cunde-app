@@ -86,7 +86,10 @@ const Portada: React.FC = () => {
             <h1 className="portada__titular">
               Tú pones el tope. Yo pongo las {ticket.comidas} comidas y la lista.
             </h1>
-            <p className="portada__sub">Con los precios de tu súper, los de hoy.</p>
+            {/* Decía «Con los precios de tu súper, los de hoy», y no era verdad
+                fuera de Madrid ni con un catálogo de hace días. Lo que sí es
+                verdad: precio de un producto concreto de Mercadona, con fecha. */}
+            <p className="portada__sub">Con precios reales de Mercadona, producto a producto.</p>
           </div>
 
           <div className="portada__acciones">
