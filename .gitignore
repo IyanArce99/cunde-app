@@ -39,3 +39,6 @@ yarn-error.log*
 # Fuentes de las fotos de plato: pesan MB y lo que se publica es el WebP
 # convertido en public/recetas/. Ver public/recetas/LEEME.md
 catalogo/fotos-brutas/
+
+# Capturas crudas de la API de Mercadona: no se publican.
+catalogo/capturas-crudas/
