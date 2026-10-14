@@ -18,9 +18,19 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const RUTA_CATALOGO = path.join(__dirname, 'catalogo_mercadona_mad3_2026-07-28.json');
+/*
+ * Sin argumentos, el mapeo de siempre: Madrid. Con `--catalogo` y `--salida`
+ * se busca en el catálogo de otra zona sin tocar mapeo-propuesto.json, que
+ * además guarda los precios que ha ido poniendo aplicar-precios.js:
+ *   node mapear.js --catalogo capturas-crudas/catalogo_4701.json --salida capturas-crudas/mapeo-4701.json
+ */
+const arg = (nombre) => {
+  const i = process.argv.indexOf(nombre);
+  return i > 0 ? path.resolve(process.argv[i + 1]) : null;
+};
+const RUTA_CATALOGO = arg('--catalogo') ?? path.join(__dirname, 'catalogo_mercadona_mad3_2026-07-28.json');
 const RUTA_INGREDIENTES = path.join(__dirname, '..', 'docs', 'ingredientes-canonicos.json');
-const RUTA_SALIDA = path.join(__dirname, 'mapeo-propuesto.json');
+const RUTA_SALIDA = arg('--salida') ?? path.join(__dirname, 'mapeo-propuesto.json');
 
 function normalizar(texto) {
   return texto
@@ -281,7 +291,9 @@ function main() {
   const faltanEnTabla = [...canonicos].filter((c) => !TABLA_BUSQUEDA[c]);
   if (faltanEnTabla.length) {
     console.error('Faltan en TABLA_BUSQUEDA:', faltanEnTabla);
-    process.exit(1);
+    // Para otra zona se sigue: construir-zona.ts busca esos por subfamilia.
+    if (!arg('--catalogo')) process.exit(1);
+    for (const c of faltanEnTabla) canonicos.delete(c);
   }
   const sobranEnTabla = Object.keys(TABLA_BUSQUEDA).filter((c) => !canonicos.has(c));
   if (sobranEnTabla.length) console.warn('En TABLA_BUSQUEDA pero no en el vocabulario:', sobranEnTabla);
@@ -302,6 +314,7 @@ function main() {
       es_pack: p.es_pack,
       unidades_pack: p.unidades_pack,
       peso_variable: p.peso_variable,
+      peso_escurrido: p.peso_escurrido ?? null,
       departamento: p.departamento,
       subfamilia: p.subfamilia,
     }));

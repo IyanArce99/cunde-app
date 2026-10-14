@@ -1,0 +1,6663 @@
+{
+  "almacen": "3120",
+  "auditadoEn": "2026-10-14T07:58:48.066Z",
+  "catalogoApp": "2026-10-13",
+  "filas": [
+    {
+      "canonico": "aceite_oliva",
+      "papel": "despensa",
+      "sku": "4240",
+      "nombreApp": "Aceite de oliva 0,4º Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 158,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 3.7,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Botella",
+        "precioPorUnidad": 3.7
+      },
+      "mercadona": {
+        "nombre": "Aceite de oliva 0,4º Hacendado",
+        "ean": "8402001027475",
+        "packaging": "Botella",
+        "precio": 3.6,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.6,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Aceite, vinagre y sal > Aceite de oliva",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 3.7,
+          "mercadona": 3.6,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/4240/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:00.000Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "aceituna_verde",
+      "papel": "receta",
+      "sku": "33205",
+      "nombreApp": "Aceitunas verdes con hueso Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 5,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.4,
+        "contenido": 0.43,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 3.256
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "33205",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/33205/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:00.403Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "acelga",
+      "papel": "receta",
+      "sku": "16314",
+      "nombreApp": "Acelgas troceadas Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.8,
+        "contenido": 0.66,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 2.727
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "16314",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/16314/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:00.760Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "ajo",
+      "papel": "receta",
+      "sku": "69297",
+      "nombreApp": "Ajos morados",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 101,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.85,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Malla",
+        "precioPorUnidad": 7.4
+      },
+      "mercadona": {
+        "nombre": "Ajos morados",
+        "ean": "5600842240661",
+        "packaging": "Malla",
+        "precio": 1.85,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 7.4,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Cebolla y ajo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69297/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:01.258Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alcachofa",
+      "papel": "receta",
+      "sku": "11958",
+      "nombreApp": "Corazones de alcachofa Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.15,
+        "contenido": 0.43,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 5
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "11958",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/11958/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:01.747Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "almendra",
+      "papel": "receta",
+      "sku": "34865",
+      "nombreApp": "Almendra natural Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 8,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.3,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 11.5
+      },
+      "mercadona": {
+        "nombre": "Almendra natural Hacendado",
+        "ean": "8402001001727",
+        "packaging": "Paquete",
+        "precio": 2.2,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 11,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aperitivos > Frutos secos y fruta desecada > Frutos secos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "frutos_secos"
+        ],
+        "trazasEtiqueta": [
+          "cacahuete"
+        ],
+        "app": [
+          "frutos_secos"
+        ],
+        "trazasApp": [
+          "cacahuete"
+        ],
+        "texto": "Puede contener sw. Puede contener sc. Contiene sa. Puede contener cacahuetes y productos a base de cacahuetes. Puede contener frutos de cáscara."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.3,
+          "mercadona": 2.2,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34865/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:02.174Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alubia_blanca_cocida",
+      "papel": "receta",
+      "sku": "26019",
+      "nombreApp": "Alubia cocida blanca Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 12,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.75,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 1.316
+      },
+      "mercadona": {
+        "nombre": "Alubia cocida blanca Hacendado",
+        "ean": "8480000260192",
+        "packaging": "Tarro",
+        "precio": 0.8,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.4,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Alubias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.75,
+          "mercadona": 0.8,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.57 kg por envase",
+          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/26019/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:02.479Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alubia_blanca_seca",
+      "papel": "receta",
+      "sku": "5124",
+      "nombreApp": "Alubia blanca Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.45,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 2.45
+      },
+      "mercadona": {
+        "nombre": "Alubia blanca Hacendado",
+        "ean": "8480000051240",
+        "packaging": "Paquete",
+        "precio": 2.4,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.4,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Alubias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.45,
+          "mercadona": 2.4,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5124/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:02.882Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alubia_pinta_cocida",
+      "papel": "receta",
+      "sku": "26001",
+      "nombreApp": "Alubia cocida pinta Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 5,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.25,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 2.193
+      },
+      "mercadona": {
+        "nombre": "Alubia cocida pinta Hacendado",
+        "ean": "8429386917108",
+        "packaging": "Tarro",
+        "precio": 1.05,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.4,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.625,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Alubias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.25,
+          "mercadona": 1.05,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.57 kg por envase",
+          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/26001/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:03.222Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alubia_roja_cocida",
+      "papel": "receta",
+      "sku": "26000",
+      "nombreApp": "Alubia cocida roja Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.2,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 2.105
+      },
+      "mercadona": {
+        "nombre": "Alubia cocida roja Hacendado",
+        "ean": "8429386916101",
+        "packaging": "Tarro",
+        "precio": 1.15,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.4,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.875,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Alubias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.2,
+          "mercadona": 1.15,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.57 kg por envase",
+          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/26000/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:03.579Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "apio",
+      "papel": "receta",
+      "sku": "69275",
+      "nombreApp": "Apio verde",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.23,
+        "contenido": 0.56,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Manojo",
+        "precioPorUnidad": 2.196
+      },
+      "mercadona": {
+        "nombre": "Apio verde",
+        "ean": "8480000692757",
+        "packaging": "Manojo",
+        "precio": 2.15,
+        "contenido": 0.66,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 3.25,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Otras verduras y hortalizas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "apio"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "apio"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene apio y productos derivados."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.23,
+          "mercadona": 2.15,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.56,
+          "mercadona": 0.66,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69275/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:03.967Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "arroz_integral",
+      "papel": "receta",
+      "sku": "5184",
+      "nombreApp": "Arroz integral largo Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1.65,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.65
+      },
+      "mercadona": {
+        "nombre": "Arroz integral largo Hacendado",
+        "ean": "8480000051844",
+        "packaging": "Paquete",
+        "precio": 1.65,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.65,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Arroz > Arroz",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "sinUso",
+          "app": "ninguna receta lo usa",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5184/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:04.279Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "arroz_largo",
+      "papel": "receta",
+      "sku": "5063",
+      "nombreApp": "Arroz largo Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.2,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.2
+      },
+      "mercadona": {
+        "nombre": "Arroz largo Hacendado",
+        "ean": "8411078010105",
+        "packaging": "Paquete",
+        "precio": 1.15,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.15,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Arroz > Arroz",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.2,
+          "mercadona": 1.15,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5063/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:04.761Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "arroz_redondo",
+      "papel": "receta",
+      "sku": "5044",
+      "nombreApp": "Arroz redondo Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 13,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.15,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.15
+      },
+      "mercadona": {
+        "nombre": "Arroz redondo Hacendado",
+        "ean": "8480000050441",
+        "packaging": "Paquete",
+        "precio": 1.25,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.25,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Arroz > Arroz",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.15,
+          "mercadona": 1.25,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5044/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:05.198Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "atun_lata",
+      "papel": "receta",
+      "sku": "18037",
+      "nombreApp": "Atún en salsa de tomate Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 3,
+      "unidadesReceta": [
+        "ud"
+      ],
+      "app": {
+        "precio": 2.1,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidadesPack": 3,
+        "pesoVariable": false,
+        "packaging": "Pack-3",
+        "precioPorUnidad": 8.75
+      },
+      "mercadona": {
+        "nombre": "Atún en salsa de tomate Hacendado",
+        "ean": "8480000180377",
+        "packaging": "Pack-3",
+        "precio": 2,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidades": 3,
+        "escurrido": 0.156,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 12.821,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Atún y otras conservas de pescado > Atún",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "pescado"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene pescado y productos a base de pescado. Libre de cereales que contengan gluten."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.1,
+          "mercadona": 2,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.24 kg por envase",
+          "mercadona": "escurrido 0.156 de 0.24 (65 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/18037/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:05.632Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "bacalao_congelado",
+      "papel": "receta",
+      "sku": "62050",
+      "nombreApp": "Lomo de bacalao MareDeus ultracongelado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 9.22,
+        "contenido": 0.384,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Paquete",
+        "precioPorUnidad": 24.0104
+      },
+      "mercadona": {
+        "nombre": "Lomo de bacalao MareDeus ultracongelado",
+        "ean": "8436542057035",
+        "packaging": "Paquete",
+        "precio": 9.22,
+        "contenido": 0.384,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 24,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Pescado > Pescado",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "pescado"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene pescado y productos a base de pescado."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/62050/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:06.053Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "bacon",
+      "papel": "receta",
+      "sku": "59170",
+      "nombreApp": "Bacón ahumado sin corteza Monells",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 2.68,
+        "contenido": 0.31,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 8.6452
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "59170",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "sinUso",
+          "app": "ninguna receta lo usa",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/59170/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:06.425Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "bebida_arroz",
+      "papel": "receta",
+      "sku": "23047",
+      "nombreApp": "Bebida de arroz sin azúcares añadidos Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1.05,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 1.05
+      },
+      "mercadona": {
+        "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+        "ean": "8480000230478",
+        "packaging": "Brik",
+        "precio": 1.1,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.1,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Huevos, leche y mantequilla > Leche y bebidas vegetales > Bebidas vegetales",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.05,
+          "mercadona": 1.1,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "sinUso",
+          "app": "ninguna receta lo usa",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/23047/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:06.797Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "bebida_soja",
+      "papel": "receta",
+      "sku": "14707",
+      "nombreApp": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 3,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 0.65,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 0.65
+      },
+      "mercadona": {
+        "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+        "ean": "8402001039232",
+        "packaging": "Brik",
+        "precio": 0.7,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.7,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Huevos, leche y mantequilla > Leche y bebidas vegetales > Bebidas vegetales",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.65,
+          "mercadona": 0.7,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/14707/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:07.123Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "berenjena",
+      "papel": "receta",
+      "sku": "69326",
+      "nombreApp": "Berenjena",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 7,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.86,
+        "contenido": 0.38,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 2.2632
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "69326",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69326/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:07.607Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "brocoli",
+      "papel": "receta",
+      "sku": "69580",
+      "nombreApp": "Brócoli",
+      "estado": "discrepancia",
+      "correspondencia": "nombre",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.1,
+        "contenido": 0.44,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 2.5
+      },
+      "mercadona": {
+        "nombre": "Brócoli",
+        "ean": "2105490695809",
+        "packaging": "Pieza",
+        "precio": 2.44,
+        "contenido": 0.42,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 5.8,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Otras verduras y hortalizas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.1,
+          "mercadona": 2.44,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.44,
+          "mercadona": 0.42,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69580/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:08.071Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "caballa_lata",
+      "papel": "receta",
+      "sku": "13632",
+      "nombreApp": "Filetes de caballa del sur en tomate Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.85,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidadesPack": 2,
+        "pesoVariable": false,
+        "packaging": null,
+        "precioPorUnidad": 11.875
+      },
+      "mercadona": {
+        "nombre": "Filetes de caballa del sur en tomate Hacendado",
+        "ean": "8402001031120",
+        "packaging": null,
+        "precio": 2.8,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidades": 2,
+        "escurrido": 0.17,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 17.074,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Atún y otras conservas de pescado > Caballa y melva",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "pescado"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": "Libre de cereales que contengan gluten. Contiene pescado y productos a base de pescado."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.85,
+          "mercadona": 2.8,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.24 kg por envase",
+          "mercadona": "escurrido 0.17 de 0.24 (71 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/13632/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:08.476Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "cacahuete",
+      "papel": "receta",
+      "sku": "34031",
+      "nombreApp": "Cacahuete tostado Hacendado 0% sal añadida",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.45,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 3.625
+      },
+      "mercadona": {
+        "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+        "ean": "8480000340313",
+        "packaging": "Paquete",
+        "precio": 1.55,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.875,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aperitivos > Frutos secos y fruta desecada > Frutos secos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "cacahuete"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "cacahuete",
+          "frutos_secos"
+        ],
+        "trazasApp": [],
+        "texto": "Puede contener frutos de cáscara. Contiene cacahuetes y productos a base de cacahuetes."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.45,
+          "mercadona": 1.55,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "alergenoDeMas",
+          "app": "declara frutos_secos",
+          "mercadona": "la etiqueta no lo dice",
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34031/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:08.929Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "calabacin",
+      "papel": "receta",
+      "sku": "69338",
+      "nombreApp": "Calabacín verde",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 15,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.7,
+        "contenido": 0.41,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 1.7073
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "69338",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69338/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:09.411Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "calabaza",
+      "papel": "receta",
+      "sku": "69853",
+      "nombreApp": "Media calabaza cacahuete",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 6,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.1,
+        "contenido": 0.7,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "1/2 Pieza",
+        "precioPorUnidad": 3
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "69853",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69853/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:09.862Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "calamar_congelado",
+      "papel": "receta",
+      "sku": "24417",
+      "nombreApp": "Calamar grande Hacendado congelado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 5.42,
+        "contenido": 0.31,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 17.484
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "24417",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/24417/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:10.203Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "caldo_pollo",
+      "papel": "receta",
+      "sku": "7313",
+      "nombreApp": "Caldo de pollo Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 2,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 0.75,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 0.75
+      },
+      "mercadona": {
+        "nombre": "Caldo de pollo Hacendado",
+        "ean": "8402001015168",
+        "packaging": "Brik",
+        "precio": 0.75,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.75,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Sopa y caldo > Caldo líquido",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": "Libre de trigo y productos derivados. Libre de mostaza y productos derivados. Libre de apio y productos derivados. Libre de soja y productos a base de soja. Libre de cereales que contengan gluten. Libre de leche y sus derivados (incluida la lactosa). Libre de pescado y productos a base de pescado. Libre de huevos y productos a base de huevo. Libre de crustáceos y productos a base de crustáceos."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/7313/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:10.686Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "caldo_verduras",
+      "papel": "receta",
+      "sku": "18480",
+      "nombreApp": "Caldo de verduras casero Gallina blanca",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 14,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 1.8,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 1.8
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "18480",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/18480/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:11.027Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "carne_picada_cerdo",
+      "papel": "receta",
+      "sku": "2867",
+      "nombreApp": "Preparado de carne picada cerdo",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.75,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 5.5
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "2867",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2867/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:11.526Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "carne_picada_mixta",
+      "papel": "receta",
+      "sku": "2869",
+      "nombreApp": "Preparado de carne picada vacuno y cerdo",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 4.1,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 8.2
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "2869",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "sinUso",
+          "app": "ninguna receta lo usa",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2869/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:11.930Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "carne_picada_vacuno",
+      "papel": "receta",
+      "sku": "52776",
+      "nombreApp": "Preparado de carne picada vacuno",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 5.4,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 13.5
+      },
+      "mercadona": {
+        "nombre": "Preparado de carne picada vacuno",
+        "ean": "8436569263174",
+        "packaging": "Paquete",
+        "precio": 5.4,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 13.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Hamburguesas y picadas > Picadas y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten",
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "gluten",
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja. Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/52776/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:12.364Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "cebolla",
+      "papel": "receta",
+      "sku": "69079",
+      "nombreApp": "Cebollas",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 108,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3,
+        "contenido": 2,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Malla",
+        "precioPorUnidad": 1.5
+      },
+      "mercadona": {
+        "nombre": "Cebollas",
+        "ean": "5600319261069",
+        "packaging": "Malla",
+        "precio": 3.2,
+        "contenido": 2,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Cebolla y ajo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 3,
+          "mercadona": 3.2,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69079/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:12.737Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "champinon",
+      "papel": "receta",
+      "sku": "16618",
+      "nombreApp": "Champiñones laminados Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 9,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1,
+        "contenido": 0.355,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 2.817
+      },
+      "mercadona": {
+        "nombre": "Champiñones laminados Hacendado",
+        "ean": "8480000166180",
+        "packaging": "Bote",
+        "precio": 1,
+        "contenido": 0.355,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.18,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 5.556,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Conservas de verdura y frutas > Conservas verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.355 kg por envase",
+          "mercadona": "escurrido 0.18 de 0.355 (51 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/16618/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:13.158Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "chorizo",
+      "papel": "receta",
+      "sku": "55135",
+      "nombreApp": "Taquitos de chorizo extra Revilla",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.55,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidadesPack": 2,
+        "pesoVariable": false,
+        "packaging": "Pack-2",
+        "precioPorUnidad": 12.75
+      },
+      "mercadona": {
+        "nombre": "Taquitos de chorizo extra Revilla",
+        "ean": "8410320014212",
+        "packaging": "Pack-2",
+        "precio": 2.55,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidades": 2,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 12.75,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Charcutería y quesos > Embutido curado > Chorizo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "cerdo",
+          "lactosa"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "cerdo",
+          "lactosa"
+        ],
+        "trazasApp": [],
+        "texto": "Puede contener leche y sus derivados (incluida la lactosa). Contiene ml."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/55135/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:13.497Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "chuleta_cordero",
+      "papel": "receta",
+      "sku": "21836",
+      "nombreApp": "Chuletas de cordero pierna",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 6.51,
+        "contenido": 0.31,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 21
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "21836",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/21836/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:13.806Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "coliflor",
+      "papel": "receta",
+      "sku": "61231",
+      "nombreApp": "Coliflor Hacendado ultracongelada",
+      "estado": "discrepancia",
+      "correspondencia": "nombre",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.8,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.8
+      },
+      "mercadona": {
+        "nombre": "Coliflor Hacendado ultracongelada",
+        "ean": "8480000612311",
+        "packaging": "Paquete",
+        "precio": 1.5,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Fruta y verdura > Verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.8,
+          "mercadona": 1.5,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/61231/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:14.150Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "colorante_alimentario",
+      "papel": "despensa",
+      "sku": "34182",
+      "nombreApp": "Colorante alimentario Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.95,
+        "contenido": 0.085,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 11.176
+      },
+      "mercadona": {
+        "nombre": "Colorante alimentario Hacendado",
+        "ean": "8480000341822",
+        "packaging": "Bote",
+        "precio": 0.95,
+        "contenido": 0.085,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 11.177,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Colorante y pimentón",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [
+          "soja"
+        ],
+        "app": [],
+        "trazasApp": [
+          "soja"
+        ],
+        "texto": "Puede contener soja y productos a base de soja."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34182/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:14.474Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "comino",
+      "papel": "despensa",
+      "sku": "34120",
+      "nombreApp": "Comino molido Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 6,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.15,
+        "contenido": 0.058,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 19.828
+      },
+      "mercadona": {
+        "nombre": "Comino molido Hacendado",
+        "ean": "8480000341204",
+        "packaging": "Bote",
+        "precio": 1.05,
+        "contenido": 0.058,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 18.104,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Otras especias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [
+          "mostaza",
+          "sesamo"
+        ],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [
+          "mostaza",
+          "sesamo"
+        ],
+        "texto": "Contiene trigo y productos derivados. Puede contener mostaza y productos derivados. Puede contener granos de sésamo y productos a base de granos de sésamo. Puede contener cereales que contengan gluten."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.15,
+          "mercadona": 1.05,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34120/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:14.877Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "contramuslo_pollo",
+      "papel": "receta",
+      "sku": "2789",
+      "nombreApp": "Contramuslos de pollo deshuesados y sin piel",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.74,
+        "contenido": 0.55,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 6.8
+      },
+      "mercadona": {
+        "nombre": "Contramuslos de pollo deshuesados y sin piel",
+        "ean": "2105100027891",
+        "packaging": "Bandeja",
+        "precio": 4.68,
+        "contenido": 0.55,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 8.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Aves y pollo > Pollo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": null
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 3.74,
+          "mercadona": 4.68,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2789/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:15.376Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "costilla_cerdo",
+      "papel": "receta",
+      "sku": "35286",
+      "nombreApp": "Costilla de cerdo churrasco",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 4.5,
+        "contenido": 0.79,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 5.696
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "35286",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/35286/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:15.843Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "curcuma",
+      "papel": "despensa",
+      "sku": "34163",
+      "nombreApp": "Cúrcuma molida Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.3,
+        "contenido": 0.06,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 21.667
+      },
+      "mercadona": {
+        "nombre": "Cúrcuma molida Hacendado",
+        "ean": "8480000341631",
+        "packaging": "Bote",
+        "precio": 1.3,
+        "contenido": 0.06,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 21.667,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Otras especias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34163/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:16.201Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "curry",
+      "papel": "despensa",
+      "sku": "34125",
+      "nombreApp": "Curry Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "nombre",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.1,
+        "contenido": 0.057,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 19.298
+      },
+      "mercadona": {
+        "nombre": "Curry Hacendado",
+        "ean": "8402001025723",
+        "packaging": "Bote",
+        "precio": 1.1,
+        "contenido": 0.057,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 19.299,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Otras especias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [
+          "cacahuete",
+          "gluten",
+          "mostaza",
+          "sesamo"
+        ],
+        "app": [],
+        "trazasApp": [
+          "cacahuete",
+          "gluten",
+          "mostaza",
+          "sesamo"
+        ],
+        "texto": "Puede contener cacahuetes y productos a base de cacahuetes. Puede contener frutos de cáscara. Puede contener mostaza y productos derivados. Puede contener granos de sésamo y productos a base de granos de sésamo. Puede contener cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34125/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:16.701Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "dorada",
+      "papel": "receta",
+      "sku": "87300",
+      "nombreApp": "Dorada limpia",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 5,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 12.5
+      },
+      "mercadona": {
+        "nombre": "Dorada limpia",
+        "ean": "8402001021930",
+        "packaging": "Bandeja",
+        "precio": 5.4,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 13.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Marisco y pescado > Pescado fresco > Dorada",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "pescado"
+        ],
+        "trazasEtiqueta": [
+          "marisco"
+        ],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 5,
+          "mercadona": 5.4,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "trazas",
+          "app": [],
+          "mercadona": "puede contener marisco",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/87300/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:17.167Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "entrecot_vacuno",
+      "papel": "receta",
+      "sku": "8932",
+      "nombreApp": "Entrecot de vacuno añojo",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 6.78,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Paquete",
+        "precioPorUnidad": 27.12
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "8932",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/8932/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:17.526Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "espagueti",
+      "papel": "receta",
+      "sku": "6277",
+      "nombreApp": "Spaghetti fino Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "sin evidencia",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.6
+      },
+      "mercadona": {
+        "nombre": "Spaghetti fino Hacendado",
+        "ean": "8402001042232",
+        "packaging": "Paquete",
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Spaghetti y tallarines",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/6277/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:17.977Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "esparrago_verde",
+      "papel": "receta",
+      "sku": "61238",
+      "nombreApp": "Espárrago verde troceado Hacendado ultracongelado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.55,
+        "contenido": 0.3,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 8.5
+      },
+      "mercadona": {
+        "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+        "ean": "8480000612380",
+        "packaging": "Paquete",
+        "precio": 2.55,
+        "contenido": 0.3,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 8.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Fruta y verdura > Verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/61238/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:18.350Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "espinaca",
+      "papel": "receta",
+      "sku": "61279",
+      "nombreApp": "Espinaca en porciones Hacendado ultracongelada",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 12,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.9,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidadesPack": 2,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 2
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "61279",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/61279/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:18.755Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "fideo",
+      "papel": "receta",
+      "sku": "13577",
+      "nombreApp": "Fideo cabello de ángel Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.6
+      },
+      "mercadona": {
+        "nombre": "Fideo cabello de ángel Hacendado",
+        "ean": "8402001010880",
+        "packaging": "Paquete",
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Fideos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "texto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/13577/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:19.254Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "filete_vacuno",
+      "papel": "receta",
+      "sku": "8936",
+      "nombreApp": "Filetes de vacuno añojo para plancha",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 7.98,
+        "contenido": 0.42,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 19
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "8936",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/8936/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:19.628Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "gamba_congelada",
+      "papel": "receta",
+      "sku": "62750",
+      "nombreApp": "Gamba arrocera pequeña Hacendado congelada",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 6,
+        "contenido": 0.55,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Caja",
+        "precioPorUnidad": 10.909
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "62750",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/62750/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:20.079Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "garbanzo_cocido",
+      "papel": "receta",
+      "sku": "26029",
+      "nombreApp": "Garbanzo cocido Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 17,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.8,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 1.404
+      },
+      "mercadona": {
+        "nombre": "Garbanzo cocido Hacendado",
+        "ean": "8480000260291",
+        "packaging": "Tarro",
+        "precio": 0.75,
+        "contenido": 0.57,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.4,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.875,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Garbanzos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.8,
+          "mercadona": 0.75,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.57 kg por envase",
+          "mercadona": "escurrido 0.4 de 0.57 (70 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/26029/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:20.485Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "garbanzo_seco",
+      "papel": "receta",
+      "sku": "5202",
+      "nombreApp": "Garbanzo pedrosillano Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.9,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.9
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "5202",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5202/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:20.952Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "guisante",
+      "papel": "receta",
+      "sku": "16416",
+      "nombreApp": "Guisantes extra Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 8,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.95,
+        "contenido": 0.39,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 2.436
+      },
+      "mercadona": {
+        "nombre": "Guisantes extra Hacendado",
+        "ean": "8402001000799",
+        "packaging": "Bote",
+        "precio": 0.9,
+        "contenido": 0.39,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.25,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Conservas de verdura y frutas > Conservas verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.95,
+          "mercadona": 0.9,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/16416/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:21.323Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "harina_maiz",
+      "papel": "receta",
+      "sku": "9588",
+      "nombreApp": "Harina fina de maíz Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.2,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 3
+      },
+      "mercadona": {
+        "nombre": "Harina fina de maíz Hacendado",
+        "ean": "8480000095886",
+        "packaging": "Paquete",
+        "precio": 1.2,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Panadería y pastelería > Harina y preparado repostería > Harina",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/9588/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:21.696Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "huevo",
+      "papel": "receta",
+      "sku": "30167",
+      "nombreApp": "Huevos",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 29,
+      "unidadesReceta": [
+        "ud"
+      ],
+      "app": {
+        "precio": 5.25,
+        "contenido": 24,
+        "unidad": "ud",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 0.2188
+      },
+      "mercadona": {
+        "nombre": "Huevos",
+        "ean": "8402001028236",
+        "packaging": "Paquete",
+        "precio": 5.85,
+        "contenido": 24,
+        "unidad": "ud",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.925,
+        "formatoReferencia": "dz",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Huevos, leche y mantequilla > Huevos > Huevos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "huevo"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "huevo"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene huevos y productos a base de huevo."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 5.25,
+          "mercadona": 5.85,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/30167/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:22.052Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "hummus",
+      "papel": "receta",
+      "sku": "80858",
+      "nombreApp": "Hummus de garbanzos Hacendado receta clásica",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.05,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarrina",
+        "precioPorUnidad": 4.375
+      },
+      "mercadona": {
+        "nombre": "Hummus de garbanzos Hacendado receta clásica",
+        "ean": "8432089108018",
+        "packaging": "Tarrina",
+        "precio": 1.05,
+        "contenido": 0.24,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 4.375,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Pizzas y platos preparados > Platos preparados fríos > Hummus y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sesamo"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sesamo"
+        ],
+        "trazasApp": [],
+        "texto": "Libre de dióxido de azufre y sulfitos. Libre de cacahuetes y productos a base de cacahuetes. Libre de soja y productos a base de soja. Libre de apio y productos derivados. Contiene granos de sésamo y productos a base de granos de sésamo. Libre de x99. Libre de pescado y productos a base de pescado. Libre de mostaza y productos derivados. Libre de moluscos y productos a base de moluscos. Libre de leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de frutos de cáscara. Libre de crustáceos y productos a base de crustáceos. Libre de cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/80858/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:22.410Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "jamoncito_pollo",
+      "papel": "receta",
+      "sku": "25183",
+      "nombreApp": "Jamoncitos de pollo congelados",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.5,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 3.5
+      },
+      "mercadona": {
+        "nombre": "Jamoncitos de pollo congelados",
+        "ean": "4052485456359",
+        "packaging": "Paquete",
+        "precio": 2.9,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.9,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Carne congelada > Carne congelada",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 3.5,
+          "mercadona": 2.9,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/25183/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:22.860Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "judia_verde",
+      "papel": "receta",
+      "sku": "16315",
+      "nombreApp": "Judías verdes redondas Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.1,
+        "contenido": 0.66,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 1.667
+      },
+      "mercadona": {
+        "nombre": "Judías verdes redondas Hacendado",
+        "ean": "8480000163158",
+        "packaging": "Tarro",
+        "precio": 1.1,
+        "contenido": 0.66,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.36,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.056,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Conservas de verdura y frutas > Conservas verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/16315/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:23.204Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "laurel",
+      "papel": "despensa",
+      "sku": "47994",
+      "nombreApp": "Hoja de laurel Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 18,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.85,
+        "contenido": 0.012,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 70.833
+      },
+      "mercadona": {
+        "nombre": "Hoja de laurel Hacendado",
+        "ean": "8480000479945",
+        "packaging": "Paquete",
+        "precio": 0.85,
+        "contenido": 0.012,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 7.084,
+        "formatoReferencia": "100 g",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Hierbas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/47994/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:23.561Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "leche_semi",
+      "papel": "receta",
+      "sku": "10382",
+      "nombreApp": "Leche semidesnatada Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 0.83,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 0.83
+      },
+      "mercadona": {
+        "nombre": "Leche semidesnatada Hacendado",
+        "ean": "8402001002106",
+        "packaging": "Brik",
+        "precio": 0.86,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.86,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Huevos, leche y mantequilla > Leche y bebidas vegetales > Leche semidesnatada",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "lactosa"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "lactosa"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene leche y sus derivados (incluida la lactosa)."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.83,
+          "mercadona": 0.86,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/10382/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:23.999Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "lechuga",
+      "papel": "receta",
+      "sku": "69670",
+      "nombreApp": "Lechuga iceberg cortada y lavada",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.95,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 3.8
+      },
+      "mercadona": {
+        "nombre": "Lechuga iceberg cortada y lavada",
+        "ean": "8402001035111",
+        "packaging": "Paquete",
+        "precio": 1.3,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 5.2,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Lechuga y ensalada preparada > Lechuga",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.95,
+          "mercadona": 1.3,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69670/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:24.480Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "lenteja_cocida",
+      "papel": "receta",
+      "sku": "26011",
+      "nombreApp": "Lenteja cocida Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 7,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.75,
+        "contenido": 0.295,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 2.542
+      },
+      "mercadona": {
+        "nombre": "Lenteja cocida Hacendado",
+        "ean": "8480000053329",
+        "packaging": "Tarro",
+        "precio": 0.7,
+        "contenido": 0.295,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.21,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.334,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Lentejas y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [
+          "gluten"
+        ],
+        "app": [],
+        "trazasApp": [
+          "gluten"
+        ],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.75,
+          "mercadona": 0.7,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.295 kg por envase",
+          "mercadona": "escurrido 0.21 de 0.295 (71 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/26011/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:24.807Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "lenteja_pardina",
+      "papel": "receta",
+      "sku": "5330",
+      "nombreApp": "Lenteja pardina Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 7,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.85,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.85
+      },
+      "mercadona": {
+        "nombre": "Lenteja pardina Hacendado",
+        "ean": "8480000053305",
+        "packaging": "Paquete",
+        "precio": 1.8,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.8,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Lentejas y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.85,
+          "mercadona": 1.8,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5330/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:25.245Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "limon",
+      "papel": "receta",
+      "sku": "3210",
+      "nombreApp": "Limón",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 9,
+      "unidadesReceta": [
+        "ud"
+      ],
+      "app": {
+        "precio": 0.39,
+        "contenido": 0.23,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 1.6957
+      },
+      "mercadona": {
+        "nombre": "Limón",
+        "ean": "2105468032100",
+        "packaging": "Pieza",
+        "precio": 0.48,
+        "contenido": 0.17,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 2.8,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Fruta > Cítricos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.39,
+          "mercadona": 0.48,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.23,
+          "mercadona": 0.17,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la receta cuenta piezas y el producto se vende a peso (0.23 kg por pieza, de la ficha): sin verificar en tienda"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/3210/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:25.587Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "lomo_cerdo",
+      "papel": "receta",
+      "sku": "2849",
+      "nombreApp": "Filetes lomo de cerdo extra tiernos",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.54,
+        "contenido": 0.46,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 7.696
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "2849",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2849/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:26.069Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "lomo_merluza",
+      "papel": "receta",
+      "sku": "62113",
+      "nombreApp": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 4.9,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Caja",
+        "precioPorUnidad": 12.25
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "62113",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/62113/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:26.381Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "lubina",
+      "papel": "receta",
+      "sku": "87310",
+      "nombreApp": "Lubina limpia",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 5.2,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 13
+      },
+      "mercadona": {
+        "nombre": "Lubina limpia",
+        "ean": "8402001021916",
+        "packaging": "Bandeja",
+        "precio": 5.04,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 12.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Marisco y pescado > Pescado fresco > Lubina",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "pescado"
+        ],
+        "trazasEtiqueta": [
+          "marisco"
+        ],
+        "app": [
+          "pescado"
+        ],
+        "trazasApp": [],
+        "texto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 5.2,
+          "mercadona": 5.04,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "trazas",
+          "app": [],
+          "mercadona": "puede contener marisco",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/87310/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:26.723Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "macarron",
+      "papel": "receta",
+      "sku": "6260",
+      "nombreApp": "Macarrón fino Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1.6
+      },
+      "mercadona": {
+        "nombre": "Macarrón fino Hacendado",
+        "ean": "8480000062604",
+        "packaging": "Paquete",
+        "precio": 0.8,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Macarrones, pajaritas y hélices",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [
+          "huevo",
+          "mostaza",
+          "soja"
+        ],
+        "texto": "Contiene trigo y productos derivados. Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/6260/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:27.143Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "maiz_dulce",
+      "papel": "receta",
+      "sku": "61289",
+      "nombreApp": "Maíz dulce Hacendado ultracongelado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.24,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 3.1
+      },
+      "mercadona": {
+        "nombre": "Maíz dulce Hacendado ultracongelado",
+        "ean": "8480000612892",
+        "packaging": "Paquete",
+        "precio": 1.15,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.875,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Fruta y verdura > Verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.24,
+          "mercadona": 1.15,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/61289/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:27.610Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "mejillon_congelado",
+      "papel": "receta",
+      "sku": "62401",
+      "nombreApp": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+      "estado": "pendiente",
+      "correspondencia": "nombre",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.25,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Caja",
+        "precioPorUnidad": 7.222
+      },
+      "mercadona": {
+        "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+        "ean": "8435035300320",
+        "packaging": "Caja",
+        "precio": 3.25,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 7.223,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Marisco > Marisco de concha y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "marisco"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "marisco"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene moluscos y productos a base de moluscos."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/62401/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:28.044Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "mejillon_lata",
+      "papel": "receta",
+      "sku": "18615",
+      "nombreApp": "Mejillones de Chile en escabeche Hacendado pequeños",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.75,
+        "contenido": 0.35,
+        "unidad": "kg",
+        "unidadesPack": 2,
+        "pesoVariable": false,
+        "packaging": null,
+        "precioPorUnidad": 7.8571
+      },
+      "mercadona": {
+        "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+        "ean": "8402001013645",
+        "packaging": null,
+        "precio": 2.65,
+        "contenido": 0.35,
+        "unidad": "kg",
+        "unidades": 2,
+        "escurrido": 0.212,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 12.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Berberechos y mejillones > Mejillones",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "marisco"
+        ],
+        "trazasEtiqueta": [
+          "pescado"
+        ],
+        "app": [
+          "marisco"
+        ],
+        "trazasApp": [
+          "pescado"
+        ],
+        "texto": "Contiene moluscos y productos a base de moluscos. Puede contener pescado y productos a base de pescado. Puede contener crustáceos y productos a base de crustáceos."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.75,
+          "mercadona": 2.65,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "pesoEscurrido",
+          "app": "se usa el neto: 0.35 kg por envase",
+          "mercadona": "escurrido 0.212 de 0.35 (61 %)",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/18615/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:28.451Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "mostaza",
+      "papel": "despensa",
+      "sku": "17228",
+      "nombreApp": "Mostaza de Dijon Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.25,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarro",
+        "precioPorUnidad": 6.25
+      },
+      "mercadona": {
+        "nombre": "Mostaza de Dijon Hacendado",
+        "ean": "3563490016397",
+        "packaging": "Tarro",
+        "precio": 1.25,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 6.25,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Mayonesa, ketchup y mostaza > Mostaza",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "mostaza",
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "mostaza",
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene dióxido de azufre y sulfitos. Contiene mostaza y productos derivados."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/17228/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:28.948Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "muslo_pollo",
+      "papel": "receta",
+      "sku": "2788",
+      "nombreApp": "Muslos de pollo deshuesados con piel",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.78,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 5.56
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "2788",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2788/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:29.291Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "nata_cocinar",
+      "papel": "receta",
+      "sku": "10161",
+      "nombreApp": "Nata ligera para cocinar Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 1.55,
+        "contenido": 0.5,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Brik",
+        "precioPorUnidad": 3.1
+      },
+      "mercadona": {
+        "nombre": "Nata ligera para cocinar Hacendado",
+        "ean": "8402001027642",
+        "packaging": "Brik",
+        "precio": 1.55,
+        "contenido": 0.5,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.1,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Huevos, leche y mantequilla > Mantequilla y margarina > Nata",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "lactosa"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "lactosa"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene leche y sus derivados (incluida la lactosa)."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/10161/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:29.602Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "oregano",
+      "papel": "despensa",
+      "sku": "5598",
+      "nombreApp": "Orégano Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 20,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1,
+        "contenido": 0.025,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 40
+      },
+      "mercadona": {
+        "nombre": "Orégano Hacendado",
+        "ean": "8402001033582",
+        "packaging": "Bote",
+        "precio": 1,
+        "contenido": 0.025,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 4,
+        "formatoReferencia": "100 g",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Hierbas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [
+          "soja"
+        ],
+        "app": [],
+        "trazasApp": [
+          "soja"
+        ],
+        "texto": "Puede contener soja y productos a base de soja."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5598/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:29.960Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pan",
+      "papel": "receta",
+      "sku": "83202.1",
+      "nombreApp": "Barra de pan",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 7,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.5,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": 1,
+        "pesoVariable": false,
+        "packaging": null,
+        "precioPorUnidad": 2
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "83202.1",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/83202.1/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:30.365Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "panceta",
+      "papel": "receta",
+      "sku": "17944",
+      "nombreApp": "Panceta de cerdo pieza",
+      "estado": "discrepancia",
+      "correspondencia": "nombre",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 2.73,
+        "contenido": 0.7,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 3.9
+      },
+      "mercadona": {
+        "nombre": "Panceta de cerdo pieza",
+        "ean": "8402001059353",
+        "packaging": "Pieza",
+        "precio": 3.43,
+        "contenido": 0.7,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 4.9,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Cerdo > Cerdo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [
+          "cerdo"
+        ],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.73,
+          "mercadona": 3.43,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "alergenoDeMas",
+          "app": "declara cerdo",
+          "mercadona": "la etiqueta no lo dice",
+          "gravedad": "aviso"
+        },
+        {
+          "campo": "sinUso",
+          "app": "ninguna receta lo usa",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/17944/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:30.837Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "patata",
+      "papel": "receta",
+      "sku": "69166",
+      "nombreApp": "Patatas",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 36,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 4.65,
+        "contenido": 3,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Malla",
+        "precioPorUnidad": 1.55
+      },
+      "mercadona": {
+        "nombre": "Patatas",
+        "ean": "8414014000079",
+        "packaging": "Malla",
+        "precio": 4.9,
+        "contenido": 3,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.634,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Patata",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 4.65,
+          "mercadona": 4.9,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69166/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:31.165Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pechuga_pollo",
+      "papel": "receta",
+      "sku": "3400",
+      "nombreApp": "Filetes pechuga de pollo corte fino",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 4.1,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 8.2
+      },
+      "mercadona": {
+        "nombre": "Filetes pechuga de pollo corte fino",
+        "ean": "2105100034004",
+        "packaging": "Bandeja",
+        "precio": 4.68,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 9.35,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Aves y pollo > Pollo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 4.1,
+          "mercadona": 4.68,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/3400/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:31.511Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pepino",
+      "papel": "receta",
+      "sku": "69584",
+      "nombreApp": "Pepino",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.34,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 1.36
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "69584",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69584/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:32.009Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "perejil",
+      "papel": "despensa",
+      "sku": "5599",
+      "nombreApp": "Perejil Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 16,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1,
+        "contenido": 0.018,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 55.556
+      },
+      "mercadona": {
+        "nombre": "Perejil Hacendado",
+        "ean": "8480000055996",
+        "packaging": "Bote",
+        "precio": 0.95,
+        "contenido": 0.018,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 5.278,
+        "formatoReferencia": "100 g",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Hierbas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1,
+          "mercadona": 0.95,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5599/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:32.474Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pimenton_dulce",
+      "papel": "despensa",
+      "sku": "60573",
+      "nombreApp": "Pimentón dulce Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 57,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.3,
+        "contenido": 0.075,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 17.333
+      },
+      "mercadona": {
+        "nombre": "Pimentón dulce Hacendado",
+        "ean": "8402001018756",
+        "packaging": "Bote",
+        "precio": 1.3,
+        "contenido": 0.075,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 17.334,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Colorante y pimentón",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/60573/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:32.880Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pimienta_negra",
+      "papel": "despensa",
+      "sku": "34171",
+      "nombreApp": "Pimienta negra molida Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 15,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.3,
+        "contenido": 0.07,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 18.571
+      },
+      "mercadona": {
+        "nombre": "Pimienta negra molida Hacendado",
+        "ean": "8480000341716",
+        "packaging": "Bote",
+        "precio": 1.3,
+        "contenido": 0.07,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 18.572,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Pimienta",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": "Libre de cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/34171/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:33.313Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pimiento_rojo",
+      "papel": "receta",
+      "sku": "35221",
+      "nombreApp": "Pimiento rojo y verde Hacendado ultracongelado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 30,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.2,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 2.667
+      },
+      "mercadona": {
+        "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+        "ean": "8402001005688",
+        "packaging": "Paquete",
+        "precio": 1.25,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.778,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Fruta y verdura > Verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.2,
+          "mercadona": 1.25,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/35221/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:33.735Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pimiento_verde",
+      "papel": "receta",
+      "sku": "69320",
+      "nombreApp": "Pimiento verde freír",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 28,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.23,
+        "contenido": 0.1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 2.3
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "69320",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69320/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:34.046Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "pollo_troceado",
+      "papel": "receta",
+      "sku": "2779",
+      "nombreApp": "Medio pollo troceado",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.6,
+        "contenido": 0.9,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 4
+      },
+      "mercadona": {
+        "nombre": "Medio pollo troceado",
+        "ean": "2105100027792",
+        "packaging": "Bandeja",
+        "precio": 3.78,
+        "contenido": 0.9,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 4.2,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Carne > Aves y pollo > Pollo",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": null
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 3.6,
+          "mercadona": 3.78,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "sin lista de ingredientes ni alérgenos en la ficha: los alérgenos no se pueden contrastar",
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2779/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:34.528Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "puerro",
+      "papel": "receta",
+      "sku": "68408",
+      "nombreApp": "Puerros",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 6,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.59,
+        "contenido": 0.54,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": null,
+        "precioPorUnidad": 4.796
+      },
+      "mercadona": {
+        "nombre": "Puerros",
+        "ean": "2368408002612",
+        "packaging": null,
+        "precio": 2.25,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Otras verduras y hortalizas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.59,
+          "mercadona": 2.25,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.54,
+          "mercadona": 0.45,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/68408/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:34.901Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "queso_fresco",
+      "papel": "receta",
+      "sku": "17463",
+      "nombreApp": "Queso fresco de vaca QuesPro Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2,
+        "contenido": 0.3,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Tarrina",
+        "precioPorUnidad": 6.667
+      },
+      "mercadona": {
+        "nombre": "Queso fresco de vaca QuesPro Hacendado",
+        "ean": "8402001054129",
+        "packaging": "Tarrina",
+        "precio": 2,
+        "contenido": 0.3,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.15,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 13.334,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Charcutería y quesos > Queso untable, fresco y especialidades > Queso fresco",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "lactosa"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "lactosa"
+        ],
+        "trazasApp": [],
+        "texto": "Libre de dióxido de azufre y sulfitos. Libre de cacahuetes y productos a base de cacahuetes. Libre de soja y productos a base de soja. Libre de apio y productos derivados. Libre de granos de sésamo y productos a base de granos de sésamo. Libre de altramuces y productos a base de altramuces. Libre de pescado y productos a base de pescado. Libre de mostaza y productos derivados. Libre de moluscos y productos a base de moluscos. Contiene leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de frutos de cáscara. Libre de crustáceos y productos a base de crustáceos. Libre de cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/17463/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:35.368Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "queso_rallado",
+      "papel": "receta",
+      "sku": "23621",
+      "nombreApp": "Queso rallado especial fundir mezcla Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 18,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.1,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 5.5
+      },
+      "mercadona": {
+        "nombre": "Queso rallado especial fundir mezcla Hacendado",
+        "ean": "8480000236210",
+        "packaging": "Paquete",
+        "precio": 1.1,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 5.5,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Charcutería y quesos > Queso lonchas, rallado y en porciones > Queso rallado",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "lactosa"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "lactosa"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/23621/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:35.710Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "repollo",
+      "papel": "receta",
+      "sku": "68462",
+      "nombreApp": "Repollo liso partido",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.94,
+        "contenido": 0.9,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "1/2 Pieza",
+        "precioPorUnidad": 2.156
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "68462",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/68462/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:36.084Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "romero",
+      "papel": "despensa",
+      "sku": "14981",
+      "nombreApp": "Romero Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "nombre",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.35,
+        "contenido": 0.035,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 38.571
+      },
+      "mercadona": {
+        "nombre": "Romero Hacendado",
+        "ean": "8402001041372",
+        "packaging": "Bote",
+        "precio": 0.85,
+        "contenido": 0.035,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.429,
+        "formatoReferencia": "100 g",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Hierbas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.35,
+          "mercadona": 0.85,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/14981/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:36.411Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "sal",
+      "papel": "despensa",
+      "sku": "19731",
+      "nombreApp": "Sal fina Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 152,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.4,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 0.4
+      },
+      "mercadona": {
+        "nombre": "Sal fina Hacendado",
+        "ean": "8402001001840",
+        "packaging": "Paquete",
+        "precio": 0.39,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.39,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Aceite, vinagre y sal > Sal y bicarbonato",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.4,
+          "mercadona": 0.39,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/19731/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:36.798Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "salchicha_fresca",
+      "papel": "receta",
+      "sku": "6045",
+      "nombreApp": "Longaniza fresca estilo criollo",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.34,
+        "contenido": 0.38,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 8.789
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "6045",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/6045/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:37.175Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "sardina_fresca",
+      "papel": "receta",
+      "sku": "87916",
+      "nombreApp": "Sardina sin limpiar",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 4,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.4,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 6
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "87916",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/87916/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:37.624Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "seta",
+      "papel": "receta",
+      "sku": "69653",
+      "nombreApp": "Setas",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.09,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 8.36
+      },
+      "mercadona": {
+        "nombre": "Setas",
+        "ean": "2105400696537",
+        "packaging": "Bandeja",
+        "precio": 1.98,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 7.9,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Setas y champiñones",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.09,
+          "mercadona": 1.98,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69653/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:38.045Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "soja_texturizada",
+      "papel": "receta",
+      "sku": "13926",
+      "nombreApp": "Soja texturizada Luengo",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 17,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.7,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 13.5
+      },
+      "mercadona": {
+        "nombre": "Soja texturizada Luengo",
+        "ean": "8410505320145",
+        "packaging": "Paquete",
+        "precio": 2.4,
+        "contenido": 0.2,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 12,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Lentejas y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.7,
+          "mercadona": 2.4,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/13926/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:38.499Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "solomillo_cerdo",
+      "papel": "receta",
+      "sku": "4570",
+      "nombreApp": "Solomillo de cerdo",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 3.9,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Paquete",
+        "precioPorUnidad": 7.8
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "4570",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/4570/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:38.999Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "taco_vacuno",
+      "papel": "receta",
+      "sku": "2807",
+      "nombreApp": "Tacos de vacuno añojo para guisar",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 8.75,
+        "contenido": 0.54,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Bandeja",
+        "precioPorUnidad": 16.2
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "2807",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/2807/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:39.463Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "tofu",
+      "papel": "receta",
+      "sku": "51097",
+      "nombreApp": "Tofu firme Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "nombre",
+      "recetas": 5,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.75,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 4.375
+      },
+      "mercadona": {
+        "nombre": "Tofu firme Hacendado",
+        "ean": "8410789140118",
+        "packaging": "Paquete",
+        "precio": 1.75,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": 0.275,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 6.364,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Pizzas y platos preparados > Platos preparados fríos > Hummus y otros",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/51097/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:39.962Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "tomate",
+      "papel": "receta",
+      "sku": "69912",
+      "nombreApp": "Tomate pera",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 10,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.26,
+        "contenido": 0.14,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 1.8571
+      },
+      "mercadona": {
+        "nombre": "Tomate pera",
+        "ean": "2105404699121",
+        "packaging": "Pieza",
+        "precio": 0.3,
+        "contenido": 0.125,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 2.4,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Tomate",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.26,
+          "mercadona": 0.3,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.14,
+          "mercadona": 0.125,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69912/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:40.443Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "tomate_frito",
+      "papel": "receta",
+      "sku": "17151",
+      "nombreApp": "Tomate frito Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 15,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.95,
+        "contenido": 0.63,
+        "unidad": "kg",
+        "unidadesPack": 3,
+        "pesoVariable": false,
+        "packaging": "Pack-3",
+        "precioPorUnidad": 1.508
+      },
+      "mercadona": {
+        "nombre": "Tomate frito Hacendado",
+        "ean": "8480000171511",
+        "packaging": "Pack-3",
+        "precio": 0.9,
+        "contenido": 0.63,
+        "unidad": "kg",
+        "unidades": 3,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.429,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Otras salsas > Tomate frito",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.95,
+          "mercadona": 0.9,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/17151/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:40.940Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "tomate_triturado",
+      "papel": "receta",
+      "sku": "16044",
+      "nombreApp": "Tomate triturado Hacendado",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 36,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 0.55,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 1.375
+      },
+      "mercadona": {
+        "nombre": "Tomate triturado Hacendado",
+        "ean": "8402001001536",
+        "packaging": "Bote",
+        "precio": 0.55,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.375,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Conservas, caldos y cremas > Tomate > Tomate",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/16044/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:41.299Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "tomillo",
+      "papel": "despensa",
+      "sku": "5547",
+      "nombreApp": "Tomillo Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.05,
+        "contenido": 0.024,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bote",
+        "precioPorUnidad": 43.75
+      },
+      "mercadona": {
+        "nombre": "Tomillo Hacendado",
+        "ean": "8480000055477",
+        "packaging": "Bote",
+        "precio": 1,
+        "contenido": 0.024,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 4.167,
+        "formatoReferencia": "100 g",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Especias > Hierbas",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.05,
+          "mercadona": 1,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/5547/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:41.778Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "vinagre",
+      "papel": "despensa",
+      "sku": "4940",
+      "nombreApp": "Vinagre de vino blanco Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 18,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 0.65,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Botella",
+        "precioPorUnidad": 0.65
+      },
+      "mercadona": {
+        "nombre": "Vinagre de vino blanco Hacendado",
+        "ean": "8480000049407",
+        "packaging": "Botella",
+        "precio": 0.6,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.6,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Aceite, vinagre y sal > Vinagre y otros aderezos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene dióxido de azufre y sulfitos."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.65,
+          "mercadona": 0.6,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/4940/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:42.244Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "vinagre_manzana",
+      "papel": "despensa",
+      "sku": "4957",
+      "nombreApp": "Vinagre de manzana Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "ml"
+      ],
+      "app": {
+        "precio": 0.9,
+        "contenido": 1,
+        "unidad": "l",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Botella",
+        "precioPorUnidad": 0.9
+      },
+      "mercadona": {
+        "nombre": "Vinagre de manzana Hacendado",
+        "ean": "8480000049575",
+        "packaging": "Botella",
+        "precio": 0.7,
+        "contenido": 1,
+        "unidad": "l",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 0.7,
+        "formatoReferencia": "L",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Aceite, especias y salsas > Aceite, vinagre y sal > Vinagre y otros aderezos",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "sulfitos"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "sulfitos"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene dióxido de azufre y sulfitos."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.9,
+          "mercadona": 0.7,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/4957/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:42.587Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "yogur_natural",
+      "papel": "receta",
+      "sku": "22313",
+      "nombreApp": "Yogur natural Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 1,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1,
+        "contenido": 0.75,
+        "unidad": "kg",
+        "unidadesPack": 6,
+        "pesoVariable": false,
+        "packaging": "Pack-6",
+        "precioPorUnidad": 1.333
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "22313",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "duplicado",
+          "app": "mismo SKU que postre_yogur_natural",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/22313/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:43.010Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "zanahoria",
+      "papel": "receta",
+      "sku": "69586",
+      "nombreApp": "Zanahorias",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 26,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 1
+      },
+      "mercadona": {
+        "nombre": "Zanahorias",
+        "ean": "2305191000692",
+        "packaging": "Paquete",
+        "precio": 1.3,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.3,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Verdura > Pepino y zanahoria",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1,
+          "mercadona": 1.3,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/69586/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:43.353Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "haba_congelada",
+      "papel": "receta",
+      "sku": "61233",
+      "nombreApp": "Habas fina Hacendado ultracongelada",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.19,
+        "contenido": 0.45,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bolsa",
+        "precioPorUnidad": 2.644
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "61233",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/61233/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:43.694Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "edamame_congelado",
+      "papel": "receta",
+      "sku": "70740",
+      "nombreApp": "Edamame soja verde Hacendado ultracongelada",
+      "estado": "discrepancia",
+      "correspondencia": "nombre",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.75,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Bolsa",
+        "precioPorUnidad": 3.5
+      },
+      "mercadona": {
+        "nombre": "Edamame soja verde Hacendado ultracongelada",
+        "ean": "8480000707406",
+        "packaging": "Paquete",
+        "precio": 1.67,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.34,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Congelados > Fruta y verdura > Verdura",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.75,
+          "mercadona": 1.67,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "packaging",
+          "app": "Bolsa",
+          "mercadona": "Paquete",
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda el nombre: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/70740/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:44.020Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "alubia_negra_seca",
+      "papel": "receta",
+      "sku": "67608",
+      "nombreApp": "Alubia negra Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 3,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 2.5,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 2.5
+      },
+      "mercadona": {
+        "nombre": "Alubia negra Hacendado",
+        "ean": "8480000676085",
+        "packaging": "Paquete",
+        "precio": 2.75,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 2.75,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Legumbres > Alubias",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 2.5,
+          "mercadona": 2.75,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/67608/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:44.364Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "cuscus",
+      "papel": "receta",
+      "sku": "9395",
+      "nombreApp": "Cous cous mediano Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin evidencia",
+      "recetas": 5,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.95,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Caja",
+        "precioPorUnidad": 1.95
+      },
+      "mercadona": {
+        "nombre": "Cous cous mediano Hacendado",
+        "ean": "8011033012108",
+        "packaging": "Caja",
+        "precio": 1.8,
+        "contenido": 1,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.8,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Arroz > Arroz",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [
+          "soja"
+        ],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [
+          "soja"
+        ],
+        "texto": "Contiene trigo y productos derivados. Puede contener soja y productos a base de soja. Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.95,
+          "mercadona": 1.8,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "ni la etiqueta, ni la categoría, ni el nombre nombran el ingrediente: revisar a mano"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/9395/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:44.832Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "pasta_lenteja_roja",
+      "papel": "receta",
+      "sku": "6106",
+      "nombreApp": "Pasta fusilli 100% lentejas rojas Felicia",
+      "estado": "comprobado",
+      "correspondencia": "etiqueta",
+      "recetas": 2,
+      "unidadesReceta": [
+        "g"
+      ],
+      "app": {
+        "precio": 1.65,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": false,
+        "packaging": "Paquete",
+        "precioPorUnidad": 6.6
+      },
+      "mercadona": {
+        "nombre": "Pasta fusilli 100% lentejas rojas Felicia",
+        "ean": "8032804430822",
+        "packaging": "Paquete",
+        "precio": 1.65,
+        "contenido": 0.25,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 6.6,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Arroz, legumbres y pasta > Pasta y fideos > Macarrones, pajaritas y hélices",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "gluten"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "gluten"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene cereales que contengan gluten."
+      },
+      "hallazgos": [],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/6106/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:45.283Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "postre_yogur_natural",
+      "papel": "postre",
+      "sku": "22313",
+      "nombreApp": "Yogur natural Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1,
+        "contenido": 0.75,
+        "unidad": "kg",
+        "unidadesPack": 6,
+        "pesoVariable": false,
+        "packaging": "Pack-6",
+        "precioPorUnidad": 1.334
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "22313",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "duplicado",
+          "app": "mismo SKU que yogur_natural",
+          "mercadona": null,
+          "gravedad": "aviso"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/22313/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:45.716Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "postre_gelatina",
+      "papel": "postre",
+      "sku": "68172",
+      "nombreApp": "Gelatina sabor fresa Hacendado",
+      "estado": "pendiente",
+      "correspondencia": "categoria",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1,
+        "contenido": 0.6,
+        "unidad": "kg",
+        "unidadesPack": 6,
+        "pesoVariable": false,
+        "packaging": "Pack-6",
+        "precioPorUnidad": 1.6667
+      },
+      "mercadona": {
+        "nombre": "Gelatina sabor fresa Hacendado",
+        "ean": "8402001012587",
+        "packaging": "Pack-6",
+        "precio": 1,
+        "contenido": 0.6,
+        "unidad": "kg",
+        "unidades": 6,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 1.667,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Postres y yogures > Gelatina y otros postres > Gelatina",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/68172/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:46.122Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "postre_platano",
+      "papel": "postre",
+      "sku": "3819",
+      "nombreApp": "Plátano de Canarias IGP",
+      "estado": "discrepancia",
+      "correspondencia": "categoria",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 0.45,
+        "contenido": 0.15,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 3
+      },
+      "mercadona": {
+        "nombre": "Plátano de Canarias IGP",
+        "ean": "2105410038198",
+        "packaging": "Pieza",
+        "precio": 0.38,
+        "contenido": 0.154,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 2.45,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Fruta > Plátano y uva",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.45,
+          "mercadona": 0.38,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.15,
+          "mercadona": 0.154,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [
+        "la correspondencia solo la respalda la categoría: falta revisión humana"
+      ],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/3819/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:46.603Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "postre_manzana",
+      "papel": "postre",
+      "sku": "3028",
+      "nombreApp": "Manzana Golden",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 0.48,
+        "contenido": 0.22,
+        "unidad": "kg",
+        "unidadesPack": null,
+        "pesoVariable": true,
+        "packaging": "Pieza",
+        "precioPorUnidad": 2.1818
+      },
+      "mercadona": {
+        "nombre": "Manzana Golden",
+        "ean": "2105445030280",
+        "packaging": "Pieza",
+        "precio": 0.42,
+        "contenido": 0.19,
+        "unidad": "kg",
+        "unidades": null,
+        "escurrido": null,
+        "granel": true,
+        "metodoVenta": 0,
+        "precioReferencia": 2.2,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Fruta y verdura > Fruta > Manzana y pera",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [],
+        "trazasEtiqueta": [],
+        "app": [],
+        "trazasApp": [],
+        "texto": " x99."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 0.48,
+          "mercadona": 0.42,
+          "gravedad": "discrepancia"
+        },
+        {
+          "campo": "contenido",
+          "app": 0.22,
+          "mercadona": 0.19,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/3028/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:47.085Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    },
+    {
+      "canonico": "postre_natillas",
+      "papel": "postre",
+      "sku": "68137",
+      "nombreApp": "Natillas sabor vainilla Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "sin datos",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1.05,
+        "contenido": 0.5,
+        "unidad": "kg",
+        "unidadesPack": 4,
+        "pesoVariable": false,
+        "packaging": "Pack-4",
+        "precioPorUnidad": 2.1
+      },
+      "mercadona": null,
+      "alergenos": null,
+      "hallazgos": [
+        {
+          "campo": "existe",
+          "app": "68137",
+          "mercadona": "404 en este almacén",
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/68137/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:47.521Z",
+        "http": 404,
+        "respuesta": "no-existe"
+      }
+    },
+    {
+      "canonico": "postre_soja",
+      "papel": "postre",
+      "sku": "20200",
+      "nombreApp": "Postre de soja natural Hacendado",
+      "estado": "discrepancia",
+      "correspondencia": "etiqueta",
+      "recetas": 0,
+      "unidadesReceta": [],
+      "app": {
+        "precio": 1.2,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidadesPack": 4,
+        "pesoVariable": false,
+        "packaging": null,
+        "precioPorUnidad": 3
+      },
+      "mercadona": {
+        "nombre": "Postre de soja natural Hacendado",
+        "ean": "8480000201607",
+        "packaging": null,
+        "precio": 1.25,
+        "contenido": 0.4,
+        "unidad": "kg",
+        "unidades": 4,
+        "escurrido": null,
+        "granel": false,
+        "metodoVenta": 0,
+        "precioReferencia": 3.125,
+        "formatoReferencia": "kg",
+        "publicado": true,
+        "noDisponibleDesde": null,
+        "categoria": "Postres y yogures > Postres de soja > Postres de soja",
+        "impuesto": 0
+      },
+      "alergenos": {
+        "etiqueta": [
+          "soja"
+        ],
+        "trazasEtiqueta": [],
+        "app": [
+          "soja"
+        ],
+        "trazasApp": [],
+        "texto": "Contiene soja y productos a base de soja. Puede contener soja y productos a base de soja."
+      },
+      "hallazgos": [
+        {
+          "campo": "precio",
+          "app": 1.2,
+          "mercadona": 1.25,
+          "gravedad": "discrepancia"
+        }
+      ],
+      "pendientes": [],
+      "procedencia": {
+        "fuente": "https://tienda.mercadona.es/api/products/20200/?lang=es&wh=3120",
+        "consultadoEn": "2026-10-14T07:58:47.954Z",
+        "http": 200,
+        "respuesta": "ok"
+      }
+    }
+  ]
+}

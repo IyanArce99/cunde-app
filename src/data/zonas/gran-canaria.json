@@ -1,0 +1,2039 @@
+{
+  "zona": "gran-canaria",
+  "nombre": "Gran Canaria",
+  "cadena": "mercadona",
+  "almacenes": [
+    "4701",
+    "3120",
+    "3544",
+    "3864",
+    "4745",
+    "4418",
+    "4570",
+    "4377",
+    "4677"
+  ],
+  "version": "2026-10-14",
+  "verificadoDesde": "2026-10-14T07:57:06.349Z",
+  "verificadoHasta": "2026-10-14T08:13:22.349Z",
+  "fuente": "https://tienda.mercadona.es/api/products/<sku>/?wh=<almacén>, un almacén cada vez. Ver catalogo/construir-zona.ts.",
+  "codigosPostales": [
+    {
+      "cp": "35001",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35002",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35003",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35004",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35005",
+      "almacen": "3120"
+    },
+    {
+      "cp": "35006",
+      "almacen": "3120"
+    },
+    {
+      "cp": "35007",
+      "almacen": "3120"
+    },
+    {
+      "cp": "35008",
+      "almacen": "3120"
+    },
+    {
+      "cp": "35009",
+      "almacen": "3120"
+    },
+    {
+      "cp": "35010",
+      "almacen": "3544"
+    },
+    {
+      "cp": "35011",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35012",
+      "almacen": "3544"
+    },
+    {
+      "cp": "35013",
+      "almacen": "3544"
+    },
+    {
+      "cp": "35014",
+      "almacen": "4701"
+    },
+    {
+      "cp": "35015",
+      "almacen": "3864"
+    },
+    {
+      "cp": "35016",
+      "almacen": "3864"
+    },
+    {
+      "cp": "35017",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35018",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35019",
+      "almacen": "3544"
+    },
+    {
+      "cp": "35200",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35210",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35211",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35212",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35213",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35214",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35215",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35219",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35217",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35240",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35250",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35118",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35119",
+      "almacen": "4570"
+    },
+    {
+      "cp": "35260",
+      "almacen": "4418"
+    },
+    {
+      "cp": "35110",
+      "almacen": "4570"
+    },
+    {
+      "cp": "35111",
+      "almacen": null
+    },
+    {
+      "cp": "35280",
+      "almacen": null
+    },
+    {
+      "cp": "35100",
+      "almacen": "4570"
+    },
+    {
+      "cp": "35106",
+      "almacen": "4570"
+    },
+    {
+      "cp": "35107",
+      "almacen": "4570"
+    },
+    {
+      "cp": "35290",
+      "almacen": null
+    },
+    {
+      "cp": "35120",
+      "almacen": "4377"
+    },
+    {
+      "cp": "35129",
+      "almacen": "4377"
+    },
+    {
+      "cp": "35130",
+      "almacen": "4377"
+    },
+    {
+      "cp": "35138",
+      "almacen": "4377"
+    },
+    {
+      "cp": "35140",
+      "almacen": "4377"
+    },
+    {
+      "cp": "35470",
+      "almacen": null
+    },
+    {
+      "cp": "35400",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35411",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35412",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35413",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35418",
+      "almacen": null
+    },
+    {
+      "cp": "35430",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35420",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35450",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35457",
+      "almacen": null
+    },
+    {
+      "cp": "35460",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35468",
+      "almacen": null
+    },
+    {
+      "cp": "35480",
+      "almacen": "4677"
+    },
+    {
+      "cp": "35489",
+      "almacen": null
+    },
+    {
+      "cp": "35330",
+      "almacen": null
+    },
+    {
+      "cp": "35340",
+      "almacen": null
+    },
+    {
+      "cp": "35320",
+      "almacen": null
+    },
+    {
+      "cp": "35300",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35307",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35308",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35310",
+      "almacen": "4745"
+    },
+    {
+      "cp": "35360",
+      "almacen": null
+    },
+    {
+      "cp": "35350",
+      "almacen": null
+    }
+  ],
+  "skus": {
+    "aceite_oliva": {
+      "sku": "4240",
+      "nombre": "Aceite de oliva 0,4º Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 3.6,
+      "precio_kg_l_ud": 3.6,
+      "packaging": "Botella",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Aceite de oliva"
+    },
+    "aceituna_verde": null,
+    "acelga": null,
+    "ajo": {
+      "sku": "69297",
+      "nombre": "Ajos morados",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 1.85,
+      "precio_kg_l_ud": 7.4,
+      "packaging": "Malla",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Cebolla y ajo"
+    },
+    "alcachofa": null,
+    "almendra": {
+      "sku": "34865",
+      "nombre": "Almendra natural Hacendado",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 2.2,
+      "precio_kg_l_ud": 11,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aperitivos",
+      "subfamilia": "Frutos secos"
+    },
+    "alubia_blanca_cocida": {
+      "sku": "26019",
+      "nombre": "Alubia cocida blanca Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 0.8,
+      "precio_kg_l_ud": 2,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Alubias",
+      "contenido_etiqueta": 0.57
+    },
+    "alubia_blanca_seca": {
+      "sku": "5124",
+      "nombre": "Alubia blanca Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 2.4,
+      "precio_kg_l_ud": 2.4,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Alubias"
+    },
+    "alubia_pinta_cocida": {
+      "sku": "26001",
+      "nombre": "Alubia cocida pinta Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.05,
+      "precio_kg_l_ud": 2.625,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Alubias",
+      "contenido_etiqueta": 0.57
+    },
+    "alubia_roja_cocida": {
+      "sku": "26000",
+      "nombre": "Alubia cocida roja Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.15,
+      "precio_kg_l_ud": 2.875,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Alubias",
+      "contenido_etiqueta": 0.57
+    },
+    "apio": {
+      "sku": "69275",
+      "nombre": "Apio verde",
+      "contenido": 0.66,
+      "unidad": "kg",
+      "precio": 2.15,
+      "precio_kg_l_ud": 3.258,
+      "packaging": "Manojo",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Otras verduras y hortalizas"
+    },
+    "arroz_integral": {
+      "sku": "5184",
+      "nombre": "Arroz integral largo Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.65,
+      "precio_kg_l_ud": 1.65,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Arroz"
+    },
+    "arroz_largo": {
+      "sku": "5063",
+      "nombre": "Arroz largo Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.15,
+      "precio_kg_l_ud": 1.15,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Arroz"
+    },
+    "arroz_redondo": {
+      "sku": "5044",
+      "nombre": "Arroz redondo Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.25,
+      "precio_kg_l_ud": 1.25,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Arroz"
+    },
+    "atun_lata": {
+      "sku": "18037",
+      "nombre": "Atún en salsa de tomate Hacendado",
+      "contenido": 0.156,
+      "unidad": "kg",
+      "precio": 2,
+      "precio_kg_l_ud": 12.821,
+      "packaging": "Pack-3",
+      "unidades_pack": 3,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Atún",
+      "contenido_etiqueta": 0.24
+    },
+    "bacalao_congelado": {
+      "sku": "62050",
+      "nombre": "Lomo de bacalao MareDeus ultracongelado",
+      "contenido": 0.384,
+      "unidad": "kg",
+      "precio": 9.22,
+      "precio_kg_l_ud": 24.01,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Marisco y pescado",
+      "subfamilia": "Pescado congelado"
+    },
+    "bacon": null,
+    "bebida_arroz": {
+      "sku": "23047",
+      "nombre": "Bebida de arroz sin azúcares añadidos Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 1.1,
+      "precio_kg_l_ud": 1.1,
+      "packaging": "Brik",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Bebidas vegetales"
+    },
+    "bebida_soja": {
+      "sku": "14707",
+      "nombre": "Bebida de soja con calcio y vitaminas sin azúcares añadidos Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 0.7,
+      "precio_kg_l_ud": 0.7,
+      "packaging": "Brik",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Bebidas vegetales"
+    },
+    "berenjena": null,
+    "brocoli": {
+      "sku": "69580",
+      "nombre": "Brócoli",
+      "contenido": 0.42,
+      "unidad": "kg",
+      "precio": 2.44,
+      "precio_kg_l_ud": 5.81,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Otras verduras y hortalizas"
+    },
+    "caballa_lata": {
+      "sku": "13632",
+      "nombre": "Filetes de caballa del sur en tomate Hacendado",
+      "contenido": 0.17,
+      "unidad": "kg",
+      "precio": 2.8,
+      "precio_kg_l_ud": 16.471,
+      "packaging": null,
+      "unidades_pack": 2,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Caballa y melva",
+      "contenido_etiqueta": 0.24
+    },
+    "cacahuete": {
+      "sku": "34031",
+      "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.55,
+      "precio_kg_l_ud": 3.875,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aperitivos",
+      "subfamilia": "Frutos secos"
+    },
+    "calabacin": null,
+    "calabaza": null,
+    "calamar_congelado": null,
+    "caldo_pollo": {
+      "sku": "7313",
+      "nombre": "Caldo de pollo Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 0.75,
+      "precio_kg_l_ud": 0.75,
+      "packaging": "Brik",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Caldo líquido"
+    },
+    "caldo_verduras": null,
+    "carne_picada_cerdo": null,
+    "carne_picada_mixta": null,
+    "carne_picada_vacuno": {
+      "sku": "52776",
+      "nombre": "Preparado de carne picada vacuno",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 5.4,
+      "precio_kg_l_ud": 13.5,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Carne",
+      "subfamilia": "Picadas y otros"
+    },
+    "cebolla": {
+      "sku": "69079",
+      "nombre": "Cebollas",
+      "contenido": 2,
+      "unidad": "kg",
+      "precio": 3.2,
+      "precio_kg_l_ud": 1.6,
+      "packaging": "Malla",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Cebolla y ajo"
+    },
+    "champinon": {
+      "sku": "16618",
+      "nombre": "Champiñones laminados Hacendado",
+      "contenido": 0.18,
+      "unidad": "kg",
+      "precio": 1,
+      "precio_kg_l_ud": 5.556,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Conservas verdura",
+      "contenido_etiqueta": 0.355
+    },
+    "chorizo": {
+      "sku": "55135",
+      "nombre": "Taquitos de chorizo extra Revilla",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 2.55,
+      "precio_kg_l_ud": 12.75,
+      "packaging": "Pack-2",
+      "unidades_pack": 2,
+      "peso_variable": false,
+      "departamento": "Charcutería y quesos",
+      "subfamilia": "Chorizo"
+    },
+    "chuleta_cordero": null,
+    "coliflor": {
+      "sku": "61231",
+      "nombre": "Coliflor Hacendado ultracongelada",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.5,
+      "precio_kg_l_ud": 1.5,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
+    "colorante_alimentario": {
+      "sku": "34182",
+      "nombre": "Colorante alimentario Hacendado",
+      "contenido": 0.085,
+      "unidad": "kg",
+      "precio": 0.95,
+      "precio_kg_l_ud": 11.176,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Colorante y pimentón"
+    },
+    "comino": {
+      "sku": "34120",
+      "nombre": "Comino molido Hacendado",
+      "contenido": 0.058,
+      "unidad": "kg",
+      "precio": 1.05,
+      "precio_kg_l_ud": 18.103,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Otras especias"
+    },
+    "contramuslo_pollo": {
+      "sku": "2789",
+      "nombre": "Contramuslos de pollo deshuesados y sin piel",
+      "contenido": 0.55,
+      "unidad": "kg",
+      "precio": 4.68,
+      "precio_kg_l_ud": 8.509,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Pollo"
+    },
+    "costilla_cerdo": null,
+    "curcuma": {
+      "sku": "34163",
+      "nombre": "Cúrcuma molida Hacendado",
+      "contenido": 0.06,
+      "unidad": "kg",
+      "precio": 1.3,
+      "precio_kg_l_ud": 21.667,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Otras especias"
+    },
+    "curry": {
+      "sku": "34125",
+      "nombre": "Curry Hacendado",
+      "contenido": 0.057,
+      "unidad": "kg",
+      "precio": 1.1,
+      "precio_kg_l_ud": 19.298,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Otras especias"
+    },
+    "dorada": {
+      "sku": "87300",
+      "nombre": "Dorada limpia",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 5.4,
+      "precio_kg_l_ud": 13.5,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Marisco y pescado",
+      "subfamilia": "Dorada"
+    },
+    "entrecot_vacuno": null,
+    "espagueti": {
+      "sku": "6277",
+      "nombre": "Spaghetti fino Hacendado",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 0.8,
+      "precio_kg_l_ud": 1.6,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Spaghetti y tallarines"
+    },
+    "esparrago_verde": {
+      "sku": "61238",
+      "nombre": "Espárrago verde troceado Hacendado ultracongelado",
+      "contenido": 0.3,
+      "unidad": "kg",
+      "precio": 2.55,
+      "precio_kg_l_ud": 8.5,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
+    "espinaca": null,
+    "fideo": {
+      "sku": "13577",
+      "nombre": "Fideo cabello de ángel Hacendado",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 0.8,
+      "precio_kg_l_ud": 1.6,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Fideos"
+    },
+    "filete_vacuno": null,
+    "gamba_congelada": null,
+    "garbanzo_cocido": {
+      "sku": "26029",
+      "nombre": "Garbanzo cocido Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 0.75,
+      "precio_kg_l_ud": 1.875,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Garbanzos",
+      "contenido_etiqueta": 0.57
+    },
+    "garbanzo_seco": null,
+    "guisante": {
+      "sku": "16416",
+      "nombre": "Guisantes extra Hacendado",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 0.9,
+      "precio_kg_l_ud": 3.6,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Conservas verdura",
+      "contenido_etiqueta": 0.39
+    },
+    "harina_maiz": {
+      "sku": "9588",
+      "nombre": "Harina fina de maíz Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.2,
+      "precio_kg_l_ud": 3,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Panadería y pastelería",
+      "subfamilia": "Harina"
+    },
+    "huevo": {
+      "sku": "30167",
+      "nombre": "Huevos",
+      "contenido": 24,
+      "unidad": "ud",
+      "precio": 5.85,
+      "precio_kg_l_ud": 0.244,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Huevos"
+    },
+    "hummus": {
+      "sku": "80858",
+      "nombre": "Hummus de garbanzos Hacendado receta clásica",
+      "contenido": 0.24,
+      "unidad": "kg",
+      "precio": 1.05,
+      "precio_kg_l_ud": 4.375,
+      "packaging": "Tarrina",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Pizzas y platos preparados",
+      "subfamilia": "Hummus y otros"
+    },
+    "jamoncito_pollo": {
+      "sku": "25183",
+      "nombre": "Jamoncitos de pollo congelados",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 2.9,
+      "precio_kg_l_ud": 2.9,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Carne"
+    },
+    "judia_verde": {
+      "sku": "16315",
+      "nombre": "Judías verdes redondas Hacendado",
+      "contenido": 0.36,
+      "unidad": "kg",
+      "precio": 1.1,
+      "precio_kg_l_ud": 3.056,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Conservas verdura",
+      "contenido_etiqueta": 0.66
+    },
+    "laurel": {
+      "sku": "47994",
+      "nombre": "Hoja de laurel Hacendado",
+      "contenido": 0.012,
+      "unidad": "kg",
+      "precio": 0.85,
+      "precio_kg_l_ud": 70.833,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Hierbas"
+    },
+    "leche_semi": {
+      "sku": "10382",
+      "nombre": "Leche semidesnatada Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 0.86,
+      "precio_kg_l_ud": 0.86,
+      "packaging": "Brik",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Leche semidesnatada"
+    },
+    "lechuga": {
+      "sku": "69670",
+      "nombre": "Lechuga iceberg cortada y lavada",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 1.3,
+      "precio_kg_l_ud": 5.2,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Lechuga"
+    },
+    "lenteja_cocida": {
+      "sku": "26011",
+      "nombre": "Lenteja cocida Hacendado",
+      "contenido": 0.21,
+      "unidad": "kg",
+      "precio": 0.7,
+      "precio_kg_l_ud": 3.333,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Lentejas y otros",
+      "contenido_etiqueta": 0.295
+    },
+    "lenteja_pardina": {
+      "sku": "5330",
+      "nombre": "Lenteja pardina Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.8,
+      "precio_kg_l_ud": 1.8,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Lentejas y otros"
+    },
+    "limon": {
+      "sku": "3210",
+      "nombre": "Limón",
+      "contenido": 0.17,
+      "unidad": "kg",
+      "precio": 0.48,
+      "precio_kg_l_ud": 2.824,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Cítricos"
+    },
+    "lomo_cerdo": null,
+    "lomo_merluza": null,
+    "lubina": {
+      "sku": "87310",
+      "nombre": "Lubina limpia",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 5.04,
+      "precio_kg_l_ud": 12.6,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Marisco y pescado",
+      "subfamilia": "Lubina"
+    },
+    "macarron": {
+      "sku": "6260",
+      "nombre": "Macarrón fino Hacendado",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 0.8,
+      "precio_kg_l_ud": 1.6,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Macarrones, pajaritas y hélices"
+    },
+    "maiz_dulce": {
+      "sku": "61289",
+      "nombre": "Maíz dulce Hacendado ultracongelado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.15,
+      "precio_kg_l_ud": 2.875,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
+    "mejillon_congelado": {
+      "sku": "62401",
+      "nombre": "Mejillón de Chile entero cocido Hacendado ultracongelado",
+      "contenido": 0.45,
+      "unidad": "kg",
+      "precio": 3.25,
+      "precio_kg_l_ud": 7.222,
+      "packaging": "Caja",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Marisco y pescado",
+      "subfamilia": "Marisco de concha"
+    },
+    "mejillon_lata": {
+      "sku": "18615",
+      "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+      "contenido": 0.212,
+      "unidad": "kg",
+      "precio": 2.65,
+      "precio_kg_l_ud": 12.5,
+      "packaging": null,
+      "unidades_pack": 2,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Mejillones",
+      "contenido_etiqueta": 0.35
+    },
+    "mostaza": {
+      "sku": "17228",
+      "nombre": "Mostaza de Dijon Hacendado",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 1.25,
+      "precio_kg_l_ud": 6.25,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Mostaza"
+    },
+    "muslo_pollo": null,
+    "nata_cocinar": {
+      "sku": "10161",
+      "nombre": "Nata ligera para cocinar Hacendado",
+      "contenido": 0.5,
+      "unidad": "l",
+      "precio": 1.55,
+      "precio_kg_l_ud": 3.1,
+      "packaging": "Brik",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Huevos, leche y mantequilla",
+      "subfamilia": "Nata"
+    },
+    "oregano": {
+      "sku": "5598",
+      "nombre": "Orégano Hacendado",
+      "contenido": 0.025,
+      "unidad": "kg",
+      "precio": 1,
+      "precio_kg_l_ud": 40,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Hierbas"
+    },
+    "pan": null,
+    "panceta": {
+      "sku": "17944",
+      "nombre": "Panceta de cerdo pieza",
+      "contenido": 0.7,
+      "unidad": "kg",
+      "precio": 3.43,
+      "precio_kg_l_ud": 4.9,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Cerdo"
+    },
+    "patata": {
+      "sku": "69166",
+      "nombre": "Patatas",
+      "contenido": 3,
+      "unidad": "kg",
+      "precio": 4.9,
+      "precio_kg_l_ud": 1.633,
+      "packaging": "Malla",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Patata"
+    },
+    "pechuga_pollo": {
+      "sku": "3400",
+      "nombre": "Filetes pechuga de pollo corte fino",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 4.68,
+      "precio_kg_l_ud": 9.36,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Pollo"
+    },
+    "pepino": null,
+    "perejil": {
+      "sku": "5599",
+      "nombre": "Perejil Hacendado",
+      "contenido": 0.018,
+      "unidad": "kg",
+      "precio": 0.95,
+      "precio_kg_l_ud": 52.778,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Hierbas"
+    },
+    "pimenton_dulce": {
+      "sku": "60573",
+      "nombre": "Pimentón dulce Hacendado",
+      "contenido": 0.075,
+      "unidad": "kg",
+      "precio": 1.3,
+      "precio_kg_l_ud": 17.333,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Colorante y pimentón"
+    },
+    "pimienta_negra": {
+      "sku": "34171",
+      "nombre": "Pimienta negra molida Hacendado",
+      "contenido": 0.07,
+      "unidad": "kg",
+      "precio": 1.3,
+      "precio_kg_l_ud": 18.571,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Pimienta"
+    },
+    "pimiento_rojo": {
+      "sku": "35221",
+      "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+      "contenido": 0.45,
+      "unidad": "kg",
+      "precio": 1.25,
+      "precio_kg_l_ud": 2.778,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
+    "pimiento_verde": null,
+    "pollo_troceado": {
+      "sku": "2779",
+      "nombre": "Medio pollo troceado",
+      "contenido": 0.9,
+      "unidad": "kg",
+      "precio": 3.78,
+      "precio_kg_l_ud": 4.2,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Pollo"
+    },
+    "puerro": {
+      "sku": "68408",
+      "nombre": "Puerros",
+      "contenido": 0.45,
+      "unidad": "kg",
+      "precio": 2.25,
+      "precio_kg_l_ud": 5,
+      "packaging": null,
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Otras verduras y hortalizas"
+    },
+    "queso_fresco": {
+      "sku": "17463",
+      "nombre": "Queso fresco de vaca QuesPro Hacendado",
+      "contenido": 0.15,
+      "unidad": "kg",
+      "precio": 2,
+      "precio_kg_l_ud": 13.333,
+      "packaging": "Tarrina",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Charcutería y quesos",
+      "subfamilia": "Queso fresco",
+      "contenido_etiqueta": 0.3
+    },
+    "queso_rallado": {
+      "sku": "23621",
+      "nombre": "Queso rallado especial fundir mezcla Hacendado",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 1.1,
+      "precio_kg_l_ud": 5.5,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Charcutería y quesos",
+      "subfamilia": "Queso rallado"
+    },
+    "repollo": null,
+    "romero": {
+      "sku": "14981",
+      "nombre": "Romero Hacendado",
+      "contenido": 0.035,
+      "unidad": "kg",
+      "precio": 0.85,
+      "precio_kg_l_ud": 24.286,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Hierbas"
+    },
+    "sal": {
+      "sku": "19731",
+      "nombre": "Sal fina Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 0.39,
+      "precio_kg_l_ud": 0.39,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Sal y bicarbonato"
+    },
+    "salchicha_fresca": null,
+    "sardina_fresca": null,
+    "seta": {
+      "sku": "69653",
+      "nombre": "Setas",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 1.98,
+      "precio_kg_l_ud": 7.92,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Setas y champiñones"
+    },
+    "soja_texturizada": {
+      "sku": "13926",
+      "nombre": "Soja texturizada Luengo",
+      "contenido": 0.2,
+      "unidad": "kg",
+      "precio": 2.4,
+      "precio_kg_l_ud": 12,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Lentejas y otros"
+    },
+    "solomillo_cerdo": null,
+    "taco_vacuno": null,
+    "tofu": {
+      "sku": "51097",
+      "nombre": "Tofu firme Hacendado",
+      "contenido": 0.275,
+      "unidad": "kg",
+      "precio": 1.75,
+      "precio_kg_l_ud": 6.364,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Pizzas y platos preparados",
+      "subfamilia": "Hummus y otros",
+      "contenido_etiqueta": 0.4
+    },
+    "tomate": {
+      "sku": "69912",
+      "nombre": "Tomate pera",
+      "contenido": 0.125,
+      "unidad": "kg",
+      "precio": 0.3,
+      "precio_kg_l_ud": 2.4,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Tomate"
+    },
+    "tomate_frito": {
+      "sku": "17151",
+      "nombre": "Tomate frito Hacendado",
+      "contenido": 0.63,
+      "unidad": "kg",
+      "precio": 0.9,
+      "precio_kg_l_ud": 1.429,
+      "packaging": "Pack-3",
+      "unidades_pack": 3,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Tomate"
+    },
+    "tomate_triturado": {
+      "sku": "16044",
+      "nombre": "Tomate triturado Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 0.55,
+      "precio_kg_l_ud": 1.375,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Tomate"
+    },
+    "tomillo": {
+      "sku": "5547",
+      "nombre": "Tomillo Hacendado",
+      "contenido": 0.024,
+      "unidad": "kg",
+      "precio": 1,
+      "precio_kg_l_ud": 41.667,
+      "packaging": "Bote",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Hierbas"
+    },
+    "vinagre": {
+      "sku": "4940",
+      "nombre": "Vinagre de vino blanco Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 0.6,
+      "precio_kg_l_ud": 0.6,
+      "packaging": "Botella",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Vinagre y otros aderezos"
+    },
+    "vinagre_manzana": {
+      "sku": "4957",
+      "nombre": "Vinagre de manzana Hacendado",
+      "contenido": 1,
+      "unidad": "l",
+      "precio": 0.7,
+      "precio_kg_l_ud": 0.7,
+      "packaging": "Botella",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aceite, especias y salsas",
+      "subfamilia": "Vinagre y otros aderezos"
+    },
+    "yogur_natural": null,
+    "zanahoria": {
+      "sku": "69586",
+      "nombre": "Zanahorias",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.3,
+      "precio_kg_l_ud": 1.3,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Pepino y zanahoria"
+    },
+    "haba_congelada": null,
+    "edamame_congelado": {
+      "sku": "70740",
+      "nombre": "Edamame soja verde Hacendado ultracongelada",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 1.67,
+      "precio_kg_l_ud": 3.34,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
+    "alubia_negra_seca": {
+      "sku": "67608",
+      "nombre": "Alubia negra Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 2.75,
+      "precio_kg_l_ud": 2.75,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Alubias"
+    },
+    "cuscus": {
+      "sku": "9395",
+      "nombre": "Cous cous mediano Hacendado",
+      "contenido": 1,
+      "unidad": "kg",
+      "precio": 1.8,
+      "precio_kg_l_ud": 1.8,
+      "packaging": "Caja",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Arroz"
+    },
+    "pasta_lenteja_roja": {
+      "sku": "6106",
+      "nombre": "Pasta fusilli 100% lentejas rojas Felicia",
+      "contenido": 0.25,
+      "unidad": "kg",
+      "precio": 1.65,
+      "precio_kg_l_ud": 6.6,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Arroz, legumbres y pasta",
+      "subfamilia": "Macarrones, pajaritas y hélices"
+    },
+    "postre_yogur_natural": null,
+    "postre_gelatina": {
+      "sku": "68172",
+      "nombre": "Gelatina sabor fresa Hacendado",
+      "contenido": 0.6,
+      "unidad": "kg",
+      "precio": 1,
+      "precio_kg_l_ud": 1.667,
+      "packaging": "Pack-6",
+      "unidades_pack": 6,
+      "peso_variable": false,
+      "departamento": "Postres y yogures",
+      "subfamilia": "Gelatina"
+    },
+    "postre_platano": {
+      "sku": "3819",
+      "nombre": "Plátano de Canarias IGP",
+      "contenido": 0.154,
+      "unidad": "kg",
+      "precio": 0.38,
+      "precio_kg_l_ud": 2.468,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Plátano y uva"
+    },
+    "postre_manzana": {
+      "sku": "3028",
+      "nombre": "Manzana Golden",
+      "contenido": 0.19,
+      "unidad": "kg",
+      "precio": 0.42,
+      "precio_kg_l_ud": 2.211,
+      "packaging": "Pieza",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Fruta y verdura",
+      "subfamilia": "Manzana y pera"
+    },
+    "postre_natillas": null,
+    "postre_soja": {
+      "sku": "20200",
+      "nombre": "Postre de soja natural Hacendado",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 1.25,
+      "precio_kg_l_ud": 3.125,
+      "packaging": null,
+      "unidades_pack": 4,
+      "peso_variable": false,
+      "departamento": "Postres y yogures",
+      "subfamilia": "Postres de soja"
+    }
+  },
+  "estado": {
+    "aceite_oliva": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "aceituna_verde": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "52783 Aceitunas verdes Hacendado con hueso"
+    },
+    "acelga": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (16314): no existe en 9 de 9 almacenes; Solo hay acelga fresca (69725, 300 g). La receta cuenta acelga de bote escurrida, ya cocida: la fresca merma a la mitad y saldría la mitad de plato."
+    },
+    "ajo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alcachofa": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "16040 Corazones de alcachofa Hacendado"
+    },
+    "almendra": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alubia_blanca_cocida": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alubia_blanca_seca": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alubia_pinta_cocida": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alubia_roja_cocida": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "apio": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "arroz_integral": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "arroz_largo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "arroz_redondo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "atun_lata": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "bacalao_congelado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "bacon": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "16252 Bacón Hacendado cintas"
+    },
+    "bebida_arroz": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "bebida_soja": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "berenjena": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "69143 Berenjena"
+    },
+    "brocoli": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "caballa_lata": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "cacahuete": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "calabacin": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "69339 Calabacín blanco"
+    },
+    "calabaza": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "3251 Trozo de calabaza"
+    },
+    "calamar_congelado": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (24417): no existe en 9 de 9 almacenes; la propuesta 24242 no tiene precio y contenido completos en el catálogo"
+    },
+    "caldo_pollo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "caldo_verduras": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (18480): no existe en 7 de 9 almacenes; El de Madrid (18480) solo está en 4701 y 4570. En pastillas (15592) no se puede: la receta lo pide en ml. Si tu almacén es 4701 o 4570, sí lo tienes."
+    },
+    "carne_picada_cerdo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "5241 Preparado de carne picada cerdo"
+    },
+    "carne_picada_mixta": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "5077 Preparado de carne picada vacuno y cerdo"
+    },
+    "carne_picada_vacuno": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "cebolla": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "champinon": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "chorizo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "chuleta_cordero": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "5186 Chuletas de cordero palo o riñonada congeladas"
+    },
+    "coliflor": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "colorante_alimentario": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "comino": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "contramuslo_pollo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "costilla_cerdo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4467 Tira de costilla de cerdo"
+    },
+    "curcuma": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "curry": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "dorada": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "entrecot_vacuno": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4516 Entrecot de vacuno añojo para barbacoa o plancha"
+    },
+    "espagueti": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "esparrago_verde": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "espinaca": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "13986 Espinacas en porciones Hacendado ultracongeladas"
+    },
+    "fideo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "filete_vacuno": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4620 Filetes de vacuno 1º añojo para empanar"
+    },
+    "gamba_congelada": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (62750): no existe en 9 de 9 almacenes; la propuesta 24181 no tiene precio y contenido completos en el catálogo"
+    },
+    "garbanzo_cocido": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "garbanzo_seco": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "5214 Garbanzo Hacendado"
+    },
+    "guisante": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "harina_maiz": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "huevo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "hummus": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "jamoncito_pollo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "judia_verde": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "laurel": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "leche_semi": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "lechuga": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "lenteja_cocida": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "lenteja_pardina": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "limon": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "lomo_cerdo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4119 Filetes lomo de cerdo extra tiernos"
+    },
+    "lomo_merluza": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "62212 Lomos de merluza del Cabo Hacendado ultracongelados"
+    },
+    "lubina": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "macarron": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "maiz_dulce": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "mejillon_congelado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "mejillon_lata": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "mostaza": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "muslo_pollo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "2789 Contramuslos de pollo deshuesados y sin piel"
+    },
+    "nata_cocinar": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "oregano": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pan": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "9638.1 Barra de pan rústica"
+    },
+    "panceta": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "patata": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pechuga_pollo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pepino": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "69253 Pepino"
+    },
+    "perejil": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pimenton_dulce": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pimienta_negra": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pimiento_rojo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pimiento_verde": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "68379 Pimiento verde"
+    },
+    "pollo_troceado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "puerro": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "queso_fresco": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "queso_rallado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "repollo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "69167 Media col lisa"
+    },
+    "romero": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "sal": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "salchicha_fresca": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: sin evidencia); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4463 Longaniza fresca de pueblo"
+    },
+    "sardina_fresca": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (87916): no existe en 9 de 9 almacenes; Solo hay sardina congelada (sin peso neto en el catálogo) o en lata. Ninguna es sardina fresca para la plancha."
+    },
+    "seta": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "soja_texturizada": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "solomillo_cerdo": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "4460 Solomillo de cerdo"
+    },
+    "taco_vacuno": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (2807): no existe en 9 de 9 almacenes; No hay tacos de vacuno para guisar en el catálogo."
+    },
+    "tofu": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "tomate": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "tomate_frito": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "tomate_triturado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "tomillo": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "vinagre": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "vinagre_manzana": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "yogur_natural": {
+      "origen": "alternativa rechazada",
+      "verificacion": "no verificada",
+      "detalle": "20087 Yogur natural Danone: discrepancias: trazas"
+    },
+    "zanahoria": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "haba_congelada": {
+      "origen": "ninguno",
+      "verificacion": "sin producto",
+      "detalle": "el de Madrid (61233): no existe en 9 de 9 almacenes; No hay habas en el catálogo."
+    },
+    "edamame_congelado": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "alubia_negra_seca": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "cuscus": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "pasta_lenteja_roja": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "postre_yogur_natural": {
+      "origen": "alternativa rechazada",
+      "verificacion": "no verificada",
+      "detalle": "20087 Yogur natural Danone: discrepancias: trazas"
+    },
+    "postre_gelatina": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "postre_platano": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "postre_manzana": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    },
+    "postre_natillas": {
+      "origen": "alternativa sin revisar",
+      "verificacion": "la auditoría no le encuentra problemas (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "detalle": "68235 Natillas sabor vainilla Hacendado"
+    },
+    "postre_soja": {
+      "origen": "mismo-sku",
+      "verificacion": "existe y coincide en todos los almacenes",
+      "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
+    }
+  }
+}

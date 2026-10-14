@@ -1,0 +1,1569 @@
+{
+  "N": 2,
+  "presupuesto": 65,
+  "informe": [
+    {
+      "escenario": "Madrid (mad3)",
+      "catalogo": "2026-10-13",
+      "recetas": 152,
+      "total": 54.23,
+      "cuadra": true,
+      "menu": [
+        {
+          "dia": "LUN",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Lentejas con calabaza"
+        },
+        {
+          "dia": "LUN",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Ensalada de garbanzos con caballa"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Espaguetis con soja"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "comida",
+          "tipo": "sobras",
+          "receta": "Lentejas con calabaza"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Tofu a la mostaza"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "comida",
+          "tipo": "sobras",
+          "receta": "Espaguetis con soja"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Cuscús con alubias y maíz"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Merluza en salsa verde"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "cena",
+          "tipo": "ensamblaje",
+          "receta": "Tofu a la mostaza"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "comida",
+          "tipo": "sobras",
+          "receta": "Cuscús con alubias y maíz"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Pollo al limón"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Sardinas al horno"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        }
+      ],
+      "compra": [
+        {
+          "sku": "51097",
+          "nombre": "Tofu firme Hacendado",
+          "envases": 3,
+          "importe": 5.25
+        },
+        {
+          "sku": "16618",
+          "nombre": "Champiñones laminados Hacendado",
+          "envases": 5,
+          "importe": 5
+        },
+        {
+          "sku": "62113",
+          "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
+          "envases": 1,
+          "importe": 4.9
+        },
+        {
+          "sku": "3400",
+          "nombre": "Filetes pechuga de pollo corte fino",
+          "envases": 1,
+          "importe": 4.1
+        },
+        {
+          "sku": "25183",
+          "nombre": "Jamoncitos de pollo congelados",
+          "envases": 1,
+          "importe": 3.5
+        },
+        {
+          "sku": "69079",
+          "nombre": "Cebollas",
+          "envases": 1,
+          "importe": 3
+        },
+        {
+          "sku": "13632",
+          "nombre": "Filetes de caballa del sur en tomate Hacendado",
+          "envases": 1,
+          "importe": 2.85
+        },
+        {
+          "sku": "13926",
+          "nombre": "Soja texturizada Luengo",
+          "envases": 1,
+          "importe": 2.7
+        },
+        {
+          "sku": "87916",
+          "nombre": "Sardina sin limpiar",
+          "envases": 1,
+          "importe": 2.4
+        },
+        {
+          "sku": "26019",
+          "nombre": "Alubia cocida blanca Hacendado",
+          "envases": 3,
+          "importe": 2.25
+        },
+        {
+          "sku": "69853",
+          "nombre": "Media calabaza cacahuete",
+          "envases": 1,
+          "importe": 2.1
+        },
+        {
+          "sku": "9395",
+          "nombre": "Cous cous mediano Hacendado",
+          "envases": 1,
+          "importe": 1.95
+        },
+        {
+          "sku": "69297",
+          "nombre": "Ajos morados",
+          "envases": 1,
+          "importe": 1.85
+        },
+        {
+          "sku": "5330",
+          "nombre": "Lenteja pardina Hacendado",
+          "envases": 1,
+          "importe": 1.85
+        },
+        {
+          "sku": "18480",
+          "nombre": "Caldo de verduras casero Gallina blanca",
+          "envases": 1,
+          "importe": 1.8
+        },
+        {
+          "sku": "61289",
+          "nombre": "Maíz dulce Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.24
+        },
+        {
+          "sku": "35221",
+          "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.2
+        },
+        {
+          "sku": "69580",
+          "nombre": "Brócoli",
+          "envases": 1,
+          "importe": 1.1
+        },
+        {
+          "sku": "69586",
+          "nombre": "Zanahorias",
+          "envases": 1,
+          "importe": 1
+        },
+        {
+          "sku": "61279",
+          "nombre": "Espinaca en porciones Hacendado ultracongelada",
+          "envases": 1,
+          "importe": 0.9
+        },
+        {
+          "sku": "6277",
+          "nombre": "Spaghetti fino Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "26029",
+          "nombre": "Garbanzo cocido Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "16044",
+          "nombre": "Tomate triturado Hacendado",
+          "envases": 1,
+          "importe": 0.55
+        },
+        {
+          "sku": "69912",
+          "nombre": "Tomate pera",
+          "envases": 2,
+          "importe": 0.52
+        },
+        {
+          "sku": "3210",
+          "nombre": "Limón",
+          "envases": 1,
+          "importe": 0.39
+        },
+        {
+          "sku": "69320",
+          "nombre": "Pimiento verde freír",
+          "envases": 1,
+          "importe": 0.23
+        }
+      ]
+    },
+    {
+      "escenario": "Gran Canaria · catálogo de la app",
+      "catalogo": "2026-10-14",
+      "recetas": 49,
+      "total": 53.59,
+      "cuadra": true,
+      "menu": [
+        {
+          "dia": "LUN",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Macarrones a la boloñesa"
+        },
+        {
+          "dia": "LUN",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Garbanzos gratinados"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Cuscús con alubias y maíz"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "comida",
+          "tipo": "ensamblaje",
+          "receta": "Macarrones a la boloñesa"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Cuscús con alubia roja"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "comida",
+          "tipo": "ensamblaje",
+          "receta": "Jamoncitos al ajillo"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Tofu al limón"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Lentejas con huevo"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "cena",
+          "tipo": "sobras",
+          "receta": "Cuscús con alubia roja"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "comida",
+          "tipo": "ensamblaje",
+          "receta": "Tofu al limón"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Revuelto de champiñones"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Pasta con atún"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        }
+      ],
+      "compra": [
+        {
+          "sku": "30167",
+          "nombre": "Huevos",
+          "envases": 1,
+          "importe": 5.85
+        },
+        {
+          "sku": "25183",
+          "nombre": "Jamoncitos de pollo congelados",
+          "envases": 2,
+          "importe": 5.8
+        },
+        {
+          "sku": "51097",
+          "nombre": "Tofu firme Hacendado",
+          "envases": 3,
+          "importe": 5.25
+        },
+        {
+          "sku": "16618",
+          "nombre": "Champiñones laminados Hacendado",
+          "envases": 5,
+          "importe": 5
+        },
+        {
+          "sku": "69079",
+          "nombre": "Cebollas",
+          "envases": 1,
+          "importe": 3.2
+        },
+        {
+          "sku": "13926",
+          "nombre": "Soja texturizada Luengo",
+          "envases": 1,
+          "importe": 2.4
+        },
+        {
+          "sku": "26000",
+          "nombre": "Alubia cocida roja Hacendado",
+          "envases": 2,
+          "importe": 2.3
+        },
+        {
+          "sku": "26029",
+          "nombre": "Garbanzo cocido Hacendado",
+          "envases": 3,
+          "importe": 2.25
+        },
+        {
+          "sku": "18037",
+          "nombre": "Atún en salsa de tomate Hacendado",
+          "envases": 1,
+          "importe": 2
+        },
+        {
+          "sku": "69297",
+          "nombre": "Ajos morados",
+          "envases": 1,
+          "importe": 1.85
+        },
+        {
+          "sku": "9395",
+          "nombre": "Cous cous mediano Hacendado",
+          "envases": 1,
+          "importe": 1.8
+        },
+        {
+          "sku": "16044",
+          "nombre": "Tomate triturado Hacendado",
+          "envases": 3,
+          "importe": 1.65
+        },
+        {
+          "sku": "34031",
+          "nombre": "Cacahuete tostado Hacendado 0% sal añadida",
+          "envases": 1,
+          "importe": 1.55
+        },
+        {
+          "sku": "3210",
+          "nombre": "Limón",
+          "envases": 3,
+          "importe": 1.44
+        },
+        {
+          "sku": "26011",
+          "nombre": "Lenteja cocida Hacendado",
+          "envases": 2,
+          "importe": 1.4
+        },
+        {
+          "sku": "69586",
+          "nombre": "Zanahorias",
+          "envases": 1,
+          "importe": 1.3
+        },
+        {
+          "sku": "35221",
+          "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.25
+        },
+        {
+          "sku": "61289",
+          "nombre": "Maíz dulce Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.15
+        },
+        {
+          "sku": "16315",
+          "nombre": "Judías verdes redondas Hacendado",
+          "envases": 1,
+          "importe": 1.1
+        },
+        {
+          "sku": "23621",
+          "nombre": "Queso rallado especial fundir mezcla Hacendado",
+          "envases": 1,
+          "importe": 1.1
+        },
+        {
+          "sku": "13577",
+          "nombre": "Fideo cabello de ángel Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "6277",
+          "nombre": "Spaghetti fino Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "6260",
+          "nombre": "Macarrón fino Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "26019",
+          "nombre": "Alubia cocida blanca Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "7313",
+          "nombre": "Caldo de pollo Hacendado",
+          "envases": 1,
+          "importe": 0.75
+        }
+      ],
+      "recetasFuera": [
+        {
+          "receta": "merluza_horno",
+          "faltan": [
+            "lomo_merluza"
+          ]
+        },
+        {
+          "receta": "tortilla_ensalada",
+          "faltan": [
+            "aceituna_verde"
+          ]
+        },
+        {
+          "receta": "arroz_pollo",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "crema_calabaza",
+          "faltan": [
+            "calabaza",
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "garbanzos_espinacas",
+          "faltan": [
+            "caldo_verduras",
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "pisto_huevo",
+          "faltan": [
+            "calabacin",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "potaje_garbanzos_acelgas",
+          "faltan": [
+            "acelga",
+            "garbanzo_seco"
+          ]
+        },
+        {
+          "receta": "garbanzos_tomate",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "lentejas_calabaza",
+          "faltan": [
+            "calabaza"
+          ]
+        },
+        {
+          "receta": "alubias_blancas_guisadas",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "alubias_pintas_repollo",
+          "faltan": [
+            "repollo"
+          ]
+        },
+        {
+          "receta": "patatas_guisadas_pimenton",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "crema_puerro_patata",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "crema_coliflor_asada",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "arroz_meloso_verduras",
+          "faltan": [
+            "calabacin",
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "arroz_horno_garbanzos",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "patatas_panaderas_pimiento",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "escalivada_garbanzos",
+          "faltan": [
+            "berenjena"
+          ]
+        },
+        {
+          "receta": "tumbet_horno",
+          "faltan": [
+            "berenjena"
+          ]
+        },
+        {
+          "receta": "lentejas_templadas",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "garbanzos_calabacin",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "tofu_plancha_pimientos",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "arroz_verduras",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "tortilla_calabacin",
+          "faltan": [
+            "calabacin",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "huevos_plato_espinacas",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "berenjenas_gratinadas",
+          "faltan": [
+            "berenjena"
+          ]
+        },
+        {
+          "receta": "pollo_chilindron",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "macarrones_pollo",
+          "faltan": [
+            "muslo_pollo"
+          ]
+        },
+        {
+          "receta": "pollo_ajillo",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "albondigas_cerdo",
+          "faltan": [
+            "carne_picada_cerdo"
+          ]
+        },
+        {
+          "receta": "arroz_horno_costilla",
+          "faltan": [
+            "costilla_cerdo"
+          ]
+        },
+        {
+          "receta": "sardinas_horno",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "arroz_mejillon",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "campera_caballa",
+          "faltan": [
+            "aceituna_verde"
+          ]
+        },
+        {
+          "receta": "patatas_calamares",
+          "faltan": [
+            "calamar_congelado",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "merluza_salsa_verde",
+          "faltan": [
+            "caldo_verduras",
+            "espinaca",
+            "lomo_merluza"
+          ]
+        },
+        {
+          "receta": "pechuga_plancha_pimientos",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "pollo_guisado_zanahoria",
+          "faltan": [
+            "muslo_pollo"
+          ]
+        },
+        {
+          "receta": "lomo_pimientos_horno",
+          "faltan": [
+            "lomo_cerdo"
+          ]
+        },
+        {
+          "receta": "picadillo_cerdo_calabacin",
+          "faltan": [
+            "calabacin",
+            "carne_picada_cerdo"
+          ]
+        },
+        {
+          "receta": "sardinas_plancha_ensalada",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "revuelto_gambas_calabacin",
+          "faltan": [
+            "calabacin",
+            "gamba_congelada"
+          ]
+        },
+        {
+          "receta": "garbanzos_soja_espinacas",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "berenjenas_rellenas_cerdo",
+          "faltan": [
+            "berenjena",
+            "carne_picada_cerdo"
+          ]
+        },
+        {
+          "receta": "lomo_ajillo_champinones",
+          "faltan": [
+            "lomo_cerdo"
+          ]
+        },
+        {
+          "receta": "costilla_judias_verdes",
+          "faltan": [
+            "costilla_cerdo"
+          ]
+        },
+        {
+          "receta": "alubias_longaniza",
+          "faltan": [
+            "salchicha_fresca"
+          ]
+        },
+        {
+          "receta": "entrecot_patatas_panadera",
+          "faltan": [
+            "entrecot_vacuno",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "estofado_ternera_zanahoria",
+          "faltan": [
+            "taco_vacuno"
+          ]
+        },
+        {
+          "receta": "filetes_vacuno_encebollados",
+          "faltan": [
+            "filete_vacuno"
+          ]
+        },
+        {
+          "receta": "chuletas_cordero_ajillo",
+          "faltan": [
+            "chuleta_cordero"
+          ]
+        },
+        {
+          "receta": "solomillo_cerdo_mostaza",
+          "faltan": [
+            "solomillo_cerdo"
+          ]
+        },
+        {
+          "receta": "solomillo_cerdo_horno_verduras",
+          "faltan": [
+            "calabacin",
+            "solomillo_cerdo"
+          ]
+        },
+        {
+          "receta": "tortilla_acelgas_queso",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "sopa_ajo_huevo",
+          "faltan": [
+            "caldo_verduras",
+            "pan"
+          ]
+        },
+        {
+          "receta": "huevos_rellenos_caballa",
+          "faltan": [
+            "aceituna_verde"
+          ]
+        },
+        {
+          "receta": "alcachofas_huevo",
+          "faltan": [
+            "alcachofa"
+          ]
+        },
+        {
+          "receta": "bacalao_tomate",
+          "faltan": [
+            "pan",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "potaje_vigilia_bacalao",
+          "faltan": [
+            "caldo_verduras",
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "dorada_plancha_verduras",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "lubina_horno_tomate_aceituna",
+          "faltan": [
+            "aceituna_verde"
+          ]
+        },
+        {
+          "receta": "calamares_encebollados",
+          "faltan": [
+            "calamar_congelado"
+          ]
+        },
+        {
+          "receta": "arroz_caldoso_gambas",
+          "faltan": [
+            "caldo_verduras",
+            "gamba_congelada",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "marmitako_atun",
+          "faltan": [
+            "caldo_verduras",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "ensalada_garbanzos_caballa",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "salpicon_mejillones",
+          "faltan": [
+            "pan",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "sardinas_bandeja_patata",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "mejillones_marinera",
+          "faltan": [
+            "pan"
+          ]
+        },
+        {
+          "receta": "sardinas_escabeche",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "calabacin_relleno_atun",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "lentejas_curcuma_soja",
+          "faltan": [
+            "calabaza"
+          ]
+        },
+        {
+          "receta": "alubia_pinta_almendra_romero",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "revuelto_alubias_queso",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "cuscus_garbanzos_espinacas",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "cuscus_calabacin_soja",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "cuscus_queso_fresco_tomate",
+          "faltan": [
+            "pepino"
+          ]
+        },
+        {
+          "receta": "potaje_alubia_calabaza",
+          "faltan": [
+            "calabaza"
+          ]
+        },
+        {
+          "receta": "patatas_riojanas_alubia_pinta",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "arroz_verduras_alubia_colorante",
+          "faltan": [
+            "alcachofa"
+          ]
+        },
+        {
+          "receta": "ensalada_alubia_roja_pimiento_asado",
+          "faltan": [
+            "aceituna_verde"
+          ]
+        },
+        {
+          "receta": "berenjenas_rellenas_lenteja",
+          "faltan": [
+            "berenjena"
+          ]
+        },
+        {
+          "receta": "albondigas_soja_tomate",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "hummus_verduras_asadas",
+          "faltan": [
+            "berenjena",
+            "calabacin",
+            "pan"
+          ]
+        },
+        {
+          "receta": "habas_catalanas",
+          "faltan": [
+            "haba_congelada",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "habas_ajo_huevo",
+          "faltan": [
+            "haba_congelada",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "habas_patata_horno",
+          "faltan": [
+            "haba_congelada",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "salteado_edamame_calabacin",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "alubias_negras_guisadas",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "alubias_negras_calabaza",
+          "faltan": [
+            "calabaza"
+          ]
+        },
+        {
+          "receta": "alubias_negras_espinacas",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "revuelto_garbanzos_queso",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "lentejas_estofadas_soja",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "garbanzos_espinacas_almendra",
+          "faltan": [
+            "espinaca",
+            "garbanzo_seco"
+          ]
+        },
+        {
+          "receta": "potaje_garbanzos_alubias",
+          "faltan": [
+            "espinaca",
+            "garbanzo_seco"
+          ]
+        },
+        {
+          "receta": "lentejas_curry_espinacas",
+          "faltan": [
+            "espinaca"
+          ]
+        },
+        {
+          "receta": "alubias_huevo_pimenton",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "pisto_horno_queso_fresco",
+          "faltan": [
+            "berenjena",
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "alubias_rojas_calabaza",
+          "faltan": [
+            "calabaza",
+            "pimiento_verde"
+          ]
+        },
+        {
+          "receta": "ensalada_lenteja_queso_fresco",
+          "faltan": [
+            "pepino",
+            "yogur_natural"
+          ]
+        },
+        {
+          "receta": "calabacines_rellenos_garbanzo_queso",
+          "faltan": [
+            "calabacin"
+          ]
+        },
+        {
+          "receta": "patatas_importancia_almendra",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "alubias_blancas_acelgas",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "alubias_blancas_salteadas_pimientos",
+          "faltan": [
+            "pimiento_verde"
+          ]
+        }
+      ]
+    },
+    {
+      "escenario": "Gran Canaria · SUPONIENDO revisadas las alternativas",
+      "catalogo": "2026-10-14",
+      "recetas": 122,
+      "total": 51.06,
+      "cuadra": true,
+      "menu": [
+        {
+          "dia": "LUN",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Lentejas al curry"
+        },
+        {
+          "dia": "LUN",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Garbanzos con soja"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Alubias al pimentón"
+        },
+        {
+          "dia": "MAR",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "comida",
+          "tipo": "sobras",
+          "receta": "Lentejas al curry"
+        },
+        {
+          "dia": "MIÉ",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Tofu a la mostaza"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "comida",
+          "tipo": "ensamblaje",
+          "receta": "Alubias al pimentón"
+        },
+        {
+          "dia": "JUE",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Macarrones con pollo"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Pasta con atún"
+        },
+        {
+          "dia": "VIE",
+          "ranura": "cena",
+          "tipo": "ensamblaje",
+          "receta": "Tofu a la mostaza"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "comida",
+          "tipo": "sobras",
+          "receta": "Macarrones con pollo"
+        },
+        {
+          "dia": "SÁB",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Ensalada templada de edamame y maíz"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "comida",
+          "tipo": "cocinado",
+          "receta": "Revuelto de champiñones"
+        },
+        {
+          "dia": "DOM",
+          "ranura": "cena",
+          "tipo": "cocinado",
+          "receta": "Jamoncitos al ajillo"
+        }
+      ],
+      "compra": [
+        {
+          "sku": "30167",
+          "nombre": "Huevos",
+          "envases": 1,
+          "importe": 5.85
+        },
+        {
+          "sku": "51097",
+          "nombre": "Tofu firme Hacendado",
+          "envases": 3,
+          "importe": 5.25
+        },
+        {
+          "sku": "2789",
+          "nombre": "Contramuslos de pollo deshuesados y sin piel",
+          "envases": 1,
+          "importe": 4.68
+        },
+        {
+          "sku": "16618",
+          "nombre": "Champiñones laminados Hacendado",
+          "envases": 4,
+          "importe": 4
+        },
+        {
+          "sku": "69079",
+          "nombre": "Cebollas",
+          "envases": 1,
+          "importe": 3.2
+        },
+        {
+          "sku": "26019",
+          "nombre": "Alubia cocida blanca Hacendado",
+          "envases": 4,
+          "importe": 3.2
+        },
+        {
+          "sku": "25183",
+          "nombre": "Jamoncitos de pollo congelados",
+          "envases": 1,
+          "importe": 2.9
+        },
+        {
+          "sku": "13986",
+          "nombre": "Espinacas en porciones Hacendado ultracongeladas",
+          "envases": 2,
+          "importe": 2.5
+        },
+        {
+          "sku": "69580",
+          "nombre": "Brócoli",
+          "envases": 1,
+          "importe": 2.44
+        },
+        {
+          "sku": "13926",
+          "nombre": "Soja texturizada Luengo",
+          "envases": 1,
+          "importe": 2.4
+        },
+        {
+          "sku": "18037",
+          "nombre": "Atún en salsa de tomate Hacendado",
+          "envases": 1,
+          "importe": 2
+        },
+        {
+          "sku": "69297",
+          "nombre": "Ajos morados",
+          "envases": 1,
+          "importe": 1.85
+        },
+        {
+          "sku": "5330",
+          "nombre": "Lenteja pardina Hacendado",
+          "envases": 1,
+          "importe": 1.8
+        },
+        {
+          "sku": "70740",
+          "nombre": "Edamame soja verde Hacendado ultracongelada",
+          "envases": 1,
+          "importe": 1.67
+        },
+        {
+          "sku": "35221",
+          "nombre": "Pimiento rojo y verde Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.25
+        },
+        {
+          "sku": "61289",
+          "nombre": "Maíz dulce Hacendado ultracongelado",
+          "envases": 1,
+          "importe": 1.15
+        },
+        {
+          "sku": "17151",
+          "nombre": "Tomate frito Hacendado",
+          "envases": 1,
+          "importe": 0.9
+        },
+        {
+          "sku": "6277",
+          "nombre": "Spaghetti fino Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "6260",
+          "nombre": "Macarrón fino Hacendado",
+          "envases": 1,
+          "importe": 0.8
+        },
+        {
+          "sku": "26029",
+          "nombre": "Garbanzo cocido Hacendado",
+          "envases": 1,
+          "importe": 0.75
+        },
+        {
+          "sku": "68379",
+          "nombre": "Pimiento verde",
+          "envases": 1,
+          "importe": 0.64
+        },
+        {
+          "sku": "16044",
+          "nombre": "Tomate triturado Hacendado",
+          "envases": 1,
+          "importe": 0.55
+        },
+        {
+          "sku": "3210",
+          "nombre": "Limón",
+          "envases": 1,
+          "importe": 0.48
+        }
+      ],
+      "recetasFuera": [
+        {
+          "receta": "arroz_pollo",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "crema_calabaza",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "garbanzos_espinacas",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "potaje_garbanzos_acelgas",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "crema_puerro_patata",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "crema_coliflor_asada",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "arroz_meloso_verduras",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "arroz_horno_garbanzos",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "sardinas_horno",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "arroz_mejillon",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "patatas_calamares",
+          "faltan": [
+            "calamar_congelado"
+          ]
+        },
+        {
+          "receta": "merluza_salsa_verde",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "sardinas_plancha_ensalada",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "revuelto_gambas_calabacin",
+          "faltan": [
+            "gamba_congelada"
+          ]
+        },
+        {
+          "receta": "estofado_ternera_zanahoria",
+          "faltan": [
+            "taco_vacuno"
+          ]
+        },
+        {
+          "receta": "tortilla_acelgas_queso",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "sopa_ajo_huevo",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "potaje_vigilia_bacalao",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "calamares_encebollados",
+          "faltan": [
+            "calamar_congelado"
+          ]
+        },
+        {
+          "receta": "arroz_caldoso_gambas",
+          "faltan": [
+            "caldo_verduras",
+            "gamba_congelada"
+          ]
+        },
+        {
+          "receta": "marmitako_atun",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "sardinas_bandeja_patata",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "sardinas_escabeche",
+          "faltan": [
+            "sardina_fresca"
+          ]
+        },
+        {
+          "receta": "alubia_pinta_almendra_romero",
+          "faltan": [
+            "acelga"
+          ]
+        },
+        {
+          "receta": "habas_catalanas",
+          "faltan": [
+            "haba_congelada"
+          ]
+        },
+        {
+          "receta": "habas_ajo_huevo",
+          "faltan": [
+            "haba_congelada"
+          ]
+        },
+        {
+          "receta": "habas_patata_horno",
+          "faltan": [
+            "haba_congelada"
+          ]
+        },
+        {
+          "receta": "ensalada_lenteja_queso_fresco",
+          "faltan": [
+            "yogur_natural"
+          ]
+        },
+        {
+          "receta": "patatas_importancia_almendra",
+          "faltan": [
+            "caldo_verduras"
+          ]
+        },
+        {
+          "receta": "alubias_blancas_acelgas",
+          "faltan": [
+            "acelga"
+          ]
+        }
+      ]
+    }
+  ]
+}
