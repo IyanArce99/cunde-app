@@ -7,7 +7,8 @@ import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
 import { eur, eurSinSimbolo } from '../lib/format';
 import { fechaDePosicion } from '../lib/fechas';
-import { alternativasParaApp, indiceDeHueco, retocarParaApp } from '../data/motor';
+import { alternativasParaApp, indiceDeHueco, retocarParaApp, zonaCargada } from '../data/motor';
+import { textoDeZona } from '../lib/zona';
 import type { AlternativaParaApp, Retoque } from '../data/motor';
 import { useContador } from '../hooks/useContador';
 import TopTabs from '../components/TopTabs';
@@ -705,6 +706,11 @@ const Semana: React.FC = () => {
            * las dos ("0,44 € la ración · 0,88 € las 2").
            */}
           <div className="semana__dias-envoltorio">
+            {/* Fuera de una zona medida, la cifra grande es de Madrid y aquí se
+                dice, no solo en Compra: es la cifra con la que se decide. */}
+            {zonaCargada().cobertura !== 'medida' && (
+              <span className="semana__dias-rotulo semana__zona">{textoDeZona(zonaCargada())}</span>
+            )}
             <span className="semana__dias-rotulo">Por persona y ración</span>
             <div className="semana__dias" onScroll={alScroll}>
               {semana.dias.map((dia, i) => (

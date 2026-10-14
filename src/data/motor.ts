@@ -18,9 +18,33 @@ import type {
 import type { Carrito, DatosMotor, Hueco, Ranura } from '../motor/tipos.ts';
 import { numComensales, numHuecos } from '../state/types';
 import { aplicarInstantanea, leerGuardada } from '../lib/precios';
+import { zonaAlArrancar } from '../lib/zona';
+import type { ZonaResuelta } from '../lib/zona';
+import { datosDeZona } from '../motor/zona.ts';
+import type { CatalogoZona } from '../motor/zona.ts';
+import catalogoGranCanaria from './zonas/gran-canaria.json';
 import type { DiaSemana, ItemLista, Perfil, PlanSerial, Plato, Preferencias } from '../state/types';
 
-export const datos = datosJson as unknown as DatosMotor;
+/**
+ * ═══ LA ZONA SE DECIDE AL ARRANCAR, Y NO CAMBIA EN CALIENTE ═══
+ *
+ * Del código postal guardado (ver lib/zona.ts). Una vez cargado el catálogo,
+ * la app no lo cambia sin recargar: media docena de cosas se calculan una vez
+ * con él —el suelo de presupuesto, el recetario que te vale, la fecha de los
+ * precios— y cambiarlo debajo de ellas dejaría cifras de una zona junto a
+ * productos de otra. El onboarding recarga cuando el código postal cae en
+ * otra zona (pages/onboarding/Super.tsx).
+ */
+const ZONA: ZonaResuelta = zonaAlArrancar();
+
+export const datos: DatosMotor = ZONA.zona === 'gran-canaria'
+  ? datosDeZona(datosJson as unknown as DatosMotor, catalogoGranCanaria as unknown as CatalogoZona)
+  : datosJson as unknown as DatosMotor;
+
+/** De qué zona es el catálogo que está cargado. */
+export function zonaCargada(): ZonaResuelta {
+  return ZONA;
+}
 
 /**
  * ═══ LOS PRECIOS GUARDADOS PISAN A LOS DEL APK · Y ES LO PRIMERO QUE PASA ═══
@@ -44,9 +68,11 @@ export const datos = datosJson as unknown as DatosMotor;
  * recibido.
  */
 const versionAplicada = (() => {
-  const guardada = leerGuardada();
+  // Solo la de ESTA zona: leerGuardada no devuelve otra, y aplicarInstantanea
+  // la rechazaría igual.
+  const guardada = leerGuardada(ZONA.zona);
   if (!guardada || guardada.version <= datos.generadoEn) return datos.generadoEn;
-  const r = aplicarInstantanea(datos, guardada);
+  const r = aplicarInstantanea(datos, guardada, ZONA.zona);
   /**
    * `aplicados === 0` y no solo `descartada`, y la diferencia la encontró la
    * prueba de navegador.

@@ -194,3 +194,63 @@ describe('buscar actualización', () => {
     expect(await buscarActualizacion('u', '2026-08-01')).toBeNull();
   });
 });
+
+describe('cada instantánea es de una zona', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('una de otra zona no se aplica, ni una línea', () => {
+    const d = catalogo();
+    const r = aplicarInstantanea(d, { ...instantanea({ ing0: fila(2.5) }), zona: 'gran-canaria' }, 'madrid');
+    expect(r.descartada).toBe('otra-zona');
+    expect(d.skus.ing0.precio).toBe(2);
+  });
+
+  it('y al revés: los precios de Madrid no entran en Gran Canaria', () => {
+    const d = catalogo();
+    // Las publicadas antes del 14 oct no llevan zona: son de mad3.
+    const r = aplicarInstantanea(d, instantanea({ ing0: fila(2.5) }), 'gran-canaria');
+    expect(r.descartada).toBe('otra-zona');
+    expect(d.skus.ing0.precio).toBe(2);
+  });
+
+  it('una sin zona es de Madrid, como todas las de antes', () => {
+    const d = catalogo();
+    expect(aplicarInstantanea(d, instantanea({ ing0: fila(2.5) }), 'madrid').aplicados).toBe(1);
+  });
+
+  it('se guardan aparte y cada zona lee la suya', () => {
+    guardar(instantanea({ ing0: fila(2.5) }));
+    guardar({ ...instantanea({ ing0: fila(3) }, '2026-10-14'), zona: 'gran-canaria' });
+    expect(leerGuardada('madrid')?.skus.ing0.precio).toBe(2.5);
+    expect(leerGuardada('gran-canaria')?.skus.ing0.precio).toBe(3);
+    expect(leerGuardada('gran-canaria')?.zona).toBe('gran-canaria');
+  });
+});
+
+describe('el envase de una conserva', () => {
+  /** El garbanzo: 570 g netos, 400 g escurridos, 0,80 €. Ver catalogo/escurridos.ts. */
+  const garbanzo = (): DatosMotor => {
+    const d = catalogo();
+    d.skus.ing0 = sku(0.8, { contenido: 0.4, contenido_etiqueta: 0.57, precio_kg_l_ud: 2 });
+    return d;
+  };
+
+  it('un precio nuevo del mismo producto no le cambia lo que rinde', () => {
+    /* Una instantánea publicada antes de contar el escurrido trae el neto en
+       `contenido`. Aplicarla tal cual devolvía el tarro a 570 g aprovechables. */
+    const d = garbanzo();
+    aplicarInstantanea(d, instantanea({ ing0: { ...fila(0.75), contenido: 0.57 } }));
+    expect(d.skus.ing0.precio).toBe(0.75);
+    expect(d.skus.ing0.contenido).toBe(0.4);
+    expect(d.skus.ing0.contenido_etiqueta).toBe(0.57);
+    // El precio por kilo, sobre lo que se aprovecha: 0,75 / 0,4.
+    expect(d.skus.ing0.precio_kg_l_ud).toBeCloseTo(1.875, 4);
+  });
+
+  it('si el mismo producto cambia de envase, esa línea no se aplica', () => {
+    const d = garbanzo();
+    const r = aplicarInstantanea(d, instantanea({ ing0: { ...fila(0.7), contenido: 0.4, contenido_etiqueta: 0.5 } }));
+    expect(r.rechazados).toHaveLength(1);
+    expect(d.skus.ing0.precio).toBe(0.8);
+  });
+});

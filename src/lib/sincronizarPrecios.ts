@@ -1,5 +1,5 @@
-import { datos } from '../data/motor';
-import { buscarActualizacion, guardar, leerGuardada } from './precios';
+import { datos, zonaCargada } from '../data/motor';
+import { buscarActualizacion, guardar, leerGuardada, zonaDe } from './precios';
 
 /**
  * ═══ TRAERSE LOS PRECIOS NUEVOS · EN SEGUNDO PLANO Y SIN PRISA ═══
@@ -34,10 +34,21 @@ export function sincronizarPrecios(): void {
   if (yaLanzada) return;
   yaLanzada = true;
 
-  const url = import.meta.env.VITE_PRECIOS_URL as string | undefined;
-  if (!url) return;
+  /**
+   * ═══ UNA URL POR ZONA ═══
+   *
+   * `VITE_PRECIOS_URL` puede llevar `{zona}` y entonces se pide la de la zona
+   * cargada. Sin `{zona}`, la URL es la de siempre y solo vale para Madrid:
+   * lo que hay publicado es mad3, y pedirlo desde Gran Canaria sería bajarse
+   * precios que luego hay que rechazar.
+   */
+  const zona = zonaCargada().zona;
+  const plantilla = import.meta.env.VITE_PRECIOS_URL as string | undefined;
+  if (!plantilla) return;
+  if (!plantilla.includes('{zona}') && zona !== 'madrid') return;
+  const url = plantilla.replace('{zona}', encodeURIComponent(zona));
 
-  const guardada = leerGuardada();
+  const guardada = leerGuardada(zona);
   /* Se compara contra la MÁS NUEVA de las dos que ya se tienen —la del APK y la
      guardada—: tras publicar una versión, la del APK puede ser más reciente que
      la que quedó en el móvil, y sin esto se volvería a bajar una vieja. */
@@ -47,6 +58,7 @@ export function sincronizarPrecios(): void {
   const reloj = setTimeout(() => corta.abort(), ESPERA_MAXIMA_MS);
 
   void buscarActualizacion(url, actual, corta.signal)
-    .then((nueva) => { if (nueva) guardar(nueva); })
+    // De otra zona no se guarda: no se aplicaría nunca y ocuparía el sitio.
+    .then((nueva) => { if (nueva && zonaDe(nueva) === zona) guardar(nueva); })
     .finally(() => clearTimeout(reloj));
 }

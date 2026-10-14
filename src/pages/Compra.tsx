@@ -21,7 +21,8 @@ import {
 } from '../lib/extras';
 import { analitica } from '../lib/analitica';
 import { tramoImporte } from '../lib/analitica-buckets';
-import { versionDePrecios } from '../data/motor';
+import { versionDePrecios, zonaCargada } from '../data/motor';
+import { NOMBRE_ZONA, textoDeZona } from '../lib/zona';
 import { DIAS_PRECIOS_VIEJOS, diasDePrecios } from '../lib/precios';
 import { hoy } from '../lib/fechas';
 import './Compra.css';
@@ -46,7 +47,14 @@ const Compra: React.FC = () => {
   /* Se calcula en el render y no en un efecto: es una cuenta sobre dos fechas,
      no un dato que haya que ir a buscar. Y se recalcula al volver a la pantalla,
      que es cuando importa — la app puede llevar días abierta en segundo plano. */
-  const diasDeLosPrecios = diasDePrecios(versionDePrecios(), hoy());
+  /* La fecha de los precios con que se valoró ESTA lista, que no tiene por qué
+     ser la última descargada: con la compra empezada, los nuevos esperan (ver
+     conPreciosDeHoy en AppStateContext). */
+  const fechaDeLaLista = estado.preciosDeLaLista ?? versionDePrecios();
+  const diasDeLosPrecios = diasDePrecios(fechaDeLaLista, hoy());
+  const zona = zonaCargada();
+  // «Madrid» también cuando la zona del usuario no está: es lo que son.
+  const lugar = NOMBRE_ZONA[zona.zona];
   const preciosDesfasados = diasDeLosPrecios >= DIAS_PRECIOS_VIEJOS;
 
   /**
@@ -194,8 +202,8 @@ const Compra: React.FC = () => {
               <div className={`compra__fuente${preciosDesfasados ? ' compra__fuente--vieja' : ''}`}>
                 <span>
                   {preciosDesfasados
-                    ? `Precios de ${perfil.super} de hace ${diasDeLosPrecios} días`
-                    : `Precios de ${perfil.super} del`}
+                    ? `Precios de ${perfil.super} ${lugar} de hace ${diasDeLosPrecios} días`
+                    : `Precios de ${perfil.super} ${lugar} del`}
                 </span>
                 {/* La fecha a la derecha y en versalitas: es el dato que se
                     comprueba —"¿esto es de hoy?"—, y en el medio de una frase
@@ -204,8 +212,25 @@ const Compra: React.FC = () => {
                     desde que los precios se actualizan sin publicar versión,
                     los dos números pueden ser distintos y el que importa es el
                     de los precios. Ver lib/precios.ts. */}
-                <span className="compra__fuente-fecha">{fechaCorta(versionDePrecios())}</span>
+                <span className="compra__fuente-fecha">{fechaCorta(fechaDeLaLista)}</span>
               </div>
+              {/* Fuera de una zona medida se dice siempre, no solo el primer día:
+                  quien compra en Tenerife con precios de Madrid tiene que
+                  saberlo cada vez que mira el total. */}
+              {zona.cobertura !== 'medida' && (
+                <p className="compra__fuente-nota">{textoDeZona(zona)}</p>
+              )}
+              {/* Una actualización no cambia una compra en silencio. */}
+              {estado.preciosEnEspera && (
+                <p className="compra__fuente-nota">
+                  Hay precios del {fechaCorta(estado.preciosEnEspera)}. No te cambio la lista a mitad de compra.
+                </p>
+              )}
+              {!estado.preciosEnEspera && estado.avisoPrecios && (
+                <p className="compra__fuente-nota">
+                  Precios del {fechaCorta(estado.avisoPrecios.hasta)}: tu lista pasa de {eur(estado.avisoPrecios.antes)} a {eur(estado.avisoPrecios.despues)}.
+                </p>
+              )}
               {pasillos.map((pasillo) => {
                 const delPasillo = principal.filter((item) => item.pasillo === pasillo);
                 const marcados = delPasillo.filter((item) => item.enElCarro).length;

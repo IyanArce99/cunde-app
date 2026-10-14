@@ -20,48 +20,11 @@ import type { FechaDia } from '../lib/fechas';
 import type { ValoracionPlato } from '../lib/preferencias';
 import type { ExtraCompra } from '../lib/extras';
 import type { EstadoSuscripcion } from '../lib/suscripcion';
-import { hayPreciosNuevos, reprecioDeLista } from '../data/motor';
+import { datos, reprecioDeLista, versionDePrecios, zonaCargada } from '../data/motor';
 import type { Retoque, SemanaParaApp } from '../data/motor';
+import { CLAVES_ANTERIORES, STORAGE_KEY } from './almacenamiento';
 
-/**
- * ═══ LAS VERSIONES DEL ESTADO GUARDADO ═══
- *
- * v8 despensa · v9 código postal · v10 código postal por defecto · v11 postre
- * v12 `variedadElegida` · v13 `preferenciasPlatos` · v14 `extrasCompra`
- * v15 `fechaInicioSemana` y `semana.fechaInicio` · v16 `cambiosDePlato`.
- *
- * ═══ Y CÓMO SE MIGRABA, QUE ESTABA MAL ═══
- *
- * Hasta v12 "migrar" era cambiar esta constante. `cargarEstadoInicial` solo
- * miraba la clave nueva, así que subir de versión BORRABA todo lo del usuario:
- * su despensa acumulada, su historial de tres semanas, el contador de semana y
- * el cierre. Nadie lo notó porque en desarrollo se limpia el almacenamiento
- * cada dos por tres, pero en producción cada versión habría reseteado a todo el
- * mundo — y la despensa acumulada es literalmente lo que vendemos.
- *
- * Ahora se lee la primera clave que exista, de la más nueva a la más vieja, y
- * se funde sobre el estado por defecto. Los campos que no existían entran con
- * su valor de fábrica; los que sí, se conservan. Ver `cargarEstadoInicial`.
- */
-const STORAGE_KEY = 'cunde:estado:v16';
-
-/**
- * De la más nueva a la más vieja. Se lee la primera que exista.
- *
- * No se listan todas desde v1: v7 y anteriores tenían el plan de la semana con
- * otra forma y rehidratarlo daría una semana rota, que es peor que empezar de
- * cero. Desde v8 el plan es compatible.
- */
-const CLAVES_ANTERIORES = [
-  'cunde:estado:v15',
-  'cunde:estado:v14',
-  'cunde:estado:v13',
-  'cunde:estado:v12',
-  'cunde:estado:v11',
-  'cunde:estado:v10',
-  'cunde:estado:v9',
-  'cunde:estado:v8',
-];
+// Las versiones del estado guardado y su migración: ver state/almacenamiento.ts.
 
 const estadoInicial: AppState = {
   onboardingCompletado: false,
@@ -99,6 +62,10 @@ const estadoInicial: AppState = {
   /* Semana 0 para que no coincida con ninguna real: quien migre desde una
      versión anterior entra con cero cambios usados, que es lo correcto. */
   cambiosDePlato: { semana: 0, usados: 0 },
+  zonaDelPlan: null,
+  preciosDeLaLista: null,
+  preciosEnEspera: null,
+  avisoPrecios: null,
   contadores: { semanaNumero: 1, ajustesEstaSemana: 0, semanaVistaGratis: 0, bajadoConRetoques: 0 },
   deshacerCierre: null,
 };
@@ -379,6 +346,26 @@ export function tocaAbrirLaSiguiente(estado: AppState, hoyDia: FechaDia = hoy())
    semana y que regenerar SÍ la aplica no se puede hacer desde fuera del
    reducer sin montar la app entera. Ver preferencias.motor.test.ts. */
 export function reducer(estado: AppState, accion: Accion): AppState {
+  return conHuellaDelPlan(estado, reducerSinHuella(estado, accion));
+}
+
+/**
+ * Cada plan nuevo apunta de qué zona es y con qué precios se valoró su lista.
+ * Va aquí, envolviendo al reducer, y no en cada caso que regenera: son una
+ * docena y el día que se añada otro nadie se acordaría. Ver AppState.zonaDelPlan.
+ */
+function conHuellaDelPlan(antes: AppState, despues: AppState): AppState {
+  if (despues.semana.plan === antes.semana.plan) return despues;
+  return {
+    ...despues,
+    zonaDelPlan: zonaCargada().zona,
+    preciosDeLaLista: versionDePrecios(),
+    preciosEnEspera: null,
+    avisoPrecios: null,
+  };
+}
+
+function reducerSinHuella(estado: AppState, accion: Accion): AppState {
   switch (accion.type) {
     case 'SET_COMENSALES': {
       const siguiente = { ...estado, perfil: { ...estado.perfil, comensales: accion.comensales } };
@@ -884,7 +871,7 @@ function cargarEstadoInicial(): AppState {
     try {
       const guardado = window.localStorage.getItem(clave);
       if (!guardado) continue;
-      return conPreciosDeHoy(reparar({ ...estadoInicial, ...JSON.parse(guardado) }));
+      return conPreciosDeHoy(enSuZona(reparar({ ...estadoInicial, ...JSON.parse(guardado) })));
     } catch {
       // Clave corrupta: se prueba la siguiente en vez de tirar todo el estado.
     }
@@ -893,17 +880,64 @@ function cargarEstadoInicial(): AppState {
 }
 
 /**
- * La lista guardada, vuelta a valorar con los precios que hay hoy.
+ * ═══ UN PLAN DE OTRA ZONA NO SE REUTILIZA ═══
  *
- * Solo cuando de verdad hay precios nuevos: rederivar en cada arranque
- * costaría una construcción de carrito por apertura para no cambiar nada el
- * 99% de los días. Ver `reprecioDeLista` para por qué el plan manda sobre la
- * lista y qué se le devuelve al usuario de lo suyo.
+ * Si el plan guardado se montó con el catálogo de otra zona —el usuario ha
+ * cambiado de código postal, o viene de cuando solo había Madrid— se monta uno
+ * nuevo con el de ahora. Sus productos podrían no existir en este lineal y sus
+ * precios serían de otro sitio. Lo del usuario que no depende de la zona
+ * (perfil, preferencias, historial, despensa) se queda.
+ */
+function enSuZona(estado: AppState): AppState {
+  const zona = zonaCargada().zona;
+  if ((estado.zonaDelPlan ?? 'madrid') === zona) return estado.zonaDelPlan ? estado : { ...estado, zonaDelPlan: zona };
+  const huella = { zonaDelPlan: zona, preciosDeLaLista: versionDePrecios(), preciosEnEspera: null, avisoPrecios: null };
+  if (!estado.onboardingCompletado) return { ...estado, ...huella };
+  const nuevo = regenerar(estado);
+  // Sin semana posible en esta zona: la lista de la otra tampoco se enseña.
+  if (nuevo.semana.plan === estado.semana.plan) return { ...nuevo, lista: [], ...huella };
+  return { ...nuevo, ...huella };
+}
+
+/**
+ * ═══ PRECIOS NUEVOS SOBRE UNA COMPRA YA PLANEADA ═══
+ *
+ * Los precios nuevos se aplican AL ARRANCAR, nunca en caliente (lib/precios.ts).
+ * Pero una lista hecha el domingo sigue ahí el martes, y aplicarlos sin más le
+ * cambiaba el total sin decir nada. Ahora:
+ *
+ *   · Si la compra está EMPEZADA (algo marcado en el carro), la lista no se
+ *     toca: el usuario está comparando con las etiquetas. Los precios nuevos
+ *     quedan en `preciosEnEspera` y entran cuando se rehace la lista.
+ *   · Si no, se revalora y, si el total cambia, se guarda `avisoPrecios` con
+ *     el de antes y el de después, y Compra lo dice.
+ *
+ * Ver `reprecioDeLista` para por qué el plan manda sobre la lista y qué se le
+ * devuelve al usuario de lo suyo.
  */
 function conPreciosDeHoy(estado: AppState): AppState {
-  if (!hayPreciosNuevos()) return estado;
+  const ahora = versionDePrecios();
+  // Sin dato, la lista es de los precios del APK: es lo que había antes de esto.
+  const antes = estado.preciosDeLaLista ?? datos.generadoEn;
+  if (ahora === antes) return estado.preciosDeLaLista ? estado : { ...estado, preciosDeLaLista: ahora };
+  if (!estado.lista.length || !estado.semana.plan?.tandas?.length) {
+    return { ...estado, preciosDeLaLista: ahora, preciosEnEspera: null };
+  }
+  if (estado.lista.some((it) => it.enElCarro)) return { ...estado, preciosEnEspera: ahora };
   const lista = reprecioDeLista(estado.lista, estado.semana.plan, estado.perfil, estado.preferencias, estado.despensa);
-  return lista === estado.lista ? estado : { ...estado, lista };
+  // No se pudo revalorar: se queda como estaba, y lo dice la fecha que enseña.
+  if (lista === estado.lista) return { ...estado, preciosEnEspera: ahora };
+  const totalAntes = totalLista(estado.lista);
+  const totalDespues = totalLista(lista);
+  return {
+    ...estado,
+    lista,
+    preciosDeLaLista: ahora,
+    preciosEnEspera: null,
+    avisoPrecios: Math.abs(totalDespues - totalAntes) >= 0.005
+      ? { desde: antes, hasta: ahora, antes: totalAntes, despues: totalDespues }
+      : null,
+  };
 }
 
 /** Lo que hay que garantizar que existe y tiene la forma buena. */

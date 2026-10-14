@@ -38,17 +38,29 @@ export type FilaPrecio = Pick<
   Sku,
   'sku' | 'nombre' | 'contenido' | 'unidad' | 'precio' | 'precio_kg_l_ud'
   | 'packaging' | 'unidades_pack' | 'peso_variable' | 'departamento' | 'subfamilia'
->;
+> & Pick<Partial<Sku>, 'contenido_etiqueta'>;
 
 export interface Instantanea {
   /** La fecha de captura. Es lo que se compara para saber si hay algo nuevo. */
   version: string;
   almacen: string;
+  /**
+   * La zona de la que son estos precios (ver lib/zona.ts). Las publicadas antes
+   * del 14 oct 2026 no lo llevan y son todas de mad3: sin campo, Madrid.
+   *
+   * Una instantánea de otra zona NO se aplica nunca, ni a medias. Los precios
+   * de Madrid sobre el catálogo de Gran Canaria serían precios de Madrid
+   * enseñados como de Gran Canaria, que es justo lo que la zona existe para
+   * impedir.
+   */
+  zona?: string;
   /** Por ingrediente canónico, que es como los busca el motor. */
   skus: Record<string, FilaPrecio>;
 }
 
-const CLAVE = 'cunde:precios:v1';
+/** Una clave por zona. Madrid conserva la de siempre: es la que ya tienen guardada. */
+const claveDe = (zona: string) => (zona === 'madrid' ? 'cunde:precios:v1' : `cunde:precios:v1:${zona}`);
+export const zonaDe = (inst: Pick<Instantanea, 'zona'>) => inst.zona ?? 'madrid';
 
 /**
  * Cuánto puede moverse un precio de una captura a otra antes de oler mal.
@@ -69,6 +81,7 @@ export function esInstantanea(x: unknown): x is Instantanea {
   const i = x as Partial<Instantanea>;
   if (typeof i.version !== 'string' || !i.version) return false;
   if (typeof i.almacen !== 'string') return false;
+  if (i.zona !== undefined && typeof i.zona !== 'string') return false;
   if (!i.skus || typeof i.skus !== 'object') return false;
   for (const fila of Object.values(i.skus)) {
     if (!fila || typeof fila !== 'object') return false;
@@ -84,7 +97,7 @@ export interface ResultadoAplicar {
   aplicados: number;
   rechazados: string[];
   /** Cuando la instantánea entera se descarta, el porqué. */
-  descartada?: 'demasiados-cambios' | 'vacia';
+  descartada?: 'demasiados-cambios' | 'vacia' | 'otra-zona';
 }
 
 /**
@@ -96,7 +109,8 @@ export interface ResultadoAplicar {
  * el primero que se olvidase generaría con los precios viejos sin que nada
  * fallara. Se llama UNA vez, antes de pintar nada.
  */
-export function aplicarInstantanea(datos: DatosMotor, inst: Instantanea): ResultadoAplicar {
+export function aplicarInstantanea(datos: DatosMotor, inst: Instantanea, zona = 'madrid'): ResultadoAplicar {
+  if (zonaDe(inst) !== zona) return { aplicados: 0, rechazados: [], descartada: 'otra-zona' };
   const entradas = Object.entries(inst.skus);
   if (!entradas.length) return { aplicados: 0, rechazados: [], descartada: 'vacia' };
 
@@ -112,6 +126,22 @@ export function aplicarInstantanea(datos: DatosMotor, inst: Instantanea): Result
       const salto = Math.abs(fila.precio - actual.precio) / actual.precio;
       if (salto > SALTO_SOSPECHOSO) {
         rechazados.push(`${canonico}: ${actual.precio} -> ${fila.precio}`);
+        continue;
+      }
+    }
+    /**
+     * MISMO producto, OTRO formato: se rechaza. Si el tarro de 570 g pasa a
+     * 400 g, el precio nuevo no es una subida ni una bajada, es otro envase, y
+     * aplicarlo sobre el contenido viejo daría un precio por kilo falso. El neto
+     * de la etiqueta es `contenido_etiqueta` en las conservas y `contenido` en
+     * lo demás; una instantánea publicada antes de contar el escurrido trae el
+     * neto en `contenido`, y por eso se compara neto con neto.
+     */
+    if (fila.sku === actual.sku) {
+      const netoFila = fila.contenido_etiqueta ?? fila.contenido;
+      const netoActual = actual.contenido_etiqueta ?? actual.contenido;
+      if (Math.abs(netoFila - netoActual) > 1e-6) {
+        rechazados.push(`${canonico}: el envase pasa de ${netoActual} a ${netoFila} ${actual.unidad}`);
         continue;
       }
     }
@@ -132,18 +162,36 @@ export function aplicarInstantanea(datos: DatosMotor, inst: Instantanea): Result
   }
 
   for (const [canonico, fila] of buenos) {
-    Object.assign(datos.skus[canonico], fila);
+    const actual = datos.skus[canonico];
+    if (fila.sku === actual.sku) {
+      /* El mismo producto: de la instantánea, el precio y lo que se lee en la
+         etiqueta. Lo que rinde el envase (`contenido`, el escurrido en las
+         conservas) es del APK, y el precio por kilo se recalcula sobre ello:
+         consumo y carrito tienen que hablar de lo mismo. */
+      Object.assign(actual, {
+        nombre: fila.nombre,
+        precio: fila.precio,
+        packaging: fila.packaging,
+        departamento: fila.departamento,
+        subfamilia: fila.subfamilia,
+        precio_kg_l_ud: Number((fila.precio / actual.contenido).toFixed(4)),
+      });
+    } else {
+      // Otro producto: la fila entera. Ver «trae la fila entera» en los tests.
+      Object.assign(actual, fila);
+    }
   }
   return { aplicados: buenos.length, rechazados };
 }
 
 /** La última instantánea guardada, si la hay y si sigue siendo válida. */
-export function leerGuardada(): Instantanea | null {
+export function leerGuardada(zona = 'madrid'): Instantanea | null {
   try {
-    const crudo = localStorage.getItem(CLAVE);
+    const crudo = localStorage.getItem(claveDe(zona));
     if (!crudo) return null;
     const x: unknown = JSON.parse(crudo);
-    return esInstantanea(x) ? x : null;
+    // Una guardada con otra zona en su clave es un almacenamiento tocado.
+    return esInstantanea(x) && zonaDe(x) === zona ? x : null;
   } catch {
     // Almacenamiento lleno, JSON corrupto, modo privado. Nada de esto puede
     // impedir que la app arranque: se sigue con los precios del APK.
@@ -153,7 +201,7 @@ export function leerGuardada(): Instantanea | null {
 
 export function guardar(inst: Instantanea): void {
   try {
-    localStorage.setItem(CLAVE, JSON.stringify(inst));
+    localStorage.setItem(claveDe(zonaDe(inst)), JSON.stringify(inst));
   } catch {
     // Ver arriba. Se perderá la actualización y se volverá a pedir mañana.
   }

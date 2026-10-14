@@ -19,11 +19,10 @@ export const CADENAS: { nombre: string; disponible: boolean }[] = [
   { nombre: 'Consum', disponible: false },
 ];
 
-/** De dónde son los precios que la app lleva cargados hoy. */
-export const ZONA_CARGADA = 'Madrid';
-
 interface ElegirSuperProps {
   valor: string;
+  /** De dónde son los precios: «Madrid», «Gran Canaria». Ver lib/zona.ts. */
+  zona: string;
   onElegir: (cadena: string) => void;
   /** Se toca una cadena sin catálogo. La pantalla decide qué contar. */
   onSinCatalogo: (cadena: string) => void;
@@ -52,7 +51,7 @@ interface ElegirSuperProps {
  * solo: `almacen` no lo lee ninguna línea de la app. O sea que se le pedían
  * cinco cifras al usuario en la primera pantalla del embudo a cambio de nada.
  */
-const ElegirSuper: React.FC<ElegirSuperProps> = ({ valor, onElegir, onSinCatalogo }) => (
+const ElegirSuper: React.FC<ElegirSuperProps> = ({ valor, zona, onElegir, onSinCatalogo }) => (
   <div className="super__lista">
     {CADENAS.map((c) => {
       const elegida = valor === c.nombre;
@@ -76,7 +75,7 @@ const ElegirSuper: React.FC<ElegirSuperProps> = ({ valor, onElegir, onSinCatalog
               </span>
             )}
           </span>
-          <span className="super__estado">{c.disponible ? `precios de ${ZONA_CARGADA}` : 'próximamente'}</span>
+          <span className="super__estado">{c.disponible ? `precios de ${zona}` : 'próximamente'}</span>
         </button>
       );
     })}

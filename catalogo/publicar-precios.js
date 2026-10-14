@@ -12,8 +12,19 @@
  * src/lib/precios.ts.
  *
  * Uso:
- *   node publicar-precios.js                          (usa el catálogo actual)
+ *   node publicar-precios.js                          (Madrid, el catálogo actual)
  *   node publicar-precios.js --salida instantanea.json
+ *   node publicar-precios.js --zona gran-canaria      (src/data/zonas/gran-canaria.json)
+ *
+ * ═══ CADA INSTANTÁNEA DICE DE QUÉ ZONA ES ═══
+ *
+ * La app rechaza entera una instantánea de otra zona (ver `zona` en
+ * src/lib/precios.ts). Las de antes del 14 oct 2026 no llevaban el campo y
+ * eran de mad3, así que la app lee «sin zona» como Madrid.
+ *
+ * Para Gran Canaria esto empaqueta lo que hay en src/data/zonas/, que lo
+ * escribe catalogo/construir-zona.ts tras auditar los nueve almacenes. Los
+ * canónicos sin producto en la zona no van: la app los deja fuera.
  *
  * ═══ POR QUÉ LLEVA LA FILA ENTERA Y NO SOLO EL PRECIO ═══
  *
@@ -37,10 +48,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
-const DATOS = path.join(aqui, '..', 'src', 'data', 'motor-datos.json');
+const iZona = process.argv.indexOf('--zona');
+const ZONA = iZona > -1 ? process.argv[iZona + 1] : 'madrid';
+const DATOS = ZONA === 'madrid'
+  ? path.join(aqui, '..', 'src', 'data', 'motor-datos.json')
+  : path.join(aqui, '..', 'src', 'data', 'zonas', `${ZONA}.json`);
 
 const i = process.argv.indexOf('--salida');
-const SALIDA = i > -1 ? process.argv[i + 1] : path.join(aqui, 'instantanea-precios.json');
+const SALIDA = i > -1 ? process.argv[i + 1]
+  : path.join(aqui, ZONA === 'madrid' ? 'instantanea-precios.json' : `instantanea-precios-${ZONA}.json`);
 
 const datos = JSON.parse(fs.readFileSync(DATOS, 'utf8'));
 
@@ -50,16 +66,21 @@ const CAMPOS = [
   'sku', 'nombre', 'contenido', 'unidad', 'precio', 'precio_kg_l_ud',
   'packaging', 'unidades_pack', 'peso_variable', 'departamento', 'subfamilia',
 ];
+/* Solo en las conservas: el neto de la etiqueta. Con él la app distingue un
+   cambio de precio de un cambio de envase. */
+const OPCIONALES = ['contenido_etiqueta'];
 
 const skus = {};
 const malos = [];
 for (const [canonico, s] of Object.entries(datos.skus)) {
+  if (s === null) continue; // sin producto en la zona: la app ya lo deja fuera
   if (!(s.precio > 0) || !(s.contenido > 0)) {
     malos.push(`${canonico}: precio ${s.precio}, contenido ${s.contenido}`);
     continue;
   }
   const fila = {};
   for (const c of CAMPOS) fila[c] = s[c] ?? null;
+  for (const c of OPCIONALES) if (s[c] != null) fila[c] = s[c];
   skus[canonico] = fila;
 }
 
@@ -72,8 +93,9 @@ if (malos.length) {
 const instantanea = {
   // La fecha del catálogo. Es lo que la app compara para saber si hay algo
   // nuevo, y por eso tiene que ser ordenable como cadena: ISO y nada más.
-  version: datos.generadoEn,
-  almacen: 'mad3',
+  version: ZONA === 'madrid' ? datos.generadoEn : datos.version,
+  almacen: ZONA === 'madrid' ? 'mad3' : datos.almacenes.join(','),
+  zona: ZONA,
   skus,
 };
 

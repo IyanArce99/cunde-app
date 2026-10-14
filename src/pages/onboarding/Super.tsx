@@ -2,10 +2,12 @@ import { useRef, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../../state/AppStateContext';
-import ElegirSuper, { ZONA_CARGADA } from '../../components/ElegirSuper';
+import ElegirSuper from '../../components/ElegirSuper';
 import PrimaryButton from '../../components/PrimaryButton';
 import Stepper from '../../components/Stepper';
 import { esCodigoPostal, limpiarCodigoPostal } from '../../lib/codigoPostal';
+import { NOMBRE_ZONA, resolverZona, textoDeZona } from '../../lib/zona';
+import { zonaCargada } from '../../data/motor';
 import './Super.css';
 
 /**
@@ -26,15 +28,18 @@ import './Super.css';
  * INSERVIBLE —la regla de Datos.tsx—: con la zona equivocada, los productos
  * de la lista no existen en el lineal que el usuario tiene delante.
  *
- * ═══ EL CÓDIGO POSTAL VUELVE, Y ES OBLIGATORIO ═══
+ * ═══ EL CÓDIGO POSTAL ELIGE LA ZONA ═══
  *
- * Se fue porque no cambiaba nada, y sigue sin cambiar nada: los precios son los
- * de Madrid se ponga lo que se ponga. Vuelve porque sin él no se sabe dónde hay
- * usuarios, y eso es lo que decide qué almacenes merecen catálogo propio.
+ * Desde el 14 oct 2026 hay dos catálogos: Madrid y Gran Canaria (lib/zona.ts).
+ * El código postal decide cuál se carga, y la nota de debajo lo dice en cuanto
+ * hay cinco cifras: de qué zona serán los precios, o que tu zona aún no está y
+ * los precios son de Madrid. Pedir un dato y callar lo que hace con él sería la
+ * cifra que miente, pero en letra pequeña.
  *
- * Como se pide a cambio de nada visible, la pantalla lo dice: la nota de debajo
- * cuenta de dónde son los precios hoy. Pedir un dato y callar que todavía no
- * sirve sería la cifra que miente, pero en letra pequeña.
+ * Si el código cae en otra zona que la cargada, «Seguir» RECARGA la app. No es
+ * pereza: el catálogo se fija al arrancar y varias cifras se calculan una vez
+ * con él (ver data/motor.ts). Cambiarlo en caliente dejaría el suelo de
+ * presupuesto de una zona junto a los productos de otra.
  *
  * Va ARRIBA, antes que las cadenas, por el teclado: esta pantalla no hace
  * scroll, y un campo al fondo queda debajo del teclado en cuanto se toca.
@@ -48,6 +53,8 @@ const Super: React.FC = () => {
   const [falta, setFalta] = useState(false);
   const campo = useRef<HTMLInputElement>(null);
   const valido = esCodigoPostal(cp);
+  const zona = valido ? resolverZona(cp) : null;
+  const cargada = zonaCargada();
 
   const escribir = (texto: string) => {
     const limpio = limpiarCodigoPostal(texto);
@@ -65,6 +72,13 @@ const Super: React.FC = () => {
     if (!valido) {
       setFalta(true);
       campo.current?.focus();
+      return;
+    }
+    if (zona && zona.zona !== cargada.zona) {
+      /* El estado ya está guardado: cada cifra tecleada pasa por el reducer y
+         el efecto de AppStateContext la escribe. Al recargar, data/motor.ts lee
+         este código postal y carga su zona. */
+      window.location.assign('/onboarding/datos');
       return;
     }
     history.push('/onboarding/datos');
@@ -100,7 +114,7 @@ const Super: React.FC = () => {
             <p id="super-cp-nota" className={`super__cp-nota${falta ? ' super__cp-nota--falta' : ''}`} role={falta ? 'alert' : undefined}>
               {falta
                 ? 'Pon tu código postal, con sus cinco cifras.'
-                : `Hoy los precios son los de ${ZONA_CARGADA}. Con tu código sé qué zona cargar después.`}
+                : zona ? textoDeZona(zona) : 'Con tu código sé de qué zona son los precios.'}
             </p>
 
             {/* El subtítulo no adorna: explica por qué esta pantalla existe
@@ -110,6 +124,7 @@ const Super: React.FC = () => {
 
             <ElegirSuper
               valor={superElegido}
+              zona={NOMBRE_ZONA[(zona ?? cargada).zona]}
               onElegir={(cadena) => {
                 setPedida(null);
                 dispatch({ type: 'SET_SUPER', super: cadena });
@@ -124,7 +139,7 @@ const Super: React.FC = () => {
               <div className="super__aviso" role="status">
                 <p className="super__aviso-texto">
                   De {pedida} todavía no tengo catálogo, así que no puedo darte precios reales. Empieza con
-                  Mercadona y te aviso cuando esté.
+                  Mercadona.
                 </p>
               </div>
             )}

@@ -440,6 +440,29 @@ export interface AppState {
    * Solo cuentan los cambios que el usuario PIDE. Ver lib/premium.ts.
    */
   cambiosDePlato: { semana: number; usados: number };
+  /**
+   * ═══ CON QUÉ SE HIZO ESTE PLAN Y ESTA LISTA ═══
+   *
+   * `zonaDelPlan`: la zona cuyo catálogo montó la semana (ver lib/zona.ts). Si
+   * al arrancar la zona cargada es otra, el plan NO se reutiliza: sus productos
+   * pueden no existir allí y sus precios serían de otro sitio.
+   *
+   * `preciosDeLaLista`: la versión de precios con la que se valoró la lista que
+   * el usuario tiene delante. Es la fecha que enseña Compra.
+   *
+   * `preciosEnEspera`: precios más nuevos que NO se han aplicado a la lista
+   * porque la compra ya estaba empezada. Entran cuando se rehace la lista.
+   *
+   * `avisoPrecios`: la última vez que unos precios nuevos movieron la lista sin
+   * que el usuario tocara nada, con el total de antes y el de después. Una
+   * actualización nunca cambia una compra en silencio: o espera, o lo dice.
+   *
+   * `null` en estados anteriores: el plan era de Madrid, que era lo único.
+   */
+  zonaDelPlan: string | null;
+  preciosDeLaLista: string | null;
+  preciosEnEspera: string | null;
+  avisoPrecios: { desde: string; hasta: string; antes: number; despues: number } | null;
   contadores: {
     semanaNumero: number;
     ajustesEstaSemana: number;

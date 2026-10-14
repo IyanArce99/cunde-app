@@ -55,6 +55,11 @@
   color: var(--gris);
 }
 
+.semana__zona {
+  line-height: 1.4;
+  color: var(--tinta);
+}
+
 .semana__dias {
   flex: 1;
   min-height: 0;
