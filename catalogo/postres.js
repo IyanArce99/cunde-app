@@ -64,7 +64,7 @@ const CARTA = [
     sku: '22313',
     porUnidad: 1,
     unidad: 'ud',
-    alergenos: ['Lactosa'],
+    alergenos: ['lactosa'],
     origen: 'lacteo',
     dias: 21,
     // El más barato por unidad de toda la sección: 6 por 1,00 €.
@@ -117,7 +117,7 @@ const CARTA = [
     sku: '68137',
     porUnidad: 1,
     unidad: 'ud',
-    alergenos: ['Lactosa', 'Huevo'],
+    alergenos: ['lactosa', 'huevo'],
     origen: 'lacteo',
     dias: 30,
     nota: 'lleva huevo además de leche',
@@ -129,7 +129,7 @@ const CARTA = [
     buscarEn: 'Postres de soja',
     porUnidad: 1,
     unidad: 'ud',
-    alergenos: ['Soja'],
+    alergenos: ['soja'],
     origen: 'vegetal',
     dias: 30,
     nota: 'el postre lácteo de quien no toma lácteos',
@@ -233,7 +233,27 @@ const datos = JSON.parse(fs.readFileSync(DATOS, 'utf8'));
 const RUTA_PIEZAS = path.join(aqui, 'peso-pieza.json');
 const piezas = fs.existsSync(RUTA_PIEZAS) ? JSON.parse(fs.readFileSync(RUTA_PIEZAS, 'utf8')).skus : {};
 
+/*
+ * Las claves de alérgeno son las de la app (`lactosa`, `huevo`, `soja`): los
+ * postres se filtran con las mismas reglas que las recetas (src/motor/filtros.ts).
+ * Antes iban con el nombre del filtro («Lactosa») y no llevaban trazas.
+ *
+ * De la etiqueta guardada (alergenos-por-ean.json) salen las TRAZAS del
+ * producto y si su información de alérgenos es DESCONOCIDA: sin lista de
+ * ingredientes ni texto de alérgenos («x99.» no cuenta) no es «sin alérgenos».
+ */
+const porEan = JSON.parse(fs.readFileSync(path.join(aqui, 'alergenos-por-ean.json'), 'utf8'));
+const FILTRABLES = new Set(['gluten', 'lactosa', 'frutos_secos', 'cacahuete', 'huevo', 'pescado', 'marisco', 'soja', 'sesamo', 'mostaza', 'apio', 'sulfitos', 'cerdo']);
+const etiquetaDe = (sku) => {
+  const r = porEan[sku];
+  const texto = (r?.mercadona?.alergenosTexto ?? '').trim();
+  const desconocida = !r || (!r.mercadona?.ingredientes && (!texto || texto === 'x99.'));
+  const trazas = (r?.trazas ?? []).filter((t) => FILTRABLES.has(t));
+  return { desconocida, trazas };
+};
+
 for (const e of elegidos) {
+  const etiqueta = etiquetaDe(e.producto.sku);
   datos.ingredientes[e.id] = {
     id: e.id,
     nombre: e.nombre,
@@ -243,6 +263,8 @@ for (const e of elegidos) {
     gramos_por_unidad: e.unidadCatalogo === 'kg' ? e.racionEnUnidadCatalogo * 1000 : null,
     origen: e.origen,
     alergenos: e.alergenos,
+    ...(etiqueta.trazas.filter((t) => !e.alergenos.includes(t)).length
+      ? { trazas: etiqueta.trazas.filter((t) => !e.alergenos.includes(t)) } : {}),
     proteina_g_por_100: 0,
     base: null,
     // La piel del plátano y el corazón de la manzana no se comen.
@@ -276,6 +298,7 @@ for (const e of elegidos) {
     unidad: e.producto.unidad_contenido,
     precio: e.producto.precio,
     precio_kg_l_ud: conPieza ? Number((e.producto.precio / pz.pieza).toFixed(3)) : e.producto.precio_referencia,
+    ...(etiqueta.desconocida ? { alergenos_desconocidos: true } : {}),
     packaging: e.producto.packaging,
     unidades_pack: e.producto.unidades_pack,
     peso_variable: e.producto.peso_variable,

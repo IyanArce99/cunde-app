@@ -149,6 +149,13 @@ export interface Sku {
    */
   alergenos_zona?: Alergeno[];
   trazas_zona?: Alergeno[];
+  /**
+   * De ESTE producto no se sabe qué alérgenos declara: su ficha no trae lista
+   * de ingredientes ni texto de alérgenos («x99.» no cuenta). No es lo mismo
+   * que no tener ninguno. Hoy lo leen los postres (postres.ts): quedan fuera
+   * para cualquier filtro que dependa de un alérgeno.
+   */
+  alergenos_desconocidos?: boolean;
   unidad: UnidadCatalogo;
   precio: number;
   precio_kg_l_ud: number;

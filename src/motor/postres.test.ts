@@ -158,25 +158,4 @@ describe('el dinero', () => {
   });
 });
 
-describe('los alérgenos de los postres hablan el idioma de los filtros', () => {
-  /**
-   * `permitido` (postres.ts) compara cada alérgeno del postre con el NOMBRE de
-   * la exclusión —«Lactosa», «Huevo»—, no con el alérgeno en minúscula que usan
-   * las recetas. Funciona mientras cada uno sea un filtro que existe; uno mal
-   * escrito («lactosa») dejaría pasar el postre a quien excluye la lactosa sin
-   * que nada fallara. Y las trazas no las mira: hoy ningún postre las declara
-   * (etiquetas consultadas el 14 oct 2026). El día que uno las traiga, esto
-   * se pone rojo antes de que llegue a nadie.
-   */
-  it('cada alérgeno de postre es una exclusión que la app ofrece', async () => {
-    const { EXCLUSIONES } = await import('./seleccionar.ts');
-    const { default: crudo } = await import('../data/motor-datos.json');
-    const postres = Object.values((crudo as { ingredientes: Record<string, { es_postre?: boolean; alergenos: string[]; trazas?: string[]; id: string }> }).ingredientes)
-      .filter((i) => i.es_postre);
-    expect(postres.length).toBeGreaterThan(0);
-    for (const p of postres) {
-      for (const a of p.alergenos) expect(EXCLUSIONES, `${p.id}: «${a}»`).toContain(a);
-      expect(p.trazas ?? [], `${p.id}: trazas que postres.ts no mira`).toEqual([]);
-    }
-  });
-});
+// Los alérgenos y trazas de los postres se prueban en postres-alergenos.test.ts.

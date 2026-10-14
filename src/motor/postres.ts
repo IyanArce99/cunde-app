@@ -1,3 +1,4 @@
+import { FILTROS, ingredienteVetado } from './filtros.ts';
 import type { DatosMotor, IngredienteCanonico, Sku } from './tipos.ts';
 
 /**
@@ -42,9 +43,30 @@ const TIPOS_EN_ROTACION = 4;
  * servirle cerdo a quien no come cerdo, así que se es conservador: ante la
  * duda, el postre no entra.
  */
-function permitido(ing: IngredienteCanonico, exclusiones: string[]): boolean {
+/*
+ * ═══ LAS MISMAS REGLAS QUE LAS RECETAS ═══
+ *
+ * Antes se comparaban los alérgenos del postre con el NOMBRE del filtro
+ * («Lactosa») y no se miraban las trazas. Funcionaba de casualidad con los seis
+ * postres de Madrid, y no habría apartado el yogur Danone de Gran Canaria
+ * («puede contener trazas de gluten y frutos de cáscara») de quien filtra
+ * gluten. Ahora se pregunta a `ingredienteVetado` (filtros.ts), la misma regla
+ * de las recetas: alérgenos siempre, trazas en los filtros de alergia.
+ *
+ * Y sobre el producto CONCRETO de la zona: `ing` llega con lo que la etiqueta
+ * de ese SKU suma al vocabulario (src/motor/zona.ts), y si de ese SKU no se
+ * sabe qué declara (`alergenos_desconocidos`: sin lista de ingredientes ni
+ * texto de alérgenos, como la ficha del plátano), eso NO es «sin alérgenos»:
+ * queda fuera para cualquier filtro que dependa de un alérgeno.
+ */
+export function postrePermitido(ing: IngredienteCanonico, sku: Sku | undefined, exclusiones: string[]): boolean {
   const ex = new Set(exclusiones);
-  for (const a of ing.alergenos) if (ex.has(a)) return false;
+  for (const nombre of ex) {
+    const filtro = FILTROS[nombre];
+    if (!filtro) continue;
+    if (ingredienteVetado(ing, filtro)) return false;
+    if (sku?.alergenos_desconocidos && filtro.alergeno) return false;
+  }
 
   const noVegetariano = (ing as { postre_no_vegetariano?: boolean }).postre_no_vegetariano === true;
   if (ex.has('Vegetariano') || ex.has('Vegano')) {
@@ -52,7 +74,7 @@ function permitido(ing: IngredienteCanonico, exclusiones: string[]): boolean {
     if (ing.origen === 'carne' || ing.origen === 'pescado' || ing.origen === 'marisco') return false;
   }
   // Vegano además tumba lo lácteo y el huevo.
-  if (ex.has('Vegano') && (ing.origen === 'lacteo' || ing.alergenos.includes('Huevo' as never))) return false;
+  if (ex.has('Vegano') && (ing.origen === 'lacteo' || ing.alergenos.includes('huevo'))) return false;
   // La gelatina de Mercadona es de origen porcino o vacuno sin distinguir, así
   // que quien excluye el cerdo tampoco la lleva.
   if (ex.has('Cerdo') && noVegetariano) return false;
@@ -80,9 +102,10 @@ function precioRacion(ing: IngredienteCanonico, sku: Sku): number {
 export function cartaDePostres(datos: DatosMotor, exclusiones: string[]): { ing: IngredienteCanonico; sku: Sku }[] {
   const todos = Object.values(datos.ingredientes)
     .filter((i) => (i as { es_postre?: boolean }).es_postre === true)
-    .filter((i) => permitido(i, exclusiones))
     .map((ing) => ({ ing, sku: datos.skus[ing.id] }))
-    .filter((x) => !!x.sku)
+    // Sin producto en esta zona, no hay postre; y sin compatible, tampoco: no
+    // se mete uno que no lo es para rellenar la rotación.
+    .filter((x) => !!x.sku && postrePermitido(x.ing, x.sku, exclusiones))
     .sort((a, b) => precioRacion(a.ing, a.sku) - precioRacion(b.ing, b.sku)
       // Desempate por id: dos postres al mismo precio no pueden cambiar de
       // orden según cómo venga el objeto del JSON.
