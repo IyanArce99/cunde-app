@@ -55,6 +55,17 @@
   color: var(--gris);
 }
 
+.semana__dias-rotulo--precios {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.semana__precios-fecha {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
 .semana__zona {
   line-height: 1.4;
   color: var(--tinta);

@@ -15,6 +15,11 @@
  *   node --experimental-strip-types catalogo/supabase.ts guardar catalogo/precios-2026-08-07.json
  *   node --experimental-strip-types catalogo/supabase.ts publicar
  *   node --experimental-strip-types catalogo/supabase.ts publicar --zona gran-canaria
+ *   node --experimental-strip-types catalogo/supabase.ts respaldo
+ *
+ * `respaldo` SOLO LEE: copia `producto`, `precio`, `instantanea` y
+ * `analytics_events` a catalogo/capturas-crudas/respaldo-<fecha>/ (fuera de
+ * git). Se hace ANTES de cualquier migración sobre un proyecto con datos.
  *
  * ═══ LAS CREDENCIALES NO VAN AQUÍ ═══
  *
@@ -157,8 +162,23 @@ async function publicar() {
   console.log(`Publicada ${inst.version} · zona ${zona} · ${Object.keys(inst.skus).length} SKU · ${kb} KB`);
 }
 
+/** Copia de seguridad en local, sin tocar nada del servidor. */
+async function respaldo() {
+  const dir = `catalogo/capturas-crudas/respaldo-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}`;
+  fs.mkdirSync(dir, { recursive: true });
+  for (const tabla of ['producto', 'precio', 'instantanea', 'analytics_events']) {
+    const existe = (await cliente.query(`select to_regclass('public.${tabla}') as t`)).rows[0].t;
+    if (!existe) { console.log(`  ${tabla}: no existe`); continue; }
+    const { rows } = await cliente.query(`select * from public.${tabla}`);
+    fs.writeFileSync(`${dir}/${tabla}.json`, JSON.stringify(rows));
+    console.log(`  ${tabla}: ${rows.length} filas`);
+  }
+  console.log(`Respaldo en ${dir} (no va a git)`);
+}
+
 const ORDENES: Record<string, () => Promise<void>> = {
   esquema,
+  respaldo,
   guardar: () => {
     const ruta = process.argv[3];
     if (!ruta) throw new Error('Falta el informe: supabase.ts guardar catalogo/precios-<fecha>.json');

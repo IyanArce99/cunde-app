@@ -17,7 +17,9 @@ import SelectorExclusiones from './SelectorExclusiones';
 import SelectorVariedad from './SelectorVariedad';
 import SelectorProteina from './SelectorProteina';
 import './AjustesSemana.css';
-import { URL_PRIVACIDAD } from '../lib/legal';
+import { URL_PRIVACIDAD, enlaceDeOpinion } from '../lib/legal';
+import { zonaCargada } from '../data/motor';
+import { NOMBRE_ZONA } from '../lib/zona';
 
 const OPCIONES_COMIDAS: { valor: ComidasPref; label: string; meta: string }[] = [
   { valor: 'comidas', label: 'Comidas', meta: '7 platos' },
@@ -641,6 +643,10 @@ const AjustesSemana: React.FC<AjustesSemanaProps> = ({
           navegador del teléfono: es una página de la web, no de la app. */}
       <a className="ajustes__legal" href={URL_PRIVACIDAD} target="_blank" rel="noopener noreferrer">
         Política de privacidad
+      </a>
+      {/* Para la beta: lo que falla se cuenta desde donde se ve. */}
+      <a className="ajustes__legal" href={enlaceDeOpinion(NOMBRE_ZONA[zonaCargada().zona])}>
+        Cuéntanos qué falla
       </a>
     </BottomSheet>
   );

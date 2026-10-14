@@ -278,11 +278,21 @@ export default function Privacidad() {
           SDK de terceros que recojan datos por su cuenta.
         </p>
 
+        <p>
+          Si nos escribes desde «Cuéntanos qué falla», el mensaje sale de tu aplicación de
+          correo como cualquier otro: recibimos tu dirección, lo que escribas y la versión
+          de Cunde y la zona que el enlace pone en el mensaje. Lo usamos solo para
+          responderte y arreglar lo que cuentes. El buzón lo gestiona{' '}
+          <strong>[POR CONFIRMAR: proveedor de correo]</strong>.
+        </p>
+
         <h2>9. Cuánto tiempo guardamos las cosas</h2>
         <p>
           Lo que está en tu teléfono, mientras tengas la app instalada: lo borras tú cuando
           quieras. Los eventos de uso se conservan{' '}
-          <strong>[POR CONFIRMAR: plazo, propuesta 24 meses]</strong> y después se eliminan.
+          <strong>[POR CONFIRMAR: plazo]</strong> y después se eliminan. Si nos escribes, tu
+          correo y lo que nos cuentes se guardan mientras lo resolvemos y{' '}
+          <strong>[POR CONFIRMAR: plazo]</strong> después.
           Los datos de tu suscripción, mientras esté activa y el tiempo que exijan las
           obligaciones fiscales y contables.
         </p>

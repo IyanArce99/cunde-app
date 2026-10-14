@@ -5,10 +5,11 @@ import { tocaAbrirLaSiguiente, useAppState } from '../state/AppStateContext';
 import { numComensales, platosDeSemana, ranurasVisibles } from '../state/types';
 import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
-import { eur, eurSinSimbolo } from '../lib/format';
-import { fechaDePosicion } from '../lib/fechas';
-import { alternativasParaApp, indiceDeHueco, retocarParaApp } from '../data/motor';
-import { resolverZona, textoDeZona } from '../lib/zona';
+import { eur, eurSinSimbolo, fechaCorta } from '../lib/format';
+import { fechaDePosicion, hoy } from '../lib/fechas';
+import { alternativasParaApp, indiceDeHueco, retocarParaApp, versionDePrecios, zonaCargada } from '../data/motor';
+import { DIAS_PRECIOS_VIEJOS, diasDePrecios } from '../lib/precios';
+import { NOMBRE_ZONA, resolverZona, textoDeZona } from '../lib/zona';
 import type { AlternativaParaApp, Retoque } from '../data/motor';
 import { useContador } from '../hooks/useContador';
 import TopTabs from '../components/TopTabs';
@@ -714,7 +715,18 @@ const Semana: React.FC = () => {
             {resolverZona(perfil.codigoPostal).cobertura !== 'medida' && (
               <span className="semana__dias-rotulo semana__zona">{textoDeZona(resolverZona(perfil.codigoPostal))}</span>
             )}
-            <span className="semana__dias-rotulo">Por persona y ración</span>
+            {/* De cuándo y de dónde son los precios, aquí también: la cifra
+                grande se decide en esta pantalla, no en Compra. Misma fecha que
+                Compra —la de los precios con que se valoró esta lista—. */}
+            <span className="semana__dias-rotulo semana__dias-rotulo--precios">
+              <span>Por persona y ración</span>
+              <span className="semana__precios-fecha">
+                {diasDePrecios(estado.preciosDeLaLista ?? versionDePrecios(), hoy()) >= DIAS_PRECIOS_VIEJOS
+                  ? `Precios de hace ${diasDePrecios(estado.preciosDeLaLista ?? versionDePrecios(), hoy())} días`
+                  : `Precios del ${fechaCorta(estado.preciosDeLaLista ?? versionDePrecios())}`}
+                {' · '}{NOMBRE_ZONA[zonaCargada().zona]}
+              </span>
+            </span>
             <div className="semana__dias" onScroll={alScroll}>
               {semana.dias.map((dia, i) => (
                 <TarjetaDia
