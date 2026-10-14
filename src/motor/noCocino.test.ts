@@ -6,6 +6,11 @@
  * lunes por un potaje con bacalao y la compra pasaba de 54,32 € a 69,44 €,
  * fuera del presupuesto.
  *
+ * Desde el 14 oct 2026 esa semana sale por 54,23 €: las conservas se cuentan
+ * por su peso escurrido (catalogo/escurridos.ts) y la fruta y la verdura por
+ * lo que pesa hoy la pieza (catalogo/piezas.ts). El caso sigue siendo el
+ * mismo; cambia la cifra de partida.
+ *
  * Regla: con los mismos precios y la misma despensa, quitar una comida sin
  * sustituir las demás no puede subir la compra, y los platos de los otros
  * días se quedan. Se comprueba sobre BARRIDOS, no sobre un caso.
@@ -60,13 +65,13 @@ function comprobarLiberar(peticion: PeticionSemana, s: SemanaGenerada, i: number
 }
 
 describe('no cocino · el caso que lo destapó', () => {
-  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 54,32 €', () => {
+  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 54,23 €', () => {
     const s = generarSemana(BASE);
-    expect(caja(s)).toBe(54.32);
+    expect(caja(s)).toBe(54.23);
     const i = s.huecos.findIndex((h) => h.dia === 'MIÉ' && h.ranura === 'comida');
     expect(s.huecos[i].tipo).toBe('sobras');
     const r = comprobarLiberar(BASE, s, i, 'caso');
-    expect(caja(r)).toBeLessThanOrEqual(54.32);
+    expect(caja(r)).toBeLessThanOrEqual(54.23);
     expect(r.cuadra).toBe(true);
     // El lunes sigue siendo el mismo plato.
     expect(r.huecos[0].receta?.id).toBe(s.huecos[0].receta?.id);

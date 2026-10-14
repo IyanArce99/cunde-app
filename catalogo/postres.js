@@ -229,6 +229,9 @@ if (!process.argv.includes('--escribir')) {
 // Escribir en el catálogo del motor
 // ---------------------------------------------------------------------------
 const datos = JSON.parse(fs.readFileSync(DATOS, 'utf8'));
+/* El peso de la pieza de fruta de HOY, no el del volcado de julio: ver piezas.ts. */
+const RUTA_PIEZAS = path.join(aqui, 'peso-pieza.json');
+const piezas = fs.existsSync(RUTA_PIEZAS) ? JSON.parse(fs.readFileSync(RUTA_PIEZAS, 'utf8')).skus : {};
 
 for (const e of elegidos) {
   datos.ingredientes[e.id] = {
@@ -261,13 +264,18 @@ for (const e of elegidos) {
      */
     postre_es_fruta: !!e.esFruta,
   };
+  const pz = piezas[e.producto.sku];
+  /* Sin mirar el precio: el del volcado es de julio y el de hoy lo pone después
+     aplicar-precios.js. La auditoría de la que sale el peso ya comprobó que el
+     precio de hoy es el mismo. */
+  const conPieza = Boolean(pz);
   datos.skus[e.id] = {
     sku: e.producto.sku,
     nombre: e.producto.nombre,
-    contenido: e.producto.contenido,
+    contenido: conPieza ? pz.pieza : e.producto.contenido,
     unidad: e.producto.unidad_contenido,
     precio: e.producto.precio,
-    precio_kg_l_ud: e.producto.precio_referencia,
+    precio_kg_l_ud: conPieza ? Number((e.producto.precio / pz.pieza).toFixed(3)) : e.producto.precio_referencia,
     packaging: e.producto.packaging,
     unidades_pack: e.producto.unidades_pack,
     peso_variable: e.producto.peso_variable,

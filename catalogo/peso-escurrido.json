@@ -1,0 +1,150 @@
+{
+  "nota": "Peso escurrido de la etiqueta. generar.ts cuenta cada envase por esto, no por el neto. Ver escurridos.ts.",
+  "auditoria": "mad3-2026-10-14.json",
+  "skus": {
+    "11958": {
+      "canonico": "alcachofa",
+      "nombre": "Corazones de alcachofa Hacendado",
+      "neto": 0.43,
+      "escurrido": 0.245,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/11958/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:16.762Z"
+    },
+    "13632": {
+      "canonico": "caballa_lata",
+      "nombre": "Filetes de caballa del sur en tomate Hacendado",
+      "neto": 0.24,
+      "escurrido": 0.17,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/13632/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:23.474Z"
+    },
+    "16314": {
+      "canonico": "acelga",
+      "nombre": "Acelgas troceadas Hacendado",
+      "neto": 0.66,
+      "escurrido": 0.425,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/16314/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:16.035Z"
+    },
+    "16315": {
+      "canonico": "judia_verde",
+      "nombre": "Judías verdes redondas Hacendado",
+      "neto": 0.66,
+      "escurrido": 0.36,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/16315/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:38.423Z"
+    },
+    "16416": {
+      "canonico": "guisante",
+      "nombre": "Guisantes extra Hacendado",
+      "neto": 0.39,
+      "escurrido": 0.25,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/16416/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:36.462Z"
+    },
+    "16618": {
+      "canonico": "champinon",
+      "nombre": "Champiñones laminados Hacendado",
+      "neto": 0.355,
+      "escurrido": 0.18,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/16618/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:28.141Z"
+    },
+    "17463": {
+      "canonico": "queso_fresco",
+      "nombre": "Queso fresco de vaca QuesPro Hacendado",
+      "neto": 0.3,
+      "escurrido": 0.15,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/17463/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:50.121Z"
+    },
+    "18037": {
+      "canonico": "atun_lata",
+      "nombre": "Atún en salsa de tomate Hacendado",
+      "neto": 0.24,
+      "escurrido": 0.156,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/18037/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:20.769Z"
+    },
+    "18615": {
+      "canonico": "mejillon_lata",
+      "nombre": "Mejillones de Chile en escabeche Hacendado pequeños",
+      "neto": 0.35,
+      "escurrido": 0.212,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/18615/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:43.514Z"
+    },
+    "26000": {
+      "canonico": "alubia_roja_cocida",
+      "nombre": "Alubia cocida roja Hacendado",
+      "neto": 0.57,
+      "escurrido": 0.4,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/26000/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:18.847Z"
+    },
+    "26001": {
+      "canonico": "alubia_pinta_cocida",
+      "nombre": "Alubia cocida pinta Hacendado",
+      "neto": 0.57,
+      "escurrido": 0.4,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/26001/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:18.425Z"
+    },
+    "26011": {
+      "canonico": "lenteja_cocida",
+      "nombre": "Lenteja cocida Hacendado",
+      "neto": 0.295,
+      "escurrido": 0.21,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/26011/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:40.012Z"
+    },
+    "26019": {
+      "canonico": "alubia_blanca_cocida",
+      "nombre": "Alubia cocida blanca Hacendado",
+      "neto": 0.57,
+      "escurrido": 0.4,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/26019/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:17.602Z"
+    },
+    "26029": {
+      "canonico": "garbanzo_cocido",
+      "nombre": "Garbanzo cocido Hacendado",
+      "neto": 0.57,
+      "escurrido": 0.4,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/26029/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:35.638Z"
+    },
+    "33205": {
+      "canonico": "aceituna_verde",
+      "nombre": "Aceitunas verdes con hueso Hacendado",
+      "neto": 0.43,
+      "escurrido": 0.25,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/33205/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:15.679Z"
+    },
+    "51097": {
+      "canonico": "tofu",
+      "nombre": "Tofu firme Hacendado",
+      "neto": 0.4,
+      "escurrido": 0.275,
+      "unidad": "kg",
+      "fuente": "https://tienda.mercadona.es/api/products/51097/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T07:52:54.328Z"
+    }
+  }
+}

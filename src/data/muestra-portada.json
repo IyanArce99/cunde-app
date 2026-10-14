@@ -10,26 +10,26 @@
   ],
   "ticket": {
     "personas": 2,
-    "total": 54.32,
+    "total": 54.23,
     "comidas": 14,
     "lineas": [
+      {
+        "nombre": "Tofu firme Hacendado",
+        "formato": "Paquete 400 g",
+        "precio": 5.25
+      },
+      {
+        "nombre": "Champiñones laminados Hacendado",
+        "formato": "Bote 355 g",
+        "precio": 5
+      },
       {
         "nombre": "Lomos y centros de merluza del Cabo Hacendado ultracongelados",
         "formato": "Caja 400 g",
         "precio": 4.9
-      },
-      {
-        "nombre": "Patatas",
-        "formato": "Malla 3 kg",
-        "precio": 4.65
-      },
-      {
-        "nombre": "Queso fresco de vaca QuesPro Hacendado",
-        "formato": "Tarrina 300 g",
-        "precio": 4
       }
     ],
-    "restoProductos": 24,
-    "restoImporte": 40.77
+    "restoProductos": 23,
+    "restoImporte": 39.08
   }
 }

@@ -59,7 +59,8 @@ const MUESTRA_PORTADA = ['pechuga_pollo'];
  * Es un EJEMPLO y la portada lo dice: variedad «normal» y semana de lunes a
  * domingo. La del usuario empieza el día en que abre la app y la variedad de
  * arranque la elige `mejorVariedad`, así que su cifra no es esta (54,32 € aquí;
- * entre 54,32 y 61,51 € según el día, medido el 13 oct 2026).
+ * entre 54,32 y 61,51 € según el día, medido el 13 oct 2026; 54,23 € aquí desde
+ * el 14 oct, con las conservas por su escurrido y las piezas por su peso de hoy).
  */
 const EJEMPLO = { N: 2, presupuesto: 65, lineas: 3 } as const;
 
@@ -285,6 +286,12 @@ function main() {
   const elegido = elegirSkus(mapeoPropuesto, [...recetas, ...Object.values(ensamblajes).flat()], ingredientes);
 
   // Solo lo que el motor necesita: nada de los 4.606 productos del catálogo.
+  const RUTA_PIEZAS = path.join(aqui, 'peso-pieza.json');
+  const piezas: Record<string, { pieza: number; unidad: string; precio: number }> =
+    fs.existsSync(RUTA_PIEZAS) ? leer(RUTA_PIEZAS).skus : {};
+  const RUTA_ESCURRIDOS = path.join(aqui, 'peso-escurrido.json');
+  const escurridos: Record<string, { neto: number; escurrido: number; unidad: string }> =
+    fs.existsSync(RUTA_ESCURRIDOS) ? leer(RUTA_ESCURRIDOS).skus : {};
   const skus: Record<string, Sku> = {};
   for (const [canonico, sku] of Object.entries(elegido)) {
     const c = mapeoPropuesto[canonico].candidatos.find((x: Sku) => x.sku === sku);
@@ -295,6 +302,26 @@ function main() {
       unidades_pack: c.unidades_pack, peso_variable: c.peso_variable,
       departamento: c.departamento, subfamilia: c.subfamilia,
     };
+    // Lo que pesa HOY una pieza de granel: ver catalogo/piezas.ts. Solo si el
+    // precio sigue siendo el auditado; si no, el dato es de otro momento.
+    const pz = piezas[c.sku];
+    if (pz && pz.unidad === c.unidad && Math.abs(pz.precio - c.precio) < 0.005) {
+      skus[canonico].contenido = pz.pieza;
+      skus[canonico].precio_kg_l_ud = Number((c.precio / pz.pieza).toFixed(3));
+    }
+    // La conserva rinde su escurrido, no su neto: ver catalogo/escurridos.ts.
+    // Se cambia el contenido y, con él, el precio por kilo, para que consumo y
+    // carrito sigan hablando de lo mismo (ver precioReferenciaOMejorEsfuerzo
+    // en mapear.js). El neto se queda para escribir el formato.
+    const e = escurridos[c.sku];
+    if (e) {
+      if (e.neto !== c.contenido || e.unidad !== c.unidad) {
+        throw new Error(`peso-escurrido.json dice ${e.neto} ${e.unidad} netos para ${c.sku} y el mapeo ${c.contenido} ${c.unidad}: vuelve a auditar`);
+      }
+      skus[canonico].contenido = e.escurrido;
+      skus[canonico].contenido_etiqueta = e.neto;
+      skus[canonico].precio_kg_l_ud = Number((c.precio / e.escurrido).toFixed(3));
+    }
   }
 
   const fallos = guardiaDeCoherencia(skus, ingredientes);
@@ -343,7 +370,7 @@ function main() {
       if (!sku) throw new Error(`la muestra de portada pide "${canonico}" y no está mapeado`);
       return {
         nombre: sku.nombre,
-        formato: `${sku.packaging ?? 'Unidad'} ${formatearContenido(sku.contenido, sku.unidad)}`,
+        formato: `${sku.packaging ?? 'Unidad'} ${formatearContenido(sku.contenido_etiqueta ?? sku.contenido, sku.unidad)}`,
         precio: sku.precio,
       };
     }),
@@ -373,7 +400,7 @@ function main() {
     comidas: semana.huecos.filter((h) => h.receta).length,
     lineas: destacadas.map((l) => ({
       nombre: l.nombre,
-      formato: `${l.packaging ?? 'Unidad'} ${formatearContenido(l.contenidoEnvase, l.unidad)}`,
+      formato: `${l.packaging ?? 'Unidad'} ${formatearContenido(l.contenidoEtiqueta ?? l.contenidoEnvase, l.unidad)}`,
       precio: Number(l.carritoCoste.toFixed(2)),
     })),
     restoProductos: resto.length,

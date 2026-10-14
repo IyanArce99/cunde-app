@@ -65,6 +65,30 @@
     "alergenos": [],
     "trazas": []
   },
+  "2807": {
+    "sku": "2807",
+    "ean": "2105100028072",
+    "nombre": "Tacos de vacuno añojo para guisar",
+    "canonicos": [
+      "taco_vacuno"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Vacuno añojo. Piezas: aguja, espalda, aleta.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/2807/?lang=es&wh=mad3 · 2026-10-14T08:05:04.084Z (auditoría mad3 2026-10-14)"
+  },
   "2849": {
     "sku": "2849",
     "ean": "2105100028492",
@@ -155,6 +179,30 @@
     ],
     "trazas": []
   },
+  "3028": {
+    "sku": "3028",
+    "ean": "2105445030280",
+    "nombre": "Manzana Golden",
+    "canonicos": [
+      "postre_manzana"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Manzana Golden",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/3028/?lang=es&wh=mad3 · 2026-10-14T08:05:11.644Z (auditoría mad3 2026-10-14)"
+  },
   "3210": {
     "sku": "3210",
     "ean": "2105468032100",
@@ -198,6 +246,30 @@
     },
     "alergenos": [],
     "trazas": []
+  },
+  "3819": {
+    "sku": "3819",
+    "ean": "2105410038198",
+    "nombre": "Plátano de Canarias IGP",
+    "canonicos": [
+      "postre_platano"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/3819/?lang=es&wh=mad3 · 2026-10-14T08:05:11.192Z (auditoría mad3 2026-10-14)"
   },
   "4240": {
     "sku": "4240",
@@ -404,6 +476,30 @@
     },
     "alergenos": [],
     "trazas": []
+  },
+  "5202": {
+    "sku": "5202",
+    "ean": "8402001007149",
+    "nombre": "Garbanzo pedrosillano Hacendado",
+    "canonicos": [
+      "garbanzo_seco"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Garbanzo 100%.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/5202/?lang=es&wh=mad3 · 2026-10-14T08:04:44.435Z (auditoría mad3 2026-10-14)"
   },
   "5330": {
     "sku": "5330",
@@ -1236,6 +1332,34 @@
     ],
     "trazas": []
   },
+  "17463": {
+    "sku": "17463",
+    "ean": "8402001054129",
+    "nombre": "Queso fresco de vaca QuesPro Hacendado",
+    "canonicos": [
+      "queso_fresco"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "LECHE pasteurizada de vaca, sal, corrector de acidez (ácido cítrico), coagulante microbiano. Origen de la leche: (España)",
+      "alergenosTexto": "Libre de dióxido de azufre y sulfitos. Libre de cacahuetes y productos a base de cacahuetes. Libre de soja y productos a base de soja. Libre de apio y productos derivados. Libre de granos de sésamo y productos a base de granos de sésamo. Libre de altramuces y productos a base de altramuces. Libre de pescado y productos a base de pescado. Libre de mostaza y productos derivados. Libre de moluscos y productos a base de moluscos. Contiene leche y sus derivados (incluida la lactosa). Libre de huevos y productos a base de huevo. Libre de frutos de cáscara. Libre de crustáceos y productos a base de crustáceos. Libre de cereales que contengan gluten."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/17463/?lang=es&wh=mad3 · 2026-10-14T08:04:59.407Z (auditoría mad3 2026-10-14)"
+  },
   "17944": {
     "sku": "17944",
     "ean": "8402001059353",
@@ -1384,6 +1508,61 @@
     },
     "alergenos": [],
     "trazas": []
+  },
+  "20200": {
+    "sku": "20200",
+    "ean": "8480000201607",
+    "nombre": "Postre de soja natural Hacendado",
+    "canonicos": [
+      "postre_soja"
+    ],
+    "mercadona": {
+      "contiene": [
+        "soja"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "soja",
+        "soja"
+      ],
+      "ingredientes": "Bebida de soja* 99,5 % (agua, habas de soja 9 %), sales de calcio, vitamina D2, fermentos seleccionados, incluidos bífidus y acidophilus.",
+      "alergenosTexto": "Contiene soja y productos a base de soja. Puede contener soja y productos a base de soja."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "soja"
+    ],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/20200/?lang=es&wh=mad3 · 2026-10-14T08:05:12.579Z (auditoría mad3 2026-10-14)"
+  },
+  "21836": {
+    "sku": "21836",
+    "ean": "8436574550825",
+    "nombre": "Chuletas de cordero pierna",
+    "canonicos": [
+      "chuleta_cordero"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "carne de cordero recental",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/21836/?lang=es&wh=mad3 · 2026-10-14T08:04:37.493Z (auditoría mad3 2026-10-14)"
   },
   "22313": {
     "sku": "22313",
@@ -1693,6 +1872,30 @@
       "huevo"
     ],
     "trazas": []
+  },
+  "33205": {
+    "sku": "33205",
+    "ean": "8402001015939",
+    "nombre": "Aceitunas verdes con hueso Hacendado",
+    "canonicos": [
+      "aceituna_verde"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Aceitunas verdes, agua, sal, potenciadores del sabor; glutamato de monosódio y 5' ribonucleótidos de disodio, acidulante: ácido citrico, antioxidante: ácido ascórbico.",
+      "alergenosTexto": "Contiene x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/33205/?lang=es&wh=mad3 · 2026-10-14T08:04:23.922Z (auditoría mad3 2026-10-14)"
   },
   "34031": {
     "sku": "34031",
@@ -2063,6 +2266,34 @@
     ],
     "trazas": []
   },
+  "59170": {
+    "sku": "59170",
+    "ean": "2105600591700",
+    "nombre": "Bacón ahumado sin corteza Monells",
+    "canonicos": [
+      "bacon"
+    ],
+    "mercadona": {
+      "contiene": [
+        "cerdo"
+      ],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Panceta de cerdo (95%), sal, conservadores (E-326, E-243, E-250), dextrosa, jarabe de glucosa, estabilizantes (E-451, E-450), antioxidantes (E-331, E-301), aromas, extracto de especias.",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "cerdo"
+    ],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/59170/?lang=es&wh=mad3 · 2026-10-14T08:04:29.863Z (auditoría mad3 2026-10-14)"
+  },
   "60573": {
     "sku": "60573",
     "ean": "8402001018756",
@@ -2282,6 +2513,45 @@
     ],
     "trazas": []
   },
+  "62750": {
+    "sku": "62750",
+    "ean": "8480000627506",
+    "nombre": "Gamba arrocera pequeña Hacendado congelada",
+    "canonicos": [
+      "gamba_congelada"
+    ],
+    "mercadona": {
+      "contiene": [
+        "marisco",
+        "sulfitos"
+      ],
+      "trazas": [
+        "pescado"
+      ],
+      "resaltados": [
+        "crustáceo",
+        "Metabisulfito",
+        "pescados",
+        "moluscos"
+      ],
+      "ingredientes": "Gamba Blanca (crustáceo). Antioxidantes: Difosfatos, Citratos de sodio, Ácido cítrico y Metabisulfito de sodio. Puede contener pescados y moluscos.",
+      "alergenosTexto": "Contiene dióxido de azufre y sulfitos. Contiene crustáceos y productos a base de crustáceos. Puede contener moluscos y productos a base de moluscos. Puede contener pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "marisco",
+      "sulfitos"
+    ],
+    "trazas": [
+      "pescado"
+    ],
+    "fuente": "https://tienda.mercadona.es/api/products/62750/?lang=es&wh=mad3 · 2026-10-14T08:04:43.535Z (auditoría mad3 2026-10-14)"
+  },
   "67608": {
     "sku": "67608",
     "ean": "8480000676085",
@@ -2309,6 +2579,61 @@
     },
     "alergenos": [],
     "trazas": []
+  },
+  "68137": {
+    "sku": "68137",
+    "ean": "8480000681379",
+    "nombre": "Natillas sabor vainilla Hacendado",
+    "canonicos": [
+      "postre_natillas"
+    ],
+    "mercadona": {
+      "contiene": [
+        "lactosa"
+      ],
+      "trazas": [],
+      "resaltados": [
+        "Leche",
+        "leche"
+      ],
+      "ingredientes": "Leche pasteurizada entera (81%), azúcar, leche en polvo desnatada, almidón modificado de maíz, nata, aromas, colorantes (norbixina de bija y curcumina), estabilizante (citrato trisódico) y espesante (carragenano). Sin gluten.",
+      "alergenosTexto": "Contiene leche y sus derivados (incluida la lactosa)."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "lactosa"
+    ],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/68137/?lang=es&wh=mad3 · 2026-10-14T08:05:12.143Z (auditoría mad3 2026-10-14)"
+  },
+  "68172": {
+    "sku": "68172",
+    "ean": "8402001012587",
+    "nombre": "Gelatina sabor fresa Hacendado",
+    "canonicos": [
+      "postre_gelatina"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": "Agua, azúcar, zumo de varias frutas a partir de concentrado, estabilizantes (carragenano, goma de garrofín y cloruro cálcico), dextrosa, correctores de acidez (ácido cítrico y citrato trisódico), aroma y colorante (carmín)",
+      "alergenosTexto": " x99."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/68172/?lang=es&wh=mad3 · 2026-10-14T08:05:10.694Z (auditoría mad3 2026-10-14)"
   },
   "68408": {
     "sku": "68408",
@@ -2729,6 +3054,102 @@
       "sesamo"
     ],
     "trazas": []
+  },
+  "87300": {
+    "sku": "87300",
+    "ean": "8402001021930",
+    "nombre": "Dorada limpia",
+    "canonicos": [
+      "dorada"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [
+        "marisco"
+      ],
+      "resaltados": [
+        "pescado",
+        "crustáceos",
+        "moluscos"
+      ],
+      "ingredientes": "Dorada (pescado) (Sparus aurata), antioxidantes (E301 y E331) y sal. Puede contener trazas de crustáceos y moluscos.",
+      "alergenosTexto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": [
+      "marisco"
+    ],
+    "fuente": "https://tienda.mercadona.es/api/products/87300/?lang=es&wh=mad3 · 2026-10-14T08:04:40.649Z (auditoría mad3 2026-10-14)"
+  },
+  "87310": {
+    "sku": "87310",
+    "ean": "8402001021916",
+    "nombre": "Lubina limpia",
+    "canonicos": [
+      "lubina"
+    ],
+    "mercadona": {
+      "contiene": [
+        "pescado"
+      ],
+      "trazas": [
+        "marisco"
+      ],
+      "resaltados": [
+        "pescado",
+        "crustáceos",
+        "moluscos"
+      ],
+      "ingredientes": "Lubina (pescado) (Dicentrarchus labrax), antioxidantes (E301 y E331) y sal. Puede contener trazas de crustáceos y moluscos.",
+      "alergenosTexto": "Puede contener moluscos y productos a base de moluscos. Puede contener crustáceos y productos a base de crustáceos. Contiene pescado y productos a base de pescado."
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [
+      "pescado"
+    ],
+    "trazas": [
+      "marisco"
+    ],
+    "fuente": "https://tienda.mercadona.es/api/products/87310/?lang=es&wh=mad3 · 2026-10-14T08:04:50.520Z (auditoría mad3 2026-10-14)"
+  },
+  "87916": {
+    "sku": "87916",
+    "ean": "8480000879165",
+    "nombre": "Sardina sin limpiar",
+    "canonicos": [
+      "sardina_fresca"
+    ],
+    "mercadona": {
+      "contiene": [],
+      "trazas": [],
+      "resaltados": [],
+      "ingredientes": null,
+      "alergenosTexto": null
+    },
+    "off": {
+      "encontrado": false,
+      "alergenos": [],
+      "trazas": [],
+      "noConsultado": true
+    },
+    "alergenos": [],
+    "trazas": [],
+    "fuente": "https://tienda.mercadona.es/api/products/87916/?lang=es&wh=mad3 · 2026-10-14T08:05:02.145Z (auditoría mad3 2026-10-14)"
   },
   "83202.1": {
     "sku": "83202.1",

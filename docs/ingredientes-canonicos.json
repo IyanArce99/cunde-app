@@ -1421,11 +1421,15 @@
       "gramos_por_unidad": null,
       "origen": "marisco",
       "alergenos": [
-        "marisco"
+        "marisco",
+        "sulfitos"
       ],
       "proteina_g_por_100": 20,
       "base": null,
-      "rendimiento_comestible": 1
+      "rendimiento_comestible": 1,
+      "trazas": [
+        "pescado"
+      ]
     },
     {
       "id": "almendra",
@@ -1554,7 +1558,10 @@
       ],
       "proteina_g_por_100": 19.8,
       "base": null,
-      "rendimiento_comestible": 0.55
+      "rendimiento_comestible": 0.55,
+      "trazas": [
+        "marisco"
+      ]
     },
     {
       "id": "lubina",
@@ -1569,7 +1576,10 @@
       ],
       "proteina_g_por_100": 18.5,
       "base": null,
-      "rendimiento_comestible": 0.55
+      "rendimiento_comestible": 0.55,
+      "trazas": [
+        "marisco"
+      ]
     },
     {
       "id": "mostaza",

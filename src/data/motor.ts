@@ -338,7 +338,7 @@ export function listaDe(carrito: Carrito, huecos: Hueco[], postres: RacionPostre
          en concreto, es de toda la semana. La fila se lee igual que las demás y
          deja de ser un producto aparecido de la nada. */
       const paraPlato = esPostre ? 'el postre' : (usan.size === 1 ? [...usan][0] : undefined);
-      const base = `${l.packaging ?? 'Unidad'} ${formatearContenido(l.contenidoEnvase, l.unidad)}`;
+      const base = `${l.packaging ?? 'Unidad'} ${formatearContenido(l.contenidoEtiqueta ?? l.contenidoEnvase, l.unidad)}`;
       /**
        * Lo que sale ENTERO del armario tiene `compras: 0`, así que su
        * `carritoCoste` es cero. No se puede dejar en cero: si el usuario dice

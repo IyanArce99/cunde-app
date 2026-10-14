@@ -1,0 +1,96 @@
+{
+  "nota": "Peso aproximado por pieza que da Mercadona hoy. generar.ts y postres.js lo aplican sobre el del volcado de julio. Ver piezas.ts.",
+  "auditoria": "mad3-2026-10-14.json",
+  "skus": {
+    "3028": {
+      "canonico": "postre_manzana",
+      "nombre": "Manzana Golden",
+      "antes": 0.22,
+      "pieza": 0.24,
+      "unidad": "kg",
+      "precio": 0.48,
+      "fuente": "https://tienda.mercadona.es/api/products/3028/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:52.389Z"
+    },
+    "3210": {
+      "canonico": "limon",
+      "nombre": "Limón",
+      "antes": 0.23,
+      "pieza": 0.15,
+      "unidad": "kg",
+      "precio": 0.39,
+      "fuente": "https://tienda.mercadona.es/api/products/3210/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:31.081Z"
+    },
+    "3819": {
+      "canonico": "postre_platano",
+      "nombre": "Plátano de Canarias IGP",
+      "antes": 0.15,
+      "pieza": 0.16,
+      "unidad": "kg",
+      "precio": 0.45,
+      "fuente": "https://tienda.mercadona.es/api/products/3819/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:52.076Z"
+    },
+    "69320": {
+      "canonico": "pimiento_verde",
+      "nombre": "Pimiento verde freír",
+      "antes": 0.1,
+      "pieza": 0.09,
+      "unidad": "kg",
+      "precio": 0.23,
+      "fuente": "https://tienda.mercadona.es/api/products/69320/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:39.683Z"
+    },
+    "69326": {
+      "canonico": "berenjena",
+      "nombre": "Berenjena",
+      "antes": 0.38,
+      "pieza": 0.39,
+      "unidad": "kg",
+      "precio": 0.86,
+      "fuente": "https://tienda.mercadona.es/api/products/69326/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:13.293Z"
+    },
+    "69338": {
+      "canonico": "calabacin",
+      "nombre": "Calabacín verde",
+      "antes": 0.41,
+      "pieza": 0.37,
+      "unidad": "kg",
+      "precio": 0.7,
+      "fuente": "https://tienda.mercadona.es/api/products/69338/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:14.779Z"
+    },
+    "69580": {
+      "canonico": "brocoli",
+      "nombre": "Brócoli",
+      "antes": 0.44,
+      "pieza": 0.48,
+      "unidad": "kg",
+      "precio": 1.1,
+      "fuente": "https://tienda.mercadona.es/api/products/69580/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:13.677Z"
+    },
+    "69584": {
+      "canonico": "pepino",
+      "nombre": "Pepino",
+      "antes": 0.25,
+      "pieza": 0.2,
+      "unidad": "kg",
+      "precio": 0.34,
+      "fuente": "https://tienda.mercadona.es/api/products/69584/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:37.534Z"
+    },
+    "69912": {
+      "canonico": "tomate",
+      "nombre": "Tomate pera",
+      "antes": 0.14,
+      "pieza": 0.12,
+      "unidad": "kg",
+      "precio": 0.26,
+      "fuente": "https://tienda.mercadona.es/api/products/69912/?lang=es&wh=mad3",
+      "consultadoEn": "2026-10-14T08:24:45.835Z"
+    }
+  }
+}

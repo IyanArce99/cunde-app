@@ -128,7 +128,18 @@ export interface IngredienteCanonico {
 export interface Sku {
   sku: string;
   nombre: string;
+  /**
+   * Lo que rinde el envase, en `unidad`: sobre esto se calculan los envases,
+   * el sobrante y `precio_kg_l_ud`. En una conserva es el peso ESCURRIDO,
+   * porque las recetas piden «los garbanzos escurridos».
+   */
   contenido: number;
+  /**
+   * El neto que pone la etiqueta, solo cuando no coincide con `contenido`
+   * (conservas en líquido). Es lo que se enseña: «Tarro 570 g». No entra en
+   * ninguna cuenta. Ver catalogo/escurridos.ts.
+   */
+  contenido_etiqueta?: number;
   unidad: UnidadCatalogo;
   precio: number;
   precio_kg_l_ud: number;
@@ -203,6 +214,8 @@ export interface LineaCarrito {
   comprado: number;
   compras: number;
   contenidoEnvase: number;
+  /** El neto de la etiqueta, para escribir el formato. Ver `Sku.contenido_etiqueta`. */
+  contenidoEtiqueta?: number;
   carritoCoste: number;
   consumoCoste: number;
   sobranteCantidad: number;
