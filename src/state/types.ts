@@ -118,6 +118,8 @@ export interface ItemLista {
   /** El marcado normal de la lista: ya va en el carro. */
   enElCarro: boolean;
   procedenciaPrecio?: string;
+  /** El producto no está verificado como ese ingrediente (ver `Sku.sin_verificar`): la fila lo dice. */
+  sinVerificar?: boolean;
   /** Despensa: aceite, sal, vinagre, especias. Sección "Por si te falta". */
   esDespensa?: boolean;
   /**

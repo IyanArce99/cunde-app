@@ -403,6 +403,7 @@ export function listaDe(carrito: Carrito, huecos: Hueco[], postres: RacionPostre
          * pieza, y eso hay que saberlo delante del lineal, no en una cabecera.
          */
         ...(l.pesoVariable ? { procedenciaPrecio: 'peso variable' } : {}),
+        ...(l.sinVerificar ? { sinVerificar: true } : {}),
         ...(l.esDespensa ? { esDespensa: true, loTengo: true } : {}),
         ...(yaEnCasa ? { yaEnCasa: true, loTengo: true } : {}),
         // Y si es despensa PERO hay que comprarla, sigue siendo "por si te

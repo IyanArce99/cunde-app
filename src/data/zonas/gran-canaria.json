@@ -303,7 +303,8 @@
       "unidades_pack": null,
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
-      "subfamilia": "Aceite de oliva"
+      "subfamilia": "Aceite de oliva",
+      "sin_verificar": true
     },
     "aceituna_verde": null,
     "acelga": null,
@@ -548,7 +549,8 @@
       "unidades_pack": null,
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
-      "subfamilia": "Colorante y pimentón"
+      "subfamilia": "Colorante y pimentón",
+      "sin_verificar": true
     },
     "comino": {
       "sku": "34120",
@@ -589,7 +591,8 @@
       "unidades_pack": null,
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
-      "subfamilia": "Otras especias"
+      "subfamilia": "Otras especias",
+      "sin_verificar": true
     },
     "dorada": {
       "sku": "87300",
@@ -864,7 +867,8 @@
       "unidades_pack": null,
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
-      "subfamilia": "Mostaza"
+      "subfamilia": "Mostaza",
+      "sin_verificar": true
     },
     "muslo_pollo": null,
     "nata_cocinar": {
@@ -1016,7 +1020,8 @@
       "peso_variable": false,
       "departamento": "Aceite, especias y salsas",
       "subfamilia": "Hierbas",
-      "alergenos_desconocidos": true
+      "alergenos_desconocidos": true,
+      "sin_verificar": true
     },
     "sal": {
       "sku": "19731",

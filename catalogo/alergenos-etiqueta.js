@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 /**
  * ═══ LO QUE DICE LA ETIQUETA, CLASIFICADO ═══
  *
@@ -111,6 +113,19 @@ export function deMercadona(nutricion) {
  * @param registro   la entrada de alergenos-por-ean.json, o undefined
  * @param verificacion la entrada de verificaciones.json, o undefined
  */
+/**
+ * Los SKU que la última auditoría de un almacén NO da por comprobados (solo la
+ * categoría o el nombre respaldan que son el ingrediente, o falta etiqueta).
+ * Lee el fichero más reciente de catalogo/auditoria/<almacén>-<fecha>.json.
+ */
+export function pendientesDeAuditoria(dirAuditoria, almacen) {
+  const fichero = fs.readdirSync(dirAuditoria)
+    .filter((f) => f.startsWith(`${almacen}-`) && /^\d{4}-\d{2}-\d{2}\.json$/.test(f.slice(almacen.length + 1))).sort().at(-1);
+  if (!fichero) return new Set();
+  const a = JSON.parse(fs.readFileSync(path.join(dirAuditoria, fichero), 'utf8'));
+  return new Set(a.filas.filter((f) => f.estado !== 'comprobado').map((f) => String(f.sku)));
+}
+
 export function etiquetaDesconocida(registro, verificacion) {
   if (verificacion?.alergenos?.estado === 'verificado') return false;
   if (!registro) return true;

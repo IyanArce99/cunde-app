@@ -303,7 +303,10 @@ if (paso === 'cerrar') {
       const verificado = correspondencia && !(fila?.pendientes.length) && !alergenosMal;
       const despensa = datos.ingredientes[canonico]?.es_despensa === true;
       if (verificado || despensa) {
-        skus[canonico] = marcar(s, fila);
+        // La despensa sin verificar entra (se asume en casa) pero dicho.
+        // El «sin verificar» de Madrid no viaja: aquí lo decide la auditoría de la zona.
+        const { sin_verificar: _madrid, ...limpio } = marcar(s, fila);
+        skus[canonico] = verificado ? limpio : { ...limpio, sin_verificar: true };
         estado[canonico] = {
           origen: 'mismo-sku',
           verificacion: verificado ? 'existe y coincide en todos los almacenes; verificado' : `existe y coincide; despensa, se asume en casa (sin verificar: ${(fila?.pendientes ?? []).join('; ')})`,

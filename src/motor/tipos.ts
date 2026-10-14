@@ -156,6 +156,13 @@ export interface Sku {
    * para cualquier filtro que dependa de un alérgeno.
    */
   alergenos_desconocidos?: boolean;
+  /**
+   * Nadie ha confirmado todavía que ESTE producto es el ingrediente: la última
+   * auditoría solo tiene la categoría o el nombre (catalogo/auditoria/). En
+   * Madrid se usa igual y la lista lo dice («sin verificar»); en Gran Canaria
+   * solo entra así lo de despensa, que se asume en casa.
+   */
+  sin_verificar?: boolean;
   unidad: UnidadCatalogo;
   precio: number;
   precio_kg_l_ud: number;
@@ -232,6 +239,8 @@ export interface LineaCarrito {
   contenidoEnvase: number;
   /** El neto de la etiqueta, para escribir el formato. Ver `Sku.contenido_etiqueta`. */
   contenidoEtiqueta?: number;
+  /** Ver `Sku.sin_verificar`. */
+  sinVerificar?: boolean;
   carritoCoste: number;
   consumoCoste: number;
   sobranteCantidad: number;

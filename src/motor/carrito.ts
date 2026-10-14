@@ -388,6 +388,7 @@ export function calcularCarrito(
       compras,
       contenidoEnvase: a.sku.contenido,
       ...(a.sku.contenido_etiqueta ? { contenidoEtiqueta: a.sku.contenido_etiqueta } : {}),
+      ...(a.sku.sin_verificar ? { sinVerificar: true } : {}),
       carritoCoste: redondear(carritoCoste),
       consumoCoste: redondear(consumoCoste),
       sobranteCantidad: redondear(sobrante),

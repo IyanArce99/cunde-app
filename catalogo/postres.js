@@ -39,7 +39,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { etiquetaDesconocida } from './alergenos-etiqueta.js';
+import { etiquetaDesconocida, pendientesDeAuditoria } from './alergenos-etiqueta.js';
 import { fileURLToPath } from 'node:url';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
@@ -254,6 +254,7 @@ const etiquetaDe = (sku) => {
   return { desconocida, trazas };
 };
 
+const pendientesMad3 = pendientesDeAuditoria(path.join(aqui, 'auditoria'), 'mad3');
 for (const e of elegidos) {
   const etiqueta = etiquetaDe(e.producto.sku);
   datos.ingredientes[e.id] = {
@@ -301,6 +302,7 @@ for (const e of elegidos) {
     precio: e.producto.precio,
     precio_kg_l_ud: conPieza ? Number((e.producto.precio / pz.pieza).toFixed(3)) : e.producto.precio_referencia,
     ...(etiqueta.desconocida ? { alergenos_desconocidos: true } : {}),
+    ...(pendientesMad3.has(String(e.producto.sku)) ? { sin_verificar: true } : {}),
     packaging: e.producto.packaging,
     unidades_pack: e.producto.unidades_pack,
     peso_variable: e.producto.peso_variable,

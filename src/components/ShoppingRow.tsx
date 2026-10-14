@@ -58,6 +58,12 @@ const ShoppingRow: React.FC<ShoppingRowProps> = ({ item, onToggle, onToggleLoTen
             {item.procedenciaPrecio && !esDespensa && (
               <span className="fila-producto__etiqueta">{item.procedenciaPrecio}</span>
             )}
+            {/* Pendiente de comprobar con su etiqueta que es ese ingrediente. No
+                se presenta como verificado; con una alergia, la app ya no lo usa
+                si además no se sabe qué alérgenos lleva. */}
+            {item.sinVerificar && (
+              <span className="fila-producto__etiqueta" title="Aún no hemos comprobado con su etiqueta que sea este producto">sin verificar</span>
+            )}
           </span>
           <span className={`fila-producto__linea2${marcado ? ' fila-producto__linea2--marcado' : ''}`}>
             <TicketRow label={item.formatoVenta} value={eur(item.precio)} size={15} />

@@ -22,7 +22,7 @@ import {
 } from '../src/motor/carrito.ts';
 import { generarSemana } from '../src/motor/seleccionar.ts';
 import { informar, revisarCoherencia } from './coherencia.ts';
-import { etiquetaDesconocida } from './alergenos-etiqueta.js';
+import { etiquetaDesconocida, pendientesDeAuditoria } from './alergenos-etiqueta.js';
 import type { DatosMotor, Sku } from '../src/motor/tipos.ts';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
@@ -330,8 +330,11 @@ function main() {
      filtro de alergia sus recetas no se ofrecen (src/motor/filtros.ts). */
   const porEanDesconocidos = fs.existsSync(path.join(aqui, 'alergenos-por-ean.json')) ? leer(path.join(aqui, 'alergenos-por-ean.json')) : {};
   const verificaciones = fs.existsSync(path.join(aqui, 'verificaciones.json')) ? leer(path.join(aqui, 'verificaciones.json')).skus : {};
+  // Y lo que nadie ha confirmado que ES el ingrediente: la lista lo dirá.
+  const pendientes = pendientesDeAuditoria(path.join(aqui, 'auditoria'), 'mad3');
   for (const sku of Object.values(skus)) {
     if (etiquetaDesconocida(porEanDesconocidos[sku.sku], verificaciones[sku.sku])) sku.alergenos_desconocidos = true;
+    if (pendientes.has(String(sku.sku))) sku.sin_verificar = true;
   }
 
   const fallos = guardiaDeCoherencia(skus, ingredientes);
