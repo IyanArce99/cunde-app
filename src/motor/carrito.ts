@@ -202,8 +202,18 @@ const DIAS_DE_LA_SEMANA = 7;
  * está buena mes y medio después—. Restando los siete días de la semana el
  * armario llega a un estado estable, que es lo que hace una cocina de verdad.
  */
-export function existenciasTrasLaSemana(carrito: Carrito, antes?: Existencias): Existencias {
-  const quedan: Existencias = {};
+export function existenciasTrasLaSemana(
+  carrito: Carrito,
+  antes?: Existencias,
+  /**
+   * Los días que pasan hasta la semana siguiente. Siete, salvo que el usuario
+   * tarde en abrirla: tres semanas fuera son veintiún días de nevera, y restar
+   * siete dejaba en la despensa productos ya caducados que el motor daba por
+   * buenos y descontaba de la compra.
+   */
+  dias = DIAS_DE_LA_SEMANA,
+): Existencias {
+  const resultado: Existencias = {};
 
   for (const l of carrito.lineas) {
     if (l.sobranteCantidad <= 0) continue;
@@ -211,11 +221,11 @@ export function existenciasTrasLaSemana(carrito: Carrito, antes?: Existencias): 
     // Lo viejo se gasta primero: si el sobrante no pasa de lo que ya había, es
     // ESE producto el que sigue en el armario, con sus días, no uno nuevo.
     const vieneDeAntes = habia && l.sobranteCantidad <= habia.cantidad + 1e-9;
-    const dias = (vieneDeAntes ? habia.diasRestantes : l.diasEfectivos) - DIAS_DE_LA_SEMANA;
-    if (dias <= 0) continue;
-    quedan[l.sku] = {
+    const quedan = (vieneDeAntes ? habia.diasRestantes : l.diasEfectivos) - dias;
+    if (quedan <= 0) continue;
+    resultado[l.sku] = {
       cantidad: redondear(l.sobranteCantidad, 4),
-      diasRestantes: dias,
+      diasRestantes: quedan,
       // Si el sobrante viene de lo que ya había, envejece; si es nuevo, nace.
       semanas: vieneDeAntes ? (habia.semanas ?? 0) + 1 : 0,
     };
@@ -223,13 +233,13 @@ export function existenciasTrasLaSemana(carrito: Carrito, antes?: Existencias): 
 
   // Lo que había y esta semana no se tocó sigue estando, una semana más viejo.
   for (const [sku, enCasa] of Object.entries(antes ?? {})) {
-    if (quedan[sku] !== undefined) continue;
+    if (resultado[sku] !== undefined) continue;
     if (carrito.lineas.some((l) => l.sku === sku)) continue;
-    const dias = enCasa.diasRestantes - DIAS_DE_LA_SEMANA;
-    if (dias > 0) quedan[sku] = { cantidad: enCasa.cantidad, diasRestantes: dias, semanas: (enCasa.semanas ?? 0) + 1 };
+    const restan = enCasa.diasRestantes - dias;
+    if (restan > 0) resultado[sku] = { cantidad: enCasa.cantidad, diasRestantes: restan, semanas: (enCasa.semanas ?? 0) + 1 };
   }
 
-  return quedan;
+  return resultado;
 }
 
 /**

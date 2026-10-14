@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
-import { useAppState } from '../state/AppStateContext';
+import { tocaAbrirLaSiguiente, useAppState } from '../state/AppStateContext';
 import { numComensales, platosDeSemana, ranurasVisibles } from '../state/types';
 import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
@@ -78,6 +78,30 @@ const Semana: React.FC = () => {
    * cerrar sube el contador a 2, así que en el plan gratis lo siguiente que se
    * ve es el muro, y ahí es justo donde más falta hace poder volver.
    */
+  /**
+   * ═══ «PREPARAR SIGUIENTE SEMANA» ═══
+   *
+   * La semana no cambia sola: cuando ya ha terminado y la compra está cerrada,
+   * se ofrece aquí, en la misma franja que el aviso de «Semana guardada», y
+   * hasta que se pulsa el menú y las recetas siguen donde estaban, recargues
+   * las veces que recargues. Quien compra tarde no pierde lo que acaba de
+   * comprar. Ver `tocaAbrirLaSiguiente`.
+   *
+   * Con el muro activo y sin Cunde+ no sale: ahí la puerta sigue siendo el muro.
+   */
+  const avisoSiguiente = tocaAbrirLaSiguiente(estado) && (
+    <div className="semana__deshacer">
+      <span className="semana__deshacer-texto">Esta semana ya ha terminado.</span>
+      <button
+        className="semana__deshacer-accion"
+        type="button"
+        onClick={() => dispatch({ type: 'PREPARAR_SIGUIENTE_SEMANA' })}
+      >
+        Preparar siguiente semana
+      </button>
+    </div>
+  );
+
   const avisoDeshacer = deshacerCierre && (
     <div className="semana__deshacer">
       {/* Decía "Pagaste 61,20 €", que es un dato que el usuario acaba de
@@ -438,7 +462,7 @@ const Semana: React.FC = () => {
       <IonContent fullscreen scrollY={false} className="pantalla-content">
         <div className="pantalla semana">
           <TopTabs activo="semana" />
-          {avisoDeshacer}
+          {avisoSiguiente || avisoDeshacer}
 
           {/* CABECERA CONDENSADA.
               Medido a 390×844: la primera tarjeta de día empezaba a 412 px —el

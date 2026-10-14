@@ -1,10 +1,12 @@
 /**
- * ═══ CUÁNDO SE ABRE LA SEMANA SIGUIENTE ═══
+ * ═══ CUÁNDO SE PREPARA LA SEMANA SIGUIENTE ═══
  *
  * Cerrar la compra no es acabar la semana: se cierra en el súper, con siete
- * días de cocina por delante. La semana siguiente se abre cuando la compra
- * está cerrada Y han pasado los siete días de la vigente, y la contabilidad
- * —historial, despensa, número de semana— se hace entonces, una sola vez.
+ * días de cocina por delante. Cuando la compra está cerrada Y han pasado los
+ * siete días de la vigente, Semana ofrece «Preparar siguiente semana»; al
+ * pulsarlo se hace la transición y la contabilidad —historial, despensa,
+ * número de semana—, una sola vez. Nada cambia solo: ni al arrancar ni al
+ * volver a primer plano.
  *
  * Existe por un bloqueo real: con el muro apagado y sin tienda configurada,
  * la única puerta a la semana siguiente (`SEGUIR_GRATIS`) no la cruzaba nadie,
@@ -14,7 +16,8 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { reducer, estadoParaTests, tocaAbrirLaSiguiente } from './AppStateContext';
+import { act, render } from '@testing-library/react';
+import { AppStateProvider, reducer, estadoParaTests, tocaAbrirLaSiguiente, useAppState } from './AppStateContext';
 import { despensaTrasLaSemana, generarParaApp } from '../data/motor';
 import { totalLista } from '../lib/derive';
 import type { AppState } from './types';
@@ -38,7 +41,7 @@ function semanaDelLunes(): AppState {
 }
 
 const huella = (e: AppState) => e.semana.plan.huecos.map((h) => `${h.tipo}:${h.recetaId}`).join(' ');
-const abrir = (e: AppState) => reducer(e, { type: 'ABRIR_SEMANA_SI_TOCA' });
+const abrir = (e: AppState) => reducer(e, { type: 'PREPARAR_SIGUIENTE_SEMANA' });
 const cerrar = (e: AppState) => reducer(e, { type: 'GUARDAR_CIERRE', importeRealTicket: 52.3 });
 
 beforeEach(() => {
@@ -168,6 +171,45 @@ describe('al llegar el siguiente periodo', () => {
     expect(e.contadores.semanaNumero).toBe(cerrada.contadores.semanaNumero + 1);
   });
 
+  it('un día tarde también empieza hoy: la semana nueva no nace con un día perdido', () => {
+    /* La regla vieja admitía empezar AYER (pensada para abrir al cerrar la
+       compra del domingo). Preparándola el martes 20, eso era una semana que
+       empezaba el lunes 19 con el lunes ya pasado. */
+    vi.setSystemTime(dia(2026, 10, 12));
+    const cerrada = cerrar(semanaDelLunes());
+    vi.setSystemTime(dia(2026, 10, 20));
+    expect(abrir(cerrada).semana.fechaInicio).toBe('2026-10-20');
+  });
+
+  it('tras una ausencia larga, lo que caducó en la nevera ya no está en la despensa', () => {
+    /* Restar siempre siete días dejaba en casa productos caducados que el motor
+       daba por buenos y descontaba de la compra. Ahora envejecen lo que de
+       verdad ha pasado: del 12 al 27 son quince días. */
+    vi.setSystemTime(dia(2026, 10, 12));
+    const antes = semanaDelLunes();
+    const cerrada = cerrar(antes);
+    const conSieteDias = despensaTrasLaSemana(antes.perfil, antes.preferencias, antes.semana.plan, antes.despensa, 7);
+    const conQuince = despensaTrasLaSemana(antes.perfil, antes.preferencias, antes.semana.plan, antes.despensa, 15);
+
+    vi.setSystemTime(dia(2026, 10, 27));
+    const e = abrir(cerrada);
+    expect(e.despensa).toEqual(conQuince);
+    // Hay productos que aguantaban siete días y no quince: esos ya no están.
+    expect(Object.keys(conQuince).length).toBeLessThan(Object.keys(conSieteDias).length);
+    for (const [sku, x] of Object.entries(e.despensa)) {
+      expect(x.diasRestantes, sku).toBeGreaterThan(0);
+      expect(x.diasRestantes, sku).toBe(conSieteDias[sku].diasRestantes - 8);
+    }
+  });
+
+  it('preparándola a tiempo, la despensa envejece una semana', () => {
+    vi.setSystemTime(dia(2026, 10, 12));
+    const antes = semanaDelLunes();
+    vi.setSystemTime(dia(2026, 10, 19));
+    const e = abrir(cerrar(antes));
+    expect(e.despensa).toEqual(despensaTrasLaSemana(antes.perfil, antes.preferencias, antes.semana.plan, antes.despensa, 7));
+  });
+
   it('sin la compra cerrada no se abre, por mucho que pasen los días', () => {
     /* Que pase el tiempo no da por hecha una compra que nadie ha confirmado:
        no se sabe qué hay en la cocina. El usuario sigue pudiendo cerrarla. */
@@ -178,9 +220,9 @@ describe('al llegar el siguiente periodo', () => {
     expect(abrir(sinCerrar)).toBe(sinCerrar);
   });
 
-  it('cerrar la compra con la semana ya pasada no cambia el menú en ese momento', () => {
-    /* Quien compra tarde acaba de comprar ESTE menú. El cambio llega la
-       próxima vez que abra la app, no mientras guarda el ticket. */
+  it('cerrar la compra con la semana ya pasada no cambia el menú: solo ofrece prepararla', () => {
+    /* Quien compra tarde acaba de comprar ESTE menú. La semana nueva no llega
+       hasta que la pida. */
     vi.setSystemTime(dia(2026, 10, 12));
     const antes = semanaDelLunes();
     vi.setSystemTime(dia(2026, 10, 21));
@@ -204,6 +246,44 @@ describe('al llegar el siguiente periodo', () => {
     vi.setSystemTime(dia(2026, 10, 30));
     const e = { ...cerrar(semanaDelLunes()), onboardingCompletado: false };
     expect(abrir(e)).toBe(e);
+  });
+});
+
+describe('nada cambia solo', () => {
+  /** Monta la app con un estado guardado y devuelve lo que ve la pantalla. */
+  function montar(guardado: AppState) {
+    window.localStorage.setItem('cunde:estado:v16', JSON.stringify(guardado));
+    let visto: AppState | null = null;
+    const Espia = () => { visto = useAppState().estado; return null; };
+    const r = render(<AppStateProvider><Espia /></AppStateProvider>);
+    return { r, ver: () => visto! };
+  }
+
+  it('al arrancar y al volver a primer plano con la semana ya vencida, el menú sigue', () => {
+    vi.setSystemTime(dia(2026, 10, 12));
+    const cerrada = cerrar(semanaDelLunes());
+    vi.setSystemTime(dia(2026, 10, 24)); // doce días después, sin conexión ni prisa
+    const { r, ver } = montar(cerrada);
+    expect(huella(ver())).toBe(huella(cerrada));
+    act(() => { document.dispatchEvent(new Event('visibilitychange')); });
+    expect(huella(ver())).toBe(huella(cerrada));
+    expect(ver().cierre.guardada).toBe(true);
+    expect(tocaAbrirLaSiguiente(ver())).toBe(true);
+    r.unmount();
+
+    // Recargar: lo mismo.
+    const otra = montar(JSON.parse(window.localStorage.getItem('cunde:estado:v16')!));
+    expect(huella(otra.ver())).toBe(huella(cerrada));
+    otra.r.unmount();
+  });
+
+  it('pulsar dos veces prepara una sola semana', () => {
+    vi.setSystemTime(dia(2026, 10, 12));
+    const cerrada = cerrar(semanaDelLunes());
+    vi.setSystemTime(dia(2026, 10, 19));
+    const una = abrir(cerrada);
+    expect(abrir(una)).toBe(una);
+    expect(una.historial).toHaveLength(cerrada.historial.length + 1);
   });
 });
 

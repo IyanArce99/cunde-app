@@ -618,11 +618,13 @@ export function despensaTrasLaSemana(
   preferencias: Preferencias,
   plan: PlanSerial,
   antes: Existencias = {},
+  /** Días hasta la semana siguiente. Ver `existenciasTrasLaSemana`. */
+  dias?: number,
 ): Existencias {
   if (!plan.tandas.length) return antes;
   const N = numComensales(perfil.comensales);
   const semana = hidratar(plan, N, preferencias.exclusiones, preferencias.proteina, antes, preferencias.postre);
-  return existenciasTrasLaSemana(semana.carrito, antes);
+  return existenciasTrasLaSemana(semana.carrito, antes, dias);
 }
 
 /**
