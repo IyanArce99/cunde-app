@@ -7,8 +7,8 @@ import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
 import { eur, eurSinSimbolo } from '../lib/format';
 import { fechaDePosicion } from '../lib/fechas';
-import { alternativasParaApp, indiceDeHueco, retocarParaApp, zonaCargada } from '../data/motor';
-import { textoDeZona } from '../lib/zona';
+import { alternativasParaApp, indiceDeHueco, retocarParaApp } from '../data/motor';
+import { resolverZona, textoDeZona } from '../lib/zona';
 import type { AlternativaParaApp, Retoque } from '../data/motor';
 import { useContador } from '../hooks/useContador';
 import TopTabs from '../components/TopTabs';
@@ -708,8 +708,11 @@ const Semana: React.FC = () => {
           <div className="semana__dias-envoltorio">
             {/* Fuera de una zona medida, la cifra grande es de Madrid y aquí se
                 dice, no solo en Compra: es la cifra con la que se decide. */}
-            {zonaCargada().cobertura !== 'medida' && (
-              <span className="semana__dias-rotulo semana__zona">{textoDeZona(zonaCargada())}</span>
+            {/* La cobertura sale del código postal de AHORA, no de la zona
+                cargada al arrancar: Tenerife y «sin código» cargan el mismo
+                catálogo (Madrid) sin recargar, y dicen cosas distintas. */}
+            {resolverZona(perfil.codigoPostal).cobertura !== 'medida' && (
+              <span className="semana__dias-rotulo semana__zona">{textoDeZona(resolverZona(perfil.codigoPostal))}</span>
             )}
             <span className="semana__dias-rotulo">Por persona y ración</span>
             <div className="semana__dias" onScroll={alScroll}>

@@ -22,7 +22,7 @@ import {
 import { analitica } from '../lib/analitica';
 import { tramoImporte } from '../lib/analitica-buckets';
 import { versionDePrecios, zonaCargada } from '../data/motor';
-import { NOMBRE_ZONA, textoDeZona } from '../lib/zona';
+import { NOMBRE_ZONA, resolverZona, textoDeZona } from '../lib/zona';
 import { DIAS_PRECIOS_VIEJOS, diasDePrecios } from '../lib/precios';
 import { hoy } from '../lib/fechas';
 import './Compra.css';
@@ -52,9 +52,12 @@ const Compra: React.FC = () => {
      conPreciosDeHoy en AppStateContext). */
   const fechaDeLaLista = estado.preciosDeLaLista ?? versionDePrecios();
   const diasDeLosPrecios = diasDePrecios(fechaDeLaLista, hoy());
-  const zona = zonaCargada();
-  // «Madrid» también cuando la zona del usuario no está: es lo que son.
-  const lugar = NOMBRE_ZONA[zona.zona];
+  // El lugar, del catálogo CARGADO: es de donde son los precios. «Madrid»
+  // también cuando la zona del usuario no está, porque es lo que son.
+  const lugar = NOMBRE_ZONA[zonaCargada().zona];
+  // La cobertura, del código postal de AHORA: Tenerife y «sin código» cargan
+  // el mismo catálogo sin recargar y no dicen lo mismo.
+  const zona = resolverZona(perfil.codigoPostal);
   const preciosDesfasados = diasDeLosPrecios >= DIAS_PRECIOS_VIEJOS;
 
   /**
