@@ -88,7 +88,12 @@ function main() {
 
     // Las trazas se sobrescriben enteras: no son curación humana, son el texto
     // de la etiqueta del producto que hay elegido hoy.
-    const trazas = filtrar(etiqueta.trazas).filter((t) => !(ing.alergenos ?? []).includes(t));
+    // Más las que se han leído en una FOTO de la etiqueta y no trae el texto de
+    // la ficha (`trazasFoto`, con su fuente): el cuscús, cuya caja dice «puede
+    // contener soja y mostaza» y la ficha solo soja. Ver verificaciones.json.
+    const trazas = filtrar([...(etiqueta.trazas ?? []), ...(etiqueta.trazasFoto ?? [])])
+      .filter((t, i, todas) => todas.indexOf(t) === i)
+      .filter((t) => !(ing.alergenos ?? []).includes(t));
     const antes = (ing.trazas ?? []).join(',');
     if (trazas.length) ing.trazas = trazas.sort((a, b) => a.localeCompare(b));
     else delete ing.trazas;

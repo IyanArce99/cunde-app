@@ -876,7 +876,11 @@
     ],
     "trazas": [
       "soja"
-    ]
+    ],
+    "trazasFoto": [
+      "mostaza"
+    ],
+    "fuenteTrazasFoto": "Foto de etiqueta de la ficha oficial (perspectiva 9), almacén 3120, 14 oct 2026: «Puede contener soja y mostaza». Ver catalogo/verificaciones.json."
   },
   "9430": {
     "sku": "9430",
@@ -1908,7 +1912,9 @@
       "contiene": [
         "cacahuete"
       ],
-      "trazas": [],
+      "trazas": [
+        "frutos_secos"
+      ],
       "resaltados": [
         "CACAHUETES",
         "TRAZAS DE FRUTOS DE CÁSCARA."
@@ -1924,7 +1930,9 @@
     "alergenos": [
       "cacahuete"
     ],
-    "trazas": []
+    "trazas": [
+      "frutos_secos"
+    ]
   },
   "34120": {
     "sku": "34120",
@@ -1973,6 +1981,7 @@
       "contiene": [],
       "trazas": [
         "cacahuete",
+        "frutos_secos",
         "gluten",
         "mostaza",
         "sesamo"
@@ -1994,6 +2003,7 @@
     "alergenos": [],
     "trazas": [
       "cacahuete",
+      "frutos_secos",
       "gluten",
       "mostaza",
       "sesamo"

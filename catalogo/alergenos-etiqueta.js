@@ -16,7 +16,10 @@ export const TERMINOS = [
   // reglamento 1169/2011 lo lista como alérgeno propio. Meterlo dentro de
   // "frutos secos" dejaba a un alérgico al cacahuete sin filtro propio y le
   // quitaba de más al que solo lo es a la almendra.
-  { clave: 'frutos_secos', palabras: ['almendra', 'avellana', 'nuez', 'nueces', 'anacardo', 'pistacho', 'macadamia', 'pecana'] },
+  // «Frutos de cáscara» es el término LEGAL del reglamento, y el que usan las
+  // etiquetas cuando no nombran uno concreto («puede contener frutos de
+  // cáscara», el yogur Danone). Sin él se perdía esa traza entera.
+  { clave: 'frutos_secos', palabras: ['almendra', 'avellana', 'nuez', 'nueces', 'anacardo', 'pistacho', 'macadamia', 'pecana', 'frutos de cascara', 'fruto de cascara', 'frutos secos'] },
   { clave: 'cacahuete', palabras: ['cacahuete', 'cacahuate', 'mani'] },
   { clave: 'huevo', palabras: ['huevo', 'ovoalbumina', 'clara de huevo', 'yema'] },
   { clave: 'pescado', palabras: ['pescado', 'anchoa', 'atun', 'bacalao', 'merluza', 'sardina', 'caballa', 'boqueron', 'salmon'] },

@@ -158,6 +158,7 @@
       "rendimiento_comestible": 1,
       "trazas": [
         "cacahuete",
+        "frutos_secos",
         "gluten",
         "mostaza",
         "sesamo"
@@ -863,6 +864,7 @@
       "base": "cuscus",
       "rendimiento_comestible": 1,
       "trazas": [
+        "mostaza",
         "soja"
       ]
     },
