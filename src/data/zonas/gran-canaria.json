@@ -15,7 +15,7 @@
   ],
   "version": "2026-10-14",
   "verificadoDesde": "2026-10-14T07:57:06.349Z",
-  "verificadoHasta": "2026-10-14T09:10:20.456Z",
+  "verificadoHasta": "2026-10-14T09:48:21.521Z",
   "fuente": "https://tienda.mercadona.es/api/products/<sku>/?wh=<almacén>, un almacén cada vez: precios y disponibilidad de la TIENDA ONLINE. Ver catalogo/construir-zona.ts.",
   "codigosPostales": [
     {
@@ -1496,8 +1496,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "aceituna_verde": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "52783 Aceitunas verdes Hacendado con hueso"
     },
     "acelga": {
@@ -1511,8 +1511,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alcachofa": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "16040 Corazones de alcachofa Hacendado"
     },
     "almendra": {
@@ -1571,8 +1571,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "bacon": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "16252 Bacón Hacendado cintas"
     },
     "bebida_arroz": {
@@ -1586,8 +1586,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "berenjena": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "ingredientes pendiente: Foto del cartel del lineal o de la etiqueta del envase con la denominación. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "69143 Berenjena"
     },
     "brocoli": {
@@ -1606,18 +1606,18 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "calabacin": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "69339 Calabacín blanco"
     },
     "calabaza": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "cantidades pendiente: Peso del trozo antes y después de pelar y quitar pepitas, o la variedad del cartel. · ingredientes pendiente: Foto del cartel del lineal o de la etiqueta del envase con la denominación. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "3251 Trozo de calabaza"
     },
     "calamar_congelado": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "cantidades pendiente: Peso de los calamares de una bolsa antes y después de limpiarlos (quitar pluma, vísceras, ojos y pico).",
       "detalle": "63432 Calamar patagónico pequeño Hacendado ultracongelado"
     },
     "caldo_pollo": {
@@ -1635,13 +1635,13 @@
       ]
     },
     "carne_picada_cerdo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "5241 Preparado de carne picada cerdo"
     },
     "carne_picada_mixta": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "5077 Preparado de carne picada vacuno y cerdo"
     },
     "carne_picada_vacuno": {
@@ -1665,8 +1665,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "chuleta_cordero": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "cantidades pendiente: Peso de una bandeja y peso del hueso tras comerla, o aceptar que la proteína real sea algo menor. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "5186 Chuletas de cordero palo o riñonada congeladas"
     },
     "coliflor": {
@@ -1690,8 +1690,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "costilla_cerdo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "4467 Tira de costilla de cerdo"
     },
     "curcuma": {
@@ -1710,8 +1710,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "entrecot_vacuno": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "4516 Entrecot de vacuno añojo para barbacoa o plancha"
     },
     "espagueti": {
@@ -1725,8 +1725,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "espinaca": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "13986 Espinacas en porciones Hacendado ultracongeladas"
     },
     "fideo": {
@@ -1735,13 +1735,13 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "filete_vacuno": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "4620 Filetes de vacuno 1º añojo para empanar"
     },
     "gamba_congelada": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "24181 Gamba pelada cruda tamaño mediano Hacendado ultracongelada"
     },
     "garbanzo_cocido": {
@@ -1750,8 +1750,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "garbanzo_seco": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "5214 Garbanzo Hacendado"
     },
     "guisante": {
@@ -1815,13 +1815,13 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lomo_cerdo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: etiqueta); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "4119 Filetes lomo de cerdo extra tiernos"
     },
     "lomo_merluza": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "62212 Lomos de merluza del Cabo Hacendado ultracongelados"
     },
     "lubina": {
@@ -1855,8 +1855,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "muslo_pollo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "2789 Contramuslos de pollo deshuesados y sin piel"
     },
     "nata_cocinar": {
@@ -1870,8 +1870,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pan": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en 3120, 3544, 3864, 4745, 4418, 4570, 4377, 4677 (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en 3120, 3544, 3864, 4745, 4418, 4570, 4377, 4677; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "83264.1 Barra de pan",
       "almacenes": [
         "3120",
@@ -1903,8 +1903,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pepino": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "ingredientes pendiente: Foto del cartel del lineal o de la etiqueta del envase con la denominación. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "69253 Pepino"
     },
     "perejil": {
@@ -1928,8 +1928,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pimiento_verde": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "ingredientes pendiente: Foto del cartel del lineal o de la etiqueta del envase con la denominación. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "68379 Pimiento verde"
     },
     "pollo_troceado": {
@@ -1953,8 +1953,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "repollo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "ingredientes pendiente: Foto del cartel del lineal o de la etiqueta del envase con la denominación. · alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "69167 Media col lisa"
     },
     "romero": {
@@ -1968,13 +1968,13 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "salchicha_fresca": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: sin evidencia); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "4463 Longaniza fresca de pueblo"
     },
     "sardina_fresca": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: nombre); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "24442 Sardina pequeña Hacendado congelada"
     },
     "seta": {
@@ -1988,13 +1988,13 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "solomillo_cerdo": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "4460 Solomillo de cerdo"
     },
     "taco_vacuno": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos pendiente: Foto de la etiqueta de la bandeja o del envase con la lista de ingredientes y alérgenos (o el cartel del lineal si va a granel).",
       "detalle": "4508 Morcillo de vacuno añojo"
     },
     "tofu": {
@@ -2033,9 +2033,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "yogur_natural": {
-      "origen": "alternativa rechazada",
-      "verificacion": "no verificada",
-      "detalle": "20087 Yogur natural Danone: discrepancias: trazas"
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
+      "detalle": "20087 Yogur natural Danone"
     },
     "zanahoria": {
       "origen": "mismo-sku",
@@ -2068,9 +2068,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "postre_yogur_natural": {
-      "origen": "alternativa rechazada",
-      "verificacion": "no verificada",
-      "detalle": "20087 Yogur natural Danone: discrepancias: trazas"
+      "origen": "alternativa no validada",
+      "verificacion": "alergenos incompatible: Trazas de gluten y de frutos de cáscara. El filtro de postres de la app (src/motor/postres.ts) no lee trazas, así que no podría apartarlo de quien filtra Gluten o Frutos secos. Sin tocar el motor, no se puede usar como postre. · discrepancia de auditoría: trazas · discrepancia de auditoría: trazas",
+      "detalle": "20087 Yogur natural Danone"
     },
     "postre_gelatina": {
       "origen": "mismo-sku",
@@ -2088,8 +2088,8 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "postre_natillas": {
-      "origen": "alternativa sin revisar",
-      "verificacion": "la auditoría no le encuentra problemas en los nueve almacenes (correspondencia: categoria); falta que un humano la apruebe en gran-canaria-alternativas.json",
+      "origen": "alternativa sin aceptar",
+      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
       "detalle": "68235 Natillas sabor vainilla Hacendado"
     },
     "postre_soja": {

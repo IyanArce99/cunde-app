@@ -134,3 +134,42 @@ describe('la capa de cada almacén', () => {
     }
   });
 });
+
+describe('lo que un producto de la zona declara y el vocabulario no', () => {
+  /*
+   * El yogur Danone de Gran Canaria: «puede contener trazas de gluten y frutos
+   * de cáscara». No se rechaza para todos: se suma al ingrediente SOLO en la
+   * zona y filtra con las reglas de siempre, que cuentan las trazas para los
+   * filtros de alergia.
+   */
+  // Sobre el catálogo entero de Madrid, para que las recetas con yogur no
+  // caigan por otro ingrediente que falte en la zona.
+  const conTraza: CatalogoZona = {
+    ...zona,
+    porAlmacen: {},
+    skus: {
+      ...madrid.skus,
+      yogur_natural: { ...madrid.skus.yogur_natural, sku: 'prueba', trazas_zona: ['gluten', 'frutos_secos'] },
+    },
+  };
+  const d = datosDeZona(madrid, conTraza);
+  const conYogur = d.recetas.filter((r) => r.ingredientes.some((i) => i.canonico === 'yogur_natural')).map((r) => r.id);
+
+  it('se suma al ingrediente en la zona y Madrid no se entera', () => {
+    expect(d.ingredientes.yogur_natural.trazas).toEqual(expect.arrayContaining(['gluten', 'frutos_secos']));
+    expect(madrid.ingredientes.yogur_natural.trazas ?? []).not.toContain('gluten');
+  });
+
+  it('aparta sus recetas para quien filtra Gluten o Frutos secos, y solo para ellos', () => {
+    expect(conYogur.length).toBeGreaterThan(0);
+    const ids = (ex: string[]) => new Set(recetarioAdaptado(d, ex).map((r) => r.id));
+    const sinGluten = ids(['Gluten']);
+    const sinFrutos = ids(['Frutos secos']);
+    const libre = ids([]);
+    for (const id of conYogur) {
+      expect(sinGluten.has(id), `${id} con Gluten`).toBe(false);
+      expect(sinFrutos.has(id), `${id} con Frutos secos`).toBe(false);
+      expect(libre.has(id), `${id} sin filtros`).toBe(true);
+    }
+  });
+});

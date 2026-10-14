@@ -59,6 +59,20 @@ export function datosDeZona(base: DatosMotor, zona: CatalogoZona, almacen?: stri
   // La capa del almacén, solo si se sabe cuál es. Sin almacén, lo común.
   if (almacen) for (const [canonico, sku] of Object.entries(zona.porAlmacen?.[almacen] ?? {})) skus[canonico] = sku;
 
+  /* Lo que los productos de la zona declaran además del vocabulario se suma al
+     ingrediente, solo aquí. Los filtros (seleccionar.ts) no cambian: leen
+     `alergenos` y `trazas` como siempre. */
+  let ingredientes = base.ingredientes;
+  for (const [canonico, sku] of Object.entries(skus)) {
+    if (!sku.alergenos_zona?.length && !sku.trazas_zona?.length) continue;
+    const meta = base.ingredientes[canonico];
+    if (!meta) continue;
+    if (ingredientes === base.ingredientes) ingredientes = { ...base.ingredientes };
+    const alergenos = [...new Set([...meta.alergenos, ...(sku.alergenos_zona ?? [])])];
+    const trazas = [...new Set([...(meta.trazas ?? []), ...(sku.trazas_zona ?? [])])].filter((t) => !alergenos.includes(t));
+    ingredientes[canonico] = { ...meta, alergenos, trazas };
+  }
+
   const faltanEn = (ingredientes: { canonico: string }[]) => [...new Set(
     ingredientes.map((i) => i.canonico).filter((c) => !SIN_SKU.has(c) && !skus[c]),
   )].sort((a, b) => a.localeCompare(b));
@@ -84,6 +98,7 @@ export function datosDeZona(base: DatosMotor, zona: CatalogoZona, almacen?: stri
   return {
     ...base,
     generadoEn: zona.version,
+    ingredientes,
     zona: zona.zona,
     almacen: almacen ?? null,
     skus,

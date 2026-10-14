@@ -33,12 +33,18 @@
  *                     existe, o, si es de peso variable, el mismo precio por
  *                     kilo (±1 %);
  *                   · está publicado y sin fecha de baja;
- *                   · si es ALTERNATIVA, además: la ha propuesto alguien en
- *                     <zona>-alternativas.json, un humano la ha marcado
- *                     `revisado` (es quien confirma que ES ese ingrediente:
- *                     el nombre o la categoría no lo prueban), y la auditoría
- *                     no encuentra ninguna discrepancia —la etiqueta no
- *                     declara alérgenos ni trazas que el vocabulario no tenga—.
+ *                   · si es ALTERNATIVA, además, tres cosas que no se mezclan:
+ *                     1. validación TÉCNICA (<zona>-alternativas.json): formato,
+ *                        cantidades, ingredientes y alérgenos, cada uno `ok`,
+ *                        `segun-perfil`, `pendiente` o `incompatible`, con su
+ *                        evidencia. Una pendiente o incompatible la deja fuera;
+ *                     2. aceptación CULINARIA (<zona>-aceptacion.json): solo la
+ *                        da una persona, y no valida nada técnico;
+ *                     3. COMPATIBILIDAD por perfil: lo que la etiqueta declara y
+ *                        el vocabulario no (`segun-perfil`) se añade en la zona
+ *                        (`alergenos_zona`, `trazas_zona`) y filtra con las reglas
+ *                        de la app; no se rechaza para todos.
+ *                     Y la auditoría no encuentra otra discrepancia.
  *                 Lo que no pasa queda en `null` con su motivo. El motor quita
  *                 las recetas que lo necesitan; no se sustituye en silencio.
  *
@@ -77,12 +83,18 @@ if (!['proponer', 'cerrar'].includes(paso) || !zona || !fecha) {
 
 const datos: DatosMotor = leer(path.join(aqui, '..', 'src', 'data', 'motor-datos.json'));
 const RUTA_PROPUESTA = path.join(aqui, 'zonas', `${zonaId}-propuesta.json`);
-const RUTA_SALIDA = process.argv.includes('--suponer-revisadas')
+const RUTA_SALIDA = process.argv.includes('--suponer-aceptadas')
   ? path.join(aqui, 'capturas-crudas', `zona-${zonaId}-supuesta.json`)
   : path.join(aqui, '..', 'src', 'data', 'zonas', `${zonaId}.json`);
 const RUTA_ALTERNATIVAS = path.join(aqui, 'zonas', `${zonaId}-alternativas.json`);
-/** Para MEDIR qué cambiaría al aprobarlas, sin tocar el catálogo de la app. */
-const SUPONER_REVISADAS = process.argv.includes('--suponer-revisadas');
+/** La aceptación CULINARIA, que solo da una persona. La técnica va en RUTA_ALTERNATIVAS. */
+const RUTA_ACEPTACION = path.join(aqui, 'zonas', `${zonaId}-aceptacion.json`);
+/**
+ * Para MEDIR qué cambiaría si aceptaras todas, sin tocar el catálogo de la app.
+ * Supone la aceptación culinaria, NUNCA la técnica: lo que tenga una dimensión
+ * pendiente o incompatible sigue fuera.
+ */
+const SUPONER_ACEPTADAS = process.argv.includes('--suponer-aceptadas');
 
 /** En qué unidades piden las recetas (y ensamblajes) cada canónico. */
 const unidadesDe = new Map<string, Set<UnidadReceta>>();
@@ -186,11 +198,11 @@ function catalogosDeLaZona(): Map<string, any> {
 if (paso === 'proponer') {
   const auds = auditorias('');
   const porSku = catalogosDeLaZona();
-  const alternativas: Record<string, { sku: string | null; motivo: string; revisado: boolean }> =
+  const alternativas: Record<string, { sku: string | null; motivo: string }> =
     leer(RUTA_ALTERNATIVAS).alternativas;
 
   const skus: Record<string, Sku | null> = {};
-  const motivo: Record<string, { origen: 'mismo-sku' | 'alternativa' | 'ninguno'; detalle: string; revisado?: boolean }> = {};
+  const motivo: Record<string, { origen: 'mismo-sku' | 'alternativa' | 'ninguno'; detalle: string }> = {};
   /* El SKU de Madrid donde SÍ está igual, cuando no está en todos. Es el mismo
      producto, así que no necesita revisión: solo vale en esos almacenes. */
   const madridParcial: Record<string, { sku: Sku; almacenes: string[] }> = {};
@@ -225,7 +237,7 @@ if (paso === 'proponer') {
       motivo[canonico] = { origen: 'ninguno', detalle: `${porQue}; la propuesta ${alt.sku} no se puede convertir desde las unidades de las recetas` };
     } else {
       skus[canonico] = skuDelCatalogo(p);
-      motivo[canonico] = { origen: 'alternativa', detalle: `${porQue}; ${alt.motivo}`, revisado: alt.revisado === true };
+      motivo[canonico] = { origen: 'alternativa', detalle: `${porQue}; ${alt.motivo}` };
     }
   }
   fs.writeFileSync(RUTA_PROPUESTA, `${JSON.stringify({ zona: zonaId, fecha, skus, motivo, madridParcial }, null, 2)}\n`);
@@ -238,6 +250,9 @@ if (paso === 'proponer') {
 
 if (paso === 'cerrar') {
   const propuesta = leer(RUTA_PROPUESTA);
+  type Dimension = { estado: 'ok' | 'pendiente' | 'segun-perfil' | 'incompatible'; nota: string; falta?: string; anadirEnLaZona?: { alergenos?: string[]; trazas?: string[] } };
+  const tecnicaDe: Record<string, { tecnica?: Record<string, Dimension> }> = leer(RUTA_ALTERNATIVAS).alternativas;
+  const aceptada: Record<string, boolean | null> = fs.existsSync(RUTA_ACEPTACION) ? leer(RUTA_ACEPTACION).decisiones : {};
   const auds = auditorias('');
   const audsAlt = auditorias(`-${zonaId}-propuesta-parcial`);
 
@@ -281,30 +296,55 @@ if (paso === 'cerrar') {
     const parcial = dondeVa.length < zona.almacenes.length;
     const problemas: string[] = [];
     if (!en.length) problemas.push(div ?? 'no existe');
+    // La validación TÉCNICA: formato, cantidades, ingredientes, alérgenos.
+    const tecnica = tecnicaDe[canonico]?.tecnica ?? {};
+    const abiertas = Object.entries(tecnica).filter(([, d]) => d.estado === 'pendiente' || d.estado === 'incompatible');
+    for (const [dim, d] of abiertas) problemas.push(`${dim} ${d.estado}: ${d.falta ?? d.nota}`);
+    if (!Object.keys(tecnica).length) problemas.push('sin validación técnica');
+    // Lo que la alternativa declara y el vocabulario no, si se ha decidido
+    // llevarlo a la zona (`segun-perfil`): filtra con las reglas de siempre.
+    const anadir = tecnica.alergenos?.estado === 'segun-perfil' ? tecnica.alergenos.anadirEnLaZona ?? {} : {};
     if (ref) {
-      // Que ES ese ingrediente lo confirma quien revisa (`revisado`); la
-      // auditoría confirma que existe, cuánto cuesta y qué alérgenos declara.
-      // Una discrepancia la tumba aunque esté revisada.
-      const graves = ref.hallazgos.filter((h) => h.gravedad === 'discrepancia').map((h) => h.campo);
-      if (graves.length) problemas.push(`discrepancias: ${graves.join(', ')}`);
+      // La auditoría confirma que existe, cuánto cuesta y qué alérgenos declara.
+      // Una discrepancia la tumba, salvo un alérgeno o traza que ya va a la zona.
+      for (const h of ref.hallazgos.filter((x) => x.gravedad === 'discrepancia')) {
+        const texto = String((h as { mercadona?: unknown }).mercadona ?? '');
+        const cubierto = (h.campo === 'trazas' && (anadir.trazas ?? []).some((t) => texto.includes(t)))
+          || (h.campo === 'alergeno' && (anadir.alergenos ?? []).some((t) => texto.includes(t)));
+        if (!cubierto) problemas.push(`discrepancia de auditoría: ${h.campo}`);
+      }
     }
+    const conZona: Sku = {
+      ...s,
+      ...(anadir.alergenos?.length ? { alergenos_zona: anadir.alergenos as Sku['alergenos_zona'] } : {}),
+      ...(anadir.trazas?.length ? { trazas_zona: anadir.trazas as Sku['trazas_zona'] } : {}),
+    };
+    const culinaria = SUPONER_ACEPTADAS || aceptada[canonico] === true;
     skus[canonico] = null;
     if (problemas.length) {
-      estado[canonico] = { origen: 'alternativa rechazada', verificacion: 'no verificada', detalle: `${s.sku} ${s.nombre}: ${problemas.join('; ')}`, ...conMadrid };
-    } else if (!m.revisado && !SUPONER_REVISADAS) {
       estado[canonico] = {
-        origen: 'alternativa sin revisar',
-        verificacion: `la auditoría no le encuentra problemas en ${parcial ? dondeVa.join(', ') : 'los nueve almacenes'} (correspondencia: ${ref!.correspondencia}); falta que un humano la apruebe en ${path.basename(RUTA_ALTERNATIVAS)}`,
+        origen: aceptada[canonico] === false ? 'alternativa no aceptada' : 'alternativa no validada',
+        verificacion: problemas.join(' · '),
+        detalle: `${s.sku} ${s.nombre}`,
+        ...(parcial && en.length ? { almacenes: dondeVa } : {}),
+        ...conMadrid,
+      };
+    } else if (aceptada[canonico] === false) {
+      estado[canonico] = { origen: 'alternativa no aceptada', verificacion: 'validada técnicamente; no la aceptas para cocinar', detalle: `${s.sku} ${s.nombre}`, ...conMadrid };
+    } else if (!culinaria) {
+      estado[canonico] = {
+        origen: 'alternativa sin aceptar',
+        verificacion: `validada técnicamente en ${parcial ? dondeVa.join(', ') : 'los nueve almacenes'}; falta tu aceptación culinaria en ${path.basename(RUTA_ACEPTACION)}`,
         detalle: `${s.sku} ${s.nombre}`,
         ...(parcial ? { almacenes: dondeVa } : {}),
         ...conMadrid,
       };
     } else {
-      if (parcial) poner(dondeVa, canonico, s);
-      else skus[canonico] = s;
+      if (parcial) poner(dondeVa, canonico, conZona);
+      else skus[canonico] = conZona;
       estado[canonico] = {
         origen: 'alternativa',
-        verificacion: `existe y coincide en ${parcial ? dondeVa.join(', ') : 'todos los almacenes'}, sin discrepancias; revisada a mano (correspondencia automática: ${ref!.correspondencia})`,
+        verificacion: `validada técnicamente y aceptada; vale en ${parcial ? dondeVa.join(', ') : 'todos los almacenes'}${anadir.trazas?.length || anadir.alergenos?.length ? `; en la zona declara además ${[...(anadir.alergenos ?? []), ...(anadir.trazas ?? []).map((t) => `trazas de ${t}`)].join(', ')}` : ''}`,
         detalle: `${m.detalle} → ${s.sku} ${s.nombre}`,
         ...(parcial ? { almacenes: dondeVa } : {}),
         ...conMadrid,
@@ -334,7 +374,7 @@ if (paso === 'cerrar') {
   fs.mkdirSync(path.dirname(RUTA_SALIDA), { recursive: true });
   fs.writeFileSync(RUTA_SALIDA, `${JSON.stringify(salida, null, 2)}\n`);
   const cuenta = (f: (e: any) => boolean) => Object.values(estado).filter(f).length;
-  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen.includes('sin revisar'))} sin revisar · ${cuenta((e) => e.origen.includes('rechazada'))} rechazadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
+  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen === 'alternativa sin aceptar')} validadas sin aceptar · ${cuenta((e) => e.origen === 'alternativa no validada')} no validadas · ${cuenta((e) => e.origen === 'alternativa no aceptada')} no aceptadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
   for (const [c, e] of Object.entries(estado)) if (e.origen !== 'mismo-sku') console.log(`  ${c.padEnd(24)} ${e.origen.padEnd(23)} ${e.almacenes ? `[${e.almacenes.join(',')}] ` : ''}${e.madridEn ? `(Madrid en ${e.madridEn.join(',')}) ` : ''}${e.detalle}`);
   for (const [wh, x] of Object.entries(porAlmacen)) console.log(`  solo en ${wh}: ${Object.entries(x).map(([c, s]) => `${c} ${s.sku}`).join(' · ')}`);
   console.log(`Escrito ${path.relative(process.cwd(), RUTA_SALIDA)}`);

@@ -140,6 +140,15 @@ export interface Sku {
    * ninguna cuenta. Ver catalogo/escurridos.ts.
    */
   contenido_etiqueta?: number;
+  /**
+   * Lo que declara la etiqueta de ESTE producto y el vocabulario del canónico
+   * no, cuando se usa en una zona (el yogur Danone de Gran Canaria: trazas de
+   * gluten y de frutos de cáscara). src/motor/zona.ts lo suma a los alérgenos
+   * del ingrediente SOLO en esa zona, y los filtros lo aplican con sus reglas
+   * de siempre. Ver catalogo/construir-zona.ts.
+   */
+  alergenos_zona?: Alergeno[];
+  trazas_zona?: Alergeno[];
   unidad: UnidadCatalogo;
   precio: number;
   precio_kg_l_ud: number;
