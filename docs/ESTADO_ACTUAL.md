@@ -559,6 +559,7 @@ listas se separen.
 | 5g | **Gran Canaria**: revisar las 24 alternativas propuestas (`catalogo/zonas/gran-canaria-alternativas.json`) y rehacer la zona con `construir-zona.ts cerrar`. Sin ellas quedan 49 recetas | tú |
 | 5h | **Gran Canaria**: publicar su instantánea (`publicar-precios.js --zona gran-canaria`) y que el cron mida los 9 almacenes. Necesita Supabase y `VITE_PRECIOS_URL` con `{zona}` | tú |
 | 5i | Los precios medidos son los de la **tienda online**. Que la tienda física cobre lo mismo no está comprobado: el primer ticket real lo dirá | — |
+| 5j | **Beta privada** (14 oct): zonas, alérgenos desconocidos, precios por zona, privacidad y APK «Cunde Beta» → **[beta-privada-2026-10-14.md](beta-privada-2026-10-14.md)**. Bloquean: Supabase (el proyecto no resuelve; probablemente ya no existe), datos del titular en la política, dominio y redespliegue de la landing, y el recorrido en un teléfono real | tú |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |
 | 7 | Toda la configuración de RevenueCat y Play Console para Cunde+ → **[lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)** | tú |
 | 8 | Borrar las filas de analítica de prueba antes de la beta: `delete from analytics_events where created_at < '2026-08-12'` | tú |
