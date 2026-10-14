@@ -27,7 +27,7 @@ una app de dinero que se paga en comida.**
 ```
 152 recetas          120 ingredientes canónicos (17 de despensa)
 118 SKU elegidos     120 recetas con foto · 7 nuevas sin ella
-30 componentes       22 ficheros de test · 373 tests en verde
+30 componentes       24 ficheros de test · 392 tests en verde
 precios del          catálogo Mercadona real, actualizable sin
 2026-10-13           publicar en Play Store
 ```
@@ -244,38 +244,68 @@ Cierre     GUARDAR_CIERRE · DESHACER_CIERRE · OLVIDAR_DESHACER
 Pago       SET_SUSCRIPCION · SEGUIR_GRATIS
 ```
 
-### Cuándo se abre la semana siguiente (13 oct 2026)
+### Cuándo pasa la semana siguiente (13-14 oct 2026)
 
 **Cerrar la compra no es acabar la semana.** Se cierra en el súper, con siete
 días de cocina por delante.
 
 - `GUARDAR_CIERRE` solo guarda el ticket. El menú, el historial, la despensa y
   el número de semana se quedan como estaban.
-- La semana siguiente se abre cuando la compra está cerrada **y** han pasado
-  los siete días de la vigente (`hoy ≥ semana.fechaInicio + 7`). La decide
-  `tocaAbrirLaSiguiente()` y la dispara la acción `ABRIR_SEMANA_SI_TOCA`, que
-  el provider despacha al arrancar y cada vez que la app vuelve a primer plano.
-  Sale del estado y del reloj del móvil: funciona sin conexión.
-- La contabilidad —historial, despensa, número de semana— se hace al abrir, en
-  `abrirSemanaSiTocaba()`, sobre el plan tal y como quedó. `cierre.guardada` se
-  apaga en la misma acción, así que no puede repetirse al recargar.
+- Cuando la compra está cerrada **y** han pasado los siete días de la vigente
+  (`hoy ≥ semana.fechaInicio + 7`, ver `tocaAbrirLaSiguiente()`), Semana
+  enseña «Esta semana ya ha terminado» con la acción **«Preparar siguiente
+  semana»**. Hasta que se pulsa, el menú y las recetas siguen donde estaban,
+  aunque se recargue o se vuelva del segundo plano. Funciona sin conexión.
+- Al pulsar (`PREPARAR_SIGUIENTE_SEMANA`) se hace la transición y la
+  contabilidad —historial, despensa, número de semana— en
+  `abrirSemanaSiTocaba()`, una sola vez: `cierre.guardada` se apaga en la misma
+  acción y una segunda pulsación devuelve el mismo estado.
+- **Fecha de inicio**: la que tocaba si aún no ha pasado; si ya pasó, hoy. Ni
+  un día en el pasado: una semana preparada tarde no nace con días perdidos.
+- **Envejecimiento de la despensa**: lo que sobró envejece los días que de
+  verdad pasan entre el inicio de la semana vieja y el de la nueva (siete como
+  mínimo). Tras tres semanas fuera ya no quedan productos caducados contando
+  como «en casa».
 - Con el muro activo y sin Cunde+ no cambia nada: la semana se abre al pasar el
-  muro (`SEGUIR_GRATIS`), como antes. Con Cunde+ abre la fecha.
+  muro (`SEGUIR_GRATIS`), como antes. Con Cunde+ sale el aviso.
 
-Antes la contabilidad se hacía al cerrar el ticket. Era inocuo mientras lo
-siguiente fuera el muro; con la semana cerrada vigente varios días, cualquier
-retoque o reprecio descontaba de ella sus propios sobrantes.
+Del 13 al 14 oct la transición se hacía sola al arrancar. Se cambió porque le
+quitaba el menú a quien compra tarde: cierra el ticket el día 9 de su semana y
+al abrir la app al día siguiente ya no estaban los platos que acababa de
+comprar.
 
-Lo que esta regla NO cubre, a propósito:
-- **Quien nunca cierra la compra** sigue viendo su semana aunque pasen los
-  días. No se da por hecha una compra que nadie ha confirmado; puede cerrarla
-  cuando quiera. Si en la beta se ve que la gente no cierra, hay que decidir
-  qué hacer aquí.
-- **Quien compra tarde** (cierra con la semana ya pasada) conserva el menú en
-  ese momento y lo pierde la próxima vez que abre la app. Puede mover el día de
-  inicio en Ajustes antes de cerrar.
+Lo que esta regla NO cubre, a propósito: **quien nunca cierra la compra**
+sigue viendo su semana aunque pasen los días, y no ve el aviso. No se da por
+hecha una compra que nadie ha confirmado.
 
-Tests: `src/state/siguienteSemana.test.ts` (14, con reloj falso).
+Tests: `src/state/siguienteSemana.test.tsx` (19, con reloj falso, incluido
+montar la app con la semana vencida y comprobar que no cambia sola).
+
+### «No cocino este día» (14 oct 2026)
+
+Quita esa comida y recalcula la compra de lo que queda; no elige ningún plato
+nuevo (`liberarHueco()` en `seleccionar.ts`):
+
+- hueco cocinado sin sobra → la tanda sale entera;
+- hueco de sobra o ensamblaje → la tanda se queda con su día de cocina, para
+  un hueco;
+- hueco cocinado con sobra → la sobra pasa a cocinarse ese otro día; si era un
+  ensamblaje, pasa a ser el plato base.
+
+El postre de esa comida deja de comprarse (`planDePostres(…, libres)`). Las
+cantidades solo bajan, así que con los mismos precios y despensa la compra no
+puede subir. Antes iba por `repararHueco`, que rehacía la tanda entera: con
+2 personas y 65 €, liberar la sobra del miércoles cambiaba las alubias del
+lunes por un potaje con bacalao y la compra pasaba de 54,32 € a 69,44 €, fuera
+del presupuesto (`catalogo/_aud-no-cocino.ts`).
+
+En un hueco libre, la hoja del día ofrece **«Cocino»**, que rellena solo ese
+hueco (`cocinarHueco()`) con un plato distinto de más si hace falta. Añadir una
+comida sí puede subir la compra, y `cuadra` lo dice.
+
+Tests: `src/motor/noCocino.test.ts` (barrido de huecos en los tres niveles de
+variedad, con postre, despensa y filtros) y `src/state/noCocino.test.ts`
+(camino de la app y recarga).
 
 Las acciones que cambian la semana llaman a `regenerar()`. `SET_PRESUPUESTO`
 por sí sola **no** regenera — es deliberado, y por eso existe `SET_AJUSTES`.
@@ -500,7 +530,9 @@ listas se separen.
 | 4 | ~~Política de privacidad~~ **Hecha** (`landing/privacidad.html`). ~~Condiciones~~ **Hechas** (`landing/condiciones.html`) | — |
 | 5 | Build de release firmada. La del 13 oct (`app-release.aab`, versión 1.3, código 4) es **anterior** al código postal obligatorio, a la pasada de holgura apagada y a la apertura de semana: hay que recompilarla | — |
 | 5b | **Privacidad contra código**: `landing/src/Privacidad.tsx` dice «nunca enviamos tu ubicación» y `onboarding_completed` envía ya la provincia (dos cifras del código postal). Hay que declararlo antes de publicar | — |
-| 5c | **«No cocino este día» puede encarecer la compra.** Visto al escribir los tests de la transición: liberar un hueco de la semana de arranque (2 personas, 65 €, lunes) la lleva de 54,32 € a 69,44 €. Sin investigar; es el camino de `RETOCAR_HUECO` con `libre` | — |
+| 5c | ~~«No cocino este día» encarecía la compra~~ **Hecho el 14 oct.** Ver «No cocino este día» en la sección 5 | — |
+| 5e | **Quien nunca cierra la compra** no recibe semana nueva ni aviso. Si en la beta la gente no cierra, hay que decidir qué ofrecerle (p. ej. el mismo aviso sin contabilidad de despensa) | — |
+| 5f | **«Cocino» puede pasarse del tope**: devolver una comida añade una y puede subir la compra; `cuadra` y la pantalla lo dicen, pero no se impide | — |
 | 5d | La portada enseña una **semana de ejemplo** (54,32 €) y lo dice. La del usuario depende del día en que empieza: de 54,32 € a 61,51 € para los mismos datos, medido el 13 oct. La línea «Con los precios de tu súper, los de hoy» sigue sin ser cierta fuera de Madrid ni con el catálogo viejo | — |
 | 6 | Consultar con abogado de PI antes de lanzar en público (ver nota legal de `CLAUDE.md`) | tú |
 | 7 | Toda la configuración de RevenueCat y Play Console para Cunde+ → **[lanzamiento-cunde-plus.md](lanzamiento-cunde-plus.md)** | tú |
