@@ -113,10 +113,11 @@ servidor**:
    `publicar-precios.js --zona` → `supabase.ts publicar --zona`. Unos 10
    minutos. Automatizarlo puede esperar a después de la beta.
 
-**La migración SQL no se ha ejecutado en ningún Postgres.** Intenté PGlite
-(Postgres en WebAssembly) y falla de forma intermitente en este Windows; el
-daemon de Docker no estaba en marcha. Hay que probarla en el proyecto antes de
-publicar nada.
+~~La migración SQL no se ha ejecutado en ningún Postgres.~~ **Actualizado el
+mismo día:** con PGlite 0.5.9 (la 0.2 fallaba en este Windows) se ha ejecutado
+sobre el esquema viejo con instantáneas de Madrid dentro, y sobre un proyecto
+vacío. Resultados en `docs/lanzamiento-beta.md` §1. Falta, como siempre,
+ejecutarla en el proyecto de verdad.
 
 ### Probado en local, contra un servidor de pruebas
 
