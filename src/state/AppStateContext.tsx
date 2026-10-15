@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { ReactNode } from 'react';
-import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } from './types';
+import type { AppState, Comensales, Perfil, PlanSerial, Preferencias, Ranura, Suscripcion } from './types';
 import { numComensales, numHuecos } from './types';
 import { tramoDiferencia, tramoImporte, tramoPresupuesto } from '../lib/analitica-buckets';
 import {
@@ -125,7 +125,12 @@ export function estadoSuscripcion(estado: AppState): EstadoSuscripcion {
   return estado.huboSuscripcion ? 'caducada' : 'ninguna';
 }
 
-function regenerar(estado: AppState): AppState {
+/**
+ * `previa`: la semana que se está sustituyendo, SOLO cuando se rehace la misma
+ * semana por un cambio de ajustes. Nunca al abrir la semana siguiente, que
+ * tiene que ser otra.
+ */
+function regenerar(estado: AppState, previa?: PlanSerial): AppState {
   const sus = estadoSuscripcion(estado);
   const memoria = estado.historial.slice(0, semanasDeMemoria(sus, SEMANAS_DE_MEMORIA));
   // Sin suscripción, solo lo que sobró de la semana pasada (semanas === 0).
@@ -170,7 +175,7 @@ function regenerar(estado: AppState): AppState {
   // GENERAR, no al valorar. Ver el caso VALORAR_PLATO.
   const semana = generarParaApp(
     estado.perfil, preferencias, estado.contadores.semanaNumero, memoria, despensa,
-    estado.preferenciasPlatos,
+    estado.preferenciasPlatos, previa,
   );
   /**
    * La semana que se acaba de montar QUEDA ATADA a la fecha con que se montó.
@@ -575,7 +580,7 @@ function reducerSinHuella(estado: AppState, accion: Accion): AppState {
        */
       const cambiaLaSemana =
         JSON.stringify(accion.preferencias) !== JSON.stringify(estado.preferencias);
-      return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente) : siguiente;
+      return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente, estado.semana.plan) : siguiente;
     }
     /**
      * ═══ LO QUE GUARDA LA HOJA DE AJUSTES · TODO DE UNA VEZ ═══
@@ -609,7 +614,7 @@ function reducerSinHuella(estado: AppState, accion: Accion): AppState {
         JSON.stringify(accion.preferencias) !== JSON.stringify(estado.preferencias)
         || perfil.comensales !== estado.perfil.comensales
         || perfil.presupuestoSemanal !== estado.perfil.presupuestoSemanal;
-      return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente) : siguiente;
+      return cambiaLaSemana && estado.onboardingCompletado ? regenerar(siguiente, estado.semana.plan) : siguiente;
     }
     case 'RETOCAR_HUECO': {
       // Se rehace desde ese hueco con el mismo motor: cambia el reparto, la

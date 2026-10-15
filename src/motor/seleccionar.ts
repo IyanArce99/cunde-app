@@ -770,6 +770,20 @@ export interface PeticionSemana {
    *      No hay porcentaje mínimo de gasto.
    */
   diversidad?: { bonusFamiliaNueva: number; toleranciaDesperdicio: number };
+  /**
+   * La semana que el usuario tiene ahora, cuando se regenera la MISMA semana
+   * por un cambio de ajustes (por ejemplo, subir el tope). Entra como una
+   * candidata más en la elección final si sigue siendo válida: mismos huecos,
+   * recetas permitidas con los filtros de ahora y dentro de los topes de la
+   * variedad. Así subir el presupuesto no puede cambiarte el menú por otro
+   * menos variado sin ganar nada a cambio. Ver `elegirVariedadFrenteADesperdicio`.
+   */
+  semanaPrevia?: { huecos: Hueco[]; tandas: Tanda[] };
+  /**
+   * Solo para comparar: la elección final de antes del 15 oct 2026, la semana
+   * que menos desperdicia, también con variedad alta. La app no lo pasa.
+   */
+  soloDesperdicio?: boolean;
 }
 
 /** Ver `PeticionSemana.traza`. Importes en euros por hueco, como la puntuación. */
@@ -779,7 +793,11 @@ export type EventoTraza =
     tipo: 'candidato'; hueco: number; receta: string; relajado: boolean; puntuacion: number; dentro: boolean;
     costeMarginal: number; permitido: number; partes: Record<string, number>;
   }
-  | { tipo: 'eleccion'; hueco: number; receta: string; relajado: boolean };
+  | { tipo: 'eleccion'; hueco: number; receta: string; relajado: boolean }
+  | {
+    tipo: 'semana'; origen: string; decision: 'base' | 'elegida' | 'admisible' | 'descartada'; motivo: string;
+    caja: number; consumo: number; perecedero: number; desperdicio: number; variedad: VariedadDeSemana;
+  };
 
 /**
  * Cuando las restricciones dejan el recetario sin con qué llenar la semana.
@@ -1778,6 +1796,180 @@ const REINTENTOS_DE_TECHO = 2;
 const MARGEN_DE_AJUSTE = 0.97;
 
 /**
+ * ═══ CÓMO DE VARIADA ES UNA SEMANA · LAS CUATRO COSAS, POR SEPARADO ═══
+ *
+ * Repetir una RECETA y repetir una CATEGORÍA no son lo mismo y no se mezclan:
+ *
+ *   recetasRecocinadas  tandas − recetas distintas: volver a cocinar el mismo
+ *                       plato. En variedad alta es 0 siempre (tope de 1 tanda).
+ *   comidasDeSobras     comidas que repiten el plato de otro día sin cocinar.
+ *   categorias          tipos de plato distintos (`receta.proteina`: legumbre,
+ *                       huevo, pollo, pescado, soja…), todos con el mismo peso.
+ *   maxPorCategoria     tandas del tipo más repetido. Cuatro platos DISTINTOS
+ *                       de legumbre no repiten receta, pero sí categoría.
+ *   fuentes             familias de ingrediente con 8 g de proteína/100 g o más.
+ */
+export interface VariedadDeSemana {
+  recetasRecocinadas: number;
+  comidasDeSobras: number;
+  categorias: number;
+  maxPorCategoria: number;
+  fuentes: number;
+}
+
+export function variedadDeSemana(c: { tandas: Tanda[]; huecos: Hueco[] }, datos: DatosMotor): VariedadDeSemana {
+  const porCategoria = new Map<string, number>();
+  const fuentes = new Set<string>();
+  for (const t of c.tandas) {
+    porCategoria.set(t.receta.proteina, (porCategoria.get(t.receta.proteina) ?? 0) + 1);
+    for (const ing of t.receta.ingredientes) {
+      const meta = datos.ingredientes[ing.canonico];
+      if (!meta || meta.es_despensa || (meta.proteina_g_por_100 ?? 0) < PROTEINA_QUE_DEFINE_EL_PLATO) continue;
+      fuentes.add(familiaDeSabor(ing.canonico));
+    }
+  }
+  return {
+    recetasRecocinadas: c.tandas.length - new Set(c.tandas.map((t) => t.receta.id)).size,
+    comidasDeSobras: c.huecos.filter((h) => h.tipo === 'sobras' || h.tipo === 'ensamblaje').length,
+    categorias: porCategoria.size,
+    maxPorCategoria: Math.max(0, ...porCategoria.values()),
+    fuentes: fuentes.size,
+  };
+}
+
+/**
+ * Más variada = gana en el primer punto en que se distinguen, en este orden:
+ * menos recetas recocinadas, más categorías, menos platos de la categoría más
+ * repetida, menos comidas de sobras, más fuentes. Positivo si `a` es más variada.
+ */
+export function compararVariedad(a: VariedadDeSemana, b: VariedadDeSemana): number {
+  const claves: [number, number][] = [
+    [b.recetasRecocinadas, a.recetasRecocinadas],
+    [a.categorias, b.categorias],
+    [b.maxPorCategoria, a.maxPorCategoria],
+    [b.comidasDeSobras, a.comidasDeSobras],
+    [a.fuentes, b.fuentes],
+  ];
+  for (const [x, y] of claves) if (x !== y) return x - y;
+  return 0;
+}
+
+/**
+ * La semana que el usuario ya tiene, si sigue valiendo con lo que pide ahora.
+ * Se recalcula su compra con la despensa y el postre de ahora.
+ */
+function semanaPreviaValida(peticion: PeticionSemana): Construida | null {
+  const previa = peticion.semanaPrevia;
+  if (!previa || previa.huecos.length !== peticion.numHuecos || !previa.tandas.length) return null;
+  if (previa.huecos.some((h) => h.tipo === 'libre' || !h.receta)) return null;
+  const minutosMax = MINUTOS_POR_ESFUERZO[peticion.esfuerzo ?? 'libre'];
+  const permitidas = new Map(recetarioAdaptado(peticion.datos, peticion.exclusiones, minutosMax, peticion.platosBloqueados).map((r) => [r.id, r]));
+  if (previa.tandas.some((t) => !permitidas.has(t.receta.id))) return null;
+  const usos = new Map<string, number>();
+  for (const t of previa.tandas) usos.set(t.receta.id, (usos.get(t.receta.id) ?? 0) + 1);
+  if (Math.max(...usos.values()) > TANDAS_POR_RECETA_POR_VARIEDAD[peticion.variedad]) return null;
+  if (usos.size > RECETAS_POR_VARIEDAD[peticion.variedad]) return null;
+  const sobras = previa.huecos.filter((h) => h.tipo !== 'cocinado').length;
+  if (sobras > Math.floor(peticion.numHuecos * FRACCION_SOBRAS_POR_VARIEDAD[peticion.variedad])) return null;
+  const tandas = previa.tandas.map((t) => ({ ...t, receta: permitidas.get(t.receta.id)! }));
+  const plan = peticion.postre
+    ? planDePostres(peticion.datos, peticion.exclusiones ?? [], peticion.N, peticion.numHuecos, new Set())
+    : [];
+  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, plan);
+  return { huecos: previa.huecos, tandas, postres: plan, carrito };
+}
+
+/**
+ * ═══ VARIEDAD ALTA · LA ELECCIÓN FINAL YA NO ES SOLO «LA QUE MENOS TIRA» ═══
+ *
+ * Hasta el 15 oct 2026, entre todas las semanas construidas ganaba siempre la
+ * de menor desperdicio (el criterio del nivel de proteína). Con variedad alta
+ * eso hacía que subir el tope empeorase la variedad sin ganar nada: en Gran
+ * Canaria, a 100 € salía una semana con cuatro platos de legumbre habiendo
+ * otra de categorías más repartidas que cabía de sobra.
+ *
+ * Ahora, entre las semanas válidas, la de menor desperdicio de las construidas
+ * es la REFERENCIA, y gana la más variada (compararVariedad) de las que no
+ * desperdician más que ella o, si desperdician más, pagan esa diferencia con
+ * las reglas que el motor ya usa para decidir si un euro de más merece la pena
+ * —ningún umbral nuevo—:
+ *
+ *   1. cumple el suelo de proteína y cabe en el tope, como la referencia;
+ *   2. RENDIMIENTO_MINIMO_HOLGURA: de cada euro de caja de más, al menos esa
+ *      parte acaba en el plato (no se compra para llenar el tope);
+ *   3. MAXIMO_TIRADO_POR_EURO: el perecedero de más no supera esa fracción de
+ *      la comida de más;
+ *   4. TOPE_DESPERDICIO: el perecedero no pasa de esa parte de lo que se come,
+ *      o de lo que ya tiraba la referencia si estaba por encima.
+ *
+ * Una semana más barata, que tira menos y es igual o más variada, siempre
+ * entra. Entre dos igual de variadas, la que menos desperdicia. No hay gasto
+ * mínimo: si nada más variado paga su diferencia, se queda la referencia.
+ *
+ * Solo con variedad alta: en «normal» y «baja» el usuario ha elegido repetir
+ * para gastar menos, y ahí el desperdicio sigue mandando.
+ */
+function elegirVariedadFrenteADesperdicio(
+  peticion: PeticionSemana,
+  candidatas: { origen: string; c: Construida }[],
+  base: Construida,
+  rango: (c: Construida) => number[],
+): Construida {
+  const criterio = objetivoDe(peticion).criterio;
+  const desperdicio = (c: Construida) => criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero, c.carrito.totalConsumo);
+  const rBase = rango(base);
+  const b = base.carrito;
+  const fraccionBase = b.totalConsumo > 0 ? b.totalPerecedero / b.totalConsumo : 0;
+  const vBase = variedadDeSemana(base, peticion.datos);
+  const anotar = (origen: string, c: Construida, decision: 'base' | 'elegida' | 'admisible' | 'descartada', motivo: string) =>
+    peticion.traza?.({
+      tipo: 'semana', origen, decision, motivo, caja: c.carrito.totalCarrito, consumo: c.carrito.totalConsumo,
+      perecedero: c.carrito.totalPerecedero, desperdicio: desperdicio(c), variedad: variedadDeSemana(c, peticion.datos),
+    });
+
+  let mejor = base;
+  let vMejor = vBase;
+  let origenMejor = 'referencia';
+  const admitidas: { origen: string; c: Construida }[] = [];
+  for (const { origen, c } of candidatas) {
+    if (c === base) { origenMejor = origen; continue; }
+    const r = rango(c);
+    const v = variedadDeSemana(c, peticion.datos);
+    const k = c.carrito;
+    const deMas = k.totalCarrito - b.totalCarrito;
+    const comidaDeMas = k.totalConsumo - b.totalConsumo;
+    const tiraDeMas = k.totalPerecedero - b.totalPerecedero;
+    const fraccion = k.totalConsumo > 0 ? k.totalPerecedero / k.totalConsumo : 0;
+    let motivo = '';
+    if (r[0] > rBase[0]) motivo = 'no llega al suelo de proteína';
+    else if (r[1] > rBase[1]) motivo = 'no cabe en el tope';
+    else if (compararVariedad(v, vBase) < 0) motivo = 'menos variada que la referencia';
+    // Si no desperdicia más que la referencia, no tiene nada que pagar.
+    else if (desperdicio(c) <= desperdicio(base) + 1e-9) motivo = '';
+    else if (deMas > 0.01 && comidaDeMas < RENDIMIENTO_MINIMO_HOLGURA * deMas) {
+      motivo = `de ${deMas.toFixed(2)} € de más, solo ${Math.max(0, comidaDeMas).toFixed(2)} € al plato`;
+    } else if (tiraDeMas > 0.005 && tiraDeMas > MAXIMO_TIRADO_POR_EURO * Math.max(0, comidaDeMas)) {
+      motivo = `tira ${tiraDeMas.toFixed(2)} € más por ${Math.max(0, comidaDeMas).toFixed(2)} € más de comida`;
+    } else if (fraccion > Math.max(TOPE_DESPERDICIO, fraccionBase) + 1e-9) {
+      motivo = `perecedero ${Math.round(fraccion * 100)} % de lo que se come`;
+    }
+    if (motivo) { anotar(origen, c, 'descartada', motivo); continue; }
+    admitidas.push({ origen, c });
+    const cmp = compararVariedad(v, vMejor);
+    if (cmp > 0 || (cmp === 0 && desperdicio(c) < desperdicio(mejor) - 1e-9)) { mejor = c; vMejor = v; origenMejor = origen; }
+  }
+  if (peticion.traza) {
+    anotar('referencia (menos desperdicio)', base, 'base', 'la de menor desperdicio entre las válidas');
+    for (const { origen, c } of admitidas) {
+      if (c === mejor) continue;
+      anotar(origen, c, 'admisible', 'paga su diferencia, pero hay otra más variada o igual de variada y que tira menos');
+    }
+    if (mejor !== base) anotar(origenMejor, mejor, 'elegida', 'la más variada de las que pagan su diferencia');
+  }
+  return mejor;
+}
+
+/**
  * ═══ EXPERIMENTO · QUÉ ES UNA SEMANA MÁS VARIADA ═══
  *
  * Ver `PeticionSemana.diversidad`. Comparación lexicográfica, de más a menos
@@ -1882,6 +2074,8 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
   let rangoMejor: number[] | null = null;
   /** Solo con el experimento `diversidad`: todas las semanas construidas. */
   const todas: Construida[] = [];
+  /** Todas las semanas válidas que se han construido, con su arranque. Ver elegirVariedadFrenteADesperdicio. */
+  const candidatas: { origen: string; c: Construida }[] = [];
   const probadas = new Set<string>();
   const probar = (semillas: Receta[]) => {
     for (const receta of semillas) {
@@ -1889,6 +2083,7 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
       const intento = construir(peticion, { forzarPrimera: receta.id });
       if (!intento) continue;
       if (peticion.diversidad) todas.push(intento);
+      candidatas.push({ origen: `arranque ${receta.id}`, c: intento });
       const r = rango(intento);
       if (!mejor || mejorRango(r, rangoMejor!)) { mejor = intento; rangoMejor = r; }
     }
@@ -1923,10 +2118,17 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
     for (const atenuar of [0.5, 0]) {
       const suelto = construirMejor({ ...peticion, atenuarMemoria: atenuar }, false);
       if (!suelto) continue;
+      candidatas.push({ origen: `memoria al ${atenuar * 100} %`, c: suelto });
       const r = rango(suelto);
       if (!mejor || mejorRango(r, rangoMejor!)) { mejor = suelto; rangoMejor = r; }
       if (consiguio()) break;
     }
+  }
+
+  if (peticion.variedad === 'mucha' && !peticion.soloDesperdicio && !peticion.diversidad && mejor) {
+    const previa = semanaPreviaValida(peticion);
+    if (previa) candidatas.push({ origen: 'semana anterior', c: previa });
+    mejor = elegirVariedadFrenteADesperdicio(peticion, candidatas, mejor, rango);
   }
 
   if (peticion.diversidad && mejor) {

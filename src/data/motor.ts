@@ -537,8 +537,24 @@ export function generarParaApp(
   historial: string[][] = [],
   existencias: Existencias = {},
   preferenciasPlatos: PreferenciasPlatos = {},
+  /**
+   * La semana que el usuario tiene AHORA, cuando lo que se regenera es esa
+   * misma semana (ha cambiado un ajuste, por ejemplo el tope). Entra como
+   * candidata en la elección final del motor: subir el presupuesto no puede
+   * cambiarte el menú por otro menos variado sin ganar nada. Ver
+   * `PeticionSemana.semanaPrevia`. Si ya no se puede rehidratar, no se usa.
+   */
+  previa?: PlanSerial,
 ): SemanaParaApp {
   const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos);
+  if (previa?.huecos.length) {
+    try {
+      const h = hidratar(previa, peticion.N, preferencias.exclusiones, preferencias.proteina, existencias, preferencias.postre);
+      peticion.semanaPrevia = { huecos: h.huecos, tandas: h.tandas };
+    } catch {
+      // Una receta que ya no existe: la semana anterior no es candidata.
+    }
+  }
   return bajar(generarSemana(peticion), peticion.N);
 }
 
