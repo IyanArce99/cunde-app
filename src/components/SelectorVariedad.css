@@ -1,9 +1,9 @@
 /* ---------------------------------------------------------------------------
-   TRES SEMANAS, ORDENADAS POR PRECIO
+   TRES NIVELES DE VARIEDAD, CON SU PRECIO Y SUS CIFRAS
 
-   Ver la cabecera de SelectorVariedad.tsx para por qué se fueron los adjetivos.
-   Aquí lo que importa: el PRECIO es lo primero que se lee de cada opción, y por
-   eso va arriba y en el tamaño de una cifra, no debajo como una nota al pie.
+   Ver la cabecera de SelectorVariedad.tsx. Tres columnas en 375 de ancho: el
+   nombre arriba, el precio en tamaño de cifra, y lo que trae, una idea por
+   línea para que nada se parta a media frase.
    --------------------------------------------------------------------------- */
 
 .semanas {
@@ -44,6 +44,11 @@
   color: var(--pauta);
 }
 
+.semanas__nombre {
+  font: 600 14px/1.2 var(--font-body);
+  color: var(--tinta);
+}
+
 .semanas__precio {
   font: 500 17px/1.15 var(--font-body);
   color: var(--tinta);
@@ -60,4 +65,10 @@
   margin-top: 2px;
   font: 400 13px/1.25 var(--font-body);
   color: var(--gris);
+}
+
+.semanas__nota {
+  margin: 8px 0 0;
+  font: 400 13px/1.4 var(--font-body);
+  color: var(--tinta);
 }

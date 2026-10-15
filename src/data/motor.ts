@@ -9,7 +9,7 @@ import type { PreferenciasPlatos } from '../lib/preferencias';
 import { planDePostres, postrePorHueco, precioDeRacion } from '../motor/postres.ts';
 import type { RacionPostre } from '../motor/postres.ts';
 import {
-  alternativasParaHueco, generarSemana, mejorVariedad, nutricionDe, recetarioAdaptado, rehacerDesde,
+  alternativasParaHueco, costeDeUnaVariedad, generarSemana, mejorVariedad, nutricionDe, recetarioAdaptado, rehacerDesde,
   repararHueco, GRAMOS_POR_NIVEL,
 } from '../motor/seleccionar.ts';
 import type {
@@ -606,6 +606,39 @@ export function variedadQueMenosDesperdicia(
   preferenciasPlatos: PreferenciasPlatos = {},
 ): Variedad {
   return mejorVariedad(peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos));
+}
+
+/**
+ * ═══ LA VARIEDAD DE QUIEN NO HA ELEGIDO NINGUNA: ALTA, SI CABE ═══
+ *
+ * Decidido el 15 oct 2026 para la beta. Hasta entonces mandaba siempre
+ * `mejorVariedad` (la que menos desperdicia), y con presupuestos holgados eso
+ * daba semanas de pocas recetas y bastantes comidas de sobras mientras
+ * quedaban euros sin usar: en Gran Canaria, 100 € de tope y 16,93 € sin gastar.
+ *
+ * Alta es la única con una garantía dura —ninguna receta se cocina dos veces—
+ * y es lo que se espera de un tope mayor. Pero no a cualquier precio:
+ *
+ *   · si no cabe en el tope, o no llega a la proteína pedida, o no hay recetas
+ *     con esos filtros, se vuelve a `mejorVariedad`. Nunca se fuerza gastar
+ *     más de lo que el usuario puso, y la hoja de ajustes dice por qué no sale
+ *     la alta (SelectorVariedad).
+ *   · quien eligió una variedad (`variedadElegida: true`) no pasa por aquí.
+ *
+ * Cuesta una construcción más (~40 ms) cuando la alta cabe, que es el caso
+ * normal; cuando no, las tres de `mejorVariedad`, como antes.
+ */
+export function variedadPorDefecto(
+  perfil: Perfil,
+  preferencias: Preferencias,
+  semanaNumero = 1,
+  historial: string[][] = [],
+  existencias: Existencias = {},
+  preferenciasPlatos: PreferenciasPlatos = {},
+): Variedad {
+  const peticion = peticionDe(perfil, preferencias, semanaNumero, historial, existencias, preferenciasPlatos);
+  if (costeDeUnaVariedad(peticion, 'mucha').disponible) return 'mucha';
+  return mejorVariedad(peticion);
 }
 
 export function alternativasParaApp(

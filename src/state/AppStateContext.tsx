@@ -4,7 +4,7 @@ import type { AppState, Comensales, Perfil, Preferencias, Ranura, Suscripcion } 
 import { numComensales, numHuecos } from './types';
 import { tramoDiferencia, tramoImporte, tramoPresupuesto } from '../lib/analitica-buckets';
 import {
-  despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadQueMenosDesperdicia,
+  despensaTrasLaSemana, generarParaApp, indiceDeHueco, retocarParaApp, variedadPorDefecto,
 } from '../data/motor';
 import { SEMANAS_DE_MEMORIA } from '../motor/seleccionar.ts';
 import { despensaVisible, semanasDeMemoria } from '../lib/suscripcion';
@@ -43,9 +43,9 @@ const estadoInicial: AppState = {
   },
   preferencias: {
     // `variedad` es solo el valor de partida hasta la primera generación: con
-    // `variedadElegida: false`, `regenerar` la sustituye por la que menos
-    // desperdicia con este perfil. Ver mejorVariedad() en el motor.
-    comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', variedadElegida: false,
+    // `variedadElegida: false`, `regenerar` pone la alta si cabe y, si no, la
+    // que menos desperdicia. Ver variedadPorDefecto() en data/motor.ts.
+    comidas: 'ambas', esfuerzo: 'libre', variedad: 'mucha', variedadElegida: false,
     proteina: 'normal', exclusiones: [], postre: false,
   },
   semana: { plan: { tandas: [], huecos: [] }, dias: [], generadaEn: 0, fechaInicio: null },
@@ -136,9 +136,15 @@ function regenerar(estado: AppState): AppState {
    *
    * Antes era `variedad: 'normal'` fija. Los tres niveles no están ordenados
    * por calidad, así que eso es elegir por nombre: medido, el arranque perdía
-   * contra otra que el motor sabía montar. Ahora lo decide `mejorVariedad`, que
-   * mira las tres y se queda con la que menos desperdicia — y deja de hacerlo
-   * en cuanto el usuario toca el selector.
+   * contra otra que el motor sabía montar. Luego lo decidió `mejorVariedad`,
+   * la que menos desperdicia. Desde el 15 oct 2026 es la ALTA si cabe, y
+   * `mejorVariedad` si no: ver `variedadPorDefecto` en data/motor.ts. Deja de
+   * hacerlo en cuanto el usuario elige en el selector.
+   *
+   * Perfiles que ya existían con `variedadElegida: false` (la eligió la app):
+   * pasan a la regla nueva en su SIGUIENTE generación —semana nueva, ajustes
+   * o cambio de zona—. La semana que tienen abierta no se toca: puede estar a
+   * medio comprar, y rehacerla por debajo rompería la lista que llevan.
    *
    * Cuesta tres construcciones en vez de una, ~70 ms más. Se pagan solas: van
    * al mismo caché que consulta la hoja de ajustes, así que el selector de
@@ -149,7 +155,7 @@ function regenerar(estado: AppState): AppState {
     ? estado.preferencias
     : {
       ...estado.preferencias,
-      variedad: variedadQueMenosDesperdicia(
+      variedad: variedadPorDefecto(
         estado.perfil, estado.preferencias, estado.contadores.semanaNumero, memoria, despensa,
         estado.preferenciasPlatos,
       ),

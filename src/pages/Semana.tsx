@@ -10,6 +10,7 @@ import { fechaDePosicion, hoy } from '../lib/fechas';
 import { alternativasParaApp, indiceDeHueco, retocarParaApp, versionDePrecios, zonaCargada } from '../data/motor';
 import { DIAS_PRECIOS_VIEJOS, diasDePrecios } from '../lib/precios';
 import { NOMBRE_ZONA, resolverZona, textoDeZona } from '../lib/zona';
+import { NOMBRE_VARIEDAD } from '../components/SelectorVariedad';
 import type { AlternativaParaApp, Retoque } from '../data/motor';
 import { useContador } from '../hooks/useContador';
 import TopTabs from '../components/TopTabs';
@@ -635,7 +636,7 @@ const Semana: React.FC = () => {
                     })
                   }
                 >
-                  Bájame a {salidaPresupuesto.variedadMasBarata} variedad ›
+                  Bájame a variedad {NOMBRE_VARIEDAD[salidaPresupuesto.variedadMasBarata!].toLowerCase()} ›
                 </button>
               )}
               {salidaPresupuesto.motivo !== 'proteina' && (
