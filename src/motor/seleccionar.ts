@@ -743,7 +743,43 @@ export interface PeticionSemana {
    * nadie desde fuera.
    */
   atenuarMemoria?: number;
+  /**
+   * Solo para auditar (catalogo/_aud-*.ts): recibe cada candidato evaluado con
+   * su puntuación desglosada, cada descarte con su motivo y cada elección. No
+   * cambia ninguna decisión. En la app no se pasa nunca.
+   */
+  traza?: (e: EventoTraza) => void;
+  /**
+   * ═══ EXPERIMENTO (15 oct 2026) · APROVECHAR EL MARGEN EN VARIEDAD ═══
+   *
+   * Solo para comparar (catalogo/_aud-diversidad.ts). La app no lo pasa nunca:
+   * sin esto, el motor es exactamente el de producción.
+   *
+   * Tres cambios, los tres neutros respecto al TIPO de plato —un plato de
+   * legumbre que la semana no tiene vale lo mismo que uno de pescado; no se
+   * equipara carne o caro con mejor—:
+   *
+   *   1. Semillas: además de las más baratas, la más barata de cada tipo de
+   *      plato (`receta.proteina`) que no esté entre ellas.
+   *   2. En la construcción, `bonusFamiliaNueva` euros por hueco al candidato
+   *      que trae un tipo de plato que la semana aún no tiene.
+   *   3. Entre las semanas que cumplen suelo y presupuesto, se elige la más
+   *      variada (ver `diversidadDe`) entre las ADMISIBLES: desperdicio como
+   *      mucho `toleranciaDesperdicio` € por encima del de producción, y cada
+   *      euro de más con al menos RENDIMIENTO_MINIMO_HOLGURA en el plato.
+   *      No hay porcentaje mínimo de gasto.
+   */
+  diversidad?: { bonusFamiliaNueva: number; toleranciaDesperdicio: number };
 }
+
+/** Ver `PeticionSemana.traza`. Importes en euros por hueco, como la puntuación. */
+export type EventoTraza =
+  | { tipo: 'descarte'; hueco: number; receta: string; motivo: string; relajado: boolean }
+  | {
+    tipo: 'candidato'; hueco: number; receta: string; relajado: boolean; puntuacion: number; dentro: boolean;
+    costeMarginal: number; permitido: number; partes: Record<string, number>;
+  }
+  | { tipo: 'eleccion'; hueco: number; receta: string; relajado: boolean };
 
 /**
  * Cuando las restricciones dejan el recetario sin con qué llenar la semana.
@@ -1186,6 +1222,8 @@ export function construir(
   }
 
   const usosPorBase = new Map<string, number>();
+  /** Tipos de plato que ya tiene la semana. Solo los lee el experimento `diversidad`. */
+  const familiasEnSemana = new Set(tandas.map((t) => t.receta.proteina));
   /** Si alguna de las recetas ya elegidas aporta carne o pescado fresco. */
   let hayFrescoEnElMenu = false;
   let proteinaAcumulada = 0;
@@ -1259,6 +1297,10 @@ export function construir(
     // la proteína disparaba "mucha variedad" al 131% del presupuesto.
     const buscar = (relajado: boolean): Candidato | null => {
       const sello = relajado ? 'relajada:' : '';
+      const descartar = (receta: string, motivo: string) => {
+        contar(motivo);
+        peticion.traza?.({ tipo: 'descarte', hueco: i, receta, motivo, relajado });
+      };
       let mejor: Candidato | null = null;
       let mejorDentro: Candidato | null = null;
 
@@ -1266,9 +1308,9 @@ export function construir(
         if (primeraVuelta && arranque?.vetadaAqui === receta.id) continue;
         if (primeraVuelta && arranque?.forzarPrimera && arranque.forzarPrimera !== receta.id) continue;
         const yaUsada = usos.has(receta.id);
-        if (yaUsada && usos.get(receta.id)! >= topeTandas) { contar(`${sello}tope_tandas`); continue; }
-        if (!yaUsada && distintas >= topeRecetas) { contar(`${sello}tope_variedad`); continue; }
-        if (yaUsada && obligadoEstrenar) { contar(`${sello}obligado_estrenar`); continue; }
+        if (yaUsada && usos.get(receta.id)! >= topeTandas) { descartar(receta.id, `${sello}tope_tandas`); continue; }
+        if (!yaUsada && distintas >= topeRecetas) { descartar(receta.id, `${sello}tope_variedad`); continue; }
+        if (yaUsada && obligadoEstrenar) { descartar(receta.id, `${sello}obligado_estrenar`); continue; }
 
         // --- Restricciones duras nuevas ---------------------------------
         //
@@ -1282,7 +1324,7 @@ export function construir(
         const animal = proteinaAnimal(receta, datos);
         // Ni un tercer plato montado sobre el mismo almidón o la misma legumbre.
         if (!relajado && [...basesDe(receta)].some((b) => (usosPorBase.get(b) ?? 0) >= TOPE_POR_BASE)) {
-          contar('tope_por_base');
+          descartar(receta.id, 'tope_por_base');
           continue;
         }
         /**
@@ -1310,13 +1352,13 @@ export function construir(
           // veces y la relajada se saltaba la reserva entera.
           const cupoNuevasTrasEsta = topeRecetas - distintas - (yaUsada ? 0 : 1);
           if (libresTrasEste < 1 || (!hayFrescoEnElMenu && cupoNuevasTrasEsta < 1)) {
-            contar('reserva_de_fresco');
+            descartar(receta.id, 'reserva_de_fresco');
             continue;
           }
         }
         // Y el fin de semana se cocina, no se recalienta.
         if (!relajado && finDeSemana && animal === 'ninguna' && huecosFrescos < minimoFrescos) {
-          contar('finde_sin_fresco');
+          descartar(receta.id, 'finde_sin_fresco');
           continue;
         }
 
@@ -1325,7 +1367,7 @@ export function construir(
           diasConSobra,
           ensamblaje: ensamblajeDe(receta),
         });
-        if (!plan) { contar(`${sello}sin_sitio_tanda`); continue; } // vecino con la misma receta: prohibido
+        if (!plan) { descartar(receta.id, `${sello}sin_sitio_tanda`); continue; } // vecino con la misma receta: prohibido
         const cubre = plan.huecos.length;
 
         // --- Reglas de comida de verdad, no de hoja de cálculo ------------
@@ -1349,8 +1391,8 @@ export function construir(
             const dias = diasDeReceta.get(receta.id);
             if (dias) for (const otro of dias) if (Math.abs(otro - d) < 2) repetida = true;
           }
-          if (familia) { contar('familia_mismo_dia'); continue; }
-          if (repetida) { contar('tanda_repetida_cerca'); continue; }
+          if (familia) { descartar(receta.id, 'familia_mismo_dia'); continue; }
+          if (repetida) { descartar(receta.id, 'tanda_repetida_cerca'); continue; }
         }
 
         // El suelo de proteína es restricción, no puntuación. Si elegir esto
@@ -1361,7 +1403,7 @@ export function construir(
         // huecos con los que arreglarlo.
         const faltaTras = objetivoProteina - proteinaAcumulada - proteinaDe(receta) * cubre;
         if (!relajado && faltaTras > (restantes - cubre) * techoPorHueco + 1e-9) {
-          contar('suelo_inalcanzable');
+          descartar(receta.id, 'suelo_inalcanzable');
           continue;
         }
         contar(`${sello}candidato_evaluado`);
@@ -1478,6 +1520,8 @@ export function construir(
          */
         if (favoritos?.has(receta.id)) fuentesYaVistas = 0;
 
+        const bonusDiversidad = peticion.diversidad && !familiasEnSemana.has(receta.proteina)
+          ? peticion.diversidad.bonusFamiliaNueva : 0;
         const puntuacion =
           -excesoCoste
           + aprovechamiento
@@ -1497,8 +1541,33 @@ export function construir(
           - (yaUsada ? 0 : (penalPorReceta.get(receta.id) ?? 0))
           // Y lo que el usuario ha dicho que le gusta. Mismo `yaUsada ? 0 :` y
           // por el mismo motivo. Ver BONUS_FAVORITO para el peso.
-          + (yaUsada || !favoritos?.has(receta.id) ? 0 : (peticion.pesoFavorito ?? BONUS_FAVORITO));
+          + (yaUsada || !favoritos?.has(receta.id) ? 0 : (peticion.pesoFavorito ?? BONUS_FAVORITO))
+          // Experimento: un tipo de plato que la semana aún no tiene.
+          + bonusDiversidad;
 
+        if (peticion.traza) {
+          peticion.traza({
+            tipo: 'candidato', hueco: i, receta: receta.id, relajado, puntuacion,
+            dentro: carritoPrueba.totalCarrito <= presupuesto, costeMarginal, permitido: permitidoPorHueco,
+            partes: {
+              excesoCoste: -excesoCoste,
+              aprovechamiento,
+              minutos: -PENAL_POR_MINUTO_DE_MAS * excesoMinutos,
+              registro: -penalRegistro,
+              saborRepetido: -PESO_SABOR_REPETIDO * sabores,
+              fuenteRepetida: -PENAL_FUENTE_REPETIDA * fuentesYaVistas,
+              perecedero: -objetivo.peso * perecederoMarginal,
+              proteina: bonusProteina,
+              fresca: animal === 'fresca' ? BONUS_PROTEINA_FRESCA : 0,
+              estrenar: yaUsada ? 0 : BONUS_VARIEDAD,
+              proteinaRepetida: repiteProteina ? -PENAL_PROTEINA_REPETIDA : 0,
+              cuotaProteina: -PESO_CUOTA_PROTEINA * cuota,
+              memoria: -(yaUsada ? 0 : (penalPorReceta.get(receta.id) ?? 0)),
+              favorito: yaUsada || !favoritos?.has(receta.id) ? 0 : (peticion.pesoFavorito ?? BONUS_FAVORITO),
+              diversidad: bonusDiversidad,
+            },
+          });
+        }
         const candidato = { tanda: plan.tanda, nuevos: plan.huecos, puntuacion };
         if (!mejor || puntuacion > mejor.puntuacion) mejor = candidato;
         if (carritoPrueba.totalCarrito <= presupuesto && (!mejorDentro || puntuacion > mejorDentro.puntuacion)) {
@@ -1520,8 +1589,10 @@ export function construir(
     if (!estricto) contar('pasada_relajada_necesaria');
     const mejor = estricto ?? buscar(true);
     if (!mejor) return null; // ni estrenando ni repitiendo se puede llenar
+    peticion.traza?.({ tipo: 'eleccion', hueco: i, receta: mejor.tanda.receta.id, relajado: !estricto });
 
     tandas.push(mejor.tanda);
+    familiasEnSemana.add(mejor.tanda.receta.proteina);
     anotarIngredientes(mejor.tanda.receta);
     usos.set(mejor.tanda.receta.id, (usos.get(mejor.tanda.receta.id) ?? 0) + 1);
     for (const b of basesDe(mejor.tanda.receta)) usosPorBase.set(b, (usosPorBase.get(b) ?? 0) + 1);
@@ -1706,6 +1777,79 @@ const REINTENTOS_DE_TECHO = 2;
 /** Y cuánto se queda por debajo al reapuntar, para no volver a pasarse. */
 const MARGEN_DE_AJUSTE = 0.97;
 
+/**
+ * ═══ EXPERIMENTO · QUÉ ES UNA SEMANA MÁS VARIADA ═══
+ *
+ * Ver `PeticionSemana.diversidad`. Comparación lexicográfica, de más a menos
+ * importante, y ninguna mira el precio ni ordena los tipos de plato entre sí:
+ *
+ *   1. favoritos del usuario que entran (lo que ha pedido manda);
+ *   2. tipos de plato distintos (`receta.proteina`: legumbre, huevo, pollo,
+ *      pescado, soja…), todos con el mismo peso;
+ *   3. reparto: tandas del tipo más repetido (menos es mejor);
+ *   4. fuentes de proteína distintas (familias de ingrediente con 8 g/100 g o más).
+ */
+export function diversidadDe(c: { tandas: Tanda[] }, datos: DatosMotor, favoritos?: readonly string[]): number[] {
+  const porFamilia = new Map<string, number>();
+  const fuentes = new Set<string>();
+  for (const t of c.tandas) {
+    porFamilia.set(t.receta.proteina, (porFamilia.get(t.receta.proteina) ?? 0) + 1);
+    for (const ing of t.receta.ingredientes) {
+      const meta = datos.ingredientes[ing.canonico];
+      if (!meta || meta.es_despensa || (meta.proteina_g_por_100 ?? 0) < PROTEINA_QUE_DEFINE_EL_PLATO) continue;
+      fuentes.add(familiaDeSabor(ing.canonico));
+    }
+  }
+  const fav = favoritos?.length ? new Set(c.tandas.map((t) => t.receta.id).filter((id) => favoritos.includes(id))).size : 0;
+  return [fav, porFamilia.size, -Math.max(0, ...porFamilia.values()), fuentes.size];
+}
+
+function elegirPorDiversidad(
+  peticion: PeticionSemana,
+  ordenadas: Receta[],
+  probadas: Set<string>,
+  todas: Construida[],
+  base: Construida,
+  rango: (c: Construida) => number[],
+  suelo: number,
+): Construida {
+  const cfg = peticion.diversidad!;
+  // Semillas por tipo de plato: la más barata de cada tipo que no se probó.
+  const vistas = new Set<string>();
+  for (const r of ordenadas) {
+    if (vistas.has(r.proteina)) continue;
+    vistas.add(r.proteina);
+    if (probadas.has(r.id)) continue;
+    const intento = construir(peticion, { forzarPrimera: r.id });
+    if (intento) todas.push(intento);
+  }
+  const presupuesto = peticion.presupuesto ?? Infinity;
+  const criterio = objetivoDe(peticion).criterio;
+  const desperdicio = (c: Construida) => criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero, c.carrito.totalConsumo);
+  const rBase = rango(base);
+  const admisibles = todas.filter((c) => {
+    const r = rango(c);
+    // Nunca peor que producción en lo duro: suelo y presupuesto.
+    if (r[0] > rBase[0] || r[1] > rBase[1]) return false;
+    if (c.carrito.totalCarrito > presupuesto + 0.005) return false;
+    if (desperdicio(c) > desperdicio(base) + cfg.toleranciaDesperdicio + 1e-9) return false;
+    const deMas = c.carrito.totalCarrito - base.carrito.totalCarrito;
+    if (deMas > 0.01 && c.carrito.totalConsumo - base.carrito.totalConsumo < RENDIMIENTO_MINIMO_HOLGURA * deMas) return false;
+    const fraccion = c.carrito.totalConsumo > 0 ? c.carrito.totalPerecedero / c.carrito.totalConsumo : 0;
+    return fraccion <= Math.max(TOPE_DESPERDICIO, base.carrito.totalPerecedero / Math.max(1e-9, base.carrito.totalConsumo));
+  });
+  void suelo;
+  let mejor = base;
+  let dMejor = diversidadDe(base, peticion.datos, peticion.platosFavoritos);
+  for (const c of admisibles) {
+    const d = diversidadDe(c, peticion.datos, peticion.platosFavoritos);
+    let cmp = 0;
+    for (let k = 0; k < d.length && cmp === 0; k++) cmp = Math.sign(d[k] - dMejor[k]);
+    if (cmp > 0 || (cmp === 0 && desperdicio(c) < desperdicio(mejor) - 1e-9)) { mejor = c; dMejor = d; }
+  }
+  return mejor;
+}
+
 function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | null {
   const minutosMax = MINUTOS_POR_ESFUERZO[peticion.esfuerzo ?? 'libre'];
   const ordenadas = recetarioAdaptado(peticion.datos, peticion.exclusiones, minutosMax, peticion.platosBloqueados)
@@ -1736,10 +1880,15 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
 
   let mejor: ReturnType<typeof construir> = null;
   let rangoMejor: number[] | null = null;
+  /** Solo con el experimento `diversidad`: todas las semanas construidas. */
+  const todas: Construida[] = [];
+  const probadas = new Set<string>();
   const probar = (semillas: Receta[]) => {
     for (const receta of semillas) {
+      probadas.add(receta.id);
       const intento = construir(peticion, { forzarPrimera: receta.id });
       if (!intento) continue;
+      if (peticion.diversidad) todas.push(intento);
       const r = rango(intento);
       if (!mejor || mejorRango(r, rangoMejor!)) { mejor = intento; rangoMejor = r; }
     }
@@ -1778,6 +1927,18 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
       if (!mejor || mejorRango(r, rangoMejor!)) { mejor = suelto; rangoMejor = r; }
       if (consiguio()) break;
     }
+  }
+
+  if (peticion.diversidad && mejor) {
+    /* La referencia es la semana de PRODUCCIÓN, construida sin el bonus: el
+       bonus cambia el camino del greedy, y medir contra una base ya desviada
+       dejaba al experimento por debajo de producción (60 € en Gran Canaria:
+       5 tipos de plato en vez de 6). Así producción es siempre candidata. */
+    const produccion = peticion.diversidad.bonusFamiliaNueva > 0
+      ? construirMejor({ ...peticion, diversidad: undefined }, aFondo)
+      : mejor;
+    if (produccion && produccion !== mejor) todas.push(produccion);
+    mejor = elegirPorDiversidad(peticion, ordenadas, probadas, todas, produccion ?? mejor, rango, suelo);
   }
 
   /**
