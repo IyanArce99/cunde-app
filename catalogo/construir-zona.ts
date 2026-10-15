@@ -352,7 +352,12 @@ if (paso === 'cerrar') {
       ...(anadir.alergenos?.length ? { alergenos_zona: anadir.alergenos as Sku['alergenos_zona'] } : {}),
       ...(anadir.trazas?.length ? { trazas_zona: anadir.trazas as Sku['trazas_zona'] } : {}),
     };
-    const culinaria = SUPONER_ACEPTADAS || aceptada[canonico] === true;
+    /* El MISMO producto con otra referencia o en otro formato (grupo
+       `mismo-producto`, validado en las cuatro dimensiones) no pide una
+       decisión culinaria: no cambia el plato. Entra sin aceptación, salvo que
+       la hayas rechazado (`false`). Decidido el 15 oct 2026. */
+    const mismoProducto = (tecnicaDe[canonico] as { grupo?: string } | undefined)?.grupo === 'mismo-producto';
+    const culinaria = SUPONER_ACEPTADAS || aceptada[canonico] === true || (mismoProducto && aceptada[canonico] !== false);
     skus[canonico] = null;
     if (problemas.length) {
       estado[canonico] = {
@@ -376,8 +381,8 @@ if (paso === 'cerrar') {
       if (parcial) poner(dondeVa, canonico, conZona);
       else skus[canonico] = conZona;
       estado[canonico] = {
-        origen: 'alternativa',
-        verificacion: `validada técnicamente y aceptada; vale en ${parcial ? dondeVa.join(', ') : 'todos los almacenes'}${anadir.trazas?.length || anadir.alergenos?.length ? `; en la zona declara además ${[...(anadir.alergenos ?? []), ...(anadir.trazas ?? []).map((t) => `trazas de ${t}`)].join(', ')}` : ''}`,
+        origen: mismoProducto && aceptada[canonico] !== true ? 'mismo producto, otra referencia' : 'alternativa',
+        verificacion: `validada técnicamente y ${mismoProducto && aceptada[canonico] !== true ? 'sin decisión culinaria (mismo producto)' : 'aceptada'}; vale en ${parcial ? dondeVa.join(', ') : 'todos los almacenes'}${anadir.trazas?.length || anadir.alergenos?.length ? `; en la zona declara además ${[...(anadir.alergenos ?? []), ...(anadir.trazas ?? []).map((t) => `trazas de ${t}`)].join(', ')}` : ''}`,
         detalle: `${m.detalle} → ${s.sku} ${s.nombre}`,
         ...(parcial ? { almacenes: dondeVa } : {}),
         ...conMadrid,
@@ -407,7 +412,7 @@ if (paso === 'cerrar') {
   fs.mkdirSync(path.dirname(RUTA_SALIDA), { recursive: true });
   fs.writeFileSync(RUTA_SALIDA, `${JSON.stringify(salida, null, 2)}\n`);
   const cuenta = (f: (e: any) => boolean) => Object.values(estado).filter(f).length;
-  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'mismo-sku sin verificar')} mismo SKU sin verificar · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen === 'alternativa sin aceptar')} validadas sin aceptar · ${cuenta((e) => e.origen === 'alternativa no validada')} no validadas · ${cuenta((e) => e.origen === 'alternativa no aceptada')} no aceptadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
+  console.log(`${zona.nombre}: ${cuenta((e) => e.origen === 'mismo-sku')} mismo SKU · ${cuenta((e) => e.origen === 'mismo-sku sin verificar')} mismo SKU sin verificar · ${cuenta((e) => e.origen === 'mismo producto, otra referencia')} mismo producto con otra referencia · ${cuenta((e) => e.origen === 'alternativa')} alternativas en uso · ${cuenta((e) => e.origen === 'alternativa sin aceptar')} validadas sin aceptar · ${cuenta((e) => e.origen === 'alternativa no validada')} no validadas · ${cuenta((e) => e.origen === 'alternativa no aceptada')} no aceptadas · ${cuenta((e) => e.origen === 'ninguno')} sin producto común`);
   for (const [c, e] of Object.entries(estado)) if (e.origen !== 'mismo-sku') console.log(`  ${c.padEnd(24)} ${e.origen.padEnd(23)} ${e.almacenes ? `[${e.almacenes.join(',')}] ` : ''}${e.madridEn ? `(Madrid en ${e.madridEn.join(',')}) ` : ''}${e.detalle}`);
   for (const [wh, x] of Object.entries(porAlmacen)) console.log(`  solo en ${wh}: ${Object.entries(x).map(([c, s]) => `${c} ${s.sku}`).join(' · ')}`);
   console.log(`Escrito ${path.relative(process.cwd(), RUTA_SALIDA)}`);

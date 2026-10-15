@@ -153,8 +153,13 @@ describe('la prueba personal en 35007 (almacén 3120)', () => {
    * de octubre. Por el camino de la app: código postal guardado → zona → capa
    * del almacén → generarParaApp. Si el catálogo verificado cambia, esto avisa
    * antes de que la lista impresa deje de cuadrar con la del teléfono.
+   *
+   * 15 oct 2026: avisó. Con las 9 equivalencias del mismo producto habilitadas
+   * (catalogo/construir-zona.ts) el recetario pasa de 37 a 55 y la misma semana
+   * sale a 55,73 € en vez de 57,04 €. El documento del 14 oct describe el
+   * catálogo anterior.
    */
-  it('la app monta la misma compra de 57,04 €, solo con productos de la zona', async () => {
+  it('la app monta la misma compra de 55,73 €, solo con productos de la zona', async () => {
     window.localStorage.clear();
     window.localStorage.setItem(CLAVE, JSON.stringify({ perfil: { codigoPostal: '35007' } }));
     const { estadoParaTests, generarParaApp, zonaCargada, datos } = await modulos();
@@ -164,9 +169,9 @@ describe('la prueba personal en 35007 (almacén 3120)', () => {
       { ...base.perfil, codigoPostal: '35007', comensales: '2', presupuestoSemanal: 65, fechaInicioSemana: '2026-10-14' },
       { ...base.preferencias, comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', variedadElegida: true, proteina: 'normal', exclusiones: [], postre: false },
     );
-    expect(s.carrito.totalCarrito).toBe(57.04);
+    expect(s.carrito.totalCarrito).toBe(55.73);
     const deLaZona = new Set(Object.values(datos.skus).map((x) => x.sku));
     for (const it of s.lista) expect(deLaZona.has(it.id), it.nombre).toBe(true);
-    expect(datos.recetas.length).toBe(37);
+    expect(datos.recetas.length).toBe(55);
   });
 });

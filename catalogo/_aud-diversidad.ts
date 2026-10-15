@@ -128,6 +128,26 @@ if (orden === 'barrido') {
   process.exit(0);
 }
 
+if (orden === 'produccion') {
+  // Solo el motor de producción, solo el catálogo de la app, los tres topes.
+  const cat = CATALOGOS[0];
+  for (const tope of TOPES) {
+    const { m, s } = medir(cat.datos, peticion(cat.datos, tope));
+    console.log(`
+${tope} € · caja ${eur(m.caja)} · consumo ${eur(m.consumo)} · perecedero ${eur(m.perecedero)} · ${m.platos} platos · ${m.sobras} sobras · tipos ${m.nFamilias} (${m.maxFamilia}) · fuentes ${m.fuentes} · trío ${m.trio} · prot ${num(m.proteina)} · fresco ${m.fresca} · min ${m.minutos} · ${m.cuadra && m.filtros ? 'cumple' : 'NO CUMPLE'}`);
+    console.log(`  tipos: ${fam(m.familias)}`);
+    console.log(`  fuentes: ${fam(m.porFuente)}`);
+    for (const d of DIAS) {
+      const c = (ranura: string) => { const h = s.huecos.find((x) => x.dia === d && x.ranura === ranura); return h?.receta ? `${h.receta.nombre} (${h.receta.proteina})${h.tipo === 'cocinado' ? '' : ' [' + h.tipo + ']'}` : '—'; };
+      console.log(`  ${d}  ${c('comida')}  |  ${c('cena')}`);
+    }
+    for (const l of s.carrito.lineas.filter((x) => !x.esDespensa && x.compras > 0).sort((a, b) => b.carritoCoste - a.carritoCoste)) {
+      console.log(`    ${l.nombre} · ${l.compras} × ${num(l.contenidoEnvase, 2)} ${l.unidad} · usa ${num(l.necesario, 2)} · sobra ${num(l.sobranteCantidad, 2)} · ${eur(l.carritoCoste)}${l.perecederoCoste > 0.005 ? ` · perecedero ${eur(l.perecederoCoste)}` : ''}`);
+    }
+  }
+  process.exit(0);
+}
+
 if (orden !== 'informe') {
   console.error('Uso: _aud-diversidad.ts barrido | informe <bonus> <tolerancia>');
   process.exit(1);

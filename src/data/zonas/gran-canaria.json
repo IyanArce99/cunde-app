@@ -306,7 +306,20 @@
       "subfamilia": "Aceite de oliva",
       "sin_verificar": true
     },
-    "aceituna_verde": null,
+    "aceituna_verde": {
+      "sku": "52783",
+      "nombre": "Aceitunas verdes Hacendado con hueso",
+      "contenido": 0.53,
+      "unidad": "kg",
+      "precio": 2.85,
+      "precio_kg_l_ud": 5.377,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Aperitivos",
+      "subfamilia": "Aceitunas verdes",
+      "contenido_etiqueta": 0.935
+    },
     "acelga": null,
     "ajo": {
       "sku": "69297",
@@ -321,7 +334,20 @@
       "departamento": "Fruta y verdura",
       "subfamilia": "Cebolla y ajo"
     },
-    "alcachofa": null,
+    "alcachofa": {
+      "sku": "16040",
+      "nombre": "Corazones de alcachofa Hacendado",
+      "contenido": 0.175,
+      "unidad": "kg",
+      "precio": 1.8,
+      "precio_kg_l_ud": 10.286,
+      "packaging": "Tarro",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Conservas, caldos y cremas",
+      "subfamilia": "Conservas verdura",
+      "contenido_etiqueta": 0.29
+    },
     "almendra": {
       "sku": "34865",
       "nombre": "Almendra natural Hacendado",
@@ -493,8 +519,32 @@
     "calamar_congelado": null,
     "caldo_pollo": null,
     "caldo_verduras": null,
-    "carne_picada_cerdo": null,
-    "carne_picada_mixta": null,
+    "carne_picada_cerdo": {
+      "sku": "5241",
+      "nombre": "Preparado de carne picada cerdo",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 3.2,
+      "precio_kg_l_ud": 6.4,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Carne",
+      "subfamilia": "Picadas y otros"
+    },
+    "carne_picada_mixta": {
+      "sku": "5077",
+      "nombre": "Preparado de carne picada vacuno y cerdo",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 4.6,
+      "precio_kg_l_ud": 9.2,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Carne",
+      "subfamilia": "Picadas y otros"
+    },
     "carne_picada_vacuno": null,
     "cebolla": {
       "sku": "69079",
@@ -634,7 +684,19 @@
       "departamento": "Congelados",
       "subfamilia": "Verdura"
     },
-    "espinaca": null,
+    "espinaca": {
+      "sku": "13986",
+      "nombre": "Espinacas en porciones Hacendado ultracongeladas",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 1.25,
+      "precio_kg_l_ud": 2.5,
+      "packaging": "Paquete",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Verdura"
+    },
     "fideo": null,
     "filete_vacuno": null,
     "gamba_congelada": null,
@@ -800,8 +862,32 @@
       "departamento": "Fruta y verdura",
       "subfamilia": "Cítricos"
     },
-    "lomo_cerdo": null,
-    "lomo_merluza": null,
+    "lomo_cerdo": {
+      "sku": "4119",
+      "nombre": "Filetes lomo de cerdo extra tiernos",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 3.79,
+      "precio_kg_l_ud": 7.58,
+      "packaging": "Bandeja",
+      "unidades_pack": null,
+      "peso_variable": true,
+      "departamento": "Carne",
+      "subfamilia": "Cerdo"
+    },
+    "lomo_merluza": {
+      "sku": "62212",
+      "nombre": "Lomos de merluza del Cabo Hacendado ultracongelados",
+      "contenido": 0.4,
+      "unidad": "kg",
+      "precio": 4.9,
+      "precio_kg_l_ud": 12.25,
+      "packaging": "Caja",
+      "unidades_pack": null,
+      "peso_variable": false,
+      "departamento": "Congelados",
+      "subfamilia": "Pescado"
+    },
     "lubina": {
       "sku": "87310",
       "nombre": "Lubina limpia",
@@ -1216,7 +1302,19 @@
       "departamento": "Fruta y verdura",
       "subfamilia": "Manzana y pera"
     },
-    "postre_natillas": null,
+    "postre_natillas": {
+      "sku": "68235",
+      "nombre": "Natillas sabor vainilla Hacendado",
+      "contenido": 0.5,
+      "unidad": "kg",
+      "precio": 1.05,
+      "precio_kg_l_ud": 2.1,
+      "packaging": "Pack-4",
+      "unidades_pack": 4,
+      "peso_variable": false,
+      "departamento": "Postres y yogures",
+      "subfamilia": "Natillas"
+    },
     "postre_soja": {
       "sku": "20200",
       "nombre": "Postre de soja natural Hacendado",
@@ -1232,6 +1330,81 @@
     }
   },
   "porAlmacen": {
+    "3120": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
+    "3544": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
+    "3864": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
+    "4377": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
+    "4418": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
     "4570": {
       "caldo_verduras": {
         "sku": "18480",
@@ -1245,6 +1418,34 @@
         "peso_variable": false,
         "departamento": "Conservas, caldos y cremas",
         "subfamilia": "Caldo líquido"
+      },
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
+    },
+    "4677": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
       }
     },
     "4701": {
@@ -1274,6 +1475,21 @@
         "departamento": "Panadería y pastelería",
         "subfamilia": "Barra de pan"
       }
+    },
+    "4745": {
+      "pan": {
+        "sku": "83264.1",
+        "nombre": "Barra de pan",
+        "contenido": 0.25,
+        "unidad": "kg",
+        "precio": 0.5,
+        "precio_kg_l_ud": 2,
+        "packaging": null,
+        "unidades_pack": 1,
+        "peso_variable": false,
+        "departamento": "Panadería y pastelería",
+        "subfamilia": "Barra de pan"
+      }
     }
   },
   "estado": {
@@ -1283,9 +1499,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "aceituna_verde": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "52783 Aceitunas verdes Hacendado con hueso"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (33205): no existe en 9 de 9 almacenes; Mismo producto (verdes con hueso, Hacendado) en tarro mayor: 935 g, 530 g escurridos. Con hueso, así que vale el rendimiento de 0,8. → 52783 Aceitunas verdes Hacendado con hueso"
     },
     "acelga": {
       "origen": "ninguno",
@@ -1298,9 +1514,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "alcachofa": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "16040 Corazones de alcachofa Hacendado"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (11958): no existe en 9 de 9 almacenes; Mismos corazones de alcachofa Hacendado, tarro pequeño (290 g, 175 g escurridos). → 16040 Corazones de alcachofa Hacendado"
     },
     "almendra": {
       "origen": "mismo-sku",
@@ -1422,14 +1638,14 @@
       ]
     },
     "carne_picada_cerdo": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "5241 Preparado de carne picada cerdo"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (2867): no existe en 9 de 9 almacenes; Mismo producto que en Madrid (Preparado de carne picada cerdo, 500 g), otra referencia. → 5241 Preparado de carne picada cerdo"
     },
     "carne_picada_mixta": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "5077 Preparado de carne picada vacuno y cerdo"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (2869): no existe en 9 de 9 almacenes; Mismo producto que en Madrid (Preparado de carne picada vacuno y cerdo, 500 g), otra referencia. → 5077 Preparado de carne picada vacuno y cerdo"
     },
     "carne_picada_vacuno": {
       "origen": "mismo-sku sin verificar",
@@ -1512,9 +1728,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "espinaca": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "13986 Espinacas en porciones Hacendado ultracongeladas"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (61279): no existe en 9 de 9 almacenes; Espinacas en porciones Hacendado ultracongeladas, 500 g. Misma línea que en Madrid (450 g). → 13986 Espinacas en porciones Hacendado ultracongeladas"
     },
     "fideo": {
       "origen": "mismo-sku sin verificar",
@@ -1602,14 +1818,14 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "lomo_cerdo": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "4119 Filetes lomo de cerdo extra tiernos"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (2849): no existe en 9 de 9 almacenes; Filetes lomo de cerdo extra tiernos: mismo nombre que en Madrid, otra referencia. → 4119 Filetes lomo de cerdo extra tiernos"
     },
     "lomo_merluza": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "62212 Lomos de merluza del Cabo Hacendado ultracongelados"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (62113): no existe en 9 de 9 almacenes; Lomos de merluza del Cabo Hacendado ultracongelados, 400 g. En Madrid, «lomos y centros» de la misma línea. → 62212 Lomos de merluza del Cabo Hacendado ultracongelados"
     },
     "lubina": {
       "origen": "mismo-sku",
@@ -1657,9 +1873,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "pan": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en 3120, 3544, 3864, 4745, 4418, 4570, 4377, 4677; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "83264.1 Barra de pan",
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en 3120, 3544, 3864, 4745, 4418, 4570, 4377, 4677",
+      "detalle": "el de Madrid (83202.1): no existe en 8 de 9 almacenes; «Barra de pan», mismo nombre, 250 g y 0,50 € que la de Madrid, con otra referencia. Está en 8 de los 9 almacenes; en 4701 está la de Madrid (83202.1). Va por almacén. → 83264.1 Barra de pan",
       "almacenes": [
         "3120",
         "3544",
@@ -1875,9 +2091,9 @@
       "detalle": "el SKU de Madrid, igual en todos los almacenes de la zona"
     },
     "postre_natillas": {
-      "origen": "alternativa sin aceptar",
-      "verificacion": "validada técnicamente en los nueve almacenes; falta tu aceptación culinaria en gran-canaria-aceptacion.json",
-      "detalle": "68235 Natillas sabor vainilla Hacendado"
+      "origen": "mismo producto, otra referencia",
+      "verificacion": "validada técnicamente y sin decisión culinaria (mismo producto); vale en todos los almacenes",
+      "detalle": "el de Madrid (68137): no existe en 9 de 9 almacenes; Natillas sabor vainilla Hacendado, 500 g: mismo nombre que en Madrid, otra referencia. → 68235 Natillas sabor vainilla Hacendado"
     },
     "postre_soja": {
       "origen": "mismo-sku",

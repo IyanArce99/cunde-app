@@ -1,5 +1,16 @@
 # Presupuesto y variedad · pescado en Gran Canaria, criterio experimental y catálogo · 15 oct 2026
 
+> **Correcciones posteriores (15 oct), en `docs/catalogo-gc-ampliado-2026-10-15.md`:**
+> - Los «340 g que se tiran» de dorada y lubina **no están demostrados**. Es
+>   lo que cuenta el modelo: la receta pide 230 g de peso de compra por persona
+>   y el producto se vende en bandejas de unos 400 g que la API no dice cuántas
+>   piezas traen.
+> - La alternativa de Gran Canaria para `sardina_fresca` es sardina pequeña
+>   **congelada**, no fresca.
+> - Desde entonces, 9 equivalencias del mismo producto están habilitadas y el
+>   catálogo de 3120 tiene 55 recetas. Las cifras de Gran Canaria de este
+>   informe son del catálogo de 37.
+
 > Producción no cambia: el experimento solo se activa con una opción que la
 > app no pasa (`PeticionSemana.diversidad`). Está comprobado con el banco del
 > motor: 33 de 33 semanas idénticas antes y después del cambio.
