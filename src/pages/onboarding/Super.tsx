@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAppState } from '../../state/AppStateContext';
@@ -52,6 +52,13 @@ const Super: React.FC = () => {
   const [cp, setCp] = useState(codigoPostal ?? '');
   const [falta, setFalta] = useState(false);
   const campo = useRef<HTMLInputElement>(null);
+  /* El aviso sale debajo de la rejilla, y en 667 de alto eso es debajo del
+     botón: sin esto se tocaba Lidl y no pasaba nada visible. Sin animación
+     de desplazamiento, para no depender de prefers-reduced-motion. */
+  const aviso = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (pedida) aviso.current?.scrollIntoView({ block: 'nearest' });
+  }, [pedida]);
   const valido = esCodigoPostal(cp);
   const zona = valido ? resolverZona(cp) : null;
   const cargada = zonaCargada();
@@ -136,7 +143,7 @@ const Super: React.FC = () => {
                 dice cuándo llega, o el usuario se queda pensando que la app
                 está rota. Y se ofrece lo que sí hay, en la misma frase. */}
             {pedida && (
-              <div className="super__aviso" role="status">
+              <div className="super__aviso" role="status" ref={aviso}>
                 <p className="super__aviso-texto">
                   De {pedida} todavía no tengo catálogo, así que no puedo darte precios reales. Empieza con
                   Mercadona.

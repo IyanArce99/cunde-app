@@ -1,10 +1,14 @@
-/* El cuerpo no hace scroll: la pantalla cabe entera en 375×667. Lo que crecía
-   —los quince chips de alergias— ya no vive aquí. */
+/* Tiene que caber entera en 375×667 (ver la media de alto corto, al final).
+   Si aun así no cabe —un teléfono más bajo, la letra del sistema más
+   grande—, el cuerpo se desplaza por debajo del pie en vez de meterse debajo
+   de él: con `min-height: 0` y sin `overflow`, lo que sobraba se pintaba
+   detrás de la tarjeta del precio y tapaba el interruptor del postre. */
 .datos__cuerpo {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .datos__pregunta {
@@ -194,4 +198,15 @@
   color: var(--tinta);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+/* --- Pantallas bajas (iPhone SE, 667 de alto) ------------------------------
+   Con el postre la pantalla se pasaba 56 px. Se recorta aire, no contenido, y
+   las filas siguen por encima del mínimo para el dedo. */
+@media (max-height: 700px) {
+  .datos__pregunta { margin-bottom: 14px; }
+  .datos__ranuras { margin-top: 14px; gap: 6px; }
+  .datos__ranura { min-height: var(--tap-min); }
+  .datos__ademas { margin: 18px 0 8px; }
+  .datos__pie { gap: 10px; padding-top: 12px; }
 }

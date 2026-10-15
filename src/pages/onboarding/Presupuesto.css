@@ -3,6 +3,8 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
+  /* Si no cabe, se desplaza por debajo del pie; nunca se mete debajo de él. */
+  overflow-y: auto;
 }
 
 .presupuesto__pregunta {
