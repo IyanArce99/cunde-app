@@ -183,6 +183,14 @@ receta.
 - Llevan lactosa: los de nata, leche o queso.
 - El mejillón trae trazas de pescado.
 
+> **Actualizado el 16 oct 2026** (`docs/motor-envase-compartido-informe-2026-10-16.md`, §4). Las tres dudas
+> de ficha están resueltas:
+> - el bacalao viene **en su punto de sal** y ya no se sala;
+> - la carne picada «preparado» **no lleva sal añadida** y aguanta 24 h abierta;
+> - la harina fina de maíz es **almidón**, y los puerros llevan ahora 320 ml de leche.
+>
+> Siguen pendientes las pruebas de cocina.
+
 **Lo que NO está comprobado y necesita cocina:**
 
 - **Bacalao.** Si el lomo MareDeus viene desalado o al punto de sal: la receta

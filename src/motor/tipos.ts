@@ -120,6 +120,13 @@ export interface IngredienteCanonico {
   proteina_g_por_100: number;
   /** Fracción del peso de compra que se come. Hueso, espina, piel, cáscara. */
   rendimiento_comestible?: number;
+  /**
+   * Horas que aguanta en la nevera una vez abierto el envase, cuando la ficha
+   * del producto lo dice («una vez abierto consumir en 24 horas»). Lo usa el
+   * envase compartido de construir(): sin esto, media bandeja de pechuga
+   * abierta el miércoles se daba por buena hasta su fecha, no hasta el jueves.
+   */
+  horas_abierto?: number;
   /** Almidón o legumbre sobre la que se monta el plato. Para los topes. */
   base: string | null;
 }

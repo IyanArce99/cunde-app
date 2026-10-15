@@ -56,7 +56,7 @@ export function esCandidatoUsable(unidadReceta: UnidadReceta, sku: Sku): boolean
 // Caducidad: manda la presentación, no el ingrediente fresco
 // ---------------------------------------------------------------------------
 
-function esCongelado(sku: Sku): boolean {
+export function esCongelado(sku: Sku): boolean {
   return sku.departamento === 'Congelados' || /congelad/i.test(sku.nombre);
 }
 

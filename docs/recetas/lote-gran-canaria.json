@@ -1,7 +1,7 @@
 {
   "raciones_base": 2,
   "lote": "gran-canaria",
-  "nota": "Lote del 15 oct 2026 para Gran Canaria (almacén 3120). Solo productos verificados allí, sin sustituciones pendientes de aceptar. Cubre lo que falta en sus 55 recetas: pollo (3 → 7), cerdo (4 → 7), carne picada mixta (ninguna), pescado (5 → 9) y marisco (ninguno), además de verdura y técnica: crema, gratinado, papillote, plancha, salteado, ensalada fría. Abre tres productos verificados que ninguna receta disponible usaba: lomo de bacalao, mejillones en escabeche y carne picada mixta. Cantidades POR RACIÓN, pensadas con los envases de 3120: 2 raciones = un envase entero de merluza (400 g), bacalao (384 g), mejillón (212 g escurridos), judía verde (360 g escurridos), alcachofa (175 g escurridos) y champiñón (180 g escurridos); el pastel de carne rinde dos comidas y gasta el paquete de 500 g de picada; las recetas de pechuga y de lomo gastan medio envase cada una y se completan entre sí. NINGUNA ESTÁ PROBADA EN COCINA: los pasos, tiempos y cantidades son una propuesta revisada sobre el papel y por las reglas del catálogo (catalogo/reglas.ts). Ver docs/recetas-gran-canaria-2026-10-15.md.",
+  "nota": "Lote del 15 oct 2026 para Gran Canaria (almacén 3120). Solo productos verificados allí, sin sustituciones pendientes de aceptar. Cubre lo que falta en sus 55 recetas: pollo (3 → 7), cerdo (4 → 7), carne picada mixta (ninguna), pescado (5 → 9) y marisco (ninguno), además de verdura y técnica: crema, gratinado, papillote, plancha, salteado, ensalada fría. Abre tres productos verificados que ninguna receta disponible usaba: lomo de bacalao, mejillones en escabeche y carne picada mixta. Cantidades POR RACIÓN, pensadas con los envases de 3120: 2 raciones = un envase entero de merluza (400 g), bacalao (384 g), mejillón (212 g escurridos), judía verde (360 g escurridos), alcachofa (175 g escurridos) y champiñón (180 g escurridos); el pastel de carne rinde dos comidas y gasta el paquete de 500 g de picada; las recetas de pechuga y de lomo gastan medio envase cada una y se completan entre sí. Revisado contra fichas de Mercadona el 16 oct 2026: el bacalao viene en su punto de sal (no se sala), la carne picada «preparado» no lleva sal añadida y aguanta 24 h abierta, la harina fina de maíz es almidón. NINGUNA ESTÁ PROBADA EN COCINA: los pasos, tiempos y cantidades son una propuesta revisada sobre el papel y por las reglas del catálogo (catalogo/reglas.ts). Ver docs/recetas-gran-canaria-2026-10-15.md.",
   "recetas": [
     {
       "id": "pollo_puerro_crema",
@@ -757,14 +757,14 @@
         {
           "canonico": "sal",
           "parte": "principal",
-          "cantidad": 1.8,
+          "cantidad": 1.5,
           "unidad": "g",
           "escalado": "sublineal"
         }
       ],
       "pasos": [
-        "Pasa el bacalao del congelador a la nevera la víspera.",
-        "Cuece la patata pelada en rodajas gruesas en agua con la sal 15 minutos.",
+        "Saca el bacalao del envase la víspera y descongélalo 12 horas en la nevera sobre una rejilla; una vez descongelado, cocínalo en 24 horas.",
+        "Cuece la patata pelada en rodajas gruesas en agua con la sal 15 minutos. El bacalao no se sala: viene en su punto de sal.",
         "Añade el bacalao y cuécelo 6-8 minutos a fuego suave, sin que hierva fuerte; en el último minuto echa las judías escurridas para que se calienten.",
         "Escurre todo con cuidado y colócalo en la fuente.",
         "Dora el ajo laminado en el aceite, aparta del fuego, añade el pimentón y riega el pescado con esa ajada."
@@ -1209,7 +1209,7 @@
         {
           "canonico": "leche_semi",
           "parte": "principal",
-          "cantidad": 250,
+          "cantidad": 320,
           "unidad": "ml",
           "escalado": "lineal"
         },
@@ -1251,7 +1251,7 @@
       ],
       "pasos": [
         "Corta el puerro en trozos de cuatro dedos y cuécelo en agua con una pizca de la sal 12 minutos; escúrrelo bien.",
-        "Disuelve la harina de maíz en la leche fría y caliéntala removiendo sin parar hasta que espese, 4-5 minutos; sala y añade la pimienta.",
+        "Disuelve el almidón de maíz (la «harina fina de maíz», que es almidón) en la leche fría y caliéntala removiendo sin parar hasta que espese, 4-5 minutos; sala y añade la pimienta.",
         "Pon el puerro en una fuente de horno untada con el aceite y cúbrelo con la salsa.",
         "Espolvorea el queso y gratina 12 minutos a 220 ºC, hasta que se dore."
       ]

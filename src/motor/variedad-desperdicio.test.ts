@@ -46,7 +46,14 @@ describe('subir el tope con la semana anterior como candidata', () => {
     const de80 = generarSemana(pet(gc, 80));
     const a100 = generarSemana(pet(gc, 100, { semanaPrevia: { huecos: de80.huecos, tandas: de80.tandas } }));
     expect(a100.cuadra).toBe(true);
-    expect(compararVariedad(variedadDeSemana(a100, gc), variedadDeSemana(de80, gc))).toBeGreaterThanOrEqual(0);
+    /* Lo que garantiza la regla: no menos variada SIN GANAR NADA. Si la de
+       100 € es menos variada, tiene que ser más barata y desperdiciar menos
+       que la que ya se tenía (16 oct 2026: 71,71 € contra 73,89 €). */
+    const desperdicio = (s: typeof a100) => s.carrito.totalCarrito - s.carrito.totalConsumo + s.carrito.totalPerecedero;
+    if (compararVariedad(variedadDeSemana(a100, gc), variedadDeSemana(de80, gc)) < 0) {
+      expect(a100.carrito.totalCarrito).toBeLessThan(de80.carrito.totalCarrito);
+      expect(desperdicio(a100)).toBeLessThan(desperdicio(de80));
+    }
     expect(a100.carrito.totalCarrito).toBeLessThanOrEqual(100);
   }, 30000);
 

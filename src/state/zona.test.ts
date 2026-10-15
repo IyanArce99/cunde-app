@@ -160,9 +160,10 @@ describe('la prueba personal en 35007 (almacén 3120)', () => {
    * catálogo anterior.
    *
    * Y el mismo día, con el lote de recetas de Gran Canaria
-   * (docs/recetas/lote-gran-canaria.json), 71 recetas y 61,46 €.
+   * (docs/recetas/lote-gran-canaria.json), 71 recetas y 61,46 €. Con el envase
+   * compartido y las recetas corregidas por sus fichas (16 oct), 58,84 €.
    */
-  it('la app monta la misma compra de 61,46 €, solo con productos de la zona', async () => {
+  it('la app monta la misma compra de 58,84 €, solo con productos de la zona', async () => {
     window.localStorage.clear();
     window.localStorage.setItem(CLAVE, JSON.stringify({ perfil: { codigoPostal: '35007' } }));
     const { estadoParaTests, generarParaApp, zonaCargada, datos } = await modulos();
@@ -172,7 +173,7 @@ describe('la prueba personal en 35007 (almacén 3120)', () => {
       { ...base.perfil, codigoPostal: '35007', comensales: '2', presupuestoSemanal: 65, fechaInicioSemana: '2026-10-14' },
       { ...base.preferencias, comidas: 'ambas', esfuerzo: 'libre', variedad: 'normal', variedadElegida: true, proteina: 'normal', exclusiones: [], postre: false },
     );
-    expect(s.carrito.totalCarrito).toBe(61.46);
+    expect(s.carrito.totalCarrito).toBe(58.84);
     const deLaZona = new Set(Object.values(datos.skus).map((x) => x.sku));
     for (const it of s.lista) expect(deLaZona.has(it.id), it.nombre).toBe(true);
     expect(datos.recetas.length).toBe(71);
