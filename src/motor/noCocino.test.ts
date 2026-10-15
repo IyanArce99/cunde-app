@@ -65,13 +65,16 @@ function comprobarLiberar(peticion: PeticionSemana, s: SemanaGenerada, i: number
 }
 
 describe('no cocino · el caso que lo destapó', () => {
-  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 54,23 €', () => {
+  /* 54,23 € hasta el 15 oct 2026; con el lote de Gran Canaria en el recetario
+     (docs/recetas/lote-gran-canaria.json) la semana base de Madrid sale a
+     53,93 €. Lo que se comprueba no cambia: liberar no sube la compra. */
+  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 53,93 €', () => {
     const s = generarSemana(BASE);
-    expect(caja(s)).toBe(54.23);
+    expect(caja(s)).toBe(53.93);
     const i = s.huecos.findIndex((h) => h.dia === 'MIÉ' && h.ranura === 'comida');
     expect(s.huecos[i].tipo).toBe('sobras');
     const r = comprobarLiberar(BASE, s, i, 'caso');
-    expect(caja(r)).toBeLessThanOrEqual(54.23);
+    expect(caja(r)).toBeLessThanOrEqual(53.93);
     expect(r.cuadra).toBe(true);
     // El lunes sigue siendo el mismo plato.
     expect(r.huecos[0].receta?.id).toBe(s.huecos[0].receta?.id);
