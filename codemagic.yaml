@@ -1,0 +1,122 @@
+# ═══ CUNDE · COMPILACIONES DE iOS EN CODEMAGIC ═══
+#
+# Dos flujos, los dos SOLO A MANO: no hay `triggering`, así que un push no
+# lanza nada. Se eligen en Codemagic → Start new build.
+#
+#   ios-simulador   Sin firma y sin cuenta de Apple. Comprueba que el proyecto
+#                   compila. Lo que sale es un .app de SIMULADOR: no se instala
+#                   en un iPhone, ni con cable ni por enlace.
+#
+#   ios-testflight  Firmado para App Store y subido a App Store Connect. Necesita
+#                   la membresía de Apple y la configuración de
+#                   docs/ios-codemagic.md. Sube el build; NO lo manda a revisión
+#                   de TestFlight externo ni a la App Store.
+#
+# El proyecto iOS usa Swift Package Manager (lo que Capacitor 8 genera por
+# defecto): no hay Podfile ni .xcworkspace, se compila App.xcodeproj.
+#
+# Ningún secreto vive aquí. Las variables de la app (VITE_*) van en el grupo
+# `cunde_web` de Codemagic, y la firma, en la integración de App Store Connect.
+
+definitions:
+  instancia: &instancia
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+  entorno_base: &entorno_base
+    node: 22
+    xcode: latest
+    vars:
+      # Cypress es de las pruebas de escritorio: su binario no hace falta aquí.
+      CYPRESS_INSTALL_BINARY: 0
+  scripts:
+    - &instalar
+      name: Instalar dependencias
+      script: npm ci
+    - &sincronizar
+      name: Copiar la web al proyecto iOS
+      # Regenera también ios/App/CapApp-SPM/Package.swift con rutas de macOS.
+      script: npx cap sync ios
+    - &esquemas
+      name: Ver el proyecto y resolver paquetes Swift
+      script: |
+        xcodebuild -list -project ios/App/App.xcodeproj
+        xcodebuild -resolvePackageDependencies -project ios/App/App.xcodeproj -scheme App
+
+workflows:
+  ios-simulador:
+    name: iOS · simulador, sin firma
+    <<: *instancia
+    environment:
+      <<: *entorno_base
+    scripts:
+      - *instalar
+      - name: Compilar la web
+        # Sin variables VITE_*: la app arranca con el catálogo que lleva dentro,
+        # sin precios remotos ni analítica. Es lo que se quiere comprobar aquí.
+        script: npm run build
+      - *sincronizar
+      - *esquemas
+      - name: Compilar para el simulador
+        script: |
+          set -o pipefail
+          xcodebuild build \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build/simulador \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Empaquetar el .app de simulador
+        script: |
+          APP=$(find build/simulador/Build/Products/Debug-iphonesimulator -maxdepth 1 -name '*.app' | head -1)
+          test -n "$APP"
+          ditto -c -k --keepParent "$APP" build/Cunde-SIMULADOR-no-instalable-en-iPhone.zip
+    artifacts:
+      - build/Cunde-SIMULADOR-no-instalable-en-iPhone.zip
+      - /tmp/xcodebuild_logs/*.log
+
+  ios-testflight:
+    name: iOS · TestFlight (manual)
+    <<: *instancia
+    integrations:
+      # El nombre de la clave de API tal como la registres en Codemagic
+      # (Team settings → Integrations → Developer Portal). Tiene que coincidir.
+      app_store_connect: Cunde App Store Connect
+    environment:
+      <<: *entorno_base
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: es.cunde.app
+      groups:
+        # VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY (la publicable), VITE_PRECIOS_URL.
+        - cunde_web
+    scripts:
+      - *instalar
+      - name: Compilar la web (falla si faltan variables)
+        script: npm run build:release
+      - *sincronizar
+      - *esquemas
+      - name: Aplicar los perfiles de firma
+        script: xcode-project use-profiles
+      - name: Número de build
+        # El contador de builds de este flujo en Codemagic: siempre crece, y no
+        # hace falta preguntar a App Store Connect.
+        script: cd ios/App && agvtool new-version -all "$BUILD_NUMBER"
+      - name: Compilar el .ipa
+        script: |
+          xcode-project build-ipa \
+            --project ios/App/App.xcodeproj \
+            --scheme App
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+    publishing:
+      app_store_connect:
+        auth: integration
+        # Sube el build a App Store Connect, donde lo ven los probadores
+        # INTERNOS. Para externos hace falta revisión de Apple: se cambia a
+        # true cuando lo decidas.
+        submit_to_testflight: false
+        submit_to_app_store: false
