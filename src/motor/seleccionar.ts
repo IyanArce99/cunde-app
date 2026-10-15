@@ -1,5 +1,5 @@
 import {
-  aUnidadCatalogo, acumularNecesidad, calcularCarrito, consumoPorRacion, esCongelado, esConserva, escalar,
+  aUnidadCatalogo, acumularNecesidad, calcularCarrito, consumoPorRacion, esCongelado, escalar,
   necesidadDePostres, proteinaAnimal, proteinaDeEnsamblaje, proteinaPorRacion, totalesDeNecesidad,
 } from './carrito.ts';
 import type { Existencias, Necesidad } from './carrito.ts';
@@ -1298,14 +1298,14 @@ export function construir(
    * Dos piezas, las dos sobre la misma tubería de inventario
    * (totalesDeNecesidad), sin otra contabilidad:
    *
-   *   1. CRÉDITO al abrir: si el candidato deja sobrante de un producto de vida
-   *      corta, se busca OTRA receta elegible (distinta, no usada, dentro de los
+   *   1. CRÉDITO al abrir: si el candidato deja sobrante de un producto con su
+   *      vida una vez abierto documentada (ver PLAZOS), se busca OTRA receta elegible (distinta, no usada, dentro de los
    *      topes de variedad y de los filtros, porque sale de `elegibles`) que lo
    *      use y que quepa en un hueco libre dentro del plazo. El candidato paga
    *      solo el sobrante que esa receta no podría gastar.
    *   2. PLAZO al reutilizar: no se elige (en la pasada estricta) un plato que
-   *      gaste un sobrante de CARNE, PESCADO O MARISCO fresco ya comprado FUERA
-   *      de su plazo; el carrito, que suma por SKU sin fechas, lo daría por
+   *      gaste FUERA de su plazo un sobrante de carne, pescado o marisco fresco,
+   *      o de cualquier producto con `horas_abierto`; el carrito, que suma por SKU sin fechas, lo daría por
    *      aprovechado. Solo esos tres orígenes a propósito: aplicarlo también a
    *      verdura y botes abiertos (que el motor ya reutilizaba fuera de plazo
    *      antes de esto) hacía que las semanas de presupuesto justo dejaran de
@@ -1313,11 +1313,28 @@ export function construir(
    *      todas: 2,8 s en vez de 0,2 s con 45 € para dos. Queda como
    *      limitación conocida del carrito, que no tiene fechas.
    *
-   * El plazo: lo fresco, desde el día de la compra (el primero de la semana)
-   * hasta sus días de conservación; la conserva y el brik, desde que se abren;
-   * lo congelado no cuenta como perecedero. No se supone que el usuario congele
-   * nada. No sube raciones ni obliga a repetir plato: si la pareja no llega a
-   * elegirse, el sobrante aparece en el carrito final como siempre.
+   * ═══ PLAZOS · 16 OCT 2026 · SOLO CON DATOS, POR HUECOS Y NO POR DÍAS ═══
+   *
+   * Tres conservaciones distintas, y solo se usa la que está documentada:
+   *
+   *   · SIN ABRIR: la fecha va en la etiqueta y la app no la sabe. Se sigue
+   *     usando la estimación del vocabulario (`dias_conservacion`) desde el
+   *     día de la compra, el primero de la semana, como el resto del motor.
+   *   · UNA VEZ ABIERTO: `horas_abierto`, sacado de la ficha del producto. Es
+   *     el ÚNICO plazo que justifica un crédito. Sin ese dato no hay crédito:
+   *     ni verdura, ni bote, ni brik, ni carne sin ficha.
+   *   · DESCONGELADO: lo congelado no es perecedero para el motor; se
+   *     descongela solo lo que se va a usar. No da crédito.
+   *
+   * Las horas se cuentan por HUECOS, no por días: se supone que se cocina —y
+   * se abre el envase— a las 14:00 la comida y a las 21:00 la cena. Así,
+   * «24 h» abierto en la cena del miércoles llega a la comida del jueves (17 h)
+   * pero NO a la cena del jueves (24 h justas: en el límite no se da por
+   * buena). Si el usuario cocina a otra hora, el margen cambia; está dicho en
+   * las instrucciones de conservación de la lista.
+   *
+   * Si la pareja no llega a elegirse, el sobrante aparece en el carrito final
+   * como siempre: el crédito solo existe mientras se construye.
    */
   const envaseCompartido = !peticion.sinEnvaseCompartido;
   /** Qué recetas elegibles usan cada producto de vida corta, y cuánto para N comensales en un hueco. */
@@ -1328,14 +1345,15 @@ export function construir(
       for (const ing of r.ingredientes) {
         const sku = datos.skus[ing.canonico];
         const meta = datos.ingredientes[ing.canonico];
-        if (!sku || !meta || meta.es_despensa || esCongelado(sku) || meta.dias_conservacion > 7) continue;
+        // Solo productos con su vida una vez abiertos documentada en la ficha.
+        if (!sku || !meta || meta.es_despensa || esCongelado(sku) || !meta.horas_abierto) continue;
         const cantidad = aUnidadCatalogo(escalar(ing.cantidad, ing.escalado, N), ing.unidad, sku);
         porSku.set(sku.sku, (porSku.get(sku.sku) ?? 0) + cantidad);
       }
       for (const [id, cantidad] of porSku) usosDeSku.set(id, [...(usosDeSku.get(id) ?? []), { receta: r, cantidad }]);
     }
   }
-  /** Día (posición en la semana) en que se abre cada conserva o brik. */
+  /** Hora (desde el lunes 0:00 de la semana del usuario) en que se abre cada envase con horas_abierto. */
   const apertura = new Map<string, number>();
   /**
    * Envases abiertos a crédito: la receta que los abrió pagó solo su parte
@@ -1346,6 +1364,9 @@ export function construir(
    */
   const reservas = new Map<string, { valor: number; limite: number }>();
   const diaDe = (dia: string) => posiciones.find((p) => p.dia === dia)!.diaIndice;
+  /** Ver PLAZOS: comida a las 14:00, cena a las 21:00. */
+  const HORA_DE_RANURA: Record<string, number> = { comida: 14, cena: 21 };
+  const horaDe = (p: { dia: string; ranura: string }) => diaDe(p.dia) * 24 + HORA_DE_RANURA[p.ranura];
   /** Horas una vez abierto, del vocabulario (ficha del producto). */
   const horasAbierto = new Map<string, number>();
   for (const [canonico, meta] of Object.entries(datos.ingredientes)) {
@@ -1353,17 +1374,16 @@ export function construir(
     if (sku && meta.horas_abierto) horasAbierto.set(sku.sku, meta.horas_abierto);
   }
   /**
-   * Último día en que un producto comprado o abierto sigue valiendo. Fresco:
-   * desde el día de la compra (el primero), y si la ficha da horas una vez
-   * abierto, tampoco más allá de eso desde el primer uso. 24 h = el día
-   * siguiente, como mucho.
+   * ¿Se puede usar este envase en la hora `h`? Sin abrir: hasta el último día
+   * de su estimación desde la compra. Abierto en `abiertoEn`: además, menos de
+   * `horas_abierto` después. Ver PLAZOS.
    */
-  const limiteDe = (sku: Sku, diasFresco: number, diaUso: number): number => {
-    if (esCongelado(sku)) return Infinity;
-    if (esConserva(sku)) return (apertura.get(sku.sku) ?? diaUso) + diasFresco - 1;
+  const enPlazo = (sku: Sku, diasFresco: number, h: number, abiertoEn: number | undefined): boolean => {
+    if (esCongelado(sku)) return true;
+    if (Math.floor(h / 24) > diasFresco - 1) return false;
     const horas = horasAbierto.get(sku.sku);
-    const abierto = horas ? (apertura.get(sku.sku) ?? diaUso) + Math.floor(horas / 24) : Infinity;
-    return Math.min(diasFresco - 1, abierto);
+    if (horas && abiertoEn !== undefined && h - abiertoEn >= horas) return false;
+    return true;
   };
   const perecederoDe = (nec: Necesidad, id: string, extra = 0): number => {
     const a = nec.get(id);
@@ -1529,28 +1549,34 @@ export function construir(
         let bonusReserva = 0;
         const creditos = new Map<string, { valor: number; limite: number }>();
         if (envaseCompartido) {
-          const dia = diaDe(plan.huecos[0].dia);
+          // Se cocina en el primer hueco cocinado de la tanda; ahí se abre el envase.
+          const cocina = plan.huecos.find((h) => h.tipo === 'cocinado') ?? plan.huecos[0];
+          const hora = horaDe(cocina);
           const ocupa = new Set(plan.huecos.map((h) => posiciones.findIndex((p) => p.dia === h.dia && p.ranura === h.ranura)));
           for (const [id, despues] of necesidadPrueba) {
-            if (despues.esDespensa || esCongelado(despues.sku) || despues.diasFresco > 7) continue;
+            if (despues.esDespensa || esCongelado(despues.sku)) continue;
             const antes = necesidadActual.get(id);
             if (antes && antes.cantidad === despues.cantidad) continue; // este candidato no lo usa
+            const conHoras = horasAbierto.has(id);
+            const origen = datos.ingredientes[[...despues.canonicos][0]]?.origen;
+            const animal = origen === 'carne' || origen === 'pescado' || origen === 'marisco';
+            if (!conHoras && !animal) continue; // sin datos: ni crédito ni regla
             const pAntes = antes ? perecederoDe(necesidadActual, id) : 0;
             const pDespues = perecederoDe(necesidadPrueba, id);
-            const limite = limiteDe(despues.sku, despues.diasFresco, dia);
-            const reserva = reservas.get(id);
-            if (reserva && pDespues < pAntes && dia <= reserva.limite) bonusReserva += reserva.valor;
             if (pDespues < pAntes) {
-              // 2 · Gasta un sobrante abierto fuera de plazo: ver `fueraDePlazo`.
-              // Solo carne, pescado y marisco: ver PLAZO en la cabecera.
-              const origen = datos.ingredientes[[...despues.canonicos][0]]?.origen;
-              if (dia > limite && (origen === 'carne' || origen === 'pescado' || origen === 'marisco')) fueraDePlazo = true;
+              // Gasta un sobrante ya abierto o comprado: ¿en plazo?
+              const valido = enPlazo(despues.sku, despues.diasFresco, hora, apertura.get(id));
+              if (!valido) fueraDePlazo = true;
+              const reserva = reservas.get(id);
+              if (valido && reserva && hora < reserva.limite) bonusReserva += reserva.valor;
               continue;
             }
-            if (pDespues <= pAntes) continue;
-            // 1 · Abre sobrante: ¿otra receta lo gasta dentro del plazo?
-            const huecoEnPlazo = posiciones.some((p, k) => !ocupados[k] && !ocupa.has(k) && p.diaIndice >= dia && p.diaIndice <= limite);
+            if (pDespues <= pAntes || !conHoras) continue;
+            // 1 · Abre sobrante: ¿otra receta lo gasta en un hueco libre en plazo?
+            const huecoEnPlazo = posiciones.some((p, k) => !ocupados[k] && !ocupa.has(k)
+              && horaDe(p) > hora && enPlazo(despues.sku, despues.diasFresco, horaDe(p), hora));
             if (!huecoEnPlazo) continue;
+            const limite = hora + horasAbierto.get(id)!;
             const cupo = topeRecetas - distintas - (yaUsada ? 0 : 1);
             if (cupo < 1) continue;
             let mejorResto = pDespues;
@@ -1562,10 +1588,11 @@ export function construir(
             if (pDespues - mejorResto > 0.005) creditos.set(id, { valor: pDespues - mejorResto, limite });
           }
         }
-        /* Gastar lo que sobró de una bandeja fresca después de su fecha, o de un
-           bote abierto pasados sus días, no es aprovecharlo: el carrito lo daría
-           por consumido sin serlo. Regla de la pasada estricta, como las de
-           «comida de verdad»: la relajada la suelta si no queda otra. */
+        /* Gastar lo que sobró de una bandeja después de su plazo no es
+           aprovecharlo: el carrito, que suma sin fechas, lo daría por consumido.
+           Regla de la pasada estricta, como las de «comida de verdad»: la
+           relajada la suelta si no queda otra, y entonces el motor lo dice en
+           la traza (`envase_fuera_de_plazo` relajado). */
         if (fueraDePlazo && !relajado) { descartar(receta.id, 'envase_fuera_de_plazo'); continue; }
         const perecederoMarginal = (carritoPrueba.totalPerecedero - creditoEnvase - bonusReserva - perecederoActual) / cubre;
 
@@ -1750,11 +1777,12 @@ export function construir(
     tandas.push(mejor.tanda);
     familiasEnSemana.add(mejor.tanda.receta.proteina);
     if (envaseCompartido) {
-      const dia = diaDe(mejor.nuevos[0].dia);
+      const cocina = mejor.nuevos.find((h) => h.tipo === 'cocinado') ?? mejor.nuevos[0];
+      const hora = horaDe(cocina);
       for (const ing of mejor.tanda.receta.ingredientes) {
         const sku = datos.skus[ing.canonico];
         if (!sku) continue;
-        if ((esConserva(sku) || horasAbierto.has(sku.sku)) && !apertura.has(sku.sku)) apertura.set(sku.sku, dia);
+        if (horasAbierto.has(sku.sku) && !apertura.has(sku.sku)) apertura.set(sku.sku, hora);
         // La pareja ha llegado: la reserva se cumple.
         if (!mejor.creditos?.has(sku.sku)) reservas.delete(sku.sku);
       }
@@ -2076,6 +2104,18 @@ function elegirVariedadFrenteADesperdicio(
       perecedero: c.carrito.totalPerecedero, desperdicio: desperdicio(c), variedad: variedadDeSemana(c, peticion.datos),
     });
 
+  /*
+   * Lo que el usuario ha pedido con «me gusta» va por delante de la variedad
+   * por categorías: es una instrucción suya, no una heurística nuestra (el
+   * mismo principio que en PENAL_FUENTE_REPETIDA). Sin esto, al rehacer la
+   * semana desde Ajustes después de marcar favoritos, ganaba la semana
+   * anterior —sin ellos— por tener una categoría más (16 oct 2026: 75,51 € con
+   * un plato de pollo frente a 74,02 € con cinco de pollo y cerdo).
+   */
+  const favoritos = new Set(peticion.platosFavoritos ?? []);
+  const nFav = (c: Construida) => new Set(c.tandas.map((t) => t.receta.id).filter((id) => favoritos.has(id))).size;
+  const comparar = (a: Construida, va: VariedadDeSemana, b: Construida, vb: VariedadDeSemana) =>
+    (nFav(a) - nFav(b)) || compararVariedad(va, vb);
   let mejor = base;
   let vMejor = vBase;
   let origenMejor = 'referencia';
@@ -2092,7 +2132,7 @@ function elegirVariedadFrenteADesperdicio(
     let motivo = '';
     if (r[0] > rBase[0]) motivo = 'no llega al suelo de proteína';
     else if (r[1] > rBase[1]) motivo = 'no cabe en el tope';
-    else if (compararVariedad(v, vBase) < 0) motivo = 'menos variada que la referencia';
+    else if (comparar(c, v, base, vBase) < 0) motivo = nFav(c) < nFav(base) ? 'menos platos que te gustan que la referencia' : 'menos variada que la referencia';
     // Si no desperdicia más que la referencia, no tiene nada que pagar.
     else if (desperdicio(c) <= desperdicio(base) + 1e-9) motivo = '';
     else if (deMas > 0.01 && comidaDeMas < RENDIMIENTO_MINIMO_HOLGURA * deMas) {
@@ -2104,7 +2144,7 @@ function elegirVariedadFrenteADesperdicio(
     }
     if (motivo) { anotar(origen, c, 'descartada', motivo); continue; }
     admitidas.push({ origen, c });
-    const cmp = compararVariedad(v, vMejor);
+    const cmp = comparar(c, v, mejor, vMejor);
     if (cmp > 0 || (cmp === 0 && desperdicio(c) < desperdicio(mejor) - 1e-9)) { mejor = c; vMejor = v; origenMejor = origen; }
   }
   if (peticion.traza) {

@@ -11,6 +11,10 @@
 > desde el lunes 19 oct 2026 · sin filtros · proteína normal · sin postre ·
 > variedad alta.
 
+> **Actualización · cierre de la validación temporal (16 oct 2026, después de este informe).**
+> El crédito se ha restringido y los plazos se cuentan por horas. Los datos de los
+> §2-§3 son de la versión anterior. Lo vigente está en el **§7**.
+
 ## 1 · Dónde fallaba
 
 **El cálculo final no fallaba.** `acumularNecesidad` suma por SKU y
@@ -244,10 +248,10 @@ No hay regresiones nuevas.
 
 | | caja | perecedero | categorías | carne | legumbre | pescado |
 |---|---:|---:|---:|---:|---:|---:|
-| 80 € general | 73,89 € | 4,77 € | 8 | 2 | 2 | 3 |
-| 80 € con favoritos | 74,74 € | 4,38 € | 7 | **4** | 1 | 2 |
-| 100 € general | 71,71 € | 6,17 € | 7 | 3 | 2 | 3 |
-| 100 € con favoritos | 74,57 € | **4,30 €** | 7 | **5** | 2 | 1 |
+| 80 € general | 69,92 € | 4,79 € | 8 | 1 | 3 | 3 |
+| 80 € con favoritos | 68,94 € | 6,79 € | 7 | **5** | 2 | 1 |
+| 100 € general | 75,51 € | 5,14 € | 8 | 2 | 2 | 4 |
+| 100 € con favoritos | 74,02 € | **4,48 €** | 7 | **5** | 2 | 1 |
 
 **A 100 € con favoritos:**
 
@@ -270,3 +274,105 @@ legumbre…):
 - vacío por defecto;
 - no toca filtros;
 - no es premium: es lo mismo que ya hace «me gusta».
+
+## 7 · Cierre de la validación temporal
+
+### Qué ha cambiado
+
+| | antes de este cierre | ahora |
+|---|---|---|
+| Qué productos dan crédito | cualquiera de 7 días o menos, no congelado (verdura, botes, briks) | **solo los que tienen `horas_abierto` de su ficha**: pechuga, lomo de cerdo, picada de cerdo y picada mixta |
+| Sin datos | se suponía la vida del ingrediente fresco | **no hay crédito**. Tampoco se supone nada |
+| Cómo se cuenta el plazo | por días («24 h = el día siguiente») | **por huecos**: se supone cocinar, y abrir, a las 14:00 la comida y a las 21:00 la cena |
+| Regla de no reutilizar fuera de plazo | carne, pescado y marisco, por días | carne, pescado y marisco por su estimación sin abrir; además, todo producto con ficha, por sus horas desde que se abre |
+
+**Qué permiten 24 h, contadas por huecos:**
+
+- **Abierto en la cena:** llega a la comida del día siguiente (17 h).
+- **Abierto en la comida:** solo llega a la cena del mismo día (7 h). Pero el
+  motor no pone la misma proteína dos veces el mismo día, así que en la
+  práctica no hay pareja.
+- **24 h justas**, de cena a cena, no se dan por buenas.
+
+**48 h** (lomo) llegan desde una cena hasta la cena del día siguiente.
+
+### Las tres conservaciones
+
+| conservación | de dónde sale | qué hace el motor |
+|---|---|---|
+| **Sin abrir** | estimación del vocabulario (`dias_conservacion`), no la fecha real, que va en la etiqueta | lo de siempre: el sobrante se pondera por esos días |
+| **Una vez abierto** | ficha del producto (`horas_abierto`), solo para 4 productos | el único plazo que justifica un crédito; además, no se reutiliza pasado |
+| **Una vez descongelado** | ficha: jamoncitos, bacalao y merluza, «consumir en 24 h» | lo congelado no es perecedero para el motor (se descongela lo que se usa); no da crédito. Va en las instrucciones de la lista |
+
+### ¿Se resuelve el crédito en el menú final?
+
+El crédito solo existe mientras se construye la semana. El menú final se valora
+con `calcularCarrito`, que suma por SKU. Comprobado en las 10 semanas del caso
+controlado, y en el test en 12 más (Madrid y Gran Canaria, con y sin
+favoritos):
+
+- **Ningún producto con ficha se reparte fuera de sus horas.**
+- **Si sobra algo de esos productos, el carrito lo cobra:** perecedero > 0.
+  Ejemplo con despensa: sobran 30 g de pechuga tras las dos recetas y se
+  cobran 0,28 €.
+- **Al quitar con «No cocino» una de las dos**, la caja no sube, el perecedero
+  sube (vuelve a sobrar) y coincide con calcularlo de cero.
+
+### Resultados
+
+| caso | antes del envase compartido | ahora |
+|---|---|---|
+| Gran Canaria 60, 80 y 100 €, sin favoritos | — | **idénticos**: con plazos estrictos ninguna pareja cabe en el menú general |
+| Gran Canaria, semana 2 con despensa (80 €) | 46,06 € · consumo 44,25 € · perecedero 4,95 € · 3 de carne | 44,51 € · consumo 35,07 € · perecedero **1,67 €** · 4 de carne. La pechuga se reparte de lunes cena a martes comida. **Se come 9,18 € menos**: no es una mejora clara |
+| Gran Canaria 100 €, con favoritos | 75,51 € (menú general) | 74,02 € · 5 tandas de carne · pechuga (lunes cena → martes comida) y lomo (martes cena → miércoles comida), 17 h cada una |
+| Madrid 60 € | 56,69 € · 6 categorías · perecedero 5,83 € | 55,35 € · 5 · 3,80 € |
+| Madrid 80 € | 67,31 € | igual |
+| Madrid 100 € | 78,32 € · 8 categorías · 4,98 € | 77,82 € · 6 · 3,89 € |
+
+**Lectura:** con plazos estrictos, el envase compartido apenas actúa en el menú
+general. Sí actúa cuando el usuario pide carne con «me gusta»: ahí es donde dos
+platos de la misma bandeja compiten por entrar. En Madrid baja el perecedero
+pero también las categorías.
+
+### Lo que sigue sin resolverse, y por qué no se ha forzado
+
+- **Verdura, botes y briks** pueden seguir repartiéndose fuera de su plazo real.
+  No dan crédito, pero el carrito, sin fechas, los da por aprovechados.
+  - Caso del menú de 80 €: un bote de champiñón abierto el martes y gastado el
+    domingo.
+  - Cerrarlo pide fechas en el inventario. Se dejó fuera a propósito: cambia
+    todas las semanas del motor.
+- **La hora real a la que se cocina** no la sabe la app. El supuesto de 14:00
+  y 21:00 se dice en las instrucciones de la lista de prueba.
+
+### Los favoritos en la elección final
+
+**Encontrado al preparar la prueba:** el camino real del usuario no aplicaba
+los favoritos. Ese camino es marcar «me gusta» y rehacer la semana desde
+Ajustes.
+
+- Al rehacer, la semana anterior entra como candidata.
+- La comparación final de variedad alta solo miraba categorías.
+- Así que volvía la semana sin favoritos, porque tenía una categoría más.
+- Con 100 €: 75,51 € con un plato de pollo, frente a 74,02 € con cinco de
+  pollo y cerdo.
+
+**Corregido** en `elegirVariedadFrenteADesperdicio`: los platos marcados con
+«me gusta» cuentan antes que las categorías.
+
+- Es la misma regla que ya tenía el motor en la construcción: una
+  instrucción del usuario manda sobre una heurística nuestra.
+- Los frenos de gasto y desperdicio no cambian.
+- Sin favoritos, la elección es la de antes.
+
+Test: `src/motor/envase-compartido.test.ts`, «rehacer la semana con favoritos
+nuevos no devuelve la semana anterior sin ellos».
+
+**Cifras actuales de la comparación con favoritos** (tabla del §6, ya
+actualizada):
+
+| tope | menú | compra | tandas de carne | perecedero |
+|---|---|---:|---:|---:|
+| 80 € | con favoritos | 68,94 € | 5 | 6,79 € (más perecedero que el general) |
+| 100 € | con favoritos | 74,02 € | 5 | 4,48 € |
+

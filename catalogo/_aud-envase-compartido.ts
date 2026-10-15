@@ -44,38 +44,63 @@ function generar(p: PeticionSemana): { s: SemanaGenerada; ms: number } {
   return { s, ms: Math.round(performance.now() - t0) };
 }
 
-/** Productos de vida corta que usan dos o más tandas, con los días de uso y si cumplen el plazo. */
+/** Ver PLAZOS en construir(): comida a las 14:00, cena a las 21:00. */
+const HORA: Record<string, number> = { comida: 14, cena: 21 };
+
+/**
+ * Productos de vida corta que usan dos o más tandas, con sus usos y si cumplen
+ * el plazo. `ficha` = tiene horas_abierto (el único caso que puede dar crédito);
+ * `sin-dato` = no hay ficha de abierto: no da crédito y se informa aparte.
+ */
 function envases(s: SemanaGenerada, datos: DatosMotor) {
-  const filas: { producto: string; recetas: string; dias: string; plazo: string; ok: boolean }[] = [];
-  const porSku = new Map<string, { nombre: string; usos: { receta: string; dia: number }[]; sku: DatosMotor['skus'][string]; diasFresco: number }>();
+  const filas: { producto: string; recetas: string; plazo: string; ok: boolean; tipo: 'ficha' | 'sin-dato' }[] = [];
+  const porSku = new Map<string, { nombre: string; usos: { receta: string; hora: number; etq: string }[]; sku: DatosMotor['skus'][string]; diasFresco: number; horas?: number }>();
   for (const t of s.tandas) {
     const h = s.huecos.find((x) => x.receta?.id === t.receta.id && x.tipo === 'cocinado');
     if (!h) continue;
-    const dia = DIAS.indexOf(h.dia);
+    const hora = DIAS.indexOf(h.dia) * 24 + HORA[h.ranura];
     for (const ing of t.receta.ingredientes) {
       const sku = datos.skus[ing.canonico];
       const meta = datos.ingredientes[ing.canonico];
-      if (!sku || !meta || meta.es_despensa || esCongelado(sku) || meta.dias_conservacion > 7) continue;
-      const x = porSku.get(sku.sku) ?? { nombre: sku.nombre, usos: [], sku, diasFresco: meta.dias_conservacion };
-      if (!x.usos.some((u) => u.receta === t.receta.nombre)) x.usos.push({ receta: t.receta.nombre, dia });
+      if (!sku || !meta || meta.es_despensa || esCongelado(sku) || (meta.dias_conservacion > 7 && !meta.horas_abierto)) continue;
+      const x = porSku.get(sku.sku) ?? { nombre: sku.nombre, usos: [], sku, diasFresco: meta.dias_conservacion, horas: meta.horas_abierto };
+      if (!x.usos.some((u) => u.receta === t.receta.nombre)) x.usos.push({ receta: t.receta.nombre, hora, etq: `${h.dia} ${h.ranura}` });
       porSku.set(sku.sku, x);
     }
   }
   for (const x of porSku.values()) {
     if (x.usos.length < 2) continue;
-    const dias = x.usos.map((u) => u.dia);
-    const primero = Math.min(...dias);
-    const limite = esConserva(x.sku) ? primero + x.diasFresco - 1 : x.diasFresco - 1;
-    const ok = Math.max(...dias) <= limite;
-    filas.push({
-      producto: x.nombre,
-      recetas: x.usos.map((u) => `${u.receta} (${DIAS[u.dia]})`).join(' + '),
-      dias: dias.map((d) => DIAS[d]).join(', '),
-      plazo: `${esConserva(x.sku) ? 'abierto' : 'fresco'}: hasta el ${DIAS[Math.min(6, limite)]}${limite > 6 ? ' (toda la semana)' : ''}`,
-      ok,
-    });
+    const horas = x.usos.map((u) => u.hora);
+    const abre = Math.min(...horas);
+    let ok: boolean;
+    let plazo: string;
+    if (x.horas) {
+      ok = horas.every((h) => h - abre < x.horas! && Math.floor(h / 24) <= x.diasFresco - 1);
+      plazo = `abierto: ${x.horas} h (ficha) desde ${x.usos.find((u) => u.hora === abre)!.etq}`;
+    } else {
+      const limite = esConserva(x.sku) ? Math.floor(abre / 24) + x.diasFresco - 1 : x.diasFresco - 1;
+      ok = horas.every((h) => Math.floor(h / 24) <= limite);
+      plazo = `sin dato de abierto (estimación ${x.diasFresco} d)`;
+    }
+    filas.push({ producto: x.nombre, recetas: x.usos.map((u) => `${u.receta} (${u.etq})`).join(' + '), plazo, ok, tipo: x.horas ? 'ficha' : 'sin-dato' });
   }
   return filas;
+}
+
+/** Cada producto con ficha de abierto: ¿se reparte en plazo, o su sobrante se cobra en el carrito final? */
+function creditos(s: SemanaGenerada, datos: DatosMotor) {
+  const res: { producto: string; estado: string; ok: boolean }[] = [];
+  for (const l of s.carrito.lineas) {
+    const meta = datos.ingredientes[l.canonicos[0]];
+    if (!meta?.horas_abierto || l.esDespensa) continue;
+    const par = envases(s, datos).find((e) => e.producto === l.nombre);
+    if (l.sobranteCantidad <= 0.001) {
+      res.push({ producto: l.nombre, estado: par ? `se gasta entero entre dos recetas${par.ok ? ', en plazo' : ' FUERA de plazo'}` : 'se gasta entero en una receta', ok: !par || par.ok });
+    } else {
+      res.push({ producto: l.nombre, estado: `sobran ${l.sobranteCantidad.toFixed(3)} ${l.unidad}${par ? ` tras dos recetas${par.ok ? ' en plazo' : ' FUERA de plazo'}` : ' (sin pareja)'}; el carrito los cobra: ${eur(l.perecederoCoste)}`, ok: l.perecederoCoste > 0 && (!par || par.ok) });
+    }
+  }
+  return res;
 }
 
 function fila(etq: string, r: { s: SemanaGenerada; ms: number }, datos: DatosMotor) {
@@ -104,9 +129,16 @@ function menu(s: SemanaGenerada) {
 function tablaEnvases(s: SemanaGenerada, datos: DatosMotor) {
   const f = envases(s, datos);
   if (!f.length) { out('Ningún producto de vida corta compartido entre dos recetas.'); out(); return f; }
-  out('| producto | recetas que lo gastan (día de cocina) | plazo | dentro |');
+  out('| producto | recetas que lo gastan (hueco de cocina) | plazo | dentro |');
   out('|---|---|---|---|');
-  for (const x of f) out(`| ${x.producto} | ${x.recetas} | ${x.plazo} | ${x.ok ? 'sí' : '**NO**'} |`);
+  for (const x of f) out(`| ${x.producto} | ${x.recetas} | ${x.plazo} | ${x.ok ? 'sí' : x.tipo === 'ficha' ? '**NO**' : 'no (sin crédito)'} |`);
+  out();
+  out('Productos con ficha de abierto en el menú final:');
+  out();
+  for (const c of creditos(s, datos)) {
+    out(`- ${c.producto}: ${c.estado}. ${c.ok ? 'Bien.' : '**MAL.**'}`);
+    if (!c.ok) malCredito.push(c.producto);
+  }
   out();
   return f;
 }
@@ -119,6 +151,8 @@ out('> proteína normal · sin postre · variedad alta. Los platos de carne van 
 out();
 
 const fueraDePlazo: string[] = [];
+const malCredito: string[] = [];
+const sinDato: string[] = [];
 out('## 1 · Gran Canaria');
 out();
 out(CAB);
@@ -140,7 +174,7 @@ for (const tope of [60, 80, 100]) {
   out();
   out('Envases de vida corta que comparten dos recetas:');
   out();
-  for (const x of tablaEnvases(ahora.s, gc)) if (!x.ok) fueraDePlazo.push(`GC ${tope} €: ${x.producto}`);
+  for (const x of tablaEnvases(ahora.s, gc)) if (!x.ok) (x.tipo === 'ficha' ? fueraDePlazo : sinDato).push(`GC ${tope} €: ${x.producto}`);
 }
 
 // Despensa
@@ -156,7 +190,7 @@ out(fila('semana 2 · antes', d2antes, gc));
 out(fila('semana 2 · ahora', d2ahora, gc));
 out();
 menu(d2ahora.s);
-for (const x of tablaEnvases(d2ahora.s, gc)) if (!x.ok) fueraDePlazo.push(`GC despensa: ${x.producto}`);
+for (const x of tablaEnvases(d2ahora.s, gc)) if (!x.ok) (x.tipo === 'ficha' ? fueraDePlazo : sinDato).push(`GC despensa: ${x.producto}`);
 
 // Madrid
 out('## 3 · Madrid (control)');
@@ -167,7 +201,8 @@ for (const tope of [60, 80, 100]) {
   const ahora = generar(pet(madrid, tope));
   out(fila(`${tope} € antes`, antes, madrid));
   out(fila(`${tope} € ahora`, ahora, madrid));
-  for (const x of envases(ahora.s, madrid)) if (!x.ok) fueraDePlazo.push(`Madrid ${tope} €: ${x.producto}`);
+  for (const x of envases(ahora.s, madrid)) if (!x.ok) (x.tipo === 'ficha' ? fueraDePlazo : sinDato).push(`Madrid ${tope} €: ${x.producto}`);
+  for (const c of creditos(ahora.s, madrid)) if (!c.ok) malCredito.push(`Madrid ${tope} €: ${c.producto}`);
 }
 out();
 
@@ -199,7 +234,11 @@ for (const tope of [60, 80, 100]) for (const x of envases(gcRes[tope].antes.s, g
 for (const x of envases(d2antes.s, gc)) if (!x.ok) antesFuera.push(`GC despensa: ${x.producto} (${x.recetas})`);
 out(`**Antes**, el motor daba por aprovechados ${antesFuera.length} sobrantes fuera de plazo${antesFuera.length ? `: ${antesFuera.join('; ')}` : ''}. Su «consumo» contaba esa comida como comida y su perecedero no la cobraba.`);
 out();
-out(fueraDePlazo.length ? `**Fuera de plazo:** ${fueraDePlazo.join('; ')}.` : 'Todos los productos de vida corta que comparten dos recetas se gastan dentro de su plazo en las 10 semanas «ahora».');
+out(fueraDePlazo.length ? `**Con ficha y fuera de plazo:** ${fueraDePlazo.join('; ')}.` : 'Ningún producto con ficha de abierto se reparte fuera de plazo en las 10 semanas «ahora».');
+out();
+out(malCredito.length ? `**Créditos sin resolver ni cobrar:** ${malCredito.join('; ')}.` : 'Todo producto con ficha de abierto o se gasta entero, o su sobrante se cobra en el carrito final.');
+out();
+out(sinDato.length ? `Sin dato de abierto (no dan crédito; el carrito sin fechas los sigue dando por aprovechados, limitación conocida): ${sinDato.join('; ')}.` : 'Ningún producto sin dato de abierto se reparte fuera de su estimación.');
 out();
 
 const salida = path.join(aqui, '..', 'docs', 'motor-envase-compartido-2026-10-16.md');

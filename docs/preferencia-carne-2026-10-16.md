@@ -7,56 +7,56 @@
 
 | | caja | consumo | perecedero | categorías | máx. por categoría | tandas de carne | de legumbre | de pescado o marisco | prot. g | cuadra |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 80 € · general | 73,89 € | 44,49 € | 4,77 € | 8 | 2 | 2 | 2 | 3 | 59,0 | sí |
-| 80 € · con favoritos de carne | 74,74 € | 45,21 € | 4,38 € | 7 | 3 | 4 | 1 | 2 | 59,8 | sí |
-| 100 € · general | 71,71 € | 45,77 € | 6,17 € | 7 | 2 | 3 | 2 | 3 | 59,8 | sí |
-| 100 € · con favoritos de carne | 74,57 € | 46,53 € | 4,30 € | 7 | 3 | 5 | 2 | 1 | 63,0 | sí |
+| 80 € · general | 69,92 € | 41,14 € | 4,79 € | 8 | 3 | 1 | 3 | 3 | 56,1 | sí |
+| 80 € · con favoritos de carne | 68,94 € | 36,69 € | 6,79 € | 7 | 3 | 5 | 2 | 1 | 57,2 | sí |
+| 100 € · general | 75,51 € | 49,77 € | 5,14 € | 8 | 3 | 2 | 2 | 4 | 59,3 | sí |
+| 100 € · con favoritos de carne | 74,02 € | 46,49 € | 4,48 € | 7 | 3 | 5 | 2 | 1 | 63,0 | sí |
 
 ## 80 € · general
 
 | día | comida | cena |
 |---|---|---|
-| LUN | Macarrones gratinados con tomate · lacteo | **Jamoncitos al ajillo** · pollo |
-| MAR | Alubias con soja y tomate · legumbre | Merluza a la plancha con espinacas · pescado |
-| MIÉ | **Lentejas con chorizo** · cerdo | Garbanzos con soja · soja |
-| JUE | Alubias con soja y tomate · legumbre *(sobras)* | Fusilli de lenteja roja con champiñones · huevo |
-| VIE | Puerros gratinados con queso · lacteo | Cuscús con alubia roja · legumbre |
-| SÁB | **Lentejas con chorizo** · cerdo *(sobras)* | Ensalada de arroz con mejillones en escabeche · marisco |
-| DOM | Bacalao a la gallega con judías verdes · pescado | Alcachofas con huevo · huevo |
+| LUN | Macarrones gratinados con tomate · lacteo | Garbanzos gratinados · legumbre |
+| MAR | **Jamoncitos al ajillo** · pollo | Merluza a la plancha con espinacas · pescado |
+| MIÉ | Cuscús con alubias y maíz · legumbre | Garbanzos con soja · soja |
+| JUE | **Jamoncitos al ajillo** · pollo *(sobras)* | Fusilli de lenteja roja con champiñones · huevo |
+| VIE | Cuscús con alubia roja · legumbre | Arroz salteado con soja · soja |
+| SÁB | Fusilli de lenteja roja con champiñones · huevo *(sobras)* | Merluza en papillote con verduras · pescado |
+| DOM | Crema de champiñones y puerro · ninguna | Ensalada de arroz con mejillones en escabeche · marisco |
 
 ## 80 € · con favoritos de carne
 
 | día | comida | cena |
 |---|---|---|
-| LUN | Macarrones gratinados con tomate · lacteo | **Jamoncitos al ajillo** · pollo |
-| MAR | Alubias con soja y tomate · legumbre | Merluza a la plancha con espinacas · pescado |
-| MIÉ | **Lentejas con chorizo** · cerdo | **Salteado de pollo con judías verdes y almendra** · pollo |
-| JUE | Alubias con soja y tomate · legumbre *(sobras)* | **Ensalada de pollo con maíz y tomate** · pollo |
-| VIE | Puerros gratinados con queso · lacteo | Garbanzos con soja · soja |
-| SÁB | **Lentejas con chorizo** · cerdo *(sobras)* | Revuelto de champiñones · huevo |
-| DOM | Bacalao a la gallega con judías verdes · pescado | Huevos rellenos de caballa · huevo |
+| LUN | Alubias con soja y tomate · legumbre | **Jamoncitos al ajillo** · pollo |
+| MAR | **Lomo en salsa de almendra con alcachofas** · cerdo | Garbanzos con soja · soja |
+| MIÉ | **Salteado de pollo con judías verdes y almendra** · pollo | **Lomo con champiñones a la crema** · cerdo |
+| JUE | Alubias con soja y tomate · legumbre *(sobras)* | **Pollo guisado con patatas** · pollo |
+| VIE | Puerros gratinados con queso · lacteo | Cuscús con alubia roja · legumbre |
+| SÁB | **Pollo guisado con patatas** · pollo *(sobras)* | Ensalada de arroz con mejillones en escabeche · marisco |
+| DOM | Lentejas con huevo · huevo | Espaguetis con champiñones a la crema · lacteo |
 
 ## 100 € · general
 
 | día | comida | cena |
 |---|---|---|
-| LUN | Macarrones a la boloñesa · soja | Garbanzos gratinados · legumbre |
+| LUN | Macarrones gratinados con tomate · lacteo | Garbanzos al pimentón · legumbre |
 | MAR | **Jamoncitos al ajillo** · pollo | Merluza a la plancha con espinacas · pescado |
-| MIÉ | **Lentejas con chorizo** · cerdo | Cuscús con alubias y maíz · legumbre |
-| JUE | **Jamoncitos al ajillo** · pollo *(sobras)* | Fusilli de lenteja roja con champiñones · huevo |
-| VIE | Bacalao a la gallega con judías verdes · pescado | Ensalada de arroz con mejillones en escabeche · marisco |
-| SÁB | **Lentejas con chorizo** · cerdo *(sobras)* | Alcachofas con huevo · huevo |
-| DOM | **Pollo al limón** · pollo | Garbanzos con soja · soja |
+| MIÉ | Cuscús con alubias y maíz · legumbre | Espaguetis con soja · soja |
+| JUE | **Jamoncitos al ajillo** · pollo *(sobras)* | Merluza en papillote con verduras · pescado |
+| VIE | **Lentejas con chorizo** · cerdo | Revuelto de puerros · huevo |
+| SÁB | **Lentejas con chorizo** · cerdo *(sobras)* | Ensalada de arroz con mejillones en escabeche · marisco |
+| DOM | Bacalao a la gallega con judías verdes · pescado | Alcachofas con huevo · huevo |
 
 ## 100 € · con favoritos de carne
 
 | día | comida | cena |
 |---|---|---|
-| LUN | Alubias con soja y tomate · legumbre | **Ensalada de pollo con maíz y tomate** · pollo |
-| MAR | **Salteado de pollo con judías verdes y almendra** · pollo | **Lomo en salsa de almendra con alcachofas** · cerdo |
+| LUN | Alubias con soja y tomate · legumbre | **Salteado de pollo con judías verdes y almendra** · pollo |
+| MAR | **Ensalada de pollo con maíz y tomate** · pollo | **Lomo en salsa de almendra con alcachofas** · cerdo |
 | MIÉ | **Lomo con champiñones a la crema** · cerdo | Cuscús con alubias y maíz · legumbre |
 | JUE | Alubias con soja y tomate · legumbre *(sobras)* | **Jamoncitos al ajillo** · pollo |
-| VIE | Bacalao a la gallega con judías verdes · pescado | Macarrones con queso · huevo |
-| SÁB | **Jamoncitos al ajillo** · pollo *(sobras)* | Arroz salteado con soja · soja |
+| VIE | Bacalao a la gallega con judías verdes · pescado | Garbanzos con soja · soja |
+| SÁB | **Jamoncitos al ajillo** · pollo *(sobras)* | Macarrones con queso · huevo |
 | DOM | Huevos rellenos de caballa · huevo | Espaguetis con champiñones a la crema · lacteo |
 
