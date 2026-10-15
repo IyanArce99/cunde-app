@@ -45,3 +45,6 @@ catalogo/capturas-crudas/
 
 # Build de pruebas contra el servidor local (catalogo/servidor-pruebas.mjs).
 /dist-pruebas
+
+# Copias del repo que usan los agentes en paralelo: nunca van a git.
+.claude/worktrees/
