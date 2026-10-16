@@ -12,7 +12,7 @@
 import { describe, expect, it } from 'vitest';
 import datosJson from '../data/motor-datos.json';
 import granCanaria from '../data/zonas/gran-canaria.json';
-import { calcularCarrito, esCongelado } from './carrito.ts';
+import { calcularCarrito, esCongelado, horasAbiertoDe } from './carrito.ts';
 import { activarTelemetria, desactivarTelemetria, generarSemana, liberarHueco } from './seleccionar.ts';
 import type { PeticionSemana, SemanaGenerada } from './seleccionar.ts';
 import { datosDeZona } from './zona.ts';
@@ -35,7 +35,13 @@ const FAVORITOS = [
   'lomo_pimientos_horno', 'lomo_ajillo_champinones', 'lomo_champinones_crema', 'lomo_almendra_alcachofas',
 ];
 
-/** Para cada producto con horas_abierto: las horas (desde el lunes 0:00) en que lo cocina cada receta. */
+/**
+ * Para cada producto con crédito de envase compartido —carne, pescado o
+ * marisco con horas de abierto en la ficha de SU SKU—: las horas (desde el
+ * lunes 0:00) en que lo cocina cada receta. Los botes y briks con ficha no
+ * entran aquí: no tienen crédito, y si se reparten fuera de plazo el carrito
+ * compra otro (ver envases-abiertos.test.ts).
+ */
 function usosConFicha(s: SemanaGenerada, datos: DatosMotor) {
   const m = new Map<string, { recetas: Set<string>; horas: number[] }>();
   for (const t of s.tandas) {
@@ -44,7 +50,7 @@ function usosConFicha(s: SemanaGenerada, datos: DatosMotor) {
     for (const ing of t.receta.ingredientes) {
       const meta = datos.ingredientes[ing.canonico];
       const sku = datos.skus[ing.canonico];
-      if (!sku || esCongelado(sku) || !meta.horas_abierto) continue;
+      if (!sku || esCongelado(sku) || !horasAbiertoDe(meta, sku) || !['carne', 'pescado', 'marisco'].includes(meta.origen ?? '')) continue;
       const x = m.get(ing.canonico) ?? { recetas: new Set<string>(), horas: [] };
       x.recetas.add(t.receta.id);
       x.horas.push(DIAS.indexOf(h.dia) * 24 + HORA[h.ranura]);
@@ -75,7 +81,7 @@ describe('envase compartido', () => {
           }
           // Y si sobra algo de esos productos, el carrito final lo cobra.
           for (const l of s.carrito.lineas) {
-            if (!datos.ingredientes[l.canonicos[0]]?.horas_abierto || l.sobranteCantidad <= 0.001) continue;
+            if (!usosConFicha(s, datos).has(l.canonicos[0]) || l.sobranteCantidad <= 0.001) continue;
             expect(l.perecederoCoste, `${l.nombre} ${tope} €`).toBeGreaterThan(0);
           }
         }
@@ -100,7 +106,7 @@ describe('envase compartido', () => {
     const r = liberarHueco(p, s, i);
     expect(r.carrito.totalCarrito).toBeLessThanOrEqual(s.carrito.totalCarrito + 0.005);
     expect(r.carrito.totalPerecedero).toBeGreaterThan(s.carrito.totalPerecedero);
-    expect(r.carrito.totalPerecedero).toBeCloseTo(calcularCarrito(r.tandas, gc, 2, {}, r.postres).totalPerecedero, 2);
+    expect(r.carrito.totalPerecedero).toBeCloseTo(calcularCarrito(r.tandas, gc, 2, {}, r.postres, r.huecos).totalPerecedero, 2);
   }, 30000);
 
   it('con presupuesto justo no se dispara la búsqueda (como mucho el doble de candidatos que sin el envase compartido)', () => {

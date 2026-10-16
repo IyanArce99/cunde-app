@@ -13,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { esCongelado, esConserva } from '../src/motor/carrito.ts';
+import { esCongelado, horasAbiertoDe } from '../src/motor/carrito.ts';
 import { generarSemana } from '../src/motor/seleccionar.ts';
 import { datosDeZona } from '../src/motor/zona.ts';
 import type { CatalogoZona } from '../src/motor/zona.ts';
@@ -77,56 +77,77 @@ out();
 
 out('## Lista de la compra');
 out();
-out('| producto | envases | se usa | sobra | precio | sobrante dado por perdido |');
-out('|---|---:|---:|---:|---:|---:|');
+out('| producto | envases | se usa | sobra | de eso, abierto | precio | sobrante dado por perdido |');
+out('|---|---:|---:|---:|---:|---:|---:|');
 const lineas = s.carrito.lineas.filter((l) => !l.esDespensa && l.compras > 0).sort((a, b) => a.departamento.localeCompare(b.departamento) || b.carritoCoste - a.carritoCoste);
 for (const l of lineas) {
-  out(`| ${l.nombre} | ${l.compras} × ${num(l.contenidoEnvase)} ${l.unidad} | ${num(l.necesario)} ${l.unidad} | ${num(l.sobranteCantidad)} ${l.unidad} | ${eur(l.carritoCoste)} | ${l.perecederoCoste > 0.005 ? eur(l.perecederoCoste) : '—'} |`);
+  out(`| ${l.nombre} | ${l.compras} × ${num(l.contenidoEnvase)} ${l.unidad} | ${num(l.necesario)} ${l.unidad} | ${num(l.sobranteCantidad)} ${l.unidad} | ${l.sobranteAbierto ? `${num(l.sobranteAbierto)} ${l.unidad}` : '—'} | ${eur(l.carritoCoste)} | ${l.perecederoCoste > 0.005 ? eur(l.perecederoCoste) : '—'} |`);
 }
 out();
 const despensa = s.carrito.lineas.filter((l) => l.esDespensa);
 out(`Despensa (fuera del total, se supone en casa): ${despensa.map((l) => l.nombre).join(', ')}.`);
 out();
 
-out('## Conservación: lo que de verdad hay que hacer');
+out('«De eso, abierto»: lo que queda en un envase ya abierto. La app no lo pasa a la semana siguiente y lo cuenta');
+out('entero como perdido: o la ficha no da plazo una vez abierto, o el siguiente uso cae fuera de él.');
 out();
-out('Solo lo que consta en una ficha consultada o en la receta. Para el resto, la etiqueta manda: la app no tiene ese dato.');
+out('## Conservación');
 out();
-out('### Con ficha consultada');
+out('Tres cosas distintas, y cada una con su fuente. **Ningún test de software valida estos plazos**: los tests');
+out('comprueban que la app aplica los datos que tiene, no que los datos sean seguros. Manda siempre la etiqueta.');
+out();
+out('### 1 · Producto sin abrir');
+out();
+out('La fecha va en la etiqueta y la app no la conoce. Lo que la app usa para planificar es una estimación del');
+out('vocabulario (por ejemplo, 4 días para la pechuga desde la compra), no la fecha real. Congelados: congelador.');
 out();
 for (const l of lineas) if (FICHAS[l.sku.split('.')[0]]) out(`- ${FICHAS[l.sku.split('.')[0]]}`);
 out();
-out('### Envases que comparten dos recetas en esta semana');
+out('### 2 · Producto abierto');
+out();
+out('Horas de la ficha de Mercadona consultada el 16 oct 2026 (almacén 3120). Las sesiones se cuentan con comida a');
+out('las 14:00 y cena a las 21:00: si cocinas a otra hora, el margen cambia.');
 out();
 const HORA: Record<string, number> = { comida: 14, cena: 21 };
+const sesiones = (sku: string) => s.tandas.filter((t) => t.receta.ingredientes.some((i) => gc.skus[i.canonico]?.sku === sku)).map((t) => {
+  const h = s.huecos.find((x) => x.receta?.id === t.receta.id && x.tipo === 'cocinado')!;
+  return { nombre: t.receta.nombre, h, hora: DIAS.indexOf(h.dia) * 24 + HORA[h.ranura] };
+}).sort((a, b) => a.hora - b.hora);
+const conFicha: string[] = [];
+const sinFicha: string[] = [];
 for (const l of lineas) {
-  const meta = gc.ingredientes[l.canonicos[0]];
-  const usos = s.tandas.filter((t) => t.receta.ingredientes.some((i) => gc.skus[i.canonico]?.sku === l.sku)).map((t) => {
-    const h = s.huecos.find((x) => x.receta?.id === t.receta.id && x.tipo === 'cocinado')!;
-    return { nombre: t.receta.nombre, h, hora: DIAS.indexOf(h.dia) * 24 + HORA[h.ranura] };
-  }).sort((a, b) => a.hora - b.hora);
-  if (usos.length < 2 || esCongelado(gc.skus[l.canonicos[0]]) ) continue;
-  if (!meta.horas_abierto) continue;
-  const horas = usos[usos.length - 1].hora - usos[0].hora;
-  out(`- **${l.nombre}**: se abre el ${usos[0].h.dia} (${usos[0].h.ranura}) para «${usos[0].nombre}» y lo que queda se usa el ${usos.slice(1).map((u) => `${u.h.dia} (${u.h.ranura}) en «${u.nombre}»`).join(', ')}: ${horas} h después, dentro de las ${meta.horas_abierto} h de la ficha. Guarda lo que sobre bien cerrado en la nevera.`);
+  const c = l.canonicos[0];
+  const sku = gc.skus[c];
+  if (esCongelado(sku)) continue;
+  const horas = horasAbiertoDe(gc.ingredientes[c], sku);
+  const us = sesiones(l.sku);
+  if (!us.length) continue;
+  const dondes = us.map((u) => `${u.h.dia} ${u.h.ranura} («${u.nombre}»)`).join(', ');
+  if (horas !== undefined) {
+    conFicha.push(`- **${l.nombre}**: ${horas ? `${horas} h una vez abierto` : 'consumir todo una vez abierto'}. Se usa ${dondes}.${l.sobranteAbierto ? ` Se dan por perdidos ${num(l.sobranteAbierto)} ${l.unidad} abiertos.` : ''}`);
+  } else if ((l.sobranteAbierto ?? 0) > 0) {
+    sinFicha.push(`- **${l.nombre}**: se usa ${dondes}. Sin dato de abierto, cada sesión abre su envase${l.sobranteAbierto ? ` y se dan por perdidos ${num(l.sobranteAbierto)} ${l.unidad}` : ''}. Si la etiqueta da plazo y te cuadra, lo que sobre te puede valer: eso es decisión tuya, no de la app.`);
+  }
 }
+out(conFicha.length ? conFicha.join('\n') : '- Ninguno esta semana.');
 out();
-out('### Sin dato en la app: mira la etiqueta');
+out('**Sin dato en la app.** No se da por aprovechable lo que queda abierto: la lista compra lo que haga falta y el');
+out('resto cuenta como perdido.');
 out();
-const sinDato = lineas.filter((l) => !FICHAS[l.sku.split('.')[0]] && !esCongelado(gc.skus[l.canonicos[0]]));
-const conservas = sinDato.filter((l) => esConserva(gc.skus[l.canonicos[0]]));
-const frescos = sinDato.filter((l) => !esConserva(gc.skus[l.canonicos[0]]));
-out(`- **Conservas, botes y briks** (${conservas.map((l) => l.nombre).join(', ')}): sin abrir, la fecha de la etiqueta. **Abiertos, lo que diga cada envase**; la app no lo sabe y no lo supone.`);
-out(`- **El resto, frescos y secos** (${frescos.map((l) => l.nombre).join(', ')}): la fecha de la etiqueta. Lo que la app da por bueno es una estimación (por ejemplo, 4 días para la pechuga desde la compra), no la fecha real.`);
-const congelados = lineas.filter((l) => esCongelado(gc.skus[l.canonicos[0]]) && !FICHAS[l.sku.split('.')[0]]);
-if (congelados.length) out(`- **Congelados sin ficha consultada** (${congelados.map((l) => l.nombre).join(', ')}): congelador; usa congelado lo que la receta pide así.`);
+out(sinFicha.length ? sinFicha.join('\n') : '- Ninguno esta semana.');
 out();
-out('### Platos que se comen otro día (sobras)');
+out('**Lo que no se «abre»** —fruta y verdura entera, huevos, secos en paquete—: la app suma lo de toda la semana y');
+out('usa la estimación sin abrir del punto 1. Los secos ya abiertos (almendra, soja texturizada), bien cerrados.');
+out();
+out('### 3 · Comida cocinada (sobras)');
+out();
+out('El plazo es el de la receta (`dias_nevera`), redactado al escribirla: **no está comprobado en cocina ni por');
+out('ningún test**. Guarda en la nevera en cuanto se temple.');
 out();
 for (const t of s.tandas) {
   const hs = s.huecos.filter((h) => h.receta?.id === t.receta.id);
   if (hs.length < 2) continue;
-  out(`- ${t.receta.nombre}: se cocina el ${hs[0].dia} (${hs[0].ranura}) y se come también el ${hs.slice(1).map((h) => `${h.dia} (${h.ranura})`).join(', ')}. Guárdalo en la nevera en cuanto se temple. La receta dice que aguanta ${t.receta.dias_nevera ?? '?'} días; es un dato de la receta, no comprobado en cocina.`);
+  out(`- ${t.receta.nombre}: se cocina el ${hs[0].dia} (${hs[0].ranura}) y se come también el ${hs.slice(1).map((h) => `${h.dia} (${h.ranura})`).join(', ')}. La receta dice ${t.receta.dias_nevera ?? '?'} días.`);
 }
 out();
 const salida = path.join(aqui, '..', 'docs', 'prueba-carne-100-2026-10-16.md');

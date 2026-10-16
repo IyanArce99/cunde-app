@@ -1,5 +1,5 @@
 import type {
-  Carrito, DatosMotor, Ensamblaje, IngredienteReceta, LineaCarrito, Parte, Receta, Sku, Tanda, UnidadReceta,
+  Carrito, DatosMotor, Ensamblaje, IngredienteCanonico, IngredienteReceta, LineaCarrito, Parte, Receta, Sku, Tanda, UnidadReceta, Hueco,
 } from './tipos.ts';
 import type { RacionPostre } from './postres.ts';
 
@@ -154,7 +154,15 @@ function lineasDeTanda(tanda: Tanda, N: number): { ing: IngredienteReceta; racio
   return lineas;
 }
 
-interface Acum { sku: Sku; cantidad: number; canonicos: Set<string>; esDespensa: boolean; diasFresco: number }
+interface Acum {
+  sku: Sku; cantidad: number; canonicos: Set<string>; esDespensa: boolean; diasFresco: number;
+  /**
+   * Solo para los envases que se abren y no tienen plazo una vez abiertos
+   * (`sinReutilizar`): lo que pide cada sesión de cocina. Cada una abre lo
+   * suyo. Ver ENVASES ABIERTOS.
+   */
+  porSesion?: number[];
+}
 
 /** La necesidad acumulada por SKU. El estado incremental del optimizador. */
 export type Necesidad = Map<string, Acum>;
@@ -216,15 +224,18 @@ export function existenciasTrasLaSemana(
   const resultado: Existencias = {};
 
   for (const l of carrito.lineas) {
-    if (l.sobranteCantidad <= 0) continue;
+    // Lo que queda de un envase ABIERTO no pasa a la semana que viene: ver
+    // ENVASES ABIERTOS. Solo las unidades sin abrir.
+    const reutilizable = l.sobranteCantidad - (l.sobranteAbierto ?? 0);
+    if (reutilizable <= 1e-9) continue;
     const habia = antes?.[l.sku];
     // Lo viejo se gasta primero: si el sobrante no pasa de lo que ya había, es
     // ESE producto el que sigue en el armario, con sus días, no uno nuevo.
-    const vieneDeAntes = habia && l.sobranteCantidad <= habia.cantidad + 1e-9;
+    const vieneDeAntes = habia && reutilizable <= habia.cantidad + 1e-9;
     const quedan = (vieneDeAntes ? habia.diasRestantes : l.diasEfectivos) - dias;
     if (quedan <= 0) continue;
     resultado[l.sku] = {
-      cantidad: redondear(l.sobranteCantidad, 4),
+      cantidad: redondear(reutilizable, 4),
       diasRestantes: quedan,
       // Si el sobrante viene de lo que ya había, envejece; si es nuevo, nace.
       semanas: vieneDeAntes ? (habia.semanas ?? 0) + 1 : 0,
@@ -251,11 +262,19 @@ export function existenciasTrasLaSemana(
  */
 export function acumularNecesidad(tandas: Tanda[], datos: DatosMotor, N: number, base?: Necesidad): Necesidad {
   const necesidad: Necesidad = new Map();
-  if (base) for (const [k, a] of base) necesidad.set(k, { ...a, canonicos: new Set(a.canonicos) });
+  if (base) {
+    for (const [k, a] of base) {
+      necesidad.set(k, { ...a, canonicos: new Set(a.canonicos), ...(a.porSesion ? { porSesion: [...a.porSesion] } : {}) });
+    }
+  }
 
   for (const tanda of tandas) {
-    for (const { ing, raciones } of lineasDeTanda(tanda, N)) {
-      if (raciones <= 0 || SIN_SKU.has(ing.canonico)) continue;
+    const lineas = lineasDeTanda(tanda, N);
+    // La tanda es una sesión; su ensamblaje, que se monta otro día, otra.
+    const corte = tanda.receta.ingredientes.length;
+    const sesion = new Map<Acum, [number, number]>();
+    lineas.forEach(({ ing, raciones }, i) => {
+      if (raciones <= 0 || SIN_SKU.has(ing.canonico)) return;
       const sku = datos.skus[ing.canonico];
       if (!sku) throw new Error(`sin sku elegido para "${ing.canonico}"`);
       const meta = datos.ingredientes[ing.canonico];
@@ -270,6 +289,15 @@ export function acumularNecesidad(tandas: Tanda[], datos: DatosMotor, N: number,
       acum.canonicos.add(ing.canonico);
       if (meta.es_despensa) acum.esDespensa = true;
       acum.diasFresco = Math.min(acum.diasFresco, meta.dias_conservacion);
+      if (sinReutilizar(sku, meta)) {
+        const par = sesion.get(acum) ?? [0, 0];
+        par[i < corte ? 0 : 1] += cantidad;
+        sesion.set(acum, par);
+      }
+    });
+    for (const [acum, par] of sesion) {
+      acum.porSesion ??= [];
+      for (const q of par) if (q > 0) acum.porSesion.push(q);
     }
   }
   return necesidad;
@@ -290,6 +318,13 @@ export function totalesDeNecesidad(
   let delArmario = 0;
   for (const a of necesidad.values()) {
     if (a.esDespensa) continue;
+    if (a.porSesion) {
+      const r = porSesiones(a, a.porSesion.map((cantidad) => ({ hora: 0, cantidad })), undefined, existencias?.[a.sku.sku]?.cantidad ?? 0);
+      delArmario += r.usadoDeCasa * a.sku.precio_kg_l_ud;
+      carrito += redondear(r.compras * a.sku.precio);
+      perecedero += redondear(r.perecedero);
+      continue;
+    }
     // Se descuenta como mucho lo que hace falta: tener tres kilos de cebolla
     // guardados no puede contar como sobrante de ESTA semana y penalizar.
     const enCasa = Math.min(existencias?.[a.sku.sku]?.cantidad ?? 0, a.cantidad);
@@ -349,14 +384,57 @@ export function calcularCarrito(
   N: number,
   existencias?: Existencias,
   postres?: RacionPostre[],
+  /**
+   * Los huecos de la semana. Con ellos, los envases que se ABREN (ver
+   * `esAbrible`) se cuentan sesión a sesión: ver ENVASES ABIERTOS. Sin ellos,
+   * como siempre, la suma de toda la semana.
+   */
+  huecos?: Hueco[],
 ): Carrito {
   const necesidad = acumularNecesidad(
     tandas, datos, N, postres?.length ? necesidadDePostres(postres) : undefined,
   );
+  const sesiones = huecos ? sesionesPorSku(tandas, huecos, datos, N) : null;
 
   const lineas: LineaCarrito[] = [];
   let delArmario = 0;
   for (const a of necesidad.values()) {
+    const meta = horasYAbrible(a, datos);
+    let s = sesiones?.get(a.sku.sku);
+    if (!(s && meta.abrible && Math.abs(s.reduce((x, y) => x + y.cantidad, 0) - a.cantidad) < 1e-6)) {
+      // Sin huecos (o sin cuadrar con ellos), lo que no se reutiliza abre igual
+      // un envase por sesión: así puntúa el greedy (totalesDeNecesidad).
+      s = !a.esDespensa && a.porSesion ? a.porSesion.map((cantidad) => ({ hora: 0, cantidad })) : undefined;
+    }
+    if (s) {
+      const r = porSesiones(a, s, meta.horas, existencias?.[a.sku.sku]?.cantidad ?? 0);
+      delArmario += r.usadoDeCasa * a.sku.precio_kg_l_ud;
+      lineas.push({
+        canonicos: [...a.canonicos].sort((x, y) => x.localeCompare(y)),
+        sku: a.sku.sku,
+        nombre: a.sku.nombre,
+        departamento: a.sku.departamento,
+        packaging: a.sku.packaging,
+        esDespensa: a.esDespensa,
+        pesoVariable: a.sku.peso_variable,
+        unidad: a.sku.unidad,
+        diasFresco: a.diasFresco,
+        diasEfectivos: diasEfectivos(a.sku, a.diasFresco),
+        necesario: redondear(a.cantidad),
+        comprado: redondear(r.compras * a.sku.contenido),
+        compras: r.compras,
+        contenidoEnvase: a.sku.contenido,
+        ...(a.sku.contenido_etiqueta ? { contenidoEtiqueta: a.sku.contenido_etiqueta } : {}),
+        ...(a.sku.sin_verificar ? { sinVerificar: true } : {}),
+        carritoCoste: redondear(r.compras * a.sku.precio),
+        consumoCoste: redondear(a.cantidad * a.sku.precio_kg_l_ud),
+        sobranteCantidad: redondear(r.sobrante),
+        sobranteAbierto: redondear(r.sobranteAbierto),
+        perecederoCoste: redondear(r.perecedero),
+        inventarioCoste: redondear(r.sobrante * a.sku.precio_kg_l_ud - r.perecedero),
+      });
+      continue;
+    }
     // Lo que ya está en casa no se vuelve a comprar, pero sí se come: el
     // consumo va sobre la cantidad entera y el carrito solo sobre lo que falta.
     const enCasa = Math.min(existencias?.[a.sku.sku]?.cantidad ?? 0, a.cantidad);
@@ -504,3 +582,172 @@ export function proteinaAnimal(receta: Receta, datos: DatosMotor): 'ninguna' | '
   proteinasAnimales.set(receta, hay);
   return hay;
 }
+
+// ---------------------------------------------------------------------------
+// Envases abiertos, sesión a sesión
+// ---------------------------------------------------------------------------
+
+/**
+ * ═══ ENVASES ABIERTOS · 16 OCT 2026 ═══
+ *
+ * La suma de la semana daba por bueno que lo que sobra de un bote, un brik o
+ * una bandeja abierta el lunes se gasta el domingo. Sin datos, eso es
+ * inventarse un plazo. Ahora, cuando el carrito conoce los huecos, cada
+ * SESIÓN de cocina (una tanda, o el ensamblaje que se monta otro día) toma lo
+ * que necesita así:
+ *
+ *   · si hay un envase abierto y su ficha da `horas_abierto`, y la sesión cae
+ *     antes de que pasen, usa lo que quede;
+ *   · si no hay dato, o se ha pasado, lo que quedaba se da por PERDIDO y se
+ *     abren envases nuevos, que se compran (o salen enteros de la despensa).
+ *
+ * Las horas: comida a las 14:00, cena a las 21:00, igual que en construir().
+ *
+ * Qué es un envase que se abre (`esAbrible`): lata, bote, tarro y brik; las
+ * bandejas y paquetes refrigerados de carne, pescado, marisco y lácteo; y lo
+ * que tenga `horas_abierto` en el vocabulario (incluido 0: «consumirlo todo
+ * una vez abierto»). NO: lo congelado, lo que se vende por unidades (huevos),
+ * la despensa, ni la fruta y verdura entera (una malla de cebollas no «se
+ * abre»; su vida es la del producto crudo, la estimación de siempre).
+ *
+ * Lo que sobra abierto no pasa a la despensa de la semana siguiente
+ * (`sobranteAbierto`); solo las unidades sin abrir.
+ */
+const HORA_DE_RANURA: Record<string, number> = { comida: 14, cena: 21 };
+
+/**
+ * Las horas una vez abierto de ESTE producto. El plazo sale de la ficha de un
+ * SKU concreto (`sku_horas_abierto`); si la zona sirve otro producto para el
+ * mismo ingrediente —el lomo de Madrid no es el de Gran Canaria— no hay dato.
+ */
+export function horasAbiertoDe(meta: { horas_abierto?: number; sku_horas_abierto?: string } | undefined, sku: Sku): number | undefined {
+  if (meta?.horas_abierto === undefined) return undefined;
+  if (meta.sku_horas_abierto && sku.sku.split('.')[0] !== meta.sku_horas_abierto) return undefined;
+  return meta.horas_abierto;
+}
+
+function horasYAbrible(a: Acum, datos: DatosMotor): { abrible: boolean; horas: number | undefined } {
+  if (a.esDespensa) return { abrible: false, horas: undefined };
+  let horas: number | undefined;
+  let abrible = false;
+  for (const c of a.canonicos) {
+    const m = datos.ingredientes[c];
+    if (!m || !esAbrible(a.sku, m)) continue;
+    abrible = true;
+    const h = horasAbiertoDe(m, a.sku);
+    if (h !== undefined) horas = horas === undefined ? h : Math.min(horas, h);
+  }
+  return { abrible, horas };
+}
+
+/** ¿Es un envase que se ABRE? Ver ENVASES ABIERTOS. */
+function esAbrible(sku: Sku, meta: IngredienteCanonico): boolean {
+  if (meta.es_despensa || esCongelado(sku) || sku.unidad === 'ud') return false;
+  return meta.horas_abierto !== undefined || esConserva(sku)
+    || meta.origen === 'carne' || meta.origen === 'pescado' || meta.origen === 'marisco' || meta.origen === 'lacteo';
+}
+
+/**
+ * Se abre y no hay plazo de abierto para ESTE producto (o es 0): lo que quede
+ * de una sesión no se da por bueno para la siguiente.
+ */
+function sinReutilizar(sku: Sku, meta: IngredienteCanonico): boolean {
+  return esAbrible(sku, meta) && !horasAbiertoDe(meta, sku);
+}
+
+/** Envases que se abren por separado dentro de un pack: «Pack-3» son tres. */
+function envasesPorPack(sku: Sku): number {
+  const m = /^Pack-(\d+)$/.exec(sku.packaging ?? '');
+  return m ? Math.max(1, Number(m[1])) : 1;
+}
+
+/** Por SKU: cuánto pide cada sesión de cocina y a qué hora (desde el día 0, 0:00). */
+function sesionesPorSku(tandas: Tanda[], huecos: Hueco[], datos: DatosMotor, N: number): Map<string, { hora: number; cantidad: number }[]> {
+  const horaDe = (k: number) => (huecos.length >= 14 ? Math.floor(k / 2) : k) * 24 + (HORA_DE_RANURA[huecos[k].ranura] ?? 14);
+  const cocinados = new Map<string, number[]>();
+  const ensamblajes = new Map<string, number[]>();
+  huecos.forEach((h, k) => {
+    if (!h.receta) return;
+    const m = h.tipo === 'cocinado' ? cocinados : h.tipo === 'ensamblaje' ? ensamblajes : null;
+    if (m) m.set(h.receta.id, [...(m.get(h.receta.id) ?? []), k]);
+  });
+  const res = new Map<string, { hora: number; cantidad: number }[]>();
+  const anotar = (ing: IngredienteReceta, raciones: number, hora: number) => {
+    if (raciones <= 0 || SIN_SKU.has(ing.canonico)) return;
+    const sku = datos.skus[ing.canonico];
+    if (!sku) return;
+    const cantidad = aUnidadCatalogo(escalar(ing.cantidad, ing.escalado, raciones), ing.unidad, sku);
+    const l = res.get(sku.sku) ?? [];
+    const misma = l.find((x) => x.hora === hora);
+    if (misma) misma.cantidad += cantidad; else l.push({ hora, cantidad });
+    res.set(sku.sku, l);
+  };
+  const usados = new Map<string, number>();
+  for (const t of tandas) {
+    const n = usados.get(t.receta.id) ?? 0;
+    usados.set(t.receta.id, n + 1);
+    const k = cocinados.get(t.receta.id)?.[n];
+    const hora = k === undefined ? 0 : horaDe(k);
+    for (const ing of t.receta.ingredientes) {
+      anotar(ing, (ing.parte === 'principal' ? t.huecosPrincipal : t.huecosAcompanamiento) * N, hora);
+    }
+    if (t.ensamblaje) {
+      const ke = ensamblajes.get(t.receta.id)?.[0];
+      for (const ing of t.ensamblaje.ingredientes) anotar(ing, N, ke === undefined ? hora : horaDe(ke));
+    }
+  }
+  for (const l of res.values()) l.sort((x, y) => x.hora - y.hora);
+  return res;
+}
+
+/** La compra y el sobrante de un SKU que se abre, sesión a sesión. Ver ENVASES ABIERTOS. */
+function porSesiones(a: Acum, sesiones: { hora: number; cantidad: number }[], horas: number | undefined, enCasa: number) {
+  const c = a.sku.contenido;
+  // Un pack de tres briks se compra entero, pero se abre brik a brik.
+  const porPack = envasesPorPack(a.sku);
+  const u = c / porPack;
+  // De la despensa solo cuentan los envases enteros: uno abierto la semana
+  // pasada no se da por bueno.
+  const enCasaIni = Math.floor(enCasa / u + 1e-9);
+  let cerradosCasa = enCasaIni;
+  let cerradosComprados = 0;
+  let compras = 0;
+  let desechado = 0;
+  let resto = 0;
+  let abiertoEn = -Infinity;
+  for (const s of sesiones) {
+    let q = s.cantidad;
+    if (resto > 1e-9) {
+      const vale = horas !== undefined && horas > 0 && s.hora - abiertoEn < horas;
+      if (vale) {
+        const toma = Math.min(resto, q);
+        resto -= toma;
+        q -= toma;
+      } else {
+        desechado += resto;
+        resto = 0;
+      }
+    }
+    if (q > 1e-9) {
+      let n = Math.ceil(q / u - 1e-9);
+      resto = n * u - q;
+      abiertoEn = s.hora;
+      const deCasa = Math.min(cerradosCasa, n);
+      cerradosCasa -= deCasa;
+      n -= deCasa;
+      if (n > cerradosComprados) {
+        const packs = Math.ceil((n - cerradosComprados) / porPack);
+        compras += packs;
+        cerradosComprados += packs * porPack;
+      }
+      cerradosComprados -= n;
+    }
+  }
+  const usadoDeCasa = (enCasaIni - cerradosCasa) * u;
+  const sobranteAbierto = desechado + resto;
+  const sinAbrir = (cerradosCasa + cerradosComprados) * u;
+  const perecedero = sobranteAbierto * a.sku.precio_kg_l_ud
+    + sinAbrir * a.sku.precio_kg_l_ud * factorPenalizacion(diasEfectivos(a.sku, a.diasFresco));
+  return { compras, usadoDeCasa, sobrante: sobranteAbierto + sinAbrir, sobranteAbierto, perecedero };
+}
+

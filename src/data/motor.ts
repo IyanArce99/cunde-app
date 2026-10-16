@@ -229,7 +229,7 @@ export function hidratar(
   const libres = new Set<number>();
   plan.huecos.forEach((h, k) => { if (h.tipo === 'libre') libres.add(k); });
   const postres = postre ? planDePostres(datos, exclusiones, N, plan.huecos.length, libres) : [];
-  const carrito = calcularCarrito(tandas, datos, N, existencias, postres);
+  const carrito = calcularCarrito(tandas, datos, N, existencias, postres, huecos);
   return {
     huecos,
     tandas,

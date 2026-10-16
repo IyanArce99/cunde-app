@@ -1,5 +1,5 @@
 import {
-  aUnidadCatalogo, acumularNecesidad, calcularCarrito, consumoPorRacion, esCongelado, escalar,
+  aUnidadCatalogo, acumularNecesidad, calcularCarrito, consumoPorRacion, esCongelado, escalar, horasAbiertoDe,
   necesidadDePostres, proteinaAnimal, proteinaDeEnsamblaje, proteinaPorRacion, totalesDeNecesidad,
 } from './carrito.ts';
 import type { Existencias, Necesidad } from './carrito.ts';
@@ -10,6 +10,9 @@ import { DIAS } from './tipos.ts';
 import type {
   Carrito, DatosMotor, Ensamblaje, Hueco, IngredienteCanonico, Receta, Sku, Tanda,
 } from './tipos.ts';
+
+/** Carne, pescado o marisco: lo único con crédito de envase compartido. */
+const esAnimal = (origen: string | undefined) => origen === 'carne' || origen === 'pescado' || origen === 'marisco';
 
 export type Variedad = 'poca' | 'normal' | 'mucha';
 export type Esfuerzo = 'minimo' | 'normal' | 'libre';
@@ -1346,7 +1349,7 @@ export function construir(
         const sku = datos.skus[ing.canonico];
         const meta = datos.ingredientes[ing.canonico];
         // Solo productos con su vida una vez abiertos documentada en la ficha.
-        if (!sku || !meta || meta.es_despensa || esCongelado(sku) || !meta.horas_abierto) continue;
+        if (!sku || !meta || meta.es_despensa || esCongelado(sku) || !horasAbiertoDe(meta, sku) || !esAnimal(meta.origen)) continue;
         const cantidad = aUnidadCatalogo(escalar(ing.cantidad, ing.escalado, N), ing.unidad, sku);
         porSku.set(sku.sku, (porSku.get(sku.sku) ?? 0) + cantidad);
       }
@@ -1371,7 +1374,11 @@ export function construir(
   const horasAbierto = new Map<string, number>();
   for (const [canonico, meta] of Object.entries(datos.ingredientes)) {
     const sku = datos.skus[canonico];
-    if (sku && meta.horas_abierto) horasAbierto.set(sku.sku, meta.horas_abierto);
+    // Mientras se construye, solo carne, pescado y marisco: los botes y briks
+    // con ficha los cuenta el carrito sesión a sesión (ENVASES ABIERTOS en
+    // carrito.ts), sin crédito.
+    const horas = sku ? horasAbiertoDe(meta, sku) : undefined;
+    if (sku && horas && esAnimal(meta.origen)) horasAbierto.set(sku.sku, horas);
   }
   /**
    * ¿Se puede usar este envase en la hora `h`? Sin abrir: hasta el último día
@@ -1813,7 +1820,7 @@ export function construir(
   }
 
   const huecos = ocupados.map((h, k) => h ?? { ...posiciones[k], receta: null, tipo: 'libre' as const });
-  return { huecos, tandas, postres: plan, carrito: calcularCarrito(tandas, datos, N, peticion.existencias, plan) };
+  return { huecos, tandas, postres: plan, carrito: calcularCarrito(tandas, datos, N, peticion.existencias, plan, huecos) };
 }
 
 const ORDEN_VARIEDAD: Variedad[] = ['poca', 'normal', 'mucha'];
@@ -2052,7 +2059,7 @@ function semanaPreviaValida(peticion: PeticionSemana): Construida | null {
   const plan = peticion.postre
     ? planDePostres(peticion.datos, peticion.exclusiones ?? [], peticion.N, peticion.numHuecos, new Set())
     : [];
-  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, plan);
+  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, plan, previa.huecos);
   return { huecos: previa.huecos, tandas, postres: plan, carrito };
 }
 
@@ -2252,10 +2259,13 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
   const criterio = objetivoDe(peticion).criterio;
   const rango = (c: NonNullable<ReturnType<typeof construir>>) => {
     const nutricion = nutricionDe(c.huecos, peticion.datos, peticion.N, suelo);
+    const cabe = c.carrito.totalCarrito <= presupuesto;
     return [
       nutricion.cumpleSuelo ? 0 : 1,
-      c.carrito.totalCarrito <= presupuesto ? 0 : 1,
-      criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero, c.carrito.totalConsumo),
+      cabe ? 0 : 1,
+      // Si no cabe ninguna, la más cercana al presupuesto: es la que da la
+      // salida honesta («con 50 € sí»), no la que menos tira a 64 €.
+      cabe ? criterio(c.carrito.totalCarrito, c.carrito.totalPerecedero, c.carrito.totalConsumo) : c.carrito.totalCarrito,
     ];
   };
 
@@ -2295,8 +2305,24 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
      (2,8 s en vez de 0,2 con 45 € para dos). Así nunca cuadra menos que antes
      y como mucho paga el doble de la primera etapa. */
   if (!consiguio() && !peticion.sinEnvaseCompartido) probar(ordenadas.slice(0, SEMILLAS_REINTENTO), { ...peticion, sinEnvaseCompartido: true });
-  if (aFondo && !consiguio()) probar(ordenadas.slice(SEMILLAS_REINTENTO, 24));
-  if (aFondo && !consiguio()) probar(ordenadas.slice(24));
+  /* El greedy cuenta con la suma de la semana; el carrito final, con los
+     envases abiertos sesión a sesión (ENVASES ABIERTOS en carrito.ts), que
+     pueden pedir un bote más. Una semana hecha al céntimo se pasa entonces por
+     ese bote. Si la mejor alimenta y solo se pasa por eso, se reconstruye con
+     el presupuesto rebajado en lo que cuestan esos envases de más: las mismas
+     8 semillas, y las etapas siguientes también con ese margen. */
+  let pEtapas = peticion;
+  const m0 = mejor as Construida | null;
+  if (!consiguio() && m0 && rangoMejor![0] === 0 && Number.isFinite(presupuesto)) {
+    const recargo = m0.carrito.totalCarrito
+      - calcularCarrito(m0.tandas, peticion.datos, peticion.N, peticion.existencias, m0.postres).totalCarrito;
+    if (recargo > 0.005) {
+      pEtapas = { ...peticion, presupuesto: presupuesto - recargo };
+      probar(ordenadas.slice(0, SEMILLAS_REINTENTO), pEtapas);
+    }
+  }
+  if (aFondo && !consiguio()) probar(ordenadas.slice(SEMILLAS_REINTENTO, 24), pEtapas);
+  if (aFondo && !consiguio()) probar(ordenadas.slice(24), pEtapas);
 
   /**
    * DEGRADACIÓN. Si con la memoria entera no sale una semana que cumpla
@@ -2321,7 +2347,9 @@ function construirMejor(peticion: PeticionSemana, aFondo = true): Construida | n
     }
   }
 
-  if (peticion.variedad === 'mucha' && !peticion.soloDesperdicio && !peticion.diversidad && mejor) {
+  // Solo entre semanas que cuadran: si ninguna cabe, manda la más cercana al
+  // presupuesto (ver `rango`), que es la que da la salida.
+  if (peticion.variedad === 'mucha' && !peticion.soloDesperdicio && !peticion.diversidad && mejor && consiguio()) {
     const previa = semanaPreviaValida(peticion);
     if (previa) candidatas.push({ origen: 'semana anterior', c: previa });
     mejor = elegirVariedadFrenteADesperdicio(peticion, candidatas, mejor, rango);
@@ -3280,7 +3308,7 @@ export function liberarHueco(
   const postres = peticion.postre
     ? planDePostres(peticion.datos, peticion.exclusiones ?? [], peticion.N, huecos.length, libres)
     : [];
-  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, postres);
+  const carrito = calcularCarrito(tandas, peticion.datos, peticion.N, peticion.existencias, postres, huecos);
   return terminarRetoque(peticion, { huecos, tandas, carrito, postres });
 }
 

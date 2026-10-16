@@ -68,14 +68,16 @@ describe('no cocino · el caso que lo destapó', () => {
   /* 54,23 € hasta el 15 oct 2026; con el lote de Gran Canaria en el recetario
      (docs/recetas/lote-gran-canaria.json) la semana base de Madrid sale a
      53,93 €; con el envase compartido y los plazos por horas (16 oct),
-     51,85 €. Lo que se comprueba no cambia: liberar no sube la compra. */
-  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 51,85 €', () => {
+     51,85 €; con los envases abiertos contados sesión a sesión —lo que queda
+     de un bote solo vale dentro de las horas de su ficha— (16 oct), 54,15 €.
+     Lo que se comprueba no cambia: liberar no sube la compra. */
+  it('2 personas, 65 €, semana de lunes: liberar la sobra del miércoles no sube de 54,15 €', () => {
     const s = generarSemana(BASE);
-    expect(caja(s)).toBe(51.85);
+    expect(caja(s)).toBe(54.15);
     const i = s.huecos.findIndex((h) => h.dia === 'MIÉ' && h.ranura === 'comida');
     expect(s.huecos[i].tipo).toBe('sobras');
     const r = comprobarLiberar(BASE, s, i, 'caso');
-    expect(caja(r)).toBeLessThanOrEqual(51.85);
+    expect(caja(r)).toBeLessThanOrEqual(54.15);
     expect(r.cuadra).toBe(true);
     // El lunes sigue siendo el mismo plato.
     expect(r.huecos[0].receta?.id).toBe(s.huecos[0].receta?.id);

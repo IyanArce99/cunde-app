@@ -127,6 +127,12 @@ export interface IngredienteCanonico {
    * abierta el miércoles se daba por buena hasta su fecha, no hasta el jueves.
    */
   horas_abierto?: number;
+  /**
+   * El SKU de la ficha de donde sale `horas_abierto`. Si la zona sirve otro
+   * producto para este ingrediente, ese plazo no es suyo y no se usa: ver
+   * `horasAbiertoDe` en carrito.ts.
+   */
+  sku_horas_abierto?: string;
   /** Almidón o legumbre sobre la que se monta el plato. Para los topes. */
   base: string | null;
 }
@@ -251,6 +257,11 @@ export interface LineaCarrito {
   carritoCoste: number;
   consumoCoste: number;
   sobranteCantidad: number;
+  /**
+   * La parte del sobrante que es de un envase ya ABIERTO y no se puede dar
+   * por aprovechable: no pasa a la despensa. Ver ENVASES ABIERTOS en carrito.ts.
+   */
+  sobranteAbierto?: number;
   perecederoCoste: number;
   inventarioCoste: number;
 }
