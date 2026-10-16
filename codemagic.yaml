@@ -101,8 +101,21 @@ workflows:
         script: xcode-project use-profiles
       - name: Número de build
         # El contador de builds de este flujo en Codemagic: siempre crece, y no
-        # hace falta preguntar a App Store Connect.
-        script: cd ios/App && agvtool new-version -all "$BUILD_NUMBER"
+        # hace falta preguntar a App Store Connect (ni el Apple ID numérico de
+        # la app). La versión visible es MARKETING_VERSION del proyecto.
+        #
+        # Sin agvtool: exige VERSIONING_SYSTEM = apple-generic, que el proyecto
+        # de Capacitor no declara, y entonces no aplica el número y todo sube
+        # como build 1 — y App Store Connect rechaza el segundo. Se escribe en
+        # el proyecto y se comprueba: si no queda puesto, el build se para aquí.
+        script: |
+          set -e
+          test -n "$BUILD_NUMBER"
+          PBX=ios/App/App.xcodeproj/project.pbxproj
+          sed -i '' -E "s/CURRENT_PROJECT_VERSION = [0-9]+;/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g" "$PBX"
+          grep -E "CURRENT_PROJECT_VERSION = [0-9]+;" "$PBX" | sort -u
+          test "$(grep -cE "CURRENT_PROJECT_VERSION = $BUILD_NUMBER;" "$PBX")" -ge 2
+          test "$(grep -cE "CURRENT_PROJECT_VERSION = [0-9]+;" "$PBX")" -eq "$(grep -cE "CURRENT_PROJECT_VERSION = $BUILD_NUMBER;" "$PBX")"
       - name: Compilar el .ipa
         script: |
           xcode-project build-ipa \
