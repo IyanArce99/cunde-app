@@ -48,3 +48,6 @@ catalogo/capturas-crudas/
 
 # Copias del repo que usan los agentes en paralelo: nunca van a git.
 .claude/worktrees/
+
+# Capturas de las pruebas e2e
+cypress/screenshots/

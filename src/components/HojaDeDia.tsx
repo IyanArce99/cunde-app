@@ -191,10 +191,16 @@ const HojaDeDia: React.FC<HojaDeDiaProps> = ({
               </span>
             )}
           </span>
+          {/* «Me gusta» al lado de cada alternativa, sin tener que cambiar el
+              plato antes: es para decir qué te gusta, no para elegir. Guarda y
+              ya, como la valoración de abajo; la semana no cambia hasta que se
+              pide «Aplicar al menú» en la pantalla de la semana. */}
           <div className="hoja-dia__alternativas">
-            {alternativas.map((a) => (
+            {alternativas.map((a) => {
+              const gusta = preferenciasPlatos[a.recetaId]?.valoracion === 'me_gusta';
+              return (
+              <div key={a.recetaId} className="hoja-dia__alt-fila">
               <button
-                key={a.recetaId}
                 type="button"
                 className="hoja-dia__alternativa"
                 onClick={() => onElegirAlternativa(a)}
@@ -212,7 +218,23 @@ const HojaDeDia: React.FC<HojaDeDiaProps> = ({
                   <span className="hoja-dia__alt-unidad">por ración</span>
                 </span>
               </button>
-            ))}
+              <button
+                type="button"
+                className={`hoja-dia__alt-gusta${gusta ? ' hoja-dia__alt-gusta--puesto' : ''}`}
+                aria-pressed={gusta}
+                aria-label={gusta ? `Quitar «me gusta» de ${a.nombre}` : `Me gusta ${a.nombre}`}
+                onClick={() => onValorar(a.recetaId, gusta ? 'neutral' : 'me_gusta', 'receta')}
+              >
+                {gusta ? (
+                  <>
+                    <span className="hoja-dia__alt-gusta-estado">Te gusta</span>
+                    <span className="hoja-dia__alt-gusta-quitar">quitar</span>
+                  </>
+                ) : 'Me gusta'}
+              </button>
+              </div>
+              );
+            })}
           </div>
           {/* Dos de salida porque cada candidato es una construcción entera del
               motor. Quien no encuentra lo suyo en dos pide más y las paga; el

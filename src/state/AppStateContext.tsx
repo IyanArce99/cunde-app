@@ -11,7 +11,7 @@ import { despensaVisible, semanasDeMemoria } from '../lib/suscripcion';
 import { analitica } from '../lib/analitica';
 import { provinciaDe } from '../lib/codigoPostal';
 import { permisoSegunLaTienda } from '../lib/compras';
-import { conValoracion, cuentaPreferencias } from '../lib/preferencias';
+import { conValoracion, cuentaPreferencias, huellaPreferencias } from '../lib/preferencias';
 import { crearExtra, extrasSinPrecio, totalExtras } from '../lib/extras';
 import { semanaEfectiva, totalLista } from '../lib/derive';
 import { aFechaDia, diasDesde, esFechaDia, hoy, sumarDias, diasEntre } from '../lib/fechas';
@@ -95,6 +95,8 @@ type Accion =
   | { type: 'RETOCAR_HUECO'; dia: string; ranura: Ranura; retoque: Retoque }
   | { type: 'APLICAR_SEMANA'; semana: SemanaParaApp }
   | { type: 'VALORAR_PLATO'; platoId: string; valoracion: ValoracionPlato; tipo: 'receta' | 'ensamblaje' }
+  /** «Aplicar al menú»: rehace la semana con los platos valorados. Ver el caso. */
+  | { type: 'APLICAR_PREFERENCIAS_PLATOS' }
   | { type: 'ANADIR_EXTRA'; nombre: string; precio: number | null }
   | { type: 'QUITAR_EXTRA'; id: string }
   | { type: 'TOGGLE_EXTRA'; id: string }
@@ -233,7 +235,10 @@ function regenerar(estado: AppState, previa?: PlanSerial): AppState {
   return {
     ...estado,
     preferencias,
-    semana: { plan: semana.plan, dias: semana.dias, generadaEn: Date.now(), fechaInicio },
+    semana: {
+      plan: semana.plan, dias: semana.dias, generadaEn: Date.now(), fechaInicio,
+      preferenciasAlGenerar: huellaPreferencias(estado.preferenciasPlatos),
+    },
     lista: semana.lista,
     sinCobertura: null,
     salidaPresupuesto: semana.cuadra ? null : (semana.salida ?? null),
@@ -740,6 +745,28 @@ function reducerSinHuella(estado: AppState, accion: Accion): AppState {
 
       return { ...estado, preferenciasPlatos };
     }
+    /**
+     * ═══ APLICAR AL MENÚ · LA REGENERACIÓN QUE PIDE EL USUARIO ═══
+     *
+     * Valorar no regenera (ver arriba). Esta es la otra mitad: el usuario ha
+     * marcado varios «me gusta» y pide, con un botón y tras leer que cambian
+     * el menú, la lista y el total, que entren ya en ESTA semana.
+     *
+     *   · No toca el presupuesto ni ninguna otra preferencia.
+     *   · Con la compra empezada (algo en el carro) no hace nada: rehacer la
+     *     lista por debajo a quien está en el súper es lo que la regla 5
+     *     prohíbe. La pantalla ya no ofrece el botón en ese caso.
+     *   · No gasta cambios de plato: no es «otro plato aquí».
+     *   · Con la semana de ahora como previa, para que lo que no cambia no se
+     *     mueva por nada.
+     */
+    case 'APLICAR_PREFERENCIAS_PLATOS': {
+      if (!preferenciasPendientes(estado) || compraEmpezada(estado)) return estado;
+      return regenerar(
+        { ...estado, contadores: { ...estado.contadores, ajustesEstaSemana: estado.contadores.ajustesEstaSemana + 1 } },
+        estado.semana.plan,
+      );
+    }
 
     /**
      * ═══ LOS EXTRAS · CUATRO CASOS Y NINGUNO TOCA LA SEMANA ═══
@@ -952,6 +979,17 @@ function conPreciosDeHoy(estado: AppState): AppState {
 }
 
 /** Lo que hay que garantizar que existe y tiene la forma buena. */
+/** ¿Hay «me gusta» o «no me lo pongas» que la semana de ahora no tiene? */
+export function preferenciasPendientes(estado: AppState): boolean {
+  if (!estado.onboardingCompletado) return false;
+  return (estado.semana.preferenciasAlGenerar ?? '') !== huellaPreferencias(estado.preferenciasPlatos);
+}
+
+/** Algo marcado ya en el carro: la compra va por la mitad y la lista no se rehace. */
+export function compraEmpezada(estado: AppState): boolean {
+  return estado.lista.some((it) => it.enElCarro);
+}
+
 function reparar(estado: AppState): AppState {
   const guardadas = estado.preferencias ?? {};
   return {
@@ -993,6 +1031,12 @@ function reparar(estado: AppState): AppState {
       ...estadoInicial.semana,
       ...(estado.semana ?? {}),
       fechaInicio: esFechaDia(estado.semana?.fechaInicio) ? estado.semana.fechaInicio : null,
+      /* v17. Una semana de antes no sabe con qué preferencias se montó. Se da
+         por montada con las de ahora: lo que se marque desde aquí sí se ve
+         como pendiente, y no se ofrece rehacer una semana por nada. */
+      preferenciasAlGenerar: typeof estado.semana?.preferenciasAlGenerar === 'string'
+        ? estado.semana.preferenciasAlGenerar
+        : huellaPreferencias(esMapaDePreferencias(estado.preferenciasPlatos) ? estado.preferenciasPlatos : {}),
     },
     /**
      * v16. El contador de cambios de plato de Cunde+.

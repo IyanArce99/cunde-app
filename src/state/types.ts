@@ -355,7 +355,15 @@ export interface AppState {
    * saber qué días fueron y no se inventan. La interfaz enseña los nombres de
    * siempre cuando falta.
    */
-  semana: { plan: PlanSerial; dias: DiaSemana[]; generadaEn: number; fechaInicio: FechaDia | null };
+  semana: {
+    plan: PlanSerial; dias: DiaSemana[]; generadaEn: number; fechaInicio: FechaDia | null;
+    /**
+     * Con qué «me gusta» y «no me lo pongas» se montó esta semana (ver
+     * `huellaPreferencias`). Valorar no regenera; si esto deja de coincidir
+     * con lo que hay ahora, la pantalla ofrece «Aplicar al menú».
+     */
+    preferenciasAlGenerar?: string;
+  };
   /**
    * Lo que se comió en las semanas ya cerradas, de la más reciente a la más
    * antigua, como ids de receta. Es la MEMORIA del motor: sin ella la semana

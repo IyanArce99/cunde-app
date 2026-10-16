@@ -107,6 +107,19 @@ export function platosBloqueados(preferencias: PreferenciasPlatos): string[] {
   return Object.values(preferencias).filter((p) => p.valoracion === 'no_quiero').map((p) => p.platoId);
 }
 
+/**
+ * Una huella de lo que el usuario ha dicho de los platos: igual si y solo si
+ * dice lo mismo. Se guarda con la semana al generarla, y si deja de coincidir
+ * hay preferencias que esa semana todavía no tiene: ver
+ * `preferenciasPendientes` en AppStateContext.
+ */
+export function huellaPreferencias(preferencias: PreferenciasPlatos): string {
+  return Object.values(preferencias)
+    .map((p) => `${p.platoId}:${p.valoracion}`)
+    .sort()
+    .join('|');
+}
+
 /** Los ids que el motor prefiere poner, si todo lo demás da igual. */
 export function platosFavoritos(preferencias: PreferenciasPlatos): string[] {
   return Object.values(preferencias).filter((p) => p.valoracion === 'me_gusta').map((p) => p.platoId);

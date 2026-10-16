@@ -92,6 +92,52 @@
   text-align: left;
 }
 
+/* La fila: la alternativa (elegir) y, a su lado, «Me gusta» (opinar). Dos
+   botones hermanos y no uno dentro de otro. */
+.hoja-dia__alt-fila {
+  display: flex;
+  gap: 8px;
+}
+
+.hoja-dia__alt-fila .hoja-dia__alternativa {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 62 px de alto como la fila y 76 de ancho: se acierta con el pulgar. */
+.hoja-dia__alt-gusta {
+  flex: none;
+  width: 76px;
+  min-height: 62px;
+  padding: 0 6px;
+  background: var(--crema);
+  border: var(--border-rest);
+  border-radius: var(--radius-boton);
+  font: 600 13px/1.2 var(--font-body);
+  color: var(--azulete);
+  cursor: pointer;
+}
+
+/* Puesto: relleno azulete, el color de las acciones. El texto pasa a decir
+   lo que hace el siguiente toque. */
+.hoja-dia__alt-gusta--puesto {
+  background: var(--azulete);
+  border-color: var(--azulete);
+  color: var(--crema);
+}
+
+.hoja-dia__alt-gusta-estado,
+.hoja-dia__alt-gusta-quitar {
+  display: block;
+}
+
+.hoja-dia__alt-gusta-quitar {
+  margin-top: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
 .hoja-dia__alt-texto {
   min-width: 0;
 }

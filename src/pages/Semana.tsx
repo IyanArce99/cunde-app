@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
-import { tocaAbrirLaSiguiente, useAppState } from '../state/AppStateContext';
+import { compraEmpezada, preferenciasPendientes, tocaAbrirLaSiguiente, useAppState } from '../state/AppStateContext';
 import { numComensales, platosDeSemana, ranurasVisibles } from '../state/types';
 import type { Plato, Ranura, SinCobertura, Suscripcion } from '../state/types';
 import { semanaEfectiva, totalLista } from '../lib/derive';
@@ -25,7 +25,7 @@ import RecetaPlato from '../components/RecetaPlato';
 import HojaPlatosBloqueados from '../components/HojaPlatosBloqueados';
 import HojaInicioSemana from '../components/HojaInicioSemana';
 import HojaCompartir from '../components/HojaCompartir';
-import { cuentaPreferencias } from '../lib/preferencias';
+import { cuentaPreferencias, platosFavoritos } from '../lib/preferencias';
 import { rangoDeSemana } from '../lib/compartible';
 import type { DatosCompartibles } from '../lib/compartible';
 import { extrasSinPrecio, totalExtras } from '../lib/extras';
@@ -73,6 +73,11 @@ const Semana: React.FC = () => {
     perfil, preferencias, semana, lista, cierre, suscripcion, contadores, sinCobertura, salidaPresupuesto,
     historial, despensa, deshacerCierre, preferenciasPlatos, extrasCompra, cambiosDePlato,
   } = estado;
+  /** «Aplicar al menú» abierto: se lee qué cambia antes de confirmar. */
+  const [confirmarPreferencias, setConfirmarPreferencias] = useState(false);
+  /** Tras «Aplicar al menú»: se dice cuántos de los que te gustan han entrado. */
+  const [recienAplicadas, setRecienAplicadas] = useState(false);
+  const pendientes = preferenciasPendientes(estado);
 
   /**
    * Cerrar la semana es lo único que no tiene vuelta, y se toca en el súper,
@@ -652,6 +657,88 @@ const Semana: React.FC = () => {
               )}
             </div>
           )}
+
+          {/**
+            * ═══ APLICAR AL MENÚ ═══
+            *
+            * Marcar «me gusta» no toca la semana (ver VALORAR_PLATO). Aquí se
+            * ofrece meterlos ya, en dos toques: el primero dice qué va a
+            * cambiar —menú, lista y total— y que el presupuesto no se mueve;
+            * el segundo lo hace. Con la compra empezada no se ofrece: la lista
+            * de quien está en el súper no se rehace por debajo.
+            */}
+          {pendientes && !sinCobertura && (
+            <div className="semana__sin-cobertura">
+              {compraEmpezada(estado) ? (
+                <p className="semana__sin-cobertura-texto">
+                  Ya has empezado la compra. Los platos que has marcado entran en la semana que viene.
+                </p>
+              ) : confirmarPreferencias ? (
+                <>
+                  <p className="semana__sin-cobertura-texto">
+                    Rehago la semana con los platos que has marcado. Cambian el menú, la lista y el total.
+                    El presupuesto sigue en {eur(perfil.presupuestoSemanal)}.
+                  </p>
+                  <button
+                    type="button"
+                    className="semana__sin-cobertura-salida"
+                    onClick={() => {
+                      setConfirmarPreferencias(false);
+                      setRecienAplicadas(true);
+                      dispatch({ type: 'APLICAR_PREFERENCIAS_PLATOS' });
+                    }}
+                  >
+                    Aplicar al menú ›
+                  </button>
+                  <button
+                    type="button"
+                    className="semana__sin-cobertura-salida"
+                    onClick={() => setConfirmarPreferencias(false)}
+                  >
+                    Ahora no ›
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="semana__sin-cobertura-texto">
+                    Has marcado platos que este menú todavía no tiene en cuenta.
+                  </p>
+                  <button
+                    type="button"
+                    className="semana__sin-cobertura-salida"
+                    onClick={() => setConfirmarPreferencias(true)}
+                  >
+                    Aplicar al menú ›
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Que entre o no un plato que te gusta depende del dinero y de lo
+              demás que pediste. Si no entra, se dice: un botón que no cambia
+              nada a la vista parece roto. */}
+          {recienAplicadas && !pendientes && (() => {
+            const favoritos = platosFavoritos(preferenciasPlatos);
+            const enLaSemana = new Set(semana.plan.huecos.map((h) => h.recetaId));
+            const dentro = favoritos.filter((id) => enLaSemana.has(id)).length;
+            return (
+              <div className="semana__sin-cobertura" role="status">
+                <p className="semana__sin-cobertura-texto">
+                  Aplicado al menú. {favoritos.length === 0
+                    ? 'No tienes platos marcados con «me gusta».'
+                    : dentro === favoritos.length
+                      ? `${dentro === 1 ? 'El plato que te gusta está' : `Los ${dentro} platos que te gustan están`} en la semana.`
+                      : favoritos.length === 1
+                        ? 'El plato que te gusta no entra esta semana con este presupuesto y lo que has pedido.'
+                        : `De los ${favoritos.length} que te gustan, entran ${dentro}. Los demás no entran esta semana con este presupuesto y lo que has pedido.`}
+                </p>
+                <button type="button" className="semana__sin-cobertura-salida" onClick={() => setRecienAplicadas(false)}>
+                  Entendido ›
+                </button>
+              </div>
+            );
+          })()}
 
           {sinCobertura && (
             <div className="semana__sin-cobertura">
